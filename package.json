@@ -1,0 +1,32 @@
+{
+  "name": "abc-def",
+  "private": true,
+  "engines": {
+    "node": ">=20.18.1",
+    "pnpm": "^9.14.2"
+  },
+  "packageManager": "pnpm@9.14.2",
+  "scripts": {
+    "build": "turbo run build",
+    "build:storybook": "turbo run build:storybook && ./scripts/after-build-storybook.sh",
+    "clean": "git clean -xdf node_modules .turbo",
+    "clean:workspaces": "turbo run clean",
+    "dev": "turbo watch dev --continue",
+    "dev:next": "turbo watch dev -F nextjs-example...",
+    "dev:storybook": "turbo watch dev:storybook",
+    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
+    "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
+    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
+    "lint:ws": "pnpm dlx sherif@latest",
+    "postinstall": "pnpm lint:ws",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@abc-def/prettier-config": "workspace:^",
+    "prettier": "catalog:",
+    "turbo": "^2.5.0",
+    "typescript": "catalog:"
+  },
+  "prettier": "@abc-def/prettier-config"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@abc-def/html-storybook",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev:storybook": "storybook dev -p 6007 --no-open",
+    "build:storybook": "storybook build -o dist",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "clean": "git clean -xdf .turbo node_modules storybook-static dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "@abc-def/eslint-config": "workspace:^",
+    "@abc-def/prettier-config": "workspace:^",
+    "@abc-def/tailwindcss": "workspace:^",
+    "@abc-def/tsconfig": "workspace:^",
+    "@chromatic-com/storybook": "^3.2.6",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@storybook/web-components": "^8.6.12",
+    "@storybook/web-components-vite": "^8.6.12",
+    "eslint": "catalog:",
+    "eslint-plugin-storybook": "^0.11.6",
+    "prettier": "catalog:",
+    "storybook": "^8.6.12",
+    "typescript": "catalog:",
+    "vite": "^6.3.0"
+  },
+  "prettier": "@abc-def/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}

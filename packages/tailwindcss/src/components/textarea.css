@@ -1,0 +1,33 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+.textarea {
+  --textarea-fg: var(--fg-neutral-tertiary);
+  --textarea-fg-typing: var(--fg-neutral-primary);
+  --textarea-fg-filled: var(--fg-neutral-primary);
+  --textarea-border: var(--border-neutral-tertiary);
+  --textarea-border-typing: var(--tint, var(--border-neutral-primary));
+  --textarea-border-filled: var(--border-neutral-tertiary);
+  --textarea-bg: var(--bg-neutral-primary);
+  --textarea-bg-typing: var(--bg-neutral-primary);
+  --textarea-bg-filled: var(--bg-neutral-primary);
+
+  @apply text-[var(--textarea-fg-filled)] placeholder:text-[var(--textarea-fg)] placeholder-shown:text-[var(--textarea-fg)] focus-visible:text-[var(--textarea-fg-typing)];
+  @apply border-[var(--textarea-border-filled)] placeholder-shown:border-[var(--textarea-border)] focus-visible:border-[var(--textarea-border-typing)];
+  @apply bg-[var(--textarea-bg-filled)] placeholder-shown:bg-[var(--textarea-bg)] focus-visible:bg-[var(--textarea-bg-typing)];
+
+  @apply rounded-8 text-base-normal flex min-h-20 w-full border px-3 py-2 outline-none;
+  @apply disabled:cursor-not-allowed disabled:opacity-50;
+}

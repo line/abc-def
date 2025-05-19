@@ -1,0 +1,49 @@
+{
+  "name": "nextjs-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "storybook build --docs",
+    "clean": "git clean -xdf .next .turbo node_modules storybook-static",
+    "dev": "next dev",
+    "dev:storybook_deprecated": "storybook dev -p 6006 --docs",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@abc-def/react": "workspace:^",
+    "@t3-oss/env-nextjs": "^0.7.3",
+    "clsx": "^2.1.1",
+    "next": "^14.2.28",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@abc-def/eslint-config": "workspace:^",
+    "@abc-def/prettier-config": "workspace:^",
+    "@abc-def/tailwindcss": "workspace:^",
+    "@abc-def/tsconfig": "workspace:^",
+    "@chromatic-com/storybook": "^3.2.6",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-links": "^8.6.12",
+    "@storybook/addon-themes": "^8.6.12",
+    "@storybook/manager-api": "^8.6.12",
+    "@storybook/nextjs": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/theming": "^8.6.12",
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20.17.30",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "storybook": "^8.6.12",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@abc-def/prettier-config"
+}

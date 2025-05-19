@@ -1,0 +1,80 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as CalendarStories from "./calendar.stories.tsx";
+
+<Meta title="Calendar" of={CalendarStories} />
+
+# Calendar
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={CalendarStories.Default} />
+<Controls />
+
+## Default
+
+<Canvas of={CalendarStories.Mode_Default} />
+
+## Single
+
+<Canvas of={CalendarStories.Mode_Single} />
+
+## Multiple
+
+<Canvas of={CalendarStories.Mode_Multiple} />
+
+## Range
+
+<Canvas of={CalendarStories.Mode_Range} />
+
+## Range 2 calendar
+
+<Canvas of={CalendarStories.Mode_Range2} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--calendar-fg-default",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--calendar-fg-pressed",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--calendar-week-fg",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--calendar-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--calendar-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--calendar-bg-pressed",
+      value: "var(--tint, var(--bg-neutral-inverse))",
+    },
+    {
+      name: "--calendar-bg-hover",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--calendar-bg-range",
+      value: "var(--bg-neutral-tertiary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

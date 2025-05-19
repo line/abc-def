@@ -1,0 +1,108 @@
+<style>
+  .sbdocs-content + div:has(div > .toc-wrapper:empty) {
+    display: none;
+  }
+  .toc-list-item::before {
+    border-color: #000 !important;
+  }
+  .toc-list-item.is-active-li > a {
+    color: #000 !important;
+  }
+
+  /* Docs */
+  .sbdocs-wrapper {
+    color: #000;
+  }
+  .sb-show-main {
+    background-color: var(--bg-primary);
+    color: var(--fg-neutral-primary);
+  }
+  .component-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .component-list > .sbdocs-preview {
+    margin: 0;
+    height: 100%;
+  }
+  .component-list > .sbdocs-preview > .docs-story {
+    height: 100%;
+  }
+  h1 {
+    font-size: 3rem !important;
+    line-height: 3.5rem !important;
+    font-weight: bold !important;
+  }
+  h2 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px !important;
+    font-size: 2rem !important;
+    line-height: 2.25rem !important;
+    font-weight: bold !important;
+    border: none !important;
+  }
+  h2 ~ h2 {
+    margin-top: 64px !important;
+  }
+  h3 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 32px !important;
+    color: var(--fg-neutral-tertiary) !important;
+  }
+  h3 ~ h3 {
+    margin-top: 24px !important;
+  }
+  .sbdocs-a > p {
+    color: inherit !important;
+  }
+  .sbdocs-preview > .docs-story {
+    color: var(--fg-neutral-primary) !important;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--bg-primary),
+      var(--bg-primary) 13px,
+      var(--bg-neutral-tertiary) 13px,
+      var(--bg-neutral-tertiary) 14px
+    ) !important;
+  }
+
+  /* remove tag overriding style */
+  .token.tag {
+    display: inline;
+    padding: 0;
+    background: none;
+  }
+
+  /* theme only */
+  html:not(.dark) .light-only,
+  html.dark .dark-only {
+    display: block;
+  }
+  
+  html.dark .light-only,
+  html:not(.dark) .dark-only {
+    display: none;
+  }
+
+  /* keyframe */
+  @keyframes coverFade {
+  0% {
+    clip-path: inset(0 -50% 0% 100%);
+  }
+  40% {
+    clip-path: inset(0 -50% 0% 50%);
+  }
+  60% {
+    clip-path: inset(0 -50% 0% 50%);
+  }
+  100% {
+    clip-path: inset(0 -50% 0% 0%);
+  }
+}
+</style>

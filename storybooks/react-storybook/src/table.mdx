@@ -1,0 +1,57 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as TableStories from "./table.stories.tsx";
+
+<Meta title="Table" of={TableStories} />
+
+# Table
+
+<ThemeSelect />
+
+## Playground
+
+## Checkbox Combination
+
+<Canvas of={TableStories.Default} />
+
+## Checkbox Combination (+ Border)
+
+<Canvas of={TableStories.Bordered} />
+
+## Other Combination (Radio, Select, Dropdown)
+
+<Canvas of={TableStories.Other} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--table-header-fg",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--table-cell-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--table-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--table-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--table-bg-hover",
+      value: "var(--bg-neutral-tertiary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

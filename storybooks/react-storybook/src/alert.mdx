@@ -1,0 +1,88 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as AlertStories from "./alert.stories.tsx";
+
+<Meta title="Alert" of={AlertStories} />
+
+# Alert
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={AlertStories.Default} />
+<Controls />
+
+## Types
+
+<Canvas of={AlertStories.Types} />
+
+## Variant
+
+<Canvas of={AlertStories.Variant} />
+
+## Toast
+
+<Canvas of={AlertStories.Toast} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--alert-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--alert-description-fg",
+      value: "var(--fg-neutral-secondary)",
+    },
+    {
+      name: "--alert-fg-warning",
+      value: "var(--fg-tint-orange)",
+    },
+    {
+      name: "--alert-fg-success",
+      value: "var(--fg-tint-green)",
+    },
+    {
+      name: "--alert-fg-error",
+      value: "var(--fg-tint-red)",
+    },
+    {
+      name: "--alert-fg-informative",
+      value: "var(--fg-tint-blue)",
+    },
+    {
+      name: "--alert-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--alert-border-warning",
+      value: "var(--border-tint-orange)",
+    },
+    {
+      name: "--alert-border-success",
+      value: "var(--border-tint-green)",
+    },
+    {
+      name: "--alert-border-error",
+      value: "var(--border-tint-red)",
+    },
+    {
+      name: "--alert-border-informative",
+      value: "var(--border-tint-blue)",
+    },
+    {
+      name: "--alert-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

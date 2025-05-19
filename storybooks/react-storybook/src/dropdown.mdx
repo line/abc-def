@@ -1,0 +1,68 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as DropdownStories from "./dropdown.stories.tsx";
+
+<Meta title="Dropdown" of={DropdownStories} />
+
+# Dropdown
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={DropdownStories.Default} />
+<Controls />
+
+## Checkbox
+
+<Canvas of={DropdownStories.Checkbox} />
+
+## Radio
+
+<Canvas of={DropdownStories.Radio} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--dropdown-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--dropdown-fg-pressed",
+      value: "var(--tint, var(--fg-neutral-primary))",
+    },
+    {
+      name: "--dropdown-fg-empty",
+      value: "var(--fg-neutral-secondary)",
+    },
+    {
+      name: "--dropdown-shortcut-fg",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--dropdown-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--dropdown-bg-hover",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--dropdown-bg-pressed",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--dropdown-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

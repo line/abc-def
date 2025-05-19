@@ -1,0 +1,29 @@
+import { Meta } from "@storybook/addon-docs";
+
+import { Button, Icon } from "@abc-def/react";
+
+import Description from "../utils/description.tsx";
+import Logo from "../utils/logo.tsx";
+
+import DownloadImage from "../assets/download.jpg";
+
+<Meta title="Getting Started/Figma File" />
+
+<Logo />
+
+## Figma File
+
+<Description>
+  This is a design system Figma file with Tailwind CSS and a 3-step token
+  system. You can download the file locally and use it freely. It can also be
+  customized to suit your needs.
+</Description>
+
+<Button size="small" variant="primary" className="sb-unstyled" asChild>
+  <a href="./Lena'sTestFile.fig" download>
+    <Icon name="RiDownload2Line" />
+    Download
+  </a>
+</Button>
+
+<img src={DownloadImage} alt="" style={{ marginTop: "1.5rem" }} />

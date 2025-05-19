@@ -1,0 +1,44 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as ScrollAreaStories from "./scrollArea.stories.tsx";
+
+<Meta title="ScrollArea" of={ScrollAreaStories} />
+
+# ScrollArea
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={ScrollAreaStories.Default} />
+<Controls />
+
+## Vertical
+
+<Canvas of={ScrollAreaStories.Vertical} />
+
+## Horizontal
+
+<Canvas of={ScrollAreaStories.Horizontal} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--scroll-area-bg",
+      value: "var(--bg-neutral-transparent)",
+    },
+    {
+      name: "--scroll-area-thumb-bg",
+      value: "var(--bg-neutral-tertiary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

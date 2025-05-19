@@ -1,0 +1,88 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as MenuStories from "./menu.stories.tsx";
+
+<Meta title="Menu" of={MenuStories} />
+
+# Menu
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={MenuStories.Default} />
+<Controls />
+
+## Vertical
+
+<Canvas of={MenuStories.Vertical} />
+
+## Vertical with Left Icon
+
+<Canvas of={MenuStories.Vertical_With_LeftIcon} />
+
+## Vertical with Right Icon (+ MenuDropdown)
+
+<Canvas of={MenuStories.Vertical_With_RightIcon} />
+
+## Vertical with Badge
+
+<Canvas of={MenuStories.Vertical_With_Badge} />
+
+## Vertical with Both
+
+<Canvas of={MenuStories.Vertical_With_Both} />
+
+## Horizontal
+
+<Canvas of={MenuStories.Horizontal} />
+
+## Horizontal with Left Icon
+
+<Canvas of={MenuStories.Horizontal_With_LeftIcon} />
+
+## Horizontal with Right Icon (+ MenuDropdown)
+
+<Canvas of={MenuStories.Horizontal_With_RightIcon} />
+
+## Horizontal with Badge
+
+<Canvas of={MenuStories.Horizontal_With_Badge} />
+
+## Horizontal with Both
+
+<Canvas of={MenuStories.Horizontal_With_Both} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--menu-fg",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--menu-fg-hover",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--menu-fg-pressed",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--menu-bg-hover",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--menu-bg-pressed",
+      value: "var(--bg-neutral-tertiary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

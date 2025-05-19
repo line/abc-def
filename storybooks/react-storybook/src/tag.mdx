@@ -1,0 +1,88 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as TagStories from "./tag.stories.tsx";
+
+<Meta title="Tag" of={TagStories} />
+
+# Tag
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={TagStories.Default} />
+<Controls />
+
+## Primary
+
+<Canvas of={TagStories.Primary} />
+
+## Secondary
+
+<Canvas of={TagStories.Secondary} />
+
+## Destructive
+
+<Canvas of={TagStories.Destructive} />
+
+## Outline
+
+<Canvas of={TagStories.Outline} />
+
+## WithIcon
+
+<Canvas of={TagStories.WithIcon} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--tag-primary-fg",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--tag-secondary-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--tag-destructive-fg",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--tag-outline-fg",
+      value: "var(--tint-subtle, var(--fg-neutral-primary))",
+    },
+    {
+      name: "--tag-outline-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--tag-primary-bg",
+      value: "var(--tint-subtle, var(--bg-neutral-inverse))",
+    },
+    {
+      name: "--tag-secondary-bg",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--tag-destructive-bg",
+      value: "var(--bg-tint-red-bold)",
+    },
+    {
+      name: "--tag-outline-bg",
+      value: "var(--bg-neutral-transparent)",
+    },
+    {
+      name: "--tag-outline-bg-hover",
+      value: "var(--tint-subtle, var(--bg-neutral-secondary))",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

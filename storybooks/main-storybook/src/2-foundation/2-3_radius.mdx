@@ -1,0 +1,35 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+import { html } from "lit";
+
+import Logo from "../utils/logo.tsx";
+import Round from "../utils/round.tsx";
+import Description from "../utils/description.tsx";
+import ChangeRoundedBase from "../changeRoundedBase";
+
+<Meta title="Foundation/Radius" />
+
+<Logo />
+
+## Radius
+
+<Description>Use the Corner Radius feature in Figma to apply any of the following Tailwind CSS border radius values.</Description>
+
+<Round />
+
+## Rounded Base
+
+<Description>Write in your CSS file to change rounded base value.</Description>
+
+```css
+// ex. globals.css
+
+@layer base {
+  :root {
+    --rounded-base: 4px; // default 0px
+  }
+}
+```
+
+### Playground
+
+<ChangeRoundedBase />

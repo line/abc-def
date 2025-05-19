@@ -1,0 +1,21 @@
+{
+  "name": "@abc-def/stylelint-config",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "files": [
+    "./index.js"
+  ],
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore"
+  },
+  "devDependencies": {
+    "@abc-def/prettier-config": "workspace:*"
+  },
+  "prettier": "@abc-def/prettier-config",
+  "dependencies": {
+    "stylelint": "catalog:",
+    "stylelint-copyright": "^3.7.0"
+  }
+}

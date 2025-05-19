@@ -1,0 +1,64 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as ComboboxStories from "./combobox.stories.tsx";
+
+<Meta title="Combobox" of={ComboboxStories} />
+
+# Combobox
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={ComboboxStories.Default} />
+<Controls />
+
+## Select
+
+<Canvas of={ComboboxStories.Select} />
+
+## Click
+
+<Canvas of={ComboboxStories.Click} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--combobox-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--combobox-fg-empty",
+      value: "var(--fg-neutral-secondary)",
+    },
+    {
+      name: "--combobox-fg-placeholder",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--combobox-shortcut-fg",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--combobox-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--combobox-bg-hover",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--combobox-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

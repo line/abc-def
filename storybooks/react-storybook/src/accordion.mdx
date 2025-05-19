@@ -1,0 +1,60 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as AccordionStories from "./accordion.stories";
+
+<Meta title="Accordion" of={AccordionStories} />
+
+# Accordion
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={AccordionStories.Default} />
+<Controls />
+
+## Right Align (Default)
+
+<Canvas of={AccordionStories.RightAlign} />
+
+## Left Align
+
+<Canvas of={AccordionStories.LeftAlign} />
+
+## Border Without Background
+
+<Canvas of={AccordionStories.BorderWithoutBackground} />
+
+## Border With Background
+
+<Canvas of={AccordionStories.BorderWithBackground} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--accordion-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--accordion-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--accordion-bg",
+      value: "var(--bg-primary)",
+    },
+    {
+      name: "--accordion-bg-filled",
+      value: "var(--bg-tertiary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

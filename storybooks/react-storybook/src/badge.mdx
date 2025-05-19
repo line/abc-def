@@ -1,0 +1,240 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as BadgeStories from "./badge.stories.tsx";
+
+<Meta title="Badge" of={BadgeStories} />
+
+# Badge
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={BadgeStories.Default} />
+<Controls />
+
+## Bold
+
+<Canvas of={BadgeStories.Variant_Bold} />
+
+## Subtle
+
+<Canvas of={BadgeStories.Variant_Subtle} />
+
+## Outline
+
+<Canvas of={BadgeStories.Variant_Outline} />
+
+## Color - Default
+
+<Canvas of={BadgeStories.Color_Default} />
+
+## Color - Blue
+
+<Canvas of={BadgeStories.Color_Blue} />
+
+## Color - Orange
+
+<Canvas of={BadgeStories.Color_Orange} />
+
+## Color - Red
+
+<Canvas of={BadgeStories.Color_Red} />
+
+## Color - Green
+
+<Canvas of={BadgeStories.Color_Green} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--badge-bold-fg",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--badge-bold-fg-blue",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--badge-bold-fg-orange",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--badge-bold-fg-red",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--badge-bold-fg-green",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--badge-bold-border",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-bold-border-blue",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-bold-border-orange",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-bold-border-red",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-bold-border-green",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-bold-bg",
+      value: "var(--bg-neutral-inverse)",
+    },
+    {
+      name: "--badge-bold-bg-blue",
+      value: "var(--bg-tint-blue-bold)",
+    },
+    {
+      name: "--badge-bold-bg-orange",
+      value: "var(--bg-tint-orange-bold)",
+    },
+    {
+      name: "--badge-bold-bg-red",
+      value: "var(--bg-tint-red-bold)",
+    },
+    {
+      name: "--badge-bold-bg-green",
+      value: "var(--bg-tint-green-bold)",
+    },
+    {
+      name: "--badge-subtle-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--badge-subtle-fg-blue",
+      value: "var(--fg-tint-blue)",
+    },
+    {
+      name: "--badge-subtle-fg-orange",
+      value: "var(--fg-tint-orange)",
+    },
+    {
+      name: "--badge-subtle-fg-red",
+      value: "var(--fg-tint-red)",
+    },
+    {
+      name: "--badge-subtle-fg-green",
+      value: "var(--fg-tint-green)",
+    },
+    {
+      name: "--badge-subtle-border",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-subtle-border-blue",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-subtle-border-orange",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-subtle-border-red",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-subtle-border-green",
+      value: "var(--border-neutral-transparent)",
+    },
+    {
+      name: "--badge-subtle-bg",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--badge-subtle-bg-blue",
+      value: "var(--bg-tint-blue-subtle)",
+    },
+    {
+      name: "--badge-subtle-bg-orange",
+      value: "var(--bg-tint-orange-subtle)",
+    },
+    {
+      name: "--badge-subtle-bg-red",
+      value: "var(--bg-tint-red-subtle)",
+    },
+    {
+      name: "--badge-subtle-bg-green",
+      value: "var(--bg-tint-green-subtle)",
+    },
+    {
+      name: "--badge-outline-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--badge-outline-fg-blue",
+      value: "var(--fg-tint-blue)",
+    },
+    {
+      name: "--badge-outline-fg-orange",
+      value: "var(--fg-tint-orange)",
+    },
+    {
+      name: "--badge-outline-fg-red",
+      value: "var(--fg-tint-red)",
+    },
+    {
+      name: "--badge-outline-fg-green",
+      value: "var(--fg-tint-green)",
+    },
+    {
+      name: "--badge-outline-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--badge-outline-border-blue",
+      value: "var(--border-tint-blue)",
+    },
+    {
+      name: "--badge-outline-border-orange",
+      value: "var(--border-tint-orange)",
+    },
+    {
+      name: "--badge-outline-border-red",
+      value: "var(--border-tint-red)",
+    },
+    {
+      name: "--badge-outline-border-green",
+      value: "var(--border-tint-green)",
+    },
+    {
+      name: "--badge-outline-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--badge-outline-bg-blue",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--badge-outline-bg-orange",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--badge-outline-bg-red",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--badge-outline-bg-green",
+      value: "var(--bg-neutral-primary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

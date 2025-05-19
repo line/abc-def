@@ -1,0 +1,46 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+.button {
+  --button-primary-fg: var(--fg-neutral-inverse);
+  --button-secondary-fg: var(--fg-neutral-primary);
+  --button-destructive-fg: var(--fg-neutral-inverse);
+  --button-ghost-fg: var(--fg-neutral-primary);
+  --button-outline-fg: var(--tint, var(--fg-neutral-primary));
+  --button-primary-border: var(--border-neutral-transparent);
+  --button-secondary-border: var(--border-neutral-transparent);
+  --button-destructive-border: var(--border-neutral-transparent);
+  --button-ghost-border: var(--border-neutral-transparent);
+  --button-outline-border: var(--border-neutral-tertiary);
+  --button-primary-bg: var(--tint, var(--bg-neutral-inverse));
+  --button-secondary-bg: var(--bg-neutral-tertiary);
+  --button-destructive-bg: var(--bg-tint-red-bold);
+  --button-ghost-bg: var(--bg-neutral-transparent);
+  --button-ghost-bg-hover: var(--bg-neutral-secondary);
+  --button-outline-bg: var(--bg-neutral-transparent);
+  --button-outline-bg-hover: var(--tint-subtle, var(--bg-neutral-secondary));
+
+  @apply relative inline-flex h-fit cursor-pointer items-center justify-center transition-opacity disabled:cursor-not-allowed disabled:opacity-50 [&:not(:disabled)]:hover:opacity-80;
+
+  /* default */
+  @apply button-small button-radius-medium button-primary;
+}
+
+.button-loading {
+  @apply absolute-center pointer-events-none flex shadow-none;
+
+  /* default */
+  @apply button-loading-primary;
+}

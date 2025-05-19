@@ -1,0 +1,108 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as InputStories from "./input.stories.tsx";
+
+<Meta title="Input" of={InputStories} />
+
+# Input
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={InputStories.Default} />
+<Controls />
+
+## TextField
+
+<Canvas of={InputStories.TextField} />
+
+## Search
+
+<Canvas of={InputStories.Search} />
+
+## Id
+
+<Canvas of={InputStories.Id} />
+
+## Password
+
+<Canvas of={InputStories.Password} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--input-fg",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--input-fg-typing",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--input-fg-filled",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--input-fg-error",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--input-label-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--input-caption-fg",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--input-caption-fg-success",
+      value: "var(--fg-tint-green)",
+    },
+    {
+      name: "--input-caption-fg-error",
+      value: "var(--fg-tint-red)",
+    },
+    {
+      name: "--input-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--input-border-typing",
+      value: "var(--tint, var(--border-neutral-primary))",
+    },
+    {
+      name: "--input-border-filled",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--input-border-error",
+      value: "var(--border-tint-red)",
+    },
+    {
+      name: "--input-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--input-bg-typing",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--input-bg-filled",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--input-bg-error",
+      value: "var(--bg-neutral-primary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

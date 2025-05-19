@@ -1,0 +1,80 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as SwitchStories from "./switch.stories.tsx";
+
+<Meta title="Switch" of={SwitchStories} />
+
+# Switch
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={SwitchStories.Default} />
+<Controls />
+
+## Default
+
+<Canvas of={SwitchStories.Color_Default} />
+
+## Blue
+
+<Canvas of={SwitchStories.Color_Blue} />
+
+## Orange
+
+<Canvas of={SwitchStories.Color_Orange} />
+
+## Red
+
+<Canvas of={SwitchStories.Color_Red} />
+
+## Green
+
+<Canvas of={SwitchStories.Color_Green} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--switch-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--switch-handle-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--switch-bg",
+      value: "var(--bg-neutral-inverse)",
+    },
+    {
+      name: "--switch-bg-blue",
+      value: "var(--bg-tint-blue-bold)",
+    },
+    {
+      name: "--switch-bg-orange",
+      value: "var(--bg-tint-orange-bold)",
+    },
+    {
+      name: "--switch-bg-red",
+      value: "var(--bg-tint-red-bold)",
+    },
+    {
+      name: "--switch-bg-green",
+      value: "var(--bg-tint-green-bold)",
+    },
+    {
+      name: "--switch-bg-off",
+      value: "var(--bg-neutral-secondary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

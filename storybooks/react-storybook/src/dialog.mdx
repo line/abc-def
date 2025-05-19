@@ -1,0 +1,80 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as DialogStories from "./dialog.stories.tsx";
+
+<Meta title="Dialog" of={DialogStories} />
+
+# Dialog
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={DialogStories.Default} />
+<Controls />
+
+## Warning
+
+<Canvas of={DialogStories.Warning} />
+
+## Information
+
+<Canvas of={DialogStories.Information} />
+
+## Success
+
+<Canvas of={DialogStories.Success} />
+
+## Fail
+
+<Canvas of={DialogStories.Fail} />
+
+## Footer Example - Button 1
+
+<Canvas of={DialogStories.Button_1} />
+
+## Footer Example - Button 1 (full)
+
+<Canvas of={DialogStories.Button_1_Full} />
+
+## Footer Example - Button 2
+
+<Canvas of={DialogStories.Button_2} />
+
+## Footer Example - Button 2 (full)
+
+<Canvas of={DialogStories.Button_2_Full} />
+
+## Footer Example - Button 3
+
+<Canvas of={DialogStories.Button_3} />
+
+## Footer Example - Button 3 (full)
+
+<Canvas of={DialogStories.Button_3_Full} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--dialog-bg-open",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--dialog-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--dialog-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

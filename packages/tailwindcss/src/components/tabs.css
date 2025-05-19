@@ -1,0 +1,33 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+.tabs {
+  --tabs-fg-unselected: var(--fg-neutral-tertiary);
+  --tabs-fg-selected: var(--fg-neutral-primary);
+  --tabs-bg-unselected: var(--bg-neutral-tertiary);
+  --tabs-bg-selected: var(--bg-neutral-primary);
+}
+
+.tabs-list {
+  @apply rounded-8 h-9.5 inline-flex items-center justify-center bg-[var(--tabs-bg-unselected)] p-1 text-[var(--tabs-fg-selected)];
+}
+
+.tabs-trigger {
+  @apply rounded-6 data-[state=active]:shadow-default text-base-normal inline-flex items-center justify-center whitespace-nowrap px-3 py-1 font-medium text-[var(--tabs-fg-unselected)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[var(--tabs-bg-selected)] data-[state=active]:text-[var(--tabs-fg-selected)] [&>svg]:h-4 [&>svg]:w-4;
+}
+
+.tabs-content {
+  @apply mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+}

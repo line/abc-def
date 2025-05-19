@@ -1,0 +1,64 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as TextareaStories from "./textarea.stories.tsx";
+
+<Meta title="Textarea" of={TextareaStories} />
+
+# Textarea
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={TextareaStories.Default} />
+<Controls />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--textarea-fg",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--textarea-fg-typing",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--textarea-fg-filled",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--textarea-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--textarea-border-typing",
+      value: "var(--tint, var(--border-neutral-primary))",
+    },
+    {
+      name: "--textarea-border-filled",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--textarea-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--textarea-bg-typing",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--textarea-bg-filled",
+      value: "var(--bg-neutral-primary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

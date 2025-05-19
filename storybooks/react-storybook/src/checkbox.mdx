@@ -1,0 +1,72 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as CheckboxStories from "./checkbox.stories.tsx";
+
+<Meta title="Checkbox" of={CheckboxStories} />
+
+# Checkbox
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={CheckboxStories.Default} />
+<Controls />
+
+## Checked
+
+<Canvas of={CheckboxStories.Checked} />
+
+## Disabled
+
+<Canvas of={CheckboxStories.Disabled} />
+
+## With Label
+
+<Canvas of={CheckboxStories.With_Label} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--checkbox-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--checkbox-fg-checked",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--checkbox-fg-indeterminate",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--checkbox-icon",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--checkbox-icon-checked",
+      value: "var(--fg-neutral-inverse)",
+    },
+    {
+      name: "--checkbox-border-default",
+      value: "var(--border-neutral-secondary)",
+    },
+    {
+      name: "--checkbox-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--checkbox-bg-checked",
+      value: "var(--tint, var(--bg-neutral-inverse))",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

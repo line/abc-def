@@ -1,0 +1,65 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+.alert {
+  --alert-fg: var(--fg-neutral-primary);
+  --alert-description-fg: var(--fg-neutral-secondary);
+  --alert-fg-warning: var(--fg-tint-orange);
+  --alert-fg-success: var(--fg-tint-green);
+  --alert-fg-error: var(--fg-tint-red);
+  --alert-fg-informative: var(--fg-tint-blue);
+  --alert-border: var(--border-neutral-tertiary);
+  --alert-border-warning: var(--border-tint-orange);
+  --alert-border-success: var(--border-tint-green);
+  --alert-border-error: var(--border-tint-red);
+  --alert-border-informative: var(--border-tint-blue);
+  --alert-bg: var(--bg-neutral-primary);
+
+  @apply relative inline-flex min-w-[356px] items-center space-x-2 border bg-[var(--alert-bg)] px-5 py-4;
+
+  /* default */
+  @apply alert-radius-medium alert-default;
+}
+
+.alert-icon {
+  @apply mb-auto box-content flex-shrink-0 p-1;
+
+  /* default */
+  @apply alert-icon-default;
+}
+
+.alert-content {
+  @apply flex flex-1 items-center space-x-2;
+}
+
+.alert-text-container {
+  @apply flex flex-1 flex-col items-start justify-center;
+}
+
+.alert-title {
+  @apply text-title-h5 flex flex-1 flex-col text-[var(--alert-fg)];
+}
+
+.alert-description {
+  @apply text-base-normal text-[var(--alert-description-fg)];
+}
+
+.alert-button {
+  @apply flex-shrink-0;
+}
+
+.alert-close {
+  @apply flex-shrink-0;
+}

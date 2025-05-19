@@ -1,0 +1,52 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as DividerStories from "./divider.stories.tsx";
+
+<Meta title="Divider" of={DividerStories} />
+
+# Divider
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={DividerStories.Default} />
+<Controls />
+
+## Bold
+
+<Canvas of={DividerStories.Bold} />
+
+## Subtle
+
+<Canvas of={DividerStories.Subtle} />
+
+## Vertical
+
+<Canvas of={DividerStories.Vertical} />
+
+## Horizontal
+
+<Canvas of={DividerStories.Horizontal} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--divider-border-bold",
+      value: "var(--border-neutral-primary)",
+    },
+    {
+      name: "--divider-border-subtle",
+      value: "var(--border-neutral-tertiary)",
+    },
+  ]}
+/>
+
+<Toaster position="bottom-right" />

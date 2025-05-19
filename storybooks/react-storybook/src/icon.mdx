@@ -1,0 +1,24 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+
+import * as IconStories from "./icon.stories.tsx";
+
+<Meta title="Icon" of={IconStories} />
+
+# Icon
+
+The icon component utilizes [Remix Icon](https://remixicon.com/) to ensure a consistent and visually appealing set of icons across applications.
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={IconStories.Default} />
+<Controls />
+
+## Examples
+
+<Canvas of={IconStories.Examples} />
