@@ -1,6 +1,9 @@
 # ABC DEF (ABC Studio's Definitely Elements Foundation)
 
+![040fc666-db66-47ab-986d-8e5addef3728](https://github.com/user-attachments/assets/849abcbd-99b2-431c-a24a-d86dbf39849e)
+
 ABC DEF is an efficient design system using a three-tier token structure and Headless UI to create web components with consistent design and flexible customization.
+
 
 ## Tech Stack
 
@@ -21,9 +24,6 @@ ABC DEF is an efficient design system using a three-tier token structure and Hea
   - `/html-storybook`: HTML/CSS component examples
 - `/examples`: Implementation examples
   - `/nextjs`: Next.js example project
-- `/docs`: Additional documentation
-  - `/html`: HTML documentation
-  - `/react`: React documentation
 - `/tooling`: Development and build tools
   - `/eslint`: ESLint configuration
   - `/prettier`: Prettier configuration
