@@ -1,3 +1,18 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 import React from "react";
 
 import { toast } from "@abc-def/react";
@@ -5,16 +20,16 @@ import { toast } from "@abc-def/react";
 export default function TokenTable({
   items,
 }: {
-  items: Array<{ name: string; value: string; preview: React.ReactNode }>;
+  items: { name: string; value: string; preview: React.ReactNode }[];
 }) {
-  const handleCopy = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const button = e.target as HTMLButtonElement;
     const parentElement = button.parentElement?.parentElement;
     const codeElement = parentElement?.querySelector("code");
 
     if (codeElement) {
       const text = codeElement.innerText;
-      navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(text);
       toast.success(`${text} copied`);
     }
   };
@@ -79,7 +94,7 @@ export default function TokenTable({
                 </button>
               </div>
             </td>
-            <td>{Boolean(preview) ? preview : <ColorChip color={value} />}</td>
+            <td>{preview ?? <ColorChip color={value} />}</td>
           </tr>
         ))}
       </tbody>

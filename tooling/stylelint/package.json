@@ -7,7 +7,7 @@
     "./index.js"
   ],
   "scripts": {
-    "clean": "git clean -xdf .turbo node_modules",
+    "clean": "git clean -xdf .turbo node_modules .cache",
     "format": "prettier --check . --ignore-path ../../.gitignore"
   },
   "devDependencies": {

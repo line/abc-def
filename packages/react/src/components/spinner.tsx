@@ -13,8 +13,9 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type { Size } from "../types";
 import { cva } from "class-variance-authority";
+
+import type { Size } from "../types";
 import { cn } from "../lib/utils";
 import useTheme from "./use-theme";
 
@@ -44,7 +45,10 @@ const Spinner: React.FC<SpinnerProps> = (props) => {
   const { themeSize } = useTheme();
 
   return (
-    <span className={cn(spinnerVariants({size: size ?? themeSize}), className)} aria-label="loading..."></span>
+    <span
+      className={cn(spinnerVariants({ size: size ?? themeSize }), className)}
+      aria-label="loading..."
+    ></span>
   );
 };
 export { Spinner };

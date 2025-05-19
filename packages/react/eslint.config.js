@@ -1,8 +1,8 @@
-const baseConfig = require("@abc-def/eslint-config/base");
-const reactConfig = require("@abc-def/eslint-config/react");
+import baseConfig from "@abc-def/eslint-config/base";
+import reactConfig from "@abc-def/eslint-config/react";
 
 /** @type {import('typescript-eslint').Config} */
-module.exports = [
+export default [
   {
     ignores: ["postcss.js"],
   },

@@ -9,7 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:storybook": "turbo run build:storybook && ./scripts/after-build-storybook.sh",
-    "clean": "git clean -xdf node_modules .turbo",
+    "clean": "git clean -xdf node_modules .turbo .cache",
     "clean:workspaces": "turbo run clean",
     "dev": "turbo watch dev --continue",
     "dev:next": "turbo watch dev -F nextjs-example...",

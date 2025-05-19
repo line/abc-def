@@ -1,9 +1,28 @@
-"use strict";
+import fs from "fs";
+import os from "os";
 
-var fs = require("fs");
-var commentParser = require("../comment-parser");
-var os = require("os");
+// @ts-ignore
+function commentParser(text) {
+  text = text.trim();
 
+  if (text.substr(0, 2) === "//") {
+    return [
+      "line",
+      // @ts-ignore
+      text.split(/\r?\n/).map(function (line) {
+        return line.substr(2);
+      }),
+    ];
+  } else if (text.substr(0, 2) === "/*" && text.substr(-2) === "*/") {
+    return ["block", text.substring(2, text.length - 2)];
+  } else {
+    throw new Error(
+      "Could not parse comment file: the file must contain either just line comments (//) or a single block comment (/* ... */)",
+    );
+  }
+}
+
+// @ts-ignore
 function isPattern(object) {
   return (
     typeof object === "object" &&
@@ -11,6 +30,7 @@ function isPattern(object) {
   );
 }
 
+// @ts-ignore
 function match(actual, expected) {
   if (expected.test) {
     return expected.test(actual);
@@ -19,7 +39,9 @@ function match(actual, expected) {
   }
 }
 
+// @ts-ignore
 function excludeShebangs(comments) {
+  // @ts-ignore
   return comments.filter(function (comment) {
     return comment.type !== "Shebang";
   });
@@ -29,6 +51,7 @@ function excludeShebangs(comments) {
 // are ONLY separated by a single newline. Note that this does not actually
 // check if they are at the start of the file since that is already checked by
 // hasHeader().
+// @ts-ignore
 function getLeadingComments(context, node) {
   var all = excludeShebangs(
     context
@@ -50,6 +73,7 @@ function getLeadingComments(context, node) {
   return all.slice(0, i);
 }
 
+// @ts-ignore
 function genCommentBody(commentType, textArray, eol, numNewlines) {
   var eols = eol.repeat(numNewlines);
   if (commentType === "block") {
@@ -59,6 +83,7 @@ function genCommentBody(commentType, textArray, eol, numNewlines) {
   }
 }
 
+// @ts-ignore
 function genCommentsRange(context, comments, eol) {
   var start = comments[0].range[0];
   var end = comments.slice(-1)[0].range[1];
@@ -68,7 +93,9 @@ function genCommentsRange(context, comments, eol) {
   return [start, end];
 }
 
+// @ts-ignore
 function genPrependFixer(commentType, node, headerLines, eol, numNewlines) {
+  // @ts-ignore
   return function (fixer) {
     return fixer.insertTextBefore(
       node,
@@ -78,13 +105,20 @@ function genPrependFixer(commentType, node, headerLines, eol, numNewlines) {
 }
 
 function genReplaceFixer(
+  // @ts-ignore
   commentType,
+  // @ts-ignore
   context,
+  // @ts-ignore
   leadingComments,
+  // @ts-ignore
   headerLines,
+  // @ts-ignore
   eol,
+  // @ts-ignore
   numNewlines,
 ) {
+  // @ts-ignore
   return function (fixer) {
     return fixer.replaceTextRange(
       genCommentsRange(context, leadingComments, eol),
@@ -93,6 +127,7 @@ function genReplaceFixer(
   };
 }
 
+// @ts-ignore
 function findSettings(options) {
   var lastOption = options.length > 0 ? options[options.length - 1] : null;
   if (
@@ -106,6 +141,7 @@ function findSettings(options) {
   return null;
 }
 
+// @ts-ignore
 function getEOL(options) {
   var settings = findSettings(options);
   if (settings && settings.lineEndings === "unix") {
@@ -117,6 +153,7 @@ function getEOL(options) {
   return os.EOL;
 }
 
+// @ts-ignore
 function hasHeader(src) {
   if (src.substr(0, 2) === "#!") {
     var m = src.match(/(\r\n|\r|\n)/);
@@ -127,6 +164,7 @@ function hasHeader(src) {
   return src.substr(0, 2) === "/*" || src.substr(0, 2) === "//";
 }
 
+// @ts-ignore
 function matchesLineEndings(src, num) {
   for (var j = 0; j < num; ++j) {
     var m = src.match(/^(\r\n|\r|\n)/);
@@ -139,12 +177,99 @@ function matchesLineEndings(src, num) {
   return true;
 }
 
-module.exports = {
+export default {
   meta: {
     type: "layout",
     fixable: "whitespace",
-    schema: false,
+    schema: {
+      $ref: "#/definitions/options",
+      definitions: {
+        commentType: {
+          type: "string",
+          enum: ["block", "line"],
+        },
+        line: {
+          anyOf: [
+            {
+              type: "string",
+            },
+            {
+              type: "object",
+              properties: {
+                pattern: {
+                  type: "string",
+                },
+                template: {
+                  type: "string",
+                },
+              },
+              required: ["pattern"],
+              additionalProperties: false,
+            },
+          ],
+        },
+        headerLines: {
+          anyOf: [
+            {
+              $ref: "#/definitions/line",
+            },
+            {
+              type: "array",
+              items: {
+                $ref: "#/definitions/line",
+              },
+            },
+          ],
+        },
+        numNewlines: {
+          type: "integer",
+          minimum: 0,
+        },
+        settings: {
+          type: "object",
+          properties: {
+            lineEndings: {
+              type: "string",
+              enum: ["unix", "windows"],
+            },
+          },
+          additionalProperties: false,
+        },
+        options: {
+          anyOf: [
+            {
+              type: "array",
+              minItems: 1,
+              maxItems: 2,
+              items: [{ type: "string" }, { $ref: "#/definitions/settings" }],
+            },
+            {
+              type: "array",
+              minItems: 2,
+              maxItems: 3,
+              items: [
+                { $ref: "#/definitions/commentType" },
+                { $ref: "#/definitions/headerLines" },
+                { $ref: "#/definitions/settings" },
+              ],
+            },
+            {
+              type: "array",
+              minItems: 3,
+              maxItems: 4,
+              items: [
+                { $ref: "#/definitions/commentType" },
+                { $ref: "#/definitions/headerLines" },
+                { $ref: "#/definitions/numNewlines" },
+                { $ref: "#/definitions/settings" },
+              ],
+            },
+          ],
+        },
+      },
+    },
   },
+  // @ts-ignore
   create: function (context) {
     var options = context.options;
     var numNewlines = options.length > 2 ? options[2] : 1;
@@ -160,8 +285,10 @@ module.exports = {
     }
 
     var commentType = options[0].toLowerCase();
-    var headerLines = [];
-    var fixLines = [];
+    // @ts-ignore
+    var headerLines,
+      // @ts-ignore
+      fixLines = [];
     // If any of the lines are regular expressions, then we can't
     // automatically fix them. We set this to true below once we
     // ensure none of the lines are of type RegExp
@@ -190,11 +317,13 @@ module.exports = {
     }
 
     return {
+      // @ts-ignore
       Program: function (node) {
         if (!hasHeader(context.getSourceCode().getText())) {
           context.report({
             loc: node.loc,
             message: "missing header",
+            // @ts-ignore
             fix: genPrependFixer(commentType, node, fixLines, eol, numNewlines),
           });
         } else {
@@ -205,7 +334,8 @@ module.exports = {
               loc: node.loc,
               message: "missing header",
               fix: canFix
-                ? genPrependFixer(commentType, node, fixLines, eol, numNewlines)
+                ? // @ts-ignore
+                  genPrependFixer(commentType, node, fixLines, eol, numNewlines)
                 : null,
             });
           } else if (leadingComments[0].type.toLowerCase() !== commentType) {
@@ -220,6 +350,7 @@ module.exports = {
                     commentType,
                     context,
                     leadingComments,
+                    // @ts-ignore
                     fixLines,
                     eol,
                     numNewlines,
@@ -237,6 +368,7 @@ module.exports = {
                         commentType,
                         context,
                         leadingComments,
+                        // @ts-ignore
                         fixLines,
                         eol,
                         numNewlines,
@@ -246,6 +378,7 @@ module.exports = {
                 return;
               }
               for (var i = 0; i < headerLines.length; i++) {
+                // @ts-ignore
                 if (!match(leadingComments[i].value, headerLines[i])) {
                   context.report({
                     loc: node.loc,
@@ -255,6 +388,7 @@ module.exports = {
                           commentType,
                           context,
                           leadingComments,
+                          // @ts-ignore
                           fixLines,
                           eol,
                           numNewlines,
@@ -280,6 +414,7 @@ module.exports = {
                         commentType,
                         context,
                         leadingComments,
+                        // @ts-ignore
                         fixLines,
                         eol,
                         numNewlines,
@@ -299,6 +434,7 @@ module.exports = {
                 hasError = true;
               }
               for (i = 0; !hasError && i < headerLines.length; i++) {
+                // @ts-ignore
                 if (!match(leadingLines[i], headerLines[i])) {
                   hasError = true;
                 }
@@ -306,9 +442,9 @@ module.exports = {
 
               if (hasError) {
                 if (canFix && headerLines.length > 1) {
+                  // @ts-ignore
                   fixLines = [fixLines.join(eol)];
                 }
-
                 context.report({
                   loc: node.loc,
                   message: "incorrect header",
@@ -317,6 +453,7 @@ module.exports = {
                         commentType,
                         context,
                         leadingComments,
+                        // @ts-ignore
                         fixLines,
                         eol,
                         numNewlines,
@@ -336,6 +473,7 @@ module.exports = {
                           commentType,
                           context,
                           leadingComments,
+                          // @ts-ignore
                           fixLines,
                           eol,
                           numNewlines,

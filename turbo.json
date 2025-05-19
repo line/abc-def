@@ -21,14 +21,15 @@
     },
     "lint": {
       "dependsOn": ["^topo", "^build"],
-      "outputs": ["node_modules/.cache/.eslintcache"]
+      "outputs": [".cache/.eslintcache"]
     },
     "typecheck": {
       "dependsOn": ["^topo", "^build"],
-      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
+      "outputs": [".cache/tsbuildinfo.json"]
     },
     "format": {
-      "outputs": ["node_modules/.cache/.prettiercache"]
+      "outputs": [".cache/.prettiercache"],
+      "outputLogs": "new-only"
     },
     "clean": {
       "cache": false
