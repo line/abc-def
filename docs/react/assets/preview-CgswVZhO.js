@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime-Cf8x2fCZ.js";import"./index-yBjzXJbu.js";const s={parameters:{options:{storySort:{order:["Component List"]}},controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}},docs:{toc:{title:"On this page",headingSelector:"h2, h3"}}},decorators:[o=>t.jsx(o,{})]};export{s as default};
