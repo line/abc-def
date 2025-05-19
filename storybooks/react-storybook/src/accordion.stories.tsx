@@ -212,6 +212,8 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 export const Default: Story = {};
 
 export const RightAlign = () => (

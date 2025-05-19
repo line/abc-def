@@ -2,13 +2,16 @@
   "name": "@abc-def/eslint-config",
   "version": "0.1.0",
   "private": true,
-  "files": [
-    "./base.js",
-    "./nextjs.js",
-    "./react.js"
-  ],
+  "type": "module",
+  "exports": {
+    "./base": "./base.js",
+    "./nestjs": "./nestjs.js",
+    "./nextjs": "./nextjs.js",
+    "./react": "./react.js",
+    "./storybook": "./storybook.js"
+  },
   "scripts": {
-    "clean": "git clean -xdf .turbo node_modules",
+    "clean": "git clean -xdf .turbo node_modules .cache",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "typecheck": "tsc --noEmit"
   },
@@ -19,6 +22,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-compiler": "beta",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-turbo": "^2.5.0",
     "typescript-eslint": "^8.30.1"
@@ -26,7 +30,6 @@
   "devDependencies": {
     "@abc-def/prettier-config": "workspace:*",
     "@abc-def/tsconfig": "workspace:*",
-    "@types/eslint__js": "8.42.3",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

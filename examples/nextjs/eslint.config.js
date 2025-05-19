@@ -1,17 +1,10 @@
-const baseConfig = require("@abc-def/eslint-config/base");
-const reactConfig = require("@abc-def/eslint-config/react");
-const nextjsConfig = require("@abc-def/eslint-config/nextjs");
+import baseConfig from "@abc-def/eslint-config/base";
+import nextjsConfig from "@abc-def/eslint-config/nextjs";
+import reactConfig from "@abc-def/eslint-config/react";
 
 /** @type {import('typescript-eslint').Config} */
-module.exports = [
-  {
-    ignores: [
-      ".next/**",
-      "next-env.d.ts",
-      ".storybook/**",
-      "storybook-static/**",
-    ],
-  },
+export default [
+  { ignores: [".storybook", "next-env.d.ts"] },
   ...baseConfig,
   ...reactConfig,
   ...nextjsConfig,

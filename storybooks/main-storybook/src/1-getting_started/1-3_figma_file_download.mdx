@@ -19,11 +19,14 @@ import DownloadImage from "../assets/download.jpg";
   customized to suit your needs.
 </Description>
 
-<Button size="small" variant="primary" className="sb-unstyled" asChild>
-  <a href="./Lena'sTestFile.fig" download>
-    <Icon name="RiDownload2Line" />
-    Download
-  </a>
+<Button
+  size="small"
+  variant="primary"
+  className="sb-unstyled"
+  onClick={() => alert("Figma file download is comming soon!")}
+>
+  <Icon name="RiDownload2Line" />
+  Download
 </Button>
 
 <img src={DownloadImage} alt="" style={{ marginTop: "1.5rem" }} />

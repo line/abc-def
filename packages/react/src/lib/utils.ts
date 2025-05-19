@@ -79,5 +79,6 @@ export function composeRefs<T>(...refs: PossibleRef<T>[]) {
  * Accepts callback refs and RefObject(s)
  */
 export function useComposedRefs<T>(...refs: PossibleRef<T>[]) {
+  // eslint-disable-next-line react-compiler/react-compiler
   return React.useCallback(composeRefs(...refs), refs);
 }

@@ -1,3 +1,18 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 import React from "react";
 
 import {
@@ -9,12 +24,13 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-  TextInput,
 } from "@abc-def/react";
 
 export default function ThemeSelect() {
   const [theme, setTheme] = React.useState<string | undefined>(undefined);
-  const [tint, setTint] = React.useState<string | undefined>(undefined);
+  const [tint, setTint] = React.useState<keyof typeof color | undefined>(
+    undefined,
+  );
   const [size, setSize] = React.useState<string | undefined>(undefined);
   const [radius, setRadius] = React.useState<string | undefined>(undefined);
 
@@ -47,22 +63,24 @@ export default function ThemeSelect() {
   };
 
   const getDocumentTint = () => {
-    if (document.body.style.cssText.includes(color.red!.tint!)) {
+    if (document.body.style.cssText.includes(color.red.tint)) {
       return "red";
-    } else if (document.body.style.cssText.includes(color.orange!.tint!)) {
+    } else if (document.body.style.cssText.includes(color.orange.tint)) {
       return "orange";
-    } else if (document.body.style.cssText.includes(color.green!.tint!)) {
+    } else if (document.body.style.cssText.includes(color.green.tint)) {
       return "green";
-    } else if (document.body.style.cssText.includes(color.blue!.tint!)) {
+    } else if (document.body.style.cssText.includes(color.blue.tint)) {
       return "blue";
+    } else {
+      return "neutral";
     }
   };
 
   React.useEffect(() => {
-    const theme = getDocumentDark() ?? "light";
-    const size = getDocumentSize() ?? "small";
-    const radius = getDocumentRadius() ?? "medium";
-    const tint = getDocumentTint() ?? "neutral";
+    const theme = getDocumentDark();
+    const size = getDocumentSize();
+    const radius = getDocumentRadius();
+    const tint = getDocumentTint();
 
     setTheme(theme);
     setSize(size);
@@ -83,7 +101,7 @@ export default function ThemeSelect() {
       document.body.setAttribute(
         "style",
         tint !== "neutral"
-          ? `--tint: ${color[tint]?.tint}; --tint-subtle: ${color[tint]?.subtle};`
+          ? `--tint: ${color[tint].tint}; --tint-subtle: ${color[tint].subtle};`
           : "--tint: initial; --tint-subtle: initial;",
       );
     }
@@ -156,7 +174,11 @@ export default function ThemeSelect() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Select size="small" value={tint} onValueChange={setTint}>
+      <Select
+        size="small"
+        value={tint}
+        onValueChange={(v: keyof typeof color) => setTint(v)}
+      >
         <SelectLabel>Tint</SelectLabel>
         <SelectTrigger>
           <SelectValue />
@@ -244,7 +266,7 @@ const Badges = ({ color }: React.ComponentPropsWithoutRef<typeof Badge>) => (
   </>
 );
 
-const color: Record<string, Record<string, string>> = {
+const color = {
   red: {
     tint: "#dc2626",
     subtle: "#fee2e2",
@@ -261,4 +283,8 @@ const color: Record<string, Record<string, string>> = {
     tint: "#2563eb",
     subtle: "#dbeafe",
   },
-};
+  neutral: {
+    tint: "#000000",
+    subtle: "#ffffff",
+  },
+} as const;

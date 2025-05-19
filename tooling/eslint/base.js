@@ -1,19 +1,39 @@
-const eslint = require("@eslint/js");
-const importPlugin = require("eslint-plugin-import");
-const tseslint = require("typescript-eslint");
-const headerPlugin = require("@abc-def/eslint-plugin-header");
-const { includeIgnoreFile } = require("@eslint/compat");
-const path = require("node:path");
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 
-module.exports = tseslint.config(
+/// <reference types="./types.d.ts" />
+
+import * as path from "node:path";
+import { includeIgnoreFile } from "@eslint/compat";
+import eslint from "@eslint/js";
+import importPlugin from "eslint-plugin-import";
+import turboPlugin from "eslint-plugin-turbo";
+import tseslint from "typescript-eslint";
+
+import headerPlugin from "@abc-def/eslint-plugin-header";
+
+export default tseslint.config(
+  // Ignore files not tracked by VCS and any config files
   includeIgnoreFile(path.join(import.meta.dirname, "../../.gitignore")),
-  {
-    ignores: ["**/*.config.*", "dist/**", "**/*.stub.ts"],
-  },
+  { ignores: ["**/*.config.*"] },
   {
     files: ["**/*.js", "**/*.ts", "**/*.tsx"],
     plugins: {
       import: importPlugin,
+      turbo: turboPlugin,
       header: headerPlugin,
     },
     extends: [
@@ -23,6 +43,7 @@ module.exports = tseslint.config(
       ...tseslint.configs.stylisticTypeChecked,
     ],
     rules: {
+      ...turboPlugin.configs.recommended.rules,
       "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
@@ -33,7 +54,7 @@ module.exports = tseslint.config(
       ],
       "@typescript-eslint/no-misused-promises": [
         2,
-        { checksVoidReturn: false },
+        { checksVoidReturn: { attributes: false } },
       ],
       "@typescript-eslint/no-unnecessary-condition": [
         "error",
@@ -43,8 +64,6 @@ module.exports = tseslint.config(
       ],
       "@typescript-eslint/no-non-null-assertion": "error",
       "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
-      "@typescript-eslint/no-empty-interface": "off",
-      "@typescript-eslint/unbound-method": "off",
       "header/header": [
         "error",
         "block",
@@ -67,6 +86,10 @@ module.exports = tseslint.config(
         ],
         1,
       ],
+      "@typescript-eslint/no-empty-interface": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-base-to-string": "off",
+      "@typescript-eslint/consistent-type-definitions": "off",
     },
   },
   {

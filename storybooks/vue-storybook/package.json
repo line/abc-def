@@ -8,7 +8,7 @@
     "build:storybook": "storybook build -o dist",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "clean": "git clean -xdf .turbo node_modules storybook-static dist",
+    "clean": "git clean -xdf .turbo node_modules storybook-static dist .cache",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -37,10 +37,5 @@
     "vite": "^6.3.0",
     "vue-tsc": "^2.2.8"
   },
-  "prettier": "@abc-def/prettier-config",
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
-  }
+  "prettier": "@abc-def/prettier-config"
 }

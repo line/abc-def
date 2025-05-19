@@ -1,3 +1,18 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 import React, { useEffect, useState } from "react";
 
 import {
@@ -62,13 +77,16 @@ const ChangeRoundedBase = () => {
     <div>
       <div className="grid grid-cols-[repeat(2,max-content)] gap-8">
         <div>
-          <strong className="w-full text-base-strong text-neutral-primary">Set Rounded Base</strong>
-          <div className="flex gap-2 items-center">
+          <strong className="text-base-strong text-neutral-primary w-full">
+            Set Rounded Base
+          </strong>
+          <div className="flex items-center gap-2">
             <TextInput
               type="number"
               defaultValue={parseInt(
-                document.documentElement.style.getPropertyValue("--rounded-base") ||
-                  "0",
+                document.documentElement.style.getPropertyValue(
+                  "--rounded-base",
+                ) || "0",
               )}
               onChange={(e) => {
                 const number = Number(e.target.value);
@@ -100,7 +118,9 @@ const ChangeRoundedBase = () => {
         </Select>
       </div>
       <div className="sb-unstyled div flex flex-wrap items-center gap-4 py-4">
-        <strong className="w-full text-base-normal text-neutral-tertiary">Example</strong>
+        <strong className="text-base-normal text-neutral-tertiary w-full">
+          Example
+        </strong>
         <Checkbox>123</Checkbox>
         <Badge>Badge</Badge>
         <Button>Button</Button>
@@ -113,7 +133,7 @@ const ChangeRoundedBase = () => {
             <Icon name="RiFlashlightFill" size={20} />
             Item 2
           </ToggleGroupItem>
-          <ToggleGroupItem value="item-3" >
+          <ToggleGroupItem value="item-3">
             <Icon name="RiFlashlightFill" size={20} />
             Item 3
           </ToggleGroupItem>
@@ -122,18 +142,14 @@ const ChangeRoundedBase = () => {
           <AlertContent>
             <AlertIcon size={20} />
             <AlertTextContainer>
-              <AlertTitle>
-                Title
-              </AlertTitle>
-              <AlertDescription>
-                Description
-              </AlertDescription>
+              <AlertTitle>Title</AlertTitle>
+              <AlertDescription>Description</AlertDescription>
             </AlertTextContainer>
           </AlertContent>
-          <AlertButton onClick={() => {}} size="medium" variant="outline" >
+          <AlertButton size="medium" variant="outline">
             Button
           </AlertButton>
-          <AlertIconButton onClick={() => {}} size="medium" variant="ghost" />
+          <AlertIconButton size="medium" variant="ghost" />
         </Alert>
       </div>
     </div>

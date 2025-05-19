@@ -107,7 +107,7 @@ const meta: Meta<typeof Calendar> = {
             return (
               <>
                 {index !== 0 && ", "}
-                <Badge variant="subtle">{date?.toDateString()}</Badge>
+                <Badge variant="subtle">{date.toDateString()}</Badge>
               </>
             );
           })}

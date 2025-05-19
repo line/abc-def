@@ -1,9 +1,25 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
 import * as React from "react";
 import { useImperativeHandle } from "react";
 
+import type { TextInputProps } from "./input";
 import { cn } from "../lib/utils";
 import { Icon } from "./icon";
-import { InputBox, InputField, TextInput, TextInputProps } from "./input";
+import { InputBox, InputField, TextInput } from "./input";
 import {
   Select,
   SelectContent,
@@ -172,10 +188,10 @@ const TimePickerInput = React.forwardRef<
         <InputBox>
           <TextInput
             ref={ref}
-            id={id || picker}
-            name={name || picker}
+            id={id ?? picker}
+            name={name ?? picker}
             className="text-center font-mono tabular-nums caret-transparent [&::-webkit-inner-spin-button]:appearance-none"
-            value={value || calculatedValue}
+            value={value ?? calculatedValue}
             onChange={(e) => {
               e.preventDefault();
               onChange?.(e);
@@ -248,7 +264,7 @@ const TimePicker = React.forwardRef<TimePickerRef, TimePickerProps>(
           onDateChange={onChange}
           ref={hourRef}
           period={period}
-          onRightFocus={() => minuteRef?.current?.focus()}
+          onRightFocus={() => minuteRef.current?.focus()}
         />
         {(granularity === "minute" || granularity === "second") && (
           <>
@@ -258,8 +274,8 @@ const TimePicker = React.forwardRef<TimePickerRef, TimePickerProps>(
               date={date}
               onDateChange={onChange}
               ref={minuteRef}
-              onLeftFocus={() => hourRef?.current?.focus()}
-              onRightFocus={() => secondRef?.current?.focus()}
+              onLeftFocus={() => hourRef.current?.focus()}
+              onRightFocus={() => secondRef.current?.focus()}
             />
           </>
         )}
@@ -271,8 +287,8 @@ const TimePicker = React.forwardRef<TimePickerRef, TimePickerProps>(
               date={date}
               onDateChange={onChange}
               ref={secondRef}
-              onLeftFocus={() => minuteRef?.current?.focus()}
-              onRightFocus={() => periodRef?.current?.focus()}
+              onLeftFocus={() => minuteRef.current?.focus()}
+              onRightFocus={() => periodRef.current?.focus()}
             />
           </>
         )}
@@ -283,14 +299,14 @@ const TimePicker = React.forwardRef<TimePickerRef, TimePickerProps>(
             date={date}
             onDateChange={(date) => {
               onChange?.(date);
-              if (date && date?.getHours() >= 12) {
+              if (date && date.getHours() >= 12) {
                 setPeriod("PM");
               } else {
                 setPeriod("AM");
               }
             }}
             ref={periodRef}
-            onLeftFocus={() => secondRef?.current?.focus()}
+            onLeftFocus={() => secondRef.current?.focus()}
           />
         )}
       </div>
@@ -484,10 +500,7 @@ function convert12HourTo24Hour(hour: number, period: Period) {
     return hour;
   }
 
-  if (period === "AM") {
-    if (hour === 12) return 0;
-    return hour;
-  }
+  if (hour === 12) return 0;
   return hour;
 }
 

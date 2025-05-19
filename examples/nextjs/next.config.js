@@ -1,7 +1,7 @@
 // Importing env files here to validate on build
 
 /** @type {import("next").NextConfig} */
-module.exports = {
+export default {
   reactStrictMode: true,
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },

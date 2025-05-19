@@ -13,6 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+/* eslint-disable react-compiler/react-compiler */
+
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 

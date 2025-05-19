@@ -84,7 +84,7 @@
   html.dark .dark-only {
     display: block;
   }
-  
+
   html.dark .light-only,
   html:not(.dark) .dark-only {
     display: none;
@@ -92,17 +92,17 @@
 
   /* keyframe */
   @keyframes coverFade {
-  0% {
-    clip-path: inset(0 -50% 0% 100%);
+    0% {
+      clip-path: inset(0 -50% 0% 100%);
+    }
+    40% {
+      clip-path: inset(0 -50% 0% 50%);
+    }
+    60% {
+      clip-path: inset(0 -50% 0% 50%);
+    }
+    100% {
+      clip-path: inset(0 -50% 0% 0%);
+    }
   }
-  40% {
-    clip-path: inset(0 -50% 0% 50%);
-  }
-  60% {
-    clip-path: inset(0 -50% 0% 50%);
-  }
-  100% {
-    clip-path: inset(0 -50% 0% 0%);
-  }
-}
 </style>
