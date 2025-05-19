@@ -38,6 +38,7 @@ const DropdownContext = React.createContext<{
 
 const Dropdown = ({
   open = false,
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   onOpenChange,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DropdownPrimitive.Root>) => {

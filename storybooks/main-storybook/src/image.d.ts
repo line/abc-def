@@ -13,23 +13,47 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+declare module "*.jpeg" {
+  const value: string;
+  export = value;
+}
 
-import nextPlugin from "@next/eslint-plugin-next";
+declare module "*.jpg" {
+  const value: string;
+  export = value;
+}
 
-/** @type {Awaited<import('typescript-eslint').Config>} */
-export default [
-  {
-    files: ["**/*.ts", "**/*.tsx"],
-    plugins: {
-      "@next/next": nextPlugin,
-    },
-    rules: {
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs["core-web-vitals"].rules,
-      // TypeError: context.getAncestors is not a function
-      "@next/next/no-duplicate-head": "off",
-      "@next/next/no-html-link-for-pages": "off",
-      "@next/next/no-page-custom-font": "off",
-    },
-  },
-];
+declare module "*.png" {
+  const value: string;
+  export = value;
+}
+
+declare module "*.svg" {
+  const value: string;
+  export = value;
+}
+
+declare module "*.gif" {
+  const value: string;
+  export = value;
+}
+
+declare module "*.ico" {
+  const value: string;
+  export = value;
+}
+
+declare module "*.webp" {
+  const value: string;
+  export = value;
+}
+
+declare module "*.jp2" {
+  const value: string;
+  export = value;
+}
+
+declare module "*.avif" {
+  const value: string;
+  export = value;
+}

@@ -5,6 +5,6 @@
     "jsx": "preserve",
     "rootDir": "."
   },
-  "include": ["src"],
+  "include": ["src", ".storybook"],
   "exclude": ["node_modules"]
 }
