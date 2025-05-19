@@ -10,7 +10,6 @@
       "outputs": [".cache/tsbuildinfo.json", "dist/**"]
     },
     "dev:storybook": {
-      "dependsOn": ["^dev"],
       "cache": false,
       "persistent": false
     },
