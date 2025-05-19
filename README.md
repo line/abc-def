@@ -2,8 +2,7 @@
 
 ![040fc666-db66-47ab-986d-8e5addef3728](https://github.com/user-attachments/assets/849abcbd-99b2-431c-a24a-d86dbf39849e)
 
-ABC DEF is an efficient design system using a three-tier token structure and Headless UI to create web components with consistent design and flexible customization.
-
+ABC Def is an efficient design system using a three-tier token structure and Headless UI to create web components with consistent design and flexible customization.
 
 ## Tech Stack
 

@@ -1,6 +1,6 @@
-# How to contribute to ABC DEF
+# How to contribute to ABC Def
 
-First of all, thank you so much for taking your time to contribute! ABC DEF is not very different from any other open source projects. It will be fantastic if you help us by doing any of the following:
+First of all, thank you so much for taking your time to contribute! ABC Def is not very different from any other open source projects. It will be fantastic if you help us by doing any of the following:
 
 - File an issue in [the issue tracker](https://github.com/line/abc-def/issues)
   to report bugs and propose new features and improvements.
