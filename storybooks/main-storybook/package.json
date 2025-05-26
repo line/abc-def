@@ -1,7 +1,7 @@
 {
   "name": "@abc-def/main-storybook",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "dev:storybook": "storybook dev --docs -p 6006",

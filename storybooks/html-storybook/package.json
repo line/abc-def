@@ -1,7 +1,7 @@
 {
   "name": "@abc-def/html-storybook",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "dev:storybook": "storybook dev -p 6007 --no-open",
