@@ -319,8 +319,8 @@ importers:
         specifier: 'catalog:'
         version: 9.17.0(jiti@2.4.2)
       eslint-plugin-storybook:
-        specifier: ^0.11.6
-        version: 0.11.6(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
+        specifier: ^0.12.0
+        version: 0.12.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
       prettier:
         specifier: 'catalog:'
         version: 3.4.2
@@ -398,8 +398,8 @@ importers:
         specifier: 'catalog:'
         version: 9.17.0(jiti@2.4.2)
       eslint-plugin-storybook:
-        specifier: ^0.11.6
-        version: 0.11.6(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
+        specifier: ^0.12.0
+        version: 0.12.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
       globals:
         specifier: ^15.15.0
         version: 15.15.0
@@ -486,8 +486,8 @@ importers:
         specifier: 'catalog:'
         version: 9.17.0(jiti@2.4.2)
       eslint-plugin-storybook:
-        specifier: ^0.11.6
-        version: 0.11.6(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
+        specifier: ^0.12.0
+        version: 0.12.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
       globals:
         specifier: ^15.15.0
         version: 15.15.0
@@ -562,8 +562,8 @@ importers:
         specifier: 'catalog:'
         version: 9.17.0(jiti@2.4.2)
       eslint-plugin-storybook:
-        specifier: ^0.11.6
-        version: 0.11.6(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
+        specifier: ^0.12.0
+        version: 0.12.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
       prettier:
         specifier: 'catalog:'
         version: 3.4.2
@@ -3457,8 +3457,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
 
-  eslint-plugin-storybook@0.11.6:
-    resolution: {integrity: sha512-3WodYD6Bs9ACqnB+TP2TuLh774c/nacAjxSKOP9bHJ2c8rf+nrhocxjjeAWNmO9IPkFIzTKlcl0vNXI2yYpVOw==}
+  eslint-plugin-storybook@0.12.0:
+    resolution: {integrity: sha512-Lg5I0+npTgiYgZ4KSvGWGDFZi3eOCNJPaWX0c9rTEEXC5wvooOClsP9ZtbI4hhFKyKgYR877KiJxbRTSJq9gWA==}
     engines: {node: '>= 18'}
     peerDependencies:
       eslint: '>=8'
@@ -8716,7 +8716,7 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-storybook@0.11.6(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2):
+  eslint-plugin-storybook@0.12.0(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2):
     dependencies:
       '@storybook/csf': 0.1.13
       '@typescript-eslint/utils': 8.30.1(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)

@@ -27,7 +27,7 @@
     "@storybook/web-components-vite": "^8.6.12",
     "@types/react": "catalog:react18",
     "eslint": "catalog:",
-    "eslint-plugin-storybook": "^0.11.6",
+    "eslint-plugin-storybook": "^0.12.0",
     "prettier": "catalog:",
     "storybook": "^8.6.12",
     "typescript": "catalog:",
