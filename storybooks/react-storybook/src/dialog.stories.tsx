@@ -259,9 +259,7 @@ export const Basic = () => (
 
 export const Warning = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Warning</Button>
-    </DialogTrigger>
+    <DialogTrigger>Warning</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon variant="warning" />
@@ -290,9 +288,7 @@ export const Warning = () => (
 
 export const Information = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Information</Button>
-    </DialogTrigger>
+    <DialogTrigger>Information</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon variant="informative" />
@@ -321,9 +317,7 @@ export const Information = () => (
 
 export const Success = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Success</Button>
-    </DialogTrigger>
+    <DialogTrigger>Success</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon variant="success" />
@@ -352,9 +346,7 @@ export const Success = () => (
 
 export const Fail = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Fail</Button>
-    </DialogTrigger>
+    <DialogTrigger>Fail</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon variant="error" />
@@ -383,9 +375,7 @@ export const Fail = () => (
 
 export const Button_1 = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Footer Button 1</Button>
-    </DialogTrigger>
+    <DialogTrigger variant="primary">Footer Button 1</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon name="RiFlashlightFill" variant="default" />
@@ -407,9 +397,7 @@ export const Button_1 = () => (
 
 export const Button_1_Full = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Footer Button 1 (full)</Button>
-    </DialogTrigger>
+    <DialogTrigger variant="primary">Footer Button 1 (full)</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon name="RiFlashlightFill" variant="default" />
@@ -431,9 +419,7 @@ export const Button_1_Full = () => (
 
 export const Button_2 = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Footer Button 2</Button>
-    </DialogTrigger>
+    <DialogTrigger variant="primary">Footer Button 2</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon name="RiFlashlightFill" variant="default" />
@@ -462,9 +448,7 @@ export const Button_2 = () => (
 
 export const Button_2_Full = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Footer Button 2 (full)</Button>
-    </DialogTrigger>
+    <DialogTrigger variant="primary">Footer Button 2 (full)</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon name="RiFlashlightFill" variant="default" />
@@ -493,9 +477,7 @@ export const Button_2_Full = () => (
 
 export const Button_3 = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Footer Button 3</Button>
-    </DialogTrigger>
+    <DialogTrigger variant="primary">Footer Button 3</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon name="RiFlashlightFill" variant="default" />
@@ -532,9 +514,7 @@ export const Button_3 = () => (
 
 export const Button_3_Full = () => (
   <Dialog>
-    <DialogTrigger asChild>
-      <Button>Footer Button 3 (full)</Button>
-    </DialogTrigger>
+    <DialogTrigger variant="primary">Footer Button 3 (full)</DialogTrigger>
     <DialogContent>
       <DialogHeader>
         <DialogIcon name="RiFlashlightFill" variant="default" />
