@@ -9,4 +9,37 @@ import Logo from "../utils/logo.tsx";
 
 ## Installation
 
-<ComingSoon />
+You need Node.js and Tailwind CSS installed to use this package.
+
+1\. Install `@abc-def/tailwindcss` as a Node package:
+
+```sh
+npm install -D @abc-def/tailwindcss
+or
+yarn add -D @abc-def/tailwindcss
+or
+pnpm add -D @abc-def/tailwindcss
+```
+
+2\. Add `@abc-def/tailwindcss` to tailwind.config.js or tailwind.config.ts:
+
+```js
+// CommonJS
+module.exports = {
+  //...
+  plugins: [require("@abc-def/tailwindcss")],
+};
+```
+
+```js
+// ESM
+import abcDefTailwind from "@abc-def/tailwindcss";
+
+export default {
+  //...
+  plugins: [abcDefTailwind],
+};
+```
+
+If you want to use only HTML classes, please refer to [HTML Components](/docs/html_coming-soon--docs).  
+If you are using a React or Vue framework, please refer to [React Components](/docs/react_component-list--docs) and [Vue Components](/docs/html_coming-soon--docs).

@@ -1,7 +1,24 @@
 {
   "name": "@abc-def/tailwindcss",
-  "version": "0.1.1",
-  "private": true,
+  "version": "0.1.2",
+  "description": "Tailwindcss Plugin for abc-def",
+  "license": "Apache-2.0",
+  "homepage": "https://line.github.io/abc-def/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/line/abc-def.git",
+    "directory": "packages/tailwindcss"
+  },
+  "bugs": "https://github.com/line/abc-def/issues",
+  "keywords": [
+    "abc-def",
+    "abc def",
+    "tailwind",
+    "tailwindcss",
+    "tailwind css",
+    "tailwind plugin",
+    "tailwind css plugin"
+  ],
   "main": "index.js",
   "types": "index.d.ts",
   "typings": "index.d.ts",
