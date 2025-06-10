@@ -218,19 +218,6 @@ const TimePickerInput = React.forwardRef<
 
 TimePickerInput.displayName = "TimePickerInput";
 
-interface TimePickerProps {
-  date?: Date | null;
-  onChange?: (date: Date | undefined) => void;
-  hourCycle?: 12 | 24;
-  /**
-   * Determines the smallest unit that is displayed in the datetime picker.
-   * Default is 'second'.
-   * */
-  granularity?: Granularity;
-}
-
-type Granularity = "hour" | "minute" | "second";
-
 // ---------- utils start ----------
 /**
  * regular expression to check for valid hour format (01-23)
@@ -433,4 +420,4 @@ function display12HourValue(hours: number) {
 // ---------- utils end ----------
 
 export { TimePickerInput, TimePeriodSelect };
-export type { TimePickerProps, TimePickerInputProps, PeriodSelectorProps };
+export type { TimePickerInputProps, PeriodSelectorProps };
