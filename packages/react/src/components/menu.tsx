@@ -25,7 +25,6 @@ import {
   DropdownItem,
   DropdownTrigger,
 } from "./dropdown";
-import { Icon } from "./icon";
 
 const DefaultValue = {
   orientation: "horizontal",
@@ -143,10 +142,7 @@ const MenuDropdownTrigger = React.forwardRef<
       )}
       {...props}
     >
-      <button type="button">
-        {children}
-        {orientation === "vertical" && <Icon name="RiArrowRightSLine" />}
-      </button>
+      <button type="button">{children}</button>
     </DropdownTrigger>
   );
 });
