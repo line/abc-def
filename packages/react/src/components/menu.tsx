@@ -82,12 +82,12 @@ const Menu = React.forwardRef<
 );
 Menu.displayName = ToggleGroupPrimitive.Root.displayName;
 
-const menuItemVariants = cva("!menu-item", {
+const menuItemVariants = cva("menu-item", {
   variants: {
     size: {
-      small: "!menu-item-small",
-      medium: "!menu-item-medium",
-      large: "!menu-item-large",
+      small: "menu-item-small",
+      medium: "menu-item-medium",
+      large: "menu-item-large",
     },
     defaultVariants: {
       size: DefaultValue.size,
@@ -117,7 +117,7 @@ const MenuDropdown = Dropdown;
 const MenuDropdownTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownTrigger>,
   React.ComponentPropsWithoutRef<typeof DropdownTrigger>
->(({ variant = "ghost", className, children, ...props }, ref) => {
+>(({ className, children, ...props }, ref) => {
   const { size = DefaultValue.size, orientation } =
     React.useContext(MenuContext);
 
@@ -135,16 +135,18 @@ const MenuDropdownTrigger = React.forwardRef<
 
   return (
     <DropdownTrigger
+      asChild
       ref={ref}
-      variant={variant}
       className={cn(
         "flex justify-between",
         menuItemVariants({ size, className }),
       )}
       {...props}
     >
-      {children}
-      {orientation === "vertical" && <Icon name="RiArrowRightSLine" />}
+      <button type="button">
+        {children}
+        {orientation === "vertical" && <Icon name="RiArrowRightSLine" />}
+      </button>
     </DropdownTrigger>
   );
 });
