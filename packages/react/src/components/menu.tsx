@@ -25,7 +25,6 @@ import {
   DropdownItem,
   DropdownTrigger,
 } from "./dropdown";
-import { Icon } from "./icon";
 
 const DefaultValue = {
   orientation: "horizontal",
@@ -118,8 +117,7 @@ const MenuDropdownTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownTrigger>,
   React.ComponentPropsWithoutRef<typeof DropdownTrigger>
 >(({ className, children, ...props }, ref) => {
-  const { size = DefaultValue.size, orientation } =
-    React.useContext(MenuContext);
+  const { size = DefaultValue.size } = React.useContext(MenuContext);
 
   if (props.asChild) {
     return (
@@ -143,10 +141,7 @@ const MenuDropdownTrigger = React.forwardRef<
       )}
       {...props}
     >
-      <button type="button">
-        {children}
-        {orientation === "vertical" && <Icon name="RiArrowRightSLine" />}
-      </button>
+      <button type="button">{children}</button>
     </DropdownTrigger>
   );
 });
