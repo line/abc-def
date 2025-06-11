@@ -27,7 +27,7 @@
     "@storybook/test": "^8.6.12",
     "@storybook/vue3": "^8.6.12",
     "@storybook/vue3-vite": "^8.6.12",
-    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitejs/plugin-vue": "^5.2.4",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "catalog:",
     "eslint-plugin-storybook": "^0.11.6",
