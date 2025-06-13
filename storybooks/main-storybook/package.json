@@ -31,7 +31,7 @@
     "@storybook/test": "catalog:storybook8",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",
-    "@vitejs/plugin-react": "^4.4.0",
+    "@vitejs/plugin-react": "^4.5.2",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
     "globals": "^16.2.0",
