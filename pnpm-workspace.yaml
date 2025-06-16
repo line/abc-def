@@ -30,4 +30,3 @@ catalogs:
     "@storybook/react-vite": "^9.0.10"
     "@storybook/vue3": "^9.0.10"
     "@storybook/vue3-vite": "^9.0.10"
-    "eslint-plugin-storybook": "^9.0.10"
