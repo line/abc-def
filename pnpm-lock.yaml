@@ -278,7 +278,7 @@ importers:
         version: link:../../tooling/typescript
       autoprefixer:
         specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.5)
+        version: 10.4.21(postcss@8.5.6)
       eslint:
         specifier: 'catalog:'
         version: 9.28.0(jiti@2.4.2)
@@ -286,17 +286,17 @@ importers:
         specifier: ^11.0.3
         version: 11.0.3
       postcss:
-        specifier: ^8.5.5
-        version: 8.5.5
+        specifier: ^8.5.6
+        version: 8.5.6
       postcss-import:
         specifier: ^16.1.0
-        version: 16.1.0(postcss@8.5.5)
+        version: 16.1.0(postcss@8.5.6)
       postcss-js:
         specifier: ^4.0.1
-        version: 4.0.1(postcss@8.5.5)
+        version: 4.0.1(postcss@8.5.6)
       postcss-nesting:
         specifier: ^13.0.2
-        version: 13.0.2(postcss@8.5.5)
+        version: 13.0.2(postcss@8.5.6)
       prettier:
         specifier: 'catalog:'
         version: 3.5.3
@@ -421,7 +421,7 @@ importers:
         version: 4.5.2(vite@6.3.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       autoprefixer:
         specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.5)
+        version: 10.4.21(postcss@8.5.6)
       eslint:
         specifier: 'catalog:'
         version: 9.28.0(jiti@2.4.2)
@@ -429,8 +429,8 @@ importers:
         specifier: ^16.2.0
         version: 16.2.0
       postcss:
-        specifier: ^8.5.5
-        version: 8.5.5
+        specifier: ^8.5.6
+        version: 8.5.6
       prettier:
         specifier: 'catalog:'
         version: 3.5.3
@@ -506,7 +506,7 @@ importers:
         version: 4.5.2(vite@6.3.0(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       autoprefixer:
         specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.5)
+        version: 10.4.21(postcss@8.5.6)
       eslint:
         specifier: 'catalog:'
         version: 9.28.0(jiti@2.4.2)
@@ -514,8 +514,8 @@ importers:
         specifier: ^16.2.0
         version: 16.2.0
       postcss:
-        specifier: ^8.5.5
-        version: 8.5.5
+        specifier: ^8.5.6
+        version: 8.5.6
       prettier:
         specifier: 'catalog:'
         version: 3.5.3
@@ -4725,8 +4725,8 @@ packages:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postcss@8.5.5:
-    resolution: {integrity: sha512-d/jtm+rdNT8tpXuHY5MMtcbJFBkhXE6593XVR9UoGCH8jSFGci7jGvMGH5RYd5PBJW+00NZQt6gf7CbagJCrhg==}
+  postcss@8.5.6:
+    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -8175,7 +8175,7 @@ snapshots:
       '@vue/shared': 3.5.16
       estree-walker: 2.0.2
       magic-string: 0.30.17
-      postcss: 8.5.5
+      postcss: 8.5.6
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.16':
@@ -8395,14 +8395,14 @@ snapshots:
 
   async-function@1.0.0: {}
 
-  autoprefixer@10.4.21(postcss@8.5.5):
+  autoprefixer@10.4.21(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.4
       caniuse-lite: 1.0.30001714
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
-      postcss: 8.5.5
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -10080,9 +10080,9 @@ snapshots:
       read-cache: 1.0.0
       resolve: 1.22.10
 
-  postcss-import@16.1.0(postcss@8.5.5):
+  postcss-import@16.1.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.5
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.10
@@ -10092,10 +10092,10 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.5.3
 
-  postcss-js@4.0.1(postcss@8.5.5):
+  postcss-js@4.0.1(postcss@8.5.6):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.5.5
+      postcss: 8.5.6
 
   postcss-load-config@4.0.2(postcss@8.5.3)(ts-node@10.9.2(@types/node@20.17.30)(typescript@5.8.3)):
     dependencies:
@@ -10120,22 +10120,22 @@ snapshots:
       postcss: 8.5.3
       postcss-selector-parser: 6.1.2
 
-  postcss-nesting@13.0.2(postcss@8.5.5):
+  postcss-nesting@13.0.2(postcss@8.5.6):
     dependencies:
       '@csstools/selector-resolve-nested': 3.1.0(postcss-selector-parser@7.1.0)
       '@csstools/selector-specificity': 5.0.0(postcss-selector-parser@7.1.0)
-      postcss: 8.5.5
+      postcss: 8.5.6
       postcss-selector-parser: 7.1.0
 
   postcss-resolve-nested-selector@0.1.6: {}
 
-  postcss-safe-parser@6.0.0(postcss@8.5.5):
+  postcss-safe-parser@6.0.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.5
+      postcss: 8.5.6
 
-  postcss-safe-parser@7.0.1(postcss@8.5.5):
+  postcss-safe-parser@7.0.1(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.5
+      postcss: 8.5.6
 
   postcss-selector-parser@6.1.2:
     dependencies:
@@ -10161,7 +10161,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postcss@8.5.5:
+  postcss@8.5.6:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -10754,10 +10754,10 @@ snapshots:
       micromatch: 4.0.8
       normalize-path: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.5
+      postcss: 8.5.6
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.6
-      postcss-safe-parser: 6.0.0(postcss@8.5.5)
+      postcss-safe-parser: 6.0.0(postcss@8.5.6)
       postcss-selector-parser: 6.1.2
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
@@ -10801,9 +10801,9 @@ snapshots:
       micromatch: 4.0.8
       normalize-path: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.5
+      postcss: 8.5.6
       postcss-resolve-nested-selector: 0.1.6
-      postcss-safe-parser: 7.0.1(postcss@8.5.5)
+      postcss-safe-parser: 7.0.1(postcss@8.5.6)
       postcss-selector-parser: 7.1.0
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
@@ -11178,7 +11178,7 @@ snapshots:
       esbuild: 0.25.2
       fdir: 6.4.3(picomatch@4.0.2)
       picomatch: 4.0.2
-      postcss: 8.5.5
+      postcss: 8.5.6
       rollup: 4.40.0
       tinyglobby: 0.2.12
     optionalDependencies:
