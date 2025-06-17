@@ -75,10 +75,6 @@
   @apply [&:not(.select-item-right)]:select-item-left;
 }
 
-.select-item-icon {
-  @apply mr-1;
-}
-
 .select-item-check {
   @apply absolute flex h-4 w-4 items-center justify-center;
 
