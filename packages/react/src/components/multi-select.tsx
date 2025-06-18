@@ -20,10 +20,10 @@ import { cva } from "class-variance-authority";
 import type { Size } from "../types";
 import { ICON_SIZE } from "../constants";
 import { cn } from "../lib/utils";
-import { Badge } from "./badge";
 import { Icon } from "./icon";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { ScrollArea, ScrollBar } from "./scroll-area";
+import { Tag } from "./tag";
 import useTheme from "./use-theme";
 
 type MultiSelectItemType = {
@@ -32,6 +32,8 @@ type MultiSelectItemType = {
 };
 
 type MultiSelectContextType = {
+  size?: Size;
+  setSize?: (size: Size) => void;
   selectedItems: MultiSelectItemType[];
   setSelectedItems: (items: MultiSelectItemType[]) => void;
   isOpen: boolean;
@@ -80,9 +82,10 @@ function MultiSelect({
   onValueChange,
   children,
   className,
-  size,
+  size: propSize,
 }: MultiSelectProps) {
   const { themeSize } = useTheme();
+  const [size, setSize] = React.useState<Size | undefined>(propSize);
 
   const [registeredItems, setRegisteredItems] = React.useState<
     MultiSelectItemType[]
@@ -147,6 +150,8 @@ function MultiSelect({
   return (
     <MultiSelectContext.Provider
       value={{
+        size: size ?? propSize ?? themeSize,
+        setSize,
         selectedItems,
         setSelectedItems: (items) => setValues(items.map((i) => i.value)),
         isOpen,
@@ -171,7 +176,6 @@ function MultiSelect({
 interface MultiSelectTriggerProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   error?: boolean;
-  size?: Size;
 }
 
 const selectTriggerVariants = cva("select-trigger", {
@@ -195,19 +199,17 @@ const selectTriggerVariants = cva("select-trigger", {
 function MultiSelectTrigger({
   className,
   children,
-  size,
   error = false,
   ...props
 }: MultiSelectTriggerProps) {
   const { themeSize } = useTheme();
+  const { size } = useMultiSelectContext();
   return (
     <PopoverTrigger asChild>
       <button
         type="button"
         aria-haspopup="listbox"
-        className={cn(
-          selectTriggerVariants({ size: size ?? themeSize, error, className }),
-        )}
+        className={cn(selectTriggerVariants({ size, error, className }))}
         data-placeholder
         {...props}
       >
@@ -317,7 +319,7 @@ function MultiSelectValue({
 }: {
   placeholder?: React.ReactNode;
 } & React.HTMLAttributes<HTMLSpanElement>) {
-  const { selectedItems } = useMultiSelectContext();
+  const { selectedItems, size } = useMultiSelectContext();
 
   if (selectedItems.length === 0) {
     return <span {...props}>{placeholder}</span>;
@@ -326,9 +328,14 @@ function MultiSelectValue({
   return (
     <span {...props}>
       {selectedItems.map((item) => (
-        <Badge key={item.value} className="mr-1">
+        <Tag
+          key={item.value}
+          variant="outline"
+          size={size}
+          className="select-tag"
+        >
           {item.label}
-        </Badge>
+        </Tag>
       ))}
     </span>
   );

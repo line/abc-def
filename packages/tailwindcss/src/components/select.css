@@ -87,7 +87,7 @@
 }
 
 .select-tag {
-  @apply mr-2.5;
+  @apply mr-2.5 !gap-0;
 }
 
 .select-label {
