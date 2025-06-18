@@ -19,6 +19,11 @@ import React from "react";
 import {
   Icon,
   IconNames,
+  MultiSelect,
+  MultiSelectContent,
+  MultiSelectItem,
+  MultiSelectTrigger,
+  MultiSelectValue,
   Select,
   SelectCaption,
   SelectContent,
@@ -380,3 +385,65 @@ export const Disabled = () => {
     </Select>
   );
 };
+
+export const Multi = () => (
+  <MultiSelect onValueChange={(value) => console.log(value.join(", "))}>
+    <SelectLabel>Label</SelectLabel>
+    <MultiSelectTrigger>
+      <MultiSelectValue placeholder="Select a format" />
+    </MultiSelectTrigger>
+    <MultiSelectContent>
+      <MultiSelectItem value="txt">text</MultiSelectItem>
+      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
+      <MultiSelectItem value="num">number</MultiSelectItem>
+      <MultiSelectItem value="dat">date</MultiSelectItem>
+      <MultiSelectItem value="sel">select</MultiSelectItem>
+      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
+      <MultiSelectItem value="img">image</MultiSelectItem>
+    </MultiSelectContent>
+    <SelectCaption>Caption Info</SelectCaption>
+  </MultiSelect>
+);
+
+export const Multi_With_Icon = () => (
+  <MultiSelect
+    defaultValue={["txt", "kwd"]}
+    onValueChange={(value) => console.log(value.join(", "))}
+  >
+    <SelectLabel>Label</SelectLabel>
+    <MultiSelectTrigger>
+      <MultiSelectValue placeholder="Select a format" />
+    </MultiSelectTrigger>
+    <MultiSelectContent>
+      <MultiSelectItem value="txt">
+        <Icon className="mr-2" name="RiMenu2Line" size={16} />
+        text
+      </MultiSelectItem>
+      <MultiSelectItem value="kwd">
+        <Icon className="mr-2" name="RiFontSize" size={16} />
+        keyword
+      </MultiSelectItem>
+      <MultiSelectItem value="num">
+        <Icon className="mr-2" name="RiHashtag" size={16} />
+        number
+      </MultiSelectItem>
+      <MultiSelectItem value="dat">
+        <Icon className="mr-2" name="RiCalendar2Line" size={16} />
+        date
+      </MultiSelectItem>
+      <MultiSelectItem value="sel">
+        <Icon className="mr-2" name="RiCheckboxCircleLine" size={16} />
+        select
+      </MultiSelectItem>
+      <MultiSelectItem value="mul">
+        <Icon className="mr-2" name="RiListView" size={16} />
+        multiSelect
+      </MultiSelectItem>
+      <MultiSelectItem value="img">
+        <Icon className="mr-2" name="RiImageLine" size={16} />
+        image
+      </MultiSelectItem>
+    </MultiSelectContent>
+    <SelectCaption>Caption Info</SelectCaption>
+  </MultiSelect>
+);
