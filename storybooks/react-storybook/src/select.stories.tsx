@@ -246,6 +246,11 @@ const meta: Meta<
         disable: true,
       },
     },
+    className: {
+      table: {
+        disable: true,
+      },
+    },
     value: {
       table: {
         disable: true,
