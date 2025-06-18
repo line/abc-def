@@ -20,6 +20,7 @@ import {
   Icon,
   IconNames,
   MultiSelect,
+  MultiSelectCaption,
   MultiSelectContent,
   MultiSelectItem,
   MultiSelectTrigger,
@@ -416,7 +417,7 @@ export const Multi = () => (
       <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
       <MultiSelectItem value="img">image</MultiSelectItem>
     </MultiSelectContent>
-    <SelectCaption>Caption Info</SelectCaption>
+    <MultiSelectCaption>Caption Info</MultiSelectCaption>
   </MultiSelect>
 );
 
@@ -459,6 +460,6 @@ export const Multi_With_Icon = () => (
         image
       </MultiSelectItem>
     </MultiSelectContent>
-    <SelectCaption>Caption Info</SelectCaption>
+    <MultiSelectCaption>Caption Info</MultiSelectCaption>
   </MultiSelect>
 );

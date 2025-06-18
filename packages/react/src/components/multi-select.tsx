@@ -14,11 +14,13 @@
  * under the License.
  */
 import * as React from "react";
-import { Slottable } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 
+import type { CaptionType } from "../lib/types";
 import type { Size } from "../types";
-import { ICON_SIZE } from "../constants";
+import type { IconNameType } from "./icon";
+import { CAPTION_DEFAULT_ICON, ICON_SIZE } from "../constants";
 import { cn } from "../lib/utils";
 import { Icon } from "./icon";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
@@ -32,7 +34,7 @@ type MultiSelectItemType = {
 };
 
 type MultiSelectContextType = {
-  size?: Size;
+  size: Size;
   setSize?: (size: Size) => void;
   selectedItems: MultiSelectItemType[];
   setSelectedItems: (items: MultiSelectItemType[]) => void;
@@ -362,10 +364,62 @@ const MultiSelectValue = React.forwardRef<
   );
 });
 
+const selectCaptionVariants = cva("select-caption", {
+  variants: {
+    variant: {
+      default: "select-caption-default",
+      success: "select-caption-success",
+      info: "select-caption-info",
+      error: "select-caption-error",
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+});
+
+interface SelectCaptionProps extends React.ComponentPropsWithoutRef<"span"> {
+  variant?: CaptionType;
+  icon?: IconNameType;
+  asChild?: boolean;
+}
+
+const MultiSelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
+  (props, ref) => {
+    const {
+      icon = undefined,
+      variant = "default",
+      className,
+      children,
+      asChild,
+      ...rest
+    } = props;
+    const { size } = useMultiSelectContext();
+    const Comp = asChild ? Slot : "span";
+
+    return (
+      <Comp
+        ref={ref}
+        className={cn(selectCaptionVariants({ variant, className }))}
+        {...rest}
+      >
+        <Icon
+          name={icon ?? CAPTION_DEFAULT_ICON[variant]}
+          size={ICON_SIZE[size]}
+          className="select-caption-icon"
+        />
+        <Slottable>{children}</Slottable>
+      </Comp>
+    );
+  },
+);
+MultiSelectCaption.displayName = "MultiSelectCaption";
+
 export {
   MultiSelect,
   MultiSelectTrigger,
   MultiSelectContent,
   MultiSelectItem,
   MultiSelectValue,
+  MultiSelectCaption,
 };
