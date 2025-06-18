@@ -76,102 +76,109 @@ const selectVariants = cva("select", {
   },
 });
 
-function MultiSelect({
-  value,
-  defaultValue = [],
-  onValueChange,
-  children,
-  className,
-  size: propSize,
-}: MultiSelectProps) {
-  const { themeSize } = useTheme();
-  const [size, setSize] = React.useState<Size | undefined>(propSize);
+const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
+  function MultiSelect(
+    {
+      value,
+      defaultValue = [],
+      onValueChange,
+      children,
+      className,
+      size: propSize,
+    },
+    ref,
+  ) {
+    const { themeSize } = useTheme();
+    const [size, setSize] = React.useState<Size | undefined>(propSize);
 
-  const [registeredItems, setRegisteredItems] = React.useState<
-    MultiSelectItemType[]
-  >([]);
+    const [registeredItems, setRegisteredItems] = React.useState<
+      MultiSelectItemType[]
+    >([]);
+    const [selectedValues, setSelectedValues] =
+      React.useState<string[]>(defaultValue);
+    const [isOpen, setIsOpen] = React.useState(false);
 
-  const [selectedValues, setSelectedValues] =
-    React.useState<string[]>(defaultValue);
-  const [isOpen, setIsOpen] = React.useState(false);
+    const values = value ?? selectedValues;
+    const setValues = (vals: string[]) => {
+      if (onValueChange) onValueChange(vals);
+      if (value === undefined) setSelectedValues(vals);
+    };
 
-  const values = value ?? selectedValues;
-  const setValues = (vals: string[]) => {
-    if (onValueChange) onValueChange(vals);
-    if (value === undefined) setSelectedValues(vals);
-  };
+    const registerItem = React.useCallback((item: MultiSelectItemType) => {
+      setRegisteredItems((prev) =>
+        prev.find((i) => i.value === item.value) ? prev : [...prev, item],
+      );
+    }, []);
 
-  const registerItem = React.useCallback((item: MultiSelectItemType) => {
-    setRegisteredItems((prev) =>
-      prev.find((i) => i.value === item.value) ? prev : [...prev, item],
+    const selectedItems = React.useMemo(
+      () =>
+        values
+          .map((val) => registeredItems.find((item) => item.value === val))
+          .filter(Boolean) as MultiSelectItemType[],
+      [values, registeredItems],
     );
-  }, []);
 
-  const selectedItems = React.useMemo(
-    () =>
-      values
-        .map((val) => registeredItems.find((item) => item.value === val))
-        .filter(Boolean) as MultiSelectItemType[],
-    [values, registeredItems],
-  );
+    const toggleOption = (item: MultiSelectItemType) => {
+      setValues(
+        values.includes(item.value)
+          ? values.filter((v) => v !== item.value)
+          : [...values, item.value],
+      );
+    };
 
-  const toggleOption = (item: MultiSelectItemType) => {
-    setValues(
-      values.includes(item.value)
-        ? values.filter((v) => v !== item.value)
-        : [...values, item.value],
+    const hiddenRegisterItems = (
+      <div style={{ display: "none" }}>
+        {React.Children.map(children, (child) => {
+          if (
+            React.isValidElement(child) &&
+            (child.type as any).displayName === "MultiSelectItem"
+          ) {
+            return child;
+          }
+          // If it's a group or fragment, recurse
+          if (
+            React.isValidElement(child) &&
+            (child.props as { children?: React.ReactNode }).children
+          ) {
+            return React.Children.map(
+              (child.props as { children?: React.ReactNode }).children,
+              (c) => c,
+            );
+          }
+          return null;
+        })}
+      </div>
     );
-  };
 
-  const hiddenRegisterItems = (
-    <div style={{ display: "none" }}>
-      {React.Children.map(children, (child) => {
-        if (
-          React.isValidElement(child) &&
-          (child.type as any).displayName === "MultiSelectItem"
-        ) {
-          return child;
-        }
-        // If it's a group or fragment, recurse
-        if (
-          React.isValidElement(child) &&
-          (child.props as { children?: React.ReactNode }).children
-        ) {
-          return React.Children.map(
-            (child.props as { children?: React.ReactNode }).children,
-            (c) => c,
-          );
-        }
-        return null;
-      })}
-    </div>
-  );
-
-  return (
-    <MultiSelectContext.Provider
-      value={{
-        size: size ?? propSize ?? themeSize,
-        setSize,
-        selectedItems,
-        setSelectedItems: (items) => setValues(items.map((i) => i.value)),
-        isOpen,
-        setIsOpen,
-        toggleOption,
-        registeredItems,
-        registerItem,
-      }}
-    >
-      {hiddenRegisterItems}
-      <Popover open={isOpen} onOpenChange={setIsOpen}>
-        <div
-          className={cn(selectVariants({ size: size ?? themeSize, className }))}
-        >
-          {children}
-        </div>
-      </Popover>
-    </MultiSelectContext.Provider>
-  );
-}
+    return (
+      <MultiSelectContext.Provider
+        value={{
+          size: size ?? propSize ?? themeSize,
+          setSize,
+          selectedItems,
+          setSelectedItems: (items) => setValues(items.map((i) => i.value)),
+          isOpen,
+          setIsOpen,
+          toggleOption,
+          registeredItems,
+          registerItem,
+        }}
+      >
+        {hiddenRegisterItems}
+        <Popover open={isOpen} onOpenChange={setIsOpen}>
+          <div
+            ref={ref}
+            className={cn(
+              selectVariants({ size: size ?? themeSize, className }),
+            )}
+          >
+            {children}
+          </div>
+        </Popover>
+      </MultiSelectContext.Provider>
+    );
+  },
+);
 
 interface MultiSelectTriggerProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -196,17 +203,19 @@ const selectTriggerVariants = cva("select-trigger", {
   },
 });
 
-function MultiSelectTrigger({
-  className,
-  children,
-  error = false,
-  ...props
-}: MultiSelectTriggerProps) {
+const MultiSelectTrigger = React.forwardRef<
+  HTMLButtonElement,
+  MultiSelectTriggerProps
+>(function MultiSelectTrigger(
+  { className, children, error = false, ...props },
+  ref,
+) {
   const { themeSize } = useTheme();
   const { size } = useMultiSelectContext();
   return (
     <PopoverTrigger asChild>
       <button
+        ref={ref}
         type="button"
         aria-haspopup="listbox"
         className={cn(selectTriggerVariants({ size, error, className }))}
@@ -218,20 +227,25 @@ function MultiSelectTrigger({
       </button>
     </PopoverTrigger>
   );
-}
+});
 
 interface MultiSelectContentProps extends React.HTMLAttributes<HTMLDivElement> {
   maxHeight?: string;
 }
 
-function MultiSelectContent({
-  className,
-  children,
-  maxHeight = "auto",
-  ...props
-}: MultiSelectContentProps) {
+const MultiSelectContent = React.forwardRef<
+  HTMLDivElement,
+  MultiSelectContentProps
+>(function MultiSelectContent(
+  { className, children, maxHeight = "auto", ...props },
+  ref,
+) {
   return (
-    <PopoverContent className={cn("select-content", className)} {...props}>
+    <PopoverContent
+      ref={ref}
+      className={cn("select-content", className)}
+      {...props}
+    >
       <div className={cn("select-viewport")}>
         <ScrollArea maxHeight={maxHeight}>
           {children}
@@ -240,7 +254,7 @@ function MultiSelectContent({
       </div>
     </PopoverContent>
   );
-}
+});
 
 const selectItemVariants = cva("select-item", {
   variants: {
@@ -271,62 +285,69 @@ interface MultiSelectItemProps {
   children: React.ReactNode;
   className?: string;
 }
-function MultiSelectItem({ value, children, className }: MultiSelectItemProps) {
-  const { selectedItems, toggleOption, registerItem } = useMultiSelectContext();
-  const isSelected = selectedItems.some((item) => item.value === value);
+const MultiSelectItem = React.forwardRef<HTMLDivElement, MultiSelectItemProps>(
+  function MultiSelectItem({ value, children, className }, ref) {
+    const { selectedItems, toggleOption, registerItem } =
+      useMultiSelectContext();
+    const isSelected = selectedItems.some((item) => item.value === value);
 
-  // Register this item on mount
-  React.useEffect(() => {
-    registerItem({ value, label: children });
-  }, [value, children, registerItem]);
+    // Register this item on mount
+    React.useEffect(() => {
+      registerItem({ value, label: children });
+    }, [value, children, registerItem]);
 
-  return (
-    <div
-      role="option"
-      aria-selected={isSelected}
-      tabIndex={0}
-      className={cn(
-        selectItemVariants({
-          check: typeof children === "string" ? "left" : "right",
-          className,
-        }),
-      )}
-      onClick={() => toggleOption({ value, label: children })}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ")
-          toggleOption({ value, label: children });
-      }}
-    >
-      {isSelected && (
-        <span
-          className={cn(
-            selectItemCheckVariants({
-              check: typeof children === "string" ? "left" : "right",
-            }),
-          )}
-        >
-          <Icon name="RiCheckLine" size={16} />
-        </span>
-      )}
-      <Slottable>{children}</Slottable>
-    </div>
-  );
-}
+    return (
+      <div
+        ref={ref}
+        role="option"
+        aria-selected={isSelected}
+        tabIndex={0}
+        className={cn(
+          selectItemVariants({
+            check: typeof children === "string" ? "left" : "right",
+            className,
+          }),
+        )}
+        onClick={() => toggleOption({ value, label: children })}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ")
+            toggleOption({ value, label: children });
+        }}
+      >
+        {isSelected && (
+          <span
+            className={cn(
+              selectItemCheckVariants({
+                check: typeof children === "string" ? "left" : "right",
+              }),
+            )}
+          >
+            <Icon name="RiCheckLine" size={16} />
+          </span>
+        )}
+        <Slottable>{children}</Slottable>
+      </div>
+    );
+  },
+);
+MultiSelectItem.displayName = "MultiSelectItem";
 
-function MultiSelectValue({
-  placeholder = "Select...",
-  ...props
-}: {
-  placeholder?: React.ReactNode;
-} & React.HTMLAttributes<HTMLSpanElement>) {
+const MultiSelectValue = React.forwardRef<
+  HTMLSpanElement,
+  { placeholder?: React.ReactNode } & React.HTMLAttributes<HTMLSpanElement>
+>(function MultiSelectValue({ placeholder, ...props }, ref) {
   const { selectedItems, size } = useMultiSelectContext();
 
   if (selectedItems.length === 0) {
-    return <span {...props}>{placeholder}</span>;
+    return (
+      <span ref={ref} {...props}>
+        {placeholder}
+      </span>
+    );
   }
 
   return (
-    <span {...props}>
+    <span ref={ref} {...props}>
       {selectedItems.map((item) => (
         <Tag
           key={item.value}
@@ -339,8 +360,7 @@ function MultiSelectValue({
       ))}
     </span>
   );
-}
-MultiSelectItem.displayName = "MultiSelectItem";
+});
 
 export {
   MultiSelect,
