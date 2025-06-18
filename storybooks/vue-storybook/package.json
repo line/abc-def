@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "vue": "^3.5.16"
+    "vue": "^3.5.17"
   },
   "devDependencies": {
     "@abc-def/eslint-config": "workspace:^",
