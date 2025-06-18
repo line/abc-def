@@ -96,7 +96,7 @@ const meta: Meta<
   component: Select,
   decorators: (Story) => <Story />,
   render: (args) => (
-    <Select>
+    <Select size={args.size}>
       <SelectLabel>{args[Props.SelectLabel.children]}</SelectLabel>
       <SelectTrigger error={args[Props.SelectTrigger.error]}>
         <SelectValue placeholder={args[Props.SelectValue.placeholder]} />
@@ -132,6 +132,7 @@ const meta: Meta<
     </Select>
   ),
   args: {
+    size: undefined,
     [Props.SelectLabel.children]: "Title",
     [Props.SelectTrigger.error]: false,
     [Props.SelectValue.placeholder]: "Select a fruit...",
@@ -143,6 +144,20 @@ const meta: Meta<
     [Props.SelectCaption.children]: "Caption",
   },
   argTypes: {
+    size: {
+      description: "Set the size of the Select.",
+      table: {
+        category: "Select",
+        type: {
+          summary: "large | medium | small | undefined",
+        },
+        defaultValue: {
+          summary: undefined,
+        },
+      },
+      control: "select",
+      options: ["large", "medium", "small", undefined],
+    },
     [Props.SelectTrigger.error]: {
       description: "Set whether the SelectTrigger is in an error state.",
       table: {
@@ -240,11 +255,6 @@ const meta: Meta<
         },
       },
       control: "text",
-    },
-    size: {
-      table: {
-        disable: true,
-      },
     },
     className: {
       table: {

@@ -26,6 +26,19 @@ import { Icon } from "./icon";
 import { ScrollArea, ScrollBar } from "./scroll-area";
 import useTheme from "./use-theme";
 
+type SelectContextType = {
+  size: Size;
+};
+
+const SelectContext = React.createContext<SelectContextType | undefined>(
+  undefined,
+);
+
+function useSelectContext() {
+  const ctx = React.useContext(SelectContext);
+  if (!ctx) throw new Error("Select components must be used within <Select>");
+  return ctx;
+}
 interface SelectProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root> {
   className?: string;
@@ -48,9 +61,13 @@ const selectVariants = cva("select", {
 const Select = ({ size, className, ...props }: SelectProps) => {
   const { themeSize } = useTheme();
   return (
-    <div className={cn(selectVariants({ size: size ?? themeSize, className }))}>
-      <SelectPrimitive.Root {...props}></SelectPrimitive.Root>
-    </div>
+    <SelectContext.Provider value={{ size: size ?? themeSize }}>
+      <div
+        className={cn(selectVariants({ size: size ?? themeSize, className }))}
+      >
+        <SelectPrimitive.Root {...props}></SelectPrimitive.Root>
+      </div>
+    </SelectContext.Provider>
   );
 };
 
@@ -79,26 +96,23 @@ const selectTriggerVariants = cva("select-trigger", {
 interface SelectTriggerProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {
   error?: boolean;
-  size?: Size;
 }
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   SelectTriggerProps
->(({ size, error, className, children, ...props }, ref) => {
-  const { themeSize } = useTheme();
+>(({ error, className, children, ...props }, ref) => {
+  const { size } = useSelectContext();
 
   return (
     <SelectPrimitive.Trigger
       ref={ref}
-      className={cn(
-        selectTriggerVariants({ size: size ?? themeSize, error, className }),
-      )}
+      className={cn(selectTriggerVariants({ size, error, className }))}
       {...props}
     >
       <Slottable>{children}</Slottable>
       <SelectPrimitive.Icon asChild>
-        <Icon name="RiArrowDownSLine" size={ICON_SIZE[size ?? themeSize]} />
+        <Icon name="RiArrowDownSLine" size={ICON_SIZE[size]} />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -244,7 +258,6 @@ const selectCaptionVariants = cva("select-caption", {
 interface SelectCaptionProps extends React.ComponentPropsWithoutRef<"span"> {
   variant?: CaptionType;
   icon?: IconNameType;
-  size?: Size;
   asChild?: boolean;
 }
 
@@ -253,13 +266,12 @@ const SelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
     const {
       icon = undefined,
       variant = "default",
-      size,
       className,
       children,
       asChild,
       ...rest
     } = props;
-    const { themeSize } = useTheme();
+    const { size } = useSelectContext();
     const Comp = asChild ? Slot : "span";
 
     return (
@@ -270,7 +282,7 @@ const SelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
       >
         <Icon
           name={icon ?? CAPTION_DEFAULT_ICON[variant]}
-          size={ICON_SIZE[size ?? themeSize]}
+          size={ICON_SIZE[size]}
           className="select-caption-icon"
         />
         <Slottable>{children}</Slottable>
