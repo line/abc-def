@@ -31,6 +31,8 @@ import useTheme from "./use-theme";
 type MultiSelectItemType = { value: string; label: React.ReactNode };
 
 type MultiSelectContextType = {
+  error: boolean;
+  disabled: boolean;
   size: Size;
   setSize?: (size: Size) => void;
   selectedItems: MultiSelectItemType[];
@@ -60,6 +62,8 @@ interface MultiSelectProps {
   children: React.ReactNode;
   className?: string;
   size?: Size;
+  error?: boolean;
+  disabled?: boolean;
 }
 
 const selectVariants = cva("select", {
@@ -82,6 +86,8 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       children,
       className,
       size: propSize,
+      error = false,
+      disabled = false,
     },
     ref,
   ) {
@@ -150,6 +156,8 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
     return (
       <MultiSelectContext.Provider
         value={{
+          error,
+          disabled,
           size: size ?? propSize ?? themeSize,
           setSize,
           selectedItems,
@@ -197,11 +205,8 @@ const selectTriggerVariants = cva("select-trigger", {
 const MultiSelectTrigger = React.forwardRef<
   HTMLButtonElement,
   MultiSelectTriggerProps
->(function MultiSelectTrigger(
-  { className, children, error = false, ...props },
-  ref,
-) {
-  const { size } = useMultiSelectContext();
+>(function MultiSelectTrigger({ className, children, ...props }, ref) {
+  const { size, error, disabled } = useMultiSelectContext();
   return (
     <PopoverTrigger asChild>
       <button
@@ -210,6 +215,7 @@ const MultiSelectTrigger = React.forwardRef<
         aria-haspopup="listbox"
         className={cn(selectTriggerVariants({ size, error, className }))}
         data-placeholder
+        disabled={disabled}
         {...props}
       >
         <Slottable>{children}</Slottable>
@@ -373,23 +379,33 @@ const MultiSelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
   (props, ref) => {
     const {
       icon = undefined,
-      variant = "default",
+      variant,
       className,
       children,
       asChild,
       ...rest
     } = props;
-    const { size } = useMultiSelectContext();
+    const { size, error } = useMultiSelectContext();
     const Comp = asChild ? Slot : "span";
 
     return (
       <Comp
         ref={ref}
-        className={cn(selectCaptionVariants({ variant, className }))}
+        className={cn(
+          selectCaptionVariants({
+            variant: error ? (variant ?? "error") : (variant ?? "default"),
+            className,
+          }),
+        )}
         {...rest}
       >
         <Icon
-          name={icon ?? CAPTION_DEFAULT_ICON[variant]}
+          name={
+            icon ??
+            CAPTION_DEFAULT_ICON[
+              error ? (variant ?? "error") : (variant ?? "default")
+            ]
+          }
           size={ICON_SIZE[size]}
           className="select-caption-icon"
         />

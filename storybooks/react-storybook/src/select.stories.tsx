@@ -40,7 +40,6 @@ import {
 
 const Props = {
   SelectLabel: { children: "↳ SelectLabel: children" },
-  SelectTrigger: { error: "↳ SelectTrigger: error" },
   SelectValue: { placeholder: "↳ SelectValue: placeholder" },
   SelectContent: {
     position: "↳ SelectContent: position",
@@ -62,9 +61,6 @@ const meta: Meta<
     [Props.SelectLabel.children]: React.ComponentPropsWithoutRef<
       typeof SelectLabel
     >["children"];
-    [Props.SelectTrigger.error]: React.ComponentPropsWithoutRef<
-      typeof SelectTrigger
-    >["error"];
     [Props.SelectValue.placeholder]: React.ComponentPropsWithoutRef<
       typeof SelectValue
     >["placeholder"];
@@ -92,9 +88,9 @@ const meta: Meta<
   component: Select,
   decorators: (Story) => <Story />,
   render: (args) => (
-    <Select size={args.size}>
+    <Select size={args.size} error={args.error} disabled={args.disabled}>
       <SelectLabel>{args[Props.SelectLabel.children]}</SelectLabel>
-      <SelectTrigger error={args[Props.SelectTrigger.error]}>
+      <SelectTrigger>
         <SelectValue placeholder={args[Props.SelectValue.placeholder]} />
       </SelectTrigger>
       <SelectContent
@@ -129,8 +125,9 @@ const meta: Meta<
   ),
   args: {
     size: undefined,
+    error: false,
+    disabled: false,
     [Props.SelectLabel.children]: "Title",
-    [Props.SelectTrigger.error]: false,
     [Props.SelectValue.placeholder]: "Select a fruit...",
     [Props.SelectContent.position]: "popper",
     [Props.SelectContent.maxHeight]: "auto",
@@ -150,9 +147,13 @@ const meta: Meta<
       control: "select",
       options: ["large", "medium", "small", undefined],
     },
-    [Props.SelectTrigger.error]: {
-      description: "Set whether the SelectTrigger is in an error state.",
-      table: { category: "SelectTrigger", defaultValue: { summary: "false" } },
+    error: {
+      description: "Set whether the Select is in an error state.",
+      table: { category: "Select", defaultValue: { summary: "false" } },
+    },
+    disabled: {
+      description: "Set whether the Select is in an disabled state.",
+      table: { category: "Select", defaultValue: { summary: "false" } },
     },
     [Props.SelectLabel.children]: {
       description: "Set the children of the SelectLabel.",
@@ -294,10 +295,11 @@ export const Single_With_Icon = () => {
 export const Error = () => {
   return (
     <Select
+      error
       onValueChange={(value) => console.log("single select value: ", value)}
     >
       <SelectLabel>Label</SelectLabel>
-      <SelectTrigger error>
+      <SelectTrigger>
         <SelectValue placeholder="Select a timezone (Disabled)" />
       </SelectTrigger>
       <SelectContent>
@@ -311,7 +313,7 @@ export const Error = () => {
           <SelectItem value="img">image</SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption variant="error">
+      <SelectCaption>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit.
       </SelectCaption>
     </Select>
@@ -321,10 +323,11 @@ export const Error = () => {
 export const Disabled = () => {
   return (
     <Select
+      disabled
       onValueChange={(value) => console.log("single select value: ", value)}
     >
       <SelectLabel>Label</SelectLabel>
-      <SelectTrigger disabled>
+      <SelectTrigger>
         <SelectValue placeholder="Select a timezone (Disabled)" />
       </SelectTrigger>
       <SelectContent>
@@ -366,11 +369,12 @@ export const Multi = () => (
 
 export const Multi_Error = () => (
   <MultiSelect
+    error
     defaultValue={["txt", "kwd"]}
     onValueChange={(value) => console.log(value.join(", "))}
   >
     <MultiSelectLabel>Label</MultiSelectLabel>
-    <MultiSelectTrigger error>
+    <MultiSelectTrigger>
       <MultiSelectValue placeholder="Select a format" />
     </MultiSelectTrigger>
     <MultiSelectContent>
@@ -382,17 +386,18 @@ export const Multi_Error = () => (
       <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
       <MultiSelectItem value="img">image</MultiSelectItem>
     </MultiSelectContent>
-    <MultiSelectCaption variant="error">Caption Info</MultiSelectCaption>
+    <MultiSelectCaption>Caption Info</MultiSelectCaption>
   </MultiSelect>
 );
 
 export const Multi_Disabled = () => (
   <MultiSelect
+    disabled
     defaultValue={["txt", "kwd"]}
     onValueChange={(value) => console.log(value.join(", "))}
   >
     <MultiSelectLabel>Label</MultiSelectLabel>
-    <MultiSelectTrigger disabled>
+    <MultiSelectTrigger>
       <MultiSelectValue placeholder="Select a format" />
     </MultiSelectTrigger>
     <MultiSelectContent>
