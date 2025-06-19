@@ -119,7 +119,8 @@ export const NavBarWithSelect = () => {
   return (
     <div className="navbar">
       <Select size="small">
-        <SelectTrigger icon="RiFlashlightFill">
+        <SelectTrigger>
+          <Icon name="RiFlashlightFill" size={16} />
           <SelectValue placeholder="Select an item" />
         </SelectTrigger>
         <SelectContent>
@@ -200,7 +201,8 @@ export const OnlySelect = () => {
   return (
     <div className="navbar">
       <Select size="small">
-        <SelectTrigger icon="RiFlashlightFill" className="navbar-select">
+        <SelectTrigger className="navbar-select">
+          <Icon name="RiFlashlightFill" size={16} />
           <SelectValue placeholder="Select an item" />
         </SelectTrigger>
         <SelectContent>
