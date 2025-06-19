@@ -23,6 +23,7 @@ import {
   MultiSelectCaption,
   MultiSelectContent,
   MultiSelectItem,
+  MultiSelectLabel,
   MultiSelectTrigger,
   MultiSelectValue,
   Select,
@@ -38,15 +39,9 @@ import {
 } from "@abc-def/react";
 
 const Props = {
-  SelectLabel: {
-    children: "↳ SelectLabel: children",
-  },
-  SelectTrigger: {
-    error: "↳ SelectTrigger: error",
-  },
-  SelectValue: {
-    placeholder: "↳ SelectValue: placeholder",
-  },
+  SelectLabel: { children: "↳ SelectLabel: children" },
+  SelectTrigger: { error: "↳ SelectTrigger: error" },
+  SelectValue: { placeholder: "↳ SelectValue: placeholder" },
   SelectContent: {
     position: "↳ SelectContent: position",
     maxHeight: "↳ SelectContent: maxHeight",
@@ -149,101 +144,59 @@ const meta: Meta<
       description: "Set the size of the Select.",
       table: {
         category: "Select",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
+        type: { summary: "large | medium | small | undefined" },
+        defaultValue: { summary: undefined },
       },
       control: "select",
       options: ["large", "medium", "small", undefined],
     },
     [Props.SelectTrigger.error]: {
       description: "Set whether the SelectTrigger is in an error state.",
-      table: {
-        category: "SelectTrigger",
-        defaultValue: {
-          summary: "false",
-        },
-      },
+      table: { category: "SelectTrigger", defaultValue: { summary: "false" } },
     },
     [Props.SelectLabel.children]: {
       description: "Set the children of the SelectLabel.",
-      table: {
-        category: "SelectLabel",
-        type: {
-          summary: "React.ReactNode",
-        },
-      },
+      table: { category: "SelectLabel", type: { summary: "React.ReactNode" } },
       control: "text",
     },
     [Props.SelectValue.placeholder]: {
       description: "Set the placeholder of the SelectValue.",
-      table: {
-        category: "SelectValue",
-        type: {
-          summary: "string",
-        },
-      },
+      table: { category: "SelectValue", type: { summary: "string" } },
       control: "text",
     },
     [Props.SelectContent.position]: {
       description: "Set the position where the SelectContent appears.",
       table: {
         category: "SelectContent",
-        defaultValue: {
-          summary: "popper",
-        },
-        type: {
-          summary: "item-aligned | popper",
-        },
+        defaultValue: { summary: "popper" },
+        type: { summary: "item-aligned | popper" },
       },
       control: "radio",
       options: ["item-aligned", "popper"],
     },
     [Props.SelectContent.maxHeight]: {
       description: "Set the maximum height of the SelectContent.",
-      table: {
-        category: "SelectContent",
-        type: {
-          summary: "string",
-        },
-      },
+      table: { category: "SelectContent", type: { summary: "string" } },
       control: "text",
     },
     [Props.SelectItem.children]: {
       description: "Set the children of the SelectItem.",
-      table: {
-        category: "SelectItem",
-        type: {
-          summary: "React.ReactNode",
-        },
-      },
+      table: { category: "SelectItem", type: { summary: "React.ReactNode" } },
       control: "text",
     },
     [Props.SelectCaption.variant]: {
       description: "Set the variant of the SelectCaption.",
       table: {
         category: "SelectCaption",
-        type: {
-          summary: "default | success | info | error",
-        },
-        defaultValue: {
-          summary: "default",
-        },
+        type: { summary: "default | success | info | error" },
+        defaultValue: { summary: "default" },
       },
       control: "radio",
       options: ["default", "success", "info", "error"],
     },
     [Props.SelectCaption.icon]: {
       description: "Set the left icon of the SelectCaption.",
-      table: {
-        category: "SelectCaption",
-        type: {
-          summary: "IconNameType",
-        },
-      },
+      table: { category: "SelectCaption", type: { summary: "IconNameType" } },
       control: "select",
       options: IconNames,
     },
@@ -251,22 +204,12 @@ const meta: Meta<
       description: "Set the children of the SelectCaption.",
       table: {
         category: "SelectCaption",
-        type: {
-          summary: "React.ReactNode",
-        },
+        type: { summary: "React.ReactNode" },
       },
       control: "text",
     },
-    className: {
-      table: {
-        disable: true,
-      },
-    },
-    value: {
-      table: {
-        disable: true,
-      },
-    },
+    className: { table: { disable: true } },
+    value: { table: { disable: true } },
   },
 };
 
@@ -404,8 +347,52 @@ export const Disabled = () => {
 
 export const Multi = () => (
   <MultiSelect onValueChange={(value) => console.log(value.join(", "))}>
-    <SelectLabel>Label</SelectLabel>
+    <MultiSelectLabel>Label</MultiSelectLabel>
     <MultiSelectTrigger>
+      <MultiSelectValue placeholder="Select a format" />
+    </MultiSelectTrigger>
+    <MultiSelectContent>
+      <MultiSelectItem value="txt">text</MultiSelectItem>
+      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
+      <MultiSelectItem value="num">number</MultiSelectItem>
+      <MultiSelectItem value="dat">date</MultiSelectItem>
+      <MultiSelectItem value="sel">select</MultiSelectItem>
+      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
+      <MultiSelectItem value="img">image</MultiSelectItem>
+    </MultiSelectContent>
+    <MultiSelectCaption>Caption Info</MultiSelectCaption>
+  </MultiSelect>
+);
+
+export const Multi_Error = () => (
+  <MultiSelect
+    defaultValue={["txt", "kwd"]}
+    onValueChange={(value) => console.log(value.join(", "))}
+  >
+    <MultiSelectLabel>Label</MultiSelectLabel>
+    <MultiSelectTrigger error>
+      <MultiSelectValue placeholder="Select a format" />
+    </MultiSelectTrigger>
+    <MultiSelectContent>
+      <MultiSelectItem value="txt">text</MultiSelectItem>
+      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
+      <MultiSelectItem value="num">number</MultiSelectItem>
+      <MultiSelectItem value="dat">date</MultiSelectItem>
+      <MultiSelectItem value="sel">select</MultiSelectItem>
+      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
+      <MultiSelectItem value="img">image</MultiSelectItem>
+    </MultiSelectContent>
+    <MultiSelectCaption variant="error">Caption Info</MultiSelectCaption>
+  </MultiSelect>
+);
+
+export const Multi_Disabled = () => (
+  <MultiSelect
+    defaultValue={["txt", "kwd"]}
+    onValueChange={(value) => console.log(value.join(", "))}
+  >
+    <MultiSelectLabel>Label</MultiSelectLabel>
+    <MultiSelectTrigger disabled>
       <MultiSelectValue placeholder="Select a format" />
     </MultiSelectTrigger>
     <MultiSelectContent>
@@ -426,7 +413,7 @@ export const Multi_With_Icon = () => (
     defaultValue={["txt", "kwd"]}
     onValueChange={(value) => console.log(value.join(", "))}
   >
-    <SelectLabel>Label</SelectLabel>
+    <MultiSelectLabel>Label</MultiSelectLabel>
     <MultiSelectTrigger>
       <MultiSelectValue placeholder="Select a format" />
     </MultiSelectTrigger>

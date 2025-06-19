@@ -28,10 +28,7 @@ import { ScrollArea, ScrollBar } from "./scroll-area";
 import { Tag } from "./tag";
 import useTheme from "./use-theme";
 
-type MultiSelectItemType = {
-  value: string;
-  label: React.ReactNode;
-};
+type MultiSelectItemType = { value: string; label: React.ReactNode };
 
 type MultiSelectContextType = {
   size: Size;
@@ -72,9 +69,7 @@ const selectVariants = cva("select", {
       medium: "select-medium",
       large: "select-large",
     },
-    defaultVariants: {
-      size: undefined,
-    },
+    defaultVariants: { size: undefined },
   },
 });
 
@@ -194,15 +189,9 @@ const selectTriggerVariants = cva("select-trigger", {
       medium: "select-trigger-medium",
       large: "select-trigger-large",
     },
-    error: {
-      true: "select-trigger-error",
-      false: "",
-    },
+    error: { true: "select-trigger-error", false: "" },
   },
-  defaultVariants: {
-    size: undefined,
-    error: false,
-  },
+  defaultVariants: { size: undefined, error: false },
 });
 
 const MultiSelectTrigger = React.forwardRef<
@@ -258,27 +247,15 @@ const MultiSelectContent = React.forwardRef<
 });
 
 const selectItemVariants = cva("select-item", {
-  variants: {
-    check: {
-      left: "select-item-left",
-      right: "select-item-right",
-    },
-  },
-  defaultVariants: {
-    check: "left",
-  },
+  variants: { check: { left: "select-item-left", right: "select-item-right" } },
+  defaultVariants: { check: "left" },
 });
 
 const selectItemCheckVariants = cva("select-item-check", {
   variants: {
-    check: {
-      left: "select-item-check-left",
-      right: "select-item-check-right",
-    },
+    check: { left: "select-item-check-left", right: "select-item-check-right" },
   },
-  defaultVariants: {
-    check: "left",
-  },
+  defaultVariants: { check: "left" },
 });
 
 interface MultiSelectItemProps {
@@ -363,6 +340,17 @@ const MultiSelectValue = React.forwardRef<
   );
 });
 
+const MultiSelectLabel = React.forwardRef<
+  HTMLElement,
+  React.ComponentPropsWithoutRef<"strong">
+>((props, ref) => {
+  const { className, ...rest } = props;
+  return (
+    <strong ref={ref} className={cn("select-label", className)} {...rest} />
+  );
+});
+MultiSelectLabel.displayName = "MultiSelectLabel";
+
 const selectCaptionVariants = cva("select-caption", {
   variants: {
     variant: {
@@ -371,9 +359,7 @@ const selectCaptionVariants = cva("select-caption", {
       info: "select-caption-info",
       error: "select-caption-error",
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    defaultVariants: { variant: "default" },
   },
 });
 
@@ -416,6 +402,7 @@ MultiSelectCaption.displayName = "MultiSelectCaption";
 
 export {
   MultiSelect,
+  MultiSelectLabel,
   MultiSelectTrigger,
   MultiSelectContent,
   MultiSelectItem,
