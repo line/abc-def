@@ -133,7 +133,7 @@ const meta: Meta<
     [Props.SelectContent.maxHeight]: "auto",
     [Props.SelectItem.children]: "Custom",
     [Props.SelectCaption.icon]: undefined,
-    [Props.SelectCaption.variant]: "default",
+    [Props.SelectCaption.variant]: undefined,
     [Props.SelectCaption.children]: "Caption",
   },
   argTypes: {
@@ -189,11 +189,11 @@ const meta: Meta<
       description: "Set the variant of the SelectCaption.",
       table: {
         category: "SelectCaption",
-        type: { summary: "default | success | info | error" },
-        defaultValue: { summary: "default" },
+        type: { summary: "default | success | info | error | undefined" },
+        defaultValue: { summary: undefined },
       },
       control: "radio",
-      options: ["default", "success", "info", "error"],
+      options: ["default", "success", "info", "error", undefined],
     },
     [Props.SelectCaption.icon]: {
       description: "Set the left icon of the SelectCaption.",
