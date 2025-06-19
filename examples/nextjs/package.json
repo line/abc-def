@@ -15,9 +15,9 @@
   "dependencies": {
     "@abc-def/react": "workspace:^",
     "clsx": "^2.1.1",
-    "next": "^14.2.28",
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
+    "next": "^15.0.0",
+    "react": "catalog:react",
+    "react-dom": "catalog:react",
     "zod": "^3.24.4"
   },
   "devDependencies": {
@@ -25,14 +25,12 @@
     "@abc-def/prettier-config": "workspace:^",
     "@abc-def/tailwindcss": "workspace:^",
     "@abc-def/tsconfig": "workspace:^",
-    "@chromatic-com/storybook": "^3.2.6",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.17.30",
-    "@types/react": "catalog:react18",
-    "@types/react-dom": "catalog:react18",
+    "@types/react": "catalog:react",
+    "@types/react-dom": "catalog:react",
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "storybook": "^8.6.12",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },

@@ -1,4 +1,4 @@
-# ABC Def (ABC Studio's Definitely Elements Foundation)
+# ABC Def (ABC Studio's Definitive Elements Foundation)
 
 ![040fc666-db66-47ab-986d-8e5addef3728](https://github.com/user-attachments/assets/849abcbd-99b2-431c-a24a-d86dbf39849e)
 

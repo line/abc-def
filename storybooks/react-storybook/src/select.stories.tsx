@@ -17,7 +17,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
 import {
+  Icon,
   IconNames,
+  MultiSelect,
+  MultiSelectCaption,
+  MultiSelectContent,
+  MultiSelectItem,
+  MultiSelectTrigger,
+  MultiSelectValue,
   Select,
   SelectCaption,
   SelectContent,
@@ -34,15 +41,15 @@ const Props = {
   SelectLabel: {
     children: "↳ SelectLabel: children",
   },
+  SelectTrigger: {
+    error: "↳ SelectTrigger: error",
+  },
   SelectValue: {
     placeholder: "↳ SelectValue: placeholder",
   },
   SelectContent: {
     position: "↳ SelectContent: position",
     maxHeight: "↳ SelectContent: maxHeight",
-  },
-  SelectTrigger: {
-    icon: "↳ SelectTrigger: icon",
   },
   SelectItem: {
     icon: "↳ SelectItem: icon",
@@ -60,6 +67,9 @@ const meta: Meta<
     [Props.SelectLabel.children]: React.ComponentPropsWithoutRef<
       typeof SelectLabel
     >["children"];
+    [Props.SelectTrigger.error]: React.ComponentPropsWithoutRef<
+      typeof SelectTrigger
+    >["error"];
     [Props.SelectValue.placeholder]: React.ComponentPropsWithoutRef<
       typeof SelectValue
     >["placeholder"];
@@ -69,12 +79,6 @@ const meta: Meta<
     [Props.SelectContent.maxHeight]: React.ComponentPropsWithoutRef<
       typeof SelectContent
     >["maxHeight"];
-    [Props.SelectTrigger.icon]: React.ComponentPropsWithoutRef<
-      typeof SelectTrigger
-    >["icon"];
-    [Props.SelectItem.icon]: React.ComponentPropsWithoutRef<
-      typeof SelectItem
-    >["icon"];
     [Props.SelectItem.children]: React.ComponentPropsWithoutRef<
       typeof SelectItem
     >["children"];
@@ -93,9 +97,9 @@ const meta: Meta<
   component: Select,
   decorators: (Story) => <Story />,
   render: (args) => (
-    <Select type={args.type} error={args.error}>
+    <Select size={args.size}>
       <SelectLabel>{args[Props.SelectLabel.children]}</SelectLabel>
-      <SelectTrigger icon={args[Props.SelectTrigger.icon]}>
+      <SelectTrigger error={args[Props.SelectTrigger.error]}>
         <SelectValue placeholder={args[Props.SelectValue.placeholder]} />
       </SelectTrigger>
       <SelectContent
@@ -108,9 +112,16 @@ const meta: Meta<
           <SelectItem value="ban">Banana</SelectItem>
           <SelectItem value="blu">Blueberry</SelectItem>
           <SelectItem value="gra">Grapes</SelectItem>
-          <SelectItem value="pin" icon={args[Props.SelectItem.icon]}>
-            {args[Props.SelectItem.children]}
-          </SelectItem>
+          <SelectItem value="pin">{args[Props.SelectItem.children]}</SelectItem>
+        </SelectGroup>
+        <SelectSeparator />
+        <SelectGroup>
+          <SelectGroupLabel>Vegetables</SelectGroupLabel>
+          <SelectItem value="tom">Tomato</SelectItem>
+          <SelectItem value="cab">Cabbage</SelectItem>
+          <SelectItem value="let">Lettuce</SelectItem>
+          <SelectItem value="car">Carrot</SelectItem>
+          <SelectItem value="oni">Onion</SelectItem>
         </SelectGroup>
       </SelectContent>
       <SelectCaption
@@ -122,39 +133,36 @@ const meta: Meta<
     </Select>
   ),
   args: {
-    type: "single",
-    error: false,
+    size: undefined,
     [Props.SelectLabel.children]: "Title",
+    [Props.SelectTrigger.error]: false,
     [Props.SelectValue.placeholder]: "Select a fruit...",
     [Props.SelectContent.position]: "popper",
     [Props.SelectContent.maxHeight]: "auto",
-    [Props.SelectTrigger.icon]: undefined,
-    [Props.SelectItem.icon]: undefined,
     [Props.SelectItem.children]: "Custom",
     [Props.SelectCaption.icon]: undefined,
     [Props.SelectCaption.variant]: "default",
     [Props.SelectCaption.children]: "Caption",
   },
   argTypes: {
-    type: {
-      description:
-        "Set whether the Select is single or multiple selection type.",
+    size: {
+      description: "Set the size of the Select.",
       table: {
         category: "Select",
         type: {
-          summary: "single | multiple",
+          summary: "large | medium | small | undefined",
         },
         defaultValue: {
-          summary: "single",
+          summary: undefined,
         },
       },
-      control: "radio",
-      options: ["single", "multiple"],
+      control: "select",
+      options: ["large", "medium", "small", undefined],
     },
-    error: {
-      description: "Set whether the Select is in an error state.",
+    [Props.SelectTrigger.error]: {
+      description: "Set whether the SelectTrigger is in an error state.",
       table: {
-        category: "Select",
+        category: "SelectTrigger",
         defaultValue: {
           summary: "false",
         },
@@ -204,28 +212,6 @@ const meta: Meta<
       },
       control: "text",
     },
-    [Props.SelectTrigger.icon]: {
-      description: "Set the left icon of the SelectTrigger.",
-      table: {
-        category: "SelectTrigger",
-        type: {
-          summary: "IconNameType",
-        },
-      },
-      control: "select",
-      options: IconNames,
-    },
-    [Props.SelectItem.icon]: {
-      description: "Set the left icon of the SelectItem.",
-      table: {
-        category: "SelectItem",
-        type: {
-          summary: "IconNameType",
-        },
-      },
-      control: "select",
-      options: IconNames,
-    },
     [Props.SelectItem.children]: {
       description: "Set the children of the SelectItem.",
       table: {
@@ -271,22 +257,12 @@ const meta: Meta<
       },
       control: "text",
     },
-    size: {
+    className: {
       table: {
         disable: true,
       },
     },
     value: {
-      table: {
-        disable: true,
-      },
-    },
-    onValuesChange: {
-      table: {
-        disable: true,
-      },
-    },
-    values: {
       table: {
         disable: true,
       },
@@ -303,14 +279,13 @@ export const Default: Story = {};
 export const Single = () => {
   return (
     <Select
-      type="single"
       onValueChange={(value) => console.log("single select value: ", value)}
     >
       <SelectLabel>Label</SelectLabel>
       <SelectTrigger>
         <SelectValue placeholder="Select a format" />
       </SelectTrigger>
-      <SelectContent maxHeight="384px">
+      <SelectContent>
         <SelectGroup>
           <SelectItem value="txt">text</SelectItem>
           <SelectItem value="kwd">keyword</SelectItem>
@@ -329,208 +304,162 @@ export const Single = () => {
 export const Single_With_Icon = () => {
   return (
     <Select
-      type="single"
-      value="txt"
+      defaultValue="txt"
       onValueChange={(value) => console.log("single select value: ", value)}
     >
       <SelectLabel>Label</SelectLabel>
       <SelectTrigger>
         <SelectValue placeholder="Select a format" />
       </SelectTrigger>
-      <SelectContent maxHeight="384px">
+      <SelectContent>
         <SelectGroup>
-          <SelectItem value="txt" icon="RiMenu2Line">
+          <SelectItem value="txt">
+            <Icon className="mr-2" name="RiMenu2Line" size={16} />
             text
           </SelectItem>
-          <SelectItem value="kwd" icon="RiFontSize">
+          <SelectItem value="kwd">
+            <Icon className="mr-2" name="RiFontSize" size={16} />
             keyword
           </SelectItem>
-          <SelectItem value="num" icon="RiHashtag">
+          <SelectItem value="num">
+            <Icon className="mr-2" name="RiHashtag" size={16} />
             number
           </SelectItem>
-          <SelectItem value="dat" icon="RiCalendar2Line">
+          <SelectItem value="dat">
+            <Icon className="mr-2" name="RiCalendar2Line" size={16} />
             date
           </SelectItem>
-          <SelectItem value="sel" icon="RiCheckboxCircleLine">
+          <SelectItem value="sel">
+            <Icon className="mr-2" name="RiCheckboxCircleLine" size={16} />
             select
           </SelectItem>
-          <SelectItem value="mul" icon="RiListView">
+          <SelectItem value="mul">
+            <Icon className="mr-2" name="RiListView" size={16} />
             multiSelect
           </SelectItem>
-          <SelectItem value="img" icon="RiImageLine">
+          <SelectItem value="img">
+            <Icon className="mr-2" name="RiImageLine" size={16} />
             image
           </SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption variant="info">Caption Info</SelectCaption>
+      <SelectCaption variant="success">Caption Info</SelectCaption>
     </Select>
   );
 };
 
-export const Multiple = () => {
+export const Error = () => {
   return (
     <Select
-      type="multiple"
-      values={[]}
-      onValuesChange={(values) =>
-        console.log("multiple select values: ", values.join(", "))
-      }
+      onValueChange={(value) => console.log("single select value: ", value)}
     >
       <SelectLabel>Label</SelectLabel>
-      <SelectTrigger>
-        <SelectValue placeholder="Select a fruit" />
+      <SelectTrigger error>
+        <SelectValue placeholder="Select a timezone (Disabled)" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectGroupLabel>Fruits</SelectGroupLabel>
-          <SelectItem value="app">Apple</SelectItem>
-          <SelectItem value="ban">Banana</SelectItem>
-          <SelectItem value="blu">Blueberry</SelectItem>
-          <SelectItem value="gra">Grapes</SelectItem>
-          <SelectItem value="pin">Pineapple</SelectItem>
+          <SelectItem value="txt">text</SelectItem>
+          <SelectItem value="kwd">keyword</SelectItem>
+          <SelectItem value="num">number</SelectItem>
+          <SelectItem value="dat">date</SelectItem>
+          <SelectItem value="sel">select</SelectItem>
+          <SelectItem value="mul">multiSelect</SelectItem>
+          <SelectItem value="img">image</SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption variant="success">Caption Success</SelectCaption>
-    </Select>
-  );
-};
-
-export const Multiple_With_Icon = () => {
-  return (
-    <Select
-      type="multiple"
-      values={["app", "ban", "blu"]}
-      onValuesChange={(values) =>
-        console.log("multiple select values: ", values.join(", "))
-      }
-    >
-      <SelectLabel>Label</SelectLabel>
-      <SelectTrigger>
-        <SelectValue placeholder="Select a fruit" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectGroupLabel>Fruits</SelectGroupLabel>
-          <SelectItem value="app" icon="RiAppleLine">
-            Apple
-          </SelectItem>
-          <SelectItem value="ban" icon="Ri4kLine">
-            Banana
-          </SelectItem>
-          <SelectItem value="blu" icon="RiBlueskyLine">
-            Blueberry
-          </SelectItem>
-          <SelectItem value="gra" icon="RiGraduationCapLine">
-            Grapes
-          </SelectItem>
-          <SelectItem value="pin" icon="RiMapPinAddLine">
-            Pineapple
-          </SelectItem>
-        </SelectGroup>
-      </SelectContent>
-      <SelectCaption variant="error">Caption Error</SelectCaption>
+      <SelectCaption variant="error">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      </SelectCaption>
     </Select>
   );
 };
 
 export const Disabled = () => {
   return (
-    <div className="grid grid-cols-2 gap-2">
-      <Select
-        type="single"
-        onValueChange={(value) => console.log("single select value: ", value)}
-      >
-        <SelectLabel>Label</SelectLabel>
-        <SelectTrigger disabled>
-          <SelectValue placeholder="Select a timezone (Disabled)" />
-        </SelectTrigger>
-        <SelectContent maxHeight="384px">
-          <SelectGroup>
-            <SelectGroupLabel>North America</SelectGroupLabel>
-            <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-            <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-            <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
-            <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-            <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
-            <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
-          </SelectGroup>
-          <SelectSeparator />
-          <SelectGroup>
-            <SelectGroupLabel>Europe & Africa</SelectGroupLabel>
-            <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
-            <SelectItem value="cet">Central European Time (CET)</SelectItem>
-            <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
-            <SelectItem value="west">
-              Western European Summer Time (WEST)
-            </SelectItem>
-            <SelectItem value="cat">Central Africa Time (CAT)</SelectItem>
-            <SelectItem value="eat">East Africa Time (EAT)</SelectItem>
-          </SelectGroup>
-          <SelectSeparator />
-          <SelectGroup>
-            <SelectGroupLabel>Asia</SelectGroupLabel>
-            <SelectItem value="msk">Moscow Time (MSK)</SelectItem>
-            <SelectItem value="ist">India Standard Time (IST)</SelectItem>
-            <SelectItem value="cst_china">China Standard Time (CST)</SelectItem>
-            <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
-            <SelectItem value="kst">Korea Standard Time (KST)</SelectItem>
-            <SelectItem value="ist_indonesia">
-              Indonesia Central Standard Time (WITA)
-            </SelectItem>
-          </SelectGroup>
-          <SelectSeparator />
-          <SelectGroup>
-            <SelectGroupLabel>Australia & Pacific</SelectGroupLabel>
-            <SelectItem value="awst">
-              Australian Western Standard Time (AWST)
-            </SelectItem>
-            <SelectItem value="acst">
-              Australian Central Standard Time (ACST)
-            </SelectItem>
-            <SelectItem value="aest">
-              Australian Eastern Standard Time (AEST)
-            </SelectItem>
-            <SelectItem value="nzst">
-              New Zealand Standard Time (NZST)
-            </SelectItem>
-            <SelectItem value="fjt">Fiji Time (FJT)</SelectItem>
-          </SelectGroup>
-          <SelectSeparator />
-          <SelectGroup>
-            <SelectGroupLabel>South America</SelectGroupLabel>
-            <SelectItem value="art">Argentina Time (ART)</SelectItem>
-            <SelectItem value="bot">Bolivia Time (BOT)</SelectItem>
-            <SelectItem value="brt">Brasilia Time (BRT)</SelectItem>
-            <SelectItem value="clt">Chile Standard Time (CLT)</SelectItem>
-          </SelectGroup>
-        </SelectContent>
-        <SelectCaption variant="info">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-        </SelectCaption>
-      </Select>
-      <Select
-        type="multiple"
-        values={["app", "ban", "blu"]}
-        onValuesChange={(values) =>
-          console.log("multiple select values: ", values.join(", "))
-        }
-      >
-        <SelectLabel>Label</SelectLabel>
-        <SelectTrigger disabled>
-          <SelectValue placeholder="Select a fruit (Disabled)" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectGroupLabel>Fruits</SelectGroupLabel>
-            <SelectItem value="app">Apple</SelectItem>
-            <SelectItem value="ban">Banana</SelectItem>
-            <SelectItem value="blu">Blueberry</SelectItem>
-            <SelectItem value="gra">Grapes</SelectItem>
-            <SelectItem value="pin">Pineapple</SelectItem>
-          </SelectGroup>
-        </SelectContent>
-        <SelectCaption variant="success">Caption Success</SelectCaption>
-      </Select>
-    </div>
+    <Select
+      onValueChange={(value) => console.log("single select value: ", value)}
+    >
+      <SelectLabel>Label</SelectLabel>
+      <SelectTrigger disabled>
+        <SelectValue placeholder="Select a timezone (Disabled)" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectItem value="txt">text</SelectItem>
+          <SelectItem value="kwd">keyword</SelectItem>
+          <SelectItem value="num">number</SelectItem>
+          <SelectItem value="dat">date</SelectItem>
+          <SelectItem value="sel">select</SelectItem>
+          <SelectItem value="mul">multiSelect</SelectItem>
+          <SelectItem value="img">image</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+      <SelectCaption variant="info">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      </SelectCaption>
+    </Select>
   );
 };
+
+export const Multi = () => (
+  <MultiSelect onValueChange={(value) => console.log(value.join(", "))}>
+    <SelectLabel>Label</SelectLabel>
+    <MultiSelectTrigger>
+      <MultiSelectValue placeholder="Select a format" />
+    </MultiSelectTrigger>
+    <MultiSelectContent>
+      <MultiSelectItem value="txt">text</MultiSelectItem>
+      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
+      <MultiSelectItem value="num">number</MultiSelectItem>
+      <MultiSelectItem value="dat">date</MultiSelectItem>
+      <MultiSelectItem value="sel">select</MultiSelectItem>
+      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
+      <MultiSelectItem value="img">image</MultiSelectItem>
+    </MultiSelectContent>
+    <MultiSelectCaption>Caption Info</MultiSelectCaption>
+  </MultiSelect>
+);
+
+export const Multi_With_Icon = () => (
+  <MultiSelect
+    defaultValue={["txt", "kwd"]}
+    onValueChange={(value) => console.log(value.join(", "))}
+  >
+    <SelectLabel>Label</SelectLabel>
+    <MultiSelectTrigger>
+      <MultiSelectValue placeholder="Select a format" />
+    </MultiSelectTrigger>
+    <MultiSelectContent>
+      <MultiSelectItem value="txt">
+        <Icon className="mr-2" name="RiMenu2Line" size={16} />
+        text
+      </MultiSelectItem>
+      <MultiSelectItem value="kwd">
+        <Icon className="mr-2" name="RiFontSize" size={16} />
+        keyword
+      </MultiSelectItem>
+      <MultiSelectItem value="num">
+        <Icon className="mr-2" name="RiHashtag" size={16} />
+        number
+      </MultiSelectItem>
+      <MultiSelectItem value="dat">
+        <Icon className="mr-2" name="RiCalendar2Line" size={16} />
+        date
+      </MultiSelectItem>
+      <MultiSelectItem value="sel">
+        <Icon className="mr-2" name="RiCheckboxCircleLine" size={16} />
+        select
+      </MultiSelectItem>
+      <MultiSelectItem value="mul">
+        <Icon className="mr-2" name="RiListView" size={16} />
+        multiSelect
+      </MultiSelectItem>
+      <MultiSelectItem value="img">
+        <Icon className="mr-2" name="RiImageLine" size={16} />
+        image
+      </MultiSelectItem>
+    </MultiSelectContent>
+    <MultiSelectCaption>Caption Info</MultiSelectCaption>
+  </MultiSelect>
+);
