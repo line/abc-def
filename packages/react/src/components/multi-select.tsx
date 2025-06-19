@@ -133,11 +133,11 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
         {React.Children.map(children, (child) => {
           if (
             React.isValidElement(child) &&
-            (child.type as any).displayName === "MultiSelectItem"
+            (child.type as React.ForwardRefExoticComponent<HTMLElement>)
+              .displayName === "MultiSelectItem"
           ) {
             return child;
           }
-          // If it's a group or fragment, recurse
           if (
             React.isValidElement(child) &&
             (child.props as { children?: React.ReactNode }).children
@@ -212,7 +212,6 @@ const MultiSelectTrigger = React.forwardRef<
   { className, children, error = false, ...props },
   ref,
 ) {
-  const { themeSize } = useTheme();
   const { size } = useMultiSelectContext();
   return (
     <PopoverTrigger asChild>
@@ -225,7 +224,7 @@ const MultiSelectTrigger = React.forwardRef<
         {...props}
       >
         <Slottable>{children}</Slottable>
-        <Icon name="RiArrowDownSLine" size={ICON_SIZE[size ?? themeSize]} />
+        <Icon name="RiArrowDownSLine" size={ICON_SIZE[size]} />
       </button>
     </PopoverTrigger>
   );
