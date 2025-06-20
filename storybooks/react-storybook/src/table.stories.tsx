@@ -299,7 +299,8 @@ export const Other = () => (
           </TableCell>
           <TableCell>
             <Select size="small">
-              <SelectTrigger icon="RiFlashlightFill">
+              <SelectTrigger>
+                <Icon name="RiFlashlightFill" size={16} />
                 <SelectValue placeholder="Select an item" />
               </SelectTrigger>
               <SelectContent>

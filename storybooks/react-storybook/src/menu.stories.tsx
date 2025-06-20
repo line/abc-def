@@ -173,7 +173,10 @@ export const Horizontal_With_LeftIcon = () => (
 export const Horizontal_With_RightIcon = () => (
   <Menu type="single" orientation="horizontal">
     <MenuDropdown>
-      <MenuDropdownTrigger>Home</MenuDropdownTrigger>
+      <MenuDropdownTrigger>
+        Home
+        <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
+      </MenuDropdownTrigger>
       <MenuDropdownContent side="bottom">
         <MenuDropdownGroup>
           <MenuDropdownItem value="Home-Item-1">Item 1</MenuDropdownItem>
@@ -183,7 +186,10 @@ export const Horizontal_With_RightIcon = () => (
       </MenuDropdownContent>
     </MenuDropdown>
     <MenuDropdown>
-      <MenuDropdownTrigger>List</MenuDropdownTrigger>
+      <MenuDropdownTrigger>
+        List
+        <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
+      </MenuDropdownTrigger>
       <MenuDropdownContent side="bottom">
         <MenuDropdownGroup>
           <MenuDropdownItem value="List-Item-1">Item 1</MenuDropdownItem>
@@ -193,7 +199,10 @@ export const Horizontal_With_RightIcon = () => (
       </MenuDropdownContent>
     </MenuDropdown>
     <MenuDropdown>
-      <MenuDropdownTrigger>Setting</MenuDropdownTrigger>
+      <MenuDropdownTrigger>
+        Setting
+        <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
+      </MenuDropdownTrigger>
       <MenuDropdownContent side="bottom">
         <MenuDropdownGroup>
           <MenuDropdownItem value="Setting-Item-1">Item 1</MenuDropdownItem>
@@ -203,7 +212,10 @@ export const Horizontal_With_RightIcon = () => (
       </MenuDropdownContent>
     </MenuDropdown>
     <MenuDropdown>
-      <MenuDropdownTrigger disabled>Disabled</MenuDropdownTrigger>
+      <MenuDropdownTrigger disabled>
+        Disabled
+        <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
+      </MenuDropdownTrigger>
       <MenuDropdownContent side="bottom">
         <MenuDropdownGroup>
           <MenuDropdownItem value="Setting-Item-1">Item 1</MenuDropdownItem>
@@ -305,7 +317,10 @@ export const Vertical_With_RightIcon = () => {
   return (
     <Menu type="single" orientation="vertical">
       <MenuDropdown>
-        <MenuDropdownTrigger>Trigger (Click)</MenuDropdownTrigger>
+        <MenuDropdownTrigger>
+          Trigger (Click)
+          <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
+        </MenuDropdownTrigger>
         <MenuDropdownContent side="right">
           <MenuDropdownGroup>
             <MenuDropdownItem value="Home-Item-1">Item 1</MenuDropdownItem>
@@ -317,6 +332,7 @@ export const Vertical_With_RightIcon = () => {
       <MenuDropdown>
         <MenuDropdownTrigger trigger="hover">
           Trigger (Hover)
+          <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
         </MenuDropdownTrigger>
         <MenuDropdownContent side="right">
           <MenuDropdownGroup>
@@ -327,7 +343,10 @@ export const Vertical_With_RightIcon = () => {
         </MenuDropdownContent>
       </MenuDropdown>
       <MenuDropdown>
-        <MenuDropdownTrigger>Trigger (Click)</MenuDropdownTrigger>
+        <MenuDropdownTrigger>
+          Trigger (Click)
+          <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
+        </MenuDropdownTrigger>
         <MenuDropdownContent side="right">
           <MenuDropdownGroup>
             <MenuDropdownItem value="Setting-Item-1">Item 1</MenuDropdownItem>
@@ -337,7 +356,10 @@ export const Vertical_With_RightIcon = () => {
         </MenuDropdownContent>
       </MenuDropdown>
       <MenuDropdown>
-        <MenuDropdownTrigger disabled>Disabled</MenuDropdownTrigger>
+        <MenuDropdownTrigger disabled>
+          Disabled
+          <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
+        </MenuDropdownTrigger>
         <MenuDropdownContent side="right">
           <MenuDropdownGroup>
             <MenuDropdownItem value="Setting-Item-1">Item 1</MenuDropdownItem>
@@ -384,18 +406,22 @@ export const Vertical_With_Both = () => (
     <MenuItem value="Home">
       <Icon name="RiHomeSmile2Fill" size={16} className="mr-2" />
       Home
+      <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
     </MenuItem>
     <MenuItem value="List">
       <Icon name="RiFunctionFill" size={16} className="mr-2" />
       List
+      <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
     </MenuItem>
     <MenuItem value="Setting">
       <Icon name="RiSettingsFill" size={16} className="mr-2" />
       Setting
+      <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
     </MenuItem>
     <MenuItem value="Disabled" disabled>
       <Icon name="RiSettingsFill" size={16} className="mr-2" />
       Disabled
+      <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
     </MenuItem>
   </Menu>
 );

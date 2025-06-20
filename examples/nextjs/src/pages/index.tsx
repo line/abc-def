@@ -160,11 +160,7 @@ const IndexPage: NextPage = () => {
           </DropdownContent>
         </Dropdown>
         <div className="w-96">
-          <Select
-            type="single"
-            value={value}
-            onValueChange={(value) => setValue(value)}
-          >
+          <Select value={value} onValueChange={(value) => setValue(value)}>
             <SelectLabel>Label</SelectLabel>
             <SelectTrigger>
               <SelectValue placeholder="Select a value..." />
