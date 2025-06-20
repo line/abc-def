@@ -36,8 +36,8 @@ catalogs:
       version: 19.1.0
   storybook:
     '@chromatic-com/storybook':
-      specifier: ^3.2.6
-      version: 3.2.6
+      specifier: ^3.2.7
+      version: 3.2.7
     '@storybook/addon-essentials':
       specifier: ^8.6.14
       version: 8.6.14
@@ -330,7 +330,7 @@ importers:
         version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 3.2.6(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
+        version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.5.3))
@@ -391,7 +391,7 @@ importers:
         version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 3.2.6(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
+        version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.5.3))
@@ -476,7 +476,7 @@ importers:
         version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 3.2.6(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
+        version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.5.3))
@@ -555,7 +555,7 @@ importers:
         version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 3.2.6(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
+        version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.5.3))
@@ -1336,8 +1336,8 @@ packages:
     resolution: {integrity: sha512-ETyHEk2VHHvl9b9jZP5IHPavHYk57EhanlRRuae9XCpb/j5bDCbPPMOBfCWhnl/7EDJz0jEMCi/RhccCE8r1+Q==}
     engines: {node: '>=6.9.0'}
 
-  '@chromatic-com/storybook@3.2.6':
-    resolution: {integrity: sha512-FDmn5Ry2DzQdik+eq2sp/kJMMT36Ewe7ONXUXM2Izd97c7r6R/QyGli8eyh/F0iyqVvbLveNYFyF0dBOJNwLqw==}
+  '@chromatic-com/storybook@3.2.7':
+    resolution: {integrity: sha512-fCGhk4cd3VA8RNg55MZL5CScdHqljsQcL9g6Ss7YuobHpSo9yytEWNdgMd5QxAHSPBlLGFHjnSmliM3G/BeBqw==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
@@ -6731,7 +6731,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@chromatic-com/storybook@3.2.6(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))':
+  '@chromatic-com/storybook@3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))':
     dependencies:
       chromatic: 11.29.0
       filesize: 10.1.6
