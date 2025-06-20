@@ -19,7 +19,8 @@
     "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
     "lint:ws": "pnpm dlx sherif@latest",
     "postinstall": "pnpm lint:ws",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "release": "npm publish --access public"
   },
   "devDependencies": {
     "@abc-def/prettier-config": "workspace:^",
