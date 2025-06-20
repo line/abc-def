@@ -6,9 +6,6 @@ export default {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   transpilePackages: ["@abc-def/tailwindcss", "@abc-def/react"],
-  experimental: {
-    esmExternals: "loose",
-  },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg"),

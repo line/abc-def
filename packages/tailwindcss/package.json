@@ -1,5 +1,5 @@
 {
-  "name": "@abc-def/tailwindcss",
+  "name": "@abc-def-ui/tailwindcss",
   "version": "0.1.2",
   "description": "Tailwindcss Plugin for abc-def",
   "license": "Apache-2.0",
