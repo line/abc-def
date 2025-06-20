@@ -1,7 +1,9 @@
 name: Release
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - create-tailwindcss-plugin-package
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
