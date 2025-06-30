@@ -37,7 +37,7 @@
   @apply select-trigger-medium;
 }
 
-.select-trigger-error {
+.select-trigger[aria-invalid="true"] {
   @apply before:!border-2 before:!border-[var(--select-border-error)];
 }
 

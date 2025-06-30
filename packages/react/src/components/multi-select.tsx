@@ -197,9 +197,8 @@ const selectTriggerVariants = cva("select-trigger", {
       medium: "select-trigger-medium",
       large: "select-trigger-large",
     },
-    error: { true: "select-trigger-error", false: "" },
   },
-  defaultVariants: { size: undefined, error: false },
+  defaultVariants: { size: undefined },
 });
 
 const MultiSelectTrigger = React.forwardRef<
@@ -213,9 +212,10 @@ const MultiSelectTrigger = React.forwardRef<
         ref={ref}
         type="button"
         aria-haspopup="listbox"
-        className={cn(selectTriggerVariants({ size, error, className }))}
+        className={cn(selectTriggerVariants({ size, className }))}
         data-placeholder
         disabled={disabled}
+        aria-invalid={error}
         {...props}
       >
         <Slottable>{children}</Slottable>
@@ -393,10 +393,11 @@ const MultiSelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
         ref={ref}
         className={cn(
           selectCaptionVariants({
-            variant: error ? (variant ?? "error") : (variant ?? "default"),
+            variant: variant ?? "default",
             className,
           }),
         )}
+        data-error={error}
         {...rest}
       >
         <Icon

@@ -81,9 +81,8 @@ const selectTriggerVariants = cva("select-trigger", {
       medium: "select-trigger-medium",
       large: "select-trigger-large",
     },
-    error: { true: "select-trigger-error", false: "" },
   },
-  defaultVariants: { size: undefined, error: false },
+  defaultVariants: { size: undefined },
 });
 
 interface SelectTriggerProps
@@ -98,7 +97,8 @@ const SelectTrigger = React.forwardRef<
   return (
     <SelectPrimitive.Trigger
       ref={ref}
-      className={cn(selectTriggerVariants({ size, error, className }))}
+      className={cn(selectTriggerVariants({ size, className }))}
+      aria-invalid={error}
       {...props}
     >
       <Slottable>{children}</Slottable>
@@ -248,29 +248,27 @@ const SelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
       asChild,
       ...rest
     } = props;
-    const { size, error } = useSelectContext();
+    const { size, error: selectError } = useSelectContext();
     const Comp = asChild ? Slot : "span";
-
-    React.useEffect(() => {
-      console.log(error, variant);
-    }, [error, variant]);
+    const isError = variant === "error" || selectError;
 
     return (
       <Comp
         ref={ref}
         className={cn(
           selectCaptionVariants({
-            variant: error ? (variant ?? "error") : (variant ?? "default"),
+            variant: variant ?? "default",
             className,
           }),
         )}
+        data-error={isError}
         {...rest}
       >
         <Icon
           name={
             icon ??
             CAPTION_DEFAULT_ICON[
-              error ? (variant ?? "error") : (variant ?? "default")
+              isError ? (variant ?? "error") : (variant ?? "default")
             ]
           }
           size={ICON_SIZE[size]}
