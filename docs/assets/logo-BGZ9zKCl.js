@@ -1,1 +1,0 @@
-import{j as o}from"./DocsRenderer-CFRXHY34-fz5SsbOv.js";const s=""+new URL("logo-CFLPNfe2.png",import.meta.url).href,e="h-7 mb-11",t=()=>o.jsx("img",{src:s,alt:"def",className:e});t.__docgenInfo={description:"",methods:[],displayName:"Logo"};export{t as L};
