@@ -13,6 +13,7 @@ import * as DropdownStories from "./dropdown.stories";
 import * as IconStories from "./icon.stories";
 import * as InputStories from "./input.stories";
 import * as MenuStories from "./menu.stories";
+import * as MultiSelectStories from "./multiSelect.stories";
 import * as NavBarStories from "./navBar.stories";
 import * as PaginationStories from "./pagination.stories";
 import * as RadioStories from "./radio.stories";
@@ -125,15 +126,20 @@ import ThemeSelect from "./utils/themeSelect.tsx";
     layout="centered"
   />
   <Canvas
+    of={SheetStories.Right}
+    sourceState="none"
+    additionalActions={[{ title: "Sheet" }]}
+    layout="centered"
+  />
+  <Canvas
     of={SelectStories.Default}
     sourceState="none"
     additionalActions={[{ title: "Select" }]}
   />
   <Canvas
-    of={SheetStories.Right}
+    of={MultiSelectStories.Default}
     sourceState="none"
-    additionalActions={[{ title: "Sheet" }]}
-    layout="centered"
+    additionalActions={[{ title: "MultiSelect" }]}
   />
   <Canvas
     of={SpinnerStories.Default}

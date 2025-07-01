@@ -26,9 +26,7 @@ import { Icon } from "./icon";
 import { ScrollArea, ScrollBar } from "./scroll-area";
 import useTheme from "./use-theme";
 
-type SelectContextType = {
-  size: Size;
-};
+type SelectContextType = { size: Size; error: boolean };
 
 const SelectContext = React.createContext<SelectContextType | undefined>(
   undefined,
@@ -43,6 +41,7 @@ interface SelectProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root> {
   className?: string;
   size?: Size;
+  error?: boolean;
 }
 
 const selectVariants = cva("select", {
@@ -52,16 +51,16 @@ const selectVariants = cva("select", {
       medium: "select-medium",
       large: "select-large",
     },
-    defaultVariants: {
-      size: undefined,
-    },
+    defaultVariants: { size: undefined },
   },
 });
 
-const Select = ({ size, className, ...props }: SelectProps) => {
+const Select = ({ size, error, className, ...props }: SelectProps) => {
   const { themeSize } = useTheme();
   return (
-    <SelectContext.Provider value={{ size: size ?? themeSize }}>
+    <SelectContext.Provider
+      value={{ size: size ?? themeSize, error: error ?? false }}
+    >
       <div
         className={cn(selectVariants({ size: size ?? themeSize, className }))}
       >
@@ -82,32 +81,24 @@ const selectTriggerVariants = cva("select-trigger", {
       medium: "select-trigger-medium",
       large: "select-trigger-large",
     },
-    error: {
-      true: "select-trigger-error",
-      false: "",
-    },
   },
-  defaultVariants: {
-    size: undefined,
-    error: false,
-  },
+  defaultVariants: { size: undefined },
 });
 
 interface SelectTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {
-  error?: boolean;
-}
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {}
 
 const SelectTrigger = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  React.ComponentRef<typeof SelectPrimitive.Trigger>,
   SelectTriggerProps
->(({ error, className, children, ...props }, ref) => {
-  const { size } = useSelectContext();
+>(({ className, children, ...props }, ref) => {
+  const { size, error } = useSelectContext();
 
   return (
     <SelectPrimitive.Trigger
       ref={ref}
-      className={cn(selectTriggerVariants({ size, error, className }))}
+      className={cn(selectTriggerVariants({ size, className }))}
+      aria-invalid={error}
       {...props}
     >
       <Slottable>{children}</Slottable>
@@ -125,7 +116,7 @@ interface SelectContentProps
 }
 
 const SelectContent = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Content>,
+  React.ComponentRef<typeof SelectPrimitive.Content>,
   SelectContentProps
 >(
   (
@@ -152,7 +143,7 @@ const SelectContent = React.forwardRef<
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 const SelectGroupLabel = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Label>,
+  React.ComponentRef<typeof SelectPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
@@ -164,34 +155,22 @@ const SelectGroupLabel = React.forwardRef<
 SelectGroupLabel.displayName = "SelectGroupLabel";
 
 const selectItemVariants = cva("select-item", {
-  variants: {
-    check: {
-      left: "select-item-left",
-      right: "select-item-right",
-    },
-  },
-  defaultVariants: {
-    check: "left",
-  },
+  variants: { check: { left: "select-item-left", right: "select-item-right" } },
+  defaultVariants: { check: "left" },
 });
 
 const selectItemCheckVariants = cva("select-item-check", {
   variants: {
-    check: {
-      left: "select-item-check-left",
-      right: "select-item-check-right",
-    },
+    check: { left: "select-item-check-left", right: "select-item-check-right" },
   },
-  defaultVariants: {
-    check: "left",
-  },
+  defaultVariants: { check: "left" },
 });
 
 type SelectItemProps = React.ComponentPropsWithoutRef<
   typeof SelectPrimitive.Item
 >;
 const SelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentRef<typeof SelectPrimitive.Item>,
   SelectItemProps
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item
@@ -219,7 +198,7 @@ const SelectItem = React.forwardRef<
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
 const SelectSeparator = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Separator>,
+  React.ComponentRef<typeof SelectPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
@@ -249,9 +228,7 @@ const selectCaptionVariants = cva("select-caption", {
       info: "select-caption-info",
       error: "select-caption-error",
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    defaultVariants: { variant: "default" },
   },
 });
 
@@ -265,23 +242,35 @@ const SelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
   (props, ref) => {
     const {
       icon = undefined,
-      variant = "default",
+      variant,
       className,
       children,
       asChild,
       ...rest
     } = props;
-    const { size } = useSelectContext();
+    const { size, error: selectError } = useSelectContext();
     const Comp = asChild ? Slot : "span";
+    const isError = variant === "error" || selectError;
 
     return (
       <Comp
         ref={ref}
-        className={cn(selectCaptionVariants({ variant, className }))}
+        className={cn(
+          selectCaptionVariants({
+            variant: variant ?? "default",
+            className,
+          }),
+        )}
+        data-error={isError}
         {...rest}
       >
         <Icon
-          name={icon ?? CAPTION_DEFAULT_ICON[variant]}
+          name={
+            icon ??
+            CAPTION_DEFAULT_ICON[
+              isError ? (variant ?? "error") : (variant ?? "default")
+            ]
+          }
           size={ICON_SIZE[size]}
           className="select-caption-icon"
         />

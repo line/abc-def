@@ -38,18 +38,18 @@
 }
 
 .select-caption-default {
-  @apply text-[var(--select-caption-fg)];
+  @apply [&:not([data-error="true"])]:text-[var(--select-caption-fg)];
 }
 
 .select-caption-success {
-  @apply text-[var(--select-caption-fg-success)];
+  @apply [&:not([data-error="true"])]:text-[var(--select-caption-fg-success)];
 }
 
 .select-caption-info {
-  @apply text-[var(--select-caption-fg)];
+  @apply [&:not([data-error="true"])]:text-[var(--select-caption-fg)];
 }
 
-.select-caption-error {
+.select-caption[data-error="true"] {
   @apply text-[var(--select-caption-fg-error)];
 }
 
