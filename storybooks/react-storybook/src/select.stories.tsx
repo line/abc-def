@@ -19,21 +19,12 @@ import React from "react";
 import {
   Icon,
   IconNames,
-  MultiSelect,
-  MultiSelectCaption,
-  MultiSelectContent,
-  MultiSelectItem,
-  MultiSelectLabel,
-  MultiSelectTrigger,
-  MultiSelectValue,
   Select,
   SelectCaption,
   SelectContent,
   SelectGroup,
-  SelectGroupLabel,
   SelectItem,
   SelectLabel,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@abc-def/react";
@@ -46,7 +37,6 @@ const Props = {
     maxHeight: "↳ SelectContent: maxHeight",
   },
   SelectItem: {
-    icon: "↳ SelectItem: icon",
     children: "↳ SelectItem: children",
   },
   SelectCaption: {
@@ -98,21 +88,13 @@ const meta: Meta<
         maxHeight={args[Props.SelectContent.maxHeight]}
       >
         <SelectGroup>
-          <SelectGroupLabel>Fruits</SelectGroupLabel>
-          <SelectItem value="app">Apple</SelectItem>
-          <SelectItem value="ban">Banana</SelectItem>
-          <SelectItem value="blu">Blueberry</SelectItem>
-          <SelectItem value="gra">Grapes</SelectItem>
-          <SelectItem value="pin">{args[Props.SelectItem.children]}</SelectItem>
-        </SelectGroup>
-        <SelectSeparator />
-        <SelectGroup>
-          <SelectGroupLabel>Vegetables</SelectGroupLabel>
-          <SelectItem value="tom">Tomato</SelectItem>
-          <SelectItem value="cab">Cabbage</SelectItem>
-          <SelectItem value="let">Lettuce</SelectItem>
-          <SelectItem value="car">Carrot</SelectItem>
-          <SelectItem value="oni">Onion</SelectItem>
+          <SelectItem value="txt">text</SelectItem>
+          <SelectItem value="kwd">keyword</SelectItem>
+          <SelectItem value="num">number</SelectItem>
+          <SelectItem value="dat">date</SelectItem>
+          <SelectItem value="sel">select</SelectItem>
+          <SelectItem value="mul">multiSelect</SelectItem>
+          <SelectItem value="img">{args[Props.SelectItem.children]}</SelectItem>
         </SelectGroup>
       </SelectContent>
       <SelectCaption
@@ -220,32 +202,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const Single = () => {
-  return (
-    <Select
-      onValueChange={(value) => console.log("single select value: ", value)}
-    >
-      <SelectLabel>Label</SelectLabel>
-      <SelectTrigger>
-        <SelectValue placeholder="Select a format" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="txt">text</SelectItem>
-          <SelectItem value="kwd">keyword</SelectItem>
-          <SelectItem value="num">number</SelectItem>
-          <SelectItem value="dat">date</SelectItem>
-          <SelectItem value="sel">select</SelectItem>
-          <SelectItem value="mul">multiSelect</SelectItem>
-          <SelectItem value="img">image</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-      <SelectCaption variant="default">Caption Default</SelectCaption>
-    </Select>
-  );
-};
-
-export const Single_With_Icon = () => {
+export const With_Icon = () => {
   return (
     <Select
       defaultValue="txt"
@@ -347,111 +304,3 @@ export const Disabled = () => {
     </Select>
   );
 };
-
-export const Multi = () => (
-  <MultiSelect onValueChange={(value) => console.log(value.join(", "))}>
-    <MultiSelectLabel>Label</MultiSelectLabel>
-    <MultiSelectTrigger>
-      <MultiSelectValue placeholder="Select a format" />
-    </MultiSelectTrigger>
-    <MultiSelectContent>
-      <MultiSelectItem value="txt">text</MultiSelectItem>
-      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
-      <MultiSelectItem value="num">number</MultiSelectItem>
-      <MultiSelectItem value="dat">date</MultiSelectItem>
-      <MultiSelectItem value="sel">select</MultiSelectItem>
-      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
-      <MultiSelectItem value="img">image</MultiSelectItem>
-    </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
-  </MultiSelect>
-);
-
-export const Multi_Error = () => (
-  <MultiSelect
-    error
-    defaultValue={["txt", "kwd"]}
-    onValueChange={(value) => console.log(value.join(", "))}
-  >
-    <MultiSelectLabel>Label</MultiSelectLabel>
-    <MultiSelectTrigger>
-      <MultiSelectValue placeholder="Select a format" />
-    </MultiSelectTrigger>
-    <MultiSelectContent>
-      <MultiSelectItem value="txt">text</MultiSelectItem>
-      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
-      <MultiSelectItem value="num">number</MultiSelectItem>
-      <MultiSelectItem value="dat">date</MultiSelectItem>
-      <MultiSelectItem value="sel">select</MultiSelectItem>
-      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
-      <MultiSelectItem value="img">image</MultiSelectItem>
-    </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
-  </MultiSelect>
-);
-
-export const Multi_Disabled = () => (
-  <MultiSelect
-    disabled
-    defaultValue={["txt", "kwd"]}
-    onValueChange={(value) => console.log(value.join(", "))}
-  >
-    <MultiSelectLabel>Label</MultiSelectLabel>
-    <MultiSelectTrigger>
-      <MultiSelectValue placeholder="Select a format" />
-    </MultiSelectTrigger>
-    <MultiSelectContent>
-      <MultiSelectItem value="txt">text</MultiSelectItem>
-      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
-      <MultiSelectItem value="num">number</MultiSelectItem>
-      <MultiSelectItem value="dat">date</MultiSelectItem>
-      <MultiSelectItem value="sel">select</MultiSelectItem>
-      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
-      <MultiSelectItem value="img">image</MultiSelectItem>
-    </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
-  </MultiSelect>
-);
-
-export const Multi_With_Icon = () => (
-  <MultiSelect
-    defaultValue={["txt", "kwd"]}
-    onValueChange={(value) => console.log(value.join(", "))}
-  >
-    <MultiSelectLabel>Label</MultiSelectLabel>
-    <MultiSelectTrigger>
-      <MultiSelectValue placeholder="Select a format" />
-    </MultiSelectTrigger>
-    <MultiSelectContent>
-      <MultiSelectItem value="txt">
-        <Icon className="mr-2" name="RiMenu2Line" size={16} />
-        text
-      </MultiSelectItem>
-      <MultiSelectItem value="kwd">
-        <Icon className="mr-2" name="RiFontSize" size={16} />
-        keyword
-      </MultiSelectItem>
-      <MultiSelectItem value="num">
-        <Icon className="mr-2" name="RiHashtag" size={16} />
-        number
-      </MultiSelectItem>
-      <MultiSelectItem value="dat">
-        <Icon className="mr-2" name="RiCalendar2Line" size={16} />
-        date
-      </MultiSelectItem>
-      <MultiSelectItem value="sel">
-        <Icon className="mr-2" name="RiCheckboxCircleLine" size={16} />
-        select
-      </MultiSelectItem>
-      <MultiSelectItem value="mul">
-        <Icon className="mr-2" name="RiListView" size={16} />
-        multiSelect
-      </MultiSelectItem>
-      <MultiSelectItem value="img">
-        <Icon className="mr-2" name="RiImageLine" size={16} />
-        image
-      </MultiSelectItem>
-    </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
-  </MultiSelect>
-);
