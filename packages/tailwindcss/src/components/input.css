@@ -18,10 +18,6 @@
   --input-fg-typing: var(--fg-neutral-primary);
   --input-fg-filled: var(--fg-neutral-primary);
   --input-fg-error: var(--fg-neutral-primary);
-  --input-label-fg: var(--fg-neutral-primary);
-  --input-caption-fg: var(--fg-neutral-tertiary);
-  --input-caption-fg-success: var(--fg-tint-green);
-  --input-caption-fg-error: var(--fg-tint-red);
   --input-border: var(--border-neutral-tertiary);
   --input-border-typing: var(--tint, var(--border-neutral-primary));
   --input-border-filled: var(--border-neutral-tertiary);
@@ -74,19 +70,4 @@
 
   /* default */
   @apply input-icon-small;
-}
-
-.input-label {
-  @apply text-base-normal font-normal text-[var(--input-label-fg)];
-}
-
-.input-caption {
-  @apply flex items-center gap-1;
-
-  /* default */
-  @apply input-caption-default input-caption-small;
-}
-
-.input-caption-icon {
-  @apply flex-shrink-0;
 }

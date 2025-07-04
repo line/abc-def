@@ -15,22 +15,32 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod/v4";
 
 import {
+  Button,
+  Caption,
+  Form,
+  FormCaption,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   Icon,
-  IconNames,
+  Label,
   Select,
-  SelectCaption,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
+  toast,
 } from "@abc-def/react";
 
 const Props = {
-  SelectLabel: { children: "↳ SelectLabel: children" },
   SelectValue: { placeholder: "↳ SelectValue: placeholder" },
   SelectContent: {
     position: "↳ SelectContent: position",
@@ -39,18 +49,10 @@ const Props = {
   SelectItem: {
     children: "↳ SelectItem: children",
   },
-  SelectCaption: {
-    icon: "↳ SelectCaption: icon",
-    variant: "↳ SelectCaption: variant",
-    children: "↳ SelectCaption: children",
-  },
 } as const;
 
 const meta: Meta<
   React.ComponentProps<typeof Select> & {
-    [Props.SelectLabel.children]: React.ComponentPropsWithoutRef<
-      typeof SelectLabel
-    >["children"];
     [Props.SelectValue.placeholder]: React.ComponentPropsWithoutRef<
       typeof SelectValue
     >["placeholder"];
@@ -63,23 +65,14 @@ const meta: Meta<
     [Props.SelectItem.children]: React.ComponentPropsWithoutRef<
       typeof SelectItem
     >["children"];
-    [Props.SelectCaption.icon]: React.ComponentPropsWithoutRef<
-      typeof SelectCaption
-    >["icon"];
-    [Props.SelectCaption.variant]: React.ComponentPropsWithoutRef<
-      typeof SelectCaption
-    >["variant"];
-    [Props.SelectCaption.children]: React.ComponentPropsWithoutRef<
-      typeof SelectCaption
-    >["children"];
   }
 > = {
   title: "Select",
   component: Select,
   decorators: (Story) => <Story />,
   render: (args) => (
-    <Select size={args.size} error={args.error} disabled={args.disabled}>
-      <SelectLabel>{args[Props.SelectLabel.children]}</SelectLabel>
+    <Select size={args.size} disabled={args.disabled}>
+      <Label>Label</Label>
       <SelectTrigger>
         <SelectValue placeholder={args[Props.SelectValue.placeholder]} />
       </SelectTrigger>
@@ -97,26 +90,16 @@ const meta: Meta<
           <SelectItem value="img">{args[Props.SelectItem.children]}</SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption
-        icon={args[Props.SelectCaption.icon]}
-        variant={args[Props.SelectCaption.variant]}
-      >
-        {args[Props.SelectCaption.children]}
-      </SelectCaption>
+      <Caption>Caption</Caption>
     </Select>
   ),
   args: {
     size: undefined,
-    error: false,
     disabled: false,
-    [Props.SelectLabel.children]: "Title",
     [Props.SelectValue.placeholder]: "Select a fruit...",
     [Props.SelectContent.position]: "popper",
     [Props.SelectContent.maxHeight]: "auto",
     [Props.SelectItem.children]: "Custom",
-    [Props.SelectCaption.icon]: undefined,
-    [Props.SelectCaption.variant]: undefined,
-    [Props.SelectCaption.children]: "Caption",
   },
   argTypes: {
     size: {
@@ -129,18 +112,9 @@ const meta: Meta<
       control: "select",
       options: ["large", "medium", "small", undefined],
     },
-    error: {
-      description: "Set whether the Select is in an error state.",
-      table: { category: "Select", defaultValue: { summary: "false" } },
-    },
     disabled: {
       description: "Set whether the Select is in an disabled state.",
       table: { category: "Select", defaultValue: { summary: "false" } },
-    },
-    [Props.SelectLabel.children]: {
-      description: "Set the children of the SelectLabel.",
-      table: { category: "SelectLabel", type: { summary: "React.ReactNode" } },
-      control: "text",
     },
     [Props.SelectValue.placeholder]: {
       description: "Set the placeholder of the SelectValue.",
@@ -167,30 +141,6 @@ const meta: Meta<
       table: { category: "SelectItem", type: { summary: "React.ReactNode" } },
       control: "text",
     },
-    [Props.SelectCaption.variant]: {
-      description: "Set the variant of the SelectCaption.",
-      table: {
-        category: "SelectCaption",
-        type: { summary: "default | success | info | error | undefined" },
-        defaultValue: { summary: undefined },
-      },
-      control: "radio",
-      options: ["default", "success", "info", "error", undefined],
-    },
-    [Props.SelectCaption.icon]: {
-      description: "Set the left icon of the SelectCaption.",
-      table: { category: "SelectCaption", type: { summary: "IconNameType" } },
-      control: "select",
-      options: IconNames,
-    },
-    [Props.SelectCaption.children]: {
-      description: "Set the children of the SelectCaption.",
-      table: {
-        category: "SelectCaption",
-        type: { summary: "React.ReactNode" },
-      },
-      control: "text",
-    },
     className: { table: { disable: true } },
     value: { table: { disable: true } },
   },
@@ -208,7 +158,7 @@ export const With_Icon = () => {
       defaultValue="txt"
       onValueChange={(value) => console.log("single select value: ", value)}
     >
-      <SelectLabel>Label</SelectLabel>
+      <Label>Label</Label>
       <SelectTrigger>
         <SelectValue placeholder="Select a format" />
       </SelectTrigger>
@@ -244,35 +194,7 @@ export const With_Icon = () => {
           </SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption variant="success">Caption Info</SelectCaption>
-    </Select>
-  );
-};
-
-export const Error = () => {
-  return (
-    <Select
-      error
-      onValueChange={(value) => console.log("single select value: ", value)}
-    >
-      <SelectLabel>Label</SelectLabel>
-      <SelectTrigger>
-        <SelectValue placeholder="Select a timezone (Disabled)" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="txt">text</SelectItem>
-          <SelectItem value="kwd">keyword</SelectItem>
-          <SelectItem value="num">number</SelectItem>
-          <SelectItem value="dat">date</SelectItem>
-          <SelectItem value="sel">select</SelectItem>
-          <SelectItem value="mul">multiSelect</SelectItem>
-          <SelectItem value="img">image</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-      <SelectCaption>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-      </SelectCaption>
+      <Caption variant="success">Caption Info</Caption>
     </Select>
   );
 };
@@ -283,7 +205,7 @@ export const Disabled = () => {
       disabled
       onValueChange={(value) => console.log("single select value: ", value)}
     >
-      <SelectLabel>Label</SelectLabel>
+      <Label>Label</Label>
       <SelectTrigger>
         <SelectValue placeholder="Select a timezone (Disabled)" />
       </SelectTrigger>
@@ -298,9 +220,62 @@ export const Disabled = () => {
           <SelectItem value="img">image</SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption variant="info">
+      <Caption variant="info">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-      </SelectCaption>
+      </Caption>
     </Select>
+  );
+};
+
+const FormSchema = z.object({
+  email: z.email({ error: "Please select an email to display." }),
+});
+
+export const Error_Form = () => {
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a verified email to display" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="m@example.com">m@example.com</SelectItem>
+                  <SelectItem value="m@google.com">m@google.com</SelectItem>
+                  <SelectItem value="m@support.com">m@support.com</SelectItem>
+                </SelectContent>
+                <FormCaption>
+                  You can manage email addresses in your email settings.
+                </FormCaption>
+                <FormMessage />
+              </Select>
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="mt-6">
+          Submit
+        </Button>
+      </form>
+    </Form>
   );
 };
