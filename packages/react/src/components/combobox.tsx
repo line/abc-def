@@ -63,37 +63,44 @@ const Combobox = ({
 };
 
 const ComboboxContent = React.forwardRef<
-  React.ElementRef<typeof PopoverContent>,
-  React.ComponentPropsWithoutRef<typeof PopoverContent>
->(({ className, children, onMouseEnter, onMouseLeave, ...props }, ref) => {
-  const { trigger, setIsHover } = React.useContext(ComboboxContext);
+  React.ComponentRef<typeof PopoverContent>,
+  React.ComponentPropsWithoutRef<typeof PopoverContent> & {
+    options?: React.ComponentPropsWithoutRef<typeof CommandPrimitive>;
+  }
+>(
+  (
+    { className, children, onMouseEnter, onMouseLeave, options, ...props },
+    ref,
+  ) => {
+    const { trigger, setIsHover } = React.useContext(ComboboxContext);
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (trigger === "hover") {
-      setIsHover(true);
-    }
-    onMouseEnter?.(e);
-  };
+    const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+      if (trigger === "hover") {
+        setIsHover(true);
+      }
+      onMouseEnter?.(e);
+    };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (trigger === "hover") {
-      setIsHover(false);
-    }
-    onMouseLeave?.(e);
-  };
+    const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+      if (trigger === "hover") {
+        setIsHover(false);
+      }
+      onMouseLeave?.(e);
+    };
 
-  return (
-    <PopoverContent
-      ref={ref}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      {...props}
-      className={cn("combobox-content", className)}
-    >
-      <CommandPrimitive>{children}</CommandPrimitive>
-    </PopoverContent>
-  );
-});
+    return (
+      <PopoverContent
+        ref={ref}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        {...props}
+        className={cn("combobox-content", className)}
+      >
+        <CommandPrimitive {...options}>{children}</CommandPrimitive>
+      </PopoverContent>
+    );
+  },
+);
 ComboboxContent.displayName = CommandPrimitive.displayName;
 
 interface ComboboxInputProps
@@ -102,7 +109,7 @@ interface ComboboxInputProps
 }
 
 const ComboboxInput = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Input>,
+  React.ComponentRef<typeof CommandPrimitive.Input>,
   ComboboxInputProps
 >(({ icon, className, ...props }, ref) => (
   <div className="combobox-input-box" cmdk-input-wrapper="">
@@ -118,7 +125,7 @@ const ComboboxInput = React.forwardRef<
 ComboboxInput.displayName = CommandPrimitive.Input.displayName;
 
 const ComboboxList = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.List>,
+  React.ComponentRef<typeof CommandPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> & {
     maxHeight?: string;
   }
@@ -136,7 +143,7 @@ const ComboboxList = React.forwardRef<
 ComboboxList.displayName = CommandPrimitive.List.displayName;
 
 const ComboboxEmpty = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Empty>,
+  React.ComponentRef<typeof CommandPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
 >((props, ref) => (
   <CommandPrimitive.Empty ref={ref} className="combobox-empty" {...props} />
@@ -145,7 +152,7 @@ const ComboboxEmpty = React.forwardRef<
 ComboboxEmpty.displayName = CommandPrimitive.Empty.displayName;
 
 const ComboboxGroup = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Group>,
+  React.ComponentRef<typeof CommandPrimitive.Group>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Group
@@ -158,7 +165,7 @@ const ComboboxGroup = React.forwardRef<
 ComboboxGroup.displayName = CommandPrimitive.Group.displayName;
 
 const ComboboxSeparator = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Separator>,
+  React.ComponentRef<typeof CommandPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Separator
@@ -170,7 +177,7 @@ const ComboboxSeparator = React.forwardRef<
 ComboboxSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 const ComboboxItem = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Item>,
+  React.ComponentRef<typeof CommandPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> & {
     inset?: boolean;
   }
@@ -187,7 +194,7 @@ const ComboboxItem = React.forwardRef<
 ComboboxItem.displayName = CommandPrimitive.Item.displayName;
 
 const ComboboxCaption = React.forwardRef<
-  React.ElementRef<"span">,
+  React.ComponentRef<"span">,
   React.ComponentPropsWithoutRef<"span">
 >(({ className, ...props }, ref) => (
   <span ref={ref} className={cn("combobox-caption", className)} {...props} />
@@ -196,7 +203,7 @@ const ComboboxCaption = React.forwardRef<
 ComboboxCaption.displayName = "ComboboxCaption";
 
 const ComboboxSelectItem = React.forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Item>,
+  React.ComponentRef<typeof CommandPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> & {
     checked?: boolean;
   }
@@ -219,7 +226,7 @@ const ComboboxSelectItem = React.forwardRef<
 ComboboxSelectItem.displayName = "ComboboxSelectItem";
 
 const ComboboxTrigger = React.forwardRef<
-  React.ElementRef<typeof Button>,
+  React.ComponentRef<typeof Button>,
   React.ComponentPropsWithoutRef<typeof Button> & {
     trigger?: TriggerType;
   }
