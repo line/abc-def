@@ -17,11 +17,11 @@ import React from "react";
 
 import {
   Badge,
+  Label,
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@abc-def/react";
@@ -163,7 +163,7 @@ export default function ThemeSelect() {
       }
     >
       <Select size="small" value={theme} onValueChange={setTheme}>
-        <SelectLabel>Theme</SelectLabel>
+        <Label>Theme</Label>
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
@@ -179,7 +179,7 @@ export default function ThemeSelect() {
         value={tint}
         onValueChange={(v: keyof typeof color) => setTint(v)}
       >
-        <SelectLabel>Tint</SelectLabel>
+        <Label>Tint</Label>
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
@@ -204,7 +204,7 @@ export default function ThemeSelect() {
         </SelectContent>
       </Select>
       <Select size="small" value={radius} onValueChange={handleChangeRadius}>
-        <SelectLabel>Radius</SelectLabel>
+        <Label>Radius</Label>
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>

@@ -18,6 +18,7 @@ import React from "react";
 
 import {
   Button,
+  Caption,
   Dialog,
   DialogBody,
   DialogClose,
@@ -29,9 +30,8 @@ import {
   DialogTitle,
   DialogTrigger,
   IconNames,
-  InputCaption,
   InputField,
-  InputLabel,
+  Label,
   TextInput,
 } from "@abc-def/react";
 
@@ -192,15 +192,15 @@ const meta: Meta<
         </DialogHeader>
         <DialogBody>
           <InputField>
-            <InputLabel>Label</InputLabel>
+            <Label>Label</Label>
             <TextInput size="small" />
           </InputField>
           <InputField>
-            <InputLabel>Label</InputLabel>
+            <Label>Label</Label>
             <TextInput size="small" />
-            <InputCaption variant="info">
+            <Caption variant="info">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            </InputCaption>
+            </Caption>
           </InputField>
         </DialogBody>
         <DialogFooter align={args[Props.DialogFooter.align]}>
@@ -236,15 +236,15 @@ export const Basic = () => (
       </DialogHeader>
       <DialogBody>
         <InputField>
-          <InputLabel>Label</InputLabel>
+          <Label>Label</Label>
           <TextInput size="small" />
         </InputField>
         <InputField>
-          <InputLabel>Label</InputLabel>
+          <Label>Label</Label>
           <TextInput size="small" />
-          <InputCaption variant="info">
+          <Caption variant="info">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          </InputCaption>
+          </Caption>
         </InputField>
       </DialogBody>
       <DialogFooter>

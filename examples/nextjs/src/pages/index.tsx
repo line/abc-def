@@ -18,6 +18,7 @@ import React, { useState } from "react";
 
 import {
   Button,
+  Caption,
   Combobox,
   ComboboxContent,
   ComboboxItem,
@@ -41,13 +42,12 @@ import {
   Icon,
   InputBox,
   InputField,
+  Label,
   Select,
-  SelectCaption,
   SelectContent,
   SelectGroup,
   SelectGroupLabel,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
   Sheet,
@@ -161,7 +161,7 @@ const IndexPage: NextPage = () => {
         </Dropdown>
         <div className="w-96">
           <Select value={value} onValueChange={(value) => setValue(value)}>
-            <SelectLabel>Label</SelectLabel>
+            <Label>Label</Label>
             <SelectTrigger>
               <SelectValue placeholder="Select a value..." />
             </SelectTrigger>
@@ -175,7 +175,7 @@ const IndexPage: NextPage = () => {
                 <SelectItem value="pin">Pineapple</SelectItem>
               </SelectGroup>
             </SelectContent>
-            <SelectCaption variant="info">Caption</SelectCaption>
+            <Caption variant="info">Caption</Caption>
           </Select>
           <div className="mt-4 flex space-x-4">
             <Button onClick={() => setValue("app")}>Set app</Button>

@@ -13,41 +13,17 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.select-small {
-  @apply space-y-1;
+.caption {
+  --caption-fg: var(--fg-neutral-tertiary);
+  --caption-fg-success: var(--fg-tint-green);
+  --caption-fg-error: var(--fg-tint-red);
+
+  @apply text-base-normal flex items-center gap-1;
+
+  /* default */
+  @apply caption-default;
 }
 
-.select-medium {
-  @apply space-y-1.5;
-}
-
-.select-large {
-  @apply space-y-2;
-}
-.select-trigger-small {
-  @apply text-base-normal min-h-9 space-x-2 px-3;
-}
-
-.select-trigger-medium {
-  @apply text-large-normal min-h-11 space-x-2.5 px-3.5;
-}
-
-.select-trigger-large {
-  @apply text-xlarge-normal min-h-13 space-x-3 px-4;
-}
-
-.select-item-left {
-  @apply pl-8 pr-2;
-}
-
-.select-item-right {
-  @apply pl-2 pr-8;
-}
-
-.select-item-check-left {
-  @apply left-2;
-}
-
-.select-item-check-right {
-  @apply right-2;
+.caption-icon {
+  @apply flex-shrink-0;
 }
