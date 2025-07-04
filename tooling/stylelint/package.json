@@ -16,6 +16,6 @@
   "prettier": "@abc-def/prettier-config",
   "dependencies": {
     "stylelint": "catalog:",
-    "stylelint-copyright": "^3.7.0"
+    "stylelint-copyright": "^3.8.1"
   }
 }
