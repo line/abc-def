@@ -36,49 +36,48 @@ const captionVariants = cva("caption", {
   },
 });
 
-interface CaptionProps extends React.ComponentPropsWithoutRef<"span"> {
+interface CaptionProps extends React.ComponentPropsWithoutRef<"p"> {
   variant?: CaptionType;
   icon?: IconNameType;
   asChild?: boolean;
 }
 
-const Caption = React.forwardRef<HTMLElement, CaptionProps>((props, ref) => {
-  const {
-    icon = undefined,
-    variant,
-    className,
-    children,
-    asChild,
-    ...rest
-  } = props;
-  const Comp = asChild ? Slot : "span";
-  const isError = variant === "error";
-  const { themeSize } = useTheme();
+const Caption = React.forwardRef<HTMLParagraphElement, CaptionProps>(
+  (props, ref) => {
+    const {
+      icon = undefined,
+      variant,
+      className,
+      children,
+      asChild,
+      ...rest
+    } = props;
+    const Comp = asChild ? Slot : "p";
+    const isError = variant === "error";
+    const { themeSize } = useTheme();
 
-  return (
-    <Comp
-      ref={ref}
-      className={cn(
-        captionVariants({
-          variant: variant ?? "default",
-          className,
-        }),
-      )}
-      data-error={isError}
-      {...rest}
-    >
-      <Icon
-        name={
-          icon ??
-          CAPTION_DEFAULT_ICON[isError ? "error" : (variant ?? "default")]
-        }
-        size={ICON_SIZE[themeSize]}
-        className="caption-icon"
-      />
-      <Slottable>{children}</Slottable>
-    </Comp>
-  );
-});
+    return (
+      <Comp
+        ref={ref}
+        className={cn(
+          captionVariants({ variant: variant ?? "default", className }),
+        )}
+        data-error={isError}
+        {...rest}
+      >
+        <Icon
+          name={
+            icon ??
+            CAPTION_DEFAULT_ICON[isError ? "error" : (variant ?? "default")]
+          }
+          size={ICON_SIZE[themeSize]}
+          className="caption-icon"
+        />
+        <Slottable>{children}</Slottable>
+      </Comp>
+    );
+  },
+);
 Caption.displayName = "Caption";
 
 export { Caption };

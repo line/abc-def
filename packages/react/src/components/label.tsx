@@ -14,19 +14,19 @@
  * under the License.
  */
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
+import * as LabelPrimitive from "@radix-ui/react-label";
 
 import { cn } from "../lib/utils";
 
-interface LabelProps extends React.ComponentPropsWithoutRef<"p"> {
-  asChild?: boolean;
-}
+interface LabelProps extends React.ComponentProps<typeof LabelPrimitive.Root> {}
 
-function Label({ asChild, className, ...props }: LabelProps) {
-  const Comp = asChild ? Slot : "span";
-
+function Label({ className, ...props }: LabelProps) {
   return (
-    <Comp data-slot="label" className={cn("label", className)} {...props} />
+    <LabelPrimitive.Root
+      data-slot="label"
+      className={cn("label", className)}
+      {...props}
+    />
   );
 }
 

@@ -13,9 +13,9 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+import type * as LabelPrimitive from "@radix-ui/react-label";
 import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
 import * as React from "react";
-import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import {
   Controller,
@@ -24,6 +24,7 @@ import {
   useFormState,
 } from "react-hook-form";
 
+import { cn } from "../lib/utils";
 import { Caption } from "./caption";
 import { Label } from "./label";
 
@@ -80,12 +81,16 @@ const FormItemContext = React.createContext<FormItemContextValue>(
   {} as FormItemContextValue,
 );
 
-function FormItem({ ...props }: React.ComponentProps<"div">) {
+function FormItem({ className, ...props }: React.ComponentProps<"div">) {
   const id = React.useId();
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div data-slot="form-item" {...props} />
+      <div
+        data-slot="form-item"
+        className={cn("grid gap-2", className)}
+        {...props}
+      />
     </FormItemContext.Provider>
   );
 }
@@ -96,14 +101,12 @@ function FormLabel({
   const { error, formItemId } = useFormField();
 
   return (
-    <Label asChild>
-      <LabelPrimitive.Root
-        data-slot="form-label"
-        data-error={!!error}
-        htmlFor={formItemId}
-        {...props}
-      ></LabelPrimitive.Root>
-    </Label>
+    <Label
+      data-slot="form-label"
+      data-error={!!error}
+      htmlFor={formItemId}
+      {...props}
+    />
   );
 }
 

@@ -97,6 +97,9 @@ importers:
       '@abc-def/react':
         specifier: workspace:^
         version: link:../../packages/react
+      '@hookform/resolvers':
+        specifier: ^5.1.1
+        version: 5.1.1(react-hook-form@7.59.0(react@19.1.0))
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -109,6 +112,9 @@ importers:
       react-dom:
         specifier: catalog:react
         version: 19.1.0(react@19.1.0)
+      react-hook-form:
+        specifier: ^7.59.0
+        version: 7.59.0(react@19.1.0)
       zod:
         specifier: ^3.25.67
         version: 3.25.67
