@@ -15,6 +15,7 @@
  */
 
 import type { NextPage } from "next";
+import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -29,6 +30,7 @@ import {
   FormLabel,
   FormMessage,
   InputBox,
+  InputClearButton,
   InputEyeButton,
   InputField,
   TextInput,
@@ -44,6 +46,8 @@ const formSchema = z.object({
 });
 
 const FormPage: NextPage = () => {
+  const [type, setType] = React.useState<"password" | "text">("password");
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { username: "" },
@@ -66,14 +70,21 @@ const FormPage: NextPage = () => {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
-                  <FormControl>
-                    <InputField>
-                      <TextInput placeholder="shadcn" {...field} />
-                    </InputField>
-                  </FormControl>
-                  <FormCaption>This is your public display name.</FormCaption>
-                  <FormMessage />
+                  <InputField>
+                    <FormLabel>Username</FormLabel>
+                    <InputBox>
+                      <FormControl>
+                        <TextInput placeholder="shadcn" {...field} />
+                      </FormControl>
+                      <InputClearButton
+                        onClick={() => {
+                          field.onChange("");
+                        }}
+                      />
+                    </InputBox>
+                    <FormCaption>This is your public display name.</FormCaption>
+                    <FormMessage />
+                  </InputField>
                 </FormItem>
               )}
             />
@@ -82,21 +93,26 @@ const FormPage: NextPage = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <InputField>
-                      <InputBox>
+                  <InputField>
+                    <FormLabel>Password</FormLabel>
+                    <InputBox>
+                      <FormControl>
                         <TextInput
+                          type={type}
                           placeholder="password"
-                          type="password"
                           {...field}
                         />
-                        <InputEyeButton />
-                      </InputBox>
-                    </InputField>
-                  </FormControl>
-                  <FormCaption>This is your public display name.</FormCaption>
-                  <FormMessage />
+                      </FormControl>
+                      <InputEyeButton
+                        onChangeVisibility={(visible) => {
+                          setType(visible ? "text" : "password");
+                        }}
+                        onClick={() => form.setFocus("password")}
+                      />
+                    </InputBox>
+                    <FormCaption>This is your public display name.</FormCaption>
+                    <FormMessage />
+                  </InputField>
                 </FormItem>
               )}
             />

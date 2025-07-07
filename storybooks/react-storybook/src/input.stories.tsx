@@ -465,13 +465,21 @@ export const Id = () => {
 
 export const Password = () => {
   const count = 12;
+  const [inputTypes, setInputTypes] = React.useState<("text" | "password")[]>(
+    Array(count).fill("password"),
+  );
   const inputRefs = Array.from({ length: count }, () =>
     React.createRef<HTMLInputElement>(),
   );
 
   const handleChangeVisibility = (visible: boolean, index: number) => {
+    setInputTypes((prev) => {
+      const next = [...prev];
+      next[index] = visible ? "text" : "password";
+      return next;
+    });
+    // 포커스 유지
     if (inputRefs[index]?.current) {
-      inputRefs[index].current.type = visible ? "text" : "password";
       inputRefs[index].current.focus();
     }
   };
@@ -496,7 +504,7 @@ export const Password = () => {
           <InputIcon name="RiLockPasswordFill" />
           <TextInput
             ref={inputRefs[9]}
-            type="password"
+            type={inputTypes[9]}
             placeholder="Placeholder..."
           />
           <InputEyeButton
@@ -511,7 +519,7 @@ export const Password = () => {
           <InputIcon name="RiLockPasswordFill" />
           <TextInput
             ref={inputRefs[10]}
-            type="password"
+            type={inputTypes[10]}
             placeholder="Placeholder..."
             disabled
           />
@@ -538,7 +546,7 @@ export const Password = () => {
                     <FormControl>
                       <TextInput
                         ref={inputRefs[11]}
-                        type="password"
+                        type={inputTypes[11]}
                         placeholder="Placeholder..."
                         onChange={field.onChange}
                         defaultValue={field.value}
