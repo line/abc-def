@@ -60,14 +60,9 @@ const inputVariants = cva("input", {
       medium: "input-radius-medium",
       small: "input-radius-small",
     },
-    error: {
-      true: "input-error",
-      false: "",
-    },
     defaultVariants: {
       size: undefined,
       radius: undefined,
-      error: false,
     },
   },
 });
@@ -96,7 +91,6 @@ interface TextInputProps
   size?: Size;
   type?: TextInputType;
   radius?: Radius;
-  error?: boolean;
 }
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
@@ -105,7 +99,6 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
       size,
       type = "text",
       radius,
-      error = false,
       disabled = false,
       onFocus,
       onBlur,
@@ -143,7 +136,6 @@ const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
           inputVariants({
             size: size ?? boxSize,
             radius: radius ?? themeRadius,
-            error,
             className,
           }),
         )}

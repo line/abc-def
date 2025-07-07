@@ -17,9 +17,20 @@
 
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod/v4";
 
 import {
+  Button,
   Caption,
+  Form,
+  FormCaption,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   IconNames,
   InputBox,
   InputClearButton,
@@ -28,13 +39,13 @@ import {
   InputIcon,
   Label,
   TextInput,
+  toast,
 } from "@abc-def/react";
 
 const Props = {
   TextInput: {
     placeholder: "↳ TextInput: placeholder",
     disabled: "↳ TextInput: disabled",
-    error: "↳ TextInput: error",
     radius: "↳ TextInput: radius",
   },
   InputIcon: {
@@ -53,9 +64,6 @@ const meta: Meta<
     [Props.TextInput.disabled]: React.ComponentPropsWithoutRef<
       typeof TextInput
     >["disabled"];
-    [Props.TextInput.error]: React.ComponentPropsWithoutRef<
-      typeof TextInput
-    >["error"];
     [Props.InputIcon.name]: React.ComponentPropsWithoutRef<
       typeof InputIcon
     >["name"];
@@ -67,7 +75,6 @@ const meta: Meta<
     [Props.TextInput.placeholder]: "Placeholder...",
     [Props.TextInput.radius]: undefined,
     [Props.TextInput.disabled]: false,
-    [Props.TextInput.error]: false,
     [Props.InputIcon.name]: undefined,
   },
   argTypes: {
@@ -105,16 +112,6 @@ const meta: Meta<
       },
       control: "boolean",
     },
-    [Props.TextInput.error]: {
-      description: "Set whether the TextInput is in an error state.",
-      table: {
-        category: "TextInput",
-        type: {
-          summary: "false",
-        },
-      },
-      control: "boolean",
-    },
     [Props.InputIcon.name]: {
       description: "Set the name of the InputIcon.",
       table: {
@@ -141,11 +138,6 @@ const meta: Meta<
         disable: true,
       },
     },
-    error: {
-      table: {
-        disable: true,
-      },
-    },
   },
   decorators: (Story) => <Story />,
   render: (args) => {
@@ -168,7 +160,6 @@ const meta: Meta<
             ref={inputRef}
             placeholder={args[Props.TextInput.placeholder]}
             disabled={args[Props.TextInput.disabled]}
-            error={args[Props.TextInput.error]}
           />
           <InputClearButton
             onClick={handleClear}
@@ -200,6 +191,18 @@ export const TextField = () => {
     }
   };
 
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
+
   return (
     <div className="grid grid-cols-3 gap-2">
       <InputField>
@@ -227,19 +230,43 @@ export const TextField = () => {
         </InputBox>
         <Caption variant="success">Caption Success</Caption>
       </InputField>
-      <InputField>
-        <Label>Error</Label>
-        <InputBox>
-          <TextInput
-            ref={inputRefs[2]}
-            type="text"
-            placeholder="Placeholder..."
-            error
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <InputField>
+                  <FormLabel>Form</FormLabel>
+                  <InputBox>
+                    <FormControl>
+                      <TextInput
+                        ref={inputRefs[2]}
+                        type="text"
+                        placeholder="Placeholder..."
+                        onChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    </FormControl>
+                    <InputClearButton
+                      onClick={() => {
+                        handleClear(2);
+                        field.onChange("");
+                      }}
+                    />
+                  </InputBox>
+                  <FormCaption>Caption</FormCaption>
+                  <FormMessage />
+                </InputField>
+              </FormItem>
+            )}
           />
-          <InputClearButton onClick={() => handleClear(2)} />
-        </InputBox>
-        <Caption variant="error">Caption Error</Caption>
-      </InputField>
+          <Button type="submit" className="mt-6">
+            Submit
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
@@ -256,6 +283,18 @@ export const Search = () => {
       inputRefs[index].current.focus();
     }
   };
+
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
 
   return (
     <div className="grid grid-cols-3 gap-2">
@@ -286,20 +325,44 @@ export const Search = () => {
         </InputBox>
         <Caption variant="success">Caption Success</Caption>
       </InputField>
-      <InputField>
-        <Label>Error</Label>
-        <InputBox>
-          <InputIcon name="RiSearchLine" />
-          <TextInput
-            ref={inputRefs[5]}
-            type="search"
-            placeholder="Placeholder..."
-            error
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <InputField>
+                  <FormLabel>Form</FormLabel>
+                  <InputBox>
+                    <InputIcon name="RiSearchLine" />
+                    <FormControl>
+                      <TextInput
+                        ref={inputRefs[5]}
+                        type="search"
+                        placeholder="Placeholder..."
+                        onChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    </FormControl>
+                    <InputClearButton
+                      onClick={() => {
+                        handleClear(5);
+                        field.onChange("");
+                      }}
+                    />
+                  </InputBox>
+                  <FormCaption>Caption</FormCaption>
+                  <FormMessage />
+                </InputField>
+              </FormItem>
+            )}
           />
-          <InputClearButton onClick={() => handleClear(5)} />
-        </InputBox>
-        <Caption variant="error">Caption Error</Caption>
-      </InputField>
+          <Button type="submit" className="mt-6">
+            Submit
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
@@ -316,6 +379,18 @@ export const Id = () => {
       inputRefs[index].current.focus();
     }
   };
+
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
 
   return (
     <div className="grid grid-cols-3 gap-2">
@@ -346,20 +421,44 @@ export const Id = () => {
         </InputBox>
         <Caption variant="success">Caption Success</Caption>
       </InputField>
-      <InputField>
-        <Label>Error</Label>
-        <InputBox>
-          <InputIcon name="RiUser3Fill" />
-          <TextInput
-            ref={inputRefs[8]}
-            type="text"
-            placeholder="Placeholder..."
-            error
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <InputField>
+                  <FormLabel>Form</FormLabel>
+                  <InputBox>
+                    <InputIcon name="RiUser3Fill" />
+                    <FormControl>
+                      <TextInput
+                        ref={inputRefs[8]}
+                        type="text"
+                        placeholder="Placeholder..."
+                        onChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    </FormControl>
+                    <InputClearButton
+                      onClick={() => {
+                        handleClear(8);
+                        field.onChange("");
+                      }}
+                    />
+                  </InputBox>
+                  <FormCaption>Caption</FormCaption>
+                  <FormMessage />
+                </InputField>
+              </FormItem>
+            )}
           />
-          <InputClearButton onClick={() => handleClear(8)} />
-        </InputBox>
-        <Caption variant="error">Caption Error</Caption>
-      </InputField>
+          <Button type="submit" className="mt-6">
+            Submit
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
@@ -376,6 +475,18 @@ export const Password = () => {
       inputRefs[index].current.focus();
     }
   };
+
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
 
   return (
     <div className="grid grid-cols-3 gap-2">
@@ -413,24 +524,47 @@ export const Password = () => {
         </InputBox>
         <Caption variant="success">Caption Success</Caption>
       </InputField>
-      <InputField>
-        <Label>Error</Label>
-        <InputBox>
-          <InputIcon name="RiLockPasswordFill" />
-          <TextInput
-            ref={inputRefs[11]}
-            type="password"
-            placeholder="Placeholder..."
-            error
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <InputField>
+                  <FormLabel>Form</FormLabel>
+                  <InputBox>
+                    <InputIcon name="RiLockPasswordFill" />
+                    <FormControl>
+                      <TextInput
+                        ref={inputRefs[11]}
+                        type="password"
+                        placeholder="Placeholder..."
+                        onChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    </FormControl>
+                    <InputEyeButton
+                      onChangeVisibility={(visible) =>
+                        handleChangeVisibility(visible, 11)
+                      }
+                    />
+                  </InputBox>
+                  <FormCaption>Caption</FormCaption>
+                  <FormMessage />
+                </InputField>
+              </FormItem>
+            )}
           />
-          <InputEyeButton
-            onChangeVisibility={(visible) =>
-              handleChangeVisibility(visible, 11)
-            }
-          />
-        </InputBox>
-        <Caption variant="error">Caption Error</Caption>
-      </InputField>
+          <Button type="submit" className="mt-6">
+            Submit
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
+
+const FormSchema = z.object({
+  email: z.email({ error: "Please type an email." }),
+});

@@ -17,7 +17,6 @@
   --input-fg: var(--fg-neutral-tertiary);
   --input-fg-typing: var(--fg-neutral-primary);
   --input-fg-filled: var(--fg-neutral-primary);
-  --input-fg-error: var(--fg-neutral-primary);
   --input-border: var(--border-neutral-tertiary);
   --input-border-typing: var(--tint, var(--border-neutral-primary));
   --input-border-filled: var(--border-neutral-tertiary);
@@ -25,7 +24,6 @@
   --input-bg: var(--bg-neutral-primary);
   --input-bg-typing: var(--bg-neutral-tertiary);
   --input-bg-filled: var(--bg-neutral-primary);
-  --input-bg-error: var(--bg-neutral-primary);
 
   @apply flex flex-col gap-1.5;
 }
