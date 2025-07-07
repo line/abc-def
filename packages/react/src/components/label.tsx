@@ -13,41 +13,21 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.select-small {
-  @apply space-y-1;
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
+
+import { cn } from "../lib/utils";
+
+interface LabelProps extends React.ComponentProps<typeof LabelPrimitive.Root> {}
+
+function Label({ className, ...props }: LabelProps) {
+  return (
+    <LabelPrimitive.Root
+      data-slot="label"
+      className={cn("label", className)}
+      {...props}
+    />
+  );
 }
 
-.select-medium {
-  @apply space-y-1.5;
-}
-
-.select-large {
-  @apply space-y-2;
-}
-.select-trigger-small {
-  @apply text-base-normal min-h-9 space-x-2 px-3;
-}
-
-.select-trigger-medium {
-  @apply text-large-normal min-h-11 space-x-2.5 px-3.5;
-}
-
-.select-trigger-large {
-  @apply text-xlarge-normal min-h-13 space-x-3 px-4;
-}
-
-.select-item-left {
-  @apply pl-8 pr-2;
-}
-
-.select-item-right {
-  @apply pl-2 pr-8;
-}
-
-.select-item-check-left {
-  @apply left-2;
-}
-
-.select-item-check-right {
-  @apply right-2;
-}
+export { Label };

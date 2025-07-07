@@ -17,10 +17,8 @@ import * as React from "react";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 
-import type { CaptionType } from "../lib/types";
 import type { Size } from "../types";
-import type { IconNameType } from "./icon";
-import { CAPTION_DEFAULT_ICON, ICON_SIZE } from "../constants";
+import { ICON_SIZE } from "../constants";
 import { cn } from "../lib/utils";
 import { Icon } from "./icon";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
@@ -31,7 +29,6 @@ import useTheme from "./use-theme";
 type MultiSelectItemType = { value: string; label: React.ReactNode };
 
 type MultiSelectContextType = {
-  error: boolean;
   disabled: boolean;
   size: Size;
   setSize?: (size: Size) => void;
@@ -62,7 +59,6 @@ interface MultiSelectProps {
   children: React.ReactNode;
   className?: string;
   size?: Size;
-  error?: boolean;
   disabled?: boolean;
 }
 
@@ -86,7 +82,6 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       children,
       className,
       size: propSize,
-      error = false,
       disabled = false,
     },
     ref,
@@ -156,7 +151,6 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
     return (
       <MultiSelectContext.Provider
         value={{
-          error,
           disabled,
           size: size ?? propSize ?? themeSize,
           setSize,
@@ -187,7 +181,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
 
 interface MultiSelectTriggerProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  error?: boolean;
+  asChild?: boolean;
 }
 
 const selectTriggerVariants = cva("select-trigger", {
@@ -204,24 +198,40 @@ const selectTriggerVariants = cva("select-trigger", {
 const MultiSelectTrigger = React.forwardRef<
   HTMLButtonElement,
   MultiSelectTriggerProps
->(function MultiSelectTrigger({ className, children, ...props }, ref) {
-  const { size, error, disabled } = useMultiSelectContext();
+>(function MultiSelectTrigger({ asChild, ...props }, ref) {
+  const Comp = asChild ? Slot : MultiSelectTriggerButton;
+
   return (
     <PopoverTrigger asChild>
-      <button
-        ref={ref}
-        type="button"
-        aria-haspopup="listbox"
-        className={cn(selectTriggerVariants({ size, className }))}
-        data-placeholder
-        disabled={disabled}
-        aria-invalid={error}
-        {...props}
-      >
-        <Slottable>{children}</Slottable>
-        <Icon name="RiArrowDownSLine" size={ICON_SIZE[size]} />
-      </button>
+      <Comp ref={ref} {...props} />
     </PopoverTrigger>
+  );
+});
+
+interface MultiSelectTriggerButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+const MultiSelectTriggerButton = React.forwardRef<
+  HTMLButtonElement,
+  MultiSelectTriggerButtonProps
+>(function MultiSelectTrigger({ className, children, ...props }, ref) {
+  const { size, disabled } = useMultiSelectContext();
+  return (
+    <button
+      ref={ref}
+      type="button"
+      aria-haspopup="listbox"
+      className={cn(selectTriggerVariants({ size, className }))}
+      data-placeholder
+      disabled={disabled}
+      {...props}
+    >
+      <Slottable>{children}</Slottable>
+      <Icon name="RiArrowDownSLine" size={ICON_SIZE[size]} />
+    </button>
   );
 });
 
@@ -346,83 +356,11 @@ const MultiSelectValue = React.forwardRef<
   );
 });
 
-const MultiSelectLabel = React.forwardRef<
-  HTMLElement,
-  React.ComponentPropsWithoutRef<"strong">
->((props, ref) => {
-  const { className, ...rest } = props;
-  return (
-    <strong ref={ref} className={cn("select-label", className)} {...rest} />
-  );
-});
-MultiSelectLabel.displayName = "MultiSelectLabel";
-
-const selectCaptionVariants = cva("select-caption", {
-  variants: {
-    variant: {
-      default: "select-caption-default",
-      success: "select-caption-success",
-      info: "select-caption-info",
-      error: "select-caption-error",
-    },
-    defaultVariants: { variant: "default" },
-  },
-});
-
-interface SelectCaptionProps extends React.ComponentPropsWithoutRef<"span"> {
-  variant?: CaptionType;
-  icon?: IconNameType;
-  asChild?: boolean;
-}
-
-const MultiSelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
-  (props, ref) => {
-    const {
-      icon = undefined,
-      variant,
-      className,
-      children,
-      asChild,
-      ...rest
-    } = props;
-    const { size, error } = useMultiSelectContext();
-    const Comp = asChild ? Slot : "span";
-
-    return (
-      <Comp
-        ref={ref}
-        className={cn(
-          selectCaptionVariants({
-            variant: variant ?? "default",
-            className,
-          }),
-        )}
-        data-error={error}
-        {...rest}
-      >
-        <Icon
-          name={
-            icon ??
-            CAPTION_DEFAULT_ICON[
-              error ? (variant ?? "error") : (variant ?? "default")
-            ]
-          }
-          size={ICON_SIZE[size]}
-          className="select-caption-icon"
-        />
-        <Slottable>{children}</Slottable>
-      </Comp>
-    );
-  },
-);
-MultiSelectCaption.displayName = "MultiSelectCaption";
-
 export {
   MultiSelect,
-  MultiSelectLabel,
   MultiSelectTrigger,
+  MultiSelectTriggerButton,
   MultiSelectContent,
   MultiSelectItem,
   MultiSelectValue,
-  MultiSelectCaption,
 };

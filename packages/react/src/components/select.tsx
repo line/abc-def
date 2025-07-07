@@ -15,18 +15,17 @@
  */
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
-import { Slot, Slottable } from "@radix-ui/react-slot";
+import { Slottable } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 
-import type { CaptionType, Size } from "../lib/types";
-import type { IconNameType } from "./icon";
-import { CAPTION_DEFAULT_ICON, ICON_SIZE } from "../constants";
+import type { Size } from "../lib/types";
+import { ICON_SIZE } from "../constants";
 import { cn } from "../lib/utils";
 import { Icon } from "./icon";
 import { ScrollArea, ScrollBar } from "./scroll-area";
 import useTheme from "./use-theme";
 
-type SelectContextType = { size: Size; error: boolean };
+type SelectContextType = { size: Size };
 
 const SelectContext = React.createContext<SelectContextType | undefined>(
   undefined,
@@ -41,7 +40,6 @@ interface SelectProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root> {
   className?: string;
   size?: Size;
-  error?: boolean;
 }
 
 const selectVariants = cva("select", {
@@ -55,12 +53,10 @@ const selectVariants = cva("select", {
   },
 });
 
-const Select = ({ size, error, className, ...props }: SelectProps) => {
+const Select = ({ size, className, ...props }: SelectProps) => {
   const { themeSize } = useTheme();
   return (
-    <SelectContext.Provider
-      value={{ size: size ?? themeSize, error: error ?? false }}
-    >
+    <SelectContext.Provider value={{ size: size ?? themeSize }}>
       <div
         className={cn(selectVariants({ size: size ?? themeSize, className }))}
       >
@@ -92,13 +88,12 @@ const SelectTrigger = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Trigger>,
   SelectTriggerProps
 >(({ className, children, ...props }, ref) => {
-  const { size, error } = useSelectContext();
+  const { size } = useSelectContext();
 
   return (
     <SelectPrimitive.Trigger
       ref={ref}
       className={cn(selectTriggerVariants({ size, className }))}
-      aria-invalid={error}
       {...props}
     >
       <Slottable>{children}</Slottable>
@@ -209,82 +204,8 @@ const SelectSeparator = React.forwardRef<
 ));
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
-const SelectLabel = React.forwardRef<
-  HTMLElement,
-  React.ComponentPropsWithoutRef<"strong">
->((props, ref) => {
-  const { className, ...rest } = props;
-  return (
-    <strong ref={ref} className={cn("select-label", className)} {...rest} />
-  );
-});
-SelectLabel.displayName = SelectPrimitive.Label.displayName;
-
-const selectCaptionVariants = cva("select-caption", {
-  variants: {
-    variant: {
-      default: "select-caption-default",
-      success: "select-caption-success",
-      info: "select-caption-info",
-      error: "select-caption-error",
-    },
-    defaultVariants: { variant: "default" },
-  },
-});
-
-interface SelectCaptionProps extends React.ComponentPropsWithoutRef<"span"> {
-  variant?: CaptionType;
-  icon?: IconNameType;
-  asChild?: boolean;
-}
-
-const SelectCaption = React.forwardRef<HTMLElement, SelectCaptionProps>(
-  (props, ref) => {
-    const {
-      icon = undefined,
-      variant,
-      className,
-      children,
-      asChild,
-      ...rest
-    } = props;
-    const { size, error: selectError } = useSelectContext();
-    const Comp = asChild ? Slot : "span";
-    const isError = variant === "error" || selectError;
-
-    return (
-      <Comp
-        ref={ref}
-        className={cn(
-          selectCaptionVariants({
-            variant: variant ?? "default",
-            className,
-          }),
-        )}
-        data-error={isError}
-        {...rest}
-      >
-        <Icon
-          name={
-            icon ??
-            CAPTION_DEFAULT_ICON[
-              isError ? (variant ?? "error") : (variant ?? "default")
-            ]
-          }
-          size={ICON_SIZE[size]}
-          className="select-caption-icon"
-        />
-        <Slottable>{children}</Slottable>
-      </Comp>
-    );
-  },
-);
-SelectCaption.displayName = "SelectCaption";
-
 export {
   Select,
-  SelectLabel,
-  SelectCaption,
   SelectGroup,
   SelectValue,
   SelectTrigger,
