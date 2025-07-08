@@ -14,63 +14,63 @@
  * under the License.
  */
 .badge-bold-default {
-  @apply border border-[var(--badge-bold-border)] bg-[var(--badge-bold-bg)] text-[var(--badge-bold-fg)];
+  @apply border border-[var(--badge-border-bold)] bg-[var(--badge-bg-bold)] text-[var(--badge-fg-bold)];
 }
 
 .badge-bold-blue {
-  @apply border border-[var(--badge-bold-border-blue)] bg-[var(--badge-bold-bg-blue)] text-[var(--badge-bold-fg-blue)];
+  @apply border border-[var(--badge-border-bold-blue)] bg-[var(--badge-bg-bold-blue)] text-[var(--badge-fg-bold-blue)];
 }
 
 .badge-bold-orange {
-  @apply border border-[var(--badge-bold-border-orange)] bg-[var(--badge-bold-bg-orange)] text-[var(--badge-bold-fg-orange)];
+  @apply border border-[var(--badge-border-bold-orange)] bg-[var(--badge-bg-bold-orange)] text-[var(--badge-fg-bold-orange)];
 }
 
 .badge-bold-red {
-  @apply border border-[var(--badge-bold-border-red)] bg-[var(--badge-bold-bg-red)] text-[var(--badge-bold-fg-red)];
+  @apply border border-[var(--badge-border-bold-red)] bg-[var(--badge-bg-bold-red)] text-[var(--badge-fg-bold-red)];
 }
 
 .badge-bold-green {
-  @apply border border-[var(--badge-bold-border-green)] bg-[var(--badge-bold-bg-green)] text-[var(--badge-bold-fg-green)];
+  @apply border border-[var(--badge-border-bold-green)] bg-[var(--badge-bg-bold-green)] text-[var(--badge-fg-bold-green)];
 }
 
 .badge-subtle-default {
-  @apply border border-[var(--badge-subtle-border)] bg-[var(--badge-subtle-bg)] text-[var(--badge-subtle-fg)];
+  @apply border border-[var(--badge-border-subtle)] bg-[var(--badge-bg-subtle)] text-[var(--badge-fg-subtle)];
 }
 
 .badge-subtle-blue {
-  @apply border border-[var(--badge-subtle-border-blue)] bg-[var(--badge-subtle-bg-blue)] text-[var(--badge-subtle-fg-blue)];
+  @apply border border-[var(--badge-border-subtle-blue)] bg-[var(--badge-bg-subtle-blue)] text-[var(--badge-fg-subtle-blue)];
 }
 
 .badge-subtle-orange {
-  @apply border border-[var(--badge-subtle-border-orange)] bg-[var(--badge-subtle-bg-orange)] text-[var(--badge-subtle-fg-orange)];
+  @apply border border-[var(--badge-border-subtle-orange)] bg-[var(--badge-bg-subtle-orange)] text-[var(--badge-fg-subtle-orange)];
 }
 
 .badge-subtle-red {
-  @apply border border-[var(--badge-subtle-border-red)] bg-[var(--badge-subtle-bg-red)] text-[var(--badge-subtle-fg-red)];
+  @apply border border-[var(--badge-border-subtle-red)] bg-[var(--badge-bg-subtle-red)] text-[var(--badge-fg-subtle-red)];
 }
 
 .badge-subtle-green {
-  @apply border border-[var(--badge-subtle-border-green)] bg-[var(--badge-subtle-bg-green)] text-[var(--badge-subtle-fg-green)];
+  @apply border border-[var(--badge-border-subtle-green)] bg-[var(--badge-bg-subtle-green)] text-[var(--badge-fg-subtle-green)];
 }
 
 .badge-outline-default {
-  @apply border border-[var(--badge-outline-border)] bg-[var(--badge-outline-bg)] text-[var(--badge-outline-fg)];
+  @apply border border-[var(--badge-border-outline)] bg-[var(--badge-bg-outline)] text-[var(--badge-fg-outline)];
 }
 
 .badge-outline-blue {
-  @apply border border-[var(--badge-outline-border-blue)] bg-[var(--badge-outline-bg-blue)] text-[var(--badge-outline-fg-blue)];
+  @apply border border-[var(--badge-border-outline-blue)] bg-[var(--badge-bg-outline-blue)] text-[var(--badge-fg-outline-blue)];
 }
 
 .badge-outline-orange {
-  @apply border border-[var(--badge-outline-border-orange)] bg-[var(--badge-outline-bg-orange)] text-[var(--badge-outline-fg-orange)];
+  @apply border border-[var(--badge-border-outline-orange)] bg-[var(--badge-bg-outline-orange)] text-[var(--badge-fg-outline-orange)];
 }
 
 .badge-outline-red {
-  @apply border border-[var(--badge-outline-border-red)] bg-[var(--badge-outline-bg-red)] text-[var(--badge-outline-fg-red)];
+  @apply border border-[var(--badge-border-outline-red)] bg-[var(--badge-bg-outline-red)] text-[var(--badge-fg-outline-red)];
 }
 
 .badge-outline-green {
-  @apply border border-[var(--badge-outline-border-green)] bg-[var(--badge-outline-bg-green)] text-[var(--badge-outline-fg-green)];
+  @apply border border-[var(--badge-border-outline-green)] bg-[var(--badge-bg-outline-green)] text-[var(--badge-fg-outline-green)];
 }
 
 .badge-radius-small {
