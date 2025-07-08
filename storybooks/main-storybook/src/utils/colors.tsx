@@ -21,7 +21,7 @@ import {
   primitivesCSSVariables,
   semanticCSSVariables,
   semanticDarkCSSVariables,
-} from "./cssVariables";
+} from "./css-variables";
 
 const parseCSSVariables = (
   cssVariables: string,
