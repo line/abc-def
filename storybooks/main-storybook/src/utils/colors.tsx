@@ -222,14 +222,14 @@ export const PrimitiveColors = () => {
                       {name.split("/").pop()}
                     </strong>
                     <button
-                      onClick={() => handleCopy(value)}
+                      onClick={() => handleCopy(value.trim())}
                       className="text-neutral-tertiary text-left text-xs"
                     >
                       <Icon
                         name="RiLink"
-                        className="text-neutral-tertiary h-4 w-4"
+                        className="text-neutral-tertiary mr-0.5 h-3 w-3"
                       />
-                      {value}
+                      {value.trim()}
                     </button>
                   </div>
                 ),
