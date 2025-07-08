@@ -15,7 +15,7 @@
  */
 .scroll-area {
   --scroll-area-bg: var(--bg-neutral-transparent);
-  --scroll-area-thumb-bg: var(--bg-neutral-tertiary);
+  --scroll-area-bg-thumb: var(--bg-neutral-tertiary);
 
   @apply relative overflow-hidden bg-[var(--scroll-area-bg)];
 }
@@ -32,5 +32,5 @@
 }
 
 .scroll-thumb {
-  @apply relative flex-1 rounded-full bg-[var(--scroll-area-thumb-bg)];
+  @apply relative flex-1 rounded-full bg-[var(--scroll-area-bg-thumb)];
 }
