@@ -16,7 +16,7 @@
 .calendar {
   --calendar-fg-default: var(--fg-neutral-primary);
   --calendar-fg-pressed: var(--fg-neutral-inverse);
-  --calendar-week-fg: var(--fg-neutral-tertiary);
+  --calendar-fg-secondary: var(--fg-neutral-tertiary);
   --calendar-border: var(--border-neutral-tertiary);
   --calendar-bg: var(--bg-neutral-primary);
   --calendar-bg-pressed: var(--tint, var(--bg-neutral-inverse));
@@ -67,7 +67,7 @@
 }
 
 .calendar-head-cell {
-  @apply text-small-normal flex-1 px-2 py-0.5 font-normal text-[var(--calendar-week-fg)];
+  @apply text-small-normal flex-1 px-2 py-0.5 font-normal text-[var(--calendar-fg-secondary)];
 }
 
 .calendar-row {
