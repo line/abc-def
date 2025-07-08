@@ -39,9 +39,10 @@ const spacings: SpacingItem[] = [
 ];
 
 const tableClass = "table-fixed border-collapse w-full text-left";
-const headerClass = "!border-none !px-0 !py-4 capitalize text-large-strong";
+const headerClass =
+  "!border-none !px-0 !py-4 !pl-4 capitalize text-large-strong";
 const rowClass = "!border-none !p-0 [&:nth-of-type(2n)]:!bg-neutral-tertiary";
-const cellClass = "!border-none !px-0 !py-4 text-large-normal";
+const cellClass = "!border-none !px-0 !py-4 !pl-4 text-large-normal";
 
 const Spacing: React.FC = () => {
   return (
