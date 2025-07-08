@@ -199,12 +199,13 @@ export const PrimitiveColors = () => {
           <p className="!text-title-h4 capitalize">
             {Object.keys(primitivesByCategory)[index]}
           </p>
-          <div className="grid grid-cols-11">
+          <div className="grid grid-cols-11 gap-4">
             {colors.map(
               ({ name, value = "" }, index) =>
                 name && (
-                  <div key={index}>
+                  <div key={index} className="flex flex-col items-center">
                     <div
+                      className="border-neutral-tertiary !mb-1 flex-shrink-0 overflow-hidden rounded-lg border"
                       style={{
                         background:
                           "repeating-linear-gradient(-45deg, var(--bg-primary), var(--bg-primary) 13px, var(--bg-neutral-tertiary) 13px, var(--bg-neutral-tertiary) 14px)",
@@ -214,14 +215,21 @@ export const PrimitiveColors = () => {
                         style={{
                           background: value,
                         }}
-                        className="h-20 w-full"
+                        className="h-14 w-14"
                       ></div>
                     </div>
+                    <strong className="text-neutral-primary text-sm font-bold">
+                      {name.split("/").pop()}
+                    </strong>
                     <button
                       onClick={() => handleCopy(value)}
-                      className="text-left text-base font-bold"
+                      className="text-neutral-tertiary text-left text-xs"
                     >
-                      {name}
+                      <Icon
+                        name="RiLink"
+                        className="text-neutral-tertiary h-4 w-4"
+                      />
+                      {value}
                     </button>
                   </div>
                 ),
