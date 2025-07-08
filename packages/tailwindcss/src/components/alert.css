@@ -15,7 +15,7 @@
  */
 .alert {
   --alert-fg: var(--fg-neutral-primary);
-  --alert-description-fg: var(--fg-neutral-secondary);
+  --alert-fg-secondary: var(--fg-neutral-secondary);
   --alert-fg-warning: var(--fg-tint-orange);
   --alert-fg-success: var(--fg-tint-green);
   --alert-fg-error: var(--fg-tint-red);
