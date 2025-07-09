@@ -1,4 +1,0 @@
-import{j as t,c as m}from"./DocsRenderer-CFRXHY34-BGltSBTL.js";import{useMDXComponents as i}from"./index-CB3_FCD4.js";import"./index-DR70S1Zn.js";import{L as s}from"./logo-BBTuKBui.js";import"./iframe-DnQcYv9s.js";import"./index-MPVjHJeJ.js";import"./react-18-CzVLzJMK.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";import"./preview-7sHS4XvK.js";const a=""+new URL("coming-soon-DLf4PD4_.jpg",import.meta.url).href,r=()=>t.jsx("img",{src:a,alt:"Coming Soon"});r.__docgenInfo={description:"",methods:[],displayName:"ComingSoon"};function e(o){const n={h2:"h2",...i(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(m,{title:"Getting Started/Installation"}),`
-`,t.jsx(s,{}),`
-`,t.jsx(n.h2,{id:"installation",children:"Installation"}),`
-`,t.jsx(r,{})]})}function C(o={}){const{wrapper:n}={...i(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(e,{...o})}):e(o)}export{C as default};
