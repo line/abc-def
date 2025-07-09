@@ -1,0 +1,1 @@
+import{j as t}from"./DocsRenderer-CFRXHY34-Cty4Sv7s.js";const r=({children:e})=>t.jsx("p",{className:"!text-xlarge-normal !text-neutral-tertiary !mb-3 !mt-0",children:e});r.__docgenInfo={description:"",methods:[],displayName:"Description",props:{children:{required:!0,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:""}}};export{r as D};
