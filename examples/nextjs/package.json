@@ -20,7 +20,7 @@
     "react": "catalog:react",
     "react-dom": "catalog:react",
     "react-hook-form": "^7.59.0",
-    "zod": "^3.25.67"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@abc-def/eslint-config": "workspace:^",
