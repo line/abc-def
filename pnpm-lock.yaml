@@ -99,7 +99,7 @@ importers:
         version: link:../../packages/react
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.59.0(react@19.1.0))
+        version: 5.1.1(react-hook-form@7.60.0(react@19.1.0))
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -113,8 +113,8 @@ importers:
         specifier: catalog:react
         version: 19.1.0(react@19.1.0)
       react-hook-form:
-        specifier: ^7.59.0
-        version: 7.59.0(react@19.1.0)
+        specifier: ^7.60.0
+        version: 7.60.0(react@19.1.0)
       zod:
         specifier: ^3.25.76
         version: 3.25.76
@@ -160,7 +160,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.59.0(react@19.1.0))
+        version: 5.1.1(react-hook-form@7.60.0(react@19.1.0))
       '@radix-ui/react-accordion':
         specifier: ^1.2.11
         version: 1.2.11(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -237,8 +237,8 @@ importers:
         specifier: 8.10.1
         version: 8.10.1(date-fns@4.1.0)(react@19.1.0)
       react-hook-form:
-        specifier: ^7.59.0
-        version: 7.59.0(react@19.1.0)
+        specifier: ^7.60.0
+        version: 7.60.0(react@19.1.0)
       sonner:
         specifier: ^2.0.6
         version: 2.0.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -475,7 +475,7 @@ importers:
         version: link:../../packages/react
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.59.0(react@19.1.0))
+        version: 5.1.1(react-hook-form@7.60.0(react@19.1.0))
       react:
         specifier: catalog:react
         version: 19.1.0
@@ -483,8 +483,8 @@ importers:
         specifier: catalog:react
         version: 19.1.0(react@19.1.0)
       react-hook-form:
-        specifier: ^7.59.0
-        version: 7.59.0(react@19.1.0)
+        specifier: ^7.60.0
+        version: 7.60.0(react@19.1.0)
       zod:
         specifier: ^3.25.76
         version: 3.25.76
@@ -5110,8 +5110,8 @@ packages:
     peerDependencies:
       react: ^19.1.0
 
-  react-hook-form@7.59.0:
-    resolution: {integrity: sha512-kmkek2/8grqarTJExFNjy+RXDIP8yM+QTl3QL6m6Q8b2bih4ltmiXxH7T9n+yXNK477xPh5yZT/6vD8sYGzJTA==}
+  react-hook-form@7.60.0:
+    resolution: {integrity: sha512-SBrYOvMbDB7cV8ZfNpaiLcgjH/a1c7aK0lK+aNigpf4xWLO8q+o4tcvVurv3c4EOyzn/3dCsYt4GKD42VvJ/+A==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -7019,10 +7019,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@hookform/resolvers@5.1.1(react-hook-form@7.59.0(react@19.1.0))':
+  '@hookform/resolvers@5.1.1(react-hook-form@7.60.0(react@19.1.0))':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.59.0(react@19.1.0)
+      react-hook-form: 7.60.0(react@19.1.0)
 
   '@humanfs/core@0.19.1': {}
 
@@ -8002,7 +8002,7 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@storybook/builder-vite@8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
+  '@storybook/builder-vite@8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
       '@storybook/csf-plugin': 8.6.14(storybook@8.6.14(prettier@3.6.2))
       browser-assert: 1.2.1
@@ -8071,7 +8071,7 @@ snapshots:
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.8.3)(vite@7.0.3(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@rollup/pluginutils': 5.1.4(rollup@4.44.1)
-      '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@storybook/react': 8.6.14(@storybook/test@8.6.14(storybook@8.6.14(prettier@3.6.2)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.6.2))(typescript@5.8.3)
       find-up: 5.0.0
       magic-string: 0.30.17
@@ -8121,7 +8121,7 @@ snapshots:
 
   '@storybook/vue3-vite@8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.17(typescript@5.8.3))':
     dependencies:
-      '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@storybook/vue3': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vue@3.5.17(typescript@5.8.3))
       find-package-json: 1.2.0
       magic-string: 0.30.17
@@ -8149,7 +8149,7 @@ snapshots:
 
   '@storybook/web-components-vite@8.6.14(lit@3.3.0)(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
-      '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.3(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@storybook/web-components': 8.6.14(lit@3.3.0)(storybook@8.6.14(prettier@3.6.2))
       magic-string: 0.30.17
       storybook: 8.6.14(prettier@3.6.2)
@@ -10810,7 +10810,7 @@ snapshots:
       react: 19.1.0
       scheduler: 0.26.0
 
-  react-hook-form@7.59.0(react@19.1.0):
+  react-hook-form@7.60.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 

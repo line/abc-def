@@ -16,7 +16,7 @@
     "@hookform/resolvers": "^5.1.1",
     "react": "catalog:react",
     "react-dom": "catalog:react",
-    "react-hook-form": "^7.59.0",
+    "react-hook-form": "^7.60.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
