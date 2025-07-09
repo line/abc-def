@@ -20,35 +20,30 @@ interface TypoTableProps {
 }
 
 const tableClass = "table-fixed border-collapse w-full text-left";
-const headerClass = "!border-none !px-0 !py-4 capitalize text-large-strong";
+const headerClass =
+  "!border-none !px-0 !py-4 !pl-4 capitalize text-large-strong";
 const rowClass = "!border-none !p-0 [&:nth-of-type(2n)]:!bg-neutral-tertiary";
-const cellClass = "!border-none !px-0 !py-4 text-large-normal";
+const cellClass = "!border-none !px-0 !py-4 !pl-4 text-large-normal";
 
 export const TypoTable: React.FC<TypoTableProps> = ({ items }) => {
   return (
     <table className={tableClass}>
       <thead>
         <tr className="!border-none">
-          <th className={headerClass}>name</th>
+          <th className={headerClass}>token name</th>
           <th className={headerClass}>size</th>
           <th className={headerClass}>line height</th>
           <th className={headerClass}>example</th>
-          <th className={headerClass}>code</th>
         </tr>
       </thead>
       <tbody>
-        {items.map(({ name, size, lineHeight, code }, rowIndex) => (
+        {items.map(({ size, lineHeight, code }, rowIndex) => (
           <tr key={rowIndex} className={rowClass}>
-            <td className={cellClass}>{name}</td>
+            <td className={cellClass}>{code.replace("!", "")}</td>
             <td className={cellClass}>{size}</td>
             <td className={cellClass}>{lineHeight}</td>
             <td className={cellClass}>
               <span className={code}>Rag 123</span>
-            </td>
-            <td className={cellClass}>
-              <span className="text-neutral-inverse bg-neutral-inverse px-1 font-mono !text-xs">
-                {code.replace("!", "")}
-              </span>
             </td>
           </tr>
         ))}
@@ -76,18 +71,6 @@ const small = [
     lineHeight: "1.125rem (18px)",
     code: "!text-small-strong",
   },
-  {
-    name: "underline",
-    size: "0.75rem (12px)",
-    lineHeight: "1.125rem (18px)",
-    code: "!text-small-underline",
-  },
-  {
-    name: "delete",
-    size: "0.75rem (12px)",
-    lineHeight: "1.125rem (18px)",
-    code: "!text-small-delete",
-  },
 ];
 
 const base = [
@@ -102,18 +85,6 @@ const base = [
     size: "0.875rem (14px)",
     lineHeight: "1.375rem (22px)",
     code: "!text-base-strong",
-  },
-  {
-    name: "underline",
-    size: "0.875rem (14px)",
-    lineHeight: "1.375rem (22px)",
-    code: "!text-base-underline",
-  },
-  {
-    name: "delete",
-    size: "0.875rem (14px)",
-    lineHeight: "1.375rem (22px)",
-    code: "!text-base-delete",
   },
 ];
 
@@ -130,18 +101,6 @@ const large = [
     lineHeight: "1.5rem (24px)",
     code: "!text-large-strong",
   },
-  {
-    name: "underline",
-    size: "1rem (16px)",
-    lineHeight: "1.5rem (24px)",
-    code: "!text-large-underline",
-  },
-  {
-    name: "delete",
-    size: "1rem (16px)",
-    lineHeight: "1.5rem (24px)",
-    code: "!text-large-delete",
-  },
 ];
 
 const xlarge = [
@@ -156,18 +115,6 @@ const xlarge = [
     size: "1.25rem (20px)",
     lineHeight: "2rem (28px)",
     code: "!text-xlarge-strong",
-  },
-  {
-    name: "underline",
-    size: "1.25rem (20px)",
-    lineHeight: "2rem (28px)",
-    code: "!text-xlarge-underline",
-  },
-  {
-    name: "delete",
-    size: "1.25rem (20px)",
-    lineHeight: "2rem (28px)",
-    code: "!text-xlarge-delete",
   },
 ];
 

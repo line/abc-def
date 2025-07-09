@@ -15,21 +15,32 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod/v4";
 
 import {
+  Button,
+  Caption,
+  Form,
+  FormCaption,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   Icon,
-  IconNames,
+  Label,
   MultiSelect,
-  MultiSelectCaption,
   MultiSelectContent,
   MultiSelectItem,
-  MultiSelectLabel,
   MultiSelectTrigger,
+  MultiSelectTriggerButton,
   MultiSelectValue,
+  toast,
 } from "@abc-def/react";
 
 const Props = {
-  MultiSelectLabel: { children: "↳ MultiSelectLabel: children" },
   MultiSelectValue: { placeholder: "↳ MultiSelectValue: placeholder" },
   MultiSelectContent: {
     position: "↳ MultiSelectContent: position",
@@ -38,18 +49,10 @@ const Props = {
   MultiSelectItem: {
     children: "↳ MultiSelectItem: children",
   },
-  MultiSelectCaption: {
-    icon: "↳ MultiSelectCaption: icon",
-    variant: "↳ MultiSelectCaption: variant",
-    children: "↳ MultiSelectCaption: children",
-  },
 } as const;
 
 const meta: Meta<
   React.ComponentProps<typeof MultiSelect> & {
-    [Props.MultiSelectLabel.children]: React.ComponentPropsWithoutRef<
-      typeof MultiSelectLabel
-    >["children"];
     [Props.MultiSelectValue.placeholder]: React.ComponentPropsWithoutRef<
       typeof MultiSelectValue
     >["placeholder"];
@@ -59,15 +62,6 @@ const meta: Meta<
     [Props.MultiSelectItem.children]: React.ComponentPropsWithoutRef<
       typeof MultiSelectItem
     >["children"];
-    [Props.MultiSelectCaption.icon]: React.ComponentPropsWithoutRef<
-      typeof MultiSelectCaption
-    >["icon"];
-    [Props.MultiSelectCaption.variant]: React.ComponentPropsWithoutRef<
-      typeof MultiSelectCaption
-    >["variant"];
-    [Props.MultiSelectCaption.children]: React.ComponentPropsWithoutRef<
-      typeof MultiSelectCaption
-    >["children"];
   }
 > = {
   title: "MultiSelect",
@@ -76,13 +70,10 @@ const meta: Meta<
   render: (args) => (
     <MultiSelect
       size={args.size}
-      error={args.error}
       disabled={args.disabled}
       onValueChange={(value) => console.log(value.join(", "))}
     >
-      <MultiSelectLabel>
-        {args[Props.MultiSelectLabel.children]}
-      </MultiSelectLabel>
+      <Label>Label</Label>
       <MultiSelectTrigger>
         <MultiSelectValue
           placeholder={args[Props.MultiSelectValue.placeholder]}
@@ -99,25 +90,15 @@ const meta: Meta<
           {args[Props.MultiSelectItem.children]}
         </MultiSelectItem>
       </MultiSelectContent>
-      <MultiSelectCaption
-        icon={args[Props.MultiSelectCaption.icon]}
-        variant={args[Props.MultiSelectCaption.variant]}
-      >
-        {args[Props.MultiSelectCaption.children]}
-      </MultiSelectCaption>
+      <Caption>Caption</Caption>
     </MultiSelect>
   ),
   args: {
     size: undefined,
-    error: false,
     disabled: false,
-    [Props.MultiSelectLabel.children]: "Title",
     [Props.MultiSelectValue.placeholder]: "Select a fruit...",
     [Props.MultiSelectContent.maxHeight]: "auto",
     [Props.MultiSelectItem.children]: "Custom",
-    [Props.MultiSelectCaption.icon]: undefined,
-    [Props.MultiSelectCaption.variant]: undefined,
-    [Props.MultiSelectCaption.children]: "Caption",
   },
   argTypes: {
     size: {
@@ -130,21 +111,9 @@ const meta: Meta<
       control: "select",
       options: ["large", "medium", "small", undefined],
     },
-    error: {
-      description: "Set whether the Select is in an error state.",
-      table: { category: "MultiSelect", defaultValue: { summary: "false" } },
-    },
     disabled: {
       description: "Set whether the Select is in an disabled state.",
       table: { category: "MultiSelect", defaultValue: { summary: "false" } },
-    },
-    [Props.MultiSelectLabel.children]: {
-      description: "Set the children of the SelectLabel.",
-      table: {
-        category: "MultiSelectLabel",
-        type: { summary: "React.ReactNode" },
-      },
-      control: "text",
     },
     [Props.MultiSelectValue.placeholder]: {
       description: "Set the placeholder of the SelectValue.",
@@ -160,33 +129,6 @@ const meta: Meta<
       description: "Set the children of the SelectItem.",
       table: {
         category: "MultiSelectItem",
-        type: { summary: "React.ReactNode" },
-      },
-      control: "text",
-    },
-    [Props.MultiSelectCaption.variant]: {
-      description: "Set the variant of the SelectCaption.",
-      table: {
-        category: "MultiSelectCaption",
-        type: { summary: "default | success | info | error | undefined" },
-        defaultValue: { summary: undefined },
-      },
-      control: "radio",
-      options: ["default", "success", "info", "error", undefined],
-    },
-    [Props.MultiSelectCaption.icon]: {
-      description: "Set the left icon of the SelectCaption.",
-      table: {
-        category: "MultiSelectCaption",
-        type: { summary: "IconNameType" },
-      },
-      control: "select",
-      options: IconNames,
-    },
-    [Props.MultiSelectCaption.children]: {
-      description: "Set the children of the SelectCaption.",
-      table: {
-        category: "MultiSelectCaption",
         type: { summary: "React.ReactNode" },
       },
       control: "text",
@@ -210,7 +152,7 @@ export const With_Icon = () => (
     defaultValue={["txt", "kwd"]}
     onValueChange={(value) => console.log(value.join(", "))}
   >
-    <MultiSelectLabel>Label</MultiSelectLabel>
+    <Label>Label</Label>
     <MultiSelectTrigger>
       <MultiSelectValue placeholder="Select a format" />
     </MultiSelectTrigger>
@@ -244,30 +186,7 @@ export const With_Icon = () => (
         image
       </MultiSelectItem>
     </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
-  </MultiSelect>
-);
-
-export const Error = () => (
-  <MultiSelect
-    error
-    defaultValue={["txt", "kwd"]}
-    onValueChange={(value) => console.log(value.join(", "))}
-  >
-    <MultiSelectLabel>Label</MultiSelectLabel>
-    <MultiSelectTrigger>
-      <MultiSelectValue placeholder="Select a format" />
-    </MultiSelectTrigger>
-    <MultiSelectContent>
-      <MultiSelectItem value="txt">text</MultiSelectItem>
-      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
-      <MultiSelectItem value="num">number</MultiSelectItem>
-      <MultiSelectItem value="dat">date</MultiSelectItem>
-      <MultiSelectItem value="sel">select</MultiSelectItem>
-      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
-      <MultiSelectItem value="img">image</MultiSelectItem>
-    </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
+    <Caption>Caption Info</Caption>
   </MultiSelect>
 );
 
@@ -277,7 +196,7 @@ export const Disabled = () => (
     defaultValue={["txt", "kwd"]}
     onValueChange={(value) => console.log(value.join(", "))}
   >
-    <MultiSelectLabel>Label</MultiSelectLabel>
+    <Label>Label</Label>
     <MultiSelectTrigger>
       <MultiSelectValue placeholder="Select a format" />
     </MultiSelectTrigger>
@@ -290,6 +209,74 @@ export const Disabled = () => (
       <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
       <MultiSelectItem value="img">image</MultiSelectItem>
     </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
+    <Caption>Caption Info</Caption>
   </MultiSelect>
 );
+
+const FormSchema = z.object({
+  email: z
+    .array(z.email({ error: "Please select an email to display." }), {
+      error: "Please select an email to display.",
+    })
+    .nonempty({ error: "Please select at least one email." }),
+});
+
+export const Error_Form = () => {
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <MultiSelect
+                onValueChange={field.onChange}
+                defaultValue={field.value}
+              >
+                <FormLabel>Email</FormLabel>
+                <MultiSelectTrigger asChild>
+                  <FormControl>
+                    <MultiSelectTriggerButton>
+                      <MultiSelectValue placeholder="Select a verified email to display" />
+                    </MultiSelectTriggerButton>
+                  </FormControl>
+                </MultiSelectTrigger>
+                <MultiSelectContent>
+                  <MultiSelectItem value="m@example.com">
+                    m@example.com
+                  </MultiSelectItem>
+                  <MultiSelectItem value="m@google.com">
+                    m@google.com
+                  </MultiSelectItem>
+                  <MultiSelectItem value="m@support.com">
+                    m@support.com
+                  </MultiSelectItem>
+                </MultiSelectContent>
+                <FormCaption>
+                  You can manage email addresses in your email settings.
+                </FormCaption>
+                <FormMessage />
+              </MultiSelect>
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="mt-6">
+          Submit
+        </Button>
+      </form>
+    </Form>
+  );
+};

@@ -300,7 +300,7 @@ export const Select = () => {
             : "Select a fruit..."}
           <Icon name="RiArrowDownSLine" size={16} className="ml-auto" />
         </ComboboxTrigger>
-        <ComboboxContent align="start">
+        <ComboboxContent>
           <ComboboxInput placeholder="Placeholder..." />
           <ComboboxList>
             <ComboboxEmpty>No results found.</ComboboxEmpty>
@@ -359,7 +359,78 @@ export const Click = () => {
           Button
           <Icon name="RiExpandUpDownLine" size={16} className="ml-auto" />
         </ComboboxTrigger>
-        <ComboboxContent align="start">
+        <ComboboxContent>
+          <ComboboxInput placeholder="Placeholder..." />
+          <ComboboxList>
+            <ComboboxEmpty>No results found.</ComboboxEmpty>
+            <ComboboxGroup>
+              {fruits.map((fruit) => (
+                <ComboboxItem
+                  key={fruit.value}
+                  value={fruit.value}
+                  onSelect={(currentValue) => {
+                    alert(`${currentValue} clicked!`);
+                    setOpen(false);
+                  }}
+                >
+                  {fruit.label}
+                </ComboboxItem>
+              ))}
+            </ComboboxGroup>
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
+  );
+};
+
+export const Filter = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const fruits = [
+    {
+      value: "apple",
+      label: "Apple",
+    },
+    {
+      value: "banana",
+      label: "Banana",
+    },
+    {
+      value: "blueberry",
+      label: "Blueberry",
+    },
+    {
+      value: "grapes",
+      label: "Grapes",
+    },
+    {
+      value: "pineapple",
+      label: "Pineapple",
+    },
+  ];
+
+  const filter = (value: string, search: string, keywords?: string[]) => {
+    value = value.toLocaleLowerCase();
+    search = search.toLocaleLowerCase();
+    const normalizedKeywords = keywords?.map((k) => k.toLocaleLowerCase());
+    return value.startsWith(search) ||
+      normalizedKeywords?.some((keyword) => keyword.startsWith(search))
+      ? 1
+      : value.includes(search) ||
+          normalizedKeywords?.some((keyword) => keyword.includes(search))
+        ? 0.5
+        : 0;
+  };
+
+  return (
+    <div className="grid">
+      <Combobox open={open} onOpenChange={setOpen}>
+        <ComboboxTrigger>
+          Button
+          <Icon name="RiExpandUpDownLine" size={16} className="ml-auto" />
+        </ComboboxTrigger>
+        <ComboboxContent options={{ filter }}>
           <ComboboxInput placeholder="Placeholder..." />
           <ComboboxList>
             <ComboboxEmpty>No results found.</ComboboxEmpty>
