@@ -17,7 +17,7 @@
   --dropdown-fg: var(--fg-neutral-primary);
   --dropdown-fg-pressed: var(--tint, var(--fg-neutral-primary));
   --dropdown-fg-empty: var(--fg-neutral-secondary);
-  --dropdown-shortcut-fg: var(--fg-neutral-tertiary);
+  --dropdown-fg-secondary: var(--fg-neutral-tertiary);
   --dropdown-bg: var(--bg-neutral-primary);
   --dropdown-bg-hover: var(--bg-neutral-tertiary);
   --dropdown-bg-pressed: var(--bg-neutral-tertiary);
@@ -46,7 +46,7 @@
   --dropdown-fg: var(--fg-neutral-primary);
   --dropdown-fg-pressed: var(--tint, var(--fg-neutral-primary));
   --dropdown-fg-empty: var(--fg-neutral-secondary);
-  --dropdown-shortcut-fg: var(--fg-neutral-tertiary);
+  --dropdown-fg-secondary: var(--fg-neutral-tertiary);
   --dropdown-bg: var(--bg-neutral-primary);
   --dropdown-bg-hover: var(--bg-neutral-tertiary);
   --dropdown-bg-pressed: var(--bg-neutral-tertiary);
@@ -98,7 +98,7 @@
 }
 
 .dropdown-caption {
-  @apply text-small-normal ml-auto tracking-widest text-[var(--dropdown-shortcut-fg)];
+  @apply text-small-normal ml-auto tracking-widest text-[var(--dropdown-fg-secondary)];
 }
 
 .dropdown-separator {
