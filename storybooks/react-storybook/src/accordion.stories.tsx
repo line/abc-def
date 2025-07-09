@@ -23,6 +23,9 @@ import {
 } from "@abc-def/react";
 
 const Props = {
+  AccordionItem: {
+    divider: "↳ AccordionItem: divider",
+  },
   AccordionTrigger: {
     children: "↳ AccordionTrigger: children",
   },
@@ -33,6 +36,9 @@ const Props = {
 
 const meta: Meta<
   React.ComponentProps<typeof Accordion> & {
+    [Props.AccordionItem.divider]: React.ComponentPropsWithoutRef<
+      typeof AccordionItem
+    >["divider"];
     [Props.AccordionTrigger.children]: React.ComponentPropsWithoutRef<
       typeof AccordionTrigger
     >["children"];
@@ -45,12 +51,10 @@ const meta: Meta<
   component: Accordion,
   args: {
     type: "single",
-    divider: true,
     border: false,
-    bgColor: false,
-    collapsible: false,
     iconAlign: "right",
     iconSize: "small",
+    [Props.AccordionItem.divider]: true,
     [Props.AccordionTrigger.children]: "Title",
     [Props.AccordionContent.children]: "Description",
   },
@@ -66,19 +70,6 @@ const meta: Meta<
       control: "radio",
       options: ["single", "multiple"],
     },
-    divider: {
-      description: "Set whether to use a divider in the Accordion.",
-      table: {
-        category: "Accordion",
-        defaultValue: {
-          summary: "true",
-        },
-        type: {
-          summary: "boolean",
-        },
-      },
-      control: "boolean",
-    },
     border: {
       description:
         "Set whether to use a border applied to the entire Accordion area.",
@@ -86,33 +77,6 @@ const meta: Meta<
         category: "Accordion",
         defaultValue: {
           summary: "false",
-        },
-        type: {
-          summary: "boolean",
-        },
-      },
-      control: "boolean",
-    },
-    bgColor: {
-      description:
-        "Set whether to use a background color to distinguish the trigger area in the Accordion.",
-      table: {
-        category: "Accordion",
-        defaultValue: {
-          summary: "false",
-        },
-        type: {
-          summary: "boolean",
-        },
-      },
-      control: "boolean",
-    },
-    collapsible: {
-      description: "Set whether the trigger in the Accordion can be collapsed.",
-      table: {
-        category: "Accordion",
-        defaultValue: {
-          summary: 'type="single": false | type="multiple": true',
         },
         type: {
           summary: "boolean",
@@ -148,6 +112,19 @@ const meta: Meta<
       control: "radio",
       options: ["small", "medium", "large"],
     },
+    [Props.AccordionItem.divider]: {
+      description: "Set whether to use a divider in the AccordionItem.",
+      table: {
+        category: "AccordionItem",
+        defaultValue: {
+          summary: "true",
+        },
+        type: {
+          summary: "boolean",
+        },
+      },
+      control: "boolean",
+    },
     [Props.AccordionTrigger.children]: {
       description: "Set the children of AccordionTrigger.",
       table: {
@@ -168,18 +145,24 @@ const meta: Meta<
       },
       control: "text",
     },
+    collapsible: {
+      table: {
+        disable: true,
+      },
+    },
   },
   render: (args) => {
     return (
       <Accordion
         type={args.type}
-        divider={args.divider}
         border={args.border}
-        collapsible={args.type === "single" ? args.collapsible : undefined}
         iconAlign={args.iconAlign}
         iconSize={args.iconSize}
       >
-        <AccordionItem value="item-1">
+        <AccordionItem
+          value="item-1"
+          divider={Boolean(args[Props.AccordionItem.divider])}
+        >
           <AccordionTrigger>
             {args[Props.AccordionTrigger.children]}
           </AccordionTrigger>
@@ -187,7 +170,10 @@ const meta: Meta<
             {args[Props.AccordionContent.children]}
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-2">
+        <AccordionItem
+          value="item-2"
+          divider={Boolean(args[Props.AccordionItem.divider])}
+        >
           <AccordionTrigger>
             {args[Props.AccordionTrigger.children]}
           </AccordionTrigger>
@@ -195,7 +181,10 @@ const meta: Meta<
             {args[Props.AccordionContent.children]}
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-3">
+        <AccordionItem
+          value="item-3"
+          divider={Boolean(args[Props.AccordionItem.divider])}
+        >
           <AccordionTrigger>
             {args[Props.AccordionTrigger.children]}
           </AccordionTrigger>
@@ -268,17 +257,17 @@ export const BorderWithoutBackground = () => (
 );
 
 export const BorderWithBackground = () => (
-  <Accordion type="multiple" bgColor border className="rounded-[8px]">
+  <Accordion type="multiple" border className="rounded-[8px]">
     <AccordionItem value="item-1">
-      <AccordionTrigger>Title</AccordionTrigger>
+      <AccordionTrigger className="bg-tertiary">Title</AccordionTrigger>
       <AccordionContent>Description</AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-2">
-      <AccordionTrigger>Title</AccordionTrigger>
+      <AccordionTrigger className="bg-tertiary">Title</AccordionTrigger>
       <AccordionContent>Description</AccordionContent>
     </AccordionItem>
     <AccordionItem value="item-3">
-      <AccordionTrigger>Title</AccordionTrigger>
+      <AccordionTrigger className="bg-tertiary">Title</AccordionTrigger>
       <AccordionContent>Description</AccordionContent>
     </AccordionItem>
   </Accordion>
