@@ -55,7 +55,7 @@ const buttonVariants = cva("button", {
       large: "button-radius-large",
     },
     loading: {
-      true: "!text-transparent",
+      true: "!text-transparent [&>*:not(.button-loading)]:!invisible",
       false: "",
     },
   },
