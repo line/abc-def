@@ -5,77 +5,77 @@ import { Toaster } from "@abc-def/react";
 import ThemeSelect from "./utils/themeSelect.tsx";
 import TokenTable from "./utils/tokenTable.tsx";
 
-import * as AlertStories from "./alert.stories.tsx";
+import * as ToastStories from "./toast.stories.tsx";
 
-<Meta title="Alert" of={AlertStories} />
+<Meta title="Toast" of={ToastStories} />
 
-# Alert
+# Toast
 
 <ThemeSelect />
 
 ## Playground
 
-<Canvas of={AlertStories.Default} />
+<Canvas of={ToastStories.Default} />
 <Controls />
 
-## Types
+## Status
 
-<Canvas of={AlertStories.Types} />
+<Canvas of={ToastStories.Status} />
 
-## Variant
+## Promise
 
-<Canvas of={AlertStories.Variant} />
+<Canvas of={ToastStories.Promises} />
 
 ## Tokens
 
 <TokenTable
   items={[
     {
-      name: "--alert-fg",
+      name: "--toast-fg",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--alert-description-fg",
+      name: "--toast-fg-secondary",
       value: "var(--fg-neutral-secondary)",
     },
     {
-      name: "--alert-fg-warning",
+      name: "--toast-fg-warning",
       value: "var(--fg-tint-orange)",
     },
     {
-      name: "--alert-fg-success",
+      name: "--toast-fg-success",
       value: "var(--fg-tint-green)",
     },
     {
-      name: "--alert-fg-error",
+      name: "--toast-fg-error",
       value: "var(--fg-tint-red)",
     },
     {
-      name: "--alert-fg-informative",
+      name: "--toast-fg-informative",
       value: "var(--fg-tint-blue)",
     },
     {
-      name: "--alert-border",
+      name: "--toast-border",
       value: "var(--border-neutral-tertiary)",
     },
     {
-      name: "--alert-border-warning",
+      name: "--toast-border-warning",
       value: "var(--border-tint-orange)",
     },
     {
-      name: "--alert-border-success",
+      name: "--toast-border-success",
       value: "var(--border-tint-green)",
     },
     {
-      name: "--alert-border-error",
+      name: "--toast-border-error",
       value: "var(--border-tint-red)",
     },
     {
-      name: "--alert-border-informative",
+      name: "--toast-border-informative",
       value: "var(--border-tint-blue)",
     },
     {
-      name: "--alert-bg",
+      name: "--toast-bg",
       value: "var(--bg-neutral-primary)",
     },
   ]}

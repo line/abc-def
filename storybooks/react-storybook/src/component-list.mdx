@@ -1,5 +1,7 @@
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 
+import { Toaster } from "@abc-def/react";
+
 import * as AccordionStories from "./accordion.stories";
 import * as AlertStories from "./alert.stories";
 import * as BadgeStories from "./badge.stories";
@@ -27,6 +29,7 @@ import * as TabsStories from "./tabs.stories";
 import * as TagStories from "./tag.stories";
 import * as TextareaStories from "./textarea.stories";
 import * as TimePickerStories from "./timepicker.stories";
+import * as ToastStories from "./toast.stories";
 import * as ToggleGroupStories from "./toggleGroup.stories";
 import * as TooltipStories from "./tooltip.stories";
 import ThemeSelect from "./utils/themeSelect.tsx";
@@ -195,9 +198,17 @@ import ThemeSelect from "./utils/themeSelect.tsx";
     layout="centered"
   />
   <Canvas
+    of={ToastStories.Default}
+    sourceState="none"
+    additionalActions={[{ title: "Toast" }]}
+    layout="centered"
+  />
+  <Canvas
     of={IconStories.Default}
     sourceState="none"
     additionalActions={[{ title: "Icon" }]}
     layout="centered"
   />
 </div>
+
+<Toaster position="bottom-right" />
