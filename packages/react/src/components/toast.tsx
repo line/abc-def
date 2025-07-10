@@ -59,29 +59,30 @@ const Toaster = ({
         },
       }}
       icons={{
-        loading: <Spinner size="small" />,
-        warning: (
+        ...icons,
+        loading: icons?.loading ?? <Spinner size="small" />,
+        warning: icons?.warning ?? (
           <Icon
             name="RiErrorWarningFill"
             size={20}
             className="toast-icon-warning"
           />
         ),
-        success: (
+        success: icons?.success ?? (
           <Icon
             name="RiCheckboxCircleFill"
             size={20}
             className="toast-icon-success"
           />
         ),
-        error: (
+        error: icons?.success ?? (
           <Icon
             name="RiCloseCircleFill"
             size={20}
             className="toast-icon-error"
           />
         ),
-        info: (
+        info: icons?.info ?? (
           <Icon
             name="RiInformation2Fill"
             size={20}

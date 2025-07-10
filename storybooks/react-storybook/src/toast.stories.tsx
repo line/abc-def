@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
 import { Button, Icon, toast, Toaster } from "@abc-def/react";
 
@@ -27,33 +27,30 @@ const meta: Meta<React.ComponentProps<typeof toast>> = {
       </div>
     ),
   ],
-  render: () => (
-    <Button
-      variant="outline"
-      onClick={() => {
-        toast("Title", {
-          description: "Description",
-          action: {
-            label: "Action",
-            onClick: () => alert("clicked"),
-          },
-          cancel: {
-            label: <Icon name="RiCloseFill" size={20} />,
-            onClick: () => null,
-          },
-        });
-      }}
-    >
-      Toast
-    </Button>
-  ),
 };
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {};
+export const Default = () => (
+  <Button
+    variant="outline"
+    onClick={() => {
+      toast("Title", {
+        description: "Description",
+        action: {
+          label: "Action",
+          onClick: () => alert("clicked"),
+        },
+        cancel: {
+          label: <Icon name="RiCloseFill" size={20} />,
+          onClick: () => null,
+        },
+      });
+    }}
+  >
+    Toast
+  </Button>
+);
 
 export const Status = () => {
   return (
