@@ -70,5 +70,5 @@
 }
 
 .combobox-trigger {
-  @apply data-[state=open]:bg-[var(--combobox-bg-hover)] [&>svg:last-of-type]:!ml-auto;
+  @apply [&>svg:last-of-type]:!ml-auto;
 }
