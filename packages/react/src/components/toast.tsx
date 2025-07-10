@@ -15,34 +15,47 @@
  */
 import { Toaster as Sonner, toast } from "sonner";
 
+import { cn } from "../lib/utils";
 import { Icon } from "./icon";
 import { Spinner } from "./spinner";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
-const Toaster = ({ ...props }: ToasterProps) => {
+const Toaster = ({
+  className,
+  toastOptions,
+  icons,
+  ...props
+}: ToasterProps) => {
   return (
     <Sonner
-      className="toaster"
+      className={cn("toaster", className)}
       toastOptions={{
         unstyled: true,
         classNames: {
-          toast: "toast alert",
-          title: "alert-title",
-          description: "alert-description",
-          loader: "alert-loader",
-          cancelButton:
-            "icon-button icon-button-ghost icon-button-medium icon-button-radius-medium alert-close toast-close",
-          actionButton:
-            "button button-outline button-medium button-radius-medium alert-button",
-          success: "alert-success",
-          error: "alert-error",
-          info: "alert-informative",
-          warning: "alert-warning",
+          toast: cn("toast", toastOptions?.classNames?.toast ?? ""),
+          title: cn("toast-title", toastOptions?.classNames?.title ?? ""),
+          description: cn(
+            "toast-description",
+            toastOptions?.classNames?.description ?? "",
+          ),
+          loader: cn("toast-loader", toastOptions?.classNames?.loader ?? ""),
+          cancelButton: cn(
+            "toast-close button button-ghost button-medium button-radius-medium",
+            toastOptions?.classNames?.cancelButton ?? "",
+          ),
+          actionButton: cn(
+            "toast-button button button-outline button-medium button-radius-medium",
+            toastOptions?.classNames?.actionButton ?? "",
+          ),
+          success: cn("toast-success", toastOptions?.classNames?.success ?? ""),
+          error: cn("toast-error", toastOptions?.classNames?.error ?? ""),
+          info: cn("toast-info", toastOptions?.classNames?.info ?? ""),
+          warning: cn("toast-warning", toastOptions?.classNames?.warning ?? ""),
           loading: "",
-          default: "alert-default",
-          content: "alert-text-container",
-          icon: "alert-icon",
+          default: cn("toast-default", toastOptions?.classNames?.default ?? ""),
+          content: cn("toast-content", toastOptions?.classNames?.content ?? ""),
+          icon: cn("toast-icon", toastOptions?.classNames?.icon ?? ""),
         },
       }}
       icons={{
@@ -51,28 +64,28 @@ const Toaster = ({ ...props }: ToasterProps) => {
           <Icon
             name="RiErrorWarningFill"
             size={20}
-            className="alert-icon-warning"
+            className="toast-icon-warning"
           />
         ),
         success: (
           <Icon
             name="RiCheckboxCircleFill"
             size={20}
-            className="alert-icon-success"
+            className="toast-icon-success"
           />
         ),
         error: (
           <Icon
             name="RiCloseCircleFill"
             size={20}
-            className="alert-icon-error"
+            className="toast-icon-error"
           />
         ),
         info: (
           <Icon
             name="RiInformation2Fill"
             size={20}
-            className="alert-icon-informative"
+            className="toast-icon-informative"
           />
         ),
       }}
