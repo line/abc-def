@@ -44,12 +44,10 @@ const Props = {
   },
   DropdownItem: {
     caption: "↳ DropdownItem: caption",
-    inset: "↳ DropdownItem: inset",
     children: "↳ DropdownItem: children",
   },
   DropdownSubTrigger: {
     caption: "↳ DropdownSubTrigger: caption",
-    inset: "↳ DropdownSubTrigger: inset",
     children: "↳ DropdownSubTrigger: children",
   },
   DropdownLabel: {
@@ -65,15 +63,9 @@ const meta: Meta<
     [Props.DropdownContent.maxHeight]: React.ComponentPropsWithoutRef<
       typeof DropdownContent
     >["maxHeight"];
-    [Props.DropdownItem.inset]: React.ComponentPropsWithoutRef<
-      typeof DropdownItem
-    >["inset"];
     [Props.DropdownItem.children]: React.ComponentPropsWithoutRef<
       typeof DropdownItem
     >["children"];
-    [Props.DropdownSubTrigger.inset]: React.ComponentPropsWithoutRef<
-      typeof DropdownSubTrigger
-    >["inset"];
     [Props.DropdownSubTrigger.children]: React.ComponentPropsWithoutRef<
       typeof DropdownSubTrigger
     >["children"];
@@ -88,9 +80,7 @@ const meta: Meta<
     [Props.DropdownContent.side]: "right",
     [Props.DropdownContent.maxHeight]: "300px",
     [Props.DropdownLabel.children]: "Title",
-    [Props.DropdownItem.inset]: false,
     [Props.DropdownItem.children]: "DropdownItem",
-    [Props.DropdownSubTrigger.inset]: false,
     [Props.DropdownSubTrigger.children]: "DropdownSubTrigger",
   },
   argTypes: {
@@ -118,16 +108,6 @@ const meta: Meta<
       },
       control: "text",
     },
-    [Props.DropdownItem.inset]: {
-      description: "Set whether the DropdownItem has an inset.",
-      table: {
-        category: "DropdownItem",
-        defaultValue: {
-          summary: "false",
-        },
-      },
-      control: "boolean",
-    },
     [Props.DropdownItem.children]: {
       description: "Set the children of the DropdownItem.",
       table: {
@@ -137,16 +117,6 @@ const meta: Meta<
         },
       },
       control: "text",
-    },
-    [Props.DropdownSubTrigger.inset]: {
-      description: "Set whether the DropdownSubTrigger has an inset.",
-      table: {
-        category: "DropdownSubTrigger",
-        defaultValue: {
-          summary: "false",
-        },
-      },
-      control: "boolean",
     },
     [Props.DropdownSubTrigger.children]: {
       description: "Set the children of the DropdownSubTrigger.",
@@ -198,14 +168,12 @@ const meta: Meta<
                 Billing
                 <DropdownCaption>⌘B</DropdownCaption>
               </DropdownItem>
-              <DropdownItem inset={args[Props.DropdownItem.inset]}>
+              <DropdownItem>
                 <Icon name="Ri24HoursFill" size={16} className="mr-2" />
                 {args[Props.DropdownItem.children]}
               </DropdownItem>
               <DropdownSub>
-                <DropdownSubTrigger
-                  inset={args[Props.DropdownSubTrigger.inset]}
-                >
+                <DropdownSubTrigger>
                   <Icon name="Ri24HoursFill" size={16} className="mr-2" />
                   {args[Props.DropdownSubTrigger.children]}
                   <Icon
@@ -246,14 +214,12 @@ const meta: Meta<
                 Billing
                 <DropdownCaption>⌘B</DropdownCaption>
               </DropdownItem>
-              <DropdownItem inset={args[Props.DropdownItem.inset]}>
+              <DropdownItem>
                 <Icon name="Ri24HoursFill" size={16} className="mr-2" />
                 {args[Props.DropdownItem.children]}
               </DropdownItem>
               <DropdownSub>
-                <DropdownSubTrigger
-                  inset={args[Props.DropdownSubTrigger.inset]}
-                >
+                <DropdownSubTrigger>
                   <Icon name="Ri24HoursFill" size={16} className="mr-2" />
                   {args[Props.DropdownSubTrigger.children]}
                   <Icon
