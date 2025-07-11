@@ -331,8 +331,8 @@ importers:
   storybooks/html-storybook:
     dependencies:
       lit:
-        specifier: ^3.3.0
-        version: 3.3.0
+        specifier: ^3.3.1
+        version: 3.3.1
     devDependencies:
       '@abc-def/eslint-config':
         specifier: workspace:^
@@ -360,10 +360,10 @@ importers:
         version: 8.6.14(storybook@8.6.14(prettier@3.6.2))
       '@storybook/web-components':
         specifier: catalog:storybook
-        version: 8.6.14(lit@3.3.0)(storybook@8.6.14(prettier@3.6.2))
+        version: 8.6.14(lit@3.3.1)(storybook@8.6.14(prettier@3.6.2))
       '@storybook/web-components-vite':
         specifier: catalog:storybook
-        version: 8.6.14(lit@3.3.0)(storybook@8.6.14(prettier@3.6.2))(vite@7.0.4(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+        version: 8.6.14(lit@3.3.1)(storybook@8.6.14(prettier@3.6.2))(vite@7.0.4(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@types/react':
         specifier: catalog:react
         version: 19.1.8
@@ -4533,8 +4533,8 @@ packages:
   lit-html@3.3.0:
     resolution: {integrity: sha512-RHoswrFAxY2d8Cf2mm4OZ1DgzCoBKUKSPvA1fhtSELxUERq2aQQ2h05pO9j81gS1o7RIRJ+CePLogfyahwmynw==}
 
-  lit@3.3.0:
-    resolution: {integrity: sha512-DGVsqsOIHBww2DqnuZzW7QsuCdahp50ojuDaBPC7jUDRpYoH0z7kHBBYZewRzer75FwtrkmkKk7iOAwSaWdBmw==}
+  lit@3.3.1:
+    resolution: {integrity: sha512-Ksr/8L3PTapbdXJCk+EJVB78jDodUMaP54gD24W186zGRARvwrsPfS60wae/SSCTCNZVPd1chXqio1qHQmu4NA==}
 
   locate-path@5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
@@ -8151,24 +8151,24 @@ snapshots:
       vue: 3.5.17(typescript@5.8.3)
       vue-component-type-helpers: 3.0.1
 
-  '@storybook/web-components-vite@8.6.14(lit@3.3.0)(storybook@8.6.14(prettier@3.6.2))(vite@7.0.4(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
+  '@storybook/web-components-vite@8.6.14(lit@3.3.1)(storybook@8.6.14(prettier@3.6.2))(vite@7.0.4(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
       '@storybook/builder-vite': 8.6.14(storybook@8.6.14(prettier@3.6.2))(vite@7.0.4(@types/node@22.10.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
-      '@storybook/web-components': 8.6.14(lit@3.3.0)(storybook@8.6.14(prettier@3.6.2))
+      '@storybook/web-components': 8.6.14(lit@3.3.1)(storybook@8.6.14(prettier@3.6.2))
       magic-string: 0.30.17
       storybook: 8.6.14(prettier@3.6.2)
     transitivePeerDependencies:
       - lit
       - vite
 
-  '@storybook/web-components@8.6.14(lit@3.3.0)(storybook@8.6.14(prettier@3.6.2))':
+  '@storybook/web-components@8.6.14(lit@3.3.1)(storybook@8.6.14(prettier@3.6.2))':
     dependencies:
       '@storybook/components': 8.6.14(storybook@8.6.14(prettier@3.6.2))
       '@storybook/global': 5.0.0
       '@storybook/manager-api': 8.6.14(storybook@8.6.14(prettier@3.6.2))
       '@storybook/preview-api': 8.6.14(storybook@8.6.14(prettier@3.6.2))
       '@storybook/theming': 8.6.14(storybook@8.6.14(prettier@3.6.2))
-      lit: 3.3.0
+      lit: 3.3.1
       storybook: 8.6.14(prettier@3.6.2)
       tiny-invariant: 1.3.3
       ts-dedent: 2.2.0
@@ -10255,7 +10255,7 @@ snapshots:
     dependencies:
       '@types/trusted-types': 2.0.7
 
-  lit@3.3.0:
+  lit@3.3.1:
     dependencies:
       '@lit/reactive-element': 2.1.0
       lit-element: 4.2.0
