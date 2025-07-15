@@ -18,14 +18,14 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 import { Slottable } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 
-import type { Size } from "../lib/types";
+import type { Radius, Size } from "../lib/types";
 import { ICON_SIZE } from "../constants";
 import { cn } from "../lib/utils";
 import { Icon } from "./icon";
 import { ScrollArea, ScrollBar } from "./scroll-area";
 import useTheme from "./use-theme";
 
-type SelectContextType = { size: Size };
+type SelectContextType = { size: Size; radius: Radius };
 
 const SelectContext = React.createContext<SelectContextType | undefined>(
   undefined,
@@ -40,6 +40,7 @@ interface SelectProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root> {
   className?: string;
   size?: Size;
+  radius?: Radius;
 }
 
 const selectVariants = cva("select", {
@@ -53,10 +54,12 @@ const selectVariants = cva("select", {
   },
 });
 
-const Select = ({ size, className, ...props }: SelectProps) => {
-  const { themeSize } = useTheme();
+const Select = ({ size, radius, className, ...props }: SelectProps) => {
+  const { themeSize, themeRadius } = useTheme();
   return (
-    <SelectContext.Provider value={{ size: size ?? themeSize }}>
+    <SelectContext.Provider
+      value={{ size: size ?? themeSize, radius: radius ?? themeRadius }}
+    >
       <div
         className={cn(selectVariants({ size: size ?? themeSize, className }))}
       >
@@ -77,8 +80,13 @@ const selectTriggerVariants = cva("select-trigger", {
       medium: "select-trigger-medium",
       large: "select-trigger-large",
     },
+    radius: {
+      small: "select-trigger-radius-small",
+      medium: "select-trigger-radius-medium",
+      large: "select-trigger-radius-large",
+    },
   },
-  defaultVariants: { size: undefined },
+  defaultVariants: { size: undefined, radius: undefined },
 });
 
 interface SelectTriggerProps
@@ -88,12 +96,12 @@ const SelectTrigger = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Trigger>,
   SelectTriggerProps
 >(({ className, children, ...props }, ref) => {
-  const { size } = useSelectContext();
+  const { size, radius } = useSelectContext();
 
   return (
     <SelectPrimitive.Trigger
       ref={ref}
-      className={cn(selectTriggerVariants({ size, className }))}
+      className={cn(selectTriggerVariants({ size, radius, className }))}
       {...props}
     >
       <Slottable>{children}</Slottable>
