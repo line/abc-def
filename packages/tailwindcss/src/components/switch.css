@@ -15,7 +15,7 @@
  */
 .switch {
   --switch-fg: var(--fg-neutral-primary);
-  --switch-handle-bg: var(--bg-neutral-primary);
+  --switch-bg-handle: var(--bg-neutral-primary);
   --switch-bg: var(--bg-neutral-inverse);
   --switch-bg-blue: var(--bg-tint-blue-bold);
   --switch-bg-orange: var(--bg-tint-orange-bold);
@@ -30,5 +30,5 @@
 }
 
 .switch-thumb {
-  @apply absolute left-0.5 top-0.5 flex h-5 w-5 translate-x-0 rounded-full bg-[var(--switch-handle-bg)] transition-transform data-[state=checked]:translate-x-full;
+  @apply absolute left-0.5 top-0.5 flex h-5 w-5 translate-x-0 rounded-full bg-[var(--switch-bg-handle)] transition-transform data-[state=checked]:translate-x-full;
 }
