@@ -61,14 +61,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const Basic = () => (
-  <Tag size="small" radius="medium" variant="primary">
-    <Icon name="RiFlashlightFill" />
-    Label
-    <Icon name="RiCloseLargeLine" onClick={() => alert("clicked")} />
-  </Tag>
-);
-
 export const Primary = () => (
   <div className="grid grid-cols-[repeat(4,max-content)] gap-2">
     <Tag size="small" radius="medium" variant="primary">

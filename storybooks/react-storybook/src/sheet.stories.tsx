@@ -152,7 +152,7 @@ const meta: Meta<
     },
   },
   render: (args) => (
-    <Sheet defaultOpen>
+    <Sheet>
       <SheetTrigger>Trigger</SheetTrigger>
       <SheetContent side={args[Props.SheetContent.side]}>
         <SheetHeader icon={args[Props.SheetHeader.icon]}>
