@@ -22,8 +22,6 @@ const meta: Meta<typeof Tag> = {
   component: Tag,
   args: {
     variant: "primary",
-    size: "small",
-    radius: undefined,
     children: "Label",
   },
   argTypes: {
@@ -41,34 +39,6 @@ const meta: Meta<typeof Tag> = {
       control: "radio",
       options: ["primary", "secondary", "outline", "destructive"],
     },
-    size: {
-      description: "Set the size of the Tag.",
-      table: {
-        category: "Tag",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
-    radius: {
-      description: "Set the radius of the Tag.",
-      table: {
-        category: "Tag",
-        type: {
-          summary: "large | medium | small",
-        },
-        defaultValue: {
-          summary: "small",
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small"],
-    },
     children: {
       description: "Set the children of the Tag.",
       table: {
@@ -79,11 +49,9 @@ const meta: Meta<typeof Tag> = {
       },
       control: "text",
     },
-    asChild: {
-      table: {
-        disable: true,
-      },
-    },
+    asChild: { table: { disable: true } },
+    radius: { table: { disable: true } },
+    size: { table: { disable: true } },
   },
 };
 

@@ -22,41 +22,11 @@ const meta: Meta<typeof Button> = {
   component: Button,
   args: {
     variant: "primary",
-    size: undefined,
-    radius: undefined,
     loading: false,
     disabled: false,
     children: "Button",
   },
   argTypes: {
-    size: {
-      description: "Set the size of the Button.",
-      table: {
-        category: "Button",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
-    radius: {
-      description: "Set the radius of the Button.",
-      table: {
-        category: "Button",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
     variant: {
       description: "Set the variant of the Button.",
       table: {
@@ -107,6 +77,16 @@ const meta: Meta<typeof Button> = {
       },
     },
     type: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    radius: {
       table: {
         disable: true,
       },

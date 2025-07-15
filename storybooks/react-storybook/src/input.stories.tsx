@@ -123,21 +123,9 @@ const meta: Meta<
       control: "select",
       options: IconNames,
     },
-    radius: {
-      table: {
-        disable: true,
-      },
-    },
-    size: {
-      table: {
-        disable: true,
-      },
-    },
-    type: {
-      table: {
-        disable: true,
-      },
-    },
+    radius: { table: { disable: true } },
+    size: { table: { disable: true } },
+    type: { table: { disable: true } },
   },
   decorators: (Story) => <Story />,
   render: (args) => {

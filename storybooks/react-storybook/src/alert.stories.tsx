@@ -99,7 +99,6 @@ const meta: Meta<
   ],
   args: {
     variant: "default",
-    radius: undefined,
     [Props.AlertIcon.name]: undefined,
     [Props.AlertIcon.size]: 20,
     [Props.AlertButton.show]: true,
@@ -127,20 +126,6 @@ const meta: Meta<
       },
       control: "select",
       options: ["default", "warning", "success", "error", "informative"],
-    },
-    radius: {
-      description: "Set the radius of the Alert.",
-      table: {
-        category: "Alert",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
     },
     [Props.AlertIcon.name]: {
       description: "Set the name of the AlertIcon.",
@@ -276,6 +261,7 @@ const meta: Meta<
       },
       control: "text",
     },
+    radius: { table: { disable: true } },
   },
   render: (args) => (
     <Alert variant={args.variant} radius={args.radius}>

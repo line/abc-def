@@ -94,23 +94,12 @@ const meta: Meta<
     </MultiSelect>
   ),
   args: {
-    size: undefined,
     disabled: false,
     [Props.MultiSelectValue.placeholder]: "Select a fruit...",
     [Props.MultiSelectContent.maxHeight]: "auto",
     [Props.MultiSelectItem.children]: "Custom",
   },
   argTypes: {
-    size: {
-      description: "Set the size of the Select.",
-      table: {
-        category: "MultiSelect",
-        type: { summary: "large | medium | small | undefined" },
-        defaultValue: { summary: undefined },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
     disabled: {
       description: "Set whether the Select is in an disabled state.",
       table: { category: "MultiSelect", defaultValue: { summary: "false" } },
@@ -138,6 +127,7 @@ const meta: Meta<
     defaultValue: { table: { disable: true } },
     onValueChange: { table: { disable: true } },
     children: { table: { disable: true } },
+    size: { table: { disable: true } },
   },
 };
 
