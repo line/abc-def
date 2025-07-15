@@ -128,6 +128,7 @@ const meta: Meta<
     onValueChange: { table: { disable: true } },
     children: { table: { disable: true } },
     size: { table: { disable: true } },
+    radius: { table: { disable: true } },
   },
 };
 
