@@ -29,16 +29,8 @@ const meta: Meta<typeof Pagination> = {
   title: "Pagination",
   component: Pagination,
   argTypes: {
-    size: {
-      table: {
-        disable: true,
-      },
-    },
-    radius: {
-      table: {
-        disable: true,
-      },
-    },
+    radius: { table: { disable: true } },
+    size: { table: { disable: true } },
   },
   render: (props) => (
     <Pagination {...props}>

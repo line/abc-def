@@ -45,6 +45,11 @@ export default function ThemeSelect() {
     forceReRender(`radius:${radius}`);
   };
 
+  const handleChangeSize = (size: string) => {
+    setSize(size);
+    forceReRender(`size:${size}`);
+  };
+
   const getDocumentDark = () =>
     document.documentElement.classList.contains("dark") ? "dark" : "light";
 
@@ -216,23 +221,19 @@ export default function ThemeSelect() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      {/* <div>
-        Rounded Base
-        <TextInput
-          type="number"
-          defaultValue={parseInt(
-            document.documentElement.style.getPropertyValue("--rounded-base") ||
-              "0",
-          )}
-          onChange={(e) => {
-            const number = Number(e.target.value);
-            document.documentElement.style.setProperty(
-              "--rounded-base",
-              number + "px",
-            );
-          }}
-        />
-      </div> */}
+      <Select size="small" value={size} onValueChange={handleChangeSize}>
+        <Label>Size</Label>
+        <SelectTrigger>
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent maxHeight="auto" position="popper">
+          <SelectGroup>
+            <SelectItem value="small">Small</SelectItem>
+            <SelectItem value="medium">Medium</SelectItem>
+            <SelectItem value="large">Large</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </div>
   );
 }
