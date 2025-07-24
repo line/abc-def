@@ -33,7 +33,7 @@
     "prettier": "catalog:",
     "storybook": "catalog:storybook",
     "typescript": "catalog:",
-    "vite": "^7.0.5",
+    "vite": "^7.0.6",
     "vue-tsc": "^3.0.3"
   },
   "prettier": "@abc-def/prettier-config"
