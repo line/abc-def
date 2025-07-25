@@ -13,6 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import type * as TogglePrimitive from "@radix-ui/react-toggle";
 import type { VariantProps } from "class-variance-authority";
 import * as React from "react";

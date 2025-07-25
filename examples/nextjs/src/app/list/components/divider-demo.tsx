@@ -13,16 +13,13 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import { Head, Html, Main, NextScript } from "next/document";
 
-export default function Document() {
-  return (
-    <Html lang="ja">
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
-}
+import { Divider } from "@abc-def/react";
+
+interface Props {}
+
+const DividerDemo: React.FC<Props> = () => {
+  return <Divider />;
+};
+
+export default DividerDemo;

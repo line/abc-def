@@ -14,9 +14,12 @@
  * under the License.
  */
 import type { NextPage } from "next";
-import React, { useState } from "react";
 
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
   Button,
   Caption,
   Combobox,
@@ -43,6 +46,11 @@ import {
   InputBox,
   InputField,
   Label,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  RadioGroup,
+  RadioItem,
   Select,
   SelectContent,
   SelectGroup,
@@ -53,24 +61,33 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  Spinner,
   Tabs,
   TabsList,
   TabsTrigger,
+  Tag,
   Textarea,
   TextInput,
 } from "@abc-def/react";
 import { cn } from "@abc-def/react/lib/utils";
 
 const IndexPage: NextPage = () => {
-  const [value, setValue] = React.useState<string>("");
-  const [open, setOpen] = useState(false);
-
   return (
     <div className="flex flex-col gap-6 p-6">
+      <Accordion type="multiple">
+        <AccordionItem value="item-1">
+          <AccordionTrigger>1</AccordionTrigger>
+          <AccordionContent>1</AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-2">
+          <AccordionTrigger>2</AccordionTrigger>
+          <AccordionContent>2</AccordionContent>
+        </AccordionItem>
+      </Accordion>
       <Dialog modal>
         <DialogTrigger>combobox open</DialogTrigger>
         <DialogContent>
-          <Combobox open={open} onOpenChange={setOpen}>
+          <Combobox>
             <ComboboxTrigger>combobox</ComboboxTrigger>
             <ComboboxContent>
               <ComboboxList className="max-h-[300px]">
@@ -87,7 +104,7 @@ const IndexPage: NextPage = () => {
       <Sheet modal>
         <SheetTrigger>sheet open</SheetTrigger>
         <SheetContent>
-          <Combobox open={open} onOpenChange={setOpen}>
+          <Combobox>
             <ComboboxTrigger>combobox</ComboboxTrigger>
             <ComboboxContent>
               <ComboboxList className="max-h-[300px]">
@@ -160,7 +177,7 @@ const IndexPage: NextPage = () => {
           </DropdownContent>
         </Dropdown>
         <div className="w-96">
-          <Select value={value} onValueChange={(value) => setValue(value)}>
+          <Select>
             <Label>Label</Label>
             <SelectTrigger>
               <SelectValue placeholder="Select a value..." />
@@ -177,13 +194,20 @@ const IndexPage: NextPage = () => {
             </SelectContent>
             <Caption variant="info">Caption</Caption>
           </Select>
-          <div className="mt-4 flex space-x-4">
-            <Button onClick={() => setValue("app")}>Set app</Button>
-            <Button onClick={() => setValue("gra")}>Set gra</Button>
-            <Button onClick={() => setValue("")}>Set empty value</Button>
-          </div>
         </div>
       </div>
+      <Textarea />
+      <Caption>123</Caption>
+      <Popover>
+        <PopoverTrigger>
+          <Tag>123</Tag>
+        </PopoverTrigger>
+        <PopoverContent>123</PopoverContent>
+      </Popover>
+      <RadioGroup>
+        <RadioItem value="1">123</RadioItem>
+      </RadioGroup>
+      <Spinner />
       <p
         className={cn(
           "text-tint-orange",
