@@ -13,6 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import type { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import * as React from "react";
 import * as DropdownPrimitive from "@radix-ui/react-dropdown-menu";
