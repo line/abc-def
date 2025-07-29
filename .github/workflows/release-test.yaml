@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - create-tailwindcss-plugin-package
-
+    tags:
+      - "v*" # 버전 태그를 통한 배포 추가
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_JS_LY }}
@@ -24,7 +25,7 @@ jobs:
         run: pnpm build
 
       - name: Write .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
 
       - name: Publish
         run: pnpm release --no-git-checks
