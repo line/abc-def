@@ -1,5 +1,7 @@
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 
+import { Toaster } from "@abc-def/react";
+
 import * as AccordionStories from "./accordion.stories";
 import * as AlertStories from "./alert.stories";
 import * as BadgeStories from "./badge.stories";
@@ -13,6 +15,7 @@ import * as DropdownStories from "./dropdown.stories";
 import * as IconStories from "./icon.stories";
 import * as InputStories from "./input.stories";
 import * as MenuStories from "./menu.stories";
+import * as MultiSelectStories from "./multiSelect.stories";
 import * as NavBarStories from "./navBar.stories";
 import * as PaginationStories from "./pagination.stories";
 import * as RadioStories from "./radio.stories";
@@ -26,6 +29,7 @@ import * as TabsStories from "./tabs.stories";
 import * as TagStories from "./tag.stories";
 import * as TextareaStories from "./textarea.stories";
 import * as TimePickerStories from "./timepicker.stories";
+import * as ToastStories from "./toast.stories";
 import * as ToggleGroupStories from "./toggleGroup.stories";
 import * as TooltipStories from "./tooltip.stories";
 import ThemeSelect from "./utils/themeSelect.tsx";
@@ -78,7 +82,7 @@ import ThemeSelect from "./utils/themeSelect.tsx";
     additionalActions={[{ title: "Combobox" }]}
   />
   <Canvas
-    of={DialogStories.Basic}
+    of={DialogStories.Default}
     sourceState="none"
     additionalActions={[{ title: "Dialog" }]}
     layout="centered"
@@ -125,15 +129,20 @@ import ThemeSelect from "./utils/themeSelect.tsx";
     layout="centered"
   />
   <Canvas
+    of={SheetStories.Default}
+    sourceState="none"
+    additionalActions={[{ title: "Sheet" }]}
+    layout="centered"
+  />
+  <Canvas
     of={SelectStories.Default}
     sourceState="none"
     additionalActions={[{ title: "Select" }]}
   />
   <Canvas
-    of={SheetStories.Right}
+    of={MultiSelectStories.Default}
     sourceState="none"
-    additionalActions={[{ title: "Sheet" }]}
-    layout="centered"
+    additionalActions={[{ title: "MultiSelect" }]}
   />
   <Canvas
     of={SpinnerStories.Default}
@@ -159,7 +168,7 @@ import ThemeSelect from "./utils/themeSelect.tsx";
     layout="centered"
   />
   <Canvas
-    of={TagStories.Basic}
+    of={TagStories.Default}
     sourceState="none"
     additionalActions={[{ title: "Tag" }]}
     layout="centered"
@@ -189,9 +198,17 @@ import ThemeSelect from "./utils/themeSelect.tsx";
     layout="centered"
   />
   <Canvas
+    of={ToastStories.Default}
+    sourceState="none"
+    additionalActions={[{ title: "Toast" }]}
+    layout="centered"
+  />
+  <Canvas
     of={IconStories.Default}
     sourceState="none"
     additionalActions={[{ title: "Icon" }]}
     layout="centered"
   />
 </div>
+
+<Toaster className="sb-unstyled" position="bottom-right" />

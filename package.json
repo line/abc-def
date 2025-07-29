@@ -2,10 +2,10 @@
   "name": "abc-def",
   "private": true,
   "engines": {
-    "node": ">=22.16.0",
-    "pnpm": "^10.12.1"
+    "node": ">=22.17.1",
+    "pnpm": ">=10.13.1"
   },
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "build": "turbo run build",
     "build:storybook": "turbo run build:storybook && ./scripts/after-build-storybook.sh",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@abc-def/prettier-config": "workspace:^",
     "prettier": "catalog:",
-    "turbo": "^2.5.4",
+    "turbo": "^2.5.5",
     "typescript": "catalog:"
   },
   "prettier": "@abc-def/prettier-config"

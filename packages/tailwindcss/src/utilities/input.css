@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.input-error {
+.input[aria-invalid="true"] {
   @apply !border-2 !border-[var(--input-border-error)] !bg-[var(--input-bg-error)];
 }
 
@@ -63,32 +63,4 @@
 
 .input-button-small {
   @apply right-3;
-}
-
-.input-caption-default {
-  @apply text-[var(--input-caption-fg)];
-}
-
-.input-caption-success {
-  @apply text-[var(--input-caption-fg-success)];
-}
-
-.input-caption-info {
-  @apply text-[var(--input-caption-fg)];
-}
-
-.input-caption-error {
-  @apply text-[var(--input-caption-fg-error)];
-}
-
-.input-caption-small {
-  @apply text-base-normal;
-}
-
-.input-caption-medium {
-  @apply text-base-normal;
-}
-
-.input-caption-large {
-  @apply text-large-normal;
 }

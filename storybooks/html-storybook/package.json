@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "lit": "^3.3.0"
+    "lit": "^3.3.1"
   },
   "devDependencies": {
     "@abc-def/eslint-config": "workspace:^",
@@ -30,7 +30,7 @@
     "prettier": "catalog:",
     "storybook": "catalog:storybook",
     "typescript": "catalog:",
-    "vite": "^6.3.0"
+    "vite": "^7.0.6"
   },
   "prettier": "@abc-def/prettier-config"
 }

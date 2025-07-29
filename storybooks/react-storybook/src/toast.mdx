@@ -1,0 +1,84 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+
+import { Toaster } from "@abc-def/react";
+
+import ThemeSelect from "./utils/themeSelect.tsx";
+import TokenTable from "./utils/tokenTable.tsx";
+
+import * as ToastStories from "./toast.stories.tsx";
+
+<Meta title="Toast" of={ToastStories} />
+
+# Toast
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={ToastStories.Default} />
+<Controls />
+
+## Status
+
+<Canvas of={ToastStories.Status} />
+
+## Promise
+
+<Canvas of={ToastStories.Promises} />
+
+## Tokens
+
+<TokenTable
+  items={[
+    {
+      name: "--toast-fg",
+      value: "var(--fg-neutral-primary)",
+    },
+    {
+      name: "--toast-fg-secondary",
+      value: "var(--fg-neutral-secondary)",
+    },
+    {
+      name: "--toast-fg-warning",
+      value: "var(--fg-tint-orange)",
+    },
+    {
+      name: "--toast-fg-success",
+      value: "var(--fg-tint-green)",
+    },
+    {
+      name: "--toast-fg-error",
+      value: "var(--fg-tint-red)",
+    },
+    {
+      name: "--toast-fg-informative",
+      value: "var(--fg-tint-blue)",
+    },
+    {
+      name: "--toast-border",
+      value: "var(--border-neutral-tertiary)",
+    },
+    {
+      name: "--toast-border-warning",
+      value: "var(--border-tint-orange)",
+    },
+    {
+      name: "--toast-border-success",
+      value: "var(--border-tint-green)",
+    },
+    {
+      name: "--toast-border-error",
+      value: "var(--border-tint-red)",
+    },
+    {
+      name: "--toast-border-informative",
+      value: "var(--border-tint-blue)",
+    },
+    {
+      name: "--toast-bg",
+      value: "var(--bg-neutral-primary)",
+    },
+  ]}
+/>
+
+<Toaster className="sb-unstyled" position="bottom-right" />

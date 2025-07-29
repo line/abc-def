@@ -13,10 +13,22 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import "@/styles/globals.css";
 
-import type { AppProps } from "next/app";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@abc-def/react";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+interface Props {}
+
+const TabsDemo: React.FC<Props> = () => {
+  return (
+    <Tabs defaultValue="a">
+      <TabsList>
+        <TabsTrigger value="a">A</TabsTrigger>
+        <TabsTrigger value="b">B</TabsTrigger>
+      </TabsList>
+      <TabsContent value="a">Content A</TabsContent>
+      <TabsContent value="b">Content B</TabsContent>
+    </Tabs>
+  );
+};
+
+export default TabsDemo;

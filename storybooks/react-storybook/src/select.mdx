@@ -18,79 +18,34 @@ import * as SelectStories from "./select.stories.tsx";
 <Canvas of={SelectStories.Default} />
 <Controls />
 
-## Single
+## With Icon
 
-<Canvas of={SelectStories.Single} />
-
-## Single with Icon
-
-<Canvas of={SelectStories.Single_With_Icon} />
-
-## Error
-
-<Canvas of={SelectStories.Error} />
+<Canvas of={SelectStories.With_Icon} />
 
 ## Disabled
 
 <Canvas of={SelectStories.Disabled} />
 
-## Multi
+## Form
 
-<Canvas of={SelectStories.Multi} />
-
-## Multi with Icon
-
-<Canvas of={SelectStories.Multi_With_Icon} />
+<Canvas of={SelectStories.Error_Form} />
 
 ## Tokens
 
 <TokenTable
   items={[
-    {
-      name: "--select-fg",
-      value: "var(--fg-neutral-tertiary)",
-    },
-    {
-      name: "--select-fg-pressed",
-      value: "var(--fg-neutral-primary)",
-    },
-    {
-      name: "--select-fg-filled",
-      value: "var(--fg-neutral-primary)",
-    },
-    {
-      name: "--select-caption-fg",
-      value: "var(--fg-neutral-tertiary)",
-    },
-    {
-      name: "--select-caption-fg-success",
-      value: "var(--fg-tint-green)",
-    },
-    {
-      name: "--select-caption-fg-error",
-      value: "var(--fg-tint-red)",
-    },
-    {
-      name: "--select-border",
-      value: "var(--border-neutral-tertiary)",
-    },
+    { name: "--select-fg", value: "var(--fg-neutral-tertiary)" },
+    { name: "--select-fg-pressed", value: "var(--fg-neutral-primary)" },
+    { name: "--select-fg-filled", value: "var(--fg-neutral-primary)" },
+    { name: "--select-border", value: "var(--border-neutral-tertiary)" },
     {
       name: "--select-border-pressed",
       value: "var(--tint, var(--border-neutral-primary))",
     },
-    {
-      name: "--select-border-error",
-      value: "var(--border-tint-red)",
-    },
-    {
-      name: "--select-bg",
-      value: "var(--bg-neutral-primary)",
-    },
-    {
-      name: "--select-bg-pressed",
-      value: "var(--bg-neutral-tertiary)",
-    },
+    { name: "--select-border-error", value: "var(--border-tint-red)" },
+    { name: "--select-bg", value: "var(--bg-neutral-primary)" },
+    { name: "--select-bg-pressed", value: "var(--bg-neutral-tertiary)" },
   ]}
 />
 
-<Toaster position="bottom-right" />
+<Toaster className="sb-unstyled" position="bottom-right" />

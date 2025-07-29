@@ -5,11 +5,11 @@ packages:
   - tooling/*
 
 catalog:
-  eslint: ^9.29.0
-  prettier: ^3.5.3
+  eslint: ^9.32.0
+  prettier: ^3.6.2
   tailwindcss: ^3.4.17
   typescript: ^5.8.3
-  stylelint: ^16.21.0
+  stylelint: ^16.22.0
 
 catalogs:
   react:
@@ -30,7 +30,7 @@ catalogs:
     '@storybook/react-vite': ^8.6.14
     '@storybook/vue3': ^8.6.14
     '@storybook/vue3-vite': ^8.6.14
-    '@chromatic-com/storybook': ^3.2.6
+    '@chromatic-com/storybook': ^3.2.7
 
 onlyBuiltDependencies:
   - esbuild

@@ -17,103 +17,100 @@
 
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod/v4";
 
 import {
+  Button,
+  Caption,
+  Form,
+  FormCaption,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   IconNames,
   InputBox,
-  InputCaption,
   InputClearButton,
   InputEyeButton,
   InputField,
   InputIcon,
-  InputLabel,
+  Label,
   TextInput,
+  toast,
 } from "@abc-def/react";
 
 const Props = {
-  InputLabel: {
-    show: "↳ InputLabel: show",
-    children: "↳ InputLabel: children",
-  },
   TextInput: {
     placeholder: "↳ TextInput: placeholder",
     disabled: "↳ TextInput: disabled",
-    error: "↳ TextInput: error",
+    radius: "↳ TextInput: radius",
   },
   InputIcon: {
     name: "↳ InputIcon: name",
-  },
-  InputCaption: {
-    show: "↳ InputCaption: show",
-    variant: "↳ InputCaption: variant",
-    icon: "↳ InputCaption: icon",
-    children: "↳ InputCaption: children",
   },
 } as const;
 
 const meta: Meta<
   React.ComponentProps<typeof TextInput> & {
-    [Props.InputLabel.show]: boolean;
-    [Props.InputLabel.children]: React.ComponentPropsWithoutRef<
-      typeof InputLabel
-    >["children"];
     [Props.TextInput.placeholder]: React.ComponentPropsWithoutRef<
       typeof TextInput
     >["placeholder"];
+    [Props.TextInput.radius]: React.ComponentPropsWithoutRef<
+      typeof TextInput
+    >["radius"];
     [Props.TextInput.disabled]: React.ComponentPropsWithoutRef<
       typeof TextInput
     >["disabled"];
-    [Props.TextInput.error]: React.ComponentPropsWithoutRef<
-      typeof TextInput
-    >["error"];
     [Props.InputIcon.name]: React.ComponentPropsWithoutRef<
       typeof InputIcon
     >["name"];
-    [Props.InputCaption.show]: boolean;
-    [Props.InputCaption.variant]: React.ComponentPropsWithoutRef<
-      typeof InputCaption
-    >["variant"];
-    [Props.InputCaption.icon]: React.ComponentPropsWithoutRef<
-      typeof InputCaption
-    >["icon"];
-    [Props.InputCaption.children]: React.ComponentPropsWithoutRef<
-      typeof InputCaption
-    >["children"];
   }
 > = {
   title: "Input",
   component: TextInput,
   args: {
-    [Props.InputLabel.show]: true,
-    [Props.InputLabel.children]: "Label",
-    [Props.InputIcon.name]: undefined,
     [Props.TextInput.placeholder]: "Placeholder...",
+    [Props.TextInput.radius]: undefined,
     [Props.TextInput.disabled]: false,
-    [Props.TextInput.error]: false,
-    [Props.InputCaption.show]: true,
-    [Props.InputCaption.variant]: "default",
-    [Props.InputCaption.icon]: undefined,
-    [Props.InputCaption.children]: "Caption",
+    [Props.InputIcon.name]: undefined,
   },
   argTypes: {
-    [Props.InputLabel.show]: {
-      description: "Set whether to show the InputLabel.",
+    [Props.TextInput.placeholder]: {
+      description: "Set the placeholder of the TextInput.",
       table: {
-        category: "InputLabel",
-        defaultValue: {
-          summary: "true",
-        },
-      },
-    },
-    [Props.InputLabel.children]: {
-      description: "Set the children of the InputLabel.",
-      table: {
-        category: "InputLabel",
+        category: "TextInput",
         type: {
-          summary: "React.ReactNode",
+          summary: "string",
         },
       },
       control: "text",
+    },
+    [Props.TextInput.radius]: {
+      description: "Set the radius of the TextInput.",
+      table: {
+        category: "TextInput",
+        type: {
+          summary: "small | medium | large",
+        },
+        defaultValue: {
+          summary: "small",
+        },
+      },
+      control: "radio",
+      options: ["small", "medium", "large", undefined],
+    },
+    [Props.TextInput.disabled]: {
+      description: "Set whether the TextInput is in a disabled state.",
+      table: {
+        category: "TextInput",
+        type: {
+          summary: "false",
+        },
+      },
+      control: "boolean",
     },
     [Props.InputIcon.name]: {
       description: "Set the name of the InputIcon.",
@@ -126,112 +123,9 @@ const meta: Meta<
       control: "select",
       options: IconNames,
     },
-    [Props.TextInput.placeholder]: {
-      description: "Set the placeholder of the TextInput.",
-      table: {
-        category: "TextInput",
-        type: {
-          summary: "string",
-        },
-      },
-      control: "text",
-    },
-    [Props.TextInput.disabled]: {
-      description: "Set whether the TextInput is in a disabled state.",
-      table: {
-        category: "TextInput",
-        type: {
-          summary: "false",
-        },
-      },
-      control: "boolean",
-    },
-    [Props.TextInput.error]: {
-      description: "Set whether the TextInput is in an error state.",
-      table: {
-        category: "TextInput",
-        type: {
-          summary: "false",
-        },
-      },
-      control: "boolean",
-    },
-    [Props.InputCaption.show]: {
-      description: "Set whether to show the InputCaption.",
-      table: {
-        category: "InputCaption",
-        defaultValue: {
-          summary: "true",
-        },
-      },
-    },
-    radius: {
-      description: "Set the radius of the InputTextarea.",
-      table: {
-        category: "Textarea",
-        type: {
-          summary: "small | medium | large",
-        },
-        defaultValue: {
-          summary: "small",
-        },
-      },
-      control: "radio",
-      options: ["small", "medium", "large"],
-    },
-    [Props.InputCaption.variant]: {
-      description: "Set the variant of the InputCaption.",
-      table: {
-        category: "InputCaption",
-        type: {
-          summary: "default | success | info | error",
-        },
-        defaultValue: {
-          summary: "default",
-        },
-      },
-      control: "radio",
-      options: ["default", "success", "info", "error"],
-    },
-    [Props.InputCaption.icon]: {
-      description: "Set the icon of the InputCaption.",
-      table: {
-        category: "InputCaption",
-        type: {
-          summary: "IconNameTypes",
-        },
-        defaultValue: {
-          summary: "CAPTION_DEFAULT_ICON",
-        },
-      },
-      control: "select",
-      options: IconNames,
-    },
-    [Props.InputCaption.children]: {
-      description: "Set the children of the InputCaption.",
-      table: {
-        category: "InputCaption",
-        type: {
-          summary: "React.ReactNode",
-        },
-      },
-      control: "text",
-    },
-    size: {
-      table: {
-        disable: true,
-      },
-    },
-    type: {
-      table: {
-        disable: true,
-      },
-    },
-    error: {
-      table: {
-        disable: true,
-      },
-    },
+    radius: { table: { disable: true } },
+    size: { table: { disable: true } },
+    type: { table: { disable: true } },
   },
   decorators: (Story) => <Story />,
   render: (args) => {
@@ -246,31 +140,21 @@ const meta: Meta<
 
     return (
       <InputField>
-        {args[Props.InputLabel.show] && (
-          <InputLabel>{args[Props.InputLabel.children]}</InputLabel>
-        )}
+        <Label>Label</Label>
         <InputBox>
           <InputIcon name={args[Props.InputIcon.name] ?? "RiUser3Fill"} />
           <TextInput
-            radius={args.radius}
+            radius={args[Props.TextInput.radius]}
             ref={inputRef}
             placeholder={args[Props.TextInput.placeholder]}
             disabled={args[Props.TextInput.disabled]}
-            error={args[Props.TextInput.error]}
           />
           <InputClearButton
             onClick={handleClear}
             disabled={args[Props.TextInput.disabled]}
           />
         </InputBox>
-        {args[Props.InputCaption.show] && (
-          <InputCaption
-            variant={args[Props.InputCaption.variant]}
-            icon={args[Props.InputCaption.icon]}
-          >
-            {args[Props.InputCaption.children]}
-          </InputCaption>
-        )}
+        <Caption>Caption</Caption>
       </InputField>
     );
   },
@@ -295,10 +179,22 @@ export const TextField = () => {
     }
   };
 
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
+
   return (
     <div className="grid grid-cols-3 gap-2">
       <InputField>
-        <InputLabel>Default</InputLabel>
+        <Label>Default</Label>
         <InputBox>
           <TextInput
             ref={inputRefs[0]}
@@ -307,10 +203,10 @@ export const TextField = () => {
           />
           <InputClearButton onClick={() => handleClear(0)} />
         </InputBox>
-        <InputCaption variant="info">Caption Info</InputCaption>
+        <Caption variant="info">Caption Info</Caption>
       </InputField>
       <InputField>
-        <InputLabel>Disabled</InputLabel>
+        <Label>Disabled</Label>
         <InputBox>
           <TextInput
             ref={inputRefs[1]}
@@ -320,21 +216,45 @@ export const TextField = () => {
           />
           <InputClearButton onClick={() => handleClear(1)} />
         </InputBox>
-        <InputCaption variant="success">Caption Success</InputCaption>
+        <Caption variant="success">Caption Success</Caption>
       </InputField>
-      <InputField>
-        <InputLabel>Error</InputLabel>
-        <InputBox>
-          <TextInput
-            ref={inputRefs[2]}
-            type="text"
-            placeholder="Placeholder..."
-            error
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <InputField>
+                  <FormLabel>Form</FormLabel>
+                  <InputBox>
+                    <FormControl>
+                      <TextInput
+                        ref={inputRefs[2]}
+                        type="text"
+                        placeholder="Placeholder..."
+                        onChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    </FormControl>
+                    <InputClearButton
+                      onClick={() => {
+                        handleClear(2);
+                        field.onChange("");
+                      }}
+                    />
+                  </InputBox>
+                  <FormCaption>Caption</FormCaption>
+                  <FormMessage />
+                </InputField>
+              </FormItem>
+            )}
           />
-          <InputClearButton onClick={() => handleClear(2)} />
-        </InputBox>
-        <InputCaption variant="error">Caption Error</InputCaption>
-      </InputField>
+          <Button type="submit" className="mt-6">
+            Submit
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
@@ -352,10 +272,22 @@ export const Search = () => {
     }
   };
 
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
+
   return (
     <div className="grid grid-cols-3 gap-2">
       <InputField>
-        <InputLabel>Default</InputLabel>
+        <Label>Default</Label>
         <InputBox>
           <InputIcon name="RiSearchLine" />
           <TextInput
@@ -365,10 +297,10 @@ export const Search = () => {
           />
           <InputClearButton onClick={() => handleClear(3)} />
         </InputBox>
-        <InputCaption variant="info">Caption Info</InputCaption>
+        <Caption variant="info">Caption Info</Caption>
       </InputField>
       <InputField>
-        <InputLabel>Disabled</InputLabel>
+        <Label>Disabled</Label>
         <InputBox>
           <InputIcon name="RiSearchLine" />
           <TextInput
@@ -379,22 +311,46 @@ export const Search = () => {
           />
           <InputClearButton onClick={() => handleClear(4)} />
         </InputBox>
-        <InputCaption variant="success">Caption Success</InputCaption>
+        <Caption variant="success">Caption Success</Caption>
       </InputField>
-      <InputField>
-        <InputLabel>Error</InputLabel>
-        <InputBox>
-          <InputIcon name="RiSearchLine" />
-          <TextInput
-            ref={inputRefs[5]}
-            type="search"
-            placeholder="Placeholder..."
-            error
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <InputField>
+                  <FormLabel>Form</FormLabel>
+                  <InputBox>
+                    <InputIcon name="RiSearchLine" />
+                    <FormControl>
+                      <TextInput
+                        ref={inputRefs[5]}
+                        type="search"
+                        placeholder="Placeholder..."
+                        onChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    </FormControl>
+                    <InputClearButton
+                      onClick={() => {
+                        handleClear(5);
+                        field.onChange("");
+                      }}
+                    />
+                  </InputBox>
+                  <FormCaption>Caption</FormCaption>
+                  <FormMessage />
+                </InputField>
+              </FormItem>
+            )}
           />
-          <InputClearButton onClick={() => handleClear(5)} />
-        </InputBox>
-        <InputCaption variant="error">Caption Error</InputCaption>
-      </InputField>
+          <Button type="submit" className="mt-6">
+            Submit
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
@@ -412,10 +368,22 @@ export const Id = () => {
     }
   };
 
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
+
   return (
     <div className="grid grid-cols-3 gap-2">
       <InputField>
-        <InputLabel>Default</InputLabel>
+        <Label>Default</Label>
         <InputBox>
           <InputIcon name="RiUser3Fill" />
           <TextInput
@@ -425,10 +393,10 @@ export const Id = () => {
           />
           <InputClearButton onClick={() => handleClear(6)} />
         </InputBox>
-        <InputCaption variant="info">Caption Info</InputCaption>
+        <Caption variant="info">Caption Info</Caption>
       </InputField>
       <InputField>
-        <InputLabel>Disabled</InputLabel>
+        <Label>Disabled</Label>
         <InputBox>
           <InputIcon name="RiUser3Fill" />
           <TextInput
@@ -439,63 +407,107 @@ export const Id = () => {
           />
           <InputClearButton onClick={() => handleClear(7)} />
         </InputBox>
-        <InputCaption variant="success">Caption Success</InputCaption>
+        <Caption variant="success">Caption Success</Caption>
       </InputField>
-      <InputField>
-        <InputLabel>Error</InputLabel>
-        <InputBox>
-          <InputIcon name="RiUser3Fill" />
-          <TextInput
-            ref={inputRefs[8]}
-            type="text"
-            placeholder="Placeholder..."
-            error
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <InputField>
+                  <FormLabel>Form</FormLabel>
+                  <InputBox>
+                    <InputIcon name="RiUser3Fill" />
+                    <FormControl>
+                      <TextInput
+                        ref={inputRefs[8]}
+                        type="text"
+                        placeholder="Placeholder..."
+                        onChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    </FormControl>
+                    <InputClearButton
+                      onClick={() => {
+                        handleClear(8);
+                        field.onChange("");
+                      }}
+                    />
+                  </InputBox>
+                  <FormCaption>Caption</FormCaption>
+                  <FormMessage />
+                </InputField>
+              </FormItem>
+            )}
           />
-          <InputClearButton onClick={() => handleClear(8)} />
-        </InputBox>
-        <InputCaption variant="error">Caption Error</InputCaption>
-      </InputField>
+          <Button type="submit" className="mt-6">
+            Submit
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
 
 export const Password = () => {
   const count = 12;
+  const [inputTypes, setInputTypes] = React.useState<("text" | "password")[]>(
+    Array(count).fill("password"),
+  );
   const inputRefs = Array.from({ length: count }, () =>
     React.createRef<HTMLInputElement>(),
   );
 
   const handleChangeVisibility = (visible: boolean, index: number) => {
+    setInputTypes((prev) => {
+      const next = [...prev];
+      next[index] = visible ? "text" : "password";
+      return next;
+    });
+    // 포커스 유지
     if (inputRefs[index]?.current) {
-      inputRefs[index].current.type = visible ? "text" : "password";
       inputRefs[index].current.focus();
     }
   };
 
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
+
   return (
     <div className="grid grid-cols-3 gap-2">
       <InputField>
-        <InputLabel>Default</InputLabel>
+        <Label>Default</Label>
         <InputBox>
           <InputIcon name="RiLockPasswordFill" />
           <TextInput
             ref={inputRefs[9]}
-            type="password"
+            type={inputTypes[9]}
             placeholder="Placeholder..."
           />
           <InputEyeButton
             onChangeVisibility={(visible) => handleChangeVisibility(visible, 9)}
           />
         </InputBox>
-        <InputCaption variant="info">Caption Info</InputCaption>
+        <Caption variant="info">Caption Info</Caption>
       </InputField>
       <InputField>
-        <InputLabel>Disabled</InputLabel>
+        <Label>Disabled</Label>
         <InputBox>
           <InputIcon name="RiLockPasswordFill" />
           <TextInput
             ref={inputRefs[10]}
-            type="password"
+            type={inputTypes[10]}
             placeholder="Placeholder..."
             disabled
           />
@@ -506,26 +518,49 @@ export const Password = () => {
             }
           />
         </InputBox>
-        <InputCaption variant="success">Caption Success</InputCaption>
+        <Caption variant="success">Caption Success</Caption>
       </InputField>
-      <InputField>
-        <InputLabel>Error</InputLabel>
-        <InputBox>
-          <InputIcon name="RiLockPasswordFill" />
-          <TextInput
-            ref={inputRefs[11]}
-            type="password"
-            placeholder="Placeholder..."
-            error
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <InputField>
+                  <FormLabel>Form</FormLabel>
+                  <InputBox>
+                    <InputIcon name="RiLockPasswordFill" />
+                    <FormControl>
+                      <TextInput
+                        ref={inputRefs[11]}
+                        type={inputTypes[11]}
+                        placeholder="Placeholder..."
+                        onChange={field.onChange}
+                        defaultValue={field.value}
+                      />
+                    </FormControl>
+                    <InputEyeButton
+                      onChangeVisibility={(visible) =>
+                        handleChangeVisibility(visible, 11)
+                      }
+                    />
+                  </InputBox>
+                  <FormCaption>Caption</FormCaption>
+                  <FormMessage />
+                </InputField>
+              </FormItem>
+            )}
           />
-          <InputEyeButton
-            onChangeVisibility={(visible) =>
-              handleChangeVisibility(visible, 11)
-            }
-          />
-        </InputBox>
-        <InputCaption variant="error">Caption Error</InputCaption>
-      </InputField>
+          <Button type="submit" className="mt-6">
+            Submit
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
+
+const FormSchema = z.object({
+  email: z.email({ error: "Please type an email." }),
+});

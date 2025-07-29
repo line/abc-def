@@ -17,11 +17,11 @@ import React from "react";
 
 import {
   Badge,
+  Label,
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@abc-def/react";
@@ -43,6 +43,11 @@ export default function ThemeSelect() {
   const handleChangeRadius = (radius: string) => {
     setRadius(radius);
     forceReRender(`radius:${radius}`);
+  };
+
+  const handleChangeSize = (size: string) => {
+    setSize(size);
+    forceReRender(`size:${size}`);
   };
 
   const getDocumentDark = () =>
@@ -163,7 +168,7 @@ export default function ThemeSelect() {
       }
     >
       <Select size="small" value={theme} onValueChange={setTheme}>
-        <SelectLabel>Theme</SelectLabel>
+        <Label>Theme</Label>
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
@@ -179,7 +184,7 @@ export default function ThemeSelect() {
         value={tint}
         onValueChange={(v: keyof typeof color) => setTint(v)}
       >
-        <SelectLabel>Tint</SelectLabel>
+        <Label>Tint</Label>
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
@@ -204,7 +209,7 @@ export default function ThemeSelect() {
         </SelectContent>
       </Select>
       <Select size="small" value={radius} onValueChange={handleChangeRadius}>
-        <SelectLabel>Radius</SelectLabel>
+        <Label>Radius</Label>
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
@@ -216,23 +221,19 @@ export default function ThemeSelect() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      {/* <div>
-        Rounded Base
-        <TextInput
-          type="number"
-          defaultValue={parseInt(
-            document.documentElement.style.getPropertyValue("--rounded-base") ||
-              "0",
-          )}
-          onChange={(e) => {
-            const number = Number(e.target.value);
-            document.documentElement.style.setProperty(
-              "--rounded-base",
-              number + "px",
-            );
-          }}
-        />
-      </div> */}
+      <Select size="small" value={size} onValueChange={handleChangeSize}>
+        <Label>Size</Label>
+        <SelectTrigger>
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent maxHeight="auto" position="popper">
+          <SelectGroup>
+            <SelectItem value="small">Small</SelectItem>
+            <SelectItem value="medium">Medium</SelectItem>
+            <SelectItem value="large">Large</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </div>
   );
 }

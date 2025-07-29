@@ -47,7 +47,6 @@ const Props = {
   },
   ComboboxItem: {
     variant: "↳ ComboboxItem: variant",
-    inset: "↳ ComboboxItem: inset",
     children: "↳ ComboboxItem: children",
   },
 } as const;
@@ -69,9 +68,6 @@ const meta: Meta<
     [Props.ComboboxEmpty.children]: React.ComponentPropsWithoutRef<
       typeof ComboboxEmpty
     >["children"];
-    [Props.ComboboxItem.inset]: React.ComponentPropsWithoutRef<
-      typeof ComboboxItem
-    >["inset"];
     [Props.ComboboxItem.children]: React.ComponentPropsWithoutRef<
       typeof ComboboxItem
     >["children"];
@@ -84,7 +80,6 @@ const meta: Meta<
     [Props.ComboboxInput.placeholder]: "Placeholder...",
     [Props.ComboboxList.maxHeight]: "300px",
     [Props.ComboboxEmpty.children]: "No results found.",
-    [Props.ComboboxItem.inset]: false,
     [Props.ComboboxItem.children]: "Custom",
   },
   argTypes: {
@@ -132,16 +127,6 @@ const meta: Meta<
       },
       control: "text",
     },
-    [Props.ComboboxItem.inset]: {
-      description: "Set whether the ComboboxItem has an inset.",
-      table: {
-        category: "ComboboxItem",
-        defaultValue: {
-          summary: "false",
-        },
-      },
-      control: "boolean",
-    },
     [Props.ComboboxItem.children]: {
       description: "Set the children of the ComboboxItem.",
       table: {
@@ -178,10 +163,7 @@ const meta: Meta<
               <ComboboxGroup>
                 <ComboboxItem>Item 1</ComboboxItem>
                 <ComboboxItem>Item 2</ComboboxItem>
-                <ComboboxItem
-                  inset={args[Props.ComboboxItem.inset]}
-                  onSelect={(value) => alert(value)}
-                >
+                <ComboboxItem onSelect={(value) => alert(value)}>
                   {args[Props.ComboboxItem.children]}
                 </ComboboxItem>
               </ComboboxGroup>
@@ -225,10 +207,7 @@ const meta: Meta<
               <ComboboxGroup>
                 <ComboboxItem>Item 1</ComboboxItem>
                 <ComboboxItem>Item 2</ComboboxItem>
-                <ComboboxItem
-                  inset={args[Props.ComboboxItem.inset]}
-                  onSelect={(value) => alert(value)}
-                >
+                <ComboboxItem onSelect={(value) => alert(value)}>
                   {args[Props.ComboboxItem.children]}
                 </ComboboxItem>
               </ComboboxGroup>
@@ -300,7 +279,7 @@ export const Select = () => {
             : "Select a fruit..."}
           <Icon name="RiArrowDownSLine" size={16} className="ml-auto" />
         </ComboboxTrigger>
-        <ComboboxContent align="start">
+        <ComboboxContent>
           <ComboboxInput placeholder="Placeholder..." />
           <ComboboxList>
             <ComboboxEmpty>No results found.</ComboboxEmpty>
@@ -359,7 +338,78 @@ export const Click = () => {
           Button
           <Icon name="RiExpandUpDownLine" size={16} className="ml-auto" />
         </ComboboxTrigger>
-        <ComboboxContent align="start">
+        <ComboboxContent>
+          <ComboboxInput placeholder="Placeholder..." />
+          <ComboboxList>
+            <ComboboxEmpty>No results found.</ComboboxEmpty>
+            <ComboboxGroup>
+              {fruits.map((fruit) => (
+                <ComboboxItem
+                  key={fruit.value}
+                  value={fruit.value}
+                  onSelect={(currentValue) => {
+                    alert(`${currentValue} clicked!`);
+                    setOpen(false);
+                  }}
+                >
+                  {fruit.label}
+                </ComboboxItem>
+              ))}
+            </ComboboxGroup>
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
+  );
+};
+
+export const Filter = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const fruits = [
+    {
+      value: "apple",
+      label: "Apple",
+    },
+    {
+      value: "banana",
+      label: "Banana",
+    },
+    {
+      value: "blueberry",
+      label: "Blueberry",
+    },
+    {
+      value: "grapes",
+      label: "Grapes",
+    },
+    {
+      value: "pineapple",
+      label: "Pineapple",
+    },
+  ];
+
+  const filter = (value: string, search: string, keywords?: string[]) => {
+    value = value.toLocaleLowerCase();
+    search = search.toLocaleLowerCase();
+    const normalizedKeywords = keywords?.map((k) => k.toLocaleLowerCase());
+    return value.startsWith(search) ||
+      normalizedKeywords?.some((keyword) => keyword.startsWith(search))
+      ? 1
+      : value.includes(search) ||
+          normalizedKeywords?.some((keyword) => keyword.includes(search))
+        ? 0.5
+        : 0;
+  };
+
+  return (
+    <div className="grid">
+      <Combobox open={open} onOpenChange={setOpen}>
+        <ComboboxTrigger>
+          Button
+          <Icon name="RiExpandUpDownLine" size={16} className="ml-auto" />
+        </ComboboxTrigger>
+        <ComboboxContent options={{ filter }}>
           <ComboboxInput placeholder="Placeholder..." />
           <ComboboxList>
             <ComboboxEmpty>No results found.</ComboboxEmpty>

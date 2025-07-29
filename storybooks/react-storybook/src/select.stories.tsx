@@ -15,61 +15,44 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod/v4";
 
 import {
+  Button,
+  Caption,
+  Form,
+  FormCaption,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   Icon,
-  IconNames,
-  MultiSelect,
-  MultiSelectCaption,
-  MultiSelectContent,
-  MultiSelectItem,
-  MultiSelectTrigger,
-  MultiSelectValue,
+  Label,
   Select,
-  SelectCaption,
   SelectContent,
   SelectGroup,
-  SelectGroupLabel,
   SelectItem,
-  SelectLabel,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
+  toast,
 } from "@abc-def/react";
 
 const Props = {
-  SelectLabel: {
-    children: "↳ SelectLabel: children",
-  },
-  SelectTrigger: {
-    error: "↳ SelectTrigger: error",
-  },
-  SelectValue: {
-    placeholder: "↳ SelectValue: placeholder",
-  },
+  SelectValue: { placeholder: "↳ SelectValue: placeholder" },
   SelectContent: {
     position: "↳ SelectContent: position",
     maxHeight: "↳ SelectContent: maxHeight",
   },
   SelectItem: {
-    icon: "↳ SelectItem: icon",
     children: "↳ SelectItem: children",
-  },
-  SelectCaption: {
-    icon: "↳ SelectCaption: icon",
-    variant: "↳ SelectCaption: variant",
-    children: "↳ SelectCaption: children",
   },
 } as const;
 
 const meta: Meta<
   React.ComponentProps<typeof Select> & {
-    [Props.SelectLabel.children]: React.ComponentPropsWithoutRef<
-      typeof SelectLabel
-    >["children"];
-    [Props.SelectTrigger.error]: React.ComponentPropsWithoutRef<
-      typeof SelectTrigger
-    >["error"];
     [Props.SelectValue.placeholder]: React.ComponentPropsWithoutRef<
       typeof SelectValue
     >["placeholder"];
@@ -82,24 +65,15 @@ const meta: Meta<
     [Props.SelectItem.children]: React.ComponentPropsWithoutRef<
       typeof SelectItem
     >["children"];
-    [Props.SelectCaption.icon]: React.ComponentPropsWithoutRef<
-      typeof SelectCaption
-    >["icon"];
-    [Props.SelectCaption.variant]: React.ComponentPropsWithoutRef<
-      typeof SelectCaption
-    >["variant"];
-    [Props.SelectCaption.children]: React.ComponentPropsWithoutRef<
-      typeof SelectCaption
-    >["children"];
   }
 > = {
   title: "Select",
   component: Select,
   decorators: (Story) => <Story />,
   render: (args) => (
-    <Select size={args.size}>
-      <SelectLabel>{args[Props.SelectLabel.children]}</SelectLabel>
-      <SelectTrigger error={args[Props.SelectTrigger.error]}>
+    <Select size={args.size} disabled={args.disabled}>
+      <Label>Label</Label>
+      <SelectTrigger>
         <SelectValue placeholder={args[Props.SelectValue.placeholder]} />
       </SelectTrigger>
       <SelectContent
@@ -107,166 +81,59 @@ const meta: Meta<
         maxHeight={args[Props.SelectContent.maxHeight]}
       >
         <SelectGroup>
-          <SelectGroupLabel>Fruits</SelectGroupLabel>
-          <SelectItem value="app">Apple</SelectItem>
-          <SelectItem value="ban">Banana</SelectItem>
-          <SelectItem value="blu">Blueberry</SelectItem>
-          <SelectItem value="gra">Grapes</SelectItem>
-          <SelectItem value="pin">{args[Props.SelectItem.children]}</SelectItem>
-        </SelectGroup>
-        <SelectSeparator />
-        <SelectGroup>
-          <SelectGroupLabel>Vegetables</SelectGroupLabel>
-          <SelectItem value="tom">Tomato</SelectItem>
-          <SelectItem value="cab">Cabbage</SelectItem>
-          <SelectItem value="let">Lettuce</SelectItem>
-          <SelectItem value="car">Carrot</SelectItem>
-          <SelectItem value="oni">Onion</SelectItem>
+          <SelectItem value="txt">text</SelectItem>
+          <SelectItem value="kwd">keyword</SelectItem>
+          <SelectItem value="num">number</SelectItem>
+          <SelectItem value="dat">date</SelectItem>
+          <SelectItem value="sel">select</SelectItem>
+          <SelectItem value="mul">multiSelect</SelectItem>
+          <SelectItem value="img">{args[Props.SelectItem.children]}</SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption
-        icon={args[Props.SelectCaption.icon]}
-        variant={args[Props.SelectCaption.variant]}
-      >
-        {args[Props.SelectCaption.children]}
-      </SelectCaption>
+      <Caption>Caption</Caption>
     </Select>
   ),
   args: {
-    size: undefined,
-    [Props.SelectLabel.children]: "Title",
-    [Props.SelectTrigger.error]: false,
+    disabled: false,
     [Props.SelectValue.placeholder]: "Select a fruit...",
     [Props.SelectContent.position]: "popper",
     [Props.SelectContent.maxHeight]: "auto",
     [Props.SelectItem.children]: "Custom",
-    [Props.SelectCaption.icon]: undefined,
-    [Props.SelectCaption.variant]: "default",
-    [Props.SelectCaption.children]: "Caption",
   },
   argTypes: {
-    size: {
-      description: "Set the size of the Select.",
-      table: {
-        category: "Select",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
-    [Props.SelectTrigger.error]: {
-      description: "Set whether the SelectTrigger is in an error state.",
-      table: {
-        category: "SelectTrigger",
-        defaultValue: {
-          summary: "false",
-        },
-      },
-    },
-    [Props.SelectLabel.children]: {
-      description: "Set the children of the SelectLabel.",
-      table: {
-        category: "SelectLabel",
-        type: {
-          summary: "React.ReactNode",
-        },
-      },
-      control: "text",
+    disabled: {
+      description: "Set whether the Select is in an disabled state.",
+      table: { category: "Select", defaultValue: { summary: "false" } },
     },
     [Props.SelectValue.placeholder]: {
       description: "Set the placeholder of the SelectValue.",
-      table: {
-        category: "SelectValue",
-        type: {
-          summary: "string",
-        },
-      },
+      table: { category: "SelectValue", type: { summary: "string" } },
       control: "text",
     },
     [Props.SelectContent.position]: {
       description: "Set the position where the SelectContent appears.",
       table: {
         category: "SelectContent",
-        defaultValue: {
-          summary: "popper",
-        },
-        type: {
-          summary: "item-aligned | popper",
-        },
+        defaultValue: { summary: "popper" },
+        type: { summary: "item-aligned | popper" },
       },
       control: "radio",
       options: ["item-aligned", "popper"],
     },
     [Props.SelectContent.maxHeight]: {
       description: "Set the maximum height of the SelectContent.",
-      table: {
-        category: "SelectContent",
-        type: {
-          summary: "string",
-        },
-      },
+      table: { category: "SelectContent", type: { summary: "string" } },
       control: "text",
     },
     [Props.SelectItem.children]: {
       description: "Set the children of the SelectItem.",
-      table: {
-        category: "SelectItem",
-        type: {
-          summary: "React.ReactNode",
-        },
-      },
+      table: { category: "SelectItem", type: { summary: "React.ReactNode" } },
       control: "text",
     },
-    [Props.SelectCaption.variant]: {
-      description: "Set the variant of the SelectCaption.",
-      table: {
-        category: "SelectCaption",
-        type: {
-          summary: "default | success | info | error",
-        },
-        defaultValue: {
-          summary: "default",
-        },
-      },
-      control: "radio",
-      options: ["default", "success", "info", "error"],
-    },
-    [Props.SelectCaption.icon]: {
-      description: "Set the left icon of the SelectCaption.",
-      table: {
-        category: "SelectCaption",
-        type: {
-          summary: "IconNameType",
-        },
-      },
-      control: "select",
-      options: IconNames,
-    },
-    [Props.SelectCaption.children]: {
-      description: "Set the children of the SelectCaption.",
-      table: {
-        category: "SelectCaption",
-        type: {
-          summary: "React.ReactNode",
-        },
-      },
-      control: "text",
-    },
-    className: {
-      table: {
-        disable: true,
-      },
-    },
-    value: {
-      table: {
-        disable: true,
-      },
-    },
+    className: { table: { disable: true } },
+    value: { table: { disable: true } },
+    size: { table: { disable: true } },
+    radius: { table: { disable: true } },
   },
 };
 
@@ -276,38 +143,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const Single = () => {
-  return (
-    <Select
-      onValueChange={(value) => console.log("single select value: ", value)}
-    >
-      <SelectLabel>Label</SelectLabel>
-      <SelectTrigger>
-        <SelectValue placeholder="Select a format" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="txt">text</SelectItem>
-          <SelectItem value="kwd">keyword</SelectItem>
-          <SelectItem value="num">number</SelectItem>
-          <SelectItem value="dat">date</SelectItem>
-          <SelectItem value="sel">select</SelectItem>
-          <SelectItem value="mul">multiSelect</SelectItem>
-          <SelectItem value="img">image</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-      <SelectCaption variant="default">Caption Default</SelectCaption>
-    </Select>
-  );
-};
-
-export const Single_With_Icon = () => {
+export const With_Icon = () => {
   return (
     <Select
       defaultValue="txt"
       onValueChange={(value) => console.log("single select value: ", value)}
     >
-      <SelectLabel>Label</SelectLabel>
+      <Label>Label</Label>
       <SelectTrigger>
         <SelectValue placeholder="Select a format" />
       </SelectTrigger>
@@ -343,34 +185,7 @@ export const Single_With_Icon = () => {
           </SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption variant="success">Caption Info</SelectCaption>
-    </Select>
-  );
-};
-
-export const Error = () => {
-  return (
-    <Select
-      onValueChange={(value) => console.log("single select value: ", value)}
-    >
-      <SelectLabel>Label</SelectLabel>
-      <SelectTrigger error>
-        <SelectValue placeholder="Select a timezone (Disabled)" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="txt">text</SelectItem>
-          <SelectItem value="kwd">keyword</SelectItem>
-          <SelectItem value="num">number</SelectItem>
-          <SelectItem value="dat">date</SelectItem>
-          <SelectItem value="sel">select</SelectItem>
-          <SelectItem value="mul">multiSelect</SelectItem>
-          <SelectItem value="img">image</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-      <SelectCaption variant="error">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-      </SelectCaption>
+      <Caption variant="success">Caption Info</Caption>
     </Select>
   );
 };
@@ -378,10 +193,11 @@ export const Error = () => {
 export const Disabled = () => {
   return (
     <Select
+      disabled
       onValueChange={(value) => console.log("single select value: ", value)}
     >
-      <SelectLabel>Label</SelectLabel>
-      <SelectTrigger disabled>
+      <Label>Label</Label>
+      <SelectTrigger>
         <SelectValue placeholder="Select a timezone (Disabled)" />
       </SelectTrigger>
       <SelectContent>
@@ -395,71 +211,62 @@ export const Disabled = () => {
           <SelectItem value="img">image</SelectItem>
         </SelectGroup>
       </SelectContent>
-      <SelectCaption variant="info">
+      <Caption variant="info">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-      </SelectCaption>
+      </Caption>
     </Select>
   );
 };
 
-export const Multi = () => (
-  <MultiSelect onValueChange={(value) => console.log(value.join(", "))}>
-    <SelectLabel>Label</SelectLabel>
-    <MultiSelectTrigger>
-      <MultiSelectValue placeholder="Select a format" />
-    </MultiSelectTrigger>
-    <MultiSelectContent>
-      <MultiSelectItem value="txt">text</MultiSelectItem>
-      <MultiSelectItem value="kwd">keyword</MultiSelectItem>
-      <MultiSelectItem value="num">number</MultiSelectItem>
-      <MultiSelectItem value="dat">date</MultiSelectItem>
-      <MultiSelectItem value="sel">select</MultiSelectItem>
-      <MultiSelectItem value="mul">multiSelect</MultiSelectItem>
-      <MultiSelectItem value="img">image</MultiSelectItem>
-    </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
-  </MultiSelect>
-);
+const FormSchema = z.object({
+  email: z.email({ error: "Please select an email to display." }),
+});
 
-export const Multi_With_Icon = () => (
-  <MultiSelect
-    defaultValue={["txt", "kwd"]}
-    onValueChange={(value) => console.log(value.join(", "))}
-  >
-    <SelectLabel>Label</SelectLabel>
-    <MultiSelectTrigger>
-      <MultiSelectValue placeholder="Select a format" />
-    </MultiSelectTrigger>
-    <MultiSelectContent>
-      <MultiSelectItem value="txt">
-        <Icon className="mr-2" name="RiMenu2Line" size={16} />
-        text
-      </MultiSelectItem>
-      <MultiSelectItem value="kwd">
-        <Icon className="mr-2" name="RiFontSize" size={16} />
-        keyword
-      </MultiSelectItem>
-      <MultiSelectItem value="num">
-        <Icon className="mr-2" name="RiHashtag" size={16} />
-        number
-      </MultiSelectItem>
-      <MultiSelectItem value="dat">
-        <Icon className="mr-2" name="RiCalendar2Line" size={16} />
-        date
-      </MultiSelectItem>
-      <MultiSelectItem value="sel">
-        <Icon className="mr-2" name="RiCheckboxCircleLine" size={16} />
-        select
-      </MultiSelectItem>
-      <MultiSelectItem value="mul">
-        <Icon className="mr-2" name="RiListView" size={16} />
-        multiSelect
-      </MultiSelectItem>
-      <MultiSelectItem value="img">
-        <Icon className="mr-2" name="RiImageLine" size={16} />
-        image
-      </MultiSelectItem>
-    </MultiSelectContent>
-    <MultiSelectCaption>Caption Info</MultiSelectCaption>
-  </MultiSelect>
-);
+export const Error_Form = () => {
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    return toast.success("Form submitted successfully", {
+      description: JSON.stringify(data, null, 2),
+    });
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a verified email to display" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="m@example.com">m@example.com</SelectItem>
+                  <SelectItem value="m@google.com">m@google.com</SelectItem>
+                  <SelectItem value="m@support.com">m@support.com</SelectItem>
+                </SelectContent>
+                <FormCaption>
+                  You can manage email addresses in your email settings.
+                </FormCaption>
+                <FormMessage />
+              </Select>
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="mt-6">
+          Submit
+        </Button>
+      </form>
+    </Form>
+  );
+};

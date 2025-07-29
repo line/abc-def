@@ -18,6 +18,7 @@ import React from "react";
 
 import {
   Button,
+  Caption,
   Dialog,
   DialogBody,
   DialogClose,
@@ -29,9 +30,8 @@ import {
   DialogTitle,
   DialogTrigger,
   IconNames,
-  InputCaption,
   InputField,
-  InputLabel,
+  Label,
   TextInput,
 } from "@abc-def/react";
 
@@ -177,7 +177,7 @@ const meta: Meta<
     },
   },
   render: (args) => (
-    <Dialog defaultOpen>
+    <Dialog>
       <DialogTrigger>Open</DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -192,15 +192,15 @@ const meta: Meta<
         </DialogHeader>
         <DialogBody>
           <InputField>
-            <InputLabel>Label</InputLabel>
+            <Label>Label</Label>
             <TextInput size="small" />
           </InputField>
           <InputField>
-            <InputLabel>Label</InputLabel>
+            <Label>Label</Label>
             <TextInput size="small" />
-            <InputCaption variant="info">
+            <Caption variant="info">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            </InputCaption>
+            </Caption>
           </InputField>
         </DialogBody>
         <DialogFooter align={args[Props.DialogFooter.align]}>
@@ -224,38 +224,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
-
-export const Basic = () => (
-  <Dialog>
-    <DialogTrigger>Open</DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogIcon name="RiFlashlightFill" variant="default" />
-        <DialogTitle>Title</DialogTitle>
-        <DialogDescription>Description</DialogDescription>
-      </DialogHeader>
-      <DialogBody>
-        <InputField>
-          <InputLabel>Label</InputLabel>
-          <TextInput size="small" />
-        </InputField>
-        <InputField>
-          <InputLabel>Label</InputLabel>
-          <TextInput size="small" />
-          <InputCaption variant="info">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          </InputCaption>
-        </InputField>
-      </DialogBody>
-      <DialogFooter>
-        <DialogClose onClick={() => alert("clicked!")}>Button</DialogClose>
-        <DialogClose variant="primary" onClick={() => alert("clicked!")}>
-          Button
-        </DialogClose>
-      </DialogFooter>
-    </DialogContent>
-  </Dialog>
-);
 
 export const Warning = () => (
   <Dialog>

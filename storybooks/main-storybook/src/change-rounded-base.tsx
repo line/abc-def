@@ -28,10 +28,10 @@ import {
   Button,
   Checkbox,
   Icon,
+  Label,
   Select,
   SelectContent,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
   TextInput,
@@ -106,7 +106,7 @@ const ChangeRoundedBase = () => {
             document.body.setAttribute("data-radius", v);
           }}
         >
-          <SelectLabel>Radius</SelectLabel>
+          <Label>Radius</Label>
           <SelectTrigger>
             <SelectValue />
           </SelectTrigger>
