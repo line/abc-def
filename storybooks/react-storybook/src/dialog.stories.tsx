@@ -33,7 +33,7 @@ import {
   InputField,
   Label,
   TextInput,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   DialogIcon: {

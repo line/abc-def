@@ -18,7 +18,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 interface Props {}
 

@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Popover, PopoverContent, PopoverTrigger } from "@abc-def/react";
+import { Popover, PopoverContent, PopoverTrigger } from "@line/abc-def-react";
 
 interface Props {}
 

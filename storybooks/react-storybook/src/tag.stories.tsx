@@ -15,7 +15,7 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Icon, Tag } from "@abc-def/react";
+import { Icon, Tag } from "@line/abc-def-react";
 
 const meta: Meta<typeof Tag> = {
   title: "Tag",

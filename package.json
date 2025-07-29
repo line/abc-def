@@ -1,5 +1,5 @@
 {
-  "name": "abc-def",
+  "name": "@line/abc-def",
   "private": true,
   "engines": {
     "node": ">=22.17.1",
@@ -23,10 +23,10 @@
     "release": "pnpm publish -r --access public"
   },
   "devDependencies": {
-    "@abc-def/prettier-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
     "prettier": "catalog:",
     "turbo": "^2.5.5",
     "typescript": "catalog:"
   },
-  "prettier": "@abc-def/prettier-config"
+  "prettier": "@line/abc-def-prettier-config"
 }

@@ -32,7 +32,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const meta: Meta = {
   title: "Combinations/NavBar",

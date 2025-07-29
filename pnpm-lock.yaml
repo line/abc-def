@@ -79,7 +79,7 @@ importers:
 
   .:
     devDependencies:
-      '@abc-def/prettier-config':
+      '@line/abc-def-prettier-config':
         specifier: workspace:^
         version: link:tooling/prettier
       prettier:
@@ -94,12 +94,12 @@ importers:
 
   examples/nextjs:
     dependencies:
-      '@abc-def/react':
-        specifier: workspace:^
-        version: link:../../packages/react
       '@hookform/resolvers':
         specifier: ^5.1.1
         version: 5.1.1(react-hook-form@7.60.0(react@19.1.0))
+      '@line/abc-def-react':
+        specifier: workspace:^
+        version: link:../../packages/react
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -119,16 +119,16 @@ importers:
         specifier: ^4.0.0
         version: 4.0.1
     devDependencies:
-      '@abc-def/eslint-config':
+      '@line/abc-def-eslint-config':
         specifier: workspace:^
         version: link:../../tooling/eslint
-      '@abc-def/prettier-config':
+      '@line/abc-def-prettier-config':
         specifier: workspace:^
         version: link:../../tooling/prettier
-      '@abc-def/tailwindcss':
+      '@line/abc-def-tailwindcss':
         specifier: workspace:^
         version: link:../../packages/tailwindcss
-      '@abc-def/tsconfig':
+      '@line/abc-def-tsconfig':
         specifier: workspace:^
         version: link:../../tooling/typescript
       '@svgr/webpack':
@@ -249,16 +249,16 @@ importers:
         specifier: ^4.0.0
         version: 4.0.1
     devDependencies:
-      '@abc-def/eslint-config':
+      '@line/abc-def-eslint-config':
         specifier: workspace:^
         version: link:../../tooling/eslint
-      '@abc-def/prettier-config':
+      '@line/abc-def-prettier-config':
         specifier: workspace:^
         version: link:../../tooling/prettier
-      '@abc-def/tailwindcss':
+      '@line/abc-def-tailwindcss':
         specifier: workspace:^
         version: link:../tailwindcss
-      '@abc-def/tsconfig':
+      '@line/abc-def-tsconfig':
         specifier: workspace:^
         version: link:../../tooling/typescript
       '@types/react':
@@ -285,16 +285,16 @@ importers:
 
   packages/tailwindcss:
     devDependencies:
-      '@abc-def/eslint-config':
+      '@line/abc-def-eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@abc-def/prettier-config':
+      '@line/abc-def-prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@abc-def/stylelint-config':
+      '@line/abc-def-stylelint-config':
         specifier: workspace:*
         version: link:../../tooling/stylelint
-      '@abc-def/tsconfig':
+      '@line/abc-def-tsconfig':
         specifier: workspace:^
         version: link:../../tooling/typescript
       autoprefixer:
@@ -334,21 +334,21 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
     devDependencies:
-      '@abc-def/eslint-config':
-        specifier: workspace:^
-        version: link:../../tooling/eslint
-      '@abc-def/prettier-config':
-        specifier: workspace:^
-        version: link:../../tooling/prettier
-      '@abc-def/tailwindcss':
-        specifier: workspace:^
-        version: link:../../packages/tailwindcss
-      '@abc-def/tsconfig':
-        specifier: workspace:^
-        version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
         version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.6.2))
+      '@line/abc-def-eslint-config':
+        specifier: workspace:^
+        version: link:../../tooling/eslint
+      '@line/abc-def-prettier-config':
+        specifier: workspace:^
+        version: link:../../tooling/prettier
+      '@line/abc-def-tailwindcss':
+        specifier: workspace:^
+        version: link:../../packages/tailwindcss
+      '@line/abc-def-tsconfig':
+        specifier: workspace:^
+        version: link:../../tooling/typescript
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.6.2))
@@ -385,7 +385,7 @@ importers:
 
   storybooks/main-storybook:
     dependencies:
-      '@abc-def/react':
+      '@line/abc-def-react':
         specifier: workspace:^
         version: link:../../packages/react
       react:
@@ -395,21 +395,21 @@ importers:
         specifier: catalog:react
         version: 19.1.0(react@19.1.0)
     devDependencies:
-      '@abc-def/eslint-config':
-        specifier: workspace:^
-        version: link:../../tooling/eslint
-      '@abc-def/prettier-config':
-        specifier: workspace:^
-        version: link:../../tooling/prettier
-      '@abc-def/tailwindcss':
-        specifier: workspace:^
-        version: link:../../packages/tailwindcss
-      '@abc-def/tsconfig':
-        specifier: workspace:^
-        version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
         version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.6.2))
+      '@line/abc-def-eslint-config':
+        specifier: workspace:^
+        version: link:../../tooling/eslint
+      '@line/abc-def-prettier-config':
+        specifier: workspace:^
+        version: link:../../tooling/prettier
+      '@line/abc-def-tailwindcss':
+        specifier: workspace:^
+        version: link:../../packages/tailwindcss
+      '@line/abc-def-tsconfig':
+        specifier: workspace:^
+        version: link:../../tooling/typescript
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.6.2))
@@ -470,12 +470,12 @@ importers:
 
   storybooks/react-storybook:
     dependencies:
-      '@abc-def/react':
-        specifier: workspace:^
-        version: link:../../packages/react
       '@hookform/resolvers':
         specifier: ^5.1.1
         version: 5.1.1(react-hook-form@7.60.0(react@19.1.0))
+      '@line/abc-def-react':
+        specifier: workspace:^
+        version: link:../../packages/react
       react:
         specifier: catalog:react
         version: 19.1.0
@@ -489,21 +489,21 @@ importers:
         specifier: ^4.0.0
         version: 4.0.1
     devDependencies:
-      '@abc-def/eslint-config':
-        specifier: workspace:^
-        version: link:../../tooling/eslint
-      '@abc-def/prettier-config':
-        specifier: workspace:^
-        version: link:../../tooling/prettier
-      '@abc-def/tailwindcss':
-        specifier: workspace:^
-        version: link:../../packages/tailwindcss
-      '@abc-def/tsconfig':
-        specifier: workspace:^
-        version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
         version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.6.2))
+      '@line/abc-def-eslint-config':
+        specifier: workspace:^
+        version: link:../../tooling/eslint
+      '@line/abc-def-prettier-config':
+        specifier: workspace:^
+        version: link:../../tooling/prettier
+      '@line/abc-def-tailwindcss':
+        specifier: workspace:^
+        version: link:../../packages/tailwindcss
+      '@line/abc-def-tsconfig':
+        specifier: workspace:^
+        version: link:../../tooling/typescript
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.6.2))
@@ -568,21 +568,21 @@ importers:
         specifier: ^3.5.18
         version: 3.5.18(typescript@5.8.3)
     devDependencies:
-      '@abc-def/eslint-config':
-        specifier: workspace:^
-        version: link:../../tooling/eslint
-      '@abc-def/prettier-config':
-        specifier: workspace:^
-        version: link:../../tooling/prettier
-      '@abc-def/tailwindcss':
-        specifier: workspace:^
-        version: link:../../packages/tailwindcss
-      '@abc-def/tsconfig':
-        specifier: workspace:^
-        version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
         version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.6.2))
+      '@line/abc-def-eslint-config':
+        specifier: workspace:^
+        version: link:../../tooling/eslint
+      '@line/abc-def-prettier-config':
+        specifier: workspace:^
+        version: link:../../tooling/prettier
+      '@line/abc-def-tailwindcss':
+        specifier: workspace:^
+        version: link:../../packages/tailwindcss
+      '@line/abc-def-tsconfig':
+        specifier: workspace:^
+        version: link:../../tooling/typescript
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.8)(storybook@8.6.14(prettier@3.6.2))
@@ -631,12 +631,12 @@ importers:
 
   tooling/eslint:
     dependencies:
-      '@abc-def/eslint-plugin-header':
-        specifier: workspace:*
-        version: link:../eslint-plugin-header
       '@eslint/compat':
         specifier: ^1.3.1
         version: 1.3.1(eslint@9.32.0(jiti@2.4.2))
+      '@line/abc-def-eslint-plugin-header':
+        specifier: workspace:*
+        version: link:../eslint-plugin-header
       '@next/eslint-plugin-next':
         specifier: ^15.4.4
         version: 15.4.4
@@ -665,10 +665,10 @@ importers:
         specifier: ^8.38.0
         version: 8.38.0(eslint@9.32.0(jiti@2.4.2))(typescript@5.8.3)
     devDependencies:
-      '@abc-def/prettier-config':
+      '@line/abc-def-prettier-config':
         specifier: workspace:*
         version: link:../prettier
-      '@abc-def/tsconfig':
+      '@line/abc-def-tsconfig':
         specifier: workspace:*
         version: link:../typescript
       eslint:
@@ -697,7 +697,7 @@ importers:
         specifier: ^0.6.14
         version: 0.6.14(@ianvs/prettier-plugin-sort-imports@4.5.1(@vue/compiler-sfc@3.5.18)(prettier@3.6.2))(prettier@3.6.2)
     devDependencies:
-      '@abc-def/tsconfig':
+      '@line/abc-def-tsconfig':
         specifier: workspace:*
         version: link:../typescript
       typescript:
@@ -713,7 +713,7 @@ importers:
         specifier: ^3.7.0
         version: 3.7.0
     devDependencies:
-      '@abc-def/prettier-config':
+      '@line/abc-def-prettier-config':
         specifier: workspace:*
         version: link:../prettier
 

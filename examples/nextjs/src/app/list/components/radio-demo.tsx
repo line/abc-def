@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { RadioGroup, RadioItem } from "@abc-def/react";
+import { RadioGroup, RadioItem } from "@line/abc-def-react";
 
 interface Props {}
 

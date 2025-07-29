@@ -1,4 +1,4 @@
-const baseConfig = require("@abc-def/eslint-config/base");
+const baseConfig = require("@line/abc-def-eslint-config/base");
 
 /** @type {import('typescript-eslint').Config} */
 module.exports = [

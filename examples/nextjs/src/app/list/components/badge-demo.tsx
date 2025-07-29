@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import { Badge } from "@abc-def/react";
+import { Badge } from "@line/abc-def-react";
 
 interface Props {}
 

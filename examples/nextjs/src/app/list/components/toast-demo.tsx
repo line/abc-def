@@ -15,7 +15,7 @@
  */
 "use client";
 
-import { Button, toast, Toaster } from "@abc-def/react";
+import { Button, toast, Toaster } from "@line/abc-def-react";
 
 interface Props {}
 

@@ -13,8 +13,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@abc-def/react": "workspace:^",
     "@hookform/resolvers": "^5.1.1",
+    "@line/abc-def-react": "workspace:^",
     "clsx": "^2.1.1",
     "next": "^15.0.0",
     "react": "catalog:react",
@@ -23,10 +23,10 @@
     "zod": "^4.0.0"
   },
   "devDependencies": {
-    "@abc-def/eslint-config": "workspace:^",
-    "@abc-def/prettier-config": "workspace:^",
-    "@abc-def/tailwindcss": "workspace:^",
-    "@abc-def/tsconfig": "workspace:^",
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tailwindcss": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.17.30",
     "@types/react": "catalog:react",
@@ -36,5 +36,5 @@
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@abc-def/prettier-config"
+  "prettier": "@line/abc-def-prettier-config"
 }

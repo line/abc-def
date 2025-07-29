@@ -21,7 +21,7 @@ import {
   AlertIcon,
   AlertTextContainer,
   AlertTitle,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 interface Props {}
 

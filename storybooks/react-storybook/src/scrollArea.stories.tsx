@@ -15,7 +15,7 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ScrollArea, ScrollBar } from "@abc-def/react";
+import { ScrollArea, ScrollBar } from "@line/abc-def-react";
 
 const meta: Meta<
   React.ComponentProps<typeof ScrollArea> & {

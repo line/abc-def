@@ -23,7 +23,7 @@ import {
   Icon,
   TimePeriodSelect,
   TimePickerInput,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const meta: Meta = {
   title: "Combinations/DatetimePicker",

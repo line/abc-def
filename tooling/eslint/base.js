@@ -23,7 +23,7 @@ import importPlugin from "eslint-plugin-import";
 import turboPlugin from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
 
-import headerPlugin from "@abc-def/eslint-plugin-header";
+import headerPlugin from "@line/abc-def-eslint-plugin-header";
 
 export default tseslint.config(
   // Ignore files not tracked by VCS and any config files

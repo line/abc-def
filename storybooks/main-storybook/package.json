@@ -1,5 +1,5 @@
 {
-  "name": "@abc-def/main-storybook",
+  "name": "@line/abc-def-main-storybook",
   "private": true,
   "version": "0.1.1",
   "type": "module",
@@ -12,16 +12,16 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@abc-def/react": "workspace:^",
+    "@line/abc-def-react": "workspace:^",
     "react": "catalog:react",
     "react-dom": "catalog:react"
   },
   "devDependencies": {
-    "@abc-def/eslint-config": "workspace:^",
-    "@abc-def/prettier-config": "workspace:^",
-    "@abc-def/tailwindcss": "workspace:^",
-    "@abc-def/tsconfig": "workspace:^",
     "@chromatic-com/storybook": "catalog:storybook",
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tailwindcss": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
     "@storybook/addon-essentials": "catalog:storybook",
     "@storybook/addon-interactions": "catalog:storybook",
     "@storybook/addon-onboarding": "catalog:storybook",
@@ -42,5 +42,5 @@
     "typescript": "catalog:",
     "vite": "^7.0.6"
   },
-  "prettier": "@abc-def/prettier-config"
+  "prettier": "@line/abc-def-prettier-config"
 }

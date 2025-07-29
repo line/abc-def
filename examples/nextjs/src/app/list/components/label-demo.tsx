@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Label } from "@abc-def/react";
+import { Label } from "@line/abc-def-react";
 
 interface Props {}
 

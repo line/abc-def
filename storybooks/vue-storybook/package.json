@@ -1,5 +1,5 @@
 {
-  "name": "@abc-def/vue-storybook",
+  "name": "@line/abc-def-vue-storybook",
   "private": true,
   "version": "0.1.1",
   "type": "module",
@@ -15,11 +15,11 @@
     "vue": "^3.5.18"
   },
   "devDependencies": {
-    "@abc-def/eslint-config": "workspace:^",
-    "@abc-def/prettier-config": "workspace:^",
-    "@abc-def/tailwindcss": "workspace:^",
-    "@abc-def/tsconfig": "workspace:^",
     "@chromatic-com/storybook": "catalog:storybook",
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tailwindcss": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
     "@storybook/addon-essentials": "catalog:storybook",
     "@storybook/addon-interactions": "catalog:storybook",
     "@storybook/addon-onboarding": "catalog:storybook",
@@ -36,5 +36,5 @@
     "vite": "^7.0.6",
     "vue-tsc": "^3.0.4"
   },
-  "prettier": "@abc-def/prettier-config"
+  "prettier": "@line/abc-def-prettier-config"
 }

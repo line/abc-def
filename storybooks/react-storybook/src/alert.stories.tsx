@@ -25,7 +25,7 @@ import {
   AlertTextContainer,
   AlertTitle,
   IconNames,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   AlertIcon: {

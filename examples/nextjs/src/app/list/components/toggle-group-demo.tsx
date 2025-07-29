@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Icon, ToggleGroup, ToggleGroupItem } from "@abc-def/react";
+import { Icon, ToggleGroup, ToggleGroupItem } from "@line/abc-def-react";
 
 interface Props {}
 

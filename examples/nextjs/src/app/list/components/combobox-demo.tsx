@@ -25,7 +25,7 @@ import {
   ComboboxSeparator,
   ComboboxTrigger,
   Icon,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 interface Props {}
 

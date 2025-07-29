@@ -16,8 +16,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import type { DateRange } from "@abc-def/react";
-import { Badge, Calendar } from "@abc-def/react";
+import type { DateRange } from "@line/abc-def-react";
+import { Badge, Calendar } from "@line/abc-def-react";
 
 const meta: Meta<typeof Calendar> = {
   title: "Calendar",

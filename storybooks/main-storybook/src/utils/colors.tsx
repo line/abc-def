@@ -15,7 +15,7 @@
  */
 import React, { Fragment } from "react";
 
-import { Icon, toast } from "@abc-def/react";
+import { Icon, toast } from "@line/abc-def-react";
 
 import {
   primitivesCSSVariables,

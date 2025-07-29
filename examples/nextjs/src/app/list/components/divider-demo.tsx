@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Divider } from "@abc-def/react";
+import { Divider } from "@line/abc-def-react";
 
 interface Props {}
 

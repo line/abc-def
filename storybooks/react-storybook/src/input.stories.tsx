@@ -40,7 +40,7 @@ import {
   Label,
   TextInput,
   toast,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   TextInput: {

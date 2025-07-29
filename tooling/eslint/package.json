@@ -1,5 +1,5 @@
 {
-  "name": "@abc-def/eslint-config",
+  "name": "@line/abc-def-eslint-config",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -16,8 +16,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@abc-def/eslint-plugin-header": "workspace:*",
     "@eslint/compat": "^1.3.1",
+    "@line/abc-def-eslint-plugin-header": "workspace:*",
     "@next/eslint-plugin-next": "^15.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -29,11 +29,11 @@
     "typescript-eslint": "^8.38.0"
   },
   "devDependencies": {
-    "@abc-def/prettier-config": "workspace:*",
-    "@abc-def/tsconfig": "workspace:*",
+    "@line/abc-def-prettier-config": "workspace:*",
+    "@line/abc-def-tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@abc-def/prettier-config"
+  "prettier": "@line/abc-def-prettier-config"
 }

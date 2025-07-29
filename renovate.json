@@ -3,7 +3,7 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "matchPackagePatterns": ["^@abc-def/"],
+      "matchPackagePatterns": ["^@line/abc-def-"],
       "enabled": false
     }
   ],

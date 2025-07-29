@@ -1,5 +1,5 @@
 {
-  "extends": "@abc-def/tsconfig/internal-package.json",
+  "extends": "@line/abc-def-tsconfig/internal-package.json",
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "ES2022"],
     "jsx": "preserve",

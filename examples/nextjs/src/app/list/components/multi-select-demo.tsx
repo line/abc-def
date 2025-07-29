@@ -19,7 +19,7 @@ import {
   MultiSelectItem,
   MultiSelectTrigger,
   MultiSelectValue,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 interface Props {}
 

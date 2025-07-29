@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Spinner } from "@abc-def/react";
+import { Spinner } from "@line/abc-def-react";
 
 interface Props {}
 

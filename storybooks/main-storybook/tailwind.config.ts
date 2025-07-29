@@ -6,5 +6,5 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "../../packages/react/src/**/*.{ts,tsx}",
   ],
-  plugins: [require("@abc-def/tailwindcss")],
+  plugins: [require("@line/abc-def-tailwindcss")],
 } satisfies Config;

@@ -23,7 +23,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 interface Props {}
 

@@ -38,7 +38,7 @@ import {
   MultiSelectTriggerButton,
   MultiSelectValue,
   toast,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   MultiSelectValue: { placeholder: "↳ MultiSelectValue: placeholder" },

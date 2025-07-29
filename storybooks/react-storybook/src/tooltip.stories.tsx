@@ -22,7 +22,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const meta: Meta<typeof TooltipContent> = {
   title: "Tooltip",

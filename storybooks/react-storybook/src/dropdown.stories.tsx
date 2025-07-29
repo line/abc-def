@@ -16,7 +16,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import type { DropdownMenuCheckboxItemProps } from "@abc-def/react";
+import type { DropdownMenuCheckboxItemProps } from "@line/abc-def-react";
 import {
   Button,
   Dropdown,
@@ -35,7 +35,7 @@ import {
   DropdownSubTrigger,
   DropdownTrigger,
   Icon,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   DropdownContent: {

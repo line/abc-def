@@ -68,8 +68,8 @@ import {
   Tag,
   Textarea,
   TextInput,
-} from "@abc-def/react";
-import { cn } from "@abc-def/react/lib/utils";
+} from "@line/abc-def-react";
+import { cn } from "@line/abc-def-react/lib/utils";
 
 const IndexPage: NextPage = () => {
   return (

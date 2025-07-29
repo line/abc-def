@@ -5,7 +5,7 @@ export default {
   reactStrictMode: true,
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-  transpilePackages: ["@abc-def/tailwindcss", "@abc-def/react"],
+  transpilePackages: ["@line/abc-def-tailwindcss", "@line/abc-def-react"],
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg"),

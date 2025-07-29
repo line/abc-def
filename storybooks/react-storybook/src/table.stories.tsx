@@ -16,7 +16,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import type { BadgeProps } from "@abc-def/react";
+import type { BadgeProps } from "@line/abc-def-react";
 import {
   Badge,
   Button,
@@ -42,7 +42,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const items: {
   company: string;

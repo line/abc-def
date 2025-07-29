@@ -15,7 +15,7 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Icon, IconNames } from "@abc-def/react";
+import { Icon, IconNames } from "@line/abc-def-react";
 
 const meta: Meta<typeof Icon> = {
   title: "Icon",

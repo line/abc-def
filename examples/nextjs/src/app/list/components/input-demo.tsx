@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { TextInput } from "@abc-def/react";
+import { TextInput } from "@line/abc-def-react";
 
 interface Props {}
 

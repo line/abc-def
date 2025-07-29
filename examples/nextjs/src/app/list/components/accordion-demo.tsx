@@ -19,7 +19,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const AccordionDemo = () => {
   return (

@@ -1,5 +1,5 @@
 {
-  "name": "@abc-def-ui/tailwindcss",
+  "name": "@line/abc-def-tailwindcss",
   "version": "0.1.2",
   "description": "Tailwindcss Plugin for abc-def",
   "license": "Apache-2.0",
@@ -34,10 +34,10 @@
     "clean": "rm -rf .turbo node_modules dist .cache"
   },
   "devDependencies": {
-    "@abc-def/eslint-config": "workspace:*",
-    "@abc-def/prettier-config": "workspace:*",
-    "@abc-def/stylelint-config": "workspace:*",
-    "@abc-def/tsconfig": "workspace:^",
+    "@line/abc-def-eslint-config": "workspace:*",
+    "@line/abc-def-prettier-config": "workspace:*",
+    "@line/abc-def-stylelint-config": "workspace:*",
+    "@line/abc-def-tsconfig": "workspace:^",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
     "glob": "^11.0.3",
