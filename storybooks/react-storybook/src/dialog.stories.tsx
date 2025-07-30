@@ -177,7 +177,7 @@ const meta: Meta<
     },
   },
   render: (args) => (
-    <Dialog defaultOpen>
+    <Dialog>
       <DialogTrigger>Open</DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -224,38 +224,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
-
-export const Basic = () => (
-  <Dialog>
-    <DialogTrigger>Open</DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogIcon name="RiFlashlightFill" variant="default" />
-        <DialogTitle>Title</DialogTitle>
-        <DialogDescription>Description</DialogDescription>
-      </DialogHeader>
-      <DialogBody>
-        <InputField>
-          <Label>Label</Label>
-          <TextInput size="small" />
-        </InputField>
-        <InputField>
-          <Label>Label</Label>
-          <TextInput size="small" />
-          <Caption variant="info">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          </Caption>
-        </InputField>
-      </DialogBody>
-      <DialogFooter>
-        <DialogClose onClick={() => alert("clicked!")}>Button</DialogClose>
-        <DialogClose variant="primary" onClick={() => alert("clicked!")}>
-          Button
-        </DialogClose>
-      </DialogFooter>
-    </DialogContent>
-  </Dialog>
-);
 
 export const Warning = () => (
   <Dialog>

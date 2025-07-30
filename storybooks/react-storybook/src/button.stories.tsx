@@ -22,41 +22,11 @@ const meta: Meta<typeof Button> = {
   component: Button,
   args: {
     variant: "primary",
-    size: undefined,
-    radius: undefined,
     loading: false,
     disabled: false,
     children: "Button",
   },
   argTypes: {
-    size: {
-      description: "Set the size of the Button.",
-      table: {
-        category: "Button",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
-    radius: {
-      description: "Set the radius of the Button.",
-      table: {
-        category: "Button",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
     variant: {
       description: "Set the variant of the Button.",
       table: {
@@ -107,6 +77,16 @@ const meta: Meta<typeof Button> = {
       },
     },
     type: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    radius: {
       table: {
         disable: true,
       },
@@ -163,25 +143,57 @@ export const State = () => (
 );
 
 export const WithSlotL = () => (
-  <Button size="small" variant="primary">
-    <Icon name="RiFlashlightFill" />
-    Primary
-  </Button>
+  <div className="grid grid-cols-[repeat(3,max-content)] gap-2">
+    <Button size="small" variant="primary">
+      <Icon name="RiFlashlightFill" />
+      Primary
+    </Button>
+    <Button size="small" variant="primary" loading>
+      <Icon name="RiFlashlightFill" />
+      Primary
+    </Button>
+    <Button size="small" variant="primary" disabled>
+      <Icon name="RiFlashlightFill" />
+      Primary
+    </Button>
+  </div>
 );
 
 export const WithSlotR = () => (
-  <Button size="small" variant="primary">
-    Primary
-    <Icon name="RiFlashlightFill" />
-  </Button>
+  <div className="grid grid-cols-[repeat(3,max-content)] gap-2">
+    <Button size="small" variant="primary">
+      Primary
+      <Icon name="RiFlashlightFill" />
+    </Button>
+    <Button size="small" variant="primary" loading>
+      Primary
+      <Icon name="RiFlashlightFill" />
+    </Button>
+    <Button size="small" variant="primary" disabled>
+      Primary
+      <Icon name="RiFlashlightFill" />
+    </Button>
+  </div>
 );
 
 export const WithSlotLR = () => (
-  <Button size="small" variant="primary">
-    <Icon name="RiFlashlightFill" />
-    Primary
-    <Icon name="RiFlashlightFill" />
-  </Button>
+  <div className="grid grid-cols-[repeat(3,max-content)] gap-2">
+    <Button size="small" variant="primary">
+      <Icon name="RiFlashlightFill" />
+      Primary
+      <Icon name="RiFlashlightFill" />
+    </Button>
+    <Button size="small" variant="primary" loading>
+      <Icon name="RiFlashlightFill" />
+      Primary
+      <Icon name="RiFlashlightFill" />
+    </Button>
+    <Button size="small" variant="primary" disabled>
+      <Icon name="RiFlashlightFill" />
+      Primary
+      <Icon name="RiFlashlightFill" />
+    </Button>
+  </div>
 );
 
 export const OnlyIcon = () => (

@@ -23,7 +23,6 @@ const meta: Meta<typeof Badge> = {
   args: {
     variant: "bold",
     color: "default",
-    radius: undefined,
     children: "Label",
   },
   argTypes: {
@@ -55,20 +54,6 @@ const meta: Meta<typeof Badge> = {
       control: "radio",
       options: ["default", "blue", "orange", "red", "green"],
     },
-    radius: {
-      description: "Set the radius of the Badge.",
-      table: {
-        category: "Badge",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
     children: {
       description: "Set the children of the Badge.",
       table: {
@@ -79,11 +64,8 @@ const meta: Meta<typeof Badge> = {
       },
       control: "text",
     },
-    asChild: {
-      table: {
-        disable: true,
-      },
-    },
+    radius: { table: { disable: true } },
+    asChild: { table: { disable: true } },
   },
 };
 

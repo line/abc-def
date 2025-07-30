@@ -29,10 +29,10 @@
   --select-bg: var(--bg-neutral-primary);
   --select-bg-pressed: var(--bg-neutral-tertiary);
 
-  @apply rounded-8 before:rounded-8 relative flex w-full items-center justify-start bg-[var(--select-bg)] text-left text-[var(--select-fg-filled)] transition-transform before:absolute before:inset-0 before:flex before:border before:border-[var(--select-border)] focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-[var(--select-fg)] data-[state=open]:text-[var(--select-fg-pressed)] data-[state=open]:before:border-2 data-[state=open]:before:border-[var(--select-border-pressed)] [&>span]:flex [&>span]:flex-1 [&>span]:items-center [&>span]:overflow-hidden [&>svg:last-of-type]:data-[state=open]:rotate-180;
+  @apply relative flex w-full items-center justify-start bg-[var(--select-bg)] text-left text-[var(--select-fg-filled)] transition-transform before:absolute before:inset-0 before:flex before:border before:border-[var(--select-border)] focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-[var(--select-fg)] data-[state=open]:text-[var(--select-fg-pressed)] data-[state=open]:before:border-2 data-[state=open]:before:border-[var(--select-border-pressed)] [&>span]:flex [&>span]:flex-1 [&>span]:items-center [&>span]:overflow-hidden [&>svg:last-of-type]:data-[state=open]:rotate-180;
 
   /* default */
-  @apply select-trigger-medium;
+  @apply select-trigger-medium select-trigger-radius-medium;
 }
 
 .select-trigger[aria-invalid="true"] {

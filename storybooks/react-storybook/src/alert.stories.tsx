@@ -24,10 +24,7 @@ import {
   AlertIconButton,
   AlertTextContainer,
   AlertTitle,
-  Button,
-  Icon,
   IconNames,
-  toast,
 } from "@abc-def/react";
 
 const Props = {
@@ -102,7 +99,6 @@ const meta: Meta<
   ],
   args: {
     variant: "default",
-    radius: undefined,
     [Props.AlertIcon.name]: undefined,
     [Props.AlertIcon.size]: 20,
     [Props.AlertButton.show]: true,
@@ -130,20 +126,6 @@ const meta: Meta<
       },
       control: "select",
       options: ["default", "warning", "success", "error", "informative"],
-    },
-    radius: {
-      description: "Set the radius of the Alert.",
-      table: {
-        category: "Alert",
-        type: {
-          summary: "large | medium | small | undefined",
-        },
-        defaultValue: {
-          summary: undefined,
-        },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
     },
     [Props.AlertIcon.name]: {
       description: "Set the name of the AlertIcon.",
@@ -279,6 +261,7 @@ const meta: Meta<
       },
       control: "text",
     },
+    radius: { table: { disable: true } },
   },
   render: (args) => (
     <Alert variant={args.variant} radius={args.radius}>
@@ -607,148 +590,3 @@ export const Variant = () => (
     </Alert>
   </div>
 );
-
-export const Toast = () => {
-  return (
-    <div className="grid min-h-[300px] grid-cols-3 grid-rows-[repeat(3,min-content)] gap-2">
-      <Button
-        variant="outline"
-        onClick={() => {
-          toast("Title", {
-            description: "Description",
-            action: {
-              label: "Action",
-              onClick: () => alert("clicked"),
-            },
-            cancel: {
-              label: <Icon name="RiCloseFill" size={20} />,
-              onClick: () => null,
-            },
-          });
-        }}
-      >
-        Toast
-      </Button>
-      <Button
-        variant="outline"
-        onClick={() => {
-          toast.warning("Title", {
-            description: "Description",
-            action: {
-              label: "Action",
-              onClick: () => alert("clicked"),
-            },
-            cancel: {
-              label: <Icon name="RiCloseFill" size={20} />,
-              onClick: () => null,
-            },
-          });
-        }}
-      >
-        Toast (Warning)
-      </Button>
-      <Button
-        variant="outline"
-        onClick={() => {
-          toast.success("Title", {
-            description: "Description",
-            action: {
-              label: "Action",
-              onClick: () => alert("clicked"),
-            },
-            cancel: {
-              label: <Icon name="RiCloseFill" size={20} />,
-              onClick: () => null,
-            },
-          });
-        }}
-      >
-        Toast (Success)
-      </Button>
-      <Button
-        variant="outline"
-        onClick={() => {
-          toast.error("Title", {
-            description: "Description",
-            action: {
-              label: "Action",
-              onClick: () => alert("clicked"),
-            },
-            cancel: {
-              label: <Icon name="RiCloseFill" size={20} />,
-              onClick: () => null,
-            },
-          });
-        }}
-      >
-        Toast (Error)
-      </Button>
-      <Button
-        variant="outline"
-        onClick={() => {
-          toast.info("Title", {
-            description: "Description",
-            action: {
-              label: "Action",
-              onClick: () => alert("clicked"),
-            },
-            cancel: {
-              label: <Icon name="RiCloseFill" size={20} />,
-              onClick: () => null,
-            },
-          });
-        }}
-      >
-        Toast (Info)
-      </Button>
-      <Button
-        variant="outline"
-        onClick={() => {
-          const promise = () =>
-            new Promise((resolve) => setTimeout(() => resolve({}), 2000));
-
-          toast.promise(promise, {
-            loading: "Loading",
-            description: "Description",
-            success: () => "Success",
-            error: () => "Error",
-            action: {
-              label: "Action",
-              onClick: () => alert("clicked"),
-            },
-            cancel: {
-              label: <Icon name="RiCloseFill" size={20} />,
-              onClick: () => null,
-            },
-          });
-        }}
-      >
-        Toast promise (success)
-      </Button>
-      <Button
-        variant="outline"
-        onClick={() => {
-          const promise = () =>
-            new Promise((_, reject) => setTimeout(reject, 2000));
-
-          toast.promise(promise, {
-            loading: "Loading",
-            description: "Description",
-            success: () => "Success",
-            error: () => "Error",
-            action: {
-              label: "Action",
-              onClick: () => alert("clicked"),
-            },
-            cancel: {
-              label: <Icon name="RiCloseFill" size={20} />,
-              onClick: () => null,
-            },
-          });
-        }}
-      >
-        Toast promise (error)
-      </Button>
-    </div>
-  );
-};

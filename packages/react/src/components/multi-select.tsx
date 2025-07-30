@@ -13,11 +13,13 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import * as React from "react";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 
-import type { Size } from "../types";
+import type { Radius, Size } from "../types";
 import { ICON_SIZE } from "../constants";
 import { cn } from "../lib/utils";
 import { Icon } from "./icon";
@@ -31,7 +33,7 @@ type MultiSelectItemType = { value: string; label: React.ReactNode };
 type MultiSelectContextType = {
   disabled: boolean;
   size: Size;
-  setSize?: (size: Size) => void;
+  radius: Radius;
   selectedItems: MultiSelectItemType[];
   setSelectedItems: (items: MultiSelectItemType[]) => void;
   isOpen: boolean;
@@ -59,6 +61,7 @@ interface MultiSelectProps {
   children: React.ReactNode;
   className?: string;
   size?: Size;
+  radius?: Radius;
   disabled?: boolean;
 }
 
@@ -81,13 +84,13 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       onValueChange,
       children,
       className,
-      size: propSize,
+      size,
+      radius,
       disabled = false,
     },
     ref,
   ) {
-    const { themeSize } = useTheme();
-    const [size, setSize] = React.useState<Size | undefined>(propSize);
+    const { themeSize, themeRadius } = useTheme();
 
     const [registeredItems, setRegisteredItems] = React.useState<
       MultiSelectItemType[]
@@ -152,8 +155,8 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       <MultiSelectContext.Provider
         value={{
           disabled,
-          size: size ?? propSize ?? themeSize,
-          setSize,
+          size: size ?? themeSize,
+          radius: radius ?? themeRadius,
           selectedItems,
           setSelectedItems: (items) => setValues(items.map((i) => i.value)),
           isOpen,
@@ -168,7 +171,10 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
           <div
             ref={ref}
             className={cn(
-              selectVariants({ size: size ?? themeSize, className }),
+              selectVariants({
+                size: size ?? themeSize,
+                className,
+              }),
             )}
           >
             {children}
@@ -191,8 +197,13 @@ const selectTriggerVariants = cva("select-trigger", {
       medium: "select-trigger-medium",
       large: "select-trigger-large",
     },
+    radius: {
+      small: "select-trigger-radius-small",
+      medium: "select-trigger-radius-medium",
+      large: "select-trigger-radius-large",
+    },
   },
-  defaultVariants: { size: undefined },
+  defaultVariants: { size: undefined, radius: undefined },
 });
 
 const MultiSelectTrigger = React.forwardRef<
@@ -218,13 +229,13 @@ const MultiSelectTriggerButton = React.forwardRef<
   HTMLButtonElement,
   MultiSelectTriggerButtonProps
 >(function MultiSelectTrigger({ className, children, ...props }, ref) {
-  const { size, disabled } = useMultiSelectContext();
+  const { size, radius, disabled } = useMultiSelectContext();
   return (
     <button
       ref={ref}
       type="button"
       aria-haspopup="listbox"
-      className={cn(selectTriggerVariants({ size, className }))}
+      className={cn(selectTriggerVariants({ size, radius, className }))}
       data-placeholder
       disabled={disabled}
       {...props}

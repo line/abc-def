@@ -21,26 +21,11 @@ const meta: Meta<typeof Checkbox> = {
   title: "Checkbox",
   component: Checkbox,
   args: {
-    size: "small",
     checked: undefined,
     disabled: false,
     children: "Label",
   },
   argTypes: {
-    size: {
-      description: "Set the size of the Checkbox.",
-      table: {
-        category: "Checkbox",
-        type: {
-          summary: "large | medium | small",
-        },
-        defaultValue: {
-          summary: "small",
-        },
-      },
-      control: "radio",
-      options: ["large", "medium", "small"],
-    },
     checked: {
       description: "Set the checked state of the Checkbox.",
       table: {
@@ -74,6 +59,11 @@ const meta: Meta<typeof Checkbox> = {
         },
       },
       control: "boolean",
+    },
+    size: {
+      table: {
+        disable: true,
+      },
     },
   },
 };

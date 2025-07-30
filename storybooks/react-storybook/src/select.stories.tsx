@@ -94,7 +94,6 @@ const meta: Meta<
     </Select>
   ),
   args: {
-    size: undefined,
     disabled: false,
     [Props.SelectValue.placeholder]: "Select a fruit...",
     [Props.SelectContent.position]: "popper",
@@ -102,16 +101,6 @@ const meta: Meta<
     [Props.SelectItem.children]: "Custom",
   },
   argTypes: {
-    size: {
-      description: "Set the size of the Select.",
-      table: {
-        category: "Select",
-        type: { summary: "large | medium | small | undefined" },
-        defaultValue: { summary: undefined },
-      },
-      control: "select",
-      options: ["large", "medium", "small", undefined],
-    },
     disabled: {
       description: "Set whether the Select is in an disabled state.",
       table: { category: "Select", defaultValue: { summary: "false" } },
@@ -143,6 +132,8 @@ const meta: Meta<
     },
     className: { table: { disable: true } },
     value: { table: { disable: true } },
+    size: { table: { disable: true } },
+    radius: { table: { disable: true } },
   },
 };
 

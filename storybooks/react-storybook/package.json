@@ -16,8 +16,8 @@
     "@hookform/resolvers": "^5.1.1",
     "react": "catalog:react",
     "react-dom": "catalog:react",
-    "react-hook-form": "^7.59.0",
-    "zod": "^3.25.67"
+    "react-hook-form": "^7.60.0",
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@abc-def/eslint-config": "workspace:^",
@@ -34,7 +34,7 @@
     "@storybook/test": "catalog:storybook",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
-    "@vitejs/plugin-react": "^4.6.0",
+    "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
     "globals": "^16.3.0",
@@ -43,7 +43,7 @@
     "storybook": "catalog:storybook",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "^7.0.2"
+    "vite": "^7.0.6"
   },
   "prettier": "@abc-def/prettier-config"
 }

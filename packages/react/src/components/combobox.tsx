@@ -13,6 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import * as React from "react";
 import { Slottable } from "@radix-ui/react-slot";
 import { Command as CommandPrimitive } from "cmdk";
@@ -178,13 +180,11 @@ ComboboxSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 const ComboboxItem = React.forwardRef<
   React.ComponentRef<typeof CommandPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> & {
-    inset?: boolean;
-  }
->(({ inset, children, className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
+>(({ children, className, ...props }, ref) => (
   <CommandPrimitive.Item
     ref={ref}
-    className={cn("combobox-item", inset && "combobox-item-inset", className)}
+    className={cn("combobox-item", className)}
     {...props}
   >
     {children}
