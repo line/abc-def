@@ -14,9 +14,9 @@
  * under the License.
  */
 .calendar {
-  --calendar-fg-default: var(--fg-neutral-primary);
+  --calendar-fg: var(--fg-neutral-primary);
   --calendar-fg-pressed: var(--fg-neutral-inverse);
-  --calendar-fg-secondary: var(--fg-neutral-tertiary);
+  --calendar-fg-week: var(--fg-neutral-tertiary);
   --calendar-border: var(--border-neutral-tertiary);
   --calendar-bg: var(--bg-neutral-primary);
   --calendar-bg-pressed: var(--tint, var(--bg-neutral-inverse));
@@ -39,7 +39,7 @@
 }
 
 .calendar-caption-label {
-  @apply text-base-strong text-[var(--calendar-fg-default)];
+  @apply text-base-strong text-[var(--calendar-fg)];
 }
 
 .calendar-nav {
@@ -67,7 +67,7 @@
 }
 
 .calendar-head-cell {
-  @apply text-small-normal flex-1 px-2 py-0.5 font-normal text-[var(--calendar-fg-secondary)];
+  @apply text-small-normal flex-1 px-2 py-0.5 font-normal text-[var(--calendar-fg-week)];
 }
 
 .calendar-row {
@@ -99,7 +99,7 @@
 }
 
 .calendar-day-range-middle {
-  @apply rounded-0 aria-selected:bg-[var(--calendar-bg-hover)] aria-selected:text-[var(--calendar-fg-default)];
+  @apply rounded-0 aria-selected:bg-[var(--calendar-bg-hover)] aria-selected:text-[var(--calendar-fg)];
 }
 
 .calendar-day-hidden {

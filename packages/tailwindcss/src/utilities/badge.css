@@ -14,43 +14,43 @@
  * under the License.
  */
 .badge-bold-default {
-  @apply border border-[var(--badge-border-bold)] bg-[var(--badge-bg-bold)] text-[var(--badge-fg-bold)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold)] text-[var(--badge-fg-bold)];
 }
 
 .badge-bold-blue {
-  @apply border border-[var(--badge-border-bold-blue)] bg-[var(--badge-bg-bold-blue)] text-[var(--badge-fg-bold-blue)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold-blue)] text-[var(--badge-fg-bold-blue)];
 }
 
 .badge-bold-orange {
-  @apply border border-[var(--badge-border-bold-orange)] bg-[var(--badge-bg-bold-orange)] text-[var(--badge-fg-bold-orange)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold-orange)] text-[var(--badge-fg-bold-orange)];
 }
 
 .badge-bold-red {
-  @apply border border-[var(--badge-border-bold-red)] bg-[var(--badge-bg-bold-red)] text-[var(--badge-fg-bold-red)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold-red)] text-[var(--badge-fg-bold-red)];
 }
 
 .badge-bold-green {
-  @apply border border-[var(--badge-border-bold-green)] bg-[var(--badge-bg-bold-green)] text-[var(--badge-fg-bold-green)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold-green)] text-[var(--badge-fg-bold-green)];
 }
 
 .badge-subtle-default {
-  @apply border border-[var(--badge-border-subtle)] bg-[var(--badge-bg-subtle)] text-[var(--badge-fg-subtle)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle)] text-[var(--badge-fg-subtle)];
 }
 
 .badge-subtle-blue {
-  @apply border border-[var(--badge-border-subtle-blue)] bg-[var(--badge-bg-subtle-blue)] text-[var(--badge-fg-subtle-blue)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle-blue)] text-[var(--badge-fg-subtle-blue)];
 }
 
 .badge-subtle-orange {
-  @apply border border-[var(--badge-border-subtle-orange)] bg-[var(--badge-bg-subtle-orange)] text-[var(--badge-fg-subtle-orange)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle-orange)] text-[var(--badge-fg-subtle-orange)];
 }
 
 .badge-subtle-red {
-  @apply border border-[var(--badge-border-subtle-red)] bg-[var(--badge-bg-subtle-red)] text-[var(--badge-fg-subtle-red)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle-red)] text-[var(--badge-fg-subtle-red)];
 }
 
 .badge-subtle-green {
-  @apply border border-[var(--badge-border-subtle-green)] bg-[var(--badge-bg-subtle-green)] text-[var(--badge-fg-subtle-green)];
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle-green)] text-[var(--badge-fg-subtle-green)];
 }
 
 .badge-outline-default {

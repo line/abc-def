@@ -16,7 +16,6 @@
 .dropdown-content {
   --dropdown-fg: var(--fg-neutral-primary);
   --dropdown-fg-pressed: var(--tint, var(--fg-neutral-primary));
-  --dropdown-fg-empty: var(--fg-neutral-secondary);
   --dropdown-fg-secondary: var(--fg-neutral-tertiary);
   --dropdown-bg: var(--bg-neutral-primary);
   --dropdown-bg-hover: var(--bg-neutral-tertiary);
@@ -37,7 +36,6 @@
 .dropdown-sub-content {
   --dropdown-fg: var(--fg-neutral-primary);
   --dropdown-fg-pressed: var(--tint, var(--fg-neutral-primary));
-  --dropdown-fg-empty: var(--fg-neutral-secondary);
   --dropdown-fg-secondary: var(--fg-neutral-tertiary);
   --dropdown-bg: var(--bg-neutral-primary);
   --dropdown-bg-hover: var(--bg-neutral-tertiary);
@@ -90,5 +88,5 @@
 }
 
 .dropdown-empty {
-  @apply text-base-normal flex items-center justify-center p-6 text-[var(--dropdown-fg-empty)];
+  @apply text-base-normal flex items-center justify-center p-6 text-[var(--dropdown-fg)];
 }

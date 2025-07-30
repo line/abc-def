@@ -15,7 +15,7 @@
  */
 .alert {
   --alert-fg: var(--fg-neutral-primary);
-  --alert-fg-secondary: var(--fg-neutral-secondary);
+  --alert-fg-description: var(--fg-neutral-secondary);
   --alert-fg-warning: var(--fg-tint-orange);
   --alert-fg-success: var(--fg-tint-green);
   --alert-fg-error: var(--fg-tint-red);
@@ -57,7 +57,7 @@
 }
 
 .alert-description {
-  @apply text-base-normal text-[var(--alert-description-fg)];
+  @apply text-base-normal text-[var(--alert-fg-description)];
 }
 
 .alert-button {

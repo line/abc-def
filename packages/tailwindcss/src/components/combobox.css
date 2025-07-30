@@ -15,7 +15,6 @@
  */
 .combobox-content {
   --combobox-fg: var(--fg-neutral-primary);
-  --combobox-fg-empty: var(--fg-neutral-secondary);
   --combobox-fg-placeholder: var(--fg-neutral-tertiary);
   --combobox-fg-secondary: var(--fg-neutral-tertiary);
   --combobox-border: var(--border-neutral-tertiary);
@@ -26,7 +25,7 @@
 }
 
 .combobox-empty {
-  @apply text-base-normal flex items-center justify-center p-6 text-center text-[var(--combobox-fg-empty)];
+  @apply text-base-normal flex items-center justify-center p-6 text-center text-[var(--combobox-fg)];
 }
 
 .combobox-item {

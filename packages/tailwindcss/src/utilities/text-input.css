@@ -14,7 +14,7 @@
  * under the License.
  */
 .input[aria-invalid="true"] {
-  @apply !border-2 !border-[var(--input-border-error)] !bg-[var(--input-bg-error)];
+  @apply !border-2 !border-[var(--text-input-border-error)] !bg-[var(--text-input-bg-error)] !text-[var(--text-input-fg-error)];
 }
 
 .input-large {

@@ -69,7 +69,7 @@ const meta: Meta<
     >["name"];
   }
 > = {
-  title: "Input",
+  title: "TextInput",
   component: TextInput,
   args: {
     [Props.TextInput.placeholder]: "Placeholder...",

@@ -30,16 +30,6 @@
   --badge-fg-outline-red: var(--fg-tint-red);
   --badge-fg-outline-green: var(--fg-tint-green);
 
-  --badge-border-bold: var(--border-neutral-transparent);
-  --badge-border-bold-blue: var(--border-neutral-transparent);
-  --badge-border-bold-orange: var(--border-neutral-transparent);
-  --badge-border-bold-red: var(--border-neutral-transparent);
-  --badge-border-bold-green: var(--border-neutral-transparent);
-  --badge-border-subtle: var(--border-neutral-transparent);
-  --badge-border-subtle-blue: var(--border-neutral-transparent);
-  --badge-border-subtle-orange: var(--border-neutral-transparent);
-  --badge-border-subtle-red: var(--border-neutral-transparent);
-  --badge-border-subtle-green: var(--border-neutral-transparent);
   --badge-border-outline: var(--border-neutral-tertiary);
   --badge-border-outline-blue: var(--border-tint-blue);
   --badge-border-outline-orange: var(--border-tint-orange);

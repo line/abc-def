@@ -14,10 +14,9 @@
  * under the License.
  */
 .scroll-area {
-  --scroll-area-bg: var(--bg-neutral-transparent);
   --scroll-area-bg-thumb: var(--bg-neutral-tertiary);
 
-  @apply relative overflow-hidden bg-[var(--scroll-area-bg)];
+  @apply relative overflow-hidden;
 }
 
 .scroll-area-viewport {

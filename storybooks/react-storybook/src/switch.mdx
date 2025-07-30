@@ -43,11 +43,15 @@ import * as SwitchStories from "./switch.stories.tsx";
 <TokenTable
   items={[
     {
-      name: "--switch-fg",
+      name: "--switch-fg-label",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--switch-bg",
+      name: "--switch-bg-thumb",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--switch-bg-neutral",
       value: "var(--bg-neutral-inverse)",
     },
     {
@@ -67,12 +71,8 @@ import * as SwitchStories from "./switch.stories.tsx";
       value: "var(--bg-tint-green-bold)",
     },
     {
-      name: "--switch-bg-off",
+      name: "--switch-bg-unchecked",
       value: "var(--bg-neutral-secondary)",
-    },
-    {
-      name: "--switch-bg-handle",
-      value: "var(--bg-neutral-primary)",
     },
   ]}
 />
