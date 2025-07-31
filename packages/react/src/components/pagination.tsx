@@ -28,24 +28,28 @@ const PaginationContext = React.createContext<ButtonProps>({
   radius: undefined,
 });
 
-type PaginationProps = React.ComponentProps<"nav"> &
+type PaginationProps = React.ComponentPropsWithoutRef<"nav"> &
   Pick<ButtonProps, "size" | "radius">;
-const Pagination = ({ size, radius, className, ...props }: PaginationProps) => {
-  const { themeSize, themeRadius } = useTheme();
 
-  return (
-    <PaginationContext.Provider
-      value={{ size: size ?? themeSize, radius: radius ?? themeRadius }}
-    >
-      <nav
-        role="navigation"
-        aria-label="pagination"
-        className={cn("pagination", className)}
-        {...props}
-      />
-    </PaginationContext.Provider>
-  );
-};
+const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
+  ({ size, radius, className, ...props }, ref) => {
+    const { themeSize, themeRadius } = useTheme();
+
+    return (
+      <PaginationContext.Provider
+        value={{ size: size ?? themeSize, radius: radius ?? themeRadius }}
+      >
+        <nav
+          role="navigation"
+          aria-label="pagination"
+          className={cn("pagination", className)}
+          ref={ref}
+          {...props}
+        />
+      </PaginationContext.Provider>
+    );
+  },
+);
 Pagination.displayName = "Pagination";
 
 const PaginationContent = React.forwardRef<
@@ -68,30 +72,28 @@ type PaginationLinkProps = {
   isActive?: boolean;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-const PaginationLink = ({
-  className,
-  isActive,
-  ...props
-}: PaginationLinkProps) => {
-  const { size, radius } = React.useContext(PaginationContext);
-  return (
-    <Button
-      variant={isActive ? "outline" : "ghost"}
-      size={size}
-      radius={radius}
-      className={cn("pagination-link", className)}
-      asChild
-    >
-      <a {...props} aria-current={isActive ? "page" : undefined} />
-    </Button>
-  );
-};
+const PaginationLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(
+  ({ className, isActive, ...props }, ref) => {
+    const { size, radius } = React.useContext(PaginationContext);
+    return (
+      <Button
+        variant={isActive ? "outline" : "ghost"}
+        size={size}
+        radius={radius}
+        className={cn("pagination-link", className)}
+        asChild
+      >
+        <a {...props} aria-current={isActive ? "page" : undefined} ref={ref} />
+      </Button>
+    );
+  },
+);
 PaginationLink.displayName = "PaginationLink";
 
-const PaginationPrevious = ({
-  className,
-  ...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+const PaginationPrevious = React.forwardRef<
+  HTMLAnchorElement,
+  React.AnchorHTMLAttributes<HTMLAnchorElement>
+>(({ className, ...props }, ref) => {
   const { size, radius } = React.useContext(PaginationContext);
   return (
     <Button
@@ -102,19 +104,19 @@ const PaginationPrevious = ({
       className={cn("pagination-previous", className)}
       asChild
     >
-      <a {...props}>
+      <a {...props} ref={ref}>
         <Icon name="RiArrowLeftSLine" />
         Previous
       </a>
     </Button>
   );
-};
+});
 PaginationPrevious.displayName = "PaginationPrevious";
 
-const PaginationNext = ({
-  className,
-  ...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+const PaginationNext = React.forwardRef<
+  HTMLAnchorElement,
+  React.AnchorHTMLAttributes<HTMLAnchorElement>
+>(({ className, ...props }, ref) => {
   const { size, radius } = React.useContext(PaginationContext);
   return (
     <Button
@@ -125,19 +127,19 @@ const PaginationNext = ({
       className={cn("pagination-next", className)}
       asChild
     >
-      <a {...props}>
+      <a {...props} ref={ref}>
         Next
         <Icon name="RiArrowRightSLine" />
       </a>
     </Button>
   );
-};
+});
 PaginationNext.displayName = "PaginationNext";
 
-const PaginationEllipsis = ({
-  className,
-  ...props
-}: React.ComponentProps<"button">) => {
+const PaginationEllipsis = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<"button">
+>(({ className, ...props }, ref) => {
   const { size, radius } = React.useContext(PaginationContext);
   return (
     <Button
@@ -147,11 +149,12 @@ const PaginationEllipsis = ({
       size={size}
       radius={radius}
       className={cn("pagination-ellipsis", className)}
+      ref={ref}
     >
       <Icon name="RiMoreLine" />
     </Button>
   );
-};
+});
 PaginationEllipsis.displayName = "PaginationEllipsis";
 
 export {

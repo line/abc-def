@@ -142,10 +142,11 @@ const dialogIconVariants = cva("dialog-icon", {
   },
 });
 
-const DialogIcon = (
-  props: React.ComponentPropsWithoutRef<typeof Icon> &
-    VariantProps<typeof dialogIconVariants>,
-) => {
+const DialogIcon = React.forwardRef<
+  SVGSVGElement,
+  React.ComponentPropsWithoutRef<typeof Icon> &
+    VariantProps<typeof dialogIconVariants>
+>((props, ref) => {
   const { className, name, size = 32, variant, ...rest } = props;
   return (
     <Icon
@@ -153,17 +154,18 @@ const DialogIcon = (
       name={name ?? ALERT_DEFAULT_ICON[variant ?? "default"]}
       size={size}
       className={cn(dialogIconVariants({ variant, className }))}
+      ref={ref}
     />
   );
-};
+});
 DialogIcon.displayName = "DialogIcon";
 
-const DialogHeader = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("dialog-header", className)} {...props} />
-);
+const DialogHeader = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithoutRef<React.HTMLAttributes<HTMLDivElement>>
+>(({ className, ...props }, ref) => (
+  <div className={cn("dialog-header", className)} {...props} ref={ref} />
+));
 DialogHeader.displayName = "DialogHeader";
 
 const dialogFooterVariants = cva("dialog-footer", {
@@ -184,27 +186,31 @@ const dialogFooterVariants = cva("dialog-footer", {
 interface DialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   asChild?: boolean;
 }
-const DialogBody = ({ asChild, className, ...props }: DialogBodyProps) => {
-  const Comp = asChild ? Slot : "div";
-  return (
-    <ScrollArea>
-      <Comp className={cn("dialog-body", className)} {...props} />
-      <ScrollBar />
-    </ScrollArea>
-  );
-};
+const DialogBody = React.forwardRef<HTMLDivElement, DialogBodyProps>(
+  ({ asChild, className, ...props }, ref) => {
+    const Comp = asChild ? Slot : "div";
+    return (
+      <ScrollArea ref={ref}>
+        <Comp className={cn("dialog-body", className)} {...props} />
+        <ScrollBar />
+      </ScrollArea>
+    );
+  },
+);
 DialogBody.displayName = "DialogBody";
 
 interface DialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: "left" | "right" | "center" | "between" | "full";
 }
 
-const DialogFooter = ({
-  align = "right",
-  className,
-  ...props
-}: DialogFooterProps) => (
-  <div className={cn(dialogFooterVariants({ align, className }))} {...props} />
+const DialogFooter = React.forwardRef<HTMLDivElement, DialogFooterProps>(
+  ({ align = "right", className, ...props }: DialogFooterProps, ref) => (
+    <div
+      className={cn(dialogFooterVariants({ align, className }))}
+      {...props}
+      ref={ref}
+    />
+  ),
 );
 DialogFooter.displayName = "DialogFooter";
 

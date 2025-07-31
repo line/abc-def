@@ -143,39 +143,39 @@ SheetContent.displayName = SheetPrimitive.Content.displayName;
 interface SheetHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: IconNameType;
 }
-const SheetHeader = ({
-  icon,
-  children,
-  className,
-  ...props
-}: SheetHeaderProps) => (
-  <div className={cn("sheet-header", className)} {...props}>
-    {icon && <Icon name={icon} size={38} className="sheet-icon" />}
-    {children}
-  </div>
+
+const SheetHeader = React.forwardRef<HTMLDivElement, SheetHeaderProps>(
+  ({ icon, children, className, ...props }, ref) => (
+    <div className={cn("sheet-header", className)} {...props} ref={ref}>
+      {icon && <Icon name={icon} size={38} className="sheet-icon" />}
+      {children}
+    </div>
+  ),
 );
 SheetHeader.displayName = "SheetHeader";
 
 interface SheetBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   asChild?: boolean;
 }
-const SheetBody = ({ asChild, className, ...props }: SheetBodyProps) => {
-  const Comp = asChild ? Slot : "div";
-  return (
-    <ScrollArea>
-      <Comp className={cn(className)} {...props} />
-      <ScrollBar />
-    </ScrollArea>
-  );
-};
+const SheetBody = React.forwardRef<HTMLDivElement, SheetBodyProps>(
+  ({ asChild, className, ...props }, ref) => {
+    const Comp = asChild ? Slot : "div";
+    return (
+      <ScrollArea ref={ref}>
+        <Comp className={cn(className)} {...props} />
+        <ScrollBar />
+      </ScrollArea>
+    );
+  },
+);
 SheetBody.displayName = "SheetBody";
 
-const SheetFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("sheet-footer", className)} {...props} />
-);
+const SheetFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div className={cn("sheet-footer", className)} {...props} ref={ref} />
+));
 SheetFooter.displayName = "SheetFooter";
 
 const SheetTitle = React.forwardRef<
