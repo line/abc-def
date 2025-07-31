@@ -23,11 +23,13 @@
   --select-fg: var(--fg-neutral-tertiary);
   --select-fg-pressed: var(--fg-neutral-primary);
   --select-fg-filled: var(--fg-neutral-primary);
+  --select-fg-error: var(--fg-neutral-tertiary);
   --select-border: var(--border-neutral-tertiary);
   --select-border-pressed: var(--tint, var(--border-neutral-primary));
   --select-border-error: var(--border-tint-red);
   --select-bg: var(--bg-neutral-primary);
   --select-bg-pressed: var(--bg-neutral-tertiary);
+  --select-bg-error: var(--bg-neutral-primary);
 
   @apply relative flex w-full items-center justify-start bg-[var(--select-bg)] text-left text-[var(--select-fg-filled)] transition-transform before:absolute before:inset-0 before:flex before:border before:border-[var(--select-border)] focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-[var(--select-fg)] data-[state=open]:text-[var(--select-fg-pressed)] data-[state=open]:before:border-2 data-[state=open]:before:border-[var(--select-border-pressed)] [&>span]:flex [&>span]:flex-1 [&>span]:items-center [&>span]:overflow-hidden [&>svg:last-of-type]:data-[state=open]:rotate-180;
 
@@ -36,18 +38,20 @@
 }
 
 .select-trigger[aria-invalid="true"] {
-  @apply before:!border-2 before:!border-[var(--select-border-error)];
+  @apply !bg-[var(--select-bg-error)] !text-[var(--select-fg-error)] before:!border-2 before:!border-[var(--select-border-error)];
 }
 
 .select-content {
   --select-fg: var(--fg-neutral-tertiary);
   --select-fg-pressed: var(--fg-neutral-primary);
   --select-fg-filled: var(--fg-neutral-primary);
+  --select-fg-error: var(--fg-neutral-tertiary);
   --select-border: var(--border-neutral-tertiary);
   --select-border-pressed: var(--tint, var(--border-neutral-primary));
   --select-border-error: var(--border-tint-red);
   --select-bg: var(--bg-neutral-primary);
   --select-bg-pressed: var(--bg-neutral-tertiary);
+  --select-bg-error: var(--bg-neutral-primary);
 
   @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95;
   @apply data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;

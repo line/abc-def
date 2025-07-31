@@ -15,18 +15,17 @@
  */
 .combobox-content {
   --combobox-fg: var(--fg-neutral-primary);
-  --combobox-fg-empty: var(--fg-neutral-secondary);
   --combobox-fg-placeholder: var(--fg-neutral-tertiary);
-  --combobox-shortcut-fg: var(--fg-neutral-tertiary);
+  --combobox-fg-secondary: var(--fg-neutral-tertiary);
+  --combobox-border: var(--border-neutral-tertiary);
   --combobox-bg: var(--bg-neutral-primary);
   --combobox-bg-hover: var(--bg-neutral-tertiary);
-  --combobox-border: var(--border-neutral-tertiary);
 
   @apply flex h-full min-w-[--radix-popover-trigger-width] flex-col overflow-hidden p-1 text-[var(--combobox-fg)];
 }
 
 .combobox-empty {
-  @apply text-base-normal flex items-center justify-center p-6 text-center text-[var(--combobox-fg-empty)];
+  @apply text-base-normal flex items-center justify-center p-6 text-center text-[var(--combobox-fg)];
 }
 
 .combobox-item {
@@ -42,7 +41,7 @@
 }
 
 .combobox-caption {
-  @apply text-small-normal ml-auto tracking-widest text-[var(--combobox-shortcut-fg)];
+  @apply text-small-normal ml-auto tracking-widest text-[var(--combobox-fg-secondary)];
 }
 
 .combobox-separator {

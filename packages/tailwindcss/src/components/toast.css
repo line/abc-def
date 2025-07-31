@@ -13,12 +13,10 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.toaster {
-}
 
 .toast {
   --toast-fg: var(--fg-neutral-primary);
-  --toast-fg-secondary: var(--fg-neutral-secondary);
+  --toast-fg-description: var(--fg-neutral-secondary);
   --toast-fg-warning: var(--fg-tint-orange);
   --toast-fg-success: var(--fg-tint-green);
   --toast-fg-error: var(--fg-tint-red);
@@ -45,7 +43,7 @@
 }
 
 .toast-description {
-  @apply text-base-normal text-[var(--toast-fg-secondary)];
+  @apply text-base-normal text-[var(--toast-fg-description)];
 }
 
 .toast-button {

@@ -14,6 +14,8 @@
  * under the License.
  */
 .dialog {
+  --dialog-fg: var(--fg-neutral-primary);
+  --dialog-fg-description: var(--fg-neutral-secondary);
   --dialog-bg: var(--bg-neutral-primary);
   --dialog-border: var(--border-neutral-tertiary);
 
@@ -21,6 +23,8 @@
 }
 
 .dialog-content {
+  --dialog-fg: var(--fg-neutral-primary);
+  --dialog-fg-description: var(--fg-neutral-secondary);
   --dialog-bg: var(--bg-neutral-primary);
   --dialog-border: var(--border-neutral-tertiary);
 
@@ -42,11 +46,11 @@
 }
 
 .dialog-title {
-  @apply text-title-h4 text-[var(--fg-neutral-primary)];
+  @apply text-title-h4 text-[var(--dialog-fg)];
 }
 
 .dialog-description {
-  @apply text-base-normal text-[var(--fg-neutral-secondary)];
+  @apply text-base-normal text-[var(--dialog-fg-description)];
 }
 
 .dialog-body {

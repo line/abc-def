@@ -5,11 +5,11 @@ import { Toaster } from "@abc-def/react";
 import ThemeSelect from "./utils/themeSelect.tsx";
 import TokenTable from "./utils/tokenTable.tsx";
 
-import * as InputStories from "./input.stories.tsx";
+import * as InputStories from "./text-input.stories.tsx";
 
-<Meta title="Input" of={InputStories} />
+<Meta title="TextInput" of={InputStories} />
 
-# Input
+# Text Input
 
 <ThemeSelect />
 
@@ -39,43 +39,51 @@ import * as InputStories from "./input.stories.tsx";
 <TokenTable
   items={[
     {
-      name: "--input-fg",
+      name: "--text-input-fg",
       value: "var(--fg-neutral-tertiary)",
     },
     {
-      name: "--input-fg-typing",
+      name: "--text-input-fg-typing",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--input-fg-filled",
+      name: "--text-input-fg-filled",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--input-border",
+      name: "--text-input-fg-error",
+      value: "var(--fg-neutral-tertiary)",
+    },
+    {
+      name: "--text-input-border",
       value: "var(--border-neutral-tertiary)",
     },
     {
-      name: "--input-border-typing",
+      name: "--text-input-border-typing",
       value: "var(--tint, var(--border-neutral-primary))",
     },
     {
-      name: "--input-border-filled",
+      name: "--text-input-border-filled",
       value: "var(--border-neutral-tertiary)",
     },
     {
-      name: "--input-border-error",
+      name: "--text-input-border-error",
       value: "var(--border-tint-red)",
     },
     {
-      name: "--input-bg",
+      name: "--text-input-bg",
       value: "var(--bg-neutral-primary)",
     },
     {
-      name: "--input-bg-typing",
+      name: "--text-input-bg-typing",
       value: "var(--bg-neutral-tertiary)",
     },
     {
-      name: "--input-bg-filled",
+      name: "--text-input-bg-filled",
+      value: "var(--bg-neutral-primary)",
+    },
+    {
+      name: "--text-input-bg-error",
       value: "var(--bg-neutral-primary)",
     },
   ]}

@@ -14,16 +14,18 @@
  * under the License.
  */
 .input-field {
-  --input-fg: var(--fg-neutral-tertiary);
-  --input-fg-typing: var(--fg-neutral-primary);
-  --input-fg-filled: var(--fg-neutral-primary);
-  --input-border: var(--border-neutral-tertiary);
-  --input-border-typing: var(--tint, var(--border-neutral-primary));
-  --input-border-filled: var(--border-neutral-tertiary);
-  --input-border-error: var(--border-tint-red);
-  --input-bg: var(--bg-neutral-primary);
-  --input-bg-typing: var(--bg-neutral-tertiary);
-  --input-bg-filled: var(--bg-neutral-primary);
+  --text-input-fg: var(--fg-neutral-tertiary);
+  --text-input-fg-typing: var(--fg-neutral-primary);
+  --text-input-fg-filled: var(--fg-neutral-primary);
+  --text-input-fg-error: var(--fg-neutral-primary);
+  --text-input-border: var(--border-neutral-tertiary);
+  --text-input-border-typing: var(--tint, var(--border-neutral-primary));
+  --text-input-border-filled: var(--border-neutral-tertiary);
+  --text-input-border-error: var(--border-tint-red);
+  --text-input-bg: var(--bg-neutral-primary);
+  --text-input-bg-typing: var(--bg-neutral-tertiary);
+  --text-input-bg-filled: var(--bg-neutral-primary);
+  --text-input-bg-error: var(--bg-neutral-primary);
 
   @apply flex flex-col gap-1.5;
 }
@@ -35,9 +37,9 @@
 }
 
 .input {
-  @apply text-[var(--input-fg-filled)] placeholder:text-[var(--input-fg)] placeholder-shown:text-[var(--input-fg)] focus-visible:text-[var(--input-fg-typing)];
-  @apply border border-[var(--input-border-filled)] placeholder-shown:border placeholder-shown:border-[var(--input-border)] focus-visible:border-2 focus-visible:border-[var(--input-border-typing)];
-  @apply bg-[var(--input-bg-filled)] placeholder-shown:bg-[var(--input-bg)] focus-visible:bg-[var(--input-bg-typing)];
+  @apply text-[var(--text-input-fg-filled)] placeholder:text-[var(--text-input-fg)] placeholder-shown:text-[var(--text-input-fg)] focus-visible:text-[var(--text-input-fg-typing)];
+  @apply border border-[var(--text-input-border-filled)] placeholder-shown:border placeholder-shown:border-[var(--text-input-border)] focus-visible:border-2 focus-visible:border-[var(--text-input-border-typing)];
+  @apply bg-[var(--text-input-bg-filled)] placeholder-shown:bg-[var(--text-input-bg)] focus-visible:bg-[var(--text-input-bg-typing)];
 
   @apply w-full outline-none;
   @apply disabled:cursor-not-allowed disabled:opacity-50 [&::-webkit-search-cancel-button]:hidden;
