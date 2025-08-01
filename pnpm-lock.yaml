@@ -36,8 +36,8 @@ catalogs:
       version: 19.1.1
   storybook:
     '@chromatic-com/storybook':
-      specifier: ^3.2.7
-      version: 3.2.7
+      specifier: ^4.1.0
+      version: 4.1.0
     '@storybook/addon-essentials':
       specifier: ^8.6.14
       version: 8.6.14
@@ -348,7 +348,7 @@ importers:
         version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.6.2))
+        version: 4.1.0(storybook@8.6.14(prettier@3.6.2))
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.9)(storybook@8.6.14(prettier@3.6.2))
@@ -409,7 +409,7 @@ importers:
         version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 3.2.7(react@19.1.1)(storybook@8.6.14(prettier@3.6.2))
+        version: 4.1.0(storybook@8.6.14(prettier@3.6.2))
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.9)(storybook@8.6.14(prettier@3.6.2))
@@ -503,7 +503,7 @@ importers:
         version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 3.2.7(react@19.1.1)(storybook@8.6.14(prettier@3.6.2))
+        version: 4.1.0(storybook@8.6.14(prettier@3.6.2))
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.9)(storybook@8.6.14(prettier@3.6.2))
@@ -582,7 +582,7 @@ importers:
         version: link:../../tooling/typescript
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 3.2.7(react@19.1.1)(storybook@8.6.14(prettier@3.6.2))
+        version: 4.1.0(storybook@8.6.14(prettier@3.6.2))
       '@storybook/addon-essentials':
         specifier: catalog:storybook
         version: 8.6.14(@types/react@19.1.9)(storybook@8.6.14(prettier@3.6.2))
@@ -1391,11 +1391,11 @@ packages:
     resolution: {integrity: sha512-x0LvFTekgSX+83TI28Y9wYPUfzrnl2aT5+5QLnO6v7mSJYtEEevuDRN0F0uSHRk1G1IWZC43o00Y0xDDrpBGPQ==}
     engines: {node: '>=6.9.0'}
 
-  '@chromatic-com/storybook@3.2.7':
-    resolution: {integrity: sha512-fCGhk4cd3VA8RNg55MZL5CScdHqljsQcL9g6Ss7YuobHpSo9yytEWNdgMd5QxAHSPBlLGFHjnSmliM3G/BeBqw==}
-    engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
+  '@chromatic-com/storybook@4.1.0':
+    resolution: {integrity: sha512-B9XesFX5lQUdP81/QBTtkiYOFqEsJwQpzkZlcYPm2n/L1S/8ZabSPbz6NoY8hOJTXWZ2p7grygUlxyGy+gAvfQ==}
+    engines: {node: '>=20.0.0', yarn: '>=1.22.18'}
     peerDependencies:
-      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+      storybook: ^0.0.0-0 || ^9.0.0 || ^9.1.0-0 || ^9.2.0-0
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -1879,6 +1879,9 @@ packages:
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
+
+  '@neoconfetti/react@1.0.0':
+    resolution: {integrity: sha512-klcSooChXXOzIm+SE5IISIAn3bYzYfPjbX7D7HoqZL84oAfgREeSg5vSIaSFH+DaGzzvImTyWe1OyrJ67vik4A==}
 
   '@next/env@15.3.3':
     resolution: {integrity: sha512-OdiMrzCl2Xi0VTjiQQUK0Xh7bJHnOuET2s+3V+Y40WJBAXrJeGA3f+I8MZJ/YQ3mVGi5XGR1L66oFlgqXhQ4Vw==}
@@ -3471,8 +3474,8 @@ packages:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
 
-  chromatic@11.29.0:
-    resolution: {integrity: sha512-yisBlntp9hHVj19lIQdpTlcYIXuU9H/DbFuu6tyWHmj6hWT2EtukCCcxYXL78XdQt1vm2GfIrtgtKpj/Rzmo4A==}
+  chromatic@12.2.0:
+    resolution: {integrity: sha512-GswmBW9ZptAoTns1BMyjbm55Z7EsIJnUvYKdQqXIBZIKbGErmpA+p4c0BYA+nzw5B0M+rb3Iqp1IaH8TFwIQew==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -5128,12 +5131,6 @@ packages:
     resolution: {integrity: sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==}
     engines: {node: '>=8'}
 
-  react-confetti@6.4.0:
-    resolution: {integrity: sha512-5MdGUcqxrTU26I2EU7ltkWPwxvucQTuqMm8dUz72z2YMqTD6s9vMcDUysk7n9jnC+lXuCPeJJ7Knf98VEYE9Rg==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      react: ^16.3.0 || ^17.0.1 || ^18.0.0 || ^19.0.0
-
   react-day-picker@8.10.1:
     resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
     peerDependencies:
@@ -5693,9 +5690,6 @@ packages:
   turbo@2.5.5:
     resolution: {integrity: sha512-eZ7wI6KjtT1eBqCnh2JPXWNUAxtoxxfi6VdBdZFvil0ychCOTxbm7YLRBi1JSt7U3c+u3CLxpoPxLdvr/Npr3A==}
     hasBin: true
-
-  tween-functions@1.2.0:
-    resolution: {integrity: sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA==}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -6938,31 +6932,17 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@chromatic-com/storybook@3.2.7(react@19.1.0)(storybook@8.6.14(prettier@3.6.2))':
+  '@chromatic-com/storybook@4.1.0(storybook@8.6.14(prettier@3.6.2))':
     dependencies:
-      chromatic: 11.29.0
+      '@neoconfetti/react': 1.0.0
+      chromatic: 12.2.0
       filesize: 10.1.6
       jsonfile: 6.1.0
-      react-confetti: 6.4.0(react@19.1.0)
       storybook: 8.6.14(prettier@3.6.2)
       strip-ansi: 7.1.0
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
-      - react
-
-  '@chromatic-com/storybook@3.2.7(react@19.1.1)(storybook@8.6.14(prettier@3.6.2))':
-    dependencies:
-      chromatic: 11.29.0
-      filesize: 10.1.6
-      jsonfile: 6.1.0
-      react-confetti: 6.4.0(react@19.1.1)
-      storybook: 8.6.14(prettier@3.6.2)
-      strip-ansi: 7.1.0
-    transitivePeerDependencies:
-      - '@chromatic-com/cypress'
-      - '@chromatic-com/playwright'
-      - react
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -7333,6 +7313,8 @@ snapshots:
       '@types/mdx': 2.0.13
       '@types/react': 19.1.9
       react: 19.1.0
+
+  '@neoconfetti/react@1.0.0': {}
 
   '@next/env@15.3.3': {}
 
@@ -9158,7 +9140,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  chromatic@11.29.0: {}
+  chromatic@12.2.0: {}
 
   class-variance-authority@0.7.1:
     dependencies:
@@ -10941,16 +10923,6 @@ snapshots:
 
   quick-lru@4.0.1: {}
 
-  react-confetti@6.4.0(react@19.1.0):
-    dependencies:
-      react: 19.1.0
-      tween-functions: 1.2.0
-
-  react-confetti@6.4.0(react@19.1.1):
-    dependencies:
-      react: 19.1.1
-      tween-functions: 1.2.0
-
   react-day-picker@8.10.1(date-fns@4.1.0)(react@19.1.1):
     dependencies:
       date-fns: 4.1.0
@@ -11777,8 +11749,6 @@ snapshots:
       turbo-linux-arm64: 2.5.5
       turbo-windows-64: 2.5.5
       turbo-windows-arm64: 2.5.5
-
-  tween-functions@1.2.0: {}
 
   type-check@0.4.0:
     dependencies:
