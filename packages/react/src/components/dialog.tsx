@@ -141,15 +141,14 @@ const dialogHeaderVariants = cva("dialog-header", {
   },
 });
 
-const DialogHeader = ({
-  direction = "vertical",
-  className,
-  ...props
-}: DialogHeaderProps) => (
-  <div
-    className={cn(dialogHeaderVariants({ direction, className }))}
-    {...props}
-  />
+const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>(
+  ({ direction = "vertical", className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(dialogHeaderVariants({ direction, className }))}
+      {...props}
+    />
+  ),
 );
 DialogHeader.displayName = "DialogHeader";
 

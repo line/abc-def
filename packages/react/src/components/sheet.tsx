@@ -153,15 +153,16 @@ const sheetHeaderVariants = cva("sheet-header", {
   },
 });
 
-const SheetHeader = ({
-  direction = "vertical",
-  children,
-  className,
-  ...props
-}: SheetHeaderProps) => (
-  <div className={cn(sheetHeaderVariants({ direction, className }))} {...props}>
-    {children}
-  </div>
+const SheetHeader = React.forwardRef<HTMLDivElement, SheetHeaderProps>(
+  ({ direction = "vertical", children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(sheetHeaderVariants({ direction, className }))}
+      {...props}
+    >
+      {children}
+    </div>
+  ),
 );
 SheetHeader.displayName = "SheetHeader";
 
