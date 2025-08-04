@@ -13,6 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { cva } from "class-variance-authority";
@@ -181,22 +183,20 @@ interface AlertIconProps
   extends Omit<React.ComponentPropsWithoutRef<typeof Icon>, "name"> {
   name?: IconNameType;
 }
-const AlertIcon = ({
-  className,
-  name = undefined,
-  size = 20,
-  ...props
-}: AlertIconProps) => {
-  const { variant } = React.useContext(AlertContext);
-  return (
-    <Icon
-      className={cn(alertIconVariants({ variant, className }))}
-      name={name ?? ALERT_DEFAULT_ICON[variant ?? "default"]}
-      size={size}
-      {...props}
-    />
-  );
-};
+const AlertIcon = React.forwardRef<SVGSVGElement, AlertIconProps>(
+  ({ className, name = undefined, size = 20, ...props }, ref) => {
+    const { variant } = React.useContext(AlertContext);
+    return (
+      <Icon
+        className={cn(alertIconVariants({ variant, className }))}
+        name={name ?? ALERT_DEFAULT_ICON[variant ?? "default"]}
+        size={size}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
 AlertIcon.displayName = "AlertIcon";
 
 export {

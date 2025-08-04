@@ -13,6 +13,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { Slottable } from "@radix-ui/react-slot";
@@ -54,20 +56,23 @@ const selectVariants = cva("select", {
   },
 });
 
-const Select = ({ size, radius, className, ...props }: SelectProps) => {
-  const { themeSize, themeRadius } = useTheme();
-  return (
-    <SelectContext.Provider
-      value={{ size: size ?? themeSize, radius: radius ?? themeRadius }}
-    >
-      <div
-        className={cn(selectVariants({ size: size ?? themeSize, className }))}
+const Select = React.forwardRef<HTMLDivElement, SelectProps>(
+  ({ size, radius, className, ...props }, ref) => {
+    const { themeSize, themeRadius } = useTheme();
+    return (
+      <SelectContext.Provider
+        value={{ size: size ?? themeSize, radius: radius ?? themeRadius }}
       >
-        <SelectPrimitive.Root {...props}></SelectPrimitive.Root>
-      </div>
-    </SelectContext.Provider>
-  );
-};
+        <div
+          className={cn(selectVariants({ size: size ?? themeSize, className }))}
+          ref={ref}
+        >
+          <SelectPrimitive.Root {...props} />
+        </div>
+      </SelectContext.Provider>
+    );
+  },
+);
 
 const SelectGroup = SelectPrimitive.Group;
 

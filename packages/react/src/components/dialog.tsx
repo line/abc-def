@@ -99,7 +99,7 @@ const DialogContent = React.forwardRef<
   const { themeRadius } = useTheme();
   return (
     <DialogPortal>
-      <DialogOverlay onClick={(e) => e.stopPropagation()}>
+      <DialogOverlay>
         <DialogPrimitive.Content
           ref={ref}
           className={cn(
@@ -170,27 +170,31 @@ const dialogFooterVariants = cva("dialog-footer", {
 interface DialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   asChild?: boolean;
 }
-const DialogBody = ({ asChild, className, ...props }: DialogBodyProps) => {
-  const Comp = asChild ? Slot : "div";
-  return (
-    <ScrollArea>
-      <Comp className={cn("dialog-body", className)} {...props} />
-      <ScrollBar />
-    </ScrollArea>
-  );
-};
+const DialogBody = React.forwardRef<HTMLDivElement, DialogBodyProps>(
+  ({ asChild, className, ...props }, ref) => {
+    const Comp = asChild ? Slot : "div";
+    return (
+      <ScrollArea ref={ref}>
+        <Comp className={cn("dialog-body", className)} {...props} />
+        <ScrollBar />
+      </ScrollArea>
+    );
+  },
+);
 DialogBody.displayName = "DialogBody";
 
 interface DialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: "left" | "right" | "center" | "between" | "full";
 }
 
-const DialogFooter = ({
-  align = "right",
-  className,
-  ...props
-}: DialogFooterProps) => (
-  <div className={cn(dialogFooterVariants({ align, className }))} {...props} />
+const DialogFooter = React.forwardRef<HTMLDivElement, DialogFooterProps>(
+  ({ align = "right", className, ...props }: DialogFooterProps, ref) => (
+    <div
+      className={cn(dialogFooterVariants({ align, className }))}
+      {...props}
+      ref={ref}
+    />
+  ),
 );
 DialogFooter.displayName = "DialogFooter";
 

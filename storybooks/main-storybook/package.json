@@ -31,7 +31,7 @@
     "@storybook/test": "catalog:storybook",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
-    "@vitejs/plugin-react": "^4.6.0",
+    "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
     "globals": "^16.3.0",
@@ -40,7 +40,7 @@
     "storybook": "catalog:storybook",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "^7.0.4"
+    "vite": "^7.0.6"
   },
   "prettier": "@abc-def/prettier-config"
 }

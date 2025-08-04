@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+
 import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
@@ -114,7 +115,7 @@ const SheetContent = React.forwardRef<
     ref,
   ) => (
     <SheetPortal>
-      <SheetOverlay onClick={(e) => e.stopPropagation()}>
+      <SheetOverlay>
         <SheetPrimitive.Content
           ref={ref}
           className={cn(sheetVariants({ side, radius }), className)}
@@ -141,6 +142,7 @@ SheetContent.displayName = SheetPrimitive.Content.displayName;
 interface SheetHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: "vertical" | "horizontal";
 }
+
 const sheetHeaderVariants = cva("sheet-header", {
   variants: {
     direction: {
@@ -169,23 +171,25 @@ SheetHeader.displayName = "SheetHeader";
 interface SheetBodyProps extends React.HTMLAttributes<HTMLDivElement> {
   asChild?: boolean;
 }
-const SheetBody = ({ asChild, className, ...props }: SheetBodyProps) => {
-  const Comp = asChild ? Slot : "div";
-  return (
-    <ScrollArea>
-      <Comp className={cn(className)} {...props} />
-      <ScrollBar />
-    </ScrollArea>
-  );
-};
+const SheetBody = React.forwardRef<HTMLDivElement, SheetBodyProps>(
+  ({ asChild, className, ...props }, ref) => {
+    const Comp = asChild ? Slot : "div";
+    return (
+      <ScrollArea ref={ref}>
+        <Comp className={cn(className)} {...props} />
+        <ScrollBar />
+      </ScrollArea>
+    );
+  },
+);
 SheetBody.displayName = "SheetBody";
 
-const SheetFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("sheet-footer", className)} {...props} />
-);
+const SheetFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div className={cn("sheet-footer", className)} {...props} ref={ref} />
+));
 SheetFooter.displayName = "SheetFooter";
 
 const SheetTitle = React.forwardRef<

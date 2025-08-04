@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "vue": "^3.5.17"
+    "vue": "^3.5.18"
   },
   "devDependencies": {
     "@abc-def/eslint-config": "workspace:^",
@@ -27,14 +27,14 @@
     "@storybook/test": "catalog:storybook",
     "@storybook/vue3": "catalog:storybook",
     "@storybook/vue3-vite": "catalog:storybook",
-    "@vitejs/plugin-vue": "^6.0.0",
+    "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "storybook": "catalog:storybook",
     "typescript": "catalog:",
-    "vite": "^7.0.4",
-    "vue-tsc": "^3.0.1"
+    "vite": "^7.0.6",
+    "vue-tsc": "^3.0.5"
   },
   "prettier": "@abc-def/prettier-config"
 }
