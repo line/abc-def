@@ -13,6 +13,15 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+
+.dialog-header-vertical {
+  @apply flex flex-col gap-1;
+}
+
+.dialog-header-horizontal {
+  @apply flex flex-row items-center gap-1;
+}
+
 .dialog-content-radius-large {
   @apply rounded-24;
 }
@@ -23,26 +32,6 @@
 
 .dialog-content-radius-small {
   @apply rounded-0;
-}
-
-.dialog-icon-default {
-  @apply text-[var(--fg-neutral-primary)];
-}
-
-.dialog-icon-warning {
-  @apply text-[var(--fg-tint-orange)];
-}
-
-.dialog-icon-informative {
-  @apply text-[var(--fg-tint-blue)];
-}
-
-.dialog-icon-success {
-  @apply text-[var(--fg-tint-green)];
-}
-
-.dialog-icon-error {
-  @apply text-[var(--fg-tint-red)];
 }
 
 .dialog-footer-left {

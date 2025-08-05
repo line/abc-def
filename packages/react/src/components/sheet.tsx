@@ -20,7 +20,6 @@ import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 
-import type { IconNameType } from "./icon";
 import { cn } from "../lib/utils";
 import { Button } from "./button";
 import { Icon } from "./icon";
@@ -29,7 +28,7 @@ import { ScrollArea, ScrollBar } from "./scroll-area";
 const Sheet = SheetPrimitive.Root;
 
 const SheetTrigger = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Trigger>,
+  React.ComponentRef<typeof SheetPrimitive.Trigger>,
   SheetPrimitive.DialogTriggerProps &
     React.ComponentPropsWithoutRef<typeof Button>
 >(({ variant = "outline", className, children, ...props }, ref) => {
@@ -60,7 +59,7 @@ const SheetTrigger = React.forwardRef<
 SheetTrigger.displayName = SheetPrimitive.Trigger.displayName;
 
 const SheetClose = React.forwardRef<
-  React.ElementRef<typeof Button>,
+  React.ComponentRef<typeof Button>,
   React.ComponentPropsWithoutRef<typeof Button>
 >(({ variant, ...props }, ref) => (
   <SheetPrimitive.Close asChild>
@@ -72,7 +71,7 @@ SheetClose.displayName = "SheetClose";
 const SheetPortal = SheetPrimitive.Portal;
 
 const SheetOverlay = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Overlay>,
+  React.ComponentRef<typeof SheetPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
@@ -108,7 +107,7 @@ interface SheetContentProps
     VariantProps<typeof sheetVariants> {}
 
 const SheetContent = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Content>,
+  React.ComponentRef<typeof SheetPrimitive.Content>,
   SheetContentProps
 >(
   (
@@ -141,13 +140,28 @@ const SheetContent = React.forwardRef<
 SheetContent.displayName = SheetPrimitive.Content.displayName;
 
 interface SheetHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  icon?: IconNameType;
+  direction?: "vertical" | "horizontal";
 }
 
+const sheetHeaderVariants = cva("sheet-header", {
+  variants: {
+    direction: {
+      vertical: "sheet-header-vertical",
+      horizontal: "sheet-header-horizontal",
+    },
+  },
+  defaultVariants: {
+    direction: "vertical",
+  },
+});
+
 const SheetHeader = React.forwardRef<HTMLDivElement, SheetHeaderProps>(
-  ({ icon, children, className, ...props }, ref) => (
-    <div className={cn("sheet-header", className)} {...props} ref={ref}>
-      {icon && <Icon name={icon} size={38} className="sheet-icon" />}
+  ({ direction = "vertical", children, className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(sheetHeaderVariants({ direction, className }))}
+      {...props}
+    >
       {children}
     </div>
   ),
@@ -179,7 +193,7 @@ const SheetFooter = React.forwardRef<
 SheetFooter.displayName = "SheetFooter";
 
 const SheetTitle = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Title>,
+  React.ComponentRef<typeof SheetPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
@@ -191,7 +205,7 @@ const SheetTitle = React.forwardRef<
 SheetTitle.displayName = SheetPrimitive.Title.displayName;
 
 const SheetDescription = React.forwardRef<
-  React.ElementRef<typeof SheetPrimitive.Description>,
+  React.ComponentRef<typeof SheetPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Description
