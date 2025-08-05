@@ -43,8 +43,6 @@ import {
   DropdownSubTrigger,
   DropdownTrigger,
   Icon,
-  InputBox,
-  InputField,
   Label,
   Popover,
   PopoverContent,
@@ -125,11 +123,7 @@ const IndexPage: NextPage = () => {
         </TabsList>
       </Tabs>
       <Textarea placeholder="test" />
-      <InputField>
-        <InputBox>
-          <TextInput placeholder="test" />
-        </InputBox>
-      </InputField>
+      <TextInput placeholder="test" />
       <div className="space-y-24 p-16">
         <Dropdown>
           <DropdownTrigger asChild>
