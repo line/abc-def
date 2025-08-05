@@ -31,14 +31,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  IconNames,
-  InputBox,
-  InputClearButton,
-  InputEyeButton,
-  InputField,
-  InputIcon,
+  Icon,
   Label,
   TextInput,
+  TextInputBox,
+  TextInputClearButton,
+  TextInputEyeButton,
   toast,
 } from "@abc-def/react";
 
@@ -47,9 +45,6 @@ const Props = {
     placeholder: "↳ TextInput: placeholder",
     disabled: "↳ TextInput: disabled",
     radius: "↳ TextInput: radius",
-  },
-  InputIcon: {
-    name: "↳ InputIcon: name",
   },
 } as const;
 
@@ -64,18 +59,14 @@ const meta: Meta<
     [Props.TextInput.disabled]: React.ComponentPropsWithoutRef<
       typeof TextInput
     >["disabled"];
-    [Props.InputIcon.name]: React.ComponentPropsWithoutRef<
-      typeof InputIcon
-    >["name"];
   }
 > = {
-  title: "Input",
+  title: "TextInput",
   component: TextInput,
   args: {
     [Props.TextInput.placeholder]: "Placeholder...",
     [Props.TextInput.radius]: undefined,
     [Props.TextInput.disabled]: false,
-    [Props.InputIcon.name]: undefined,
   },
   argTypes: {
     [Props.TextInput.placeholder]: {
@@ -112,17 +103,6 @@ const meta: Meta<
       },
       control: "boolean",
     },
-    [Props.InputIcon.name]: {
-      description: "Set the name of the InputIcon.",
-      table: {
-        category: "InputIcon",
-        type: {
-          summary: "IconNameTypes",
-        },
-      },
-      control: "select",
-      options: IconNames,
-    },
     radius: { table: { disable: true } },
     size: { table: { disable: true } },
     type: { table: { disable: true } },
@@ -139,23 +119,23 @@ const meta: Meta<
     };
 
     return (
-      <InputField>
+      <div className="space-y-2">
         <Label>Label</Label>
-        <InputBox>
-          <InputIcon name={args[Props.InputIcon.name] ?? "RiUser3Fill"} />
+        <TextInputBox>
+          <Icon name="RiUser3Fill" />
           <TextInput
             radius={args[Props.TextInput.radius]}
             ref={inputRef}
             placeholder={args[Props.TextInput.placeholder]}
             disabled={args[Props.TextInput.disabled]}
           />
-          <InputClearButton
+          <TextInputClearButton
             onClick={handleClear}
             disabled={args[Props.TextInput.disabled]}
           />
-        </InputBox>
+        </TextInputBox>
         <Caption>Caption</Caption>
-      </InputField>
+      </div>
     );
   },
 };
@@ -193,60 +173,58 @@ export const TextField = () => {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      <InputField>
+      <div className="space-y-2">
         <Label>Default</Label>
-        <InputBox>
+        <TextInputBox>
           <TextInput
             ref={inputRefs[0]}
             type="text"
             placeholder="Placeholder..."
           />
-          <InputClearButton onClick={() => handleClear(0)} />
-        </InputBox>
+          <TextInputClearButton onClick={() => handleClear(0)} />
+        </TextInputBox>
         <Caption variant="info">Caption Info</Caption>
-      </InputField>
-      <InputField>
+      </div>
+      <div className="space-y-2">
         <Label>Disabled</Label>
-        <InputBox>
+        <TextInputBox>
           <TextInput
             ref={inputRefs[1]}
             type="text"
             placeholder="Placeholder..."
             disabled
           />
-          <InputClearButton onClick={() => handleClear(1)} />
-        </InputBox>
+          <TextInputClearButton onClick={() => handleClear(1)} />
+        </TextInputBox>
         <Caption variant="success">Caption Success</Caption>
-      </InputField>
+      </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <InputField>
-                  <FormLabel>Form</FormLabel>
-                  <InputBox>
-                    <FormControl>
-                      <TextInput
-                        ref={inputRefs[2]}
-                        type="text"
-                        placeholder="Placeholder..."
-                        onChange={field.onChange}
-                        defaultValue={field.value}
-                      />
-                    </FormControl>
-                    <InputClearButton
-                      onClick={() => {
-                        handleClear(2);
-                        field.onChange("");
-                      }}
+              <FormItem className="space-y-2">
+                <FormLabel>Form</FormLabel>
+                <TextInputBox>
+                  <FormControl>
+                    <TextInput
+                      ref={inputRefs[2]}
+                      type="text"
+                      placeholder="Placeholder..."
+                      onChange={field.onChange}
+                      defaultValue={field.value}
                     />
-                  </InputBox>
-                  <FormCaption>Caption</FormCaption>
-                  <FormMessage />
-                </InputField>
+                  </FormControl>
+                  <TextInputClearButton
+                    onClick={() => {
+                      handleClear(2);
+                      field.onChange("");
+                    }}
+                  />
+                </TextInputBox>
+                <FormCaption>Caption</FormCaption>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -286,63 +264,61 @@ export const Search = () => {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      <InputField>
+      <div className="space-y-2">
         <Label>Default</Label>
-        <InputBox>
-          <InputIcon name="RiSearchLine" />
+        <TextInputBox>
+          <Icon name="RiSearchLine" />
           <TextInput
             ref={inputRefs[3]}
             type="search"
             placeholder="Placeholder..."
           />
-          <InputClearButton onClick={() => handleClear(3)} />
-        </InputBox>
+          <TextInputClearButton onClick={() => handleClear(3)} />
+        </TextInputBox>
         <Caption variant="info">Caption Info</Caption>
-      </InputField>
-      <InputField>
+      </div>
+      <div>
         <Label>Disabled</Label>
-        <InputBox>
-          <InputIcon name="RiSearchLine" />
+        <TextInputBox>
+          <Icon name="RiSearchLine" />
           <TextInput
             ref={inputRefs[4]}
             type="search"
             placeholder="Placeholder..."
             disabled
           />
-          <InputClearButton onClick={() => handleClear(4)} />
-        </InputBox>
+          <TextInputClearButton onClick={() => handleClear(4)} />
+        </TextInputBox>
         <Caption variant="success">Caption Success</Caption>
-      </InputField>
+      </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <InputField>
-                  <FormLabel>Form</FormLabel>
-                  <InputBox>
-                    <InputIcon name="RiSearchLine" />
-                    <FormControl>
-                      <TextInput
-                        ref={inputRefs[5]}
-                        type="search"
-                        placeholder="Placeholder..."
-                        onChange={field.onChange}
-                        defaultValue={field.value}
-                      />
-                    </FormControl>
-                    <InputClearButton
-                      onClick={() => {
-                        handleClear(5);
-                        field.onChange("");
-                      }}
+              <FormItem className="space-y-2">
+                <FormLabel>Form</FormLabel>
+                <TextInputBox>
+                  <Icon name="RiSearchLine" />
+                  <FormControl>
+                    <TextInput
+                      ref={inputRefs[5]}
+                      type="search"
+                      placeholder="Placeholder..."
+                      onChange={field.onChange}
+                      defaultValue={field.value}
                     />
-                  </InputBox>
-                  <FormCaption>Caption</FormCaption>
-                  <FormMessage />
-                </InputField>
+                  </FormControl>
+                  <TextInputClearButton
+                    onClick={() => {
+                      handleClear(5);
+                      field.onChange("");
+                    }}
+                  />
+                </TextInputBox>
+                <FormCaption>Caption</FormCaption>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -382,63 +358,61 @@ export const Id = () => {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      <InputField>
+      <div className="space-y-2">
         <Label>Default</Label>
-        <InputBox>
-          <InputIcon name="RiUser3Fill" />
+        <TextInputBox>
+          <Icon name="RiUser3Fill" />
           <TextInput
             ref={inputRefs[6]}
             type="text"
             placeholder="Placeholder..."
           />
-          <InputClearButton onClick={() => handleClear(6)} />
-        </InputBox>
+          <TextInputClearButton onClick={() => handleClear(6)} />
+        </TextInputBox>
         <Caption variant="info">Caption Info</Caption>
-      </InputField>
-      <InputField>
+      </div>
+      <div className="space-y-2">
         <Label>Disabled</Label>
-        <InputBox>
-          <InputIcon name="RiUser3Fill" />
+        <TextInputBox>
+          <Icon name="RiUser3Fill" />
           <TextInput
             ref={inputRefs[7]}
             type="text"
             placeholder="Placeholder..."
             disabled
           />
-          <InputClearButton onClick={() => handleClear(7)} />
-        </InputBox>
+          <TextInputClearButton onClick={() => handleClear(7)} />
+        </TextInputBox>
         <Caption variant="success">Caption Success</Caption>
-      </InputField>
+      </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <InputField>
-                  <FormLabel>Form</FormLabel>
-                  <InputBox>
-                    <InputIcon name="RiUser3Fill" />
-                    <FormControl>
-                      <TextInput
-                        ref={inputRefs[8]}
-                        type="text"
-                        placeholder="Placeholder..."
-                        onChange={field.onChange}
-                        defaultValue={field.value}
-                      />
-                    </FormControl>
-                    <InputClearButton
-                      onClick={() => {
-                        handleClear(8);
-                        field.onChange("");
-                      }}
+              <FormItem className="space-y-2">
+                <FormLabel>Form</FormLabel>
+                <TextInputBox>
+                  <Icon name="RiUser3Fill" />
+                  <FormControl>
+                    <TextInput
+                      ref={inputRefs[8]}
+                      type="text"
+                      placeholder="Placeholder..."
+                      onChange={field.onChange}
+                      defaultValue={field.value}
                     />
-                  </InputBox>
-                  <FormCaption>Caption</FormCaption>
-                  <FormMessage />
-                </InputField>
+                  </FormControl>
+                  <TextInputClearButton
+                    onClick={() => {
+                      handleClear(8);
+                      field.onChange("");
+                    }}
+                  />
+                </TextInputBox>
+                <FormCaption>Caption</FormCaption>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -486,69 +460,67 @@ export const Password = () => {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      <InputField>
+      <div className="space-y-2">
         <Label>Default</Label>
-        <InputBox>
-          <InputIcon name="RiLockPasswordFill" />
+        <TextInputBox>
+          <Icon name="RiLockPasswordFill" />
           <TextInput
             ref={inputRefs[9]}
             type={inputTypes[9]}
             placeholder="Placeholder..."
           />
-          <InputEyeButton
+          <TextInputEyeButton
             onChangeVisibility={(visible) => handleChangeVisibility(visible, 9)}
           />
-        </InputBox>
+        </TextInputBox>
         <Caption variant="info">Caption Info</Caption>
-      </InputField>
-      <InputField>
+      </div>
+      <div className="space-y-2">
         <Label>Disabled</Label>
-        <InputBox>
-          <InputIcon name="RiLockPasswordFill" />
+        <TextInputBox>
+          <Icon name="RiLockPasswordFill" />
           <TextInput
             ref={inputRefs[10]}
             type={inputTypes[10]}
             placeholder="Placeholder..."
             disabled
           />
-          <InputEyeButton
+          <TextInputEyeButton
             disabled
             onChangeVisibility={(visible) =>
               handleChangeVisibility(visible, 10)
             }
           />
-        </InputBox>
+        </TextInputBox>
         <Caption variant="success">Caption Success</Caption>
-      </InputField>
+      </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <InputField>
-                  <FormLabel>Form</FormLabel>
-                  <InputBox>
-                    <InputIcon name="RiLockPasswordFill" />
-                    <FormControl>
-                      <TextInput
-                        ref={inputRefs[11]}
-                        type={inputTypes[11]}
-                        placeholder="Placeholder..."
-                        onChange={field.onChange}
-                        defaultValue={field.value}
-                      />
-                    </FormControl>
-                    <InputEyeButton
-                      onChangeVisibility={(visible) =>
-                        handleChangeVisibility(visible, 11)
-                      }
+              <FormItem className="space-y-2">
+                <FormLabel>Form</FormLabel>
+                <TextInputBox>
+                  <Icon name="RiLockPasswordFill" />
+                  <FormControl>
+                    <TextInput
+                      ref={inputRefs[11]}
+                      type={inputTypes[11]}
+                      placeholder="Placeholder..."
+                      onChange={field.onChange}
+                      defaultValue={field.value}
                     />
-                  </InputBox>
-                  <FormCaption>Caption</FormCaption>
-                  <FormMessage />
-                </InputField>
+                  </FormControl>
+                  <TextInputEyeButton
+                    onChangeVisibility={(visible) =>
+                      handleChangeVisibility(visible, 11)
+                    }
+                  />
+                </TextInputBox>
+                <FormCaption>Caption</FormCaption>
+                <FormMessage />
               </FormItem>
             )}
           />

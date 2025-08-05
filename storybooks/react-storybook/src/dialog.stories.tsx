@@ -29,7 +29,6 @@ import {
   DialogTitle,
   DialogTrigger,
   Icon,
-  InputField,
   Label,
   TextInput,
 } from "@abc-def/react";
@@ -171,17 +170,17 @@ const meta: Meta<
           </DialogDescription>
         </DialogHeader>
         <DialogBody>
-          <InputField>
+          <div className="space-y-2">
             <Label>Label</Label>
             <TextInput size="small" />
-          </InputField>
-          <InputField>
+          </div>
+          <div className="space-y-2">
             <Label>Label</Label>
             <TextInput size="small" />
             <Caption variant="info">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             </Caption>
-          </InputField>
+          </div>
         </DialogBody>
         <DialogFooter align={args[Props.DialogFooter.align]}>
           <DialogClose
