@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@abc-def/react": "workspace:^",
-    "@hookform/resolvers": "^5.1.1",
+    "@hookform/resolvers": "^5.2.1",
     "react": "catalog:react",
     "react-dom": "catalog:react",
     "react-hook-form": "^7.62.0",
