@@ -160,7 +160,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.60.0(react@19.1.1))
+        version: 5.1.1(react-hook-form@7.62.0(react@19.1.1))
       '@radix-ui/react-accordion':
         specifier: ^1.2.11
         version: 1.2.11(@types/react-dom@19.1.7(@types/react@19.1.9))(@types/react@19.1.9)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -237,8 +237,8 @@ importers:
         specifier: 8.10.1
         version: 8.10.1(date-fns@4.1.0)(react@19.1.1)
       react-hook-form:
-        specifier: ^7.60.0
-        version: 7.60.0(react@19.1.1)
+        specifier: ^7.62.0
+        version: 7.62.0(react@19.1.1)
       sonner:
         specifier: ^2.0.7
         version: 2.0.7(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -475,7 +475,7 @@ importers:
         version: link:../../packages/react
       '@hookform/resolvers':
         specifier: ^5.1.1
-        version: 5.1.1(react-hook-form@7.60.0(react@19.1.1))
+        version: 5.1.1(react-hook-form@7.62.0(react@19.1.1))
       react:
         specifier: catalog:react
         version: 19.1.1
@@ -483,8 +483,8 @@ importers:
         specifier: catalog:react
         version: 19.1.1(react@19.1.1)
       react-hook-form:
-        specifier: ^7.60.0
-        version: 7.60.0(react@19.1.1)
+        specifier: ^7.62.0
+        version: 7.62.0(react@19.1.1)
       zod:
         specifier: ^4.0.14
         version: 4.0.14
@@ -5208,6 +5208,12 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
+  react-hook-form@7.62.0:
+    resolution: {integrity: sha512-7KWFejc98xqG/F4bAxpL41NB3o1nnvQO1RWZT3TqRZYL8RryQETGfEdVnJN2fy1crCiBLLjkRBVK05j24FxJGA==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -7190,6 +7196,11 @@ snapshots:
     dependencies:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.60.0(react@19.1.1)
+
+  '@hookform/resolvers@5.1.1(react-hook-form@7.62.0(react@19.1.1))':
+    dependencies:
+      '@standard-schema/utils': 0.3.0
+      react-hook-form: 7.62.0(react@19.1.1)
 
   '@humanfs/core@0.19.1': {}
 
@@ -11087,6 +11098,10 @@ snapshots:
       scheduler: 0.26.0
 
   react-hook-form@7.60.0(react@19.1.1):
+    dependencies:
+      react: 19.1.1
+
+  react-hook-form@7.62.0(react@19.1.1):
     dependencies:
       react: 19.1.1
 
