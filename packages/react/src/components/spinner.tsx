@@ -14,6 +14,7 @@
  * under the License.
  */
 
+import React from "react";
 import { cva } from "class-variance-authority";
 
 import type { Size } from "../types";
@@ -41,15 +42,18 @@ const spinnerVariants = cva("spinner", {
   defaultVariants,
 });
 
-const Spinner: React.FC<SpinnerProps> = (props) => {
-  const { size, className } = props;
-  const { themeSize } = useTheme();
+const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
+  (props, ref) => {
+    const { size, className } = props;
+    const { themeSize } = useTheme();
 
-  return (
-    <span
-      className={cn(spinnerVariants({ size: size ?? themeSize }), className)}
-      aria-label="loading..."
-    ></span>
-  );
-};
+    return (
+      <span
+        ref={ref}
+        className={cn(spinnerVariants({ size: size ?? themeSize }), className)}
+        aria-label="loading..."
+      />
+    );
+  },
+);
 export { Spinner };

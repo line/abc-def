@@ -35,14 +35,7 @@
 }
 
 .dialog-header {
-  @apply flex flex-col gap-1 text-left;
-}
-
-.dialog-icon {
-  @apply p-1;
-
-  /* default */
-  @apply dialog-icon-default;
+  @apply text-left;
 }
 
 .dialog-title {

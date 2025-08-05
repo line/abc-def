@@ -17,8 +17,8 @@
 
 import * as React from "react";
 
-import type { TextInputProps } from "./input";
-import { InputBox, InputField, TextInput } from "./input";
+import type { TextInputProps } from "./text-input";
+import { cn } from "../lib/utils";
 import {
   Select,
   SelectContent,
@@ -26,6 +26,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./select";
+import { TextInput } from "./text-input";
 
 interface PeriodSelectorProps {
   period: Period;
@@ -192,28 +193,27 @@ const TimePickerInput = React.forwardRef<
     };
 
     return (
-      <InputField className={className}>
-        <InputBox>
-          <TextInput
-            ref={ref}
-            id={id ?? picker}
-            name={name ?? picker}
-            className="text-center font-mono tabular-nums caret-transparent [&::-webkit-inner-spin-button]:appearance-none"
-            value={value ?? calculatedValue}
-            onChange={(e) => {
-              e.preventDefault();
-              onChange?.(e);
-            }}
-            type={type}
-            inputMode="decimal"
-            onKeyDown={(e) => {
-              onKeyDown?.(e);
-              handleKeyDown(e);
-            }}
-            {...props}
-          />
-        </InputBox>
-      </InputField>
+      <TextInput
+        ref={ref}
+        id={id ?? picker}
+        name={name ?? picker}
+        className={cn(
+          "text-center font-mono tabular-nums caret-transparent [&::-webkit-inner-spin-button]:appearance-none",
+          className,
+        )}
+        value={value ?? calculatedValue}
+        onChange={(e) => {
+          e.preventDefault();
+          onChange?.(e);
+        }}
+        type={type}
+        inputMode="decimal"
+        onKeyDown={(e) => {
+          onKeyDown?.(e);
+          handleKeyDown(e);
+        }}
+        {...props}
+      />
     );
   },
 );

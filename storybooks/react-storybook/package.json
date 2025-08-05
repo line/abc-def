@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "@abc-def/react": "workspace:^",
-    "@hookform/resolvers": "^5.1.1",
+    "@hookform/resolvers": "^5.2.1",
     "react": "catalog:react",
     "react-dom": "catalog:react",
-    "react-hook-form": "^7.60.0",
-    "zod": "^4.0.0"
+    "react-hook-form": "^7.62.0",
+    "zod": "^4.0.14"
   },
   "devDependencies": {
     "@abc-def/eslint-config": "workspace:^",

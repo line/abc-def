@@ -13,6 +13,14 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+.sheet-header-vertical {
+  @apply flex flex-shrink-0 flex-col gap-1;
+}
+
+.sheet-header-horizontal {
+  @apply flex flex-shrink-0 flex-row items-center gap-1;
+}
+
 .sheet-side-top {
   @apply data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top !rounded-t-0 inset-x-0 top-0 max-h-[75%] border-b;
 }

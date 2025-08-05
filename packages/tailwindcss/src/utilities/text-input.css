@@ -13,54 +13,55 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.input[aria-invalid="true"] {
+
+.text-input[aria-invalid="true"] {
   @apply !border-2 !border-[var(--text-input-border-error)] !bg-[var(--text-input-bg-error)] !text-[var(--text-input-fg-error)];
 }
 
-.input-large {
+.text-input-box > svg {
+  @apply [&:has(+.text-input-large)]:left-4 [&:has(+.text-input-large)]:h-6 [&:has(+.text-input-large)]:w-6;
+  @apply [&:has(+.text-input-medium)]:left-3.5 [&:has(+.text-input-medium)]:h-5 [&:has(+.text-input-medium)]:w-5;
+  @apply [&:has(+.text-input-small)]:left-3 [&:has(+.text-input-small)]:h-4 [&:has(+.text-input-small)]:w-4;
+}
+
+.text-input-large {
   @apply text-xlarge-normal h-13 px-5 py-2.5;
+  @apply [&:has(+.text-input-button)]:!pr-12;
+  @apply [svg+&]:!pl-12;
 }
 
-.input-medium {
+.text-input-medium {
   @apply text-large-normal h-11 px-4 py-2.5;
+  @apply [&:has(+.text-input-button)]:!pr-10;
+  @apply [svg+&]:!pl-10;
 }
 
-.input-small {
+.text-input-small {
   @apply text-base-normal h-9 px-3 py-2;
+  @apply [&:has(+.text-input-button)]:!pr-8;
+  @apply [svg+&]:!pl-8;
 }
 
-.input-radius-large {
+.text-input-radius-large {
   @apply rounded-full;
 }
 
-.input-radius-medium {
+.text-input-radius-medium {
   @apply rounded-8;
 }
 
-.input-radius-small {
+.text-input-radius-small {
   @apply rounded-0;
 }
 
-.input-icon-large {
-  @apply left-4;
-}
-
-.input-icon-medium {
-  @apply left-3.5;
-}
-
-.input-icon-small {
-  @apply left-3;
-}
-
-.input-button-large {
+.text-input-button-large {
   @apply right-4;
 }
 
-.input-button-medium {
+.text-input-button-medium {
   @apply right-3.5;
 }
 
-.input-button-small {
+.text-input-button-small {
   @apply right-3;
 }

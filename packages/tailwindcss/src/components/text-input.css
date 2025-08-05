@@ -13,11 +13,20 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.input-field {
+
+.text-input-box {
+  @apply relative;
+}
+
+.text-input-box > svg {
+  @apply [&:has(+.text-input)]:absolute-y-center [&:has(+.text-input)]:flex [&:has(+.text-input)]:flex-shrink-0 [&:has(+.text-input)]:items-center [&:has(+.text-input)]:justify-center;
+}
+
+.text-input {
   --text-input-fg: var(--fg-neutral-tertiary);
   --text-input-fg-typing: var(--fg-neutral-primary);
   --text-input-fg-filled: var(--fg-neutral-primary);
-  --text-input-fg-error: var(--fg-neutral-primary);
+  --text-input-fg-error: var(--fg-neutral-tertiary);
   --text-input-border: var(--border-neutral-tertiary);
   --text-input-border-typing: var(--tint, var(--border-neutral-primary));
   --text-input-border-filled: var(--border-neutral-tertiary);
@@ -27,16 +36,6 @@
   --text-input-bg-filled: var(--bg-neutral-primary);
   --text-input-bg-error: var(--bg-neutral-primary);
 
-  @apply flex flex-col gap-1.5;
-}
-
-.input-box {
-  @apply relative;
-  @apply [&:has(.input-button)>.input-large]:!pr-12 [&:has(.input-button)>.input-medium]:!pr-10 [&:has(.input-button)>.input-small]:!pr-8;
-  @apply [&:has(.input-icon)>.input-large]:!pl-12 [&:has(.input-icon)>.input-medium]:!pl-10 [&:has(.input-icon)>.input-small]:!pl-8;
-}
-
-.input {
   @apply text-[var(--text-input-fg-filled)] placeholder:text-[var(--text-input-fg)] placeholder-shown:text-[var(--text-input-fg)] focus-visible:text-[var(--text-input-fg-typing)];
   @apply border border-[var(--text-input-border-filled)] placeholder-shown:border placeholder-shown:border-[var(--text-input-border)] focus-visible:border-2 focus-visible:border-[var(--text-input-border-typing)];
   @apply bg-[var(--text-input-bg-filled)] placeholder-shown:bg-[var(--text-input-bg)] focus-visible:bg-[var(--text-input-bg-typing)];
@@ -45,29 +44,22 @@
   @apply disabled:cursor-not-allowed disabled:opacity-50 [&::-webkit-search-cancel-button]:hidden;
 
   /* default */
-  @apply input-small input-radius-medium;
+  @apply text-input-small text-input-radius-medium;
 }
 
-.input-button {
+.text-input-button {
   @apply absolute-y-center flex flex-shrink-0 items-center justify-center disabled:cursor-not-allowed disabled:opacity-50;
 
   /* default */
-  @apply input-button-small;
+  @apply text-input-button-small;
 }
 
-.input-button.show-only-on-focus-and-has-value {
+.text-input-button.show-only-on-focus-and-has-value {
   @apply hidden;
 }
 
-.input-box:focus-within
-  .input:not(:placeholder-shown)
-  ~ .input-button.show-only-on-focus-and-has-value {
+.text-input-box:focus-within
+  .text-input:not(:placeholder-shown)
+  ~ .text-input-button.show-only-on-focus-and-has-value {
   @apply flex;
-}
-
-.input-icon {
-  @apply absolute-y-center flex;
-
-  /* default */
-  @apply input-icon-small;
 }

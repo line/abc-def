@@ -17,7 +17,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
 import {
-  IconNames,
+  Icon,
   Sheet,
   SheetBody,
   SheetClose,
@@ -34,7 +34,7 @@ const Props = {
     side: "↳ SheetContent: side",
   },
   SheetHeader: {
-    icon: "↳ SheetHeader: icon",
+    direction: "↳ SheetHeader: direction",
   },
   SheetTitle: {
     children: "↳ SheetTitle: children",
@@ -53,9 +53,9 @@ const meta: Meta<
     [Props.SheetContent.side]: React.ComponentPropsWithoutRef<
       typeof SheetContent
     >["side"];
-    [Props.SheetHeader.icon]: React.ComponentPropsWithoutRef<
+    [Props.SheetHeader.direction]: React.ComponentPropsWithoutRef<
       typeof SheetHeader
-    >["icon"];
+    >["direction"];
     [Props.SheetTitle.children]: React.ComponentPropsWithoutRef<
       typeof SheetTitle
     >["children"];
@@ -73,10 +73,10 @@ const meta: Meta<
   title: "Sheet",
   component: Sheet,
   args: {
-    [Props.SheetContent.side]: "right",
-    [Props.SheetHeader.icon]: "RiFlashlightFill",
+    [Props.SheetHeader.direction]: "vertical",
     [Props.SheetTitle.children]: "Title",
     [Props.SheetDescription.children]: "Description",
+    [Props.SheetContent.side]: "right",
     [Props.SheetClose.variant]: undefined,
     [Props.SheetClose.children]: "Button",
   },
@@ -95,16 +95,16 @@ const meta: Meta<
       control: "select",
       options: ["top", "right", "bottom", "left"],
     },
-    [Props.SheetHeader.icon]: {
-      description: "Set the icon of the SheetHeader.",
+    [Props.SheetHeader.direction]: {
+      description: "Set the direction of the SheetHeader.",
       table: {
         category: "SheetHeader",
         type: {
-          summary: "IconNameType",
+          summary: "vertical | horizontal",
         },
       },
       control: "select",
-      options: IconNames,
+      options: ["vertical", "horizontal"],
     },
     [Props.SheetTitle.children]: {
       description: "Set the children of the SheetTitle.",
@@ -155,7 +155,8 @@ const meta: Meta<
     <Sheet>
       <SheetTrigger>Trigger</SheetTrigger>
       <SheetContent side={args[Props.SheetContent.side]}>
-        <SheetHeader icon={args[Props.SheetHeader.icon]}>
+        <SheetHeader direction={args[Props.SheetHeader.direction]}>
+          <Icon name="RiFlashlightFill" size={38} className="flex p-1" />
           <SheetTitle>{args[Props.SheetTitle.children]}</SheetTitle>
           <SheetDescription>
             {args[Props.SheetDescription.children]}
@@ -202,7 +203,8 @@ export const Right = () => (
   <Sheet>
     <SheetTrigger>Trigger</SheetTrigger>
     <SheetContent side="right">
-      <SheetHeader icon="RiFlashlightFill">
+      <SheetHeader>
+        <Icon name="RiFlashlightFill" size={38} className="flex p-1" />
         <SheetTitle>Title</SheetTitle>
         <SheetDescription>Description</SheetDescription>
       </SheetHeader>
@@ -238,7 +240,8 @@ export const Bottom = () => (
   <Sheet>
     <SheetTrigger>Trigger</SheetTrigger>
     <SheetContent side="bottom">
-      <SheetHeader icon="RiFlashlightFill">
+      <SheetHeader>
+        <Icon name="RiFlashlightFill" size={38} className="flex p-1" />
         <SheetTitle>Title</SheetTitle>
         <SheetDescription>Description</SheetDescription>
       </SheetHeader>
@@ -274,7 +277,8 @@ export const Left = () => (
   <Sheet>
     <SheetTrigger>Trigger</SheetTrigger>
     <SheetContent side="left">
-      <SheetHeader icon="RiFlashlightFill">
+      <SheetHeader>
+        <Icon name="RiFlashlightFill" size={38} className="flex p-1" />
         <SheetTitle>Title</SheetTitle>
         <SheetDescription>Description</SheetDescription>
       </SheetHeader>
@@ -310,7 +314,8 @@ export const Top = () => (
   <Sheet>
     <SheetTrigger>Trigger</SheetTrigger>
     <SheetContent side="top">
-      <SheetHeader icon="RiFlashlightFill">
+      <SheetHeader>
+        <Icon name="RiFlashlightFill" size={38} className="flex p-1" />
         <SheetTitle>Title</SheetTitle>
         <SheetDescription>Description</SheetDescription>
       </SheetHeader>

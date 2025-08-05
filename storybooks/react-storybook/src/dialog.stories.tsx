@@ -26,19 +26,16 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogIcon,
   DialogTitle,
   DialogTrigger,
-  IconNames,
-  InputField,
+  Icon,
   Label,
   TextInput,
 } from "@abc-def/react";
 
 const Props = {
-  DialogIcon: {
-    variant: "↳ DialogIcon: variant",
-    name: "↳ DialogIcon: name",
+  DialogHeader: {
+    direction: "↳ DialogHeader: direction",
   },
   DialogTitle: {
     children: "↳ DialogTitle: children",
@@ -57,12 +54,9 @@ const Props = {
 
 const meta: Meta<
   React.ComponentProps<typeof Dialog> & {
-    [Props.DialogIcon.variant]: React.ComponentPropsWithoutRef<
-      typeof DialogIcon
-    >["variant"];
-    [Props.DialogIcon.name]: React.ComponentPropsWithoutRef<
-      typeof DialogIcon
-    >["name"];
+    [Props.DialogHeader.direction]: React.ComponentPropsWithoutRef<
+      typeof DialogHeader
+    >["direction"];
     [Props.DialogTitle.children]: React.ComponentPropsWithoutRef<
       typeof DialogTitle
     >["children"];
@@ -83,8 +77,7 @@ const meta: Meta<
   title: "Dialog",
   component: Dialog,
   args: {
-    [Props.DialogIcon.variant]: "default",
-    [Props.DialogIcon.name]: "RiFlashlightFill",
+    [Props.DialogHeader.direction]: "vertical",
     [Props.DialogTitle.children]: "Title",
     [Props.DialogDescription.children]: "Description",
     [Props.DialogClose.variant]: undefined,
@@ -92,30 +85,19 @@ const meta: Meta<
     [Props.DialogFooter.align]: "right",
   },
   argTypes: {
-    [Props.DialogIcon.variant]: {
-      description: "Set the variant of the DialogIcon.",
+    [Props.DialogHeader.direction]: {
+      description: "Set the direction of the DialogHeader.",
       table: {
-        category: "DialogIcon",
+        category: "DialogHeader",
         defaultValue: {
-          summary: "default",
+          summary: "vertical",
         },
         type: {
-          summary: "default | warning | success | error | informative",
+          summary: "vertical | horizontal",
         },
       },
       control: "radio",
-      options: ["default", "warning", "success", "error", "informative"],
-    },
-    [Props.DialogIcon.name]: {
-      description: "Set the name of the DialogIcon.",
-      table: {
-        category: "DialogIcon",
-        type: {
-          summary: "IconNameType",
-        },
-      },
-      control: "select",
-      options: IconNames,
+      options: ["vertical", "horizontal"],
     },
     [Props.DialogTitle.children]: {
       description: "Set the children of the DialogTitle.",
@@ -180,28 +162,25 @@ const meta: Meta<
     <Dialog>
       <DialogTrigger>Open</DialogTrigger>
       <DialogContent>
-        <DialogHeader>
-          <DialogIcon
-            name={args[Props.DialogIcon.name]}
-            variant={args[Props.DialogIcon.variant]}
-          />
+        <DialogHeader direction={args[Props.DialogHeader.direction]}>
+          <Icon name="RiFlashlightFill" />
           <DialogTitle>{args[Props.DialogTitle.children]}</DialogTitle>
           <DialogDescription>
             {args[Props.DialogDescription.children]}
           </DialogDescription>
         </DialogHeader>
         <DialogBody>
-          <InputField>
+          <div className="space-y-2">
             <Label>Label</Label>
             <TextInput size="small" />
-          </InputField>
-          <InputField>
+          </div>
+          <div className="space-y-2">
             <Label>Label</Label>
             <TextInput size="small" />
             <Caption variant="info">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             </Caption>
-          </InputField>
+          </div>
         </DialogBody>
         <DialogFooter align={args[Props.DialogFooter.align]}>
           <DialogClose
@@ -230,7 +209,7 @@ export const Warning = () => (
     <DialogTrigger>Warning</DialogTrigger>
     <DialogContent>
       <DialogHeader>
-        <DialogIcon variant="warning" />
+        <Icon name="RiErrorWarningFill" className="text-tint-orange" />
         <DialogTitle>Title</DialogTitle>
         <DialogDescription>Description</DialogDescription>
       </DialogHeader>
@@ -259,7 +238,7 @@ export const Information = () => (
     <DialogTrigger>Information</DialogTrigger>
     <DialogContent>
       <DialogHeader>
-        <DialogIcon variant="informative" />
+        <Icon name="RiInformation2Fill" className="text-tint-blue" />
         <DialogTitle>Title</DialogTitle>
         <DialogDescription>Description</DialogDescription>
       </DialogHeader>
@@ -288,7 +267,7 @@ export const Success = () => (
     <DialogTrigger>Success</DialogTrigger>
     <DialogContent>
       <DialogHeader>
-        <DialogIcon variant="success" />
+        <Icon name="RiCheckboxCircleFill" className="text-tint-green" />
         <DialogTitle>Title</DialogTitle>
         <DialogDescription>Description</DialogDescription>
       </DialogHeader>
@@ -317,7 +296,7 @@ export const Fail = () => (
     <DialogTrigger>Fail</DialogTrigger>
     <DialogContent>
       <DialogHeader>
-        <DialogIcon variant="error" />
+        <Icon name="RiCloseCircleFill" className="text-tint-red" />
         <DialogTitle>Title</DialogTitle>
         <DialogDescription>Description</DialogDescription>
       </DialogHeader>
@@ -341,114 +320,11 @@ export const Fail = () => (
   </Dialog>
 );
 
-export const Button_1 = () => (
-  <Dialog>
-    <DialogTrigger variant="primary">Footer Button 1</DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogIcon name="RiFlashlightFill" variant="default" />
-        <DialogTitle>Title</DialogTitle>
-        <DialogDescription>Description</DialogDescription>
-      </DialogHeader>
-      <DialogFooter>
-        <Button
-          variant="primary"
-          size="small"
-          onClick={() => alert("clicked!")}
-        >
-          Button
-        </Button>
-      </DialogFooter>
-    </DialogContent>
-  </Dialog>
-);
-
-export const Button_1_Full = () => (
-  <Dialog>
-    <DialogTrigger variant="primary">Footer Button 1 (full)</DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogIcon name="RiFlashlightFill" variant="default" />
-        <DialogTitle>Title</DialogTitle>
-        <DialogDescription>Description</DialogDescription>
-      </DialogHeader>
-      <DialogFooter align="full">
-        <Button
-          variant="primary"
-          size="small"
-          onClick={() => alert("clicked!")}
-        >
-          Button
-        </Button>
-      </DialogFooter>
-    </DialogContent>
-  </Dialog>
-);
-
-export const Button_2 = () => (
-  <Dialog>
-    <DialogTrigger variant="primary">Footer Button 2</DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogIcon name="RiFlashlightFill" variant="default" />
-        <DialogTitle>Title</DialogTitle>
-        <DialogDescription>Description</DialogDescription>
-      </DialogHeader>
-      <DialogFooter>
-        <Button
-          variant="outline"
-          size="small"
-          onClick={() => alert("clicked!")}
-        >
-          Button
-        </Button>
-        <Button
-          variant="primary"
-          size="small"
-          onClick={() => alert("clicked!")}
-        >
-          Button
-        </Button>
-      </DialogFooter>
-    </DialogContent>
-  </Dialog>
-);
-
-export const Button_2_Full = () => (
-  <Dialog>
-    <DialogTrigger variant="primary">Footer Button 2 (full)</DialogTrigger>
-    <DialogContent>
-      <DialogHeader>
-        <DialogIcon name="RiFlashlightFill" variant="default" />
-        <DialogTitle>Title</DialogTitle>
-        <DialogDescription>Description</DialogDescription>
-      </DialogHeader>
-      <DialogFooter align="full">
-        <Button
-          variant="outline"
-          size="small"
-          onClick={() => alert("clicked!")}
-        >
-          Button
-        </Button>
-        <Button
-          variant="primary"
-          size="small"
-          onClick={() => alert("clicked!")}
-        >
-          Button
-        </Button>
-      </DialogFooter>
-    </DialogContent>
-  </Dialog>
-);
-
 export const Button_3 = () => (
   <Dialog>
-    <DialogTrigger variant="primary">Footer Button 3</DialogTrigger>
+    <DialogTrigger>Trigger</DialogTrigger>
     <DialogContent>
       <DialogHeader>
-        <DialogIcon name="RiFlashlightFill" variant="default" />
         <DialogTitle>Title</DialogTitle>
         <DialogDescription>Description</DialogDescription>
       </DialogHeader>
@@ -482,10 +358,9 @@ export const Button_3 = () => (
 
 export const Button_3_Full = () => (
   <Dialog>
-    <DialogTrigger variant="primary">Footer Button 3 (full)</DialogTrigger>
+    <DialogTrigger>Trigger</DialogTrigger>
     <DialogContent>
       <DialogHeader>
-        <DialogIcon name="RiFlashlightFill" variant="default" />
         <DialogTitle>Title</DialogTitle>
         <DialogDescription>Description</DialogDescription>
       </DialogHeader>
