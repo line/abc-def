@@ -15,8 +15,12 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-
-import { Badge, Icon, TimePeriodSelect, TimePickerInput } from "@line/abc-def-react";
+import {
+  Badge,
+  Icon,
+  TimePeriodSelect,
+  TimePickerInput,
+} from "@line/abc-def-react";
 
 const meta: Meta = {
   title: "TimePicker",

@@ -13,10 +13,9 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+import type { DateRange } from "@line/abc-def-react";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-
-import type { DateRange } from "@line/abc-def-react";
 import { Badge, Calendar } from "@line/abc-def-react";
 
 const meta: Meta<typeof Calendar> = {
