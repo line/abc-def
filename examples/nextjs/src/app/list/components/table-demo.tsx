@@ -15,6 +15,7 @@
  */
 
 import type { BadgeProps } from "@line/abc-def-react";
+
 import {
   Badge,
   Checkbox,
