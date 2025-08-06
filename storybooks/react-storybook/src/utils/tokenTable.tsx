@@ -15,7 +15,7 @@
  */
 import React from "react";
 
-import { toast } from "@abc-def/react";
+import { toast } from "@line/abc-def-react";
 
 export default function TokenTable({
   items,

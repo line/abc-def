@@ -15,7 +15,7 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Badge } from "@abc-def/react";
+import { Badge } from "@line/abc-def-react";
 
 const meta: Meta<typeof Badge> = {
   title: "Badge",

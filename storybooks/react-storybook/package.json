@@ -1,5 +1,5 @@
 {
-  "name": "@abc-def/react-storybook",
+  "name": "@line/abc-def-react-storybook",
   "private": true,
   "version": "0.1.1",
   "type": "module",
@@ -12,19 +12,19 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@abc-def/react": "workspace:^",
     "@hookform/resolvers": "^5.2.1",
+    "@line/abc-def-react": "workspace:^",
     "react": "catalog:react",
     "react-dom": "catalog:react",
     "react-hook-form": "^7.62.0",
     "zod": "^4.0.14"
   },
   "devDependencies": {
-    "@abc-def/eslint-config": "workspace:^",
-    "@abc-def/prettier-config": "workspace:^",
-    "@abc-def/tailwindcss": "workspace:^",
-    "@abc-def/tsconfig": "workspace:^",
     "@chromatic-com/storybook": "catalog:storybook",
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tailwindcss": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/react": "catalog:storybook",
     "@storybook/react-vite": "catalog:storybook",
@@ -41,5 +41,5 @@
     "typescript": "catalog:",
     "vite": "^7.0.6"
   },
-  "prettier": "@abc-def/prettier-config"
+  "prettier": "@line/abc-def-prettier-config"
 }

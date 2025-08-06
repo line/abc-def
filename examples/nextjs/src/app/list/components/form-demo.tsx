@@ -17,7 +17,7 @@
 
 import { useForm } from "react-hook-form";
 
-import { Form, FormField, TextInput } from "@abc-def/react";
+import { Form, FormField, TextInput } from "@line/abc-def-react";
 
 interface Props {}
 

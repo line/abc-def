@@ -1,6 +1,7 @@
 {
-  "name": "@abc-def/eslint-plugin-header",
+  "name": "@line/abc-def-eslint-plugin-header",
   "private": true,
+  "version": "0.1.0",
   "type": "module",
   "main": "./index.js"
 }

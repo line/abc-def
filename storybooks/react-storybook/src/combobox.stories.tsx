@@ -29,7 +29,7 @@ import {
   ComboboxSeparator,
   ComboboxTrigger,
   Icon,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   ComboboxTrigger: {

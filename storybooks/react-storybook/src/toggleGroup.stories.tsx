@@ -16,7 +16,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
-import { Icon, ToggleGroup, ToggleGroupItem } from "@abc-def/react";
+import { Icon, ToggleGroup, ToggleGroupItem } from "@line/abc-def-react";
 
 const Props = {
   ToggleGroupItem: {

@@ -26,7 +26,7 @@ import {
   MenuDropdownItem,
   MenuDropdownTrigger,
   MenuItem,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   MenuItem: {

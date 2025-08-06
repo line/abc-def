@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Caption } from "@abc-def/react";
+import { Caption } from "@line/abc-def-react";
 
 interface Props {}
 

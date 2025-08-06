@@ -1,5 +1,5 @@
 {
-  "name": "abc-def",
+  "name": "@line/abc-def",
   "private": true,
   "engines": {
     "node": ">=22.18.0",
@@ -19,13 +19,17 @@
     "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
     "lint:ws": "pnpm dlx sherif@latest",
     "postinstall": "pnpm lint:ws",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "release": "pnpm publish -r --access public",
+    "changeset:add": "pnpm changeset add",
+    "changeset:version": "pnpm changeset version",
+    "changeset:publish": "pnpm changeset publish"
   },
   "devDependencies": {
-    "@abc-def/prettier-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
     "prettier": "catalog:",
     "turbo": "^2.5.5",
     "typescript": "catalog:"
   },
-  "prettier": "@abc-def/prettier-config"
+  "prettier": "@line/abc-def-prettier-config"
 }

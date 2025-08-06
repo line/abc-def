@@ -24,7 +24,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 export default function ThemeSelect() {
   const [theme, setTheme] = React.useState<string | undefined>(undefined);

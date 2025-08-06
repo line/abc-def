@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import { Calendar } from "@abc-def/react";
+import { Calendar } from "@line/abc-def-react";
 
 interface Props {}
 

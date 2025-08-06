@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Icon } from "@abc-def/react";
+import { Icon } from "@line/abc-def-react";
 
 interface Props {}
 

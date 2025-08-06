@@ -31,7 +31,7 @@ import {
   Icon,
   Label,
   TextInput,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   DialogHeader: {

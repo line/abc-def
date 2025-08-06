@@ -14,7 +14,8 @@
  * under the License.
  */
 
-import type { BadgeProps } from "@abc-def/react";
+import type { BadgeProps } from "@line/abc-def-react";
+
 import {
   Badge,
   Checkbox,
@@ -26,7 +27,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const items: {
   company: string;

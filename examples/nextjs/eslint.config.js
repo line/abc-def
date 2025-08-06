@@ -1,6 +1,6 @@
-import baseConfig from "@abc-def/eslint-config/base";
-import nextjsConfig from "@abc-def/eslint-config/nextjs";
-import reactConfig from "@abc-def/eslint-config/react";
+import baseConfig from "@line/abc-def-eslint-config/base";
+import nextjsConfig from "@line/abc-def-eslint-config/nextjs";
+import reactConfig from "@line/abc-def-eslint-config/react";
 
 /** @type {import('typescript-eslint').Config} */
 export default [

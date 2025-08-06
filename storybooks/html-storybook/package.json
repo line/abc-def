@@ -1,5 +1,5 @@
 {
-  "name": "@abc-def/html-storybook",
+  "name": "@line/abc-def-html-storybook",
   "private": true,
   "version": "0.1.1",
   "type": "module",
@@ -15,11 +15,11 @@
     "lit": "^3.3.1"
   },
   "devDependencies": {
-    "@abc-def/eslint-config": "workspace:^",
-    "@abc-def/prettier-config": "workspace:^",
-    "@abc-def/tailwindcss": "workspace:^",
-    "@abc-def/tsconfig": "workspace:^",
     "@chromatic-com/storybook": "catalog:storybook",
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tailwindcss": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/web-components": "catalog:storybook",
     "@storybook/web-components-vite": "catalog:storybook",
@@ -30,5 +30,5 @@
     "typescript": "catalog:",
     "vite": "^7.0.6"
   },
-  "prettier": "@abc-def/prettier-config"
+  "prettier": "@line/abc-def-prettier-config"
 }

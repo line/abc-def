@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Checkbox } from "@abc-def/react";
+import { Checkbox } from "@line/abc-def-react";
 
 interface Props {}
 

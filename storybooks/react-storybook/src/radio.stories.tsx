@@ -15,7 +15,7 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { RadioGroup, RadioItem } from "@abc-def/react";
+import { RadioGroup, RadioItem } from "@line/abc-def-react";
 
 const Props = {
   RadioItem: {

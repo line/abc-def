@@ -22,7 +22,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 interface Props {}
 

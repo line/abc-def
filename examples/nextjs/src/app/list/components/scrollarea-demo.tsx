@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { ScrollArea } from "@abc-def/react";
+import { ScrollArea } from "@line/abc-def-react";
 
 interface Props {}
 

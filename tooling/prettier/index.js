@@ -22,7 +22,7 @@ const config = {
     "<THIRD_PARTY_MODULES>",
     "",
     "<TYPES>^@abc-def",
-    "^@abc-def/(.*)$",
+    "^@line/abc-def-(.*)$",
     "",
     "<TYPES>^[.|..|~]",
     "^@/",

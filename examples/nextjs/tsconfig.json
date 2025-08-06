@@ -1,5 +1,5 @@
 {
-  "extends": "@abc-def/tsconfig/base.json",
+  "extends": "@line/abc-def-tsconfig/base.json",
   "compilerOptions": {
     "lib": ["es2022", "dom", "dom.iterable"],
     "jsx": "preserve",

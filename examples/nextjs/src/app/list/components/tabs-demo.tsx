@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@abc-def/react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@line/abc-def-react";
 
 interface Props {}
 

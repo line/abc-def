@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Button } from "@abc-def/react";
+import { Button } from "@line/abc-def-react";
 
 interface Props {}
 

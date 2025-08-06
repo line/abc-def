@@ -1,7 +1,24 @@
 {
-  "name": "@abc-def/tailwindcss",
-  "version": "0.1.1",
-  "private": true,
+  "name": "@line/abc-def-tailwindcss",
+  "version": "0.1.5",
+  "description": "Tailwindcss Plugin for abc-def",
+  "license": "Apache-2.0",
+  "homepage": "https://line.github.io/abc-def/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/line/abc-def.git",
+    "directory": "packages/tailwindcss"
+  },
+  "bugs": "https://github.com/line/abc-def/issues",
+  "keywords": [
+    "abc-def",
+    "abc def",
+    "tailwind",
+    "tailwindcss",
+    "tailwind css",
+    "tailwind plugin",
+    "tailwind css plugin"
+  ],
   "main": "index.js",
   "types": "index.d.ts",
   "typings": "index.d.ts",
@@ -17,10 +34,10 @@
     "clean": "rm -rf .turbo node_modules dist .cache"
   },
   "devDependencies": {
-    "@abc-def/eslint-config": "workspace:*",
-    "@abc-def/prettier-config": "workspace:*",
-    "@abc-def/stylelint-config": "workspace:*",
-    "@abc-def/tsconfig": "workspace:^",
+    "@line/abc-def-eslint-config": "workspace:*",
+    "@line/abc-def-prettier-config": "workspace:*",
+    "@line/abc-def-stylelint-config": "workspace:*",
+    "@line/abc-def-tsconfig": "workspace:^",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
     "glob": "^11.0.3",

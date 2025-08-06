@@ -38,7 +38,7 @@ import {
   SelectTrigger,
   SelectValue,
   toast,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const Props = {
   SelectValue: { placeholder: "↳ SelectValue: placeholder" },

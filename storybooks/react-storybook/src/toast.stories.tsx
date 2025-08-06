@@ -15,7 +15,7 @@
  */
 import type { Meta } from "@storybook/react";
 
-import { Button, Icon, toast, Toaster } from "@abc-def/react";
+import { Button, Icon, toast, Toaster } from "@line/abc-def-react";
 
 const meta: Meta<React.ComponentProps<typeof toast>> = {
   title: "Toast",

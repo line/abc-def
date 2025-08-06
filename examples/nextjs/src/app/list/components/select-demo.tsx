@@ -22,7 +22,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 interface Props {}
 

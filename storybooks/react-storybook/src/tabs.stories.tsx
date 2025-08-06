@@ -15,7 +15,13 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Icon, Tabs, TabsContent, TabsList, TabsTrigger } from "@abc-def/react";
+import {
+  Icon,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@line/abc-def-react";
 
 const meta: Meta<typeof Tabs> = {
   title: "Tabs",

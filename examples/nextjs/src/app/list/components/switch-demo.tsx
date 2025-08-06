@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { Switch } from "@abc-def/react";
+import { Switch } from "@line/abc-def-react";
 
 interface Props {}
 

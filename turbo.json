@@ -10,7 +10,7 @@
       "outputs": [".cache/tsbuildinfo.json", "dist/**"]
     },
     "dev:storybook": {
-      "dependsOn": ["@abc-def/react#build", "@abc-def/tailwindcss#build"],
+      "dependsOn": ["@line/abc-def-react#build", "@line/abc-def-tailwindcss#build"],
       "cache": false,
       "persistent": false
     },

@@ -37,7 +37,7 @@ import {
   TextInput,
   ToggleGroup,
   ToggleGroupItem,
-} from "@abc-def/react";
+} from "@line/abc-def-react";
 
 const ChangeRoundedBase = () => {
   const [radius, setRadius] = useState(

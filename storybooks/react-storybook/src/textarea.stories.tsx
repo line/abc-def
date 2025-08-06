@@ -15,7 +15,7 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Textarea } from "@abc-def/react";
+import { Textarea } from "@line/abc-def-react";
 
 const meta: Meta<typeof Textarea> = {
   title: "Textarea",

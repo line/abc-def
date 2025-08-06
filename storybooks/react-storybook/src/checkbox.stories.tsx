@@ -15,7 +15,7 @@
  */
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Checkbox } from "@abc-def/react";
+import { Checkbox } from "@line/abc-def-react";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Checkbox",

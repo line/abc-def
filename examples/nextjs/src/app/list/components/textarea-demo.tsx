@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import { Textarea } from "@abc-def/react";
+import { Textarea } from "@line/abc-def-react";
 
 interface Props {}
 
