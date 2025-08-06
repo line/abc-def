@@ -14,8 +14,8 @@
  * under the License.
  */
 .table {
-  --table-header-fg: var(--fg-neutral-tertiary);
-  --table-cell-fg: var(--fg-neutral-primary);
+  --table-fg-header: var(--fg-neutral-tertiary);
+  --table-fg-cell: var(--fg-neutral-primary);
   --table-border: var(--border-neutral-tertiary);
   --table-bg: var(--bg-neutral-primary);
   --table-bg-hover: var(--bg-neutral-tertiary);
@@ -40,19 +40,19 @@
 }
 
 .table-head {
-  @apply text-base-normal h-12 px-4 align-middle font-normal text-[var(--table-header-fg)] [&:has([role=checkbox])]:pr-0 [&>.badge]:mr-1 [&>svg]:mr-1 [&>svg]:text-[var(--table-header-fg)];
+  @apply text-base-normal h-12 px-4 align-middle font-normal text-[var(--table-fg-header)] [&:has([role=checkbox])]:pr-0 [&>.badge]:mr-1 [&>svg]:mr-1 [&>svg]:text-[var(--table-fg-header)];
 
   /* default */
   @apply table-head-left;
 }
 
 .table-cell {
-  @apply text-base-normal px-4 py-3 align-middle text-[var(--table-cell-fg)] [&:has([role=checkbox])]:pr-0 [&>.badge]:mr-1 [&>svg]:text-[var(--table-cell-fg)];
+  @apply text-base-normal px-4 py-3 align-middle text-[var(--table-fg-cell)] [&:has([role=checkbox])]:pr-0 [&>.badge]:mr-1 [&>svg]:text-[var(--table-fg-cell)];
 
   /* default */
   @apply table-cell-left;
 }
 
 .table-caption {
-  @apply text-small-normal mt-1 text-[--table-header-fg];
+  @apply text-small-normal mt-1 text-[--table-fg-header];
 }

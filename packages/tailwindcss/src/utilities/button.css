@@ -38,41 +38,41 @@
 }
 
 .button-primary {
-  @apply bg-[var(--button-primary-bg)] text-[var(--button-primary-fg)];
+  @apply bg-[var(--button-bg-primary)] text-[var(--button-fg-primary)];
 }
 
 .button-secondary {
-  @apply bg-[var(--button-secondary-bg)] text-[var(--button-secondary-fg)];
+  @apply bg-[var(--button-bg-secondary)] text-[var(--button-fg-secondary)];
 }
 
 .button-destructive {
-  @apply bg-[var(--button-destructive-bg)] text-[var(--button-destructive-fg)];
+  @apply bg-[var(--button-bg-destructive)] text-[var(--button-fg-destructive)];
 }
 
 .button-ghost {
-  @apply bg-[var(--button-ghost-bg)] text-[var(--button-ghost-fg)] transition-colors data-[state=open]:bg-[var(--button-ghost-bg-hover)] [&:not(:disabled)]:hover:bg-[var(--button-ghost-bg-hover)];
+  @apply bg-[var(--button-bg-ghost)] text-[var(--button-fg-ghost)] transition-colors data-[state=open]:bg-[var(--button-bg-ghost-hover)] [&:not(:disabled)]:hover:bg-[var(--button-bg-ghost-hover)];
 }
 
 .button-outline {
-  @apply border border-[var(--button-outline-border)] bg-[var(--button-outline-bg)] text-[var(--button-outline-fg)] transition-colors data-[state=open]:bg-[var(--button-outline-bg-hover)] [&:not(:disabled)]:hover:bg-[var(--button-outline-bg-hover)];
+  @apply border border-[var(--button-border-outline)] bg-[var(--button-bg-outline)] text-[var(--button-fg-outline)] transition-colors data-[state=open]:bg-[var(--button-bg-outline-hover)] [&:not(:disabled)]:hover:bg-[var(--button-bg-outline-hover)];
 }
 
 .button-loading-primary {
-  @apply text-[var(--button-primary-fg)];
+  @apply text-[var(--button-fg-primary)];
 }
 
 .button-loading-secondary {
-  @apply text-[var(--button-secondary-fg)];
+  @apply text-[var(--button-fg-secondary)];
 }
 
 .button-loading-destructive {
-  @apply text-[var(--button-destructive-fg)];
+  @apply text-[var(--button-fg-destructive)];
 }
 
 .button-loading-ghost {
-  @apply text-[var(--button-ghost-fg)];
+  @apply text-[var(--button-fg-ghost)];
 }
 
 .button-loading-outline {
-  @apply text-[var(--button-outline-fg)];
+  @apply text-[var(--button-fg-outline)];
 }

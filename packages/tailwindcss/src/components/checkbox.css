@@ -14,28 +14,25 @@
  * under the License.
  */
 .checkbox {
-  --checkbox-fg: var(--fg-neutral-primary);
-  --checkbox-fg-checked: var(--fg-neutral-primary);
-  --checkbox-fg-indeterminate: var(--fg-neutral-primary);
-  --checkbox-icon: var(--fg-neutral-inverse);
-  --checkbox-icon-checked: var(--fg-neutral-inverse);
-  --checkbox-border-default: var(--border-neutral-secondary);
+  --checkbox-fg: var(--fg-neutral-inverse);
+  --checkbox-fg-label: var(--fg-neutral-primary);
+  --checkbox-border: var(--border-neutral-secondary);
   --checkbox-bg: var(--bg-neutral-primary);
   --checkbox-bg-checked: var(--tint, var(--bg-neutral-inverse));
 
-  @apply inline-flex cursor-pointer items-center text-[var(--checkbox-fg)] transition-opacity disabled:cursor-not-allowed disabled:opacity-50 [&:not(:disabled)]:hover:opacity-80;
+  @apply inline-flex cursor-pointer items-center text-[var(--checkbox-fg-label)] transition-opacity disabled:cursor-not-allowed disabled:opacity-50 [&:not(:disabled)]:hover:opacity-80;
 
   /* default */
   @apply checkbox-small;
 }
 
 .check {
-  @apply before:rounded-4 relative mr-2 flex items-center justify-center text-[var(--checkbox-icon)] before:absolute before:inset-0 before:flex before:border before:border-[var(--checkbox-border-default)];
+  @apply before:rounded-4 relative mr-2 flex items-center justify-center text-[var(--checkbox-fg)] before:absolute before:inset-0 before:flex before:border before:border-[var(--checkbox-border)];
 
   /* default */
   @apply check-small;
 }
 
 .checkbox-icon {
-  @apply rounded-4 absolute left-0 top-0 flex h-full w-full items-center justify-center bg-[var(--checkbox-bg-checked)] text-[var(--checkbox-icon-checked)];
+  @apply rounded-4 absolute left-0 top-0 flex h-full w-full items-center justify-center bg-[var(--checkbox-bg-checked)] text-[var(--checkbox-fg)];
 }

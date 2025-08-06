@@ -14,16 +14,16 @@
  * under the License.
  */
 .tag {
-  --tag-primary-fg: var(--fg-neutral-inverse);
-  --tag-secondary-fg: var(--fg-neutral-primary);
-  --tag-destructive-fg: var(--fg-neutral-inverse);
-  --tag-outline-fg: var(--tint, var(--fg-neutral-primary));
-  --tag-outline-border: var(--border-neutral-tertiary);
-  --tag-primary-bg: var(--tint, var(--bg-neutral-inverse));
-  --tag-secondary-bg: var(--bg-neutral-tertiary);
-  --tag-destructive-bg: var(--bg-tint-red-bold);
-  --tag-outline-bg: var(--bg-neutral-transparent);
-  --tag-outline-bg-hover: var(--tint-subtle, var(--bg-neutral-secondary));
+  --tag-fg-primary: var(--fg-neutral-inverse);
+  --tag-fg-secondary: var(--fg-neutral-primary);
+  --tag-fg-destructive: var(--fg-neutral-inverse);
+  --tag-fg-outline: var(--tint, var(--fg-neutral-primary));
+  --tag-border-outline: var(--border-neutral-tertiary);
+  --tag-bg-primary: var(--tint, var(--bg-neutral-inverse));
+  --tag-bg-secondary: var(--bg-neutral-tertiary);
+  --tag-bg-destructive: var(--bg-tint-red-bold);
+  --tag-bg-outline: var(--bg-neutral-transparent);
+  --tag-bg-outline-hover: var(--tint-subtle, var(--bg-neutral-secondary));
 
   @apply inline-flex items-center whitespace-nowrap hover:opacity-80 [&>svg]:flex-shrink-0;
 

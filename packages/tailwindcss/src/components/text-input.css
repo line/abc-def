@@ -26,6 +26,7 @@
   --text-input-fg: var(--fg-neutral-tertiary);
   --text-input-fg-typing: var(--fg-neutral-primary);
   --text-input-fg-filled: var(--fg-neutral-primary);
+  --text-input-fg-error: var(--fg-neutral-tertiary);
   --text-input-border: var(--border-neutral-tertiary);
   --text-input-border-typing: var(--tint, var(--border-neutral-primary));
   --text-input-border-filled: var(--border-neutral-tertiary);
@@ -33,6 +34,7 @@
   --text-input-bg: var(--bg-neutral-primary);
   --text-input-bg-typing: var(--bg-neutral-tertiary);
   --text-input-bg-filled: var(--bg-neutral-primary);
+  --text-input-bg-error: var(--bg-neutral-primary);
 
   @apply text-[var(--text-input-fg-filled)] placeholder:text-[var(--text-input-fg)] placeholder-shown:text-[var(--text-input-fg)] focus-visible:text-[var(--text-input-fg-typing)];
   @apply border border-[var(--text-input-border-filled)] placeholder-shown:border placeholder-shown:border-[var(--text-input-border)] focus-visible:border-2 focus-visible:border-[var(--text-input-border-typing)];

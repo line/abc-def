@@ -14,23 +14,19 @@
  * under the License.
  */
 .button {
-  --button-primary-fg: var(--fg-neutral-inverse);
-  --button-secondary-fg: var(--fg-neutral-primary);
-  --button-destructive-fg: var(--fg-neutral-inverse);
-  --button-ghost-fg: var(--fg-neutral-primary);
-  --button-outline-fg: var(--tint, var(--fg-neutral-primary));
-  --button-primary-border: var(--border-neutral-transparent);
-  --button-secondary-border: var(--border-neutral-transparent);
-  --button-destructive-border: var(--border-neutral-transparent);
-  --button-ghost-border: var(--border-neutral-transparent);
-  --button-outline-border: var(--border-neutral-tertiary);
-  --button-primary-bg: var(--tint, var(--bg-neutral-inverse));
-  --button-secondary-bg: var(--bg-neutral-tertiary);
-  --button-destructive-bg: var(--bg-tint-red-bold);
-  --button-ghost-bg: var(--bg-neutral-transparent);
-  --button-ghost-bg-hover: var(--bg-neutral-secondary);
-  --button-outline-bg: var(--bg-neutral-transparent);
-  --button-outline-bg-hover: var(--tint-subtle, var(--bg-neutral-secondary));
+  --button-fg-primary: var(--fg-neutral-inverse);
+  --button-fg-secondary: var(--fg-neutral-primary);
+  --button-fg-destructive: var(--fg-neutral-inverse);
+  --button-fg-ghost: var(--fg-neutral-primary);
+  --button-fg-outline: var(--tint, var(--fg-neutral-primary));
+  --button-border-outline: var(--border-neutral-tertiary);
+  --button-bg-primary: var(--tint, var(--bg-neutral-inverse));
+  --button-bg-secondary: var(--bg-neutral-tertiary);
+  --button-bg-destructive: var(--bg-tint-red-bold);
+  --button-bg-ghost: var(--bg-neutral-transparent);
+  --button-bg-ghost-hover: var(--bg-neutral-secondary);
+  --button-bg-outline: var(--bg-neutral-transparent);
+  --button-bg-outline-hover: var(--tint-subtle, var(--bg-neutral-secondary));
 
   @apply relative inline-flex h-fit cursor-pointer items-center justify-center transition-opacity disabled:cursor-not-allowed disabled:opacity-50 [&:not(:disabled)]:hover:opacity-80;
 
