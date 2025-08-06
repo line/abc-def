@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
 
 import { Toaster } from "@line/abc-def-react";
 
@@ -55,183 +55,143 @@ import * as BadgeStories from "./badge.stories.tsx";
 <TokenTable
   items={[
     {
-      name: "--badge-bold-fg",
+      name: "--badge-fg-bold",
       value: "var(--fg-neutral-inverse)",
     },
     {
-      name: "--badge-bold-fg-blue",
+      name: "--badge-fg-bold-blue",
       value: "var(--fg-neutral-inverse)",
     },
     {
-      name: "--badge-bold-fg-orange",
+      name: "--badge-fg-bold-orange",
       value: "var(--fg-neutral-inverse)",
     },
     {
-      name: "--badge-bold-fg-red",
+      name: "--badge-fg-bold-red",
       value: "var(--fg-neutral-inverse)",
     },
     {
-      name: "--badge-bold-fg-green",
+      name: "--badge-fg-bold-green",
       value: "var(--fg-neutral-inverse)",
     },
     {
-      name: "--badge-bold-border",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-bold-border-blue",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-bold-border-orange",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-bold-border-red",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-bold-border-green",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-bold-bg",
-      value: "var(--bg-neutral-inverse)",
-    },
-    {
-      name: "--badge-bold-bg-blue",
-      value: "var(--bg-tint-blue-bold)",
-    },
-    {
-      name: "--badge-bold-bg-orange",
-      value: "var(--bg-tint-orange-bold)",
-    },
-    {
-      name: "--badge-bold-bg-red",
-      value: "var(--bg-tint-red-bold)",
-    },
-    {
-      name: "--badge-bold-bg-green",
-      value: "var(--bg-tint-green-bold)",
-    },
-    {
-      name: "--badge-subtle-fg",
+      name: "--badge-fg-subtle",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--badge-subtle-fg-blue",
+      name: "--badge-fg-subtle-blue",
       value: "var(--fg-tint-blue)",
     },
     {
-      name: "--badge-subtle-fg-orange",
+      name: "--badge-fg-subtle-orange",
       value: "var(--fg-tint-orange)",
     },
     {
-      name: "--badge-subtle-fg-red",
+      name: "--badge-fg-subtle-red",
       value: "var(--fg-tint-red)",
     },
     {
-      name: "--badge-subtle-fg-green",
+      name: "--badge-fg-subtle-green",
       value: "var(--fg-tint-green)",
     },
     {
-      name: "--badge-subtle-border",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-subtle-border-blue",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-subtle-border-orange",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-subtle-border-red",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-subtle-border-green",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--badge-subtle-bg",
-      value: "var(--bg-neutral-tertiary)",
-    },
-    {
-      name: "--badge-subtle-bg-blue",
-      value: "var(--bg-tint-blue-subtle)",
-    },
-    {
-      name: "--badge-subtle-bg-orange",
-      value: "var(--bg-tint-orange-subtle)",
-    },
-    {
-      name: "--badge-subtle-bg-red",
-      value: "var(--bg-tint-red-subtle)",
-    },
-    {
-      name: "--badge-subtle-bg-green",
-      value: "var(--bg-tint-green-subtle)",
-    },
-    {
-      name: "--badge-outline-fg",
+      name: "--badge-fg-outline",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--badge-outline-fg-blue",
+      name: "--badge-fg-outline-blue",
       value: "var(--fg-tint-blue)",
     },
     {
-      name: "--badge-outline-fg-orange",
+      name: "--badge-fg-outline-orange",
       value: "var(--fg-tint-orange)",
     },
     {
-      name: "--badge-outline-fg-red",
+      name: "--badge-fg-outline-red",
       value: "var(--fg-tint-red)",
     },
     {
-      name: "--badge-outline-fg-green",
+      name: "--badge-fg-outline-green",
       value: "var(--fg-tint-green)",
     },
     {
-      name: "--badge-outline-border",
+      name: "--badge-border-outline",
       value: "var(--border-neutral-tertiary)",
     },
     {
-      name: "--badge-outline-border-blue",
+      name: "--badge-border-outline-blue",
       value: "var(--border-tint-blue)",
     },
     {
-      name: "--badge-outline-border-orange",
+      name: "--badge-border-outline-orange",
       value: "var(--border-tint-orange)",
     },
     {
-      name: "--badge-outline-border-red",
+      name: "--badge-border-outline-red",
       value: "var(--border-tint-red)",
     },
     {
-      name: "--badge-outline-border-green",
+      name: "--badge-border-outline-green",
       value: "var(--border-tint-green)",
     },
     {
-      name: "--badge-outline-bg",
+      name: "--badge-bg-bold",
+      value: "var(--bg-neutral-inverse)",
+    },
+    {
+      name: "--badge-bg-bold-blue",
+      value: "var(--bg-tint-blue-bold)",
+    },
+    {
+      name: "--badge-bg-bold-orange",
+      value: "var(--bg-tint-orange-bold)",
+    },
+    {
+      name: "--badge-bg-bold-red",
+      value: "var(--bg-tint-red-bold)",
+    },
+    {
+      name: "--badge-bg-bold-green",
+      value: "var(--bg-tint-green-bold)",
+    },
+    {
+      name: "--badge-bg-subtle",
+      value: "var(--bg-neutral-tertiary)",
+    },
+    {
+      name: "--badge-bg-subtle-blue",
+      value: "var(--bg-tint-blue-subtle)",
+    },
+    {
+      name: "--badge-bg-subtle-orange",
+      value: "var(--bg-tint-orange-subtle)",
+    },
+    {
+      name: "--badge-bg-subtle-red",
+      value: "var(--bg-tint-red-subtle)",
+    },
+    {
+      name: "--badge-bg-subtle-green",
+      value: "var(--bg-tint-green-subtle)",
+    },
+    {
+      name: "--badge-bg-outline",
       value: "var(--bg-neutral-primary)",
     },
     {
-      name: "--badge-outline-bg-blue",
+      name: "--badge-bg-outline-blue",
       value: "var(--bg-neutral-primary)",
     },
     {
-      name: "--badge-outline-bg-orange",
+      name: "--badge-bg-outline-orange",
       value: "var(--bg-neutral-primary)",
     },
     {
-      name: "--badge-outline-bg-red",
+      name: "--badge-bg-outline-red",
       value: "var(--bg-neutral-primary)",
     },
     {
-      name: "--badge-outline-bg-green",
+      name: "--badge-bg-outline-green",
       value: "var(--bg-neutral-primary)",
     },
   ]}

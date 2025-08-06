@@ -12,12 +12,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.1.1",
+    "@hookform/resolvers": "^5.2.1",
     "@line/abc-def-react": "workspace:^",
     "react": "catalog:react",
     "react-dom": "catalog:react",
-    "react-hook-form": "^7.60.0",
-    "zod": "^4.0.0"
+    "react-hook-form": "^7.62.0",
+    "zod": "^4.0.14"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:storybook",
@@ -25,13 +25,9 @@
     "@line/abc-def-prettier-config": "workspace:^",
     "@line/abc-def-tailwindcss": "workspace:^",
     "@line/abc-def-tsconfig": "workspace:^",
-    "@storybook/addon-essentials": "catalog:storybook",
-    "@storybook/addon-interactions": "catalog:storybook",
-    "@storybook/addon-onboarding": "catalog:storybook",
-    "@storybook/blocks": "catalog:storybook",
+    "@storybook/addon-docs": "catalog:storybook",
     "@storybook/react": "catalog:storybook",
     "@storybook/react-vite": "catalog:storybook",
-    "@storybook/test": "catalog:storybook",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
     "@vitejs/plugin-react": "^4.7.0",

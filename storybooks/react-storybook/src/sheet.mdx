@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
 
 import { Toaster } from "@line/abc-def-react";
 
@@ -38,10 +38,12 @@ import * as SheetStories from "./sheet.stories.tsx";
 
 <TokenTable
   items={[
+    { name: "--sheet-fg", value: "var(--fg-neutral-primary)" },
     {
       name: "--sheet-border",
       value: "var(--border-neutral-tertiary)",
     },
+    { name: "--sheet-bg", value: "var(--bg-primary)" },
   ]}
 />
 

@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
 
 import { Toaster } from "@line/abc-def-react";
 
@@ -31,7 +31,7 @@ import * as RadioStories from "./radio.stories.tsx";
 <TokenTable
   items={[
     {
-      name: "--radio-fg",
+      name: "--radio-fg-label",
       value: "var(--fg-neutral-primary)",
     },
     {
@@ -43,7 +43,7 @@ import * as RadioStories from "./radio.stories.tsx";
       value: "var(--bg-neutral-primary)",
     },
     {
-      name: "--radio-bg-select",
+      name: "--radio-bg-selected",
       value: "var(--tint, var(--bg-neutral-inverse))",
     },
   ]}

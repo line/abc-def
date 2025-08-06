@@ -19,17 +19,13 @@ import * as PopoverPrimitive from "@radix-ui/react-popover";
 
 import { cn } from "../lib/utils";
 
-const Popover = ({
-  ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Root>) => {
-  return <PopoverPrimitive.Root data-slot="popover" {...props} />;
-};
+const Popover = (props: React.ComponentProps<typeof PopoverPrimitive.Root>) => (
+  <PopoverPrimitive.Root data-slot="popover" {...props} />
+);
 
-const PopoverTrigger = ({
-  ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Trigger>) => {
-  return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
-};
+const PopoverTrigger = (
+  props: React.ComponentProps<typeof PopoverPrimitive.Trigger>,
+) => <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 
 const PopoverClose = PopoverPrimitive.Close;
 

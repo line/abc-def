@@ -1,7 +1,6 @@
-import { ThemeVars } from "@storybook/core/theming";
-import { Addon_Config } from "@storybook/core/types";
-import { addons } from "@storybook/manager-api";
-import { create } from "@storybook/theming/create";
+import { addons } from "storybook/manager-api";
+import { ThemeVars } from "storybook/theming";
+import { create } from "storybook/theming/create";
 
 addons.setConfig({
   navSize: 280,
@@ -41,4 +40,4 @@ addons.setConfig({
     inputTextColor: "#000000",
     inputBorderRadius: 8,
   } as ThemeVars),
-} as Addon_Config);
+});

@@ -28,25 +28,22 @@ interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "children"> {
   size?: number | string;
 }
 
-const Icon: React.FC<IconProps> = ({
-  name,
-  color = "currentColor",
-  size = 24,
-  className,
-  onClick,
-  ...props
-}) => {
-  if (!name) {
-    return <></>;
-  }
+const Icon: React.FC<IconProps> = React.forwardRef<SVGSVGElement, IconProps>(
+  (
+    { name, color = "currentColor", size = 24, className, onClick, ...props },
+    ref,
+  ) => {
+    if (!name) return <></>;
 
-  return React.createElement(Icons[name], {
-    color,
-    size,
-    className: cn("icon", onClick && "icon-clickable", className),
-    onClick,
-    ...props,
-  });
-};
+    return React.createElement(Icons[name], {
+      color,
+      size,
+      className: cn("icon", onClick && "icon-clickable", className),
+      onClick,
+      ref,
+      ...props,
+    });
+  },
+);
 
 export { Icon, IconNames, type IconNameType, type IconProps };

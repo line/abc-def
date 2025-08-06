@@ -20,11 +20,7 @@
     "@line/abc-def-prettier-config": "workspace:^",
     "@line/abc-def-tailwindcss": "workspace:^",
     "@line/abc-def-tsconfig": "workspace:^",
-    "@storybook/addon-essentials": "catalog:storybook",
-    "@storybook/addon-interactions": "catalog:storybook",
-    "@storybook/addon-onboarding": "catalog:storybook",
-    "@storybook/blocks": "catalog:storybook",
-    "@storybook/test": "catalog:storybook",
+    "@storybook/addon-docs": "catalog:storybook",
     "@storybook/vue3": "catalog:storybook",
     "@storybook/vue3-vite": "catalog:storybook",
     "@vitejs/plugin-vue": "^6.0.1",
@@ -34,7 +30,7 @@
     "storybook": "catalog:storybook",
     "typescript": "catalog:",
     "vite": "^7.0.6",
-    "vue-tsc": "^3.0.4"
+    "vue-tsc": "^3.0.5"
   },
   "prettier": "@line/abc-def-prettier-config"
 }

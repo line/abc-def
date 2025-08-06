@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
 
 import { Toaster } from "@line/abc-def-react";
 
@@ -43,15 +43,15 @@ import * as SwitchStories from "./switch.stories.tsx";
 <TokenTable
   items={[
     {
-      name: "--switch-fg",
+      name: "--switch-fg-label",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--switch-handle-bg",
+      name: "--switch-bg-thumb",
       value: "var(--bg-neutral-primary)",
     },
     {
-      name: "--switch-bg",
+      name: "--switch-bg-neutral",
       value: "var(--bg-neutral-inverse)",
     },
     {
@@ -71,7 +71,7 @@ import * as SwitchStories from "./switch.stories.tsx";
       value: "var(--bg-tint-green-bold)",
     },
     {
-      name: "--switch-bg-off",
+      name: "--switch-bg-unchecked",
       value: "var(--bg-neutral-secondary)",
     },
   ]}

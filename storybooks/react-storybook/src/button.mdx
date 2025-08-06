@@ -5,7 +5,7 @@ import {
   Controls,
   Meta,
   Story,
-} from "@storybook/addon-docs";
+} from "@storybook/addon-docs/blocks";
 
 import { Toaster } from "@line/abc-def-react";
 
@@ -60,71 +60,55 @@ Buttons communicate actions that users can take.
 <TokenTable
   items={[
     {
-      name: "--button-primary-fg",
+      name: "--button-fg-primary",
       value: "var(--fg-neutral-inverse)",
     },
     {
-      name: "--button-secondary-fg",
+      name: "--button-fg-secondary",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--button-destructive-fg",
+      name: "--button-fg-destructive",
       value: "var(--fg-neutral-inverse)",
     },
     {
-      name: "--button-ghost-fg",
+      name: "--button-fg-ghost",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--button-outline-fg",
+      name: "--button-fg-outline",
       value: "var(--tint, var(--fg-neutral-primary))",
     },
     {
-      name: "--button-primary-border",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--button-secondary-border",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--button-destructive-border",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--button-ghost-border",
-      value: "var(--border-neutral-transparent)",
-    },
-    {
-      name: "--button-outline-border",
+      name: "--button-border-outline",
       value: "var(--border-neutral-tertiary)",
     },
     {
-      name: "--button-primary-bg",
+      name: "--button-bg-primary",
       value: "var(--tint, var(--bg-neutral-inverse))",
     },
     {
-      name: "--button-secondary-bg",
+      name: "--button-bg-secondary",
       value: "var(--bg-neutral-tertiary)",
     },
     {
-      name: "--button-destructive-bg",
+      name: "--button-bg-destructive",
       value: "var(--bg-tint-red-bold)",
     },
     {
-      name: "--button-ghost-bg",
+      name: "--button-bg-ghost",
       value: "var(--bg-neutral-transparent)",
     },
     {
-      name: "--button-ghost-bg-hover",
+      name: "--button-bg-ghost-hover",
       value: "var(--bg-neutral-secondary)",
     },
     {
-      name: "--button-outline-bg",
+      name: "--button-bg-outline",
       value: "var(--bg-neutral-transparent)",
     },
     {
-      name: "--button-outline-bg-hover",
+      name: "--button-bg-outline-hover",
       value: "var(--tint-subtle, var(--bg-neutral-secondary))",
     },
   ]}
