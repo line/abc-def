@@ -2,12 +2,9 @@ name: Release Test
 
 on:
   push:
-    branches:
-      - create-tailwindcss-plugin-package
     tags:
       - "v*"
-env:
-  NPM_TOKEN: ${{ secrets.NPM_JS_LY }}
+  workflow_dispatch:
 
 jobs:
   release:
@@ -24,7 +21,7 @@ jobs:
         run: pnpm build
 
       - name: Write .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_JS_LY }}" >> .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_JS }}" >> .npmrc
 
       - name: Publish
         run: pnpm release --no-git-checks

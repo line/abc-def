@@ -1,6 +1,6 @@
 {
   "name": "@line/abc-def-tailwindcss",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "description": "Tailwindcss Plugin for abc-def",
   "license": "Apache-2.0",
   "homepage": "https://line.github.io/abc-def/",
