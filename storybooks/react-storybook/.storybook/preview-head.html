@@ -1,5 +1,5 @@
 <style>
-  .sbdocs-content + div:has(div > .toc-wrapper:empty) {
+  #storybook-docs aside:has(.toc-wrapper:empty) {
     display: none;
   }
   .toc-list-item::before {
@@ -29,16 +29,34 @@
   .component-list > .sbdocs-preview > .docs-story {
     height: 100%;
   }
-  h1 {
+  .sbdocs-content h1 {
     font-size: 3rem !important;
     line-height: 3.5rem !important;
     font-weight: bold !important;
   }
-  h2 {
+  .sbdocs-content h2 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px !important;
     font-size: 2rem !important;
     line-height: 2.25rem !important;
     font-weight: bold !important;
     border: none !important;
+  }
+  .sbdocs-content h2 ~ h2 {
+    margin-top: 64px !important;
+  }
+  .sbdocs-content h3 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    line-height: 32px !important;
+    color: var(--fg-neutral-tertiary) !important;
+  }
+  .sbdocs-content h3 ~ h3 {
+    margin-top: 24px !important;
   }
   .sbdocs-a > p {
     color: inherit !important;
