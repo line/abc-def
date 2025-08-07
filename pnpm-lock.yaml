@@ -13,8 +13,8 @@ catalogs:
       specifier: ^3.6.2
       version: 3.6.2
     stylelint:
-      specifier: ^16.23.0
-      version: 16.23.0
+      specifier: ^16.23.1
+      version: 16.23.1
     tailwindcss:
       specifier: ^3.4.17
       version: 3.4.17
@@ -311,7 +311,7 @@ importers:
         version: 3.6.2
       stylelint:
         specifier: 'catalog:'
-        version: 16.23.0(typescript@5.9.2)
+        version: 16.23.1(typescript@5.9.2)
       tailwindcss:
         specifier: 'catalog:'
         version: 3.4.17(ts-node@10.9.2(@types/node@22.10.5)(typescript@5.9.2))
@@ -654,7 +654,7 @@ importers:
     dependencies:
       stylelint:
         specifier: 'catalog:'
-        version: 16.23.0(typescript@5.9.2)
+        version: 16.23.1(typescript@5.9.2)
       stylelint-copyright:
         specifier: ^3.7.0
         version: 3.7.0
@@ -5300,8 +5300,8 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
 
-  stylelint@16.23.0:
-    resolution: {integrity: sha512-69T5aS2LUY306ekt1Q1oaSPwz/jaG9HjyMix3UMrai1iEbuOafBe2Dh8xlyczrxFAy89qcKyZWWtc42XLx3Bbw==}
+  stylelint@16.23.1:
+    resolution: {integrity: sha512-dNvDTsKV1U2YtiUDfe9d2gp902veFeo3ecCWdGlmLm2WFrAV0+L5LoOj/qHSBABQwMsZPJwfC4bf39mQm1S5zw==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -10940,7 +10940,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  stylelint@16.23.0(typescript@5.9.2):
+  stylelint@16.23.1(typescript@5.9.2):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
