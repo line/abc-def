@@ -67,7 +67,6 @@ import {
   Textarea,
   TextInput,
 } from "@line/abc-def-react";
-import { cn } from "@line/abc-def-react/lib/utils";
 
 const IndexPage: NextPage = () => {
   return (
@@ -202,14 +201,7 @@ const IndexPage: NextPage = () => {
         <RadioItem value="1">123</RadioItem>
       </RadioGroup>
       <Spinner />
-      <p
-        className={cn(
-          "text-tint-orange",
-          "text-ellipsis",
-          "text-title-h1",
-          "text-title-h3",
-        )}
-      >
+      <p className={"text-tint-orange text-title-h1 text-ellipsis"}>
         Lorem Ipsum
       </p>
     </div>

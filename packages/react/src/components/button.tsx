@@ -13,8 +13,6 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-"use client";
-
 import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { Slot, Slottable } from "@radix-ui/react-slot";

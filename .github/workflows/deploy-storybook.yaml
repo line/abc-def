@@ -1,9 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy Storybook to GitHub Pages
 
 on:
-  push:
-    tags:
-      - "v*"
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:

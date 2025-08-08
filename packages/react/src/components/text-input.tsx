@@ -13,8 +13,6 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-"use client";
-
 import type { ButtonHTMLAttributes, HTMLInputTypeAttribute } from "react";
 import React, { useRef } from "react";
 import { cva } from "class-variance-authority";

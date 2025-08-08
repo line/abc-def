@@ -1,25 +1,47 @@
 {
   "name": "@line/abc-def-react",
   "version": "0.1.5",
-  "private": true,
+  "description": "React components for the ABC Def design system",
+  "license": "Apache-2.0",
+  "homepage": "https://line.github.io/abc-def/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/line/abc-def.git",
+    "directory": "packages/react"
+  },
+  "bugs": "https://github.com/line/abc-def/issues",
+  "keywords": [
+    "abc-def",
+    "abc def",
+    "abc def react",
+    "react",
+    "design system",
+    "react design system",
+    "react components",
+    "react component library"
+  ],
+  "files": [
+    "README.md",
+    "dist"
+  ],
   "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./src/index.ts"
-    },
-    "./*": {
-      "types": "./dist/src/*.d.ts",
-      "default": [
-        "./src/*.ts",
-        "./src/*.tsx"
-      ]
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "tsup src --dts",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsc",
+    "dev": "tsup src --watch",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
@@ -67,6 +89,7 @@
     "prettier": "catalog:",
     "react": "catalog:react",
     "tailwindcss": "catalog:",
+    "tsup": "^8.5.0",
     "typescript": "catalog:"
   },
   "prettier": "@line/abc-def-prettier-config"
