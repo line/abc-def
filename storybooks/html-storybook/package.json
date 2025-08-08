@@ -28,7 +28,7 @@
     "prettier": "catalog:",
     "storybook": "catalog:storybook",
     "typescript": "catalog:",
-    "vite": "^7.1.0"
+    "vite": "^7.1.1"
   },
   "prettier": "@line/abc-def-prettier-config"
 }
