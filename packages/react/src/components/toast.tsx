@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+import React from "react";
 import { Toaster as Sonner, toast } from "sonner";
 
 import { cn } from "../lib/utils";
