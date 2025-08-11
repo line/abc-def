@@ -233,8 +233,3 @@ module.exports = {
     }),
   ],
 };
-
-// {
-//   pattern:
-//     /(bg|text|fill|border|text-above)-neutral-(primary|secondary|tertiary|quaternary|dim|)/,
-// },
