@@ -34,7 +34,7 @@ const meta: Meta<
     >["children"];
   }
 > = {
-  title: "Radio",
+  title: "RadioGroup",
   component: RadioGroup,
   args: {
     orientation: "horizontal",

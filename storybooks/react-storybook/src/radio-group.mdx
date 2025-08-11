@@ -5,11 +5,11 @@ import { Toaster } from "@line/abc-def-react";
 import ThemeSelect from "./utils/themeSelect.tsx";
 import TokenTable from "./utils/tokenTable.tsx";
 
-import * as RadioStories from "./radio.stories.tsx";
+import * as RadioStories from "./radio-group.stories.tsx";
 
-<Meta title="Radio" of={RadioStories} />
+<Meta title="RadioGroup" of={RadioStories} />
 
-# Radio
+# Radio Group
 
 <ThemeSelect />
 
@@ -31,19 +31,19 @@ import * as RadioStories from "./radio.stories.tsx";
 <TokenTable
   items={[
     {
-      name: "--radio-fg-label",
+      name: "--radio-group-fg-label",
       value: "var(--fg-neutral-primary)",
     },
     {
-      name: "--radio-border",
+      name: "--radio-group-border",
       value: "var(--border-neutral-tertiary)",
     },
     {
-      name: "--radio-bg",
+      name: "--radio-group-bg",
       value: "var(--bg-neutral-primary)",
     },
     {
-      name: "--radio-bg-selected",
+      name: "--radio-group-bg-selected",
       value: "var(--tint, var(--bg-neutral-inverse))",
     },
   ]}
