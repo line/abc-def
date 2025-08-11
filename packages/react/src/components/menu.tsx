@@ -82,7 +82,7 @@ const Menu = React.forwardRef<
     );
   },
 );
-Menu.displayName = ToggleGroupPrimitive.Root.displayName;
+Menu.displayName = "Menu";
 
 const menuItemVariants = cva("menu-item", {
   variants: {
@@ -112,7 +112,7 @@ const MenuItem = React.forwardRef<
     </ToggleGroupPrimitive.Item>
   );
 });
-MenuItem.displayName = ToggleGroupPrimitive.Item.displayName;
+MenuItem.displayName = "MenuItem";
 
 const MenuDropdown = Dropdown;
 

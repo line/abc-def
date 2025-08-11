@@ -31,7 +31,7 @@ export * from "./label";
 export * from "./menu";
 export * from "./pagination";
 export * from "./popover";
-export * from "./radio";
+export * from "./radio-group";
 export * from "./select";
 export * from "./spinner";
 export * from "./scroll-area";

@@ -11,7 +11,7 @@
     },
     "dev:storybook": {
       "dependsOn": [
-        "@line/abc-def-react#dev",
+        "@line/abc-def-react#build",
         "@line/abc-def-tailwindcss#build"
       ],
       "cache": false,
