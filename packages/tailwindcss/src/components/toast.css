@@ -28,7 +28,7 @@
   --toast-border-informative: var(--border-tint-blue);
   --toast-bg: var(--bg-neutral-primary);
 
-  @apply !absolute !left-0 inline-flex min-w-[356px] items-center space-x-2 border bg-[var(--toast-bg)] px-5 py-4;
+  @apply inline-flex min-w-[356px] items-center space-x-2 border bg-[var(--toast-bg)] px-5 py-4;
 
   /* default */
   @apply toast-radius-medium toast-default;
