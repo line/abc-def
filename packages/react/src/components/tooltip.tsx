@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+import type { TooltipProviderProps } from "@radix-ui/react-tooltip";
 import * as React from "react";
 import { Slottable } from "@radix-ui/react-slot";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
@@ -33,7 +34,12 @@ const tooltipVariants = cva("tooltip", {
   },
 });
 
-const TooltipProvider = TooltipPrimitive.Provider;
+const TooltipProvider = ({
+  delayDuration = 100,
+  ...props
+}: TooltipProviderProps) => (
+  <TooltipPrimitive.Provider delayDuration={delayDuration} {...props} />
+);
 
 const Tooltip = TooltipPrimitive.Root;
 
@@ -45,7 +51,7 @@ interface TooltipContentProps
 }
 
 const TooltipContent = React.forwardRef<
-  React.ElementRef<typeof TooltipPrimitive.Content>,
+  React.ComponentRef<typeof TooltipPrimitive.Content>,
   TooltipContentProps
 >(
   (
