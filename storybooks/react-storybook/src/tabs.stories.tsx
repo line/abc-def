@@ -13,9 +13,10 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
 import {
+  Badge,
   Icon,
   Tabs,
   TabsContent,
@@ -27,45 +28,46 @@ const meta: Meta<typeof Tabs> = {
   title: "Tabs",
   component: Tabs,
   decorators: (Story) => <Story />,
-  render: () => {
-    return (
-      <Tabs defaultValue="a">
-        <TabsList>
-          <TabsTrigger value="a">A</TabsTrigger>
-          <TabsTrigger value="b">B</TabsTrigger>
-        </TabsList>
-        <TabsContent value="a">Content A</TabsContent>
-        <TabsContent value="b">Content B</TabsContent>
-      </Tabs>
-    );
-  },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {};
-
-export const WithIcon = () => (
-  <Tabs defaultValue="a">
+export const Default = () => (
+  <Tabs>
     <TabsList>
-      <TabsTrigger value="a">
-        A<Icon name="RiFlashlightFill" className="ml-1" />
-      </TabsTrigger>
-      <TabsTrigger value="b">B</TabsTrigger>
+      <TabsTrigger value="a">Trigger A</TabsTrigger>
+      <TabsTrigger value="b">Trigger B</TabsTrigger>
     </TabsList>
     <TabsContent value="a">Content A</TabsContent>
     <TabsContent value="b">Content B</TabsContent>
   </Tabs>
 );
-export const WithText = () => (
+
+export const With_Default_Value = () => (
+  <Tabs defaultValue="a">
+    <TabsList>
+      <TabsTrigger value="a">Trigger A</TabsTrigger>
+      <TabsTrigger value="b">Trigger B</TabsTrigger>
+    </TabsList>
+    <TabsContent value="a">Content A</TabsContent>
+    <TabsContent value="b">Content B</TabsContent>
+  </Tabs>
+);
+
+export const Combination = () => (
   <Tabs defaultValue="a">
     <TabsList>
       <TabsTrigger value="a">
-        A<span className="ml-1">1,000</span>
+        <Icon name="RiFlashlightFill" className="mr-1" />
+        Trigger A
+        <Badge variant="subtle" color="red" className="ml-2">
+          new
+        </Badge>
       </TabsTrigger>
-      <TabsTrigger value="b">B</TabsTrigger>
+      <TabsTrigger value="b">
+        <Icon name="RiFlashlightFill" className="mr-1" />
+        Trigger B
+      </TabsTrigger>
     </TabsList>
     <TabsContent value="a">Content A</TabsContent>
     <TabsContent value="b">Content B</TabsContent>
