@@ -19,8 +19,8 @@ import React from "react";
 import {
   Badge,
   Icon,
-  TimePeriodSelect,
   TimePickerInput,
+  TimePickerSelect,
 } from "@line/abc-def-react";
 
 const meta: Meta = {
@@ -151,7 +151,7 @@ export const HourCycle12 = {
             onRightFocus={() => periodRef.current?.focus()}
             className="w-12"
           />
-          <TimePeriodSelect
+          <TimePickerSelect
             period={period}
             setPeriod={setPeriod}
             date={date}

@@ -16,7 +16,7 @@
 import type { Meta } from "@storybook/react";
 import React from "react";
 
-import { Icon, TimePeriodSelect, TimePickerInput } from "@line/abc-def-react";
+import { Icon, TimePickerInput, TimePickerSelect } from "@line/abc-def-react";
 
 const meta: Meta = {
   title: "Combinations/TimePicker",
@@ -187,7 +187,7 @@ export const AM_PM = () => {
         onRightFocus={() => periodRef.current?.focus()}
         className="w-12"
       />
-      <TimePeriodSelect
+      <TimePickerSelect
         period={period}
         setPeriod={setPeriod}
         date={date}

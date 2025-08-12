@@ -35,7 +35,7 @@ interface PeriodSelectorProps {
   className?: string;
 }
 
-const TimePeriodSelect = React.forwardRef<
+const TimePickerSelect = React.forwardRef<
   HTMLButtonElement,
   PeriodSelectorProps
 >(
@@ -98,7 +98,7 @@ const TimePeriodSelect = React.forwardRef<
   },
 );
 
-TimePeriodSelect.displayName = "TimePeriodSelect";
+TimePickerSelect.displayName = "TimePickerSelect";
 
-export { TimePeriodSelect };
+export { TimePickerSelect };
 export type { PeriodSelectorProps };
