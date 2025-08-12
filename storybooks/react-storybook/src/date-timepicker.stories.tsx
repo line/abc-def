@@ -26,7 +26,7 @@ import {
 } from "@line/abc-def-react";
 
 const meta: Meta = {
-  title: "Combinations/DatetimePicker",
+  title: "Combinations/DateTimePicker",
 };
 
 export default meta;

@@ -46,4 +46,5 @@ export * from "./tooltip";
 export * from "./use-theme";
 export * from "./tabs";
 export * from "./textarea";
-export * from "./timepicker";
+export * from "./timepicker-input";
+export * from "./timepicker-select";

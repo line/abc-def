@@ -6,7 +6,13 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ["Getting Started", "Component List"],
+        order: [
+          "Getting Started",
+          "Component List",
+          "*",
+          "Combinations",
+          ["TimePicker", "DateTimePicker", "NavBar"],
+        ],
       },
     },
     controls: {
