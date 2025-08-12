@@ -1,3 +1,17 @@
+const { exec } = require("node:child_process");
+
+function runCommand(command) {
+  return new Promise((resolve, reject) => {
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve({ stdout, stderr });
+      }
+    });
+  });
+}
+
 const generateCss = require("./build-functions/generate-css");
 const mergeCss = require("./build-functions/merge-css");
 const convertCssToJs = require("./build-functions/convert-css-to-js");
@@ -5,7 +19,7 @@ const log = require("./build-functions/log");
 
 async function executeCommands() {
   try {
-    const totalSteps = 9;
+    const totalSteps = 10;
     let currentStep = 0;
 
     log.info("Starting CSS build process...");
@@ -42,6 +56,12 @@ async function executeCommands() {
     log.step(++currentStep, totalSteps, "Converting components CSS to JS");
     await convertCssToJs("components");
     log.success("Components CSS processing completed");
+
+    log.step(++currentStep, totalSteps, "Generate full css file");
+    await runCommand(
+      "../../node_modules/.bin/postcss src/full/index.css -o dist/full.css --config src/full",
+    );
+    log.success("Full CSS file generated successfully");
 
     log.success("All CSS files built successfully!");
   } catch (error) {
