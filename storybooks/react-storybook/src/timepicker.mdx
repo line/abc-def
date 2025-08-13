@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
 
 import { Toaster } from "@line/abc-def-react";
 
@@ -7,7 +7,7 @@ import TokenTable from "./utils/tokenTable.tsx";
 
 import * as TimePickerStories from "./timepicker.stories.tsx";
 
-<Meta title="TimePicker" of={TimePickerStories} />
+<Meta title="Combinations/TimePicker" of={TimePickerStories} />
 
 # TimePicker
 
@@ -15,16 +15,16 @@ import * as TimePickerStories from "./timepicker.stories.tsx";
 
 ## 24 Hour Cycle
 
-<Canvas of={TimePickerStories.HourCycle24} />
+<Canvas of={TimePickerStories.Default} />
 
-## 12 Hour Cycle
+## 12 Hour Cycle (AM/PM)
 
-<Canvas of={TimePickerStories.HourCycle12} />
+<Canvas of={TimePickerStories.AM_PM} />
 
-## TimePickerInput
+## Hour
 
-<Canvas of={TimePickerStories.Input} />
+<Canvas of={TimePickerStories.Hour} />
 
-## TimePeriodSelect
+## Minute
 
-<Canvas of={TimePickerStories.Select} />
+<Canvas of={TimePickerStories.Minute} />

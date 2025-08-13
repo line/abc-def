@@ -32,7 +32,7 @@ const meta: Meta<typeof TooltipContent> = {
     textAlign: "center",
     align: "center",
     title: "Title",
-    children: "Label",
+    children: "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.",
   },
   argTypes: {
     side: {
@@ -97,19 +97,8 @@ const meta: Meta<typeof TooltipContent> = {
   },
   decorators: (Story) => <Story />,
   render: (args) => {
-    const [open, setOpen] = useState(true);
     return (
-      <div className="grid h-28 grid-cols-[repeat(2,max-content)] items-center justify-center gap-2">
-        <TooltipProvider>
-          <Tooltip open={open}>
-            <TooltipTrigger asChild>
-              <Button variant="outline" onClick={() => setOpen(!open)}>
-                Click
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent {...args} />
-          </Tooltip>
-        </TooltipProvider>
+      <div className="flex h-36 items-center justify-center">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -142,8 +131,10 @@ export const Right = () => {
     >
       <TooltipProvider>
         <Tooltip open={open}>
-          <TooltipTrigger onClick={() => setOpen(!open)}>
-            Trigger
+          <TooltipTrigger asChild>
+            <Button variant="outline" onClick={() => setOpen(!open)}>
+              Click
+            </Button>
           </TooltipTrigger>
           <TooltipContent side="right" title="Title">
             Label
@@ -167,8 +158,10 @@ export const Bottom = () => {
     >
       <TooltipProvider>
         <Tooltip open={open}>
-          <TooltipTrigger onClick={() => setOpen(!open)}>
-            Trigger
+          <TooltipTrigger asChild>
+            <Button variant="outline" onClick={() => setOpen(!open)}>
+              Click
+            </Button>
           </TooltipTrigger>
           <TooltipContent side="bottom" title="Title">
             Label
@@ -192,8 +185,10 @@ export const Left = () => {
     >
       <TooltipProvider>
         <Tooltip open={open}>
-          <TooltipTrigger onClick={() => setOpen(!open)}>
-            Trigger
+          <TooltipTrigger asChild>
+            <Button variant="outline" onClick={() => setOpen(!open)}>
+              Click
+            </Button>
           </TooltipTrigger>
           <TooltipContent side="left" title="Title">
             Label
@@ -217,8 +212,10 @@ export const Top = () => {
     >
       <TooltipProvider>
         <Tooltip open={open}>
-          <TooltipTrigger onClick={() => setOpen(!open)}>
-            Trigger
+          <TooltipTrigger asChild>
+            <Button variant="outline" onClick={() => setOpen(!open)}>
+              Click
+            </Button>
           </TooltipTrigger>
           <TooltipContent side="top" title="Title">
             Label

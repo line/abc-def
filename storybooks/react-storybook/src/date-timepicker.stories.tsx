@@ -21,12 +21,12 @@ import {
   Calendar,
   Divider,
   Icon,
-  TimePeriodSelect,
   TimePickerInput,
+  TimePickerSelect,
 } from "@line/abc-def-react";
 
 const meta: Meta = {
-  title: "Combinations/DatetimePicker",
+  title: "Combinations/DateTimePicker",
 };
 
 export default meta;
@@ -254,7 +254,7 @@ export const AM_PM = () => {
                   onRightFocus={() => periodRef.current?.focus()}
                   className="w-12"
                 />
-                <TimePeriodSelect
+                <TimePickerSelect
                   period={period}
                   setPeriod={setPeriod}
                   date={date}
