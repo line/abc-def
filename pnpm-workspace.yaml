@@ -26,7 +26,7 @@ catalogs:
     "@storybook/vue3": ^9.1.2
     "@storybook/vue3-vite": ^9.1.2
     "@storybook/addon-docs": ^9.1.2
-    "@chromatic-com/storybook": ^4.1.0
+    "@chromatic-com/storybook": ^4.1.1
 
 onlyBuiltDependencies:
   - esbuild
