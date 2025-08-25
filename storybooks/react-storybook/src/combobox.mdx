@@ -30,6 +30,20 @@ import * as ComboboxStories from "./combobox.stories.tsx";
 
 <Canvas of={ComboboxStories.Filter} />
 
+## Tree Structure
+
+```text
+Combobox
+├── ComboboxTrigger
+└── ComboboxContent
+    ├── ComboboxInput
+    └── ComboboxList
+        ├── ComboboxEmpty
+        └── ComboboxGroup
+            ├── ComboboxItem
+            └── ComboboxSelectItem
+```
+
 ## Tokens
 
 <TokenTable

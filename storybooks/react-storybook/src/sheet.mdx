@@ -34,6 +34,20 @@ import * as SheetStories from "./sheet.stories.tsx";
 
 <Canvas of={SheetStories.Top} />
 
+## Tree Structure
+
+```text
+Sheet
+├── SheetTrigger
+└── SheetContent
+    ├── SheetHeader
+    │   ├── SheetTitle
+    │   └── SheetDescription
+    ├── SheetBody
+    └── SheetFooter
+        └── SheetClose
+```
+
 ## Tokens
 
 <TokenTable

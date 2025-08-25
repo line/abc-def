@@ -21,7 +21,6 @@ import {
   DropdownGroup,
   DropdownItem,
   DropdownLabel,
-  DropdownPortal,
   DropdownSeparator,
   DropdownSub,
   DropdownSubContent,
@@ -56,14 +55,12 @@ const DropdownDemo: React.FC<Props> = () => {
               Sub Trigger
               <Icon name="RiArrowRightSLine" size={16} className="ml-auto" />
             </DropdownSubTrigger>
-            <DropdownPortal>
-              <DropdownSubContent>
-                <DropdownItem>User 1</DropdownItem>
-                <DropdownItem>User 2</DropdownItem>
-                <DropdownSeparator />
-                <DropdownItem>More...</DropdownItem>
-              </DropdownSubContent>
-            </DropdownPortal>
+            <DropdownSubContent>
+              <DropdownItem>User 1</DropdownItem>
+              <DropdownItem>User 2</DropdownItem>
+              <DropdownSeparator />
+              <DropdownItem>More...</DropdownItem>
+            </DropdownSubContent>
           </DropdownSub>
         </DropdownGroup>
       </DropdownContent>

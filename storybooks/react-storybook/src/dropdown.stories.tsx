@@ -26,7 +26,6 @@ import {
   DropdownGroup,
   DropdownItem,
   DropdownLabel,
-  DropdownPortal,
   DropdownRadioGroup,
   DropdownRadioItem,
   DropdownSeparator,
@@ -182,14 +181,12 @@ const meta: Meta<
                     className="ml-auto"
                   />
                 </DropdownSubTrigger>
-                <DropdownPortal>
-                  <DropdownSubContent>
-                    <DropdownItem>User 1</DropdownItem>
-                    <DropdownItem>User 2</DropdownItem>
-                    <DropdownSeparator />
-                    <DropdownItem>More...</DropdownItem>
-                  </DropdownSubContent>
-                </DropdownPortal>
+                <DropdownSubContent>
+                  <DropdownItem>User 1</DropdownItem>
+                  <DropdownItem>User 2</DropdownItem>
+                  <DropdownSeparator />
+                  <DropdownItem>More...</DropdownItem>
+                </DropdownSubContent>
               </DropdownSub>
             </DropdownGroup>
           </DropdownContent>
@@ -228,14 +225,12 @@ const meta: Meta<
                     className="ml-auto"
                   />
                 </DropdownSubTrigger>
-                <DropdownPortal>
-                  <DropdownSubContent>
-                    <DropdownItem>User 1</DropdownItem>
-                    <DropdownItem>User 2</DropdownItem>
-                    <DropdownSeparator />
-                    <DropdownItem>More...</DropdownItem>
-                  </DropdownSubContent>
-                </DropdownPortal>
+                <DropdownSubContent>
+                  <DropdownItem>User 1</DropdownItem>
+                  <DropdownItem>User 2</DropdownItem>
+                  <DropdownSeparator />
+                  <DropdownItem>More...</DropdownItem>
+                </DropdownSubContent>
               </DropdownSub>
             </DropdownGroup>
           </DropdownContent>

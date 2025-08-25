@@ -131,15 +131,19 @@ const DropdownTrigger = React.forwardRef<
     );
   },
 );
-DropdownTrigger.displayName = DropdownPrimitive.DropdownMenuTrigger.displayName;
+DropdownTrigger.displayName = "DropdownTrigger";
 
 const DropdownGroup = DropdownPrimitive.Group;
+DropdownGroup.displayName = "DropdownGroup";
 
 const DropdownPortal = DropdownPrimitive.Portal;
+DropdownPortal.displayName = "DropdownPortal";
 
 const DropdownSub = DropdownPrimitive.Sub;
+DropdownSub.displayName = "DropdownSub";
 
 const DropdownRadioGroup = DropdownPrimitive.RadioGroup;
+DropdownRadioGroup.displayName = "DropdownRadioGroup";
 
 const DropdownSubTrigger = React.forwardRef<
   React.ComponentRef<typeof DropdownPrimitive.SubTrigger>,
@@ -155,7 +159,7 @@ const DropdownSubTrigger = React.forwardRef<
     </DropdownPrimitive.SubTrigger>
   );
 });
-DropdownSubTrigger.displayName = DropdownPrimitive.SubTrigger.displayName;
+DropdownSubTrigger.displayName = "DropdownSubTrigger";
 
 const DropdownCaption = React.forwardRef<
   React.ComponentRef<"span">,
@@ -169,13 +173,15 @@ const DropdownSubContent = React.forwardRef<
   React.ComponentRef<typeof DropdownPrimitive.SubContent>,
   React.ComponentPropsWithoutRef<typeof DropdownPrimitive.SubContent>
 >(({ className, ...props }, ref) => (
-  <DropdownPrimitive.SubContent
-    ref={ref}
-    className={cn("dropdown-sub-content", className)}
-    {...props}
-  />
+  <DropdownPortal>
+    <DropdownPrimitive.SubContent
+      ref={ref}
+      className={cn("dropdown-sub-content", className)}
+      {...props}
+    />
+  </DropdownPortal>
 ));
-DropdownSubContent.displayName = DropdownPrimitive.SubContent.displayName;
+DropdownSubContent.displayName = "DropdownSubContent";
 
 const DropdownContent = React.forwardRef<
   React.ComponentRef<typeof DropdownPrimitive.Content>,
@@ -212,7 +218,7 @@ const DropdownContent = React.forwardRef<
     };
 
     return (
-      <DropdownPrimitive.Portal>
+      <DropdownPortal>
         <DropdownPrimitive.Content
           ref={ref}
           sideOffset={sideOffset}
@@ -226,11 +232,11 @@ const DropdownContent = React.forwardRef<
             <ScrollBar />
           </ScrollArea>
         </DropdownPrimitive.Content>
-      </DropdownPrimitive.Portal>
+      </DropdownPortal>
     );
   },
 );
-DropdownContent.displayName = DropdownPrimitive.Content.displayName;
+DropdownContent.displayName = "DropdownContent";
 
 const DropdownItem = React.forwardRef<
   React.ComponentRef<typeof DropdownPrimitive.Item>,
@@ -244,7 +250,7 @@ const DropdownItem = React.forwardRef<
     {children}
   </DropdownPrimitive.Item>
 ));
-DropdownItem.displayName = DropdownPrimitive.Item.displayName;
+DropdownItem.displayName = "DropdownItem";
 
 const DropdownCheckboxItem = React.forwardRef<
   React.ComponentRef<typeof DropdownPrimitive.CheckboxItem>,
@@ -262,7 +268,7 @@ const DropdownCheckboxItem = React.forwardRef<
     <Slottable>{children}</Slottable>
   </DropdownPrimitive.CheckboxItem>
 ));
-DropdownCheckboxItem.displayName = DropdownPrimitive.CheckboxItem.displayName;
+DropdownCheckboxItem.displayName = "DropdownCheckboxItem";
 
 const DropdownRadioItem = React.forwardRef<
   React.ComponentRef<typeof DropdownPrimitive.RadioItem>,
@@ -279,7 +285,7 @@ const DropdownRadioItem = React.forwardRef<
     <Slottable>{children}</Slottable>
   </DropdownPrimitive.RadioItem>
 ));
-DropdownRadioItem.displayName = DropdownPrimitive.RadioItem.displayName;
+DropdownRadioItem.displayName = "DropdownRadioItem";
 
 const DropdownLabel = React.forwardRef<
   React.ComponentRef<typeof DropdownPrimitive.Label>,
@@ -291,7 +297,7 @@ const DropdownLabel = React.forwardRef<
     {...props}
   />
 ));
-DropdownLabel.displayName = DropdownPrimitive.Label.displayName;
+DropdownLabel.displayName = "DropdownLabel";
 
 const DropdownSeparator = React.forwardRef<
   React.ComponentRef<typeof DropdownPrimitive.Separator>,
@@ -303,7 +309,7 @@ const DropdownSeparator = React.forwardRef<
     {...props}
   />
 ));
-DropdownSeparator.displayName = DropdownPrimitive.Separator.displayName;
+DropdownSeparator.displayName = "DropdownSeparator";
 
 export {
   Dropdown,

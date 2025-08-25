@@ -58,6 +58,18 @@ import * as MenuStories from "./menu.stories.tsx";
 
 <Canvas of={MenuStories.Horizontal_With_Both} />
 
+## Tree Structure
+
+```text
+Menu
+├── MenuItem
+└── MenuDropdown
+    ├── MenuDropdownTrigger
+    └── MenuDropdownContent
+      └── MenuDropdownGroup
+          └── MenuDropdownItem
+```
+
 ## Tokens
 
 <TokenTable

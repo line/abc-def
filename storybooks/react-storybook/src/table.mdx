@@ -25,6 +25,22 @@ import * as TableStories from "./table.stories.tsx";
 
 <Canvas of={TableStories.Other} />
 
+## Tree Structure
+
+```text
+Table
+├── TableCaption
+├── TableHeader
+│   └── TableRow
+│       └── TableHead
+├── TableBody
+│   └── TableRow
+│       └── TableCell
+└── TableFooter
+    └── TableRow
+        └── TableCell
+```
+
 ## Tokens
 
 <TokenTable
