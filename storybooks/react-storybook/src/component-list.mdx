@@ -28,7 +28,8 @@ import * as TabsStories from "./tabs.stories";
 import * as TagStories from "./tag.stories";
 import * as InputStories from "./text-input.stories";
 import * as TextareaStories from "./textarea.stories";
-import * as TimePickerStories from "./timepicker.stories";
+import * as TimePickerInputStories from "./timepicker-input.stories";
+import * as TimePickerSelectStories from "./timepicker-select.stories";
 import * as ToastStories from "./toast.stories";
 import * as ToggleGroupStories from "./toggleGroup.stories";
 import * as TooltipStories from "./tooltip.stories";
@@ -119,7 +120,7 @@ import ThemeSelect from "./utils/themeSelect.tsx";
   <Canvas
     of={RadioStories.Default}
     sourceState="none"
-    additionalActions={[{ title: "Radio" }]}
+    additionalActions={[{ title: "RadioGroup" }]}
     layout="centered"
   />
   <Canvas
@@ -180,9 +181,15 @@ import ThemeSelect from "./utils/themeSelect.tsx";
     layout="centered"
   />
   <Canvas
-    of={TimePickerStories.HourCycle24}
+    of={TimePickerInputStories.HourCycle24}
     sourceState="none"
-    additionalActions={[{ title: "Timepicker" }]}
+    additionalActions={[{ title: "TimepickerInput" }]}
+    layout="centered"
+  />
+  <Canvas
+    of={TimePickerSelectStories.Select}
+    sourceState="none"
+    additionalActions={[{ title: "TimepickerSelect" }]}
     layout="centered"
   />
   <Canvas
