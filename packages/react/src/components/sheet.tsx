@@ -26,6 +26,7 @@ import { Icon } from "./icon";
 import { ScrollArea, ScrollBar } from "./scroll-area";
 
 const Sheet = SheetPrimitive.Root;
+Sheet.displayName = "Sheet";
 
 const SheetTrigger = React.forwardRef<
   React.ComponentRef<typeof SheetPrimitive.Trigger>,
@@ -56,7 +57,7 @@ const SheetTrigger = React.forwardRef<
     </SheetPrimitive.Trigger>
   );
 });
-SheetTrigger.displayName = SheetPrimitive.Trigger.displayName;
+SheetTrigger.displayName = "SheetTrigger";
 
 const SheetClose = React.forwardRef<
   React.ComponentRef<typeof Button>,
@@ -69,6 +70,7 @@ const SheetClose = React.forwardRef<
 SheetClose.displayName = "SheetClose";
 
 const SheetPortal = SheetPrimitive.Portal;
+SheetPortal.displayName = "SheetPortal";
 
 const SheetOverlay = React.forwardRef<
   React.ComponentRef<typeof SheetPrimitive.Overlay>,
@@ -80,7 +82,7 @@ const SheetOverlay = React.forwardRef<
     ref={ref}
   />
 ));
-SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
+SheetOverlay.displayName = "SheetOverlay";
 
 const sheetVariants = cva("sheet", {
   variants: {
@@ -137,7 +139,7 @@ const SheetContent = React.forwardRef<
     </SheetPortal>
   ),
 );
-SheetContent.displayName = SheetPrimitive.Content.displayName;
+SheetContent.displayName = "SheetContent";
 
 interface SheetHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: "vertical" | "horizontal";
@@ -202,7 +204,7 @@ const SheetTitle = React.forwardRef<
     {...props}
   />
 ));
-SheetTitle.displayName = SheetPrimitive.Title.displayName;
+SheetTitle.displayName = "SheetTitle";
 
 const SheetDescription = React.forwardRef<
   React.ComponentRef<typeof SheetPrimitive.Description>,
@@ -214,7 +216,7 @@ const SheetDescription = React.forwardRef<
     {...props}
   />
 ));
-SheetDescription.displayName = SheetPrimitive.Description.displayName;
+SheetDescription.displayName = "SheetDescription";
 
 export {
   Sheet,

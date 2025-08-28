@@ -36,7 +36,6 @@ import {
   DropdownGroup,
   DropdownItem,
   DropdownLabel,
-  DropdownPortal,
   DropdownSeparator,
   DropdownSub,
   DropdownSubContent,
@@ -151,14 +150,12 @@ const IndexPage: NextPage = () => {
                   <p>Description</p>
                   <Icon name="RiArrowRightSLine" />
                 </DropdownSubTrigger>
-                <DropdownPortal>
-                  <DropdownSubContent>
-                    <DropdownItem>User 1</DropdownItem>
-                    <DropdownItem>User 2</DropdownItem>
-                    <DropdownSeparator />
-                    <DropdownItem>More...</DropdownItem>
-                  </DropdownSubContent>
-                </DropdownPortal>
+                <DropdownSubContent>
+                  <DropdownItem>User 1</DropdownItem>
+                  <DropdownItem>User 2</DropdownItem>
+                  <DropdownSeparator />
+                  <DropdownItem>More...</DropdownItem>
+                </DropdownSubContent>
               </DropdownSub>
               <DropdownItem>
                 <Icon name="RiLogoutBoxRLine" />

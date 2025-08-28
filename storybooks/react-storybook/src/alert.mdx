@@ -26,6 +26,19 @@ import * as AlertStories from "./alert.stories.tsx";
 
 <Canvas of={AlertStories.Variant} />
 
+## Tree Structure
+
+```text
+Alert
+├── AlertContent
+│   ├── AlertIcon
+│   └── AlertTextContainer
+│       ├── AlertTitle
+│       └── AlertDescription
+├── AlertButton
+└── AlertIconButton
+```
+
 ## Tokens
 
 <TokenTable

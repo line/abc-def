@@ -42,6 +42,20 @@ import * as DialogStories from "./dialog.stories.tsx";
 
 <Canvas of={DialogStories.Button_3_Full} />
 
+## Tree Structure
+
+```text
+Dialog
+├── DialogTrigger
+└── DialogContent
+    ├── DialogHeader
+    │   ├── DialogTitle
+    │   └── DialogDescription
+    ├── DialogBody
+    └── DialogFooter
+        └── DialogClose
+```
+
 ## Tokens
 
 <TokenTable

@@ -26,6 +26,26 @@ import * as DropdownStories from "./dropdown.stories.tsx";
 
 <Canvas of={DropdownStories.Radio} />
 
+## Tree Structure
+
+```text
+Dropdown
+├── DropdownTrigger
+└── DropdownContent
+    ├── DropdownLabel
+    ├── DropdownSeparator
+    ├── DropdownGroup
+    │   ├── DropdownItem
+    │   │   └── DropdownCaption
+    │   ├── DropdownSub
+    │   │   ├── DropdownSubTrigger
+    │   │   └── DropdownSubContent
+    │   │       └── DropdownItem
+    │   └── DropdownCheckboxItem
+    └── DropdownRadioGroup
+        └── DropdownRadioGroupItem
+```
+
 ## Tokens
 
 <TokenTable

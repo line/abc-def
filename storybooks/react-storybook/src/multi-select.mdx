@@ -5,7 +5,7 @@ import { Toaster } from "@line/abc-def-react";
 import ThemeSelect from "./utils/themeSelect.tsx";
 import TokenTable from "./utils/tokenTable.tsx";
 
-import * as MultiSelectStories from "./multiSelect.stories.tsx";
+import * as MultiSelectStories from "./multi-select.stories.tsx";
 
 <Meta title="MultiSelect" of={MultiSelectStories} />
 
@@ -29,6 +29,18 @@ import * as MultiSelectStories from "./multiSelect.stories.tsx";
 ## Form
 
 <Canvas of={MultiSelectStories.Error_Form} />
+
+## Tree Structure
+
+```text
+MultiSelect
+├── Label
+├── MultiSelectTrigger
+│   └── MultiSelectValue
+├── MultiSelectContent
+│   └── MultiSelectItem (Custom)
+└── Caption
+```
 
 ## Tokens
 
