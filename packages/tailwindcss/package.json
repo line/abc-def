@@ -28,7 +28,7 @@
   "typings": "index.d.ts",
   "files": [
     "dist/*.js",
-    "dist/*.css",
+    "dist/full.css",
     "index.js",
     "index.d.ts"
   ],
