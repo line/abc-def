@@ -1,6 +1,6 @@
 {
   "name": "@line/abc-def-tailwindcss",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Tailwindcss Plugin for the ABC Def design system",
   "license": "Apache-2.0",
   "homepage": "https://line.github.io/abc-def/",
@@ -28,6 +28,7 @@
   "typings": "index.d.ts",
   "files": [
     "dist/*.js",
+    "dist/full.css",
     "index.js",
     "index.d.ts"
   ],
