@@ -234,8 +234,8 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
       zod:
-        specifier: ^4.0.15
-        version: 4.0.15
+        specifier: ^4.1.5
+        version: 4.1.5
     devDependencies:
       '@line/abc-def-eslint-config':
         specifier: workspace:^
@@ -468,8 +468,8 @@ importers:
         specifier: ^7.62.0
         version: 7.62.0(react@19.1.1)
       zod:
-        specifier: ^4.0.15
-        version: 4.0.15
+        specifier: ^4.1.5
+        version: 4.1.5
     devDependencies:
       '@chromatic-com/storybook':
         specifier: catalog:storybook
@@ -5972,6 +5972,9 @@ packages:
 
   zod@4.0.15:
     resolution: {integrity: sha512-2IVHb9h4Mt6+UXkyMs0XbfICUh1eUrlJJAOupBHUhLRnKkruawyDddYRCs0Eizt900ntIMk9/4RksYl+FgSpcQ==}
+
+  zod@4.1.5:
+    resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
 
 snapshots:
 
@@ -11864,3 +11867,5 @@ snapshots:
   zod@3.25.76: {}
 
   zod@4.0.15: {}
+
+  zod@4.1.5: {}
