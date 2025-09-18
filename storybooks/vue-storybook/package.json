@@ -29,7 +29,7 @@
     "prettier": "catalog:",
     "storybook": "catalog:storybook",
     "typescript": "catalog:",
-    "vite": "^7.1.5",
+    "vite": "^7.1.6",
     "vue-tsc": "^3.0.7"
   },
   "prettier": "@line/abc-def-prettier-config"
