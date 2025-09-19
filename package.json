@@ -20,7 +20,7 @@
     "lint:ws": "pnpm dlx sherif@latest",
     "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
-    "release": "pnpm publish -r --access public"
+    "release": "pnpm publish -r --provenance --access public"
   },
   "devDependencies": {
     "@line/abc-def-prettier-config": "workspace:^",
