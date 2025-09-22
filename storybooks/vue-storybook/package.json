@@ -30,7 +30,7 @@
     "storybook": "catalog:storybook",
     "typescript": "catalog:",
     "vite": "^7.1.7",
-    "vue-tsc": "^3.0.7"
+    "vue-tsc": "^3.0.8"
   },
   "prettier": "@line/abc-def-prettier-config"
 }
