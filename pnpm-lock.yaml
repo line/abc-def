@@ -668,8 +668,8 @@ importers:
         specifier: 'catalog:'
         version: 16.24.0(typescript@5.9.2)
       stylelint-copyright:
-        specifier: ^3.7.0
-        version: 3.7.0
+        specifier: ^3.9.1
+        version: 3.9.1
     devDependencies:
       '@line/abc-def-prettier-config':
         specifier: workspace:*
@@ -5464,8 +5464,8 @@ packages:
       babel-plugin-macros:
         optional: true
 
-  stylelint-copyright@3.7.0:
-    resolution: {integrity: sha512-Vc2RH9sK+nwzvaAoru2NYB1GOmrNJ0uFSy4OF4QLmEsBsxmBoz3mawd1mpv3uapBvNwUJz0QgbM3VmhvdoBdMQ==}
+  stylelint-copyright@3.9.1:
+    resolution: {integrity: sha512-/L8blZ7bvWHSnH25FdZG4U6VBHl9feWmO58DdtCYiZQJlrCBeP0Zhl0qiT/Yvo4XRKlFWmBO9cYtZ/Yry3XJgw==}
 
   stylelint@14.16.1:
     resolution: {integrity: sha512-ErlzR/T3hhbV+a925/gbfc3f3Fep9/bnspMiJPorfGEmcBbXdS+oo6LrVtoUZ/w9fqD6o6k7PtUlCOsCRdjX/A==}
@@ -11270,7 +11270,7 @@ snapshots:
     optionalDependencies:
       '@babel/core': 7.26.10
 
-  stylelint-copyright@3.7.0:
+  stylelint-copyright@3.9.1:
     dependencies:
       stylelint: 14.16.1
       tslib: 2.8.1
