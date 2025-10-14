@@ -36,7 +36,7 @@
     "storybook": "catalog:storybook",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "^7.1.9"
+    "vite": "^7.1.10"
   },
   "prettier": "@line/abc-def-prettier-config"
 }
