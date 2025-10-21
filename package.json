@@ -2,7 +2,7 @@
   "name": "@line/abc-def",
   "private": true,
   "engines": {
-    "node": ">=22.20.0",
+    "node": ">=22.21.0",
     "pnpm": ">=10.18.3"
   },
   "packageManager": "pnpm@10.18.3",
