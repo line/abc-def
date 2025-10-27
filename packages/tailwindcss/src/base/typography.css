@@ -13,93 +13,44 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+@theme {
+  --font-weight-medium: 400;
+  --font-weight-bold: 600;
 
-.text {
-  &-small {
-    &-normal {
-      font-weight: 400;
-      font-size: 0.75rem;
-      line-height: 1.125rem;
-    }
+  --text-small-normal: 0.75rem;
+  --text-small-normal--line-height: 1.125rem;
+  --text-small-strong: 0.75rem;
+  --text-small-strong--line-height: 1.125rem;
+  --text-small-strong--font-weight: var(--font-weight-bold);
+  --text-base-normal: 0.875rem;
+  --text-base-normal--line-height: 1.375rem;
+  --text-base-strong: 0.875rem;
+  --text-base-strong--line-height: 1.375rem;
+  --text-base-strong--font-weight: var(--font-weight-bold);
+  --text-large-normal: 1rem;
+  --text-large-normal--line-height: 1.5rem;
+  --text-large-strong: 1rem;
+  --text-large-strong--line-height: 1.5rem;
+  --text-large-strong--font-weight: var(--font-weight-bold);
+  --text-xlarge-normal: 1.25rem;
+  --text-xlarge-normal--line-height: 2rem;
+  --text-xlarge-strong: 1.25rem;
+  --text-xlarge-strong--line-height: 2rem;
+  --text-xlarge-strong--font-weight: var(--font-weight-bold);
 
-    &-strong {
-      font-weight: 600;
-      font-size: 0.75rem;
-      line-height: 1.125rem;
-    }
-  }
-
-  &-base {
-    &-normal {
-      font-weight: 400;
-      font-size: 0.875rem;
-      line-height: 1.375rem;
-    }
-
-    &-strong {
-      font-weight: 600;
-      font-size: 0.875rem;
-      line-height: 1.375rem;
-    }
-  }
-
-  &-large {
-    &-normal {
-      font-weight: 400;
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-
-    &-strong {
-      font-weight: 600;
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-  }
-
-  &-xlarge {
-    &-normal {
-      font-weight: 400;
-      font-size: 1.25rem;
-      line-height: 2rem;
-    }
-
-    &-strong {
-      font-weight: 600;
-      font-size: 1.25rem;
-      line-height: 2rem;
-    }
-  }
-
-  &-title {
-    &-h1 {
-      font-weight: 600;
-      font-size: 2.375rem;
-      line-height: 2.875rem;
-    }
-
-    &-h2 {
-      font-weight: 600;
-      font-size: 1.875rem;
-      line-height: 2.375rem;
-    }
-
-    &-h3 {
-      font-weight: 600;
-      font-size: 1.5rem;
-      line-height: 2rem;
-    }
-
-    &-h4 {
-      font-weight: 600;
-      font-size: 1.25rem;
-      line-height: 1.75rem;
-    }
-
-    &-h5 {
-      font-weight: 600;
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-  }
+  --text-title-h1: 2.375rem;
+  --text-title-h1--line-height: 2.875rem;
+  --text-title-h1--font-weight: var(--font-weight-bold);
+  --text-title-h2: 1.875rem;
+  --text-title-h2--line-height: 2.375rem;
+  --text-title-h2--font-weight: var(--font-weight-bold);
+  --text-title-h3: 1.5rem;
+  --text-title-h3--line-height: 2rem;
+  --text-title-h3--font-weight: var(--font-weight-bold);
+  --text-title-h4: 1.25rem;
+  --text-title-h4--line-height: 1.75rem;
+  --text-title-h4--font-weight: var(--font-weight-bold);
+  --text-title-h5: 1rem;
+  --text-title-h5--line-height: 1.5rem;
+  --text-title-h5--font-weight: var(--font-weight-bold);
 }
