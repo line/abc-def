@@ -33,7 +33,7 @@
     "@vitejs/plugin-react": "^5.1.0",
     "autoprefixer": "^10.4.21",
     "eslint": "catalog:",
-    "globals": "^16.4.0",
+    "globals": "^16.5.0",
     "postcss": "^8.5.6",
     "prettier": "catalog:",
     "storybook": "catalog:storybook",
