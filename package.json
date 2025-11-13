@@ -3,9 +3,9 @@
   "private": true,
   "engines": {
     "node": ">=24.11.1",
-    "pnpm": ">=10.21.0"
+    "pnpm": ">=10.22.0"
   },
-  "packageManager": "pnpm@10.21.0",
+  "packageManager": "pnpm@10.22.0",
   "scripts": {
     "build": "turbo run build",
     "build:storybook": "turbo run build:storybook && ./scripts/after-build-storybook.sh",
