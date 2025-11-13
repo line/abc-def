@@ -89,7 +89,7 @@
     "prettier": "catalog:",
     "react": "catalog:react",
     "tailwindcss": "catalog:",
-    "tsup": "^8.5.0",
+    "tsup": "^8.5.1",
     "typescript": "catalog:"
   },
   "prettier": "@line/abc-def-prettier-config"
