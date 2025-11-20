@@ -16,4 +16,58 @@ or
 pnpm add @line/abc-def-react
 ```
 
-3\. Check the [Components list](/docs/react_component-list--docs) to see all available components.
+3\. To prevent TailwindCSS from purging your styles, add the following line to your tailwind.config.js:
+
+```js
+module.exports = {
+  // ...
+  content: [
+    ...,
+    "node_modules/@line/abc-def-react/**/*.js",
+    "node_modules/@line/abc-def-tailwindcss/**/*.js",
+  ],
+};
+```
+
+<details>
+<summary>For Next.js 13 - 14:</summary>
+
+Modify `transpilePackages` in your `next.config.js` file:
+
+```js
+const nextConfig = {
+  // ... your content here
+  transpilePackages: ["@line/abc-def-react"],
+};
+
+module.exports = nextConfig;
+```
+
+</details>
+
+<details>
+<summary>For Next.js 12:</summary>
+
+Install next-transpile modules:
+
+```bash
+npm install next-transpile-modules
+```
+
+And import the package inside your `next.config.js` file:
+
+```js
+const withTM = require("next-transpile-modules")(["@line/abc-def-react"]);
+```
+
+Finally, you can wrap your module.exports using withTM like so:
+
+```js
+module.exports = withTM({
+  //... your content here
+});
+```
+
+</details>
+
+4\. Check the [Components list](/docs/react_component-list--docs) to see all available components.
