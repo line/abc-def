@@ -13,8 +13,8 @@ catalogs:
       specifier: ^3.6.2
       version: 3.6.2
     stylelint:
-      specifier: ^16.26.0
-      version: 16.26.0
+      specifier: ^16.26.1
+      version: 16.26.1
     tailwindcss:
       specifier: ^3.4.18
       version: 3.4.18
@@ -323,7 +323,7 @@ importers:
         version: 3.6.2
       stylelint:
         specifier: 'catalog:'
-        version: 16.26.0(typescript@5.9.3)
+        version: 16.26.1(typescript@5.9.3)
       tailwindcss:
         specifier: 'catalog:'
         version: 3.4.18(yaml@2.7.1)
@@ -666,7 +666,7 @@ importers:
     dependencies:
       stylelint:
         specifier: 'catalog:'
-        version: 16.26.0(typescript@5.9.3)
+        version: 16.26.1(typescript@5.9.3)
       stylelint-copyright:
         specifier: ^3.7.0
         version: 3.7.0
@@ -1384,6 +1384,10 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       '@csstools/css-tokenizer': ^3.0.4
+
+  '@csstools/css-syntax-patches-for-csstree@1.0.19':
+    resolution: {integrity: sha512-QW5/SM2ARltEhoKcmRI1LoLf3/C7dHGswwCnfLcoMgqurBT4f8GvwXMgAbK/FwcxthmJRK5MGTtddj0yQn0J9g==}
+    engines: {node: '>=18'}
 
   '@csstools/css-tokenizer@3.0.4':
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
@@ -5720,8 +5724,8 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
 
-  stylelint@16.26.0:
-    resolution: {integrity: sha512-Y/3AVBefrkqqapVYH3LBF5TSDZ1kw+0XpdKN2KchfuhMK6lQ85S4XOG4lIZLcrcS4PWBmvcY6eS2kCQFz0jukQ==}
+  stylelint@16.26.1:
+    resolution: {integrity: sha512-v20V59/crfc8sVTAtge0mdafI3AdnzQ2KsWe6v523L4OA1bJO02S7MO2oyXDCS6iWb9ckIPnqAFVItqSBQr7jw==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -7191,6 +7195,8 @@ snapshots:
   '@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4)':
     dependencies:
       '@csstools/css-tokenizer': 3.0.4
+
+  '@csstools/css-syntax-patches-for-csstree@1.0.19': {}
 
   '@csstools/css-tokenizer@3.0.4': {}
 
@@ -11832,9 +11838,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  stylelint@16.26.0(typescript@5.9.3):
+  stylelint@16.26.1(typescript@5.9.3):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-syntax-patches-for-csstree': 1.0.19
       '@csstools/css-tokenizer': 3.0.4
       '@csstools/media-query-list-parser': 4.0.3(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
       '@csstools/selector-specificity': 5.0.0(postcss-selector-parser@7.1.0)
