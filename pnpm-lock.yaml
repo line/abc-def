@@ -16,8 +16,8 @@ catalogs:
       specifier: ^16.26.1
       version: 16.26.1
     tailwindcss:
-      specifier: ^3.4.18
-      version: 3.4.18
+      specifier: ^3.4.19
+      version: 3.4.19
     typescript:
       specifier: ^5.9.3
       version: 5.9.3
@@ -139,7 +139,7 @@ importers:
         version: 3.6.2
       tailwindcss:
         specifier: 'catalog:'
-        version: 3.4.18(yaml@2.7.1)
+        version: 3.4.19(yaml@2.7.1)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -266,7 +266,7 @@ importers:
         version: 19.2.1
       tailwindcss:
         specifier: 'catalog:'
-        version: 3.4.18(yaml@2.7.1)
+        version: 3.4.19(yaml@2.7.1)
       tsup:
         specifier: ^8.5.1
         version: 8.5.1(jiti@2.4.2)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.7.1)
@@ -326,7 +326,7 @@ importers:
         version: 16.26.1(typescript@5.9.3)
       tailwindcss:
         specifier: 'catalog:'
-        version: 3.4.18(yaml@2.7.1)
+        version: 3.4.19(yaml@2.7.1)
 
   storybooks/html-storybook:
     dependencies:
@@ -442,7 +442,7 @@ importers:
         version: 9.1.16(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.2.7(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       tailwindcss:
         specifier: 'catalog:'
-        version: 3.4.18(yaml@2.7.1)
+        version: 3.4.19(yaml@2.7.1)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -524,7 +524,7 @@ importers:
         version: 9.1.16(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.2.7(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       tailwindcss:
         specifier: 'catalog:'
-        version: 3.4.18(yaml@2.7.1)
+        version: 3.4.19(yaml@2.7.1)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -5775,8 +5775,8 @@ packages:
   tailwind-merge@3.4.0:
     resolution: {integrity: sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==}
 
-  tailwindcss@3.4.18:
-    resolution: {integrity: sha512-6A2rnmW5xZMdw11LYjhcI5846rt9pbLSabY5XPxo+XWdxwZaFEn47Go4NzFiHu9sNNmr/kXivP1vStfvMaK1GQ==}
+  tailwindcss@3.4.19:
+    resolution: {integrity: sha512-3ofp+LL8E+pK/JuPLPggVAIaEuhvIz4qNcf3nA1Xn2o/7fb7s/TYpHhwGDv1ZU3PkBluUVaF8PyCHcm48cKLWQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -7616,7 +7616,7 @@ snapshots:
 
   '@jridgewell/remapping@2.3.5':
     dependencies:
-      '@jridgewell/gen-mapping': 0.3.12
+      '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.29
 
   '@jridgewell/resolve-uri@3.1.2': {}
@@ -11900,7 +11900,7 @@ snapshots:
 
   sucrase@3.35.0:
     dependencies:
-      '@jridgewell/gen-mapping': 0.3.12
+      '@jridgewell/gen-mapping': 0.3.13
       commander: 4.1.1
       glob: 10.5.0
       lines-and-columns: 1.2.4
@@ -11948,7 +11948,7 @@ snapshots:
 
   tailwind-merge@3.4.0: {}
 
-  tailwindcss@3.4.18(yaml@2.7.1):
+  tailwindcss@3.4.19(yaml@2.7.1):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
