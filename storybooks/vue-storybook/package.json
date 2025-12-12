@@ -23,7 +23,7 @@
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/vue3": "catalog:storybook",
     "@storybook/vue3-vite": "catalog:storybook",
-    "@vitejs/plugin-vue": "^6.0.2",
+    "@vitejs/plugin-vue": "^6.0.3",
     "@vue/tsconfig": "^0.8.1",
     "eslint": "catalog:",
     "prettier": "catalog:",
