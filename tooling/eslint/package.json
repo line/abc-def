@@ -26,7 +26,7 @@
     "eslint-plugin-react-hooks": "^6.1.1",
     "eslint-plugin-storybook": "^9.1.17",
     "eslint-plugin-turbo": "^2.7.3",
-    "typescript-eslint": "^8.51.0"
+    "typescript-eslint": "^8.52.0"
   },
   "devDependencies": {
     "@line/abc-def-prettier-config": "workspace:*",
