@@ -15,7 +15,7 @@ catalogs:
   react:
     react: 19.2.3
     react-dom: 19.2.3
-    "@types/react": ^19.2.7
+    "@types/react": ^19.2.8
     "@types/react-dom": ^19.2.3
   storybook:
     storybook: ^9.1.17
