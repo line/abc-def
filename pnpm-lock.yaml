@@ -234,8 +234,8 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0
       zod:
-        specifier: ^4.0.15
-        version: 4.0.15
+        specifier: ^4.3.5
+        version: 4.3.5
     devDependencies:
       '@line/abc-def-eslint-config':
         specifier: workspace:^
@@ -468,8 +468,8 @@ importers:
         specifier: ^7.62.0
         version: 7.62.0(react@19.2.3)
       zod:
-        specifier: ^4.0.15
-        version: 4.0.15
+        specifier: ^4.3.5
+        version: 4.3.5
     devDependencies:
       '@chromatic-com/storybook':
         specifier: catalog:storybook
@@ -6243,6 +6243,9 @@ packages:
   zod@4.0.15:
     resolution: {integrity: sha512-2IVHb9h4Mt6+UXkyMs0XbfICUh1eUrlJJAOupBHUhLRnKkruawyDddYRCs0Eizt900ntIMk9/4RksYl+FgSpcQ==}
 
+  zod@4.3.5:
+    resolution: {integrity: sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==}
+
 snapshots:
 
   '@adobe/css-tools@4.4.3': {}
@@ -9939,8 +9942,8 @@ snapshots:
       '@babel/core': 7.28.4
       '@babel/parser': 7.28.4
       eslint: 9.39.2(jiti@2.4.2)
-      zod: 4.0.15
-      zod-validation-error: 3.4.1(zod@4.0.15)
+      zod: 4.3.5
+      zod-validation-error: 3.4.1(zod@4.3.5)
     transitivePeerDependencies:
       - supports-color
 
@@ -12404,10 +12407,12 @@ snapshots:
     dependencies:
       zod: 3.25.76
 
-  zod-validation-error@3.4.1(zod@4.0.15):
+  zod-validation-error@3.4.1(zod@4.3.5):
     dependencies:
-      zod: 4.0.15
+      zod: 4.3.5
 
   zod@3.25.76: {}
 
   zod@4.0.15: {}
+
+  zod@4.3.5: {}
