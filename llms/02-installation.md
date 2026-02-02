@@ -17,7 +17,7 @@ yarn add @line/abc-def-react
 ABC Def React는 Tailwind CSS를 기반으로 동작합니다.
 
 ```bash
-npm install -D tailwindcss
+npm install -D tailwindcss@^3
 npx tailwindcss init
 ```
 
@@ -28,6 +28,7 @@ npx tailwindcss init
 ```javascript
 // tailwind.config.js 예시
 module.exports = {
+  darkMode: "class",
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
     "./node_modules/@line/abc-def-react/**/*.js",
@@ -53,7 +54,7 @@ yarn add -D @line/abc-def-tailwindcss
 ```javascript
 // tailwind.config.js
 module.exports = {
-  presets: [require("@line/abc-def-tailwindcss")],
+  plugins: [require("@line/abc-def-tailwindcss")],
   // ... 기타 설정
 };
 ```
