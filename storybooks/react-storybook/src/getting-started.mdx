@@ -4,30 +4,55 @@ import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 
 # Getting Started
 
-1\. First, follow the `@line/abc-def-tailwindcss` [Installation guide](/docs/getting-started-installation--docs) to set up the configuration.
+## Prerequisites
 
-2\. Install `@line/abc-def-react` as a Node package:
+ABC Def React requires Tailwind CSS and the ABC Def Tailwind CSS plugin. Follow the [Installation guide](/docs/getting-started-installation--docs) to set up Tailwind CSS first.
 
-```sh
+## Installation
+
+### 1. Install React Package
+
+Install `@line/abc-def-react`:
+
+```bash
 npm install @line/abc-def-react
-or
-yarn add @line/abc-def-react
-or
+# or
 pnpm add @line/abc-def-react
+# or
+yarn add @line/abc-def-react
 ```
 
-3\. To prevent TailwindCSS from purging your styles, add the following line to your tailwind.config.js:
+### 2. Configure Tailwind CSS
+
+Update your `tailwind.config.js` or `tailwind.config.ts` to include the ABC Def React package in the content array:
 
 ```js
+// tailwind.config.js (CommonJS)
 module.exports = {
-  // ...
   content: [
-    ...,
-    "node_modules/@line/abc-def-react/**/*.js",
-    "node_modules/@line/abc-def-tailwindcss/**/*.js",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@line/abc-def-react/**/*.js",
   ],
+  plugins: [require("@line/abc-def-tailwindcss")],
 };
 ```
+
+```ts
+// tailwind.config.ts (ESM)
+import type { Config } from "tailwindcss";
+
+import abcDefTailwind from "@line/abc-def-tailwindcss";
+
+export default {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@line/abc-def-react/**/*.js",
+  ],
+  plugins: [abcDefTailwind],
+} satisfies Config;
+```
+
+### 3. Framework-Specific Configuration
 
 <details>
 <summary>For Next.js 13 - 14:</summary>
@@ -69,5 +94,7 @@ module.exports = withTM({
 ```
 
 </details>
+
+## Next Steps
 
 4\. Check the [Components list](/docs/react_component-list--docs) to see all available components.
