@@ -10,8 +10,8 @@ catalogs:
       specifier: ^9.39.2
       version: 9.39.2
     prettier:
-      specifier: ^3.6.2
-      version: 3.6.2
+      specifier: ^3.8.1
+      version: 3.8.1
     stylelint:
       specifier: ^16.26.1
       version: 16.26.1
@@ -72,7 +72,7 @@ importers:
         version: link:tooling/prettier
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       turbo:
         specifier: ^2.7.4
         version: 2.7.4
@@ -136,7 +136,7 @@ importers:
         version: 9.39.2(jiti@1.21.7)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       tailwindcss:
         specifier: 'catalog:'
         version: 3.4.19(yaml@2.7.1)
@@ -260,7 +260,7 @@ importers:
         version: 9.39.2(jiti@2.4.2)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       react:
         specifier: catalog:react
         version: 19.2.3
@@ -320,7 +320,7 @@ importers:
         version: 13.0.2(postcss@8.5.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       stylelint:
         specifier: 'catalog:'
         version: 16.26.1(typescript@5.9.3)
@@ -336,7 +336,7 @@ importers:
     devDependencies:
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@line/abc-def-eslint-config':
         specifier: workspace:^
         version: link:../../tooling/eslint
@@ -351,13 +351,13 @@ importers:
         version: link:../../tooling/typescript
       '@storybook/addon-docs':
         specifier: catalog:storybook
-        version: 9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@storybook/web-components':
         specifier: catalog:storybook
-        version: 9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@storybook/web-components-vite':
         specifier: catalog:storybook
-        version: 9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+        version: 9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@types/react':
         specifier: catalog:react
         version: 19.2.8
@@ -366,10 +366,10 @@ importers:
         version: 9.39.2(jiti@2.4.2)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       storybook:
         specifier: catalog:storybook
-        version: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+        version: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -391,7 +391,7 @@ importers:
     devDependencies:
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@line/abc-def-eslint-config':
         specifier: workspace:^
         version: link:../../tooling/eslint
@@ -406,13 +406,13 @@ importers:
         version: link:../../tooling/typescript
       '@storybook/addon-docs':
         specifier: catalog:storybook
-        version: 9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@storybook/react':
         specifier: catalog:storybook
-        version: 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)
+        version: 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)
       '@storybook/react-vite':
         specifier: catalog:storybook
-        version: 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.44.1)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+        version: 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.44.1)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@types/react':
         specifier: catalog:react
         version: 19.2.8
@@ -436,10 +436,10 @@ importers:
         version: 8.5.6
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       storybook:
         specifier: catalog:storybook
-        version: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+        version: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       tailwindcss:
         specifier: 'catalog:'
         version: 3.4.19(yaml@2.7.1)
@@ -473,7 +473,7 @@ importers:
     devDependencies:
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@line/abc-def-eslint-config':
         specifier: workspace:^
         version: link:../../tooling/eslint
@@ -488,13 +488,13 @@ importers:
         version: link:../../tooling/typescript
       '@storybook/addon-docs':
         specifier: catalog:storybook
-        version: 9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@storybook/react':
         specifier: catalog:storybook
-        version: 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)
+        version: 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)
       '@storybook/react-vite':
         specifier: catalog:storybook
-        version: 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.44.1)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+        version: 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.44.1)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@types/react':
         specifier: catalog:react
         version: 19.2.8
@@ -518,10 +518,10 @@ importers:
         version: 8.5.6
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       storybook:
         specifier: catalog:storybook
-        version: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+        version: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       tailwindcss:
         specifier: 'catalog:'
         version: 3.4.19(yaml@2.7.1)
@@ -540,7 +540,7 @@ importers:
     devDependencies:
       '@chromatic-com/storybook':
         specifier: catalog:storybook
-        version: 4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@line/abc-def-eslint-config':
         specifier: workspace:^
         version: link:../../tooling/eslint
@@ -555,13 +555,13 @@ importers:
         version: link:../../tooling/typescript
       '@storybook/addon-docs':
         specifier: catalog:storybook
-        version: 9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+        version: 9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@storybook/vue3':
         specifier: catalog:storybook
-        version: 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vue@3.5.26(typescript@5.9.3))
+        version: 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vue@3.5.26(typescript@5.9.3))
       '@storybook/vue3-vite':
         specifier: catalog:storybook
-        version: 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.26(typescript@5.9.3))
+        version: 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.26(typescript@5.9.3))
       '@vitejs/plugin-vue':
         specifier: ^6.0.3
         version: 6.0.3(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.26(typescript@5.9.3))
@@ -573,10 +573,10 @@ importers:
         version: 9.39.2(jiti@2.4.2)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       storybook:
         specifier: catalog:storybook
-        version: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+        version: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -615,7 +615,7 @@ importers:
         version: 6.1.1(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-storybook:
         specifier: ^9.1.17
-        version: 9.1.17(eslint@9.39.2(jiti@2.4.2))(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)
+        version: 9.1.17(eslint@9.39.2(jiti@2.4.2))(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)
       eslint-plugin-turbo:
         specifier: ^2.7.4
         version: 2.7.4(eslint@9.39.2(jiti@2.4.2))(turbo@2.7.4)
@@ -634,7 +634,7 @@ importers:
         version: 9.39.2(jiti@2.4.2)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -647,13 +647,13 @@ importers:
     dependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.7.0
-        version: 4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.6.2)
+        version: 4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.8.1)
       prettier:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.8.1
       prettier-plugin-tailwindcss:
         specifier: ^0.7.2
-        version: 0.7.2(@ianvs/prettier-plugin-sort-imports@4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.6.2))(prettier@3.6.2)
+        version: 0.7.2(@ianvs/prettier-plugin-sort-imports@4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.8.1))(prettier@3.8.1)
     devDependencies:
       '@line/abc-def-tsconfig':
         specifier: workspace:*
@@ -4245,6 +4245,7 @@ packages:
 
   glob@10.5.0:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@13.0.0:
@@ -4253,7 +4254,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global-modules@2.0.0:
     resolution: {integrity: sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A==}
@@ -5258,8 +5259,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.6.2:
-    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+  prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -6098,8 +6099,8 @@ packages:
   vue-component-type-helpers@2.2.8:
     resolution: {integrity: sha512-4bjIsC284coDO9om4HPA62M7wfsTvcmZyzdfR0aUlFXqq4tXxM1APyXpNVxPC8QazKw9OhmZNHBVDA6ODaZsrA==}
 
-  vue-component-type-helpers@3.2.2:
-    resolution: {integrity: sha512-x8C2nx5XlUNM0WirgfTkHjJGO/ABBxlANZDtHw2HclHtQnn+RFPTnbjMJn8jHZW4TlUam0asHcA14lf1C6Jb+A==}
+  vue-component-type-helpers@3.2.4:
+    resolution: {integrity: sha512-05lR16HeZDcDpB23ku5b5f1fBOoHqFnMiKRr2CiEvbG5Ux4Yi0McmQBOET0dR0nxDXosxyVqv67q6CzS3AK8rw==}
 
   vue-docgen-api@4.79.2:
     resolution: {integrity: sha512-n9ENAcs+40awPZMsas7STqjkZiVlIjxIKgiJr5rSohDP0/JCrD9VtlzNojafsA1MChm/hz2h3PDtUedx3lbgfA==}
@@ -7186,13 +7187,13 @@ snapshots:
       hashery: 1.2.0
       keyv: 5.5.4
 
-  '@chromatic-com/storybook@4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
+  '@chromatic-com/storybook@4.1.3(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
     dependencies:
       '@neoconfetti/react': 1.0.0
       chromatic: 13.3.3
       filesize: 10.1.6
       jsonfile: 6.1.0
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       strip-ansi: 7.1.0
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
@@ -7486,13 +7487,13 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.6.2)':
+  '@ianvs/prettier-plugin-sort-imports@4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.8.1)':
     dependencies:
       '@babel/generator': 7.28.3
       '@babel/parser': 7.28.3
       '@babel/traverse': 7.28.3
       '@babel/types': 7.28.2
-      prettier: 3.6.2
+      prettier: 3.8.1
       semver: 7.7.2
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.26
@@ -8377,29 +8378,29 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
-  '@storybook/addon-docs@9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
+  '@storybook/addon-docs@9.1.17(@types/react@19.2.8)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
     dependencies:
       '@mdx-js/react': 3.1.0(@types/react@19.2.8)(react@19.2.3)
-      '@storybook/csf-plugin': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+      '@storybook/csf-plugin': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       '@storybook/icons': 1.4.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@storybook/react-dom-shim': 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+      '@storybook/react-dom-shim': 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/builder-vite@9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
+  '@storybook/builder-vite@9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
-      '@storybook/csf-plugin': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/csf-plugin': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       ts-dedent: 2.2.0
       vite: 7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)
 
-  '@storybook/csf-plugin@9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
+  '@storybook/csf-plugin@9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
     dependencies:
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       unplugin: 1.16.1
 
   '@storybook/global@5.0.0': {}
@@ -8409,25 +8410,25 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@storybook/react-dom-shim@9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
+  '@storybook/react-dom-shim@9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
     dependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
 
-  '@storybook/react-vite@9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.44.1)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
+  '@storybook/react-vite@9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.44.1)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.6.1(typescript@5.9.3)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       '@rollup/pluginutils': 5.1.4(rollup@4.44.1)
-      '@storybook/builder-vite': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
-      '@storybook/react': 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)
+      '@storybook/builder-vite': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/react': 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)
       find-up: 7.0.0
       magic-string: 0.30.21
       react: 19.2.3
       react-docgen: 8.0.0
       react-dom: 19.2.3(react@19.2.3)
       resolve: 1.22.10
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       tsconfig-paths: 4.2.0
       vite: 7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)
     transitivePeerDependencies:
@@ -8435,23 +8436,23 @@ snapshots:
       - supports-color
       - typescript
 
-  '@storybook/react@9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)':
+  '@storybook/react@9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3)':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/react-dom-shim': 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+      '@storybook/react-dom-shim': 9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
     optionalDependencies:
       typescript: 5.9.3
 
-  '@storybook/vue3-vite@9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.26(typescript@5.9.3))':
+  '@storybook/vue3-vite@9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))(vue@3.5.26(typescript@5.9.3))':
     dependencies:
-      '@storybook/builder-vite': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
-      '@storybook/vue3': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vue@3.5.26(typescript@5.9.3))
+      '@storybook/builder-vite': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/vue3': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vue@3.5.26(typescript@5.9.3))
       find-package-json: 1.2.0
       magic-string: 0.30.21
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       typescript: 5.9.3
       vite: 7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)
       vue-component-meta: 2.2.8(typescript@5.9.3)
@@ -8459,28 +8460,28 @@ snapshots:
     transitivePeerDependencies:
       - vue
 
-  '@storybook/vue3@9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vue@3.5.26(typescript@5.9.3))':
+  '@storybook/vue3@9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vue@3.5.26(typescript@5.9.3))':
     dependencies:
       '@storybook/global': 5.0.0
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       type-fest: 2.19.0
       vue: 3.5.26(typescript@5.9.3)
-      vue-component-type-helpers: 3.2.2
+      vue-component-type-helpers: 3.2.4
 
-  '@storybook/web-components-vite@9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
+  '@storybook/web-components-vite@9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
-      '@storybook/builder-vite': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
-      '@storybook/web-components': 9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/builder-vite': 9.1.17(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/web-components': 9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
     transitivePeerDependencies:
       - lit
       - vite
 
-  '@storybook/web-components@9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
+  '@storybook/web-components@9.1.17(lit@3.3.2)(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))':
     dependencies:
       '@storybook/global': 5.0.0
       lit: 3.3.2
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
       tiny-invariant: 1.3.3
       ts-dedent: 2.2.0
 
@@ -9966,11 +9967,11 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-storybook@9.1.17(eslint@9.39.2(jiti@2.4.2))(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3):
+  eslint-plugin-storybook@9.1.17(eslint@9.39.2(jiti@2.4.2))(storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)))(typescript@5.9.3):
     dependencies:
       '@typescript-eslint/utils': 8.50.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.4.2)
-      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
+      storybook: 9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1))
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -11185,13 +11186,13 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.7.2(@ianvs/prettier-plugin-sort-imports@4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.6.2))(prettier@3.6.2):
+  prettier-plugin-tailwindcss@0.7.2(@ianvs/prettier-plugin-sort-imports@4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.8.1))(prettier@3.8.1):
     dependencies:
-      prettier: 3.6.2
+      prettier: 3.8.1
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.6.2)
+      '@ianvs/prettier-plugin-sort-imports': 4.7.0(@vue/compiler-sfc@3.5.26)(prettier@3.8.1)
 
-  prettier@3.6.2: {}
+  prettier@3.8.1: {}
 
   pretty-format@27.5.1:
     dependencies:
@@ -11669,7 +11670,7 @@ snapshots:
       es-errors: 1.3.0
       internal-slot: 1.1.0
 
-  storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)):
+  storybook@9.1.17(@testing-library/dom@10.4.0)(prettier@3.8.1)(vite@7.3.1(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.1)):
     dependencies:
       '@storybook/global': 5.0.0
       '@testing-library/jest-dom': 6.6.3
@@ -11684,7 +11685,7 @@ snapshots:
       semver: 7.7.2
       ws: 8.18.3
     optionalDependencies:
-      prettier: 3.6.2
+      prettier: 3.8.1
     transitivePeerDependencies:
       - '@testing-library/dom'
       - bufferutil
@@ -12248,7 +12249,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.8: {}
 
-  vue-component-type-helpers@3.2.2: {}
+  vue-component-type-helpers@3.2.4: {}
 
   vue-docgen-api@4.79.2(vue@3.5.26(typescript@5.9.3)):
     dependencies:
