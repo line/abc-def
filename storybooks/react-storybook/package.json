@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.2.1",
+    "@hookform/resolvers": "^5.2.2",
     "@line/abc-def-react": "workspace:^",
     "react": "catalog:react",
     "react-dom": "catalog:react",
