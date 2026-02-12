@@ -13,22 +13,16 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.menu-horizontal {
-  @apply flex-row gap-3;
-}
 
-.menu-vertical {
-  @apply min-w-[10rem] flex-col gap-3;
-}
-
-.menu-item-large {
-  @apply text-xlarge-normal py-2-point-5 px-3-point-5 [&>svg]:h-6 [&>svg]:w-6;
-}
-
-.menu-item-medium {
-  @apply text-large-normal py-2-point-5 px-3 [&>svg]:h-5 [&>svg]:w-5;
-}
-
-.menu-item-small {
-  @apply text-base-normal p-2 [&>svg]:h-4 [&>svg]:w-4;
+@layer {
+  :root {
+    --shadow-sm: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)";
+    --shadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)";
+    --shadow-md: "0px 4px 6px -1px rgba(0, 0, 0, 0.10), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)";
+    --shadow-lg: "0px 10px 15px -3px rgba(0, 0, 0, 0.10), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)";
+    --shadow-xl: "0px 20px 25px -5px rgba(0, 0, 0, 0.10), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)";
+    --shadow-2xl: "0px 25px 50px -12px rgba(0, 0, 0, 0.25)";
+    --shadow-inner: "0px 2px 4px 0px rgba(0, 0, 0, 0.06) inset";
+    --shadow-none: "none";
+  }
 }

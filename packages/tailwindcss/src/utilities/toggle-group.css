@@ -22,7 +22,7 @@
 }
 
 .toggle-group-item-small {
-  @apply text-base-strong min-h-9 px-3 py-1.5 [&>svg]:h-4 [&>svg]:w-4;
+  @apply text-base-strong py-1-point-5 min-h-9 px-3 [&>svg]:h-4 [&>svg]:w-4;
 }
 
 .toggle-group-item-radius-large {

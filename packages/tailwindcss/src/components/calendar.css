@@ -47,7 +47,7 @@
 }
 
 .calendar-nav-button {
-  @apply flex p-2.5 hover:opacity-50;
+  @apply p-2-point-5 flex hover:opacity-50;
 }
 
 .calendar-nav-button-previous {
@@ -67,11 +67,11 @@
 }
 
 .calendar-head-cell {
-  @apply text-small-normal flex-1 px-2 py-0.5 font-normal text-[var(--calendar-fg-week)];
+  @apply text-small-normal py-0-point-5 flex-1 px-2 font-normal text-[var(--calendar-fg-week)];
 }
 
 .calendar-row {
-  @apply mt-0.5 flex w-full;
+  @apply mt-0-point-5 flex w-full;
 }
 
 .calendar-cell {

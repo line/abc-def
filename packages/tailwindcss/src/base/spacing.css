@@ -1,0 +1,59 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+@layer {
+  :root {
+    --spacing: 0.25rem;
+    --spacing-px: 0.0625rem;
+    --spacing-0: calc(var(--spacing) * 0);
+    --spacing-0-point-5: calc(var(--spacing) * 0.5);
+    --spacing-1: calc(var(--spacing) * 1);
+    --spacing-1-point-5: calc(var(--spacing) * 1.5);
+    --spacing-2: calc(var(--spacing) * 2);
+    --spacing-2-point-5: calc(var(--spacing) * 2.5);
+    --spacing-3: calc(var(--spacing) * 3);
+    --spacing-3-point-5: calc(var(--spacing) * 3.5);
+    --spacing-4: calc(var(--spacing) * 4);
+    --spacing-5: calc(var(--spacing) * 5);
+    --spacing-5-point-5: calc(var(--spacing) * 5.5);
+    --spacing-6: calc(var(--spacing) * 6);
+    --spacing-7: calc(var(--spacing) * 7);
+    --spacing-8: calc(var(--spacing) * 8);
+    --spacing-9: calc(var(--spacing) * 9);
+    --spacing-9-point-5: calc(var(--spacing) * 9.5);
+    --spacing-10: calc(var(--spacing) * 10);
+    --spacing-11: calc(var(--spacing) * 11);
+    --spacing-12: calc(var(--spacing) * 12);
+    --spacing-13: calc(var(--spacing) * 13);
+    --spacing-14: calc(var(--spacing) * 14);
+    --spacing-16: calc(var(--spacing) * 16);
+    --spacing-20: calc(var(--spacing) * 20);
+    --spacing-24: calc(var(--spacing) * 24);
+    --spacing-28: calc(var(--spacing) * 28);
+    --spacing-32: calc(var(--spacing) * 32);
+    --spacing-36: calc(var(--spacing) * 36);
+    --spacing-40: calc(var(--spacing) * 40);
+    --spacing-44: calc(var(--spacing) * 44);
+    --spacing-48: calc(var(--spacing) * 48);
+    --spacing-52: calc(var(--spacing) * 52);
+    --spacing-56: calc(var(--spacing) * 56);
+    --spacing-60: calc(var(--spacing) * 60);
+    --spacing-64: calc(var(--spacing) * 64);
+    --spacing-72: calc(var(--spacing) * 72);
+    --spacing-80: calc(var(--spacing) * 80);
+    --spacing-96: calc(var(--spacing) * 96);
+  }
+}

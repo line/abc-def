@@ -20,18 +20,18 @@
 
 .text-input-box > svg {
   @apply [&:has(+.text-input-large)]:left-4 [&:has(+.text-input-large)]:h-6 [&:has(+.text-input-large)]:w-6;
-  @apply [&:has(+.text-input-medium)]:left-3.5 [&:has(+.text-input-medium)]:h-5 [&:has(+.text-input-medium)]:w-5;
+  @apply [&:has(+.text-input-medium)]:left-3-point-5 [&:has(+.text-input-medium)]:h-5 [&:has(+.text-input-medium)]:w-5;
   @apply [&:has(+.text-input-small)]:left-3 [&:has(+.text-input-small)]:h-4 [&:has(+.text-input-small)]:w-4;
 }
 
 .text-input-large {
-  @apply text-xlarge-normal h-13 px-5 py-2.5;
+  @apply text-xlarge-normal h-13 py-2-point-5 px-5;
   @apply [&:has(+.text-input-button)]:!pr-12;
   @apply [svg+&]:!pl-12;
 }
 
 .text-input-medium {
-  @apply text-large-normal h-11 px-4 py-2.5;
+  @apply text-large-normal py-2-point-5 h-11 px-4;
   @apply [&:has(+.text-input-button)]:!pr-10;
   @apply [svg+&]:!pl-10;
 }
@@ -59,7 +59,7 @@
 }
 
 .text-input-button-medium {
-  @apply right-3.5;
+  @apply right-3-point-5;
 }
 
 .text-input-button-small {

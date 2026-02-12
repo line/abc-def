@@ -26,7 +26,7 @@
 }
 
 .check-small {
-  @apply h-3.5 w-3.5;
+  @apply h-3-point-5 w-3-point-5;
 }
 
 .check-medium {

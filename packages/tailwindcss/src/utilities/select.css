@@ -18,7 +18,7 @@
 }
 
 .select-medium {
-  @apply space-y-1.5;
+  @apply space-y-1-point-5;
 }
 
 .select-large {
@@ -29,7 +29,7 @@
 }
 
 .select-trigger-medium {
-  @apply text-large-normal min-h-11 space-x-2.5 px-3.5;
+  @apply text-large-normal space-x-2-point-5 px-3-point-5 min-h-11;
 }
 
 .select-trigger-large {
