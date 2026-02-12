@@ -22,7 +22,7 @@
 }
 
 .button-small {
-  @apply text-base-strong h-9 min-w-9 gap-1 px-3 [&.svg-only]:px-2.5 [&>svg]:h-4 [&>svg]:w-4;
+  @apply text-base-strong [&.svg-only]:px-2-point-5 h-9 min-w-9 gap-1 px-3 [&>svg]:h-4 [&>svg]:w-4;
 }
 
 .button-radius-large {

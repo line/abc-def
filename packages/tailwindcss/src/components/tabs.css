@@ -21,7 +21,7 @@
 }
 
 .tabs-list {
-  @apply rounded-8 h-9.5 inline-flex items-center justify-center bg-[var(--tabs-bg-unselected)] p-1 text-[var(--tabs-fg-selected)];
+  @apply rounded-8 h-9-point-5 inline-flex items-center justify-center bg-[var(--tabs-bg-unselected)] p-1 text-[var(--tabs-fg-selected)];
 }
 
 .tabs-trigger {

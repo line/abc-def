@@ -15,7 +15,7 @@
  */
 /* todo remove */
 .navbar {
-  @apply border-b-neutral-tertiary bg-neutral-primary flex h-14 items-center border-b px-6 py-2.5;
+  @apply border-b-neutral-tertiary bg-neutral-primary py-2-point-5 flex h-14 items-center border-b px-6;
 }
 
 .navbar-menu {
@@ -23,7 +23,7 @@
 }
 
 .navbar-logo {
-  @apply flex p-1.5;
+  @apply p-1-point-5 flex;
 }
 
 .navbar-divider {

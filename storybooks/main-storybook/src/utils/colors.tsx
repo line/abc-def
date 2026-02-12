@@ -227,7 +227,7 @@ export const PrimitiveColors = () => {
                     >
                       <Icon
                         name="RiLink"
-                        className="text-neutral-tertiary mr-0.5 h-3 w-3"
+                        className="text-neutral-tertiary mr-0-point-5 h-3 w-3"
                       />
                       {value.trim()}
                     </button>

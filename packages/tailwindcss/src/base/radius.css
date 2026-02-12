@@ -13,22 +13,17 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.menu-horizontal {
-  @apply flex-row gap-3;
-}
 
-.menu-vertical {
-  @apply min-w-[10rem] flex-col gap-3;
-}
-
-.menu-item-large {
-  @apply text-xlarge-normal py-2-point-5 px-3-point-5 [&>svg]:h-6 [&>svg]:w-6;
-}
-
-.menu-item-medium {
-  @apply text-large-normal py-2-point-5 px-3 [&>svg]:h-5 [&>svg]:w-5;
-}
-
-.menu-item-small {
-  @apply text-base-normal p-2 [&>svg]:h-4 [&>svg]:w-4;
+@layer {
+  :root {
+    --radius-0: 0;
+    --radius-2: calc(var(--rounded-base, 0px) + 0.125rem);
+    --radius-4: calc(var(--rounded-base, 0px) + 0.25rem);
+    --radius-6: calc(var(--rounded-base, 0px) + 0.375rem);
+    --radius-8: calc(var(--rounded-base, 0px) + 0.5rem);
+    --radius-12: calc(var(--rounded-base, 0px) + 0.75rem);
+    --radius-16: calc(var(--rounded-base, 0px) + 1rem);
+    --radius-24: calc(var(--rounded-base, 0px) + 1.5rem);
+    --radius-full: "62.4375rem";
+  }
 }

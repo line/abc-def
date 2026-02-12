@@ -1,5 +1,6 @@
 module.exports = {
   0: "0",
+  2: "calc(var(--rounded-base, 0px) + 0.125rem)",
   4: "calc(var(--rounded-base, 0px) + 0.25rem)",
   6: "calc(var(--rounded-base, 0px) + 0.375rem)",
   8: "calc(var(--rounded-base, 0px) + 0.5rem)",

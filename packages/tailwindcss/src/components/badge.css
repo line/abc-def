@@ -52,7 +52,7 @@
   --badge-bg-outline-red: var(--bg-neutral-primary);
   --badge-bg-outline-green: var(--bg-neutral-primary);
 
-  @apply text-small-strong inline-flex whitespace-nowrap px-2 py-0.5;
+  @apply text-small-strong py-0-point-5 inline-flex whitespace-nowrap px-2;
 
   /* default */
   @apply badge-bold-default badge-radius-medium;

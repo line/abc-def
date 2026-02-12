@@ -14,11 +14,11 @@
  * under the License.
  */
 .tag-small {
-  @apply text-small-strong h-5.5 gap-1 px-2 [&>svg]:h-3 [&>svg]:w-3;
+  @apply text-small-strong h-5-point-5 gap-1 px-2 [&>svg]:h-3 [&>svg]:w-3;
 }
 
 .tag-medium {
-  @apply text-base-strong h-7 gap-1.5 px-2.5 [&>svg]:h-4 [&>svg]:w-4;
+  @apply text-base-strong gap-1-point-5 px-2-point-5 h-7 [&>svg]:h-4 [&>svg]:w-4;
 }
 
 .tag-large {

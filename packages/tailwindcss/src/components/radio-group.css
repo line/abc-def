@@ -30,7 +30,7 @@
 }
 
 .radio {
-  @apply relative mr-2 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[var(--radio-group-bg)] before:absolute before:inset-0 before:flex before:rounded-full before:border before:border-[var(--radio-group-border)];
+  @apply h-3-point-5 w-3-point-5 relative mr-2 flex items-center justify-center rounded-full bg-[var(--radio-group-bg)] before:absolute before:inset-0 before:flex before:rounded-full before:border before:border-[var(--radio-group-border)];
 }
 
 .radio-indicator {
