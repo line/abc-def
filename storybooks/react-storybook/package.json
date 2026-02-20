@@ -16,7 +16,7 @@
     "@line/abc-def-react": "workspace:^",
     "react": "catalog:react",
     "react-dom": "catalog:react",
-    "react-hook-form": "^7.62.0",
+    "react-hook-form": "^7.71.2",
     "zod": "^4.0.15"
   },
   "devDependencies": {
