@@ -15,14 +15,14 @@
 import { Button } from '@line/abc-def-react';
 
 // Props로 기본 스타일 제어
-<Button variant="primary" size="md">
+<Button variant="primary" size="medium">
   Click me
 </Button>
 
 // className으로 추가 스타일 적용
 <Button
   variant="primary"
-  size="md"
+  size="medium"
   className="w-full rounded-lg"
 >
   Full Width Button
@@ -58,13 +58,13 @@ import { Button } from '@line/abc-def-react';
 많은 컴포넌트가 `size` prop을 지원합니다:
 
 ```tsx
-<Button size="sm">Small</Button>
-<Button size="md">Medium</Button>
-<Button size="lg">Large</Button>
+<Button size="small">Small</Button>
+<Button size="medium">Medium</Button>
+<Button size="large">Large</Button>
 
-<Badge size="sm">Small Badge</Badge>
-<Badge size="md">Medium Badge</Badge>
-<Badge size="lg">Large Badge</Badge>
+<Badge size="small">Small Badge</Badge>
+<Badge size="medium">Medium Badge</Badge>
+<Badge size="large">Large Badge</Badge>
 ```
 
 ### className으로 스타일 Override
@@ -107,7 +107,7 @@ Tailwind CSS의 breakpoint를 사용합니다:
 
 // 모바일: 작은 버튼, 데스크톱: 큰 버튼
 <Button
-  size="sm"
+  size="small"
   className="md:text-lg md:px-6 md:py-3"
 >
   Responsive Button
@@ -240,7 +240,7 @@ Tailwind CSS의 `!` prefix 사용:
 
 ```tsx
 // Props로 기본 스타일 제어
-<Button variant="primary" size="lg">Submit</Button>
+<Button variant="primary" size="large">Submit</Button>
 
 // 반응형 디자인
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -59,9 +59,9 @@ function Example() {
 ### Size 예시
 
 ```tsx
-<ComponentName size="sm">Small</ComponentName>
-<ComponentName size="md">Medium</ComponentName>
-<ComponentName size="lg">Large</ComponentName>
+<ComponentName size="small">Small</ComponentName>
+<ComponentName size="medium">Medium</ComponentName>
+<ComponentName size="large">Large</ComponentName>
 ```
 
 ### 상태별 예시
