@@ -40,60 +40,60 @@
   --shadow-inner: 0px 2px 4px 0px rgba(0, 0, 0, 0.06) inset;
 }
 
-/* Color utilities — defined explicitly to preserve the design system's three-tier
+/* Color utilities — defined as @utility so they are usable with @apply.
+   Explicit per-property definitions preserve the design system's three-tier
    token structure (fg / bg / border) that cannot be expressed via a single
    @theme --color-* namespace in Tailwind v4. */
-@layer utilities {
-  /* Foreground / text colors */
-  .text-neutral-primary { color: var(--fg-neutral-primary); }
-  .text-neutral-secondary { color: var(--fg-neutral-secondary); }
-  .text-neutral-tertiary { color: var(--fg-neutral-tertiary); }
-  .text-neutral-inverse { color: var(--fg-neutral-inverse); }
-  .text-neutral-static { color: var(--fg-neutral-static); }
-  .text-tint-red { color: var(--fg-tint-red); }
-  .text-tint-orange { color: var(--fg-tint-orange); }
-  .text-tint-green { color: var(--fg-tint-green); }
-  .text-tint-blue { color: var(--fg-tint-blue); }
 
-  /* Fill colors */
-  .fill-neutral-primary { fill: var(--fg-neutral-primary); }
-  .fill-neutral-secondary { fill: var(--fg-neutral-secondary); }
-  .fill-neutral-tertiary { fill: var(--fg-neutral-tertiary); }
-  .fill-neutral-inverse { fill: var(--fg-neutral-inverse); }
-  .fill-neutral-static { fill: var(--fg-neutral-static); }
-  .fill-tint-red { fill: var(--fg-tint-red); }
-  .fill-tint-orange { fill: var(--fg-tint-orange); }
-  .fill-tint-green { fill: var(--fg-tint-green); }
-  .fill-tint-blue { fill: var(--fg-tint-blue); }
+/* Foreground / text colors */
+@utility text-neutral-primary { color: var(--fg-neutral-primary); }
+@utility text-neutral-secondary { color: var(--fg-neutral-secondary); }
+@utility text-neutral-tertiary { color: var(--fg-neutral-tertiary); }
+@utility text-neutral-inverse { color: var(--fg-neutral-inverse); }
+@utility text-neutral-static { color: var(--fg-neutral-static); }
+@utility text-tint-red { color: var(--fg-tint-red); }
+@utility text-tint-orange { color: var(--fg-tint-orange); }
+@utility text-tint-green { color: var(--fg-tint-green); }
+@utility text-tint-blue { color: var(--fg-tint-blue); }
 
-  /* Background colors */
-  .bg-primary { background-color: var(--bg-primary); }
-  .bg-secondary { background-color: var(--bg-secondary); }
-  .bg-tertiary { background-color: var(--bg-tertiary); }
-  .bg-dim { background-color: var(--bg-dim); }
-  .bg-neutral-primary { background-color: var(--bg-neutral-primary); }
-  .bg-neutral-secondary { background-color: var(--bg-neutral-secondary); }
-  .bg-neutral-tertiary { background-color: var(--bg-neutral-tertiary); }
-  .bg-neutral-inverse { background-color: var(--bg-neutral-inverse); }
-  .bg-neutral-hover { background-color: var(--bg-neutral-hover); }
-  .bg-neutral-transparent { background-color: var(--base-transparent); }
-  .bg-tint-red-bold { background-color: var(--bg-tint-red-bold); }
-  .bg-tint-red-subtle { background-color: var(--bg-tint-red-subtle); }
-  .bg-tint-orange-bold { background-color: var(--bg-tint-orange-bold); }
-  .bg-tint-orange-subtle { background-color: var(--bg-tint-orange-subtle); }
-  .bg-tint-green-bold { background-color: var(--bg-tint-green-bold); }
-  .bg-tint-green-subtle { background-color: var(--bg-tint-green-subtle); }
-  .bg-tint-blue-bold { background-color: var(--bg-tint-blue-bold); }
-  .bg-tint-blue-subtle { background-color: var(--bg-tint-blue-subtle); }
+/* Fill colors */
+@utility fill-neutral-primary { fill: var(--fg-neutral-primary); }
+@utility fill-neutral-secondary { fill: var(--fg-neutral-secondary); }
+@utility fill-neutral-tertiary { fill: var(--fg-neutral-tertiary); }
+@utility fill-neutral-inverse { fill: var(--fg-neutral-inverse); }
+@utility fill-neutral-static { fill: var(--fg-neutral-static); }
+@utility fill-tint-red { fill: var(--fg-tint-red); }
+@utility fill-tint-orange { fill: var(--fg-tint-orange); }
+@utility fill-tint-green { fill: var(--fg-tint-green); }
+@utility fill-tint-blue { fill: var(--fg-tint-blue); }
 
-  /* Border colors */
-  .border-neutral-primary { border-color: var(--border-neutral-primary); }
-  .border-neutral-secondary { border-color: var(--border-neutral-secondary); }
-  .border-neutral-tertiary { border-color: var(--border-neutral-tertiary); }
-  .border-b-neutral-tertiary { border-bottom-color: var(--border-neutral-tertiary); }
-  .border-neutral-transparent { border-color: var(--border-neutral-transparent); }
-  .border-tint-red { border-color: var(--border-tint-red); }
-  .border-tint-orange { border-color: var(--border-tint-orange); }
-  .border-tint-green { border-color: var(--border-tint-green); }
-  .border-tint-blue { border-color: var(--border-tint-blue); }
-}
+/* Background colors */
+@utility bg-primary { background-color: var(--bg-primary); }
+@utility bg-secondary { background-color: var(--bg-secondary); }
+@utility bg-tertiary { background-color: var(--bg-tertiary); }
+@utility bg-dim { background-color: var(--bg-dim); }
+@utility bg-neutral-primary { background-color: var(--bg-neutral-primary); }
+@utility bg-neutral-secondary { background-color: var(--bg-neutral-secondary); }
+@utility bg-neutral-tertiary { background-color: var(--bg-neutral-tertiary); }
+@utility bg-neutral-inverse { background-color: var(--bg-neutral-inverse); }
+@utility bg-neutral-hover { background-color: var(--bg-neutral-hover); }
+@utility bg-neutral-transparent { background-color: var(--base-transparent); }
+@utility bg-tint-red-bold { background-color: var(--bg-tint-red-bold); }
+@utility bg-tint-red-subtle { background-color: var(--bg-tint-red-subtle); }
+@utility bg-tint-orange-bold { background-color: var(--bg-tint-orange-bold); }
+@utility bg-tint-orange-subtle { background-color: var(--bg-tint-orange-subtle); }
+@utility bg-tint-green-bold { background-color: var(--bg-tint-green-bold); }
+@utility bg-tint-green-subtle { background-color: var(--bg-tint-green-subtle); }
+@utility bg-tint-blue-bold { background-color: var(--bg-tint-blue-bold); }
+@utility bg-tint-blue-subtle { background-color: var(--bg-tint-blue-subtle); }
+
+/* Border colors */
+@utility border-neutral-primary { border-color: var(--border-neutral-primary); }
+@utility border-neutral-secondary { border-color: var(--border-neutral-secondary); }
+@utility border-neutral-tertiary { border-color: var(--border-neutral-tertiary); }
+@utility border-b-neutral-tertiary { border-bottom-color: var(--border-neutral-tertiary); }
+@utility border-neutral-transparent { border-color: var(--border-neutral-transparent); }
+@utility border-tint-red { border-color: var(--border-tint-red); }
+@utility border-tint-orange { border-color: var(--border-tint-orange); }
+@utility border-tint-green { border-color: var(--border-tint-green); }
+@utility border-tint-blue { border-color: var(--border-tint-blue); }
