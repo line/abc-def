@@ -28,6 +28,7 @@
     "@line/abc-def-tailwindcss": "workspace:^",
     "@line/abc-def-tsconfig": "workspace:^",
     "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/postcss": "catalog:",
     "@types/node": "^20.17.30",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",

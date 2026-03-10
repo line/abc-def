@@ -23,6 +23,7 @@
     "@storybook/addon-docs": "catalog:storybook",
     "@storybook/web-components": "catalog:storybook",
     "@storybook/web-components-vite": "catalog:storybook",
+    "@tailwindcss/vite": "catalog:",
     "@types/react": "catalog:react",
     "eslint": "catalog:",
     "prettier": "catalog:",

@@ -1,7 +1,5 @@
 const theme = require("tailwindcss/defaultTheme");
-const borderRadius = require("./borderRadius");
 const boxShadow = require("./boxShadow");
-const spacing = require("./spacing");
 
 const colors = {
   inherit: "inherit",
@@ -91,9 +89,5 @@ module.exports = {
       },
     },
   },
-  borderRadius,
   boxShadow,
-  extend: {
-    spacing,
-  },
 };
