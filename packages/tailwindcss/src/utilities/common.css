@@ -14,13 +14,13 @@
  * under the License.
  */
 .absolute-y-center {
-  @apply absolute top-1/2 -translate-y-1/2 transform;
+  @apply absolute top-1/2 -translate-y-1/2;
 }
 
 .absolute-x-center {
-  @apply absolute left-1/2 -translate-x-1/2 transform;
+  @apply absolute left-1/2 -translate-x-1/2;
 }
 
 .absolute-center {
-  @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform;
+  @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
 }

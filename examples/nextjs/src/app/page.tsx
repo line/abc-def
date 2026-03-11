@@ -70,6 +70,7 @@ import {
 const IndexPage: NextPage = () => {
   return (
     <div className="flex flex-col gap-6 p-6">
+      {/* <button className="h-10 w-10 bg-red-300 before:border-2">test</button> */}
       <Accordion type="multiple">
         <AccordionItem value="item-1">
           <AccordionTrigger>1</AccordionTrigger>

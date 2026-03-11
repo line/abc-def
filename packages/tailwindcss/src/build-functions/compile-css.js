@@ -80,4 +80,72 @@ async function compileAndExtract(cssContent, additionalCss = "") {
   return block.slice(1, -1).trim();
 }
 
-module.exports = compileAndExtract;
+/**
+ * Converts compiled CSS rules with simple class selectors into @utility
+ * declarations so that subsequent compile() calls can resolve @apply
+ * references to those classes.
+ *
+ * Only rules with a simple class selector (e.g. `.foo { ... }`) are
+ * converted. Compound selectors, pseudo-classes, child combinators, etc.
+ * are skipped — @apply only needs the base class declarations.
+ *
+ * Rules may contain nested blocks (e.g. `&>svg { ... }` from compiled
+ * @apply directives); only the direct declarations before any nested block
+ * are captured.
+ *
+ * @param {string} css - Compiled CSS (from dist/base.css or dist/utilities.css)
+ * @returns {string} - @utility declarations string
+ */
+function cssToUtilityRegistrations(css) {
+  const utilities = [];
+
+  // Find all simple class selector rule headers. Allow any indentation level.
+  const headerRegex = /^\s*\.([\w-]+)\s*\{/gm;
+  let match;
+
+  while ((match = headerRegex.exec(css)) !== null) {
+    const className = match[1];
+    const bodyStart = match.index + match[0].length;
+
+    // Collect characters until first nested '{' (nested block) or '}' (rule end)
+    let directDecls = "";
+    let i = bodyStart;
+    while (i < css.length && css[i] !== "{" && css[i] !== "}") {
+      directDecls += css[i];
+      i++;
+    }
+
+    if (i < css.length && css[i] === "{") {
+      // Stopped at a nested block. Trim off any partial selector text that
+      // follows the last ';' (e.g. trailing '  &>svg ' before a nested block).
+      const lastSemi = directDecls.lastIndexOf(";");
+      directDecls = lastSemi >= 0 ? directDecls.slice(0, lastSemi + 1) : "";
+
+      if (!directDecls.trim()) {
+        // No direct declarations — rule body is entirely nested blocks.
+        // Extract the full balanced body so the @utility can include them.
+        let depth = 1;
+        let fullBody = "";
+        let j = bodyStart;
+        while (j < css.length && depth > 0) {
+          if (css[j] === "{") depth++;
+          else if (css[j] === "}") depth--;
+          if (depth > 0) fullBody += css[j];
+          j++;
+        }
+        if (fullBody.trim()) {
+          utilities.push(`@utility ${className} {\n${fullBody}}`);
+        }
+        continue;
+      }
+    }
+
+    if (directDecls.trim()) {
+      utilities.push(`@utility ${className} {\n${directDecls}}`);
+    }
+  }
+
+  return utilities.join("\n");
+}
+
+module.exports = { compileAndExtract, cssToUtilityRegistrations };

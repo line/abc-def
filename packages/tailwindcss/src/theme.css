@@ -40,6 +40,94 @@
   --shadow-inner: 0px 2px 4px 0px rgba(0, 0, 0, 0.06) inset;
 }
 
+/* Typography — defined as @utility so they are usable with @apply in other
+   layers (utilities, components). The CSS declarations match src/base/typography.css. */
+@utility text-small-normal { font-weight: 400; font-size: 0.75rem; line-height: 1.125rem; }
+@utility text-small-strong { font-weight: 600; font-size: 0.75rem; line-height: 1.125rem; }
+@utility text-base-normal { font-weight: 400; font-size: 0.875rem; line-height: 1.375rem; }
+@utility text-base-strong { font-weight: 600; font-size: 0.875rem; line-height: 1.375rem; }
+@utility text-large-normal { font-weight: 400; font-size: 1rem; line-height: 1.5rem; }
+@utility text-large-strong { font-weight: 600; font-size: 1rem; line-height: 1.5rem; }
+@utility text-xlarge-normal { font-weight: 400; font-size: 1.25rem; line-height: 2rem; }
+@utility text-xlarge-strong { font-weight: 600; font-size: 1.25rem; line-height: 2rem; }
+@utility text-title-h1 { font-weight: 600; font-size: 2.375rem; line-height: 2.875rem; }
+@utility text-title-h2 { font-weight: 600; font-size: 1.875rem; line-height: 2.375rem; }
+@utility text-title-h3 { font-weight: 600; font-size: 1.5rem; line-height: 2rem; }
+@utility text-title-h4 { font-weight: 600; font-size: 1.25rem; line-height: 1.75rem; }
+@utility text-title-h5 { font-weight: 600; font-size: 1rem; line-height: 1.5rem; }
+
+/* Animation utilities — defined as @utility so they are usable with @apply.
+   @keyframes and .animate-in/.animate-out class definitions live in
+   src/utilities/animation.css so they appear in the runtime dist output. */
+
+/* Base animation classes */
+@utility animate-in {
+  animation-name: enter;
+  animation-duration: 0.15s;
+  --tw-enter-opacity: initial;
+  --tw-enter-scale: initial;
+  --tw-enter-rotate: initial;
+  --tw-enter-translate-x: initial;
+  --tw-enter-translate-y: initial;
+}
+@utility animate-out {
+  animation-name: exit;
+  animation-duration: 0.15s;
+  --tw-exit-opacity: initial;
+  --tw-exit-scale: initial;
+  --tw-exit-rotate: initial;
+  --tw-exit-translate-x: initial;
+  --tw-exit-translate-y: initial;
+}
+
+/* Named animations */
+@utility animate-accordion-down { animation: accordion-down 0.2s ease-out; }
+@utility animate-accordion-up { animation: accordion-up 0.2s ease-out; }
+
+/* Opacity enter/exit */
+@utility fade-in-0 { --tw-enter-opacity: 0; }
+@utility fade-out-0 { --tw-exit-opacity: 0; }
+
+/* Scale enter/exit */
+@utility zoom-in-95 { --tw-enter-scale: 0.95; }
+@utility zoom-out-95 { --tw-exit-scale: 0.95; }
+
+/* Translate enter — no value (default 100%) */
+@utility slide-in-from-top { --tw-enter-translate-y: -100%; }
+@utility slide-in-from-bottom { --tw-enter-translate-y: 100%; }
+@utility slide-in-from-left { --tw-enter-translate-x: -100%; }
+@utility slide-in-from-right { --tw-enter-translate-x: 100%; }
+
+/* Translate exit — no value (default 100%) */
+@utility slide-out-to-top { --tw-exit-translate-y: -100%; }
+@utility slide-out-to-bottom { --tw-exit-translate-y: 100%; }
+@utility slide-out-to-left { --tw-exit-translate-x: -100%; }
+@utility slide-out-to-right { --tw-exit-translate-x: 100%; }
+
+/* Translate enter — spacing values (N × --spacing, default 0.25rem) */
+@utility slide-in-from-top-1 { --tw-enter-translate-y: calc(var(--spacing) * -1); }
+@utility slide-in-from-top-2 { --tw-enter-translate-y: calc(var(--spacing) * -2); }
+@utility slide-in-from-bottom-1 { --tw-enter-translate-y: calc(var(--spacing) * 1); }
+@utility slide-in-from-bottom-2 { --tw-enter-translate-y: calc(var(--spacing) * 2); }
+@utility slide-in-from-left-1 { --tw-enter-translate-x: calc(var(--spacing) * -1); }
+@utility slide-in-from-left-2 { --tw-enter-translate-x: calc(var(--spacing) * -2); }
+@utility slide-in-from-right-1 { --tw-enter-translate-x: calc(var(--spacing) * 1); }
+@utility slide-in-from-right-2 { --tw-enter-translate-x: calc(var(--spacing) * 2); }
+
+/* Translate exit — spacing values */
+@utility slide-out-to-top-1 { --tw-exit-translate-y: calc(var(--spacing) * -1); }
+@utility slide-out-to-top-2 { --tw-exit-translate-y: calc(var(--spacing) * -2); }
+@utility slide-out-to-bottom-1 { --tw-exit-translate-y: calc(var(--spacing) * 1); }
+@utility slide-out-to-bottom-2 { --tw-exit-translate-y: calc(var(--spacing) * 2); }
+@utility slide-out-to-left-1 { --tw-exit-translate-x: calc(var(--spacing) * -1); }
+@utility slide-out-to-left-2 { --tw-exit-translate-x: calc(var(--spacing) * -2); }
+@utility slide-out-to-right-1 { --tw-exit-translate-x: calc(var(--spacing) * 1); }
+@utility slide-out-to-right-2 { --tw-exit-translate-x: calc(var(--spacing) * 2); }
+
+/* Translate enter/exit — fraction values (used by dialog) */
+@utility slide-in-from-left-1/2 { --tw-enter-translate-x: -50%; }
+@utility slide-out-to-left-1/2 { --tw-exit-translate-x: -50%; }
+
 /* Color utilities — defined as @utility so they are usable with @apply.
    Explicit per-property definitions preserve the design system's three-tier
    token structure (fg / bg / border) that cannot be expressed via a single

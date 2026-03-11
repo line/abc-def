@@ -13,9 +13,27 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "../../dist/base";
-@import "../../dist/components";
-@import "../../dist/utilities";
+@import "tailwindcss";
+@import "../../src/theme.css";
+@custom-variant dark (&:is(.dark *));
+
+/* Force-include all custom utility classes defined in theme.css.
+   These are @utility and @theme declarations that won't be emitted
+   without explicit content candidates (no source scanning in full.css). */
+@source inline("text-small-normal text-small-strong text-base-normal text-base-strong text-large-normal text-large-strong text-xlarge-normal text-xlarge-strong text-title-h1 text-title-h2 text-title-h3 text-title-h4 text-title-h5");
+@source inline("animate-in animate-out animate-accordion-down animate-accordion-up fade-in-0 fade-out-0 zoom-in-95 zoom-out-95");
+@source inline("slide-in-from-top slide-in-from-bottom slide-in-from-left slide-in-from-right slide-out-to-top slide-out-to-bottom slide-out-to-left slide-out-to-right");
+@source inline("slide-in-from-top-1 slide-in-from-top-2 slide-in-from-bottom-1 slide-in-from-bottom-2 slide-in-from-left-1 slide-in-from-left-2 slide-in-from-right-1 slide-in-from-right-2");
+@source inline("slide-out-to-top-1 slide-out-to-top-2 slide-out-to-bottom-1 slide-out-to-bottom-2 slide-out-to-left-1 slide-out-to-left-2 slide-out-to-right-1 slide-out-to-right-2");
+@source inline("slide-in-from-left-1/2 slide-out-to-left-1/2");
+@source inline("rounded-0 rounded-4 rounded-6 rounded-8 rounded-12 rounded-16 rounded-24 rounded-full");
+@source inline("shadow-sm shadow-default shadow-md shadow-lg shadow-xl shadow-2xl shadow-inner");
+@source inline("text-neutral-primary text-neutral-secondary text-neutral-tertiary text-neutral-inverse text-neutral-static text-tint-red text-tint-orange text-tint-green text-tint-blue");
+@source inline("fill-neutral-primary fill-neutral-secondary fill-neutral-tertiary fill-neutral-inverse fill-neutral-static fill-tint-red fill-tint-orange fill-tint-green fill-tint-blue");
+@source inline("bg-primary bg-secondary bg-tertiary bg-dim bg-neutral-primary bg-neutral-secondary bg-neutral-tertiary bg-neutral-inverse bg-neutral-hover bg-neutral-transparent");
+@source inline("bg-tint-red-bold bg-tint-red-subtle bg-tint-orange-bold bg-tint-orange-subtle bg-tint-green-bold bg-tint-green-subtle bg-tint-blue-bold bg-tint-blue-subtle");
+@source inline("border-neutral-primary border-neutral-secondary border-neutral-tertiary border-b-neutral-tertiary border-neutral-transparent border-tint-red border-tint-orange border-tint-green border-tint-blue");
+
+@import "../../dist/base.css";
+@import "../../dist/components.css";
+@import "../../dist/utilities.css";
