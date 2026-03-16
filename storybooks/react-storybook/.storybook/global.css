@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "@line/abc-def-tailwindcss";
 @custom-variant dark (&:is(.dark *));
-@source "../../packages/react/src/**/*.{ts,tsx}";
+@source "../../../packages/react/src/**/*.{ts,tsx}";
 
 :root {
   --rounded-base: 0px;
