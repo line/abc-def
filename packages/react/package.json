@@ -41,7 +41,7 @@
   "scripts": {
     "build": "tsup src --dts",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsup src --watch",
+    "dev": "tsup src --dts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"

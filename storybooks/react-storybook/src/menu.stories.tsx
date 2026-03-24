@@ -110,7 +110,7 @@ const meta: Meta<
   },
   decorators: (Story) => <Story />,
   render: (args) => (
-    <Menu type={args.type}>
+    <Menu type={args.type} orientation={args.orientation}>
       <MenuItem value="Home">
         <Icon name="RiHomeSmile2Fill" size={16} className="mr-2" />
         Home

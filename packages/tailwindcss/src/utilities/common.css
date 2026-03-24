@@ -14,10 +14,12 @@
  * under the License.
  */
 .absolute-y-center {
+  --tw-translate-x: 0;
   @apply absolute top-1/2 -translate-y-1/2;
 }
 
 .absolute-x-center {
+  --tw-translate-y: 0;
   @apply absolute left-1/2 -translate-x-1/2;
 }
 

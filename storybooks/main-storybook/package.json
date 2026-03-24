@@ -4,7 +4,7 @@
   "version": "0.1.1",
   "type": "module",
   "scripts": {
-    "dev:storybook": "storybook dev --docs -p 6006",
+    "dev:storybook": "storybook dev --docs -p 6006 --no-open",
     "build:storybook": "storybook build --docs -o dist",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",

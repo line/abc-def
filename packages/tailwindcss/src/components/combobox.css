@@ -21,7 +21,7 @@
   --combobox-bg: var(--bg-neutral-primary);
   --combobox-bg-hover: var(--bg-neutral-tertiary);
 
-  @apply flex h-full min-w-[--radix-popover-trigger-width] flex-col overflow-hidden p-1 text-[var(--combobox-fg)];
+  @apply flex h-full min-w-[var(--radix-popover-trigger-width)] flex-col overflow-hidden p-1 text-[var(--combobox-fg)];
 }
 
 .combobox-empty {

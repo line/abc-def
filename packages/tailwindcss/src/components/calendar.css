@@ -27,11 +27,11 @@
 }
 
 .calendar-months {
-  @apply flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0;
+  @apply flex flex-col gap-4 sm:flex-row sm:gap-0 sm:gap-x-4;
 }
 
 .calendar-month {
-  @apply min-w-[15.75rem] space-y-4;
+  @apply min-w-[15.75rem] gap-4;
 }
 
 .calendar-caption {
@@ -83,11 +83,11 @@
 }
 
 .calendar-day-selected:not(.calendar-day-outside) {
-  @apply bg-[var(--calendar-bg-pressed)] text-[--calendar-fg-pressed];
+  @apply bg-[var(--calendar-bg-pressed)] text-[var(--calendar-fg-pressed)];
 }
 
 .calendar-day-today {
-  @apply before:absolute before:left-1/2 before:top-0 before:flex before:h-1 before:w-1 before:-translate-x-1/2 before:rounded-full before:bg-[var(--calendar-bg-pressed)];
+  @apply before:bg-(--calendar-bg-pressed) before:absolute-x-center before:absolute before:top-0 before:flex before:h-1 before:w-1 before:rounded-full before:content-[''];
 }
 
 .calendar-day-outside {
@@ -99,7 +99,7 @@
 }
 
 .calendar-day-range-middle {
-  @apply rounded-0 aria-selected:bg-[var(--calendar-bg-hover)] aria-selected:text-[var(--calendar-fg)];
+  @apply rounded-0! aria-selected:bg-[var(--calendar-bg-hover)]! aria-selected:text-[var(--calendar-fg)]!;
 }
 
 .calendar-day-hidden {

@@ -33,7 +33,7 @@
     "index.d.ts"
   ],
   "scripts": {
-    "dev": "pnpm build",
+    "dev": "node src/build",
     "lint": "stylelint '**/*.css'",
     "build": "node src/build",
     "clean": "rm -rf .turbo node_modules dist .cache"

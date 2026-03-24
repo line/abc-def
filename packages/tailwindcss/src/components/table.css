@@ -54,5 +54,5 @@
 }
 
 .table-caption {
-  @apply text-small-normal mt-1 text-[--table-fg-header];
+  @apply text-small-normal mt-1 text-[var(--table-fg-header)];
 }

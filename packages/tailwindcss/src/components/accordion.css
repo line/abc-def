@@ -26,7 +26,6 @@
 }
 
 .accordion-item {
-  @apply border-neutral-transparent;
 }
 
 .accordion-item-border {

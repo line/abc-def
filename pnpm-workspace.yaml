@@ -30,6 +30,12 @@ catalogs:
     "@storybook/addon-docs": ^9.1.17
     "@chromatic-com/storybook": ^4.1.3
 
+linkWorkspacePackages: true
+
 onlyBuiltDependencies:
+  - "@tailwindcss/oxide"
   - esbuild
-  - sharp
+
+publicHoistPattern:
+  - "@ianvs/prettier-plugin-sort-imports"
+  - prettier-plugin-tailwindcss

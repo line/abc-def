@@ -119,7 +119,7 @@ const meta: Meta<
     };
 
     return (
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <Label>Label</Label>
         <TextInputBox>
           <Icon name="RiUser3Fill" />
@@ -173,7 +173,7 @@ export const TextField = () => {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <Label>Default</Label>
         <TextInputBox>
           <TextInput
@@ -185,7 +185,7 @@ export const TextField = () => {
         </TextInputBox>
         <Caption variant="info">Caption Info</Caption>
       </div>
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <Label>Disabled</Label>
         <TextInputBox>
           <TextInput
@@ -204,7 +204,7 @@ export const TextField = () => {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="space-y-2">
+              <FormItem className="flex flex-col space-y-2">
                 <FormLabel>Form</FormLabel>
                 <TextInputBox>
                   <FormControl>
@@ -264,7 +264,7 @@ export const Search = () => {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <Label>Default</Label>
         <TextInputBox>
           <Icon name="RiSearchLine" />
@@ -297,7 +297,7 @@ export const Search = () => {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="space-y-2">
+              <FormItem className="flex flex-col space-y-2">
                 <FormLabel>Form</FormLabel>
                 <TextInputBox>
                   <Icon name="RiSearchLine" />
@@ -358,7 +358,7 @@ export const Id = () => {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <Label>Default</Label>
         <TextInputBox>
           <Icon name="RiUser3Fill" />
@@ -371,7 +371,7 @@ export const Id = () => {
         </TextInputBox>
         <Caption variant="info">Caption Info</Caption>
       </div>
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <Label>Disabled</Label>
         <TextInputBox>
           <Icon name="RiUser3Fill" />
@@ -391,7 +391,7 @@ export const Id = () => {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="space-y-2">
+              <FormItem className="flex flex-col space-y-2">
                 <FormLabel>Form</FormLabel>
                 <TextInputBox>
                   <Icon name="RiUser3Fill" />
@@ -460,7 +460,7 @@ export const Password = () => {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <Label>Default</Label>
         <TextInputBox>
           <Icon name="RiLockPasswordFill" />
@@ -475,7 +475,7 @@ export const Password = () => {
         </TextInputBox>
         <Caption variant="info">Caption Info</Caption>
       </div>
-      <div className="space-y-2">
+      <div className="flex flex-col space-y-2">
         <Label>Disabled</Label>
         <TextInputBox>
           <Icon name="RiLockPasswordFill" />
@@ -500,7 +500,7 @@ export const Password = () => {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="space-y-2">
+              <FormItem className="flex flex-col space-y-2">
                 <FormLabel>Form</FormLabel>
                 <TextInputBox>
                   <Icon name="RiLockPasswordFill" />
