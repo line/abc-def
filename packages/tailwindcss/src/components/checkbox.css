@@ -22,6 +22,7 @@
   --checkbox-bg-checked: var(--tint, var(--bg-neutral-inverse));
 
   @apply inline-flex cursor-pointer items-center text-[var(--checkbox-fg-label)] transition-opacity disabled:cursor-not-allowed disabled:opacity-50 [&:not(:disabled)]:hover:opacity-80;
+
   /* default */
   /* @apply checkbox-small; */
 }

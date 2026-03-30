@@ -1,0 +1,28 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+
+import { Toaster } from "@line/abc-def-react";
+
+import ThemeSelect from "../utils/themeSelect.tsx";
+import TokenTable from "../utils/tokenTable.tsx";
+
+import * as AccordionStories from "./accordion.stories";
+
+<Meta title="Accordion-v2" of={AccordionStories} />
+
+# Accordion
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={AccordionStories.Default} />
+<Controls />
+
+## Tree Structure
+
+```text
+Accordion
+└── AccordionItem
+  ├── AccordionTrigger
+  └── AccordionContent
+```

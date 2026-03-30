@@ -31,3 +31,20 @@
   @apply rounded-8 text-base-normal flex min-h-20 w-full border px-3 py-2 outline-none;
   @apply disabled:cursor-not-allowed disabled:opacity-50;
 }
+
+.textarea-sm {
+  @apply text-base-normal min-h-20 px-3 py-2;
+}
+
+.textarea-md {
+  @apply text-large-normal min-h-24 px-4 py-2.5;
+}
+
+.textarea-lg {
+  @apply text-xlarge-normal min-h-28 px-5 py-3;
+}
+
+.textarea-invalid,
+.textarea[aria-invalid="true"] {
+  @apply border-[var(--border-form-invalid)] ring-1 ring-[var(--border-form-invalid)];
+}
