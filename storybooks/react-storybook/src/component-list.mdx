@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
 
 import { Toaster } from "@line/abc-def-react";
 
@@ -15,7 +15,6 @@ import * as DropdownStories from "./dropdown.stories";
 import * as IconStories from "./icon.stories";
 import * as MenuStories from "./menu.stories";
 import * as MultiSelectStories from "./multi-select.stories";
-import * as NavBarStories from "./nav-bar.stories";
 import * as PaginationStories from "./pagination.stories";
 import * as RadioStories from "./radio-group.stories";
 import * as ScrollAreaStories from "./scroll-area.stories";
@@ -102,7 +101,7 @@ import ThemeSelect from "./utils/themeSelect.tsx";
   <Canvas
     of={InputStories.Default}
     sourceState="none"
-    additionalActions={[{ title: "Input" }]}
+    additionalActions={[{ title: "TextInput" }]}
     layout="centered"
   />
   <Canvas
@@ -183,13 +182,13 @@ import ThemeSelect from "./utils/themeSelect.tsx";
   <Canvas
     of={TimePickerInputStories.HourCycle24}
     sourceState="none"
-    additionalActions={[{ title: "TimepickerInput" }]}
+    additionalActions={[{ title: "TimePickerInput" }]}
     layout="centered"
   />
   <Canvas
     of={TimePickerSelectStories.Select}
     sourceState="none"
-    additionalActions={[{ title: "TimepickerSelect" }]}
+    additionalActions={[{ title: "TimePickerSelect" }]}
     layout="centered"
   />
   <Canvas

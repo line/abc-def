@@ -33,3 +33,11 @@
 .scroll-thumb {
   @apply relative flex-1 rounded-full bg-[var(--scroll-area-bg-thumb)];
 }
+
+.scroll-bar-vertical {
+  @apply h-full w-2 border-l border-l-[transparent] py-1 pr-0.5;
+}
+
+.scroll-bar-horizontal {
+  @apply h-2 w-full flex-col border-t border-t-[transparent] px-1 pb-0.5;
+}

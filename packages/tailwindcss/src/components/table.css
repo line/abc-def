@@ -56,3 +56,27 @@
 .table-caption {
   @apply text-small-normal mt-1 text-[var(--table-fg-header)];
 }
+
+.table-head-left {
+  @apply text-left;
+}
+
+.table-head-center {
+  @apply text-center;
+}
+
+.table-head-right {
+  @apply text-right;
+}
+
+.table-cell-left {
+  @apply text-left;
+}
+
+.table-cell-center {
+  @apply text-center;
+}
+
+.table-cell-right {
+  @apply text-right;
+}

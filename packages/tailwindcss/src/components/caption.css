@@ -19,11 +19,24 @@
   --caption-fg-error: var(--fg-tint-red);
 
   @apply text-base-normal flex items-center gap-1;
-
-  /* default */
-  @apply caption-default;
 }
 
 .caption-icon {
   @apply flex-shrink-0;
+}
+
+.caption-default {
+  @apply [&:not([data-error="true"])]:text-[var(--caption-fg)];
+}
+
+.caption-success {
+  @apply [&:not([data-error="true"])]:text-[var(--caption-fg-success)];
+}
+
+.caption-info {
+  @apply [&:not([data-error="true"])]:text-[var(--caption-fg)];
+}
+
+.caption[data-error="true"] {
+  @apply text-[var(--caption-fg-error)];
 }

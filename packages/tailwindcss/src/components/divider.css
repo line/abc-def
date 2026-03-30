@@ -20,5 +20,45 @@
   @apply shrink-0;
 
   /* default */
-  @apply [&:not(.divider-vertical)]:divider-horizontal divider-bold;
+  /* @apply [&:not(.divider-vertical)]:divider-horizontal divider-bold; */
+}
+
+.divider-bold {
+  @apply bg-[var(--divider-border-bold)];
+}
+
+.divider-subtle {
+  @apply bg-[var(--divider-border-subtle)];
+}
+
+.divider-horizontal {
+  @apply mx-auto h-px w-full;
+}
+
+.divider-vertical {
+  @apply my-auto h-full w-px;
+}
+
+.divider.divider-horizontal-indent-8 {
+  @apply w-[calc(100%_-_16px)];
+}
+
+.divider.divider-horizontal-indent-16 {
+  @apply w-[calc(100%_-_32px)];
+}
+
+.divider.divider-horizontal-indent-24 {
+  @apply w-[calc(100%_-_48px)];
+}
+
+.divider-vertical-indent-8 {
+  @apply h-[calc(100%_-_16px)];
+}
+
+.divider-vertical-indent-16 {
+  @apply h-[calc(100%_-_32px)];
+}
+
+.divider-vertical-indent-24 {
+  @apply h-[calc(100%_-_48px)];
 }

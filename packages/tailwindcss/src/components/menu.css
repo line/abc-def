@@ -23,7 +23,7 @@
   @apply rounded-8 inline-flex px-2 py-3;
 
   /* default */
-  @apply [&:not(.menu-vertical)]:menu-horizontal;
+  /* @apply [&:not(.menu-vertical)]:menu-horizontal; */
 }
 
 .menu-item {
@@ -39,4 +39,24 @@
 
 .menu-dropdown-item ~ .menu-dropdown-item {
   @apply mt-1;
+}
+
+.menu-horizontal {
+  @apply flex-row gap-3;
+}
+
+.menu-vertical {
+  @apply min-w-[10rem] flex-col gap-3;
+}
+
+.menu-item-large {
+  @apply text-xlarge-normal px-3.5 py-2.5 [&>svg]:h-6 [&>svg]:w-6;
+}
+
+.menu-item-medium {
+  @apply text-large-normal px-3 py-2.5 [&>svg]:h-5 [&>svg]:w-5;
+}
+
+.menu-item-small {
+  @apply text-base-normal p-2 [&>svg]:h-4 [&>svg]:w-4;
 }

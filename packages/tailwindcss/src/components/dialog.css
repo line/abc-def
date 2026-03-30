@@ -67,3 +67,47 @@
 .dialog-close {
   @apply !absolute right-2 top-2 !m-0;
 }
+
+.dialog-header-vertical {
+  @apply flex flex-col gap-1;
+}
+
+.dialog-header-horizontal {
+  @apply flex flex-row items-center gap-1;
+}
+
+.dialog-content-radius-large {
+  @apply rounded-24;
+}
+
+.dialog-content-radius-medium {
+  @apply rounded-8;
+}
+
+.dialog-content-radius-small {
+  @apply rounded-0;
+}
+
+.dialog-footer-left {
+  @apply justify-start;
+}
+
+.dialog-footer-center {
+  @apply justify-center;
+}
+
+.dialog-footer-right {
+  @apply justify-end;
+}
+
+.dialog-footer-between {
+  @apply justify-between;
+}
+
+.dialog-footer-full {
+  @apply justify-start;
+
+  > * {
+    @apply flex-1;
+  }
+}
