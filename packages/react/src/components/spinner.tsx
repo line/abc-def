@@ -14,6 +14,7 @@
  * under the License.
  */
 
+import type { VariantProps } from "class-variance-authority";
 import React from "react";
 import { cva } from "class-variance-authority";
 
@@ -25,12 +26,6 @@ export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
   size?: Size;
 }
 
-const defaultVariants: {
-  size?: Size;
-} = {
-  size: undefined,
-};
-
 const spinnerVariants = cva("spinner", {
   variants: {
     size: {
@@ -39,21 +34,21 @@ const spinnerVariants = cva("spinner", {
       large: "spinner-large",
     },
   },
-  defaultVariants,
 });
 
-const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
-  (props, ref) => {
-    const { size, className } = props;
-    const { themeSize } = useTheme();
+const Spinner = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement> & VariantProps<typeof spinnerVariants>
+>((props, ref) => {
+  const { size, className } = props;
+  const { themeSize } = useTheme();
 
-    return (
-      <span
-        ref={ref}
-        className={cn(spinnerVariants({ size: size ?? themeSize }), className)}
-        aria-label="loading..."
-      />
-    );
-  },
-);
+  return (
+    <span
+      ref={ref}
+      className={cn(spinnerVariants({ size: size ?? themeSize }), className)}
+      aria-label="loading..."
+    />
+  );
+});
 export { Spinner };

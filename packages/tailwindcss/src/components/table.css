@@ -43,14 +43,14 @@
   @apply text-base-normal h-12 px-4 align-middle font-normal text-[var(--table-fg-header)] [&:has([role=checkbox])]:pr-0 [&>.badge]:mr-1 [&>svg]:mr-1 [&>svg]:text-[var(--table-fg-header)];
 
   /* default */
-  @apply table-head-left;
+  /* @apply table-head-left; */
 }
 
 .table-cell {
   @apply text-base-normal px-4 py-3 align-middle text-[var(--table-fg-cell)] [&:has([role=checkbox])]:pr-0 [&>.badge]:mr-1 [&>svg]:text-[var(--table-fg-cell)];
 
   /* default */
-  @apply table-cell-left;
+  /* @apply table-cell-left; */
 }
 
 .table-caption {

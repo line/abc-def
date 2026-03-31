@@ -1,0 +1,166 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+.badge {
+  --badge-fg-bold: var(--fg-neutral-inverse);
+  --badge-fg-bold-blue: var(--fg-neutral-inverse);
+  --badge-fg-bold-orange: var(--fg-neutral-inverse);
+  --badge-fg-bold-red: var(--fg-neutral-inverse);
+  --badge-fg-bold-green: var(--fg-neutral-inverse);
+  --badge-fg-subtle: var(--fg-neutral-primary);
+  --badge-fg-subtle-blue: var(--fg-tint-blue);
+  --badge-fg-subtle-orange: var(--fg-tint-orange);
+  --badge-fg-subtle-red: var(--fg-tint-red);
+  --badge-fg-subtle-green: var(--fg-tint-green);
+  --badge-fg-outline: var(--fg-neutral-primary);
+  --badge-fg-outline-blue: var(--fg-tint-blue);
+  --badge-fg-outline-orange: var(--fg-tint-orange);
+  --badge-fg-outline-red: var(--fg-tint-red);
+  --badge-fg-outline-green: var(--fg-tint-green);
+
+  --badge-border-outline: var(--border-neutral-tertiary);
+  --badge-border-outline-blue: var(--border-tint-blue);
+  --badge-border-outline-orange: var(--border-tint-orange);
+  --badge-border-outline-red: var(--border-tint-red);
+  --badge-border-outline-green: var(--border-tint-green);
+
+  --badge-bg-bold: var(--bg-neutral-inverse);
+  --badge-bg-bold-blue: var(--bg-tint-blue-bold);
+  --badge-bg-bold-orange: var(--bg-tint-orange-bold);
+  --badge-bg-bold-red: var(--bg-tint-red-bold);
+  --badge-bg-bold-green: var(--bg-tint-green-bold);
+  --badge-bg-subtle: var(--bg-neutral-tertiary);
+  --badge-bg-subtle-blue: var(--bg-tint-blue-subtle);
+  --badge-bg-subtle-orange: var(--bg-tint-orange-subtle);
+  --badge-bg-subtle-red: var(--bg-tint-red-subtle);
+  --badge-bg-subtle-green: var(--bg-tint-green-subtle);
+  --badge-bg-outline: var(--bg-neutral-primary);
+  --badge-bg-outline-blue: var(--bg-neutral-primary);
+  --badge-bg-outline-orange: var(--bg-neutral-primary);
+  --badge-bg-outline-red: var(--bg-neutral-primary);
+  --badge-bg-outline-green: var(--bg-neutral-primary);
+
+  @layer l1.l2.l3 {
+    @apply text-small-strong [&>svg]:size-3! inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden whitespace-nowrap border border-transparent px-2 py-0.5 transition-all [&>svg]:pointer-events-none;
+  }
+}
+
+.badge-bold-default {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-bold) text-(--badge-fg-bold);
+  }
+}
+
+.badge-bold-blue {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-bold-blue) text-(--badge-fg-bold-blue);
+  }
+}
+
+.badge-bold-orange {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-bold-orange) text-(--badge-fg-bold-orange);
+  }
+}
+
+.badge-bold-red {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-bold-red) text-(--badge-fg-bold-red);
+  }
+}
+
+.badge-bold-green {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-bold-green) text-(--badge-fg-bold-green);
+  }
+}
+
+.badge-subtle-default {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-subtle) text-(--badge-fg-subtle);
+  }
+}
+
+.badge-subtle-blue {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-subtle-blue) text-(--badge-fg-subtle-blue);
+  }
+}
+
+.badge-subtle-orange {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-subtle-orange) text-(--badge-fg-subtle-orange);
+  }
+}
+
+.badge-subtle-red {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-subtle-red) text-(--badge-fg-subtle-red);
+  }
+}
+
+.badge-subtle-green {
+  @layer l1.l2 {
+    @apply bg-(--badge-bg-subtle-green) text-(--badge-fg-subtle-green);
+  }
+}
+
+.badge-outline-default {
+  @layer l1.l2 {
+    @apply border-(--badge-border-outline) bg-(--badge-bg-outline) text-(--badge-fg-outline);
+  }
+}
+
+.badge-outline-blue {
+  @layer l1.l2 {
+    @apply border-(--badge-border-outline-blue) bg-(--badge-bg-outline-blue) text-(--badge-fg-outline-blue);
+  }
+}
+
+.badge-outline-orange {
+  @layer l1.l2 {
+    @apply border-(--badge-border-outline-orange) bg-(--badge-bg-outline-orange) text-(--badge-fg-outline-orange);
+  }
+}
+
+.badge-outline-red {
+  @layer l1.l2 {
+    @apply border-(--badge-border-outline-red) bg-(--badge-bg-outline-red) text-(--badge-fg-outline-red);
+  }
+}
+
+.badge-outline-green {
+  @layer l1.l2 {
+    @apply border-(--badge-border-outline-green) bg-(--badge-bg-outline-green) text-(--badge-fg-outline-green);
+  }
+}
+
+.badge-radius-small {
+  @layer l1.l2 {
+    @apply rounded-0;
+  }
+}
+
+.badge-radius-medium {
+  @layer l1.l2 {
+    @apply rounded-6;
+  }
+}
+
+.badge-radius-large {
+  @layer l1.l2 {
+    @apply rounded-full;
+  }
+}

@@ -110,8 +110,7 @@ const DialogContent = React.forwardRef<
           {children}
           <DialogPrimitive.Close asChild>
             <Button
-              size="medium"
-              variant="ghost"
+              variant="secondary"
               className="dialog-close"
               aria-label="Close"
             >

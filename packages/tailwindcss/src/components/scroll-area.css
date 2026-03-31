@@ -27,7 +27,7 @@
   @apply flex touch-none select-none transition-colors;
 
   /* default */
-  @apply [&:not(.scroll-bar-horizontal)]:scroll-bar-vertical;
+  /* @apply [&:not(.scroll-bar-horizontal)]:scroll-bar-vertical; */
 }
 
 .scroll-thumb {

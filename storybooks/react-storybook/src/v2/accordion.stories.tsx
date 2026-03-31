@@ -21,7 +21,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@line/abc-def-react";
+  AccordionTriggerIcon,
+} from "@line/abc-def-react/v2";
 
 const items = [
   {
@@ -84,13 +85,13 @@ const meta: Meta<
   },
   render: (args) => {
     return (
-      <Accordion
-        type={args.multiple ? "multiple" : "single"}
-        border={args.border}
-      >
+      <Accordion border={args.border} multiple={args.multiple}>
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value}>
-            <AccordionTrigger>{item.trigger}</AccordionTrigger>
+            <AccordionTrigger>
+              {item.trigger}
+              <AccordionTriggerIcon className="ml-auto" />
+            </AccordionTrigger>
             <AccordionContent>{item.content}</AccordionContent>
           </AccordionItem>
         ))}

@@ -38,7 +38,7 @@
   }
 
   /* default */
-  @apply dialog-content-radius-medium;
+  /* @apply dialog-content-radius-medium; */
 }
 
 .dialog-header {
@@ -61,7 +61,7 @@
   @apply flex flex-wrap gap-2;
 
   /* default */
-  @apply dialog-footer-right;
+  /* @apply dialog-footer-right; */
 }
 
 .dialog-close {

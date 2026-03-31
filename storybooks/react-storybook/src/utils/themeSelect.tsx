@@ -176,7 +176,7 @@ export default function ThemeSelect() {
         } as React.CSSProperties
       }
     >
-      <Select size="sm" value={theme} onValueChange={setTheme}>
+      <Select value={theme} onValueChange={setTheme}>
         <Label>Theme</Label>
         <SelectTrigger>
           <SelectValue />
@@ -189,7 +189,6 @@ export default function ThemeSelect() {
         </SelectContent>
       </Select>
       <Select
-        size="sm"
         value={tint}
         onValueChange={(v: keyof typeof color) => setTint(v)}
       >
@@ -217,7 +216,7 @@ export default function ThemeSelect() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Select size="sm" value={radius} onValueChange={handleChangeRadius}>
+      <Select value={radius} onValueChange={handleChangeRadius}>
         <Label>Radius</Label>
         <SelectTrigger>
           <SelectValue />
@@ -230,7 +229,7 @@ export default function ThemeSelect() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Select size="sm" value={size} onValueChange={handleChangeSize}>
+      <Select value={size} onValueChange={handleChangeSize}>
         <Label>Size</Label>
         <SelectTrigger>
           <SelectValue />

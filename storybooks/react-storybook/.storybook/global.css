@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin "@line/abc-def-tailwindcss";
+@import "@line/abc-def-tailwindcss/styles";
 @custom-variant dark (&:is(.dark *));
 @source "../../../packages/react/src/**/*.{ts,tsx}";
 

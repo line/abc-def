@@ -13,6 +13,14 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+
+@utility animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+@utility animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
 @keyframes accordion-down {
   from {
     height: 0;

@@ -20,8 +20,8 @@ import * as React from "react";
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { cva } from "class-variance-authority";
 
+import type { IconProps } from "../components";
 import { Icon } from "../components";
-import { ICON_SIZE } from "../constants";
 import { cn } from "../lib/utils";
 
 const accordionVariants = cva("accordion", {
@@ -69,37 +69,30 @@ function AccordionItem({
 function AccordionTrigger({
   className,
   children,
-  iconAlign = "left",
-  iconSize = "small",
   ...props
-}: AccordionPrimitive.Trigger.Props & {
-  iconAlign?: "left" | "right";
-  iconSize?: "small" | "medium" | "large";
-}) {
+}: AccordionPrimitive.Trigger.Props) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
-        data-slot="accordion-trigger"
         className={cn("accordion-trigger", className)}
         {...props}
       >
-        {iconAlign === "left" && (
-          <Icon
-            name="RiArrowDownSLine"
-            className="accordion-trigger-icon accordion-trigger-icon-left"
-            size={ICON_SIZE[iconSize]}
-          />
-        )}
         {children}
-        {iconAlign === "right" && (
-          <Icon
-            name="RiArrowDownSLine"
-            className="accordion-trigger-icon accordion-trigger-icon-right"
-            size={ICON_SIZE[iconSize]}
-          />
-        )}
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
+  );
+}
+
+function AccordionTriggerIcon({
+  className,
+  ...props
+}: Omit<IconProps, "name">) {
+  return (
+    <Icon
+      name="RiArrowDownSLine"
+      className={cn("accordion-trigger-icon", className)}
+      {...props}
+    />
   );
 }
 
@@ -115,4 +108,10 @@ function AccordionContent({
   );
 }
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  AccordionTriggerIcon,
+};
