@@ -1,5 +1,6 @@
 import { dirname, join } from "path";
 import type { StorybookConfig } from "@storybook/web-components-vite";
+import { mergeConfig } from "vite";
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -17,6 +18,12 @@ const config: StorybookConfig = {
   framework: {
     name: getAbsolutePath("@storybook/web-components-vite"),
     options: {},
+  },
+  viteFinal: async (config) => {
+    const { default: tailwindcss } = await import("@tailwindcss/vite");
+    return mergeConfig(config, {
+      plugins: [tailwindcss()],
+    });
   },
 };
 export default config;

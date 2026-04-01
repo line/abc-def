@@ -1,9 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@line/abc-def-tailwindcss/styles";
 
-@layer base {
-  :root {
-    --rounded-base: 0px;
-  }
+@custom-variant dark (&:is(.dark *));
+@source "../../../packages/react/src/**/*.{ts,tsx}";
+@source "../src/**/*.{ts,tsx}";
+
+:root {
+  --rounded-base: 0px;
 }

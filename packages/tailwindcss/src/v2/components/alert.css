@@ -1,0 +1,124 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+@layer components {
+  .alert {
+    --alert-fg: var(--fg-neutral-primary);
+    --alert-fg-description: var(--fg-neutral-secondary);
+    --alert-fg-warning: var(--fg-tint-orange);
+    --alert-fg-success: var(--fg-tint-green);
+    --alert-fg-error: var(--fg-tint-red);
+    --alert-fg-informative: var(--fg-tint-blue);
+    --alert-border: var(--border-neutral-tertiary);
+    --alert-border-warning: var(--border-tint-orange);
+    --alert-border-success: var(--border-tint-green);
+    --alert-border-error: var(--border-tint-red);
+    --alert-border-informative: var(--border-tint-blue);
+    --alert-bg: var(--bg-neutral-primary);
+
+    --alert-radius-small: var(--radius-sm);
+    --alert-radius-medium: var(--radius-md);
+    --alert-radius-large: var(--radius-lg);
+
+    /* @apply bg-(--alert-bg) relative grid w-full items-center gap-2 border px-5 py-4 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2; */
+    /* @apply has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4 @apply group/alert default @apply alert-radius-medium alert-default; relative grid w-full gap-0.5 rounded-lg border px-2.5 py-2 text-left text-sm has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2; */
+
+    @layer l1.l2.l3 {
+      @apply bg-(--alert-bg) text-(--alert-fg) border-(--alert-border) rounded-(--alert-radius-medium) px-5 py-4;
+      @apply relative grid w-full gap-0.5 border;
+      @apply *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-6 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2;
+      @apply has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18;
+
+      &:has(> svg) {
+        .alert-title {
+          @apply col-start-2;
+        }
+      }
+    }
+  }
+
+  .alert-default {
+    @layer l1.l2 {
+      @apply border-(--alert-border);
+      & > svg {
+        @apply text-(--alert-fg);
+      }
+    }
+  }
+
+  .alert-warning {
+    @layer l1.l2 {
+      @apply border-(--alert-border-warning);
+      & > svg {
+        @apply text-(--alert-fg-warning);
+      }
+    }
+  }
+  .alert-success {
+    @layer l1.l2 {
+      @apply border-(--alert-border-success);
+      & > svg {
+        @apply text-(--alert-fg-success);
+      }
+    }
+  }
+  .alert-error {
+    @layer l1.l2 {
+      @apply border-(--alert-border-error);
+      & > svg {
+        @apply text-(--alert-fg-error);
+      }
+    }
+  }
+  .alert-informative {
+    @layer l1.l2 {
+      @apply border-(--alert-border-informative);
+      & > svg {
+        @apply text-(--alert-fg-informative);
+      }
+    }
+  }
+
+  .alert-title {
+    @layer l1.l2 {
+      @apply text-title-h5 text-(--alert-fg);
+    }
+  }
+
+  .alert-description {
+    @layer l1.l2 {
+      @apply text-base-normal text-(--alert-fg-description) [&_p:not(:last-child)]:mb-4;
+    }
+  }
+
+  .alert-action {
+    @layer l1.l2 {
+      @apply absolute-y-center right-4;
+    }
+  }
+
+  .alert-radius-large {
+    @apply rounded-24;
+  }
+
+  .alert-radius-medium {
+    @apply rounded-8;
+  }
+
+  .alert-radius-small {
+    @apply rounded-0;
+  }
+}

@@ -14,37 +14,90 @@
  * under the License.
  */
 .accordion {
-  --accordion-fg: var(--fg-neutral-primary);
-  --accordion-border: var(--border-neutral-tertiary);
-  --accordion-bg: var(--bg-primary);
-
-  @apply h-fit overflow-hidden bg-[var(--accordion-bg)] text-[var(--accordion-fg)];
+  @layer l1.l2.l3 {
+    --accordion-fg: var(--fg-neutral-primary);
+    --accordion-border: var(--border-neutral-tertiary);
+    --accordion-bg: var(--bg-primary);
+    @apply bg-(--accordion-bg) text-(--accordion-fg) flex w-full flex-col;
+  }
 }
 
 .accordion-border {
-  @apply border border-[var(--accordion-border)] [&>div:last-of-type]:border-b-0;
+  @layer l1.l2 {
+    @apply border-(--accordion-border) border;
+  }
 }
 
 .accordion-item {
-  @apply border-neutral-transparent;
+  @layer l1.l2.l3 {
+    @apply not-last:border-b border-transparent;
+  }
 }
 
-.accordion-item-border {
-  @apply border-b border-[var(--accordion-border)];
+.accordion-item-divider {
+  @layer l1.l2 {
+    @apply border-(--accordion-border);
+  }
 }
 
 .accordion-trigger {
-  @apply text-base-strong flex w-full items-center justify-between p-4 text-left transition-all [&>svg]:shrink-0 [&>svg]:transition-transform [&>svg]:duration-75 [&[data-state=open]>svg]:rotate-180;
+  @layer l1.l2.l3 {
+    @apply text-base-strong relative flex flex-1 items-center gap-2 p-4 text-left outline-none transition-all hover:underline;
+
+    &[data-panel-open] {
+      .accordion-trigger-icon {
+        @apply rotate-180;
+      }
+    }
+
+    @apply aria-disabled:pointer-events-none aria-disabled:opacity-50;
+  }
 }
 
-.accordion-trigger-align-left {
-  @apply justify-start [&>svg:first-of-type]:mr-2;
+.accordion-trigger-icon {
+  @layer l1.l2.l3 {
+    @apply pointer-events-none shrink-0 transition-transform duration-75;
+  }
 }
 
-.accordion-content-box {
-  @apply data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down text-base-normal overflow-hidden transition-all;
+.accordion-trigger-icon-left {
+  @layer l1.l2 {
+    @apply mr-0;
+  }
+}
+
+.accordion-trigger-icon-right {
+  @layer l1.l2 {
+    @apply ml-auto;
+  }
 }
 
 .accordion-content {
-  @apply p-4;
+  @layer l1.l2.l3 {
+    @apply data-open:animate-accordion-down data-closed:animate-accordion-up text-base-normal overflow-hidden;
+  }
+}
+
+.accordion-content-box {
+  @layer l1.l2.l3 {
+    @apply h-(--accordion-panel-height) data-ending-style:h-0 data-starting-style:h-0 p-4;
+  }
+}
+
+.accordion-content-box-inset-small {
+  @layer l1.l2 {
+    @apply pl-10;
+  }
+}
+
+.accordion-content-box-inset-medium {
+  @layer l1.l2 {
+    @apply pl-11;
+  }
+}
+
+.accordion-content-box-inset-large {
+  @layer l1.l2 {
+    @apply pl-12;
+  }
 }

@@ -1,0 +1,47 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+
+import { Toaster } from "@line/abc-def-react";
+
+import ThemeSelect from "../utils/themeSelect.tsx";
+import TokenTable from "../utils/tokenTable.tsx";
+
+import * as ButtonStories from "./button.stories.tsx";
+
+<Meta title="Button-v2" of={ButtonStories} />
+
+# Button
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={ButtonStories.Default} />
+<Controls />
+
+## Size
+
+<Canvas layout="centered" of={ButtonStories.Size} />
+
+## Variant
+
+<Canvas layout="centered" of={ButtonStories.Variant} />
+
+## State
+
+<Canvas layout="centered" of={ButtonStories.State} />
+
+## With Slot L
+
+<Canvas layout="centered" of={ButtonStories.WithSlotL} />
+
+## With Slot R
+
+<Canvas layout="centered" of={ButtonStories.WithSlotR} />
+
+## With Slot L & R
+
+<Canvas layout="centered" of={ButtonStories.WithSlotLR} />
+
+## Only Icon
+
+<Canvas layout="centered" of={ButtonStories.OnlyIcon} />

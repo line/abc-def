@@ -53,7 +53,76 @@
   --badge-bg-outline-green: var(--bg-neutral-primary);
 
   @apply text-small-strong inline-flex whitespace-nowrap px-2 py-0.5;
+}
 
-  /* default */
-  @apply badge-bold-default badge-radius-medium;
+.badge-bold-default {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold)] text-[var(--badge-fg-bold)];
+}
+
+.badge-bold-blue {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold-blue)] text-[var(--badge-fg-bold-blue)];
+}
+
+.badge-bold-orange {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold-orange)] text-[var(--badge-fg-bold-orange)];
+}
+
+.badge-bold-red {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold-red)] text-[var(--badge-fg-bold-red)];
+}
+
+.badge-bold-green {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-bold-green)] text-[var(--badge-fg-bold-green)];
+}
+
+.badge-subtle-default {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle)] text-[var(--badge-fg-subtle)];
+}
+
+.badge-subtle-blue {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle-blue)] text-[var(--badge-fg-subtle-blue)];
+}
+
+.badge-subtle-orange {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle-orange)] text-[var(--badge-fg-subtle-orange)];
+}
+
+.badge-subtle-red {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle-red)] text-[var(--badge-fg-subtle-red)];
+}
+
+.badge-subtle-green {
+  @apply border-neutral-transparent border bg-[var(--badge-bg-subtle-green)] text-[var(--badge-fg-subtle-green)];
+}
+
+.badge-outline-default {
+  @apply border border-[var(--badge-border-outline)] bg-[var(--badge-bg-outline)] text-[var(--badge-fg-outline)];
+}
+
+.badge-outline-blue {
+  @apply border border-[var(--badge-border-outline-blue)] bg-[var(--badge-bg-outline-blue)] text-[var(--badge-fg-outline-blue)];
+}
+
+.badge-outline-orange {
+  @apply border border-[var(--badge-border-outline-orange)] bg-[var(--badge-bg-outline-orange)] text-[var(--badge-fg-outline-orange)];
+}
+
+.badge-outline-red {
+  @apply border border-[var(--badge-border-outline-red)] bg-[var(--badge-bg-outline-red)] text-[var(--badge-fg-outline-red)];
+}
+
+.badge-outline-green {
+  @apply border border-[var(--badge-border-outline-green)] bg-[var(--badge-bg-outline-green)] text-[var(--badge-fg-outline-green)];
+}
+
+.badge-radius-small {
+  @apply rounded-0;
+}
+
+.badge-radius-medium {
+  @apply rounded-6;
+}
+
+.badge-radius-large {
+  @apply rounded-full;
 }

@@ -28,5 +28,45 @@
   @apply inline-flex items-center whitespace-nowrap hover:opacity-80 [&>svg]:flex-shrink-0;
 
   /* default */
-  @apply tag-small tag-radius-medium tag-primary;
+  /* @apply tag-small tag-radius-medium tag-primary; */
+}
+
+.tag-small {
+  @apply text-small-strong h-5.5 gap-1 px-2 [&>svg]:h-3 [&>svg]:w-3;
+}
+
+.tag-medium {
+  @apply text-base-strong h-7 gap-1.5 px-2.5 [&>svg]:h-4 [&>svg]:w-4;
+}
+
+.tag-large {
+  @apply text-large-strong h-8 gap-2 px-3 [&>svg]:h-4 [&>svg]:w-4;
+}
+
+.tag-radius-small {
+  @apply rounded-0;
+}
+
+.tag-radius-medium {
+  @apply rounded-6;
+}
+
+.tag-radius-large {
+  @apply rounded-full;
+}
+
+.tag-primary {
+  @apply bg-[var(--tag-bg-primary)] text-[var(--tag-fg-primary)];
+}
+
+.tag-secondary {
+  @apply bg-[var(--tag-bg-secondary)] text-[var(--tag-fg-secondary)];
+}
+
+.tag-destructive {
+  @apply bg-[var(--tag-bg-destructive)] text-[var(--tag-fg-destructive)];
+}
+
+.tag-outline {
+  @apply border border-[var(--tag-border-outline)] bg-[var(--tag-bg-outline)] text-[var(--tag-fg-outline)] hover:bg-[var(--tag-bg-outline-hover)];
 }

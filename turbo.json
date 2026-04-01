@@ -1,5 +1,5 @@
 {
-  "$schema": "https://turbo.build/schema.json",
+  "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
   "tasks": {
     "topo": {
@@ -9,16 +9,13 @@
       "dependsOn": ["^build"],
       "outputs": [".cache/tsbuildinfo.json", "dist/**"]
     },
-    "dev:storybook": {
-      "dependsOn": [
-        "@line/abc-def-react#build",
-        "@line/abc-def-tailwindcss#build"
-      ],
+    "dev": {
+      "dependsOn": ["^dev"],
       "cache": false,
       "persistent": false
     },
-    "dev": {
-      "dependsOn": ["^dev"],
+    "dev:storybook": {
+      "dependsOn": ["@line/abc-def-react#dev", "@line/abc-def-tailwindcss#dev"],
       "cache": false,
       "persistent": false
     },

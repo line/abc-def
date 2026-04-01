@@ -28,10 +28,17 @@
   --dialog-bg: var(--bg-neutral-primary);
   --dialog-border: var(--border-neutral-tertiary);
 
-  @apply data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] fixed left-[50%] top-[50%] z-50 grid w-full max-w-sm translate-x-[-50%] translate-y-[-50%] gap-y-5 space-y-2 border border-[var(--dialog-border)] bg-[var(--dialog-bg)] p-5 duration-200;
+  @apply data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=open]:slide-in-from-left-1/2 fixed left-[50%] top-[50%] z-50 grid w-full max-w-sm translate-x-[-50%] translate-y-[-50%] gap-y-5 border border-[var(--dialog-border)] bg-[var(--dialog-bg)] p-5 duration-200;
+  /* slide-out-to-top-[48%] / slide-in-from-top-[48%] — arbitrary values not supported in @utility */
+  &[data-state="closed"] {
+    --tw-exit-translate-y: -48%;
+  }
+  &[data-state="open"] {
+    --tw-enter-translate-y: -48%;
+  }
 
   /* default */
-  @apply dialog-content-radius-medium;
+  /* @apply dialog-content-radius-medium; */
 }
 
 .dialog-header {
@@ -47,16 +54,60 @@
 }
 
 .dialog-body {
-  @apply space-y-3;
+  @apply flex flex-col space-y-3;
 }
 
 .dialog-footer {
   @apply flex flex-wrap gap-2;
 
   /* default */
-  @apply dialog-footer-right;
+  /* @apply dialog-footer-right; */
 }
 
 .dialog-close {
   @apply !absolute right-2 top-2 !m-0;
+}
+
+.dialog-header-vertical {
+  @apply flex flex-col gap-1;
+}
+
+.dialog-header-horizontal {
+  @apply flex flex-row items-center gap-1;
+}
+
+.dialog-content-radius-large {
+  @apply rounded-24;
+}
+
+.dialog-content-radius-medium {
+  @apply rounded-8;
+}
+
+.dialog-content-radius-small {
+  @apply rounded-0;
+}
+
+.dialog-footer-left {
+  @apply justify-start;
+}
+
+.dialog-footer-center {
+  @apply justify-center;
+}
+
+.dialog-footer-right {
+  @apply justify-end;
+}
+
+.dialog-footer-between {
+  @apply justify-between;
+}
+
+.dialog-footer-full {
+  @apply justify-start;
+
+  > * {
+    @apply flex-1;
+  }
 }

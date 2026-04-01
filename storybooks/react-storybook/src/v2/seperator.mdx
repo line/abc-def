@@ -1,0 +1,31 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+
+import { Toaster } from "@line/abc-def-react";
+
+import ThemeSelect from "../utils/themeSelect.tsx";
+import TokenTable from "../utils/tokenTable.tsx";
+
+import * as SeperatorStories from "./seperator.stories.tsx";
+
+<Meta title="Seperator-v2" of={SeperatorStories} />
+
+# Seperator
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={SeperatorStories.Default} />
+<Controls />
+
+## SeparatorVertical
+
+<Canvas of={SeperatorStories.SeparatorVertical} />
+
+## SeparatorMenu
+
+<Canvas of={SeperatorStories.SeparatorMenu} />
+
+## SeparatorList
+
+<Canvas of={SeperatorStories.SeparatorList} />

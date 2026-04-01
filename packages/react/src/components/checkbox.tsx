@@ -62,6 +62,7 @@ const Checkbox = React.forwardRef<
   CheckboxProps
 >(({ checked, size, children, className, onCheckedChange, ...props }, ref) => {
   const { themeSize } = useTheme();
+
   const [currentChecked, setCurrentChecked] =
     React.useState<CheckboxPrimitive.CheckedState>(false);
 
@@ -78,7 +79,7 @@ const Checkbox = React.forwardRef<
       onCheckedChange={handleCheckedChange}
       {...props}
     >
-      <span className={cn(checkVariants({ size }))}>
+      <span className={cn(checkVariants({ size: size ?? themeSize }))}>
         <CheckboxPrimitive.Indicator className={cn("checkbox-icon")}>
           <Icon
             name={

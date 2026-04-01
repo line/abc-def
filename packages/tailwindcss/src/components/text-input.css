@@ -22,6 +22,18 @@
   @apply [&:has(+.text-input)]:absolute-y-center [&:has(+.text-input)]:flex [&:has(+.text-input)]:flex-shrink-0 [&:has(+.text-input)]:items-center [&:has(+.text-input)]:justify-center;
 }
 
+.text-input-box > svg:has(+ .text-input-sm) {
+  @apply left-3 h-4 w-4;
+}
+
+.text-input-box > svg:has(+ .text-input-md) {
+  @apply left-3.5 h-5 w-5;
+}
+
+.text-input-box > svg:has(+ .text-input-lg) {
+  @apply left-4 h-6 w-6;
+}
+
 .text-input {
   --text-input-fg: var(--fg-neutral-tertiary);
   --text-input-fg-typing: var(--fg-neutral-primary);
@@ -42,16 +54,13 @@
 
   @apply w-full outline-none;
   @apply disabled:cursor-not-allowed disabled:opacity-50 [&::-webkit-search-cancel-button]:hidden;
-
-  /* default */
-  @apply text-input-small text-input-radius-medium;
 }
 
 .text-input-button {
   @apply absolute-y-center flex flex-shrink-0 items-center justify-center disabled:cursor-not-allowed disabled:opacity-50;
 
   /* default */
-  @apply text-input-button-small;
+  /* @apply text-input-button-small; */
 }
 
 .text-input-button.show-only-on-focus-and-has-value {
@@ -62,4 +71,56 @@
   .text-input:not(:placeholder-shown)
   ~ .text-input-button.show-only-on-focus-and-has-value {
   @apply flex;
+}
+
+.text-input[aria-invalid="true"] {
+  @apply !border-2 !border-[var(--text-input-border-error)] !bg-[var(--text-input-bg-error)] !text-[var(--text-input-fg-error)];
+}
+
+.text-input-box > svg {
+  @apply [&:has(+.text-input-large)]:left-4 [&:has(+.text-input-large)]:h-6 [&:has(+.text-input-large)]:w-6;
+  @apply [&:has(+.text-input-medium)]:left-3.5 [&:has(+.text-input-medium)]:h-5 [&:has(+.text-input-medium)]:w-5;
+  @apply [&:has(+.text-input-small)]:left-3 [&:has(+.text-input-small)]:h-4 [&:has(+.text-input-small)]:w-4;
+}
+
+.text-input-large {
+  @apply text-xlarge-normal h-13 px-5 py-2.5;
+  @apply [&:has(+.text-input-button)]:!pr-12;
+  @apply [svg+&]:!pl-12;
+}
+
+.text-input-medium {
+  @apply text-large-normal h-11 px-4 py-2.5;
+  @apply [&:has(+.text-input-button)]:!pr-10;
+  @apply [svg+&]:!pl-10;
+}
+
+.text-input-small {
+  @apply text-base-normal h-9 px-3 py-2;
+  @apply [&:has(+.text-input-button)]:!pr-8;
+  @apply [svg+&]:!pl-8;
+}
+
+.text-input-radius-large {
+  @apply rounded-full;
+}
+
+.text-input-radius-medium {
+  @apply rounded-8;
+}
+
+.text-input-radius-small {
+  @apply rounded-0;
+}
+
+.text-input-button-large {
+  @apply right-4;
+}
+
+.text-input-button-medium {
+  @apply right-3.5;
+}
+
+.text-input-button-small {
+  @apply right-3;
 }

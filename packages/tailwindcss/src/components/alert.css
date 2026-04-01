@@ -30,14 +30,14 @@
   @apply relative inline-flex min-w-[356px] items-center space-x-2 border bg-[var(--alert-bg)] px-5 py-4;
 
   /* default */
-  @apply alert-radius-medium alert-default;
+  /* @apply alert-radius-medium alert-default; */
 }
 
 .alert-icon {
   @apply relative mb-auto box-content w-5 flex-shrink-0 p-1;
 
   /* default */
-  @apply alert-icon-default;
+  /* @apply alert-icon-default; */
 }
 
 .alert-loader {
@@ -66,4 +66,55 @@
 
 .alert-close {
   @apply flex-shrink-0;
+}
+.alert-radius-large {
+  @apply rounded-24;
+}
+
+.alert-radius-medium {
+  @apply rounded-8;
+}
+
+.alert-radius-small {
+  @apply rounded-0;
+}
+
+.alert-default {
+  @apply border-[var(--alert-border)];
+}
+
+.alert-warning {
+  @apply border-[var(--alert-border-warning)];
+}
+
+.alert-success {
+  @apply border-[var(--alert-border-success)];
+}
+
+.alert-error {
+  @apply border-[var(--alert-border-error)];
+}
+
+.alert-informative {
+  @apply border-[var(--alert-border-informative)];
+}
+
+.alert-icon-default {
+  @apply text-[var(--alert-fg)];
+}
+
+.alert-icon-warning {
+  @apply text-[var(--alert-fg-warning)];
+}
+
+.alert-icon-success {
+  @apply text-[var(--alert-fg-success)];
+}
+
+.alert-icon-error {
+  @apply text-[var(--alert-fg-error)];
+}
+
+.alert-icon-informative {
+  @apply text-[var(--alert-fg-informative)];
 }

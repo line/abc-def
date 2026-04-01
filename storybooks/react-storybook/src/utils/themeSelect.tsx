@@ -42,7 +42,16 @@ export default function ThemeSelect() {
 
   const handleChangeRadius = (radius: string) => {
     setRadius(radius);
-    forceReRender(`radius:${radius}`);
+    const root = document.documentElement;
+    if (radius === "small") {
+      root.style.setProperty("--rounded-base", "0px");
+    }
+    if (radius === "medium") {
+      root.style.setProperty("--rounded-base", "8px");
+    }
+    if (radius === "large") {
+      root.style.setProperty("--rounded-base", "16px");
+    }
   };
 
   const handleChangeSize = (size: string) => {
@@ -167,7 +176,7 @@ export default function ThemeSelect() {
         } as React.CSSProperties
       }
     >
-      <Select size="small" value={theme} onValueChange={setTheme}>
+      <Select value={theme} onValueChange={setTheme}>
         <Label>Theme</Label>
         <SelectTrigger>
           <SelectValue />
@@ -180,7 +189,6 @@ export default function ThemeSelect() {
         </SelectContent>
       </Select>
       <Select
-        size="small"
         value={tint}
         onValueChange={(v: keyof typeof color) => setTint(v)}
       >
@@ -208,7 +216,7 @@ export default function ThemeSelect() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Select size="small" value={radius} onValueChange={handleChangeRadius}>
+      <Select value={radius} onValueChange={handleChangeRadius}>
         <Label>Radius</Label>
         <SelectTrigger>
           <SelectValue />
@@ -221,7 +229,7 @@ export default function ThemeSelect() {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Select size="small" value={size} onValueChange={handleChangeSize}>
+      <Select value={size} onValueChange={handleChangeSize}>
         <Label>Size</Label>
         <SelectTrigger>
           <SelectValue />

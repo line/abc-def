@@ -6,7 +6,7 @@ import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 
 ## Prerequisites
 
-ABC Def React requires Tailwind CSS and the ABC Def Tailwind CSS plugin. Follow the [Installation guide](/docs/getting-started-installation--docs) to set up Tailwind CSS first.
+ABC Def React requires **Tailwind CSS v4** and the ABC Def Tailwind CSS plugin. Follow the [Installation guide](/docs/getting-started-installation--docs) to set up Tailwind CSS v4 first.
 
 ## Installation
 
@@ -22,35 +22,25 @@ pnpm add @line/abc-def-react
 yarn add @line/abc-def-react
 ```
 
-### 2. Configure Tailwind CSS
+### 2. Configure CSS Entry Point
 
-Update your `tailwind.config.js` or `tailwind.config.ts` to include the ABC Def React package in the content array:
+In Tailwind CSS v4, you configure content paths directly in your CSS file using the `@source` directive.
 
-```js
-// tailwind.config.js (CommonJS)
-module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@line/abc-def-react/**/*.js",
-  ],
-  plugins: [require("@line/abc-def-tailwindcss")],
-};
+Update your main CSS file (e.g., `src/app/globals.css` or `src/index.css`):
+
+```css
+@import "tailwindcss";
+@plugin "@line/abc-def-tailwindcss";
+
+/* Include ABC Def React components in content scanning */
+@source "./src/**/*.{js,ts,jsx,tsx}";
+@source "./node_modules/@line/abc-def-react/**/*.js";
+
+/* Optional: Enable dark mode */
+@custom-variant dark (&:is(.dark *));
 ```
 
-```ts
-// tailwind.config.ts (ESM)
-import type { Config } from "tailwindcss";
-
-import abcDefTailwind from "@line/abc-def-tailwindcss";
-
-export default {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@line/abc-def-react/**/*.js",
-  ],
-  plugins: [abcDefTailwind],
-} satisfies Config;
-```
+> **Note:** Tailwind CSS v4 uses CSS-first configuration. You no longer need a `tailwind.config.js` or `tailwind.config.ts` file.
 
 ### 3. Framework-Specific Configuration
 

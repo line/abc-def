@@ -1,6 +1,6 @@
 {
   "name": "@line/abc-def-tailwindcss",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Tailwindcss Plugin for the ABC Def design system",
   "license": "Apache-2.0",
   "homepage": "https://line.github.io/abc-def/",
@@ -23,17 +23,16 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "index.js",
-  "types": "index.d.ts",
-  "typings": "index.d.ts",
+  "exports": {
+    "./styles": "./src/v2/index.css"
+  },
   "files": [
-    "dist/*.js",
-    "dist/full.css",
-    "index.js",
-    "index.d.ts"
+    "src/v2",
+    "index.css"
   ],
   "scripts": {
-    "dev": "pnpm build",
+    "dev-v2": "node src/build-v2",
+    "dev": "node src/build",
     "lint": "stylelint '**/*.css'",
     "build": "node src/build",
     "clean": "rm -rf .turbo node_modules dist .cache"
@@ -43,16 +42,14 @@
     "@line/abc-def-prettier-config": "workspace:*",
     "@line/abc-def-stylelint-config": "workspace:*",
     "@line/abc-def-tsconfig": "workspace:^",
-    "autoprefixer": "^10.4.23",
+    "@tailwindcss/postcss": "catalog:",
     "eslint": "catalog:",
     "glob": "^13.0.0",
     "postcss": "^8.5.6",
-    "postcss-cli": "^11.0.1",
     "postcss-discard-comments": "^7.0.5",
     "postcss-import": "^16.1.1",
     "postcss-js": "^5.0.3",
     "postcss-minify": "^1.2.0",
-    "postcss-nesting": "^13.0.2",
     "prettier": "catalog:",
     "stylelint": "catalog:",
     "tailwindcss": "catalog:"

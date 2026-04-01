@@ -1,6 +1,6 @@
 {
   "name": "@line/abc-def-react",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "React components for the ABC Def design system",
   "license": "Apache-2.0",
   "homepage": "https://line.github.io/abc-def/",
@@ -33,6 +33,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./v2": {
+      "types": "./dist/v2/index.d.ts",
+      "import": "./dist/v2/index.js",
+      "require": "./dist/v2/index.cjs"
     }
   },
   "publishConfig": {
@@ -41,12 +46,13 @@
   "scripts": {
     "build": "tsup src --dts",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsup src --watch",
+    "dev": "tsup src --dts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@base-ui/react": "^1.3.0",
     "@hookform/resolvers": "^5.2.1",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-checkbox": "^1.3.3",
@@ -72,7 +78,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.562.0",
-    "react-day-picker": "8.10.1",
+    "react-day-picker": "^9.14.0",
     "react-hook-form": "^7.62.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0",

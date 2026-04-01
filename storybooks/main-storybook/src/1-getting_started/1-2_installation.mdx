@@ -9,13 +9,18 @@ import Logo from "../utils/logo.tsx";
 
 ## Installation
 
-### 1. Install Tailwind CSS
+ABC Def uses **Tailwind CSS v4**, which introduces a CSS-first configuration approach. Unlike v3, you don't need a `tailwind.config.js` file — all configuration happens directly in your CSS.
 
-ABC Def requires Tailwind CSS to be installed in your project.
+### 1. Install Tailwind CSS v4
+
+Install Tailwind CSS v4 and the PostCSS plugin:
 
 ```bash
-npm install -D tailwindcss@^3
-npx tailwindcss init
+npm install -D tailwindcss@^4 @tailwindcss/postcss
+# or
+pnpm add -D tailwindcss@^4 @tailwindcss/postcss
+# or
+yarn add -D tailwindcss@^4 @tailwindcss/postcss
 ```
 
 ### 2. Install ABC Def Tailwind CSS Plugin
@@ -30,31 +35,54 @@ pnpm add -D @line/abc-def-tailwindcss
 yarn add -D @line/abc-def-tailwindcss
 ```
 
-### 3. Configure Tailwind CSS
+### 3. Configure PostCSS
 
-Add `@line/abc-def-tailwindcss` to your tailwind.config.js or tailwind.config.ts:
+Create or update your `postcss.config.js` (or `.mjs`, `.cjs`):
 
 ```js
-// tailwind.config.js (CommonJS)
-module.exports = {
-  ...
-  plugins: [require("@line/abc-def-tailwindcss")],
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
 };
 ```
 
-```ts
-// tailwind.config.ts (ESM)
-import type { Config } from "tailwindcss";
+### 4. Set Up Your CSS Entry Point
 
-import abcDefTailwind from "@line/abc-def-tailwindcss";
+In your main CSS file (e.g., `src/app/globals.css` or `src/index.css`), import Tailwind CSS and add the ABC Def plugin:
 
-export default {
-  ...
-  plugins: [abcDefTailwind],
-} satisfies Config;
+```css
+@import "tailwindcss";
+@plugin "@line/abc-def-tailwindcss";
+```
+
+#### Optional: Configure Dark Mode
+
+To enable dark mode with the `.dark` class:
+
+```css
+@import "tailwindcss";
+@plugin "@line/abc-def-tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+```
+
+#### Optional: Specify Content Paths
+
+By default, Tailwind CSS v4 automatically detects content files. If you need to customize the paths:
+
+```css
+@import "tailwindcss";
+@plugin "@line/abc-def-tailwindcss";
+
+@source "./src/**/*.{js,ts,jsx,tsx}";
+@source "./components/**/*.{js,ts,jsx,tsx}";
 ```
 
 ---
 
-If you want to use only HTML classes, please refer to [HTML Components](/docs/html_coming-soon--docs).  
-If you are using a React or Vue framework, please refer to [React Components](/docs/react_getting-started--docs) and [Vue Components](/docs/html_coming-soon--docs).
+**Next Steps:**
+
+- If you want to use only HTML classes, please refer to [HTML Components](/docs/html_coming-soon--docs).
+- If you are using a React or Vue framework, please refer to [React Components](/docs/react_getting-started--docs) and [Vue Components](/docs/html_coming-soon--docs).
+- **Migrating from v3?** See the [v4 Migration Guide](/docs/getting-started-v4-migration--docs).

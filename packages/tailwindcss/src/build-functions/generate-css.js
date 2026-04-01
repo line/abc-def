@@ -1,54 +1,82 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
 const fs = require("fs").promises;
 const path = require("path");
-const postcss = require("postcss");
 const glob = require("glob");
+const {
+  compileAndExtract,
+  cssToUtilityRegistrations,
+} = require("./compile-css");
+
 /**
- * PostCSS를 사용하여 CSS 파일들을 처리하는 함수
- * 명령어 `postcss --config src/components src/components/*.css --base src --dir dist`와 동일한 기능을 수행합니다.
+ * Reads a file, returning an empty string if it does not exist yet.
+ * Used to gracefully handle missing dist files on the first build.
+ */
+async function readFileOrEmpty(filePath) {
+  try {
+    return await fs.readFile(filePath, "utf8");
+  } catch {
+    return "";
+  }
+}
+
+/**
+ * Compiles all CSS source files for a given layer using the Tailwind v4
+ * compile() API and writes the output to dist/{type}/.
+ *
+ * Layer dependencies mirror the v3 tailwind.config.js addBase / addUtilities
+ * injection pattern:
+ *   - base      : no additional CSS context
+ *   - utilities : dist/base.css injected so @apply on base classes resolves
+ *   - components: dist/base.css + dist/utilities.css injected so @apply on
+ *                 both base and utility classes resolves
+ *
+ * @param {"base"|"utilities"|"components"} type
  */
 async function generateCss(type) {
   try {
-    // 설정 파일 로드
-    const configPath = path.resolve(process.cwd(), `src/${type}`);
-    const configFile = require(path.join(configPath, "postcss.config.js"));
+    const distRoot = path.resolve(process.cwd(), "dist");
 
-    // 플러그인 초기화
-    const plugins = configFile.plugins || [];
-
-    // PostCSS 프로세서 생성
-    const processor = postcss(plugins);
-    const cssFiles = glob.sync(`src/${type}/*.css`);
-    // 기본 경로
-    const baseDir = path.resolve(process.cwd(), "src");
-    const outputDir = path.resolve(process.cwd(), "dist");
-
-    // 디렉토리가 없으면 생성
-    fs.mkdir(outputDir, { recursive: true });
-
-    // 각 파일 처리
-    for (const file of cssFiles) {
-      const css = await fs.readFile(file, "utf8");
-
-      const relativePath = path.relative(baseDir, file);
-      const outputPath = path.join(outputDir, relativePath);
-
-      // 출력 디렉토리 확인
-      const outputFileDir = path.dirname(outputPath);
-      fs.mkdir(outputFileDir, { recursive: true });
-
-      // PostCSS 처리
-      const result = await processor.process(css, {
-        from: file,
-        to: outputPath,
-        map: { inline: false },
-      });
-
-      // 처리된 CSS 저장
-      await fs.writeFile(outputPath, result.css);
-      // console.log(`Generated: ${outputPath}`);
+    // Build additionalCss: convert compiled CSS rules from prior layers into
+    // @utility declarations so that @apply references resolve correctly.
+    // (Tailwind v4 @apply only resolves registered @utility classes.)
+    let additionalCss = "";
+    if (type === "utilities") {
+      const baseCss = await readFileOrEmpty(path.join(distRoot, "base.css"));
+      additionalCss = cssToUtilityRegistrations(baseCss);
+    } else if (type === "components") {
+      const baseCss = await readFileOrEmpty(path.join(distRoot, "base.css"));
+      const utilitiesCss = await readFileOrEmpty(
+        path.join(distRoot, "utilities.css"),
+      );
+      additionalCss = cssToUtilityRegistrations(baseCss + "\n" + utilitiesCss);
     }
 
-    // console.log("CSS generation completed successfully.");
+    const cssFiles = glob.sync(`src/${type}/*.css`);
+    await fs.mkdir(path.join(distRoot, type), { recursive: true });
+
+    for (const file of cssFiles) {
+      const cssContent = await fs.readFile(file, "utf8");
+      const compiled = await compileAndExtract(cssContent, additionalCss);
+
+      const filename = path.basename(file);
+      const outputPath = path.join(distRoot, type, filename);
+      await fs.writeFile(outputPath, compiled);
+    }
   } catch (error) {
     console.error("CSS generation failed:", error);
     process.exit(1);

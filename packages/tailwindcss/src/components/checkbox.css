@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+
 .checkbox {
   --checkbox-fg: var(--fg-neutral-inverse);
   --checkbox-fg-label: var(--fg-neutral-primary);
@@ -23,16 +24,39 @@
   @apply inline-flex cursor-pointer items-center text-[var(--checkbox-fg-label)] transition-opacity disabled:cursor-not-allowed disabled:opacity-50 [&:not(:disabled)]:hover:opacity-80;
 
   /* default */
-  @apply checkbox-small;
+  /* @apply checkbox-small; */
 }
 
 .check {
-  @apply before:rounded-4 relative mr-2 flex items-center justify-center text-[var(--checkbox-fg)] before:absolute before:inset-0 before:flex before:border before:border-[var(--checkbox-border)];
+  @apply before:rounded-4 relative mr-2 flex items-center justify-center text-[var(--checkbox-fg)] before:absolute before:inset-0 before:flex before:border before:border-[var(--checkbox-border)] before:content-[''];
 
   /* default */
-  @apply check-small;
+  /* @apply check-small; */
 }
 
 .checkbox-icon {
   @apply rounded-4 absolute left-0 top-0 flex h-full w-full items-center justify-center bg-[var(--checkbox-bg-checked)] text-[var(--checkbox-fg)];
+}
+.checkbox-small {
+  @apply text-small-normal;
+}
+
+.checkbox-medium {
+  @apply text-base-normal;
+}
+
+.checkbox-large {
+  @apply text-large-normal;
+}
+
+.check-small {
+  @apply h-3.5 w-3.5;
+}
+
+.check-medium {
+  @apply h-4 w-4;
+}
+
+.check-large {
+  @apply h-5 w-5;
 }

@@ -1,0 +1,411 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import Logo from "../utils/logo.tsx";
+
+<Meta title="Getting Started/v4 Migration" />
+
+<Logo />
+
+## Migrating from Tailwind CSS v3 to v4
+
+This guide will help you upgrade your ABC Def project from Tailwind CSS v3 to v4. Tailwind CSS v4 introduces a **CSS-first configuration** approach, eliminating the need for JavaScript configuration files.
+
+---
+
+### Overview of Changes
+
+<table>
+  <thead>
+    <tr>
+      <th>What Changed</th>
+      <th>v3</th>
+      <th>v4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <strong>Configuration</strong>
+      </td>
+      <td>
+        <code>tailwind.config.js</code>
+      </td>
+      <td>
+        CSS directives (<code>@theme</code>, <code>@source</code>)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Imports</strong>
+      </td>
+      <td>
+        <code>@tailwind base/components/utilities;</code>
+      </td>
+      <td>
+        <code>@import "tailwindcss";</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Dark Mode</strong>
+      </td>
+      <td>
+        <code>darkMode: "class"</code> in config
+      </td>
+      <td>
+        <code>@custom-variant dark (&amp;:is(.dark *));</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Content Paths</strong>
+      </td>
+      <td>
+        <code>content: [...]</code> in config
+      </td>
+      <td>
+        <code>@source</code> directive in CSS
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>PostCSS</strong>
+      </td>
+      <td>Multiple plugins</td>
+      <td>
+        <code>@tailwindcss/postcss</code> only
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+### Migration Steps
+
+#### 1. Update Dependencies
+
+Update your `package.json` dependencies:
+
+```bash
+# Remove old dependencies
+npm uninstall tailwindcss postcss autoprefixer
+
+# Install Tailwind CSS v4
+npm install -D tailwindcss@^4 @tailwindcss/postcss
+
+# Update ABC Def plugin (if needed)
+npm install -D @line/abc-def-tailwindcss@latest
+
+# For React projects
+npm install -D tailwind-merge@^3
+```
+
+Or with pnpm:
+
+```bash
+pnpm remove tailwindcss postcss autoprefixer
+pnpm add -D tailwindcss@^4 @tailwindcss/postcss
+pnpm add -D @line/abc-def-tailwindcss@latest
+pnpm add -D tailwind-merge@^3  # For React projects
+```
+
+#### 2. Update PostCSS Configuration
+
+Replace your `postcss.config.js` (or `.mjs`, `.cjs`):
+
+**Before (v3):**
+
+```js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+**After (v4):**
+
+```js
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+```
+
+#### 3. Migrate CSS Configuration
+
+Convert your `tailwind.config.js` settings to CSS directives.
+
+**Before (v3):**
+
+`tailwind.config.js`:
+
+```js
+module.exports = {
+  darkMode: "class",
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@line/abc-def-react/**/*.js",
+  ],
+  plugins: [require("@line/abc-def-tailwindcss")],
+};
+```
+
+`src/index.css` or `src/app/globals.css`:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+**After (v4):**
+
+Delete `tailwind.config.js` and update your CSS file:
+
+`src/index.css` or `src/app/globals.css`:
+
+```css
+@import "tailwindcss";
+@plugin "@line/abc-def-tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@source "./src/**/*.{js,ts,jsx,tsx}";
+@source "./node_modules/@line/abc-def-react/**/*.js";
+```
+
+#### 4. Run the Official Codemods
+
+Tailwind CSS provides automated codemods to update your code:
+
+```bash
+pnpm dlx @tailwindcss/upgrade@next
+```
+
+This will:
+
+- Update CSS imports
+- Migrate utility class names (see Breaking Changes below)
+- Update configuration files
+
+**⚠️ Important:** Review all changes before committing. Some updates may require manual verification.
+
+#### 5. Update Utility Class Names
+
+Some utility classes have been renamed in v4. The codemod handles most of these, but verify manually:
+
+<table>
+  <thead>
+    <tr>
+      <th>v3 Class</th>
+      <th>v4 Class</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>shadow-sm</code>
+      </td>
+      <td>
+        <code>shadow-xs</code>
+      </td>
+      <td>Extra small shadow</td>
+    </tr>
+    <tr>
+      <td>
+        <code>shadow</code>
+      </td>
+      <td>
+        <code>shadow-sm</code>
+      </td>
+      <td>Small shadow</td>
+    </tr>
+    <tr>
+      <td>
+        <code>blur-sm</code>
+      </td>
+      <td>
+        <code>blur-xs</code>
+      </td>
+      <td>Extra small blur</td>
+    </tr>
+    <tr>
+      <td>
+        <code>blur</code>
+      </td>
+      <td>
+        <code>blur-sm</code>
+      </td>
+      <td>Small blur</td>
+    </tr>
+    <tr>
+      <td>
+        <code>rounded</code>
+      </td>
+      <td>
+        <code>rounded-sm</code>
+      </td>
+      <td>Small border radius</td>
+    </tr>
+    <tr>
+      <td>
+        <code>ring</code>
+      </td>
+      <td>
+        <code>ring-3</code>
+      </td>
+      <td>Focus ring (3px)</td>
+    </tr>
+    <tr>
+      <td>
+        <code>overflow-ellipsis</code>
+      </td>
+      <td>
+        <code>text-ellipsis</code>
+      </td>
+      <td>Text truncation</td>
+    </tr>
+  </tbody>
+</table>
+
+**Example:**
+
+```diff
+- <button className="rounded shadow-sm">
++ <button className="rounded-sm shadow-xs">
+    Click me
+  </button>
+```
+
+#### 6. Framework-Specific Updates
+
+<details>
+<summary>For Next.js Projects</summary>
+
+If you're using Next.js, ensure `transpilePackages` is configured in `next.config.js`:
+
+```js
+const nextConfig = {
+  transpilePackages: ["@line/abc-def-react"],
+  // ... other config
+};
+
+module.exports = nextConfig;
+```
+
+No changes needed for PostCSS — Next.js automatically uses `postcss.config.js`.
+
+</details>
+
+<details>
+<summary>For Vite Projects</summary>
+
+Vite projects can use the `@tailwindcss/vite` plugin for better performance:
+
+```bash
+npm install -D @tailwindcss/vite
+```
+
+Update `vite.config.ts`:
+
+```ts
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
+```
+
+</details>
+
+#### 7. Verify Your Build
+
+After migration, run your development server and build process:
+
+```bash
+npm run dev
+npm run build
+```
+
+Check for:
+
+- ✅ All styles rendering correctly
+- ✅ Dark mode working (if enabled)
+- ✅ No console warnings about missing classes
+- ✅ Production build completes without errors
+
+---
+
+### Breaking Changes Checklist
+
+Use this checklist to verify your migration:
+
+- [ ] Updated `tailwindcss` to v4
+- [ ] Installed `@tailwindcss/postcss`
+- [ ] Updated `postcss.config.js`
+- [ ] Deleted `tailwind.config.js` / `tailwind.config.ts`
+- [ ] Migrated CSS imports (`@import "tailwindcss"`)
+- [ ] Added `@plugin` directive
+- [ ] Migrated dark mode configuration (`@custom-variant`)
+- [ ] Migrated content paths (`@source`)
+- [ ] Ran codemods (`@tailwindcss/upgrade`)
+- [ ] Verified utility class name changes
+- [ ] Tested development and production builds
+- [ ] Verified dark mode functionality (if used)
+- [ ] Updated `tailwind-merge` to v3 (React projects)
+
+---
+
+### Troubleshooting
+
+#### "Cannot find module '@tailwindcss/postcss'"
+
+Make sure you installed the v4 PostCSS plugin:
+
+```bash
+npm install -D @tailwindcss/postcss
+```
+
+#### Styles not applying
+
+1. Verify your CSS file is imported in your entry point (e.g., `main.tsx`, `_app.tsx`)
+2. Check that `@source` directives include all necessary file paths
+3. Clear your build cache and restart dev server
+
+#### Dark mode not working
+
+Ensure you've added the `@custom-variant` directive:
+
+```css
+@custom-variant dark (&:is(.dark *));
+```
+
+And that you're toggling the `.dark` class on your root element (usually `<html>` or `<body>`).
+
+#### Class conflicts with `tailwind-merge`
+
+For React projects using `tailwind-merge`, upgrade to v3:
+
+```bash
+npm install -D tailwind-merge@^3
+```
+
+The ABC Def React package's `cn()` utility is compatible with v3.
+
+---
+
+### Additional Resources
+
+- [Tailwind CSS v4 Official Upgrade Guide](https://tailwindcss.com/docs/upgrade-guide)
+- [Tailwind CSS v4 Documentation](https://tailwindcss.com)
+- [ABC Def GitHub Repository](https://github.com/line/abc-def)
+
+---
+
+**Need help?** If you encounter issues during migration, please [open an issue](https://github.com/line/abc-def/issues) on GitHub.

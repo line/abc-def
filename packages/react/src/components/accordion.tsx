@@ -115,7 +115,7 @@ const AccordionTrigger = React.forwardRef<
 });
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 
-const accordionContentVariants = cva("accordion-content", {
+const accordionContentVariants = cva("accordion-content-box", {
   variants: {
     iconAlign: {
       left: "",
@@ -131,17 +131,17 @@ const accordionContentVariants = cva("accordion-content", {
     {
       iconAlign: "left",
       iconSize: "small",
-      className: "accordion-content-inset-small",
+      className: "accordion-content-box-inset-small",
     },
     {
       iconAlign: "left",
       iconSize: "medium",
-      className: "accordion-content-inset-medium",
+      className: "accordion-content-box-inset-medium",
     },
     {
       iconAlign: "left",
       iconSize: "large",
-      className: "accordion-content-inset-large",
+      className: "accordion-content-box-inset-large",
     },
   ],
   defaultVariants: {
@@ -158,7 +158,7 @@ const AccordionContent = React.forwardRef<
   return (
     <AccordionPrimitive.Content
       ref={ref}
-      className="accordion-content-box"
+      className="accordion-content"
       {...props}
     >
       <div

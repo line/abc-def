@@ -17,5 +17,5 @@
   --label-fg: var(--fg-neutral-primary);
   --label-fg-error: var(--fg-tint-red);
 
-  @apply text-base-normal font-normal text-[var(--label-fg)] data-[error=true]:text-[var(--label-fg-error)];
+  @apply text-base-normal text-[var(--label-fg)] data-[error=true]:text-[var(--label-fg-error)];
 }

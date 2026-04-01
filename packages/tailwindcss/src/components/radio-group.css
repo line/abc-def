@@ -22,7 +22,7 @@
   @apply flex;
 
   /* default */
-  @apply [&:not(.radio-group-vertical)]:radio-group-horizontal;
+  /* @apply [&:not(.radio-group-vertical)]:radio-group-horizontal; */
 }
 
 .radio-item {
@@ -30,9 +30,17 @@
 }
 
 .radio {
-  @apply relative mr-2 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[var(--radio-group-bg)] before:absolute before:inset-0 before:flex before:rounded-full before:border before:border-[var(--radio-group-border)];
+  @apply relative mr-2 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[var(--radio-group-bg)] before:absolute before:inset-0 before:flex before:rounded-full before:border before:border-[var(--radio-group-border)] before:content-[''];
 }
 
 .radio-indicator {
   @apply absolute left-0 top-0 flex h-full w-full items-center justify-center rounded-full bg-[var(--radio-group-bg-selected)] text-[var(--radio-group-bg)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+}
+
+.radio-group-horizontal {
+  @apply flex-row gap-4;
+}
+
+.radio-group-vertical {
+  @apply flex-col gap-1;
 }

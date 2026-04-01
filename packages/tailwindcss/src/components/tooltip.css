@@ -24,7 +24,7 @@
   @apply text-base-normal z-50 flex flex-col overflow-hidden whitespace-pre-wrap border border-[var(--tooltip-border)] bg-[var(--tooltip-bg)] px-3 py-1 text-[var(--tooltip-fg)] shadow-md;
 
   /* default */
-  @apply tooltip-text-center;
+  /* @apply tooltip-text-center; */
 }
 
 .tooltip-arrow-border {
@@ -53,4 +53,16 @@
 
 .tooltip-title {
   @apply text-base-strong mb-1;
+}
+
+.tooltip-text-left {
+  @apply text-left;
+}
+
+.tooltip-text-center {
+  @apply text-center;
+}
+
+.tooltip-text-right {
+  @apply text-right;
 }

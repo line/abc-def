@@ -1,0 +1,158 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+@layer components {
+  .button {
+    --button-fg-primary: var(--fg-neutral-inverse);
+    --button-fg-secondary: var(--fg-neutral-primary);
+    --button-fg-destructive: var(--fg-neutral-inverse);
+    --button-fg-ghost: var(--fg-neutral-primary);
+    --button-fg-outline: var(--tint, var(--fg-neutral-primary));
+    --button-border-outline: var(--border-neutral-tertiary);
+    --button-bg-primary: var(--tint, var(--bg-neutral-inverse));
+    --button-bg-secondary: var(--bg-neutral-tertiary);
+    --button-bg-destructive: var(--bg-tint-red-bold);
+    --button-bg-ghost: var(--bg-neutral-transparent);
+    --button-bg-ghost-hover: var(--bg-neutral-secondary);
+    --button-bg-outline: var(--bg-neutral-transparent);
+    --button-bg-outline-hover: var(--tint-subtle, var(--bg-neutral-secondary));
+
+    @layer l1.l2.l3 {
+      @apply inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-clip-padding outline-none transition-all;
+      @apply not-disabled:hover:opacity-80 disabled:pointer-events-none disabled:opacity-50;
+      @apply [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0;
+      @apply active:not-aria-[haspopup]:translate-y-px;
+    }
+    /* @apply focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 ; */
+    /* @apply aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40; */
+  }
+
+  .button-loading {
+    @apply absolute-center pointer-events-none flex shadow-none;
+  }
+
+  .button-large {
+    @layer l1.l2 {
+      @apply text-xlarge-strong h-13 gap-2 px-5 [&>svg]:size-6;
+      /* @apply min-w-13 ; */
+    }
+  }
+
+  .button-medium {
+    @layer l1.l2 {
+      @apply text-large-strong h-11 gap-2 px-4 [&>svg]:size-5;
+      /* @apply min-w-11 ; */
+    }
+  }
+
+  .button-small {
+    @layer l1.l2 {
+      @apply text-base-strong h-9 gap-1 px-3 [&>svg]:size-4;
+      /* @apply min-w-9 ; */
+    }
+  }
+
+  .button-icon-only {
+    @layer l1 {
+      &.button-large {
+        @apply px-3;
+      }
+      &.button-medium {
+        @apply px-3;
+      }
+      &.button-small {
+        @apply px-2.5;
+      }
+    }
+  }
+
+  .button-radius-large {
+    @layer l1.l2 {
+      @apply rounded-full;
+    }
+  }
+
+  .button-radius-medium {
+    @layer l1.l2 {
+      @apply rounded-8;
+    }
+  }
+
+  .button-radius-small {
+    @layer l1.l2 {
+      @apply rounded-0;
+    }
+  }
+
+  .button-primary {
+    @layer l1.l2 {
+      @apply bg-(--button-bg-primary) text-(--button-fg-primary);
+    }
+  }
+
+  .button-secondary {
+    @layer l1.l2 {
+      @apply bg-(--button-bg-secondary) text-(--button-fg-secondary);
+    }
+  }
+
+  .button-destructive {
+    @layer l1.l2 {
+      @apply bg-(--button-bg-destructive) text-(--button-fg-destructive);
+    }
+  }
+
+  .button-ghost {
+    @layer l1.l2 {
+      @apply bg-(--button-bg-ghost) text-(--button-fg-ghost) data-[state=open]:bg-(--button-bg-ghost-hover) not-disabled:hover:bg-(--button-bg-ghost-hover) transition-colors;
+    }
+  }
+
+  .button-outline {
+    @layer l1.l2 {
+      @apply border-(--button-border-outline) bg-(--button-bg-outline) text-(--button-fg-outline) data-[state=open]:bg-(--button-bg-outline-hover) not-disabled:hover:bg-(--button-bg-outline-hover) border transition-colors;
+    }
+  }
+
+  .button-loading-primary {
+    @layer l1 {
+      @apply text-(--button-fg-primary);
+    }
+  }
+
+  .button-loading-secondary {
+    @layer l1 {
+      @apply text-(--button-fg-secondary);
+    }
+  }
+
+  .button-loading-destructive {
+    @layer l1 {
+      @apply text-(--button-fg-destructive);
+    }
+  }
+
+  .button-loading-ghost {
+    @layer l1 {
+      @apply text-(--button-fg-ghost);
+    }
+  }
+
+  .button-loading-outline {
+    @layer l1 {
+      @apply text-(--button-fg-outline);
+    }
+  }
+}
