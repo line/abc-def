@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+
+import { Toaster } from "@line/abc-def-react";
+
+import ThemeSelect from "../utils/themeSelect.tsx";
+import TokenTable from "../utils/tokenTable.tsx";
+
+import * as LabelStories from "./label.stories.tsx";
+
+<Meta title="Label-v2" of={LabelStories} />
+
+# Label
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={LabelStories.Default} />
+<Controls />
+
+## DefaultLabel
+
+<Canvas of={LabelStories.DefaultLabel} />
+
+## LabelInField
+
+<Canvas of={LabelStories.LabelInField} />

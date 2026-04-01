@@ -1,0 +1,43 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+
+import { Toaster } from "@line/abc-def-react";
+
+import ThemeSelect from "../utils/themeSelect.tsx";
+import TokenTable from "../utils/tokenTable.tsx";
+
+import * as CalendarStories from "./calendar.stories.tsx";
+
+<Meta title="Calendar-v2" of={CalendarStories} />
+
+# Calendar
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={CalendarStories.Default} />
+<Controls />
+
+## Single
+
+<Canvas of={CalendarStories.Mode_Single} />
+
+## Multiple
+
+<Canvas of={CalendarStories.Mode_Multiple} />
+
+## Range
+
+<Canvas of={CalendarStories.Mode_Range} />
+
+## Range 2 calendar
+
+<Canvas of={CalendarStories.Mode_Range2} />
+
+## Size
+
+<Canvas of={CalendarStories.Size} />
+
+## Disabled
+
+<Canvas of={CalendarStories.Disabled} />

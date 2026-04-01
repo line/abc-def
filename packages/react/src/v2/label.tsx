@@ -13,9 +13,16 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-.label {
-  --label-fg: var(--fg-neutral-primary);
-  --label-fg-error: var(--fg-tint-red);
+"use client";
 
-  @apply text-base-normal text-[var(--label-fg)] data-[error=true]:text-[var(--label-fg-error)];
+import * as React from "react";
+
+import { cn } from "../lib/utils";
+
+function Label({ className, ...props }: React.ComponentProps<"label">) {
+  return (
+    <label data-slot="label" className={cn("label", className)} {...props} />
+  );
 }
+
+export { Label };

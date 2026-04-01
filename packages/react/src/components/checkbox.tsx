@@ -62,8 +62,6 @@ const Checkbox = React.forwardRef<
   CheckboxProps
 >(({ checked, size, children, className, onCheckedChange, ...props }, ref) => {
   const { themeSize } = useTheme();
-  console.log("themeSize: ", themeSize);
-  console.log("size: ", size);
 
   const [currentChecked, setCurrentChecked] =
     React.useState<CheckboxPrimitive.CheckedState>(false);

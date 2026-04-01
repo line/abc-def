@@ -1,0 +1,42 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs/blocks";
+
+import { Toaster } from "@line/abc-def-react";
+
+import ThemeSelect from "../utils/themeSelect.tsx";
+import TokenTable from "../utils/tokenTable.tsx";
+
+import * as CheckboxStories from "./checkbox.stories.tsx";
+
+<Meta title="Checkbox-v2" of={CheckboxStories} />
+
+# Checkbox
+
+<ThemeSelect />
+
+## Playground
+
+<Canvas of={CheckboxStories.Default} />
+<Controls />
+
+## Invalid
+
+<Canvas of={CheckboxStories.CheckboxInvalid} />
+
+## CheckboxBasic
+
+<Canvas of={CheckboxStories.CheckboxBasic} />
+## CheckboxDescription
+
+<Canvas of={CheckboxStories.CheckboxDescription} />
+
+## CheckboxDisabled
+
+<Canvas of={CheckboxStories.CheckboxDisabled} />
+
+## CheckboxGroup
+
+<Canvas of={CheckboxStories.CheckboxGroup} />
+
+## CheckboxInTable
+
+<Canvas of={CheckboxStories.CheckboxInTable} />

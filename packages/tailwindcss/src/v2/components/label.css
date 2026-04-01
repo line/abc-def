@@ -1,0 +1,9 @@
+.label {
+  --label-fg: var(--fg-neutral-primary);
+  --label-fg-error: var(--fg-tint-red);
+
+  /* @apply data-[error=true]:text-[var(--label-fg-error)]; */
+  /* @apply text-(--label-fg); */
+  @apply text-base-normal flex select-none items-center gap-2 leading-none;
+  @apply peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50;
+}

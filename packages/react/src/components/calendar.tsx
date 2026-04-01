@@ -13,12 +13,11 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type { DateRange, DayPickerDefaultProps } from "react-day-picker";
+import type { DateRange } from "react-day-picker";
 import * as React from "react";
 import { DayPicker } from "react-day-picker";
 
 import { cn } from "../lib/utils";
-import { Icon } from "./icon";
 
 type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   showToday?: boolean;
@@ -29,12 +28,10 @@ function Calendar({
   classNames,
   showToday = true,
   showOutsideDays = true,
-  mode = "default",
   ...props
 }: CalendarProps) {
   return (
     <DayPicker
-      mode={mode as DayPickerDefaultProps["mode"]}
       showOutsideDays={showOutsideDays}
       className={cn("calendar", className)}
       classNames={{
@@ -61,10 +58,6 @@ function Calendar({
         day_range_middle: "calendar-day-range-middle",
         day_hidden: "calendar-day-hidden",
         ...classNames,
-      }}
-      components={{
-        IconLeft: () => <Icon name="RiArrowLeftSLine" size={16} />,
-        IconRight: () => <Icon name="RiArrowRightSLine" size={16} />,
       }}
       {...props}
     />

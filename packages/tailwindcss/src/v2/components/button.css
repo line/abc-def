@@ -45,19 +45,22 @@
 
   .button-large {
     @layer l1.l2 {
-      @apply text-xlarge-strong h-13 min-w-13 gap-2 px-5 [&>svg]:size-6;
+      @apply text-xlarge-strong h-13 gap-2 px-5 [&>svg]:size-6;
+      /* @apply min-w-13 ; */
     }
   }
 
   .button-medium {
     @layer l1.l2 {
-      @apply text-large-strong h-11 min-w-11 gap-2 px-4 [&>svg]:size-5;
+      @apply text-large-strong h-11 gap-2 px-4 [&>svg]:size-5;
+      /* @apply min-w-11 ; */
     }
   }
 
   .button-small {
     @layer l1.l2 {
-      @apply text-base-strong h-9 min-w-9 gap-1 px-3 [&>svg]:size-4;
+      @apply text-base-strong h-9 gap-1 px-3 [&>svg]:size-4;
+      /* @apply min-w-9 ; */
     }
   }
 

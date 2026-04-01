@@ -1,0 +1,61 @@
+.field-set {
+  @apply flex flex-col gap-4 has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3;
+}
+
+.field-legend {
+  @apply data-[variant=label]:text-base-strong text-large-strong mb-1.5;
+}
+
+.field-group {
+  @apply flex w-full flex-col gap-5 data-[slot=checkbox-group]:gap-3 *:data-[slot=field-group]:gap-4;
+}
+
+.field {
+  --field-fg-error: var(--fg-tint-red);
+  --field-fg-description: var(--fg-neutral-tertiary);
+
+  --field-bg-separator-content: var(--bg-primary);
+  --field-fg-separator-content: var(--fg-neutral-tertiary);
+
+  @apply data-[invalid=true]:text-(--field-fg-error) flex w-full gap-2;
+}
+
+.field-vertical {
+  @apply flex-col *:w-full [&>.sr-only]:w-auto;
+}
+
+.field-horizontal {
+  @apply has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px flex-row items-center has-[>[data-slot=field-content]]:items-start *:data-[slot=field-label]:flex-auto;
+}
+
+.field-content {
+  @apply flex flex-1 flex-col gap-0.5 leading-snug;
+}
+
+.field-label {
+  @apply flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50;
+  /* @apply has-data-checked:border-primary/30 has-data-checked:bg-primary/5; */
+  @apply has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border *:data-[slot=field]:p-2.5;
+  @apply has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col;
+}
+
+.field-title {
+  @apply flex w-fit items-center gap-2 text-sm font-medium leading-snug group-data-[disabled=true]/field:opacity-50;
+}
+
+.field-description {
+  @apply text-(--field-fg-description) group-has-data-horizontal/field:text-balance text-left text-sm font-normal leading-normal [[data-variant=legend]+&]:-mt-1.5;
+  @apply nth-last-2:-mt-1 last:mt-0;
+}
+
+.field-separator {
+  @apply relative -my-2 h-5 text-sm group-data-[variant=outline]/field-group:-mb-2;
+}
+
+.field-separator-content {
+  @apply bg-(--field-bg-separator-content) text-(--field-fg-separator-content) relative mx-auto block w-fit px-2;
+}
+
+.field-error {
+  @apply text-(--field-fg-error) text-sm font-normal leading-normal;
+}

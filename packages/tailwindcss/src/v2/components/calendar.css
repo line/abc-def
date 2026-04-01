@@ -1,0 +1,133 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+@layer components {
+  .calendar {
+    --calendar-border: var(--border-neutral-tertiary);
+
+    --calendar-fg: var(--fg-neutral-primary);
+    --calendar-fg-pressed: var(--fg-neutral-inverse);
+
+    --calendar-fg-week: var(--fg-neutral-tertiary);
+
+    --calendar-bg: var(--bg-neutral-primary);
+    --calendar-bg-pressed: var(--tint, var(--bg-neutral-inverse));
+    --calendar-bg-hover: var(--bg-neutral-tertiary);
+    --calendar-bg-range: var(--bg-neutral-tertiary);
+
+    --calendar-fg-muted: var(--fg-neutral-tertiary);
+    --calendar-bg-muted: var(--bg-neutral-tertiary);
+
+    @apply bg-(--calendar-bg) in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent p-2 [--cell-radius:var(--radius-md)] [--cell-size:--spacing(7)];
+  }
+
+  .calendar-months {
+    @apply relative flex flex-col gap-4 md:flex-row;
+  }
+
+  .calendar-month {
+    @apply flex w-full flex-col gap-4;
+  }
+
+  .calendar-nav {
+    /* @apply flex items-center; */
+    @apply absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1;
+  }
+  .calendar-nav-button {
+    @apply size-(--cell-size)! select-none p-0 aria-disabled:opacity-50;
+  }
+
+  .calendar-month-caption {
+    @apply h-(--cell-size) px-(--cell-size) flex w-full items-center justify-center;
+  }
+
+  .calendar-dropdowns {
+    @apply h-(--cell-size) text-small-normal flex w-full items-center justify-center gap-1.5;
+  }
+
+  .calendar-dropdown-root {
+    @apply rounded-(--cell-radius) relative;
+  }
+
+  .calendar-dropdown {
+    @apply absolute inset-0 opacity-0;
+    /* @apply bg-popover; */
+  }
+
+  .calendar-caption-label-default {
+    @apply text-base-strong select-none;
+  }
+
+  .calendar-caption-label-dropdown {
+    @apply rounded-(--cell-radius) [&>svg]:text-(--calendar-fg-muted) flex items-center gap-1 [&>svg]:size-3.5;
+  }
+
+  .calendar-table {
+    @apply w-full border-collapse;
+  }
+
+  .calendar-weekdays {
+    @apply flex;
+  }
+
+  .calendar-weekday {
+    @apply rounded-(--cell-radius) text-(--calendar-fg-week) text-small-normal flex-1 select-none;
+  }
+
+  .calendar-week {
+    @apply mt-2 flex w-full;
+  }
+
+  .calendar-week-number-header {
+    @apply w-(--cell-size) select-none;
+  }
+
+  .calendar-week-number {
+    @apply text-(--calendar-fg-week) select-none text-[0.8rem];
+  }
+
+  .calendar-day-default {
+    @apply rounded-(--cell-radius) [&:last-child[data-selected=true]_button]:rounded-r-(--cell-radius) relative aspect-square h-full w-full select-none p-0 text-center;
+    @apply [&:first-child[data-selected=true]_button]:rounded-l-(--cell-radius);
+  }
+  .calendar-day-show-week-number {
+    @apply [&:nth-child(2)[data-selected=true]_button]:rounded-l-(--cell-radius);
+  }
+  .calendar-outside {
+    @apply text-(--calendar-fg-muted) aria-selected:text-(--calendar-fg-muted);
+  }
+  .calendar-range-start {
+    @apply rounded-l-(--cell-radius) bg-(--calendar-bg-muted) after:bg-(--calendar-bg-muted) relative isolate z-0 after:absolute after:inset-y-0 after:right-0 after:w-4;
+  }
+  .calendar-range-end {
+    @apply rounded-r-(--cell-radius) bg-(--calendar-bg-muted) after:bg-(--calendar-bg-muted) relative isolate z-0 after:absolute after:inset-y-0 after:left-0 after:w-4;
+  }
+  .calendar-today {
+    @apply rounded-(--cell-radius) bg-(--calendar-bg-muted) text-(--calendar-fg) data-[selected=true]:rounded-none;
+  }
+  .calendar-disabled {
+    @apply text-(--calendar-fg-muted) opacity-50;
+  }
+
+  .calendar-day-button {
+    @apply min-w-(--cell-size) relative isolate z-10 flex aspect-square size-auto w-full flex-col gap-1 border-0 p-0 font-normal leading-none text-inherit [&>span]:text-xs [&>span]:opacity-70;
+
+    /* @apply group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-ring/50 group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:ring-[3px]; */
+    @apply data-[selected-single=true]:bg-(--calendar-bg-pressed) data-[selected-single=true]:text-(--calendar-fg-pressed);
+    @apply data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) data-[range-start=true]:bg-(--calendar-bg-pressed) data-[range-start=true]:text-(--calendar-fg-pressed);
+    @apply data-[range-middle=true]:bg-(--calendar-bg-range) data-[range-middle=true]:text-(--calendar-fg) data-[range-middle=true]:rounded-none;
+    @apply data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-end=true]:bg-(--calendar-bg-pressed) data-[range-end=true]:text-(--calendar-fg-pressed);
+  }
+}
