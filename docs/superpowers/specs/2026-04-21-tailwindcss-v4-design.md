@@ -44,7 +44,8 @@ The package boundary stays the same:
 - `@abc-def/styles`
 - `@abc-def/react`
 - `@abc-def/vue`
-- `@abc-def/html`
+
+Plain HTML consumption relies on importing `@abc-def/styles/css` directly, using the documented semantic classes without an additional package layer.
 
 The shared style contract changes.
 
@@ -128,9 +129,9 @@ Its class composition utilities stay intact unless implementation work proves a 
 
 This package follows the same contract as React: consume the shared style package without depending on a JavaScript Tailwind preset export.
 
-### `@abc-def/html`
+### Plain HTML consumers
 
-This package continues to expose framework-free patterns and should align its CSS guidance with the new `@abc-def/styles/css` contract.
+Framework-free projects import `@abc-def/styles/css` for the documented semantic classes and base styling. The `examples/html-vite` workspace demonstrates the CSS-first wiring the migration enables.
 
 ## Internal Source Layout
 
@@ -175,6 +176,18 @@ It should:
 - render at least one `@abc-def/react` component
 - demonstrate that utility classes and shared tokens are compiled correctly
 
+A second example proves the CSS-first plain HTML flow:
+
+- `examples/html-vite`
+
+It should:
+
+- be a workspace package
+- depend on local workspace packages or shared tooling used for Tailwind source scanning
+- import `tailwindcss` followed by `@abc-def/styles/css`
+- render minimal markup that exercises the documented semantic classes
+- demonstrate the same token values and utility layer without a JavaScript framework
+
 The workspace definition must be updated so `examples/*` is included in `pnpm-workspace.yaml`.
 
 ## Documentation Scope
@@ -187,6 +200,7 @@ Required updates:
 - update other package READMEs where they mention Tailwind integration assumptions
 - document the breaking change clearly
 - document the example consumer as the reference implementation
+- describe how `examples/html-vite` demonstrates the plain HTML consumption pattern
 
 Recent internal planning and spec documents that describe the style package as a Tailwind preset provider should be corrected if they would otherwise conflict with the implemented package contract.
 

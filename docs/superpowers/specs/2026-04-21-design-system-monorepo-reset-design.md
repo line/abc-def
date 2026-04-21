@@ -4,12 +4,13 @@
 
 This repository will be reset into a minimal publish-first monorepo for a design system. The current mixed state of component implementations, Storybooks, examples, and support tooling will be cleared so the repository can restart from a clean package contract.
 
-The new product surface is four npm packages:
+The new product surface is three npm packages:
 
 - `@abc-def/styles`
 - `@abc-def/react`
 - `@abc-def/vue`
-- `@abc-def/html`
+
+Plain HTML consumption now happens directly through `@abc-def/styles/css`, and the `examples/html-vite` workspace consumer proves the semantic class contract.
 
 The first delivery goal is not a feature-complete design system. The first goal is a clean, extensible monorepo where each package has a clear responsibility, a publishable contract, and a minimal working build entry.
 
@@ -39,13 +40,15 @@ All product code lives in `packages/` and is organized by responsibility:
 - `packages/styles`
 - `packages/react`
 - `packages/vue`
-- `packages/html`
+
+Two lightweight workspace examples now live under `examples/react-vite` and `examples/html-vite` to validate the component and plain HTML consumption flows.
 
 The dependency direction is strictly one-way:
 
 1. `@abc-def/styles` is the shared styling contract.
-2. `@abc-def/react`, `@abc-def/vue`, and `@abc-def/html` consume `@abc-def/styles`.
-3. Framework packages do not depend on each other.
+2. `@abc-def/react` and `@abc-def/vue` consume `@abc-def/styles`.
+3. Plain HTML consumers import `@abc-def/styles/css` directly.
+4. Framework packages do not depend on each other.
 
 This keeps the styling layer portable and prevents React or Vue implementation details from leaking into the shared system contract.
 
@@ -71,6 +74,8 @@ Its internal source tree should be split by concern even though it ships as one 
 - `src/index.ts`
 
 This lets the team start with one installable style package now and still split tokens into a dedicated package later if scale requires it.
+
+Plain HTML consumers import the CSS entry `@abc-def/styles/css` directly, and `examples/html-vite` proves the semantic contract with minimal markup.
 
 ### `@abc-def/react`
 
@@ -102,17 +107,9 @@ It contains:
 
 Initial scope should mirror the same minimal starting set as React where practical, but the main requirement for the reset is a clean package skeleton with a valid entry and shared style integration.
 
-### `@abc-def/html`
+### Plain HTML consumption
 
-This package is for framework-free consumption.
-
-It contains:
-
-- compiled or importable CSS entry points
-- reusable HTML markup patterns for the initial component set
-- minimal documentation-oriented examples colocated with the package when needed
-
-This package is not a Web Component package in the first phase. It is a plain HTML consumption layer over the shared style contract.
+Framework-free consumers continue to import `@abc-def/styles/css`, which supplies the documented semantic classes and reusable utility styling. `examples/html-vite` wires Tailwind CSS against this entry so minimal markup can reproduce the component contract.
 
 ## Publish Contract
 
@@ -130,7 +127,7 @@ Each package should include, at minimum:
 
 The monorepo should be designed so external consumers can install only what they need:
 
-- HTML consumer: `@abc-def/styles` and `@abc-def/html`
+- HTML consumer: `@abc-def/styles` (via the `@abc-def/styles/css` entry)
 - React consumer: `@abc-def/styles` and `@abc-def/react`
 - Vue consumer: `@abc-def/styles` and `@abc-def/vue`
 
@@ -243,4 +240,4 @@ Mitigation: treat `@abc-def/styles` as the non-negotiable shared contract and ke
 - final output format per package
 - whether root-level shared tooling remains under `tooling/` or is reduced to fewer configs
 - exact naming conventions for exported CSS entry points
-- whether `@abc-def/html` ships raw patterns, compiled CSS, or both in version one
+- how extensive the semantic class documentation and plain HTML reference markup should be for the first delivery

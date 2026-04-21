@@ -1,12 +1,21 @@
 # ABC Def (ABC Studio's Definitive Elements Foundation)
 
-ABC Def is a reset design system monorepo shell for building core UI packages.
+ABC Def is a reset design system monorepo shell for building core UI packages and example consumers.
 
 ## Packages
 
-- `packages/styles`: shared tokens and base styles
+- `packages/styles`: shared tokens, base styles, and semantic plain HTML component classes
 - `packages/react`: React components
 - `packages/vue`: Vue components
+
+## Examples
+
+- `examples/react-vite`: React workspace consumer
+- `examples/html-vite`: plain HTML workspace consumer that uses the shared stylesheet
+
+## Plain HTML Usage
+
+Plain HTML projects treat `@abc-def/styles/css` as the semantic entry point. Import it after `tailwindcss` declarations so `examples/html-vite` becomes a working reference for the minimal consumer.
 
 ## Contributing Guidelines
 
