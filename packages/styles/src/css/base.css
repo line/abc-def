@@ -22,26 +22,28 @@
   --spacing-8: var(--abc-space-8);
 }
 
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-body {
-  margin: 0;
-  background: hsl(var(--abc-bg-base));
-  color: hsl(var(--abc-fg-base));
-  font-family: Inter, sans-serif;
-  line-height: 1.5;
-}
+  body {
+    margin: 0;
+    background: hsl(var(--abc-bg-base));
+    color: hsl(var(--abc-fg-base));
+    font-family: Inter, sans-serif;
+    line-height: 1.5;
+  }
 
-img {
-  display: block;
-  max-width: 100%;
-}
+  img {
+    display: block;
+    max-width: 100%;
+  }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
 }
