@@ -1,7 +1,7 @@
 {
   "name": "@abc-def/styles",
   "version": "0.0.1",
-  "description": "Shared design tokens, CSS variables, and Tailwind preset for abc-def",
+  "description": "Tailwind CSS v4 styling contract for abc-def",
   "license": "Apache-2.0",
   "type": "module",
   "files": [
@@ -17,11 +17,6 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./tailwind": {
-      "types": "./dist/tailwind/index.d.ts",
-      "import": "./dist/tailwind/index.js",
-      "require": "./dist/tailwind/index.cjs"
-    },
     "./css": "./dist/css/base.css"
   },
   "scripts": {
@@ -36,7 +31,7 @@
     "@line/abc-def-tsconfig": "workspace:^",
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "tailwindcss": "^3.4.19",
+    "tailwindcss": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:"
   },
