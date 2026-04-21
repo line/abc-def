@@ -17,7 +17,22 @@ for (const match of cssContent.matchAll(cssVarRegex)) {
 }
 
 const distIndexUrl = pathToFileURL(distIndexPath).href;
-const { tokens } = await import(distIndexUrl);
+const distModule = await import(distIndexUrl);
+const exportKeys = Object.keys(distModule).sort();
+
+if (exportKeys.length !== 2 || exportKeys[0] !== "cssEntry" || exportKeys[1] !== "tokens") {
+  console.error(
+    `Unexpected exports from dist/index.js: ${exportKeys.join(", ") || "(none)"}`,
+  );
+  process.exit(1);
+}
+
+const { tokens, cssEntry } = distModule;
+
+if (cssEntry !== "@abc-def/styles/css") {
+  console.error(`Unexpected cssEntry value: ${cssEntry}`);
+  process.exit(1);
+}
 
 const toKebab = (value) =>
   value.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
@@ -30,6 +45,10 @@ for (const [key, value] of Object.entries(tokens.color)) {
 
 for (const [key, value] of Object.entries(tokens.radius)) {
   expected.push([`radius-${key}`, value]);
+}
+
+for (const [key, value] of Object.entries(tokens.spacing)) {
+  expected.push([`spacing-${key}`, value]);
 }
 
 const errors = [];
