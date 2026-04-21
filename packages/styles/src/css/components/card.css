@@ -1,41 +1,43 @@
 /* packages/styles/src/css/components/card.css */
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--abc-card-gap);
-  padding: var(--abc-card-padding);
-  border: 1px solid hsl(var(--abc-card-border));
-  border-radius: var(--abc-card-radius);
-  background: hsl(var(--abc-card-bg));
-  box-shadow: var(--abc-card-shadow);
-}
+@layer components {
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--abc-card-gap);
+    padding: var(--abc-card-padding);
+    border: 1px solid hsl(var(--abc-card-border));
+    border-radius: var(--abc-card-radius);
+    background: hsl(var(--abc-card-bg));
+    box-shadow: var(--abc-card-shadow);
+  }
 
-.card-header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--abc-card-gap);
-  color: hsl(var(--abc-card-copy-color));
-}
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--abc-card-gap);
+    color: hsl(var(--abc-card-copy-color));
+  }
 
-.card-content,
-.card-body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--abc-card-gap);
-  color: hsl(var(--abc-card-copy-color));
-}
+  .card-content,
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--abc-card-gap);
+    color: hsl(var(--abc-card-copy-color));
+  }
 
-.card-title {
-  margin: 0;
-  color: hsl(var(--abc-card-title-color));
-  font-size: var(--abc-card-title-size);
-  font-weight: 700;
-  line-height: 1.2;
-}
+  .card-title {
+    margin: 0;
+    color: hsl(var(--abc-card-title-color));
+    font-size: var(--abc-card-title-size);
+    font-weight: 700;
+    line-height: 1.2;
+  }
 
-.card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: var(--abc-card-actions-gap);
+  .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--abc-card-actions-gap);
+  }
 }
