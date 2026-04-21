@@ -15,7 +15,14 @@ ABC Def is a reset design system monorepo shell for building core UI packages an
 
 ## Plain HTML Usage
 
-Plain HTML projects treat `@abc-def/styles/css` as the semantic entry point. Import it after `tailwindcss` declarations so `examples/html-vite` becomes a working reference for the minimal consumer.
+Treat `@abc-def/styles/css` as the semantic entry point for plain HTML projects. In a Tailwind v4 stylesheet (for example `src/styles/app.css`) import the shared dependencies before writing markup:
+
+```css
+@import "tailwindcss";
+@import "@abc-def/styles/css";
+```
+
+Tailwind v4 must process this stylesheet (via Vite, PostCSS, or another compatible build step) so the shared semantic classes are compiled. The `examples/html-vite` workspace demonstrates that build pipeline wiring.
 
 ## Contributing Guidelines
 

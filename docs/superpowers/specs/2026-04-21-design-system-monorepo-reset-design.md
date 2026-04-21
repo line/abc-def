@@ -10,7 +10,7 @@ The new product surface is three npm packages:
 - `@abc-def/react`
 - `@abc-def/vue`
 
-Plain HTML consumption now happens directly through `@abc-def/styles/css`, and the `examples/html-vite` workspace consumer proves the semantic class contract.
+Plain HTML consumption now happens directly through `@abc-def/styles/css`, and the `examples/html-vite` workspace consumer demonstrates the semantic class contract.
 
 The first delivery goal is not a feature-complete design system. The first goal is a clean, extensible monorepo where each package has a clear responsibility, a publishable contract, and a minimal working build entry.
 
@@ -75,7 +75,7 @@ Its internal source tree should be split by concern even though it ships as one 
 
 This lets the team start with one installable style package now and still split tokens into a dedicated package later if scale requires it.
 
-Plain HTML consumers import the CSS entry `@abc-def/styles/css` directly, and `examples/html-vite` proves the semantic contract with minimal markup.
+Plain HTML consumers import the CSS entry `@abc-def/styles/css` directly, and `examples/html-vite` demonstrates the semantic contract with minimal markup.
 
 ### `@abc-def/react`
 
@@ -164,13 +164,6 @@ The reset target should look like this:
 │   │       ├── components/
 │   │       ├── lib/
 │   │       └── index.ts
-│   └── html/
-│       ├── package.json
-│       ├── README.md
-│       └── src/
-│           ├── css/
-│           ├── patterns/
-│           └── index.ts
 ├── package.json
 ├── pnpm-workspace.yaml
 ├── turbo.json
@@ -216,7 +209,7 @@ The reset is successful when all of the following are true:
 - each package has a valid package manifest and entry point
 - package builds run successfully
 - typechecking passes for the new package set
-- shared styling can be imported from React, Vue, and HTML package entry flows
+- shared styling can be imported from React and Vue consumers, and plain HTML projects import `@abc-def/styles/css` directly
 
 Storybook rendering, example app rendering, and migration compatibility are not success criteria for this first reset.
 

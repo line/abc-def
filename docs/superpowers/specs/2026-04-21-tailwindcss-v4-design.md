@@ -21,7 +21,7 @@ This work also adds a real workspace consumer under `examples/` so the repositor
 
 - Preserve compatibility with `@abc-def/styles/tailwind`.
 - Support both Tailwind v3 and Tailwind v4 in parallel.
-- Add multiple example consumers in the first pass.
+- Expand the example set beyond the minimal React and HTML reference consumers in this first pass.
 - Introduce Storybook or other demo infrastructure as part of this migration.
 
 ## Decision
@@ -84,11 +84,12 @@ Two consumer modes are officially supported.
 
 #### Simple mode
 
-Consumers import the package CSS and use the shipped shared styles directly:
+Consumers import the package CSS and rely on Tailwind v4 processing of a stylesheet that also imports `tailwindcss`. The stylesheet must run through the same Tailwind v4 build step that handles the shared and app sources so the plain HTML classes compile:
 
+- `@import "tailwindcss";`
 - `@import "@abc-def/styles/css";`
 
-This mode is for consumers who want the design tokens and base styles with minimal setup.
+This mode is for consumers who want the design tokens and base styles with minimal framework logic, but it still requires Tailwind v4 to compile those imports.
 
 #### Extended Tailwind v4 mode
 
@@ -176,7 +177,7 @@ It should:
 - render at least one `@abc-def/react` component
 - demonstrate that utility classes and shared tokens are compiled correctly
 
-A second example proves the CSS-first plain HTML flow:
+A second example demonstrates the CSS-first plain HTML flow:
 
 - `examples/html-vite`
 
