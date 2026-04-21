@@ -86,11 +86,11 @@ for (const [key, value] of Object.entries(tokens.spacing)) {
 const errors = [];
 
 for (const [name, value] of expected) {
-  const cssValue = cssVars.get(name);
-  if (!cssValue) {
+  if (!cssVars.has(name)) {
     errors.push(`Missing CSS variable --abc-${name}`);
     continue;
   }
+  const cssValue = cssVars.get(name);
   if (cssValue !== value) {
     errors.push(
       `Mismatch for --abc-${name}: expected "${value}", found "${cssValue}"`,
