@@ -1,0 +1,32 @@
+:root {
+  --abc-bg-base: var(--abc-color-white);
+  --abc-fg-base: var(--abc-color-slate-950);
+
+  --abc-bg-primary: var(--abc-color-blue-600);
+  --abc-fg-primary: var(--abc-color-slate-50);
+  --abc-ring-primary: var(--abc-color-blue-600);
+
+  --abc-bg-muted: var(--abc-color-slate-100);
+  --abc-fg-muted: var(--abc-color-slate-500);
+  --abc-border-muted: var(--abc-color-slate-200);
+
+  --abc-bg-hover: var(--abc-color-slate-100);
+  --abc-border-clear: var(--abc-color-transparent);
+
+  --abc-radius-control: var(--abc-radius-md);
+  --abc-radius-surface: var(--abc-radius-lg);
+
+  --abc-space-control-inline: var(--abc-space-4);
+  --abc-space-control-inline-compact: var(--abc-space-3);
+  --abc-space-control-gap: var(--abc-space-2);
+  --abc-space-actions-gap: var(--abc-space-3);
+  --abc-space-surface-padding: var(--abc-space-6);
+  --abc-space-content-gap: var(--abc-space-4);
+
+  --abc-size-control-md: var(--abc-size-11);
+
+  --abc-font-control: var(--abc-font-size-sm);
+  --abc-font-title: var(--abc-font-size-xl);
+
+  --abc-shadow-surface: var(--abc-shadow-raised-sm);
+}

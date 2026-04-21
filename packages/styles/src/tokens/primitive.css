@@ -1,0 +1,30 @@
+:root {
+  --abc-color-white: 0 0% 100%;
+  --abc-color-slate-50: 210 40% 98%;
+  --abc-color-slate-100: 210 40% 96.1%;
+  --abc-color-slate-200: 214.3 31.8% 91.4%;
+  --abc-color-slate-500: 215.4 16.3% 46.9%;
+  --abc-color-slate-950: 222.2 47.4% 11.2%;
+  --abc-color-blue-600: 221.2 83.2% 53.3%;
+  --abc-color-transparent: 0 0% 0% / 0;
+
+  --abc-radius-sm: 0.375rem;
+  --abc-radius-md: 0.5rem;
+  --abc-radius-lg: 0.75rem;
+
+  --abc-space-1: 0.25rem;
+  --abc-space-2: 0.5rem;
+  --abc-space-3: 0.75rem;
+  --abc-space-4: 1rem;
+  --abc-space-6: 1.5rem;
+  --abc-space-8: 2rem;
+
+  --abc-size-10: 2.5rem;
+  --abc-size-11: 2.75rem;
+
+  --abc-font-size-sm: 0.875rem;
+  --abc-font-size-base: 1rem;
+  --abc-font-size-xl: 1.25rem;
+
+  --abc-shadow-raised-sm: 0 18px 40px rgb(15 23 42 / 8%);
+}

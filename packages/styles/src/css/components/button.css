@@ -1,0 +1,59 @@
+/* packages/styles/src/css/components/button.css */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--abc-button-gap);
+  min-height: var(--abc-button-height);
+  padding-inline: var(--abc-button-padding-inline);
+  border: 1px solid hsl(var(--abc-button-border));
+  border-radius: var(--abc-button-radius);
+  background: hsl(var(--abc-button-bg));
+  color: hsl(var(--abc-button-fg));
+  font-size: var(--abc-button-font-size);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.96;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--abc-button-focus-surface)),
+    0 0 0 4px hsl(var(--abc-button-ring));
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-primary {
+  --abc-button-bg: var(--abc-button-primary-bg);
+  --abc-button-fg: var(--abc-button-primary-fg);
+  --abc-button-border: var(--abc-button-primary-border);
+}
+
+.btn-secondary {
+  --abc-button-bg: var(--abc-button-secondary-bg);
+  --abc-button-fg: var(--abc-button-secondary-fg);
+  --abc-button-border: var(--abc-button-secondary-border);
+}
+
+.btn-outline {
+  --abc-button-bg: var(--abc-button-outline-bg);
+  --abc-button-fg: var(--abc-button-outline-fg);
+  --abc-button-border: var(--abc-button-outline-border);
+}

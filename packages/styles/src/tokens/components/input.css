@@ -1,0 +1,13 @@
+/* packages/styles/src/tokens/components/input.css */
+:root {
+  --abc-input-bg: var(--abc-bg-base);
+  --abc-input-fg: var(--abc-fg-base);
+  --abc-input-border: var(--abc-border-muted);
+  --abc-input-border-focus: var(--abc-ring-primary);
+  --abc-input-placeholder: var(--abc-fg-muted);
+  --abc-input-height: var(--abc-size-control-md);
+  --abc-input-radius: var(--abc-radius-control);
+  --abc-input-padding-inline: var(--abc-space-control-inline-compact);
+  --abc-input-font-size: var(--abc-font-control);
+}
+

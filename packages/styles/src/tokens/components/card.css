@@ -1,0 +1,14 @@
+/* packages/styles/src/tokens/components/card.css */
+:root {
+  --abc-card-bg: var(--abc-bg-base);
+  --abc-card-border: var(--abc-border-muted);
+  --abc-card-radius: var(--abc-radius-surface);
+  --abc-card-shadow: var(--abc-shadow-surface);
+  --abc-card-padding: var(--abc-space-surface-padding);
+  --abc-card-gap: var(--abc-space-content-gap);
+  --abc-card-actions-gap: var(--abc-space-actions-gap);
+  --abc-card-title-color: var(--abc-fg-base);
+  --abc-card-title-size: var(--abc-font-title);
+  --abc-card-copy-color: var(--abc-fg-muted);
+}
+

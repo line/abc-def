@@ -1,0 +1,26 @@
+/* packages/styles/src/tokens/components/button.css */
+:root {
+  --abc-button-bg: var(--abc-bg-primary);
+  --abc-button-fg: var(--abc-fg-primary);
+  --abc-button-border: var(--abc-border-clear);
+  --abc-button-ring: var(--abc-ring-primary);
+  --abc-button-focus-surface: var(--abc-bg-base);
+
+  --abc-button-height: var(--abc-size-control-md);
+  --abc-button-radius: var(--abc-radius-control);
+  --abc-button-gap: var(--abc-space-control-gap);
+  --abc-button-padding-inline: var(--abc-space-control-inline);
+  --abc-button-font-size: var(--abc-font-control);
+
+  --abc-button-primary-bg: var(--abc-bg-primary);
+  --abc-button-primary-fg: var(--abc-fg-primary);
+  --abc-button-primary-border: var(--abc-border-clear);
+
+  --abc-button-secondary-bg: var(--abc-bg-muted);
+  --abc-button-secondary-fg: var(--abc-fg-base);
+  --abc-button-secondary-border: var(--abc-border-clear);
+
+  --abc-button-outline-bg: var(--abc-bg-base);
+  --abc-button-outline-fg: var(--abc-fg-base);
+  --abc-button-outline-border: var(--abc-border-muted);
+}
