@@ -82,28 +82,6 @@ importers:
         specifier: ^7.0.0
         version: 7.3.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)
 
-  packages/html:
-    dependencies:
-      '@abc-def/styles':
-        specifier: workspace:*
-        version: link:../styles
-    devDependencies:
-      '@line/abc-def-eslint-config':
-        specifier: workspace:^
-        version: link:../../tooling/eslint
-      '@line/abc-def-prettier-config':
-        specifier: workspace:^
-        version: link:../../tooling/prettier
-      '@line/abc-def-tsconfig':
-        specifier: workspace:^
-        version: link:../../tooling/typescript
-      tsup:
-        specifier: 'catalog:'
-        version: 8.5.1(jiti@2.6.1)(postcss@8.5.10)(typescript@5.9.3)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
-
   packages/react:
     dependencies:
       '@abc-def/styles':
