@@ -6,7 +6,8 @@
   "type": "module",
   "files": [
     "dist",
-    "src/css/base.css",
+    "src/css",
+    "src/tokens",
     "README.md"
   ],
   "main": "dist/index.cjs",
@@ -18,7 +19,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./css": "./src/css/base.css"
+    "./css": "./src/css/index.css",
+    "./css/base": "./src/css/base.css",
+    "./css/components": "./src/css/components.css",
+    "./css/utilities": "./src/css/utilities.css"
   },
   "scripts": {
     "build": "tsup --config tsup.config.ts && node scripts/verify-build.mjs",

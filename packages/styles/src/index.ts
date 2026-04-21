@@ -13,6 +13,10 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-export { tokens } from "./tokens";
-
 export const cssEntry = "@abc-def/styles/css";
+
+export const cssEntries = {
+  base: "@abc-def/styles/css/base",
+  components: "@abc-def/styles/css/components",
+  utilities: "@abc-def/styles/css/utilities",
+} as const;
