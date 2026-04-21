@@ -184,7 +184,6 @@ git commit -m "refactor: reset workspace shell for design system monorepo"
 - Create: `packages/styles/tsup.config.ts`
 - Create: `packages/styles/src/index.ts`
 - Create: `packages/styles/src/tokens/index.ts`
-- Create: `packages/styles/src/tailwind/index.ts`
 - Create: `packages/styles/src/css/base.css`
 - Test: `pnpm --filter @abc-def/styles build`
 - Test: `pnpm --filter @abc-def/styles typecheck`
@@ -201,7 +200,7 @@ Expected: FAIL because `packages/styles/package.json` does not exist yet.
 {
   "name": "@abc-def/styles",
   "version": "0.0.1",
-  "description": "Shared design tokens, CSS variables, and Tailwind preset for abc-def",
+  "description": "Shared design tokens and Tailwind CSS v4 styling contract for the abc-def design system",
   "license": "Apache-2.0",
   "type": "module",
   "files": [
@@ -217,11 +216,6 @@ Expected: FAIL because `packages/styles/package.json` does not exist yet.
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    },
-    "./tailwind": {
-      "types": "./dist/tailwind/index.d.ts",
-      "import": "./dist/tailwind/index.js",
-      "require": "./dist/tailwind/index.cjs"
     },
     "./css": "./src/css/base.css"
   },
@@ -256,7 +250,6 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   entry: {
     index: "src/index.ts",
-    "tailwind/index": "src/tailwind/index.ts",
   },
   dts: true,
   format: ["esm", "cjs"],
@@ -265,7 +258,7 @@ export default defineConfig({
 });
 ```
 
-- [ ] **Step 3: Add the tokens, Tailwind export, CSS entry, and README**
+- [ ] **Step 3: Add the tokens, CSS entry, and README**
 
 ```ts
 // packages/styles/src/tokens/index.ts
@@ -295,35 +288,6 @@ export const tokens = {
 } as const;
 ```
 
-```ts
-// packages/styles/src/tailwind/index.ts
-import { tokens } from "../tokens";
-
-export const abcDefPreset = {
-  theme: {
-    extend: {
-      colors: {
-        background: "hsl(var(--abc-background))",
-        foreground: "hsl(var(--abc-foreground))",
-        primary: "hsl(var(--abc-primary))",
-        "primary-foreground": "hsl(var(--abc-primary-foreground))",
-        muted: "hsl(var(--abc-muted))",
-        "muted-foreground": "hsl(var(--abc-muted-foreground))",
-        border: "hsl(var(--abc-border))",
-      },
-      borderRadius: {
-        sm: "var(--abc-radius-sm)",
-        md: "var(--abc-radius-md)",
-        lg: "var(--abc-radius-lg)",
-      },
-      spacing: tokens.spacing,
-    },
-  },
-};
-
-export default abcDefPreset;
-```
-
 ```css
 /* packages/styles/src/css/base.css */
 :root {
@@ -337,6 +301,19 @@ export default abcDefPreset;
   --abc-radius-sm: 0.375rem;
   --abc-radius-md: 0.5rem;
   --abc-radius-lg: 0.75rem;
+}
+
+@theme {
+  --color-background: hsl(var(--abc-background));
+  --color-foreground: hsl(var(--abc-foreground));
+  --color-primary: hsl(var(--abc-primary));
+  --color-primary-foreground: hsl(var(--abc-primary-foreground));
+  --color-muted: hsl(var(--abc-muted));
+  --color-muted-foreground: hsl(var(--abc-muted-foreground));
+  --color-border: hsl(var(--abc-border));
+  --radius-sm: var(--abc-radius-sm);
+  --radius-md: var(--abc-radius-md);
+  --radius-lg: var(--abc-radius-lg);
 }
 
 * {
@@ -354,7 +331,6 @@ body {
 ```ts
 // packages/styles/src/index.ts
 export { tokens } from "./tokens";
-export { abcDefPreset } from "./tailwind";
 
 export const cssEntry = "@abc-def/styles/css";
 ```
@@ -363,7 +339,7 @@ export const cssEntry = "@abc-def/styles/css";
 <!-- packages/styles/README.md -->
 # @abc-def/styles
 
-Shared design tokens, CSS variables, and Tailwind preset for the abc-def design system.
+Shared design tokens and the Tailwind CSS v4 styling contract for the abc-def design system.
 ```
 
 - [ ] **Step 4: Build and typecheck the package**
@@ -1054,7 +1030,7 @@ abc-def is a publish-first design system monorepo.
 
 ## Packages
 
-- `@abc-def/styles`: shared tokens, CSS variables, and Tailwind preset
+- `@abc-def/styles`: shared tokens and Tailwind CSS v4 CSS entry points
 - `@abc-def/react`: React components built on top of the shared styles contract
 - `@abc-def/vue`: Vue components built on top of the shared styles contract
 - `@abc-def/html`: framework-free HTML patterns and CSS entry points
@@ -1176,7 +1152,7 @@ Expected: PASS with no workspace type errors.
 - [ ] **Step 3: Run import smoke checks against the built packages**
 
 Run: `node --input-type=module -e "import('./packages/styles/dist/index.js').then((m) => console.log(Object.keys(m)))"`
-Expected: PASS and print `tokens`, `abcDefPreset`, and `cssEntry`.
+Expected: PASS and print `tokens` and `cssEntry`.
 
 Run: `node --input-type=module -e "import('./packages/html/dist/index.js').then((m) => console.log(m.buttonPattern('Preview')))" `
 Expected: PASS and print a button HTML string.

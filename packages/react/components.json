@@ -4,8 +4,8 @@
   "tsx": true,
   "rsc": false,
   "tailwind": {
-    "config": "",
     "css": "@abc-def/styles/css",
+    "config": "",
     "baseColor": "slate",
     "cssVariables": true
   },

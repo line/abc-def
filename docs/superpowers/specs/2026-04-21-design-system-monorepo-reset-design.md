@@ -59,14 +59,14 @@ It contains:
 
 - design token source data
 - CSS variable definitions
-- Tailwind preset and plugin exports
+- Tailwind CSS v4 CSS entry points
 - base CSS entry points
+- shared theme definitions exposed through CSS
 - shared utility styling primitives needed across packages
 
 Its internal source tree should be split by concern even though it ships as one package:
 
 - `src/tokens/*`
-- `src/tailwind/*`
 - `src/css/*`
 - `src/index.ts`
 
