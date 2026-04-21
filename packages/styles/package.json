@@ -1,7 +1,7 @@
 {
   "name": "@abc-def/styles",
   "version": "0.0.1",
-  "description": "Tailwind CSS v4 styling contract for abc-def",
+  "description": "Shared design tokens and Tailwind CSS v4 styling contract for the abc-def design system",
   "license": "Apache-2.0",
   "type": "module",
   "files": [
