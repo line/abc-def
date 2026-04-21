@@ -8,12 +8,21 @@
   "packageManager": "pnpm@10.28.0",
   "scripts": {
     "build": "turbo run build",
-    "check:reset": "node scripts/check-reset-structure.mjs",
-    "typecheck": "turbo run typecheck",
-    "clean": "git clean -xdf node_modules .turbo packages/*/dist"
+    "clean": "git clean -xdf node_modules .turbo .cache",
+    "clean:workspaces": "turbo run clean",
+    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
+    "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
+    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
+    "lint:ws": "pnpm dlx sherif@latest",
+    "postinstall": "pnpm lint:ws",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@line/abc-def-prettier-config": "workspace:^",
+    "prettier": "catalog:",
     "turbo": "^2.7.4",
-    "typescript": "^5.9.3"
-  }
+    "typescript": "catalog:"
+  },
+  "prettier": "@line/abc-def-prettier-config"
 }

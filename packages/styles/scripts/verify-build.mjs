@@ -42,7 +42,7 @@ for (const [name, value] of expected) {
   }
   if (cssValue !== value) {
     errors.push(
-      `Mismatch for --abc-${name}: expected "${value}", found "${cssValue}"`
+      `Mismatch for --abc-${name}: expected "${value}", found "${cssValue}"`,
     );
   }
 }

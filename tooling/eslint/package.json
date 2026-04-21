@@ -1,0 +1,39 @@
+{
+  "name": "@line/abc-def-eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./base": "./base.js",
+    "./nestjs": "./nestjs.js",
+    "./nextjs": "./nextjs.js",
+    "./react": "./react.js",
+    "./storybook": "./storybook.js"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules .cache",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@eslint/compat": "^2.0.1",
+    "@line/abc-def-eslint-plugin-header": "workspace:*",
+    "@next/eslint-plugin-next": "^16.1.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-compiler": "beta",
+    "eslint-plugin-react-hooks": "^6.1.1",
+    "eslint-plugin-storybook": "^9.1.17",
+    "eslint-plugin-turbo": "^2.7.4",
+    "typescript-eslint": "^8.53.0"
+  },
+  "devDependencies": {
+    "@line/abc-def-prettier-config": "workspace:*",
+    "@line/abc-def-tsconfig": "workspace:*",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@line/abc-def-prettier-config"
+}

@@ -21,7 +21,10 @@
   },
   "scripts": {
     "build": "tsup --config tsup.config.ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@abc-def/styles": "workspace:*",
@@ -34,11 +37,17 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
-  }
+    "tsup": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@line/abc-def-prettier-config"
 }

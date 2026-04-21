@@ -1,0 +1,24 @@
+{
+  "name": "@line/abc-def-prettier-config",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules .cache",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+    "prettier": "catalog:",
+    "prettier-plugin-tailwindcss": "^0.7.2"
+  },
+  "devDependencies": {
+    "@line/abc-def-tsconfig": "workspace:*",
+    "typescript": "catalog:"
+  },
+  "prettier": "@line/abc-def-prettier-config"
+}

@@ -26,11 +26,19 @@
   },
   "scripts": {
     "build": "tsup --config tsup.config.ts && node scripts/verify-build.mjs",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "devDependencies": {
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
     "tailwindcss": "^3.4.19",
-    "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
-  }
+    "tsup": "catalog:",
+    "typescript": "catalog:"
+  },
+  "prettier": "@line/abc-def-prettier-config"
 }
