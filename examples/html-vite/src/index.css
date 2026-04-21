@@ -17,11 +17,6 @@ body {
   margin: 0 auto;
 }
 
-.demo-copy {
-  margin: 0;
-  color: hsl(var(--abc-muted-foreground));
-}
-
 .demo-field {
   display: grid;
   gap: 0.5rem;

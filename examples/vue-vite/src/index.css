@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "@abc-def/styles/css";
+
+@source "./**/*.{ts}";
+@source "../../../packages/vue/src/**/*.ts";
+
+#app {
+  min-height: 100vh;
+}
+
