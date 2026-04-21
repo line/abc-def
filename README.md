@@ -1,17 +1,18 @@
 # ABC Def (ABC Studio's Definitive Elements Foundation)
 
-ABC Def is a reset design system monorepo shell for building core UI packages and example consumers.
+ABC Def is a reset design system monorepo shell for building shared UI packages from one CSS token contract.
 
 ## Packages
 
-- `packages/styles`: shared tokens, base styles, and semantic plain HTML component classes
-- `packages/react`: React components
-- `packages/vue`: Vue components
+- `packages/styles`: canonical primitive, semantic, and component-specific CSS tokens plus stable CSS entry points
+- `packages/react`: React wrappers that render the shared semantic selectors
+- `packages/vue`: Vue wrappers that render the shared semantic selectors
 
 ## Examples
 
-- `examples/react-vite`: React workspace consumer
-- `examples/html-vite`: plain HTML workspace consumer that uses the shared stylesheet
+- `examples/html-vite`: plain HTML consumer of `@abc-def/styles/css`
+- `examples/react-vite`: React consumer of `@abc-def/styles/css` and `@abc-def/react`
+- `examples/vue-vite`: Vue consumer of `@abc-def/styles/css` and `@abc-def/vue`
 
 ## Plain HTML Usage
 
@@ -23,6 +24,10 @@ Treat `@abc-def/styles/css` as the semantic entry point for plain HTML projects.
 ```
 
 Tailwind v4 must process this stylesheet (via Vite, PostCSS, or another compatible build step) so the shared semantic classes are compiled. The `examples/html-vite` workspace demonstrates that build pipeline wiring.
+
+## React And Vue Usage
+
+For framework apps, follow the example workspaces. Both `examples/react-vite` and `examples/vue-vite` import `@abc-def/styles/css` from app CSS and register sources using Tailwind CSS v4 `@source` so Tailwind can see both app code and the local package sources.
 
 ## Contributing Guidelines
 

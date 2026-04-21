@@ -1,6 +1,25 @@
 # @abc-def/styles
 
-Shared design tokens and the Tailwind CSS v4 styling contract for the abc-def design system. This package now ships the semantic component classes that plain HTML and app-driven consumers rely on through `@abc-def/styles/css`. Because the entry is CSS-first, every consumer must run Tailwind v4 processing so the shared stylesheet compiles properly.
+Shared CSS tokens and selectors for the abc-def design system.
+
+This package is CSS-first: consumers import `@abc-def/styles/css` from their app stylesheet and rely on Tailwind CSS v4 to compile the shared selectors.
+
+## Architecture
+
+`@abc-def/styles` is authored in three token layers: `primitive -> semantic -> component-specific`.
+
+1. primitive tokens in `src/tokens/primitive.css`
+2. semantic tokens in `src/tokens/semantic.css`
+3. component tokens in `src/tokens/components/*.css`
+
+Selectors live under `src/css` and consume those token layers.
+
+## CSS Entries
+
+- `@abc-def/styles/css`: aggregate base + components + utilities
+- `@abc-def/styles/css/base`: base imports, theme variables, resets
+- `@abc-def/styles/css/components`: component selectors and component-token imports
+- `@abc-def/styles/css/utilities`: small shared semantic utility classes
 
 ## Install
 
@@ -8,44 +27,29 @@ Shared design tokens and the Tailwind CSS v4 styling contract for the abc-def de
 pnpm add tailwindcss @abc-def/styles
 ```
 
-## Use in Plain HTML
+## Usage (CSS-First)
 
-Create an application stylesheet and import the shared style contract. Your build tool must compile Tailwind v4 (PostCSS/Vite/Rollup) so these imports resolve and the semantic classes render at runtime:
+Import the shared contract from an application stylesheet that Tailwind v4 processes (Vite/PostCSS/Rollup). For a minimal setup:
 
 ```css
 @import "tailwindcss";
 @import "@abc-def/styles/css";
 ```
 
-Then write ordinary HTML with the documented semantic classes:
+Plain HTML apps should also register sources via `@source` (see `examples/html-vite`).
 
-```html
-<div class="card">
-  <div class="card-body">
-    <h2 class="card-title">Card Title</h2>
-    <p>A card component has semantic class names for plain HTML consumers.</p>
-    <div class="card-actions">
-      <button class="btn btn-primary" type="button">Buy Now</button>
-    </div>
-  </div>
-</div>
-```
+## Public Selector Contract
 
-See `examples/html-vite` for a runnable plain HTML workspace that wires Tailwind v4 processing with `@abc-def/styles/css`.
+The public surface area of this package is the semantic selector contract under `@abc-def/styles/css`:
 
-## Supported Classes
-
-- `.btn`
-- `.btn-primary`
-- `.btn-secondary`
-- `.btn-outline`
-- `.card`
-- `.card-body`
-- `.card-title`
-- `.card-actions`
+- `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-outline`
+- `.card`, `.card-header`, `.card-content`, `.card-body`, `.card-title`, `.card-actions`
 - `.input`
+
+This contract is validated in `packages/styles/scripts/verify-build.mjs`.
 
 ## Example Workspaces
 
-- `examples/react-vite` demonstrates the React consumer wiring `@abc-def/styles` with `@abc-def/react`.
-- `examples/html-vite` demonstrates the plain HTML contract by importing `@abc-def/styles/css` and using the semantic classes directly, with the same Tailwind v4 pipeline consumers must configure.
+- `examples/html-vite`: plain HTML consumer of `@abc-def/styles/css`
+- `examples/react-vite`: React consumer of `@abc-def/styles/css` and `@abc-def/react`
+- `examples/vue-vite`: Vue consumer of `@abc-def/styles/css` and `@abc-def/vue`
