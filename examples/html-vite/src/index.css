@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @import "@abc-def/styles/css";
-
-:root {
-  color-scheme: light;
-}
+@source "../index.html";
 
 body {
   min-height: 100vh;
