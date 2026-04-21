@@ -1,110 +1,327 @@
 import { promises as fs } from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(scriptDir, "..");
+
+const sourceFiles = {
+  primitive: path.join(packageRoot, "src", "tokens", "primitive.css"),
+  semantic: path.join(packageRoot, "src", "tokens", "semantic.css"),
+  baseEntry: path.join(packageRoot, "src", "css", "base.css"),
+  buttonTokens: path.join(
+    packageRoot,
+    "src",
+    "tokens",
+    "components",
+    "button.css",
+  ),
+  cardTokens: path.join(
+    packageRoot,
+    "src",
+    "tokens",
+    "components",
+    "card.css",
+  ),
+  inputTokens: path.join(
+    packageRoot,
+    "src",
+    "tokens",
+    "components",
+    "input.css",
+  ),
+  componentsEntry: path.join(packageRoot, "src", "css", "components.css"),
+  buttonSelectors: path.join(
+    packageRoot,
+    "src",
+    "css",
+    "components",
+    "button.css",
+  ),
+  cardSelectors: path.join(packageRoot, "src", "css", "components", "card.css"),
+  inputSelectors: path.join(
+    packageRoot,
+    "src",
+    "css",
+    "components",
+    "input.css",
+  ),
+  utilitiesEntry: path.join(packageRoot, "src", "css", "utilities.css"),
+  cssIndex: path.join(packageRoot, "src", "css", "index.css"),
+};
+
 const distIndexPath = path.join(packageRoot, "dist", "index.js");
-const sourceCssPath = path.join(packageRoot, "src", "css", "base.css");
-const distCssPath = path.join(packageRoot, "dist", "css", "base.css");
+const distIndexCjsPath = path.join(packageRoot, "dist", "index.cjs");
 
-const cssContent = await fs.readFile(sourceCssPath, "utf8");
-const cssWithoutComments = cssContent.replace(/\/\*[\s\S]*?\*\//g, "");
-const cssVars = new Map();
-const cssVarRegex = /--abc-([a-z0-9-]+):\s*([^;]+);/gi;
-
-for (const match of cssWithoutComments.matchAll(cssVarRegex)) {
-  cssVars.set(match[1], match[2].trim());
-}
-
-const requiredSelectors = [
-  ".btn",
-  ".btn-primary",
-  ".btn-secondary",
-  ".btn-outline",
-  ".card",
-  ".card-body",
-  ".card-title",
-  ".card-actions",
-  ".input",
-];
+const read = async (filePath) => fs.readFile(filePath, "utf8");
 
 const escapeForRegex = (value) =>
   value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-for (const selector of requiredSelectors) {
+const stripComments = (value) => value.replace(/\/\*[\s\S]*?\*\//g, "");
+
+const assert = (condition, message) => {
+  if (!condition) {
+    console.error(message);
+    process.exit(1);
+  }
+};
+
+const declaredTokens = (cssText) =>
+  new Set(cssText.match(/--abc-[a-z0-9-]+(?=\s*:)/g) ?? []);
+
+const referencedTokens = (cssText) =>
+  [...cssText.matchAll(/var\(\s*(--abc-[a-z0-9-]+)\s*(?:,|\))/g)].map(
+    (match) => match[1],
+  );
+
+const assertTokenReferencesSubset = ({
+  fileLabel,
+  filePath,
+  fileText,
+  allowedTokens,
+}) => {
+  const refs = referencedTokens(fileText);
+  const disallowed = refs.filter((ref) => !allowedTokens.has(ref));
+
+  if (disallowed.length > 0) {
+    const unique = [...new Set(disallowed)].sort();
+    console.error(
+      `${fileLabel} contains token references outside the allowed set:\n- ${unique.join(
+        "\n- ",
+      )}\nFile: ${filePath}`,
+    );
+    process.exit(1);
+  }
+};
+
+const assertSelectorPresent = (fileText, selector, filePath) => {
   const selectorRegex = new RegExp(
     String.raw`(^|[{},])\s*${escapeForRegex(selector)}(?=\s*(?:$|[,:{[>.#+~]))`,
     "m",
   );
 
-  if (!selectorRegex.test(cssWithoutComments)) {
-    console.error(`Missing semantic selector ${selector} in src/css/base.css`);
-    process.exit(1);
-  }
-}
+  assert(
+    selectorRegex.test(fileText),
+    `Missing selector ${selector} in ${filePath}`,
+  );
+};
 
-const distIndexUrl = pathToFileURL(distIndexPath).href;
-const distModule = await import(distIndexUrl);
-const exportKeys = Object.keys(distModule).sort();
+const tokenPrefixSet = (tokens, prefix) =>
+  new Set([...tokens].filter((value) => value.startsWith(prefix)));
+
+const primitiveText = stripComments(await read(sourceFiles.primitive));
+const semanticText = stripComments(await read(sourceFiles.semantic));
+const baseEntryText = stripComments(await read(sourceFiles.baseEntry));
+const buttonTokenText = stripComments(await read(sourceFiles.buttonTokens));
+const cardTokenText = stripComments(await read(sourceFiles.cardTokens));
+const inputTokenText = stripComments(await read(sourceFiles.inputTokens));
+const buttonSelectorText = stripComments(await read(sourceFiles.buttonSelectors));
+const cardSelectorText = stripComments(await read(sourceFiles.cardSelectors));
+const inputSelectorText = stripComments(await read(sourceFiles.inputSelectors));
+const componentsEntryText = stripComments(await read(sourceFiles.componentsEntry));
+const utilitiesEntryText = stripComments(await read(sourceFiles.utilitiesEntry));
+const cssIndexText = stripComments(await read(sourceFiles.cssIndex));
 
 if (
-  exportKeys.length !== 2 ||
-  exportKeys[0] !== "cssEntry" ||
-  exportKeys[1] !== "tokens"
+  /var\(\s*--abc-/i.test(primitiveText) ||
+  primitiveText.includes("var(--abc-")
 ) {
-  console.error(
-    `Unexpected exports from dist/index.js: ${exportKeys.join(", ") || "(none)"}`,
+  console.error("primitive.css must not reference other abc tokens");
+  process.exit(1);
+}
+
+const primitiveDeclared = declaredTokens(primitiveText);
+assert(
+  primitiveDeclared.size > 0,
+  "primitive.css must declare at least one --abc- token",
+);
+
+assertTokenReferencesSubset({
+  fileLabel: "semantic.css",
+  filePath: sourceFiles.semantic,
+  fileText: semanticText,
+  allowedTokens: primitiveDeclared,
+});
+
+const semanticRefs = referencedTokens(semanticText);
+assert(
+  semanticRefs.every((ref) =>
+    /^--abc-(color|radius|space|size|font-size|shadow)-/.test(ref),
+  ),
+  "semantic.css may only reference primitive token prefixes (--abc-(color|radius|space|size|font-size|shadow)-...)",
+);
+
+const semanticDeclared = declaredTokens(semanticText);
+assert(
+  semanticDeclared.size > 0,
+  "semantic.css must declare at least one --abc- token",
+);
+
+const componentTokenFiles = [
+  ["button", sourceFiles.buttonTokens, buttonTokenText],
+  ["card", sourceFiles.cardTokens, cardTokenText],
+  ["input", sourceFiles.inputTokens, inputTokenText],
+];
+
+const componentDeclaredTokens = {};
+
+for (const [name, filePath, fileText] of componentTokenFiles) {
+  assertTokenReferencesSubset({
+    fileLabel: `${name} component tokens`,
+    filePath,
+    fileText,
+    allowedTokens: semanticDeclared,
+  });
+
+  const componentPrefix = `--abc-${name}-`;
+  const declared = tokenPrefixSet(declaredTokens(fileText), componentPrefix);
+  assert(
+    declared.size > 0,
+    `${name} component token file must declare at least one ${componentPrefix}... token`,
   );
-  process.exit(1);
+  componentDeclaredTokens[name] = declared;
 }
 
-const { tokens, cssEntry } = distModule;
+for (const [name, filePath, fileText, requiredSelectors] of [
+  [
+    "button",
+    sourceFiles.buttonSelectors,
+    buttonSelectorText,
+    [".btn", ".btn-primary", ".btn-secondary", ".btn-outline"],
+  ],
+  [
+    "card",
+    sourceFiles.cardSelectors,
+    cardSelectorText,
+    [
+      ".card",
+      ".card-header",
+      ".card-content",
+      ".card-body",
+      ".card-title",
+      ".card-actions",
+    ],
+  ],
+  ["input", sourceFiles.inputSelectors, inputSelectorText, [".input"]],
+]) {
+  const allowedTokens = componentDeclaredTokens[name];
+  assert(
+    allowedTokens instanceof Set,
+    `Internal error: missing declared token set for component "${name}"`,
+  );
 
-if (cssEntry !== "@abc-def/styles/css") {
-  console.error(`Unexpected cssEntry value: ${cssEntry}`);
-  process.exit(1);
-}
+  // Selector files should only use the component's declared tokens. This catches:
+  // - typos like --abc-button-heigth
+  // - direct semantic leakage like var(--abc-bg-base)
+  // - cross-component leakage like var(--abc-card-bg) inside button selectors
+  assertTokenReferencesSubset({
+    fileLabel: `${name} selector file`,
+    filePath,
+    fileText,
+    allowedTokens,
+  });
 
-const toKebab = (value) =>
-  value.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+  const declaredInSelectorFile = declaredTokens(fileText);
+  const disallowedDecls = [...declaredInSelectorFile].filter(
+    (decl) => !allowedTokens.has(decl),
+  );
+  assert(
+    disallowedDecls.length === 0,
+    `${name} selector file declares tokens that are not in ${name}'s token contract:\n- ${[
+      ...new Set(disallowedDecls),
+    ]
+      .sort()
+      .join("\n- ")}\nFile: ${filePath}`,
+  );
 
-const expected = [];
-
-for (const [key, value] of Object.entries(tokens.color)) {
-  expected.push([toKebab(key), value]);
-}
-
-for (const [key, value] of Object.entries(tokens.radius)) {
-  expected.push([`radius-${key}`, value]);
-}
-
-for (const [key, value] of Object.entries(tokens.spacing)) {
-  expected.push([`spacing-${key}`, value]);
-}
-
-const errors = [];
-
-for (const [name, value] of expected) {
-  if (!cssVars.has(name)) {
-    errors.push(`Missing CSS variable --abc-${name}`);
-    continue;
+  assert(
+    new RegExp(String.raw`var\(\s*--abc-${escapeForRegex(name)}-`, "i").test(
+      fileText,
+    ),
+    `${name} selectors must consume shared tokens (expected var(--abc-${name}-...) reference)`,
+  );
+  for (const selector of requiredSelectors) {
+    assertSelectorPresent(fileText, selector, filePath);
   }
-  const cssValue = cssVars.get(name);
-  if (cssValue !== value) {
-    errors.push(
-      `Mismatch for --abc-${name}: expected "${value}", found "${cssValue}"`,
-    );
-  }
 }
 
-if (errors.length > 0) {
-  console.error("Token/CSS mismatch detected:");
-  for (const error of errors) {
-    console.error(`- ${error}`);
-  }
-  process.exit(1);
+for (const importPath of ["../tokens/primitive.css", "../tokens/semantic.css"]) {
+  assert(
+    componentsEntryText.includes(importPath),
+    `Missing import ${importPath} in ${sourceFiles.componentsEntry}`,
+  );
 }
 
-await fs.mkdir(path.dirname(distCssPath), { recursive: true });
-await fs.writeFile(distCssPath, cssContent);
+for (const importPath of ["../tokens/primitive.css", "../tokens/semantic.css"]) {
+  assert(
+    baseEntryText.includes(importPath),
+    `Missing import ${importPath} in ${sourceFiles.baseEntry}`,
+  );
+}
+
+for (const importPath of [
+  "../tokens/components/button.css",
+  "../tokens/components/card.css",
+  "../tokens/components/input.css",
+  "./components/button.css",
+  "./components/card.css",
+  "./components/input.css",
+]) {
+  assert(
+    componentsEntryText.includes(importPath),
+    `Missing import ${importPath} in ${sourceFiles.componentsEntry}`,
+  );
+}
+
+for (const importPath of ["../tokens/primitive.css", "../tokens/semantic.css"]) {
+  assert(
+    utilitiesEntryText.includes(importPath),
+    `Missing import ${importPath} in ${sourceFiles.utilitiesEntry}`,
+  );
+}
+
+for (const importPath of ["./base.css", "./components.css", "./utilities.css"]) {
+  assert(
+    cssIndexText.includes(importPath),
+    `Missing import ${importPath} in ${sourceFiles.cssIndex}`,
+  );
+}
+
+const distModule = await import(pathToFileURL(distIndexPath).href);
+const exportKeys = Object.keys(distModule).sort();
+assert(
+  exportKeys.join(",") === "cssEntries,cssEntry",
+  `Unexpected exports from dist/index.js: ${exportKeys.join(",") || "(none)"}`,
+);
+assert(
+  distModule.cssEntry === "@abc-def/styles/css",
+  `Unexpected cssEntry value: ${distModule.cssEntry}`,
+);
+assert(
+  distModule.cssEntries?.base === "@abc-def/styles/css/base" &&
+    distModule.cssEntries?.components === "@abc-def/styles/css/components" &&
+    distModule.cssEntries?.utilities === "@abc-def/styles/css/utilities",
+  "Unexpected cssEntries values",
+);
+
+const require = createRequire(import.meta.url);
+const distCjsModule = require(distIndexCjsPath);
+const cjsExportKeys = Object.keys(distCjsModule)
+  .filter((key) => key !== "__esModule")
+  .sort();
+assert(
+  cjsExportKeys.join(",") === "cssEntries,cssEntry",
+  `Unexpected exports from dist/index.cjs: ${cjsExportKeys.join(",") || "(none)"}`,
+);
+assert(
+  distCjsModule.cssEntry === "@abc-def/styles/css",
+  `Unexpected cssEntry value from dist/index.cjs: ${distCjsModule.cssEntry}`,
+);
+assert(
+  distCjsModule.cssEntries?.base === "@abc-def/styles/css/base" &&
+    distCjsModule.cssEntries?.components === "@abc-def/styles/css/components" &&
+    distCjsModule.cssEntries?.utilities === "@abc-def/styles/css/utilities",
+  "Unexpected cssEntries values from dist/index.cjs",
+);
