@@ -5,10 +5,8 @@
   "type": "module",
   "exports": {
     "./base": "./base.js",
-    "./nestjs": "./nestjs.js",
     "./nextjs": "./nextjs.js",
-    "./react": "./react.js",
-    "./storybook": "./storybook.js"
+    "./react": "./react.js"
   },
   "scripts": {
     "clean": "git clean -xdf .turbo node_modules .cache",
@@ -24,13 +22,12 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-compiler": "beta",
     "eslint-plugin-react-hooks": "^6.1.1",
-    "eslint-plugin-storybook": "^9.1.17",
-    "eslint-plugin-turbo": "^2.7.4",
     "typescript-eslint": "^8.53.0"
   },
   "devDependencies": {
     "@line/abc-def-prettier-config": "workspace:*",
     "@line/abc-def-tsconfig": "workspace:*",
+    "@types/node": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

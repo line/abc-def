@@ -22,12 +22,17 @@
   },
   "scripts": {
     "build": "tsup --config tsup.config.ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@abc-def/styles": "workspace:*"
   },
   "devDependencies": {
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   }
