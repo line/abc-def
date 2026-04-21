@@ -1,40 +1,13 @@
 # ABC Def (ABC Studio's Definitive Elements Foundation)
 
-![abc-def-cover](https://github.com/user-attachments/assets/9309e639-6f3d-490d-b9c1-3bbd63d6d1ef)
+ABC Def is a reset design system monorepo shell for building core UI packages.
 
-ABC Def is an efficient design system using a three-tier token structure and Headless UI to create web components with consistent design and flexible customization.
+## Packages
 
-## Tech Stack
-
-- Monorepo: [Turborepo](https://turbo.build/)
-- CSS: [Tailwindcss](https://tailwindcss.com/)
-- React: [Shadcn](https://ui.shadcn.com/)
-- Vue: TBD
-
-## Project Structure
-
-- `/packages`: Core component libraries
-  - `/react`: React component library
-  - `/tailwindcss`: Tailwind CSS configuration and utilities
-- `/storybooks`: Component documentation and examples
-  - `/main-storybook`: Primary Storybook documentation
-  - `/react-storybook`: React-specific component examples
-  - `/vue-storybook`: Vue component examples
-  - `/html-storybook`: HTML/CSS component examples
-- `/examples`: Implementation examples
-  - `/nextjs`: Next.js example project
-- `/tooling`: Development and build tools
-  - `/eslint`: ESLint configuration
-  - `/prettier`: Prettier configuration
-  - `/typescript`: TypeScript configuration
-  - `/stylelint`: StyleLint configuration
-  - `/github`: GitHub workflows and templates
-  - `/eslint-plugin-header`: Custom ESLint plugin for file headers
-- `/scripts`: Build and maintenance scripts
-
-## Documentation
-
-Visit [Storybook](https://line.github.io/abc-def) to view the documentation.
+- `packages/styles`: shared tokens and base styles
+- `packages/react`: React components
+- `packages/vue`: Vue components
+- `packages/html`: framework-agnostic primitives
 
 ## Contributing Guidelines
 

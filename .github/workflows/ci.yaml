@@ -19,28 +19,6 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Setup
-        uses: ./tooling/github/setup
-
-      - name: Lint
-        run: pnpm lint && pnpm lint:ws
-
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Setup
-        uses: ./tooling/github/setup
-
-      - name: Format
-        run: pnpm format
-
   typecheck:
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +30,7 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-  storybook-build-check:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -60,5 +38,5 @@ jobs:
       - name: Setup
         uses: ./tooling/github/setup
 
-      - name: Storybook Build Check
-        run: pnpm build:storybook
+      - name: Build
+        run: pnpm build
