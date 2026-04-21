@@ -20,7 +20,11 @@ const distIndexUrl = pathToFileURL(distIndexPath).href;
 const distModule = await import(distIndexUrl);
 const exportKeys = Object.keys(distModule).sort();
 
-if (exportKeys.length !== 2 || exportKeys[0] !== "cssEntry" || exportKeys[1] !== "tokens") {
+if (
+  exportKeys.length !== 2 ||
+  exportKeys[0] !== "cssEntry" ||
+  exportKeys[1] !== "tokens"
+) {
   console.error(
     `Unexpected exports from dist/index.js: ${exportKeys.join(", ") || "(none)"}`,
   );
