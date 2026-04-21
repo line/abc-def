@@ -15,6 +15,19 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  packages/html:
+    dependencies:
+      '@abc-def/styles':
+        specifier: workspace:*
+        version: link:../styles
+    devDependencies:
+      tsup:
+        specifier: ^8.5.1
+        version: 8.5.1(jiti@1.21.7)(postcss@8.5.10)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   packages/react:
     dependencies:
       '@abc-def/styles':
