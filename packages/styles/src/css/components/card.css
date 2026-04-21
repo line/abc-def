@@ -1,5 +1,9 @@
 /* packages/styles/src/css/components/card.css */
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--abc-card-gap);
+  padding: var(--abc-card-padding);
   border: 1px solid hsl(var(--abc-card-border));
   border-radius: var(--abc-card-radius);
   background: hsl(var(--abc-card-bg));
@@ -10,8 +14,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--abc-card-gap);
-  padding: var(--abc-card-padding);
-  padding-bottom: 0;
   color: hsl(var(--abc-card-copy-color));
 }
 
@@ -20,7 +22,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--abc-card-gap);
-  padding: var(--abc-card-padding);
   color: hsl(var(--abc-card-copy-color));
 }
 

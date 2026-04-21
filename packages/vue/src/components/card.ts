@@ -27,10 +27,7 @@ export const Card = defineComponent({
         "div",
         {
           ...attrs,
-          class: cn(
-            "border-border bg-background rounded-lg border p-6 shadow-sm",
-            attrs.class as ClassValue,
-          ),
+          class: cn("card", attrs.class as ClassValue),
         },
         slots.default?.(),
       );
@@ -45,7 +42,7 @@ export const CardHeader = defineComponent({
         "div",
         {
           ...attrs,
-          class: cn("mb-4 flex flex-col gap-1.5", attrs.class as ClassValue),
+          class: cn("card-header", attrs.class as ClassValue),
         },
         slots.default?.(),
       );
@@ -60,10 +57,7 @@ export const CardTitle = defineComponent({
         "h3",
         {
           ...attrs,
-          class: cn(
-            "text-lg font-semibold leading-none",
-            attrs.class as ClassValue,
-          ),
+          class: cn("card-title", attrs.class as ClassValue),
         },
         slots.default?.(),
       );
@@ -78,7 +72,7 @@ export const CardContent = defineComponent({
         "div",
         {
           ...attrs,
-          class: cn("text-muted-foreground text-sm", attrs.class as ClassValue),
+          class: cn("card-content", attrs.class as ClassValue),
         },
         slots.default?.(),
       );

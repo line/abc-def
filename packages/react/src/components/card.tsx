@@ -21,46 +21,26 @@ export function Card({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn(
-        "border-border bg-background rounded-lg border p-6 shadow-sm",
-        className,
-      )}
-      {...props}
-    />
-  );
+  return <div className={cn("card", className)} {...props} />;
 }
 
 export function CardHeader({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={cn("mb-4 flex flex-col gap-1.5", className)} {...props} />
-  );
+  return <div className={cn("card-header", className)} {...props} />;
 }
 
 export function CardTitle({
   className,
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement>) {
-  return (
-    <h3
-      className={cn("text-lg font-semibold leading-none", className)}
-      {...props}
-    />
-  );
+  return <h3 className={cn("card-title", className)} {...props} />;
 }
 
 export function CardContent({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={cn("text-muted-foreground text-sm", className)}
-      {...props}
-    />
-  );
+  return <div className={cn("card-content", className)} {...props} />;
 }

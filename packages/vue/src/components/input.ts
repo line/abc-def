@@ -25,10 +25,7 @@ export const Input = defineComponent({
     return () =>
       h("input", {
         ...attrs,
-        class: cn(
-          "border-border bg-background text-foreground focus-visible:ring-primary flex h-10 w-full rounded-md border px-3 py-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-2",
-          attrs.class as ClassValue,
-        ),
+        class: cn("input", attrs.class as ClassValue),
       });
   },
 });

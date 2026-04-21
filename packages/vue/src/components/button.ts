@@ -37,13 +37,10 @@ export const Button = defineComponent({
           ...attrs,
           type: resolvedType,
           class: cn(
-            "inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-            props.variant === "secondary" &&
-              "bg-muted text-foreground hover:bg-muted/80",
-            props.variant === "outline" &&
-              "border-border bg-background text-foreground hover:bg-muted",
-            props.variant === "default" &&
-              "bg-primary text-primary-foreground hover:opacity-90",
+            "btn",
+            props.variant === "default" && "btn-primary",
+            props.variant === "secondary" && "btn-secondary",
+            props.variant === "outline" && "btn-outline",
             attrs.class as ClassValue,
           ),
         },

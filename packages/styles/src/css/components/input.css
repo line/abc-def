@@ -23,3 +23,7 @@
   color: hsl(var(--abc-input-placeholder));
 }
 
+.input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
