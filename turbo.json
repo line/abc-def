@@ -2,47 +2,16 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "tasks": {
-    "topo": {
-      "dependsOn": ["^topo"]
-    },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".cache/tsbuildinfo.json", "dist/**"]
-    },
-    "dev:storybook": {
-      "dependsOn": [
-        "@line/abc-def-react#build",
-        "@line/abc-def-tailwindcss#build"
-      ],
-      "cache": false,
-      "persistent": false
-    },
-    "dev": {
-      "dependsOn": ["^dev"],
-      "cache": false,
-      "persistent": false
-    },
-    "lint": {
-      "dependsOn": ["^topo", "^build"],
-      "outputs": [".cache/.eslintcache"]
+      "outputs": ["dist/**"]
     },
     "typecheck": {
-      "dependsOn": ["^topo", "^build"],
-      "outputs": [".cache/tsbuildinfo.json"]
-    },
-    "format": {
-      "outputs": [".cache/.prettiercache"],
-      "outputLogs": "new-only"
+      "dependsOn": ["^typecheck"],
+      "outputs": []
     },
     "clean": {
       "cache": false
-    },
-    "//#clean": {
-      "cache": false
-    },
-    "build:storybook": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
     }
   }
 }

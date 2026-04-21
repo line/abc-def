@@ -1,5 +1,5 @@
 {
-  "name": "@line/abc-def",
+  "name": "abc-def",
   "private": true,
   "engines": {
     "node": ">=24.13.0",
@@ -8,25 +8,11 @@
   "packageManager": "pnpm@10.28.0",
   "scripts": {
     "build": "turbo run build",
-    "build:storybook": "turbo run build:storybook && ./scripts/after-build-storybook.sh",
-    "clean": "git clean -xdf node_modules .turbo .cache",
-    "clean:workspaces": "turbo run clean",
-    "dev": "turbo watch dev --continue",
-    "dev:storybook": "turbo dev:storybook",
-    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
-    "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
-    "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
-    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
-    "lint:ws": "pnpm dlx sherif@latest",
-    "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
-    "release": "pnpm publish -r --access public"
+    "clean": "git clean -xdf node_modules .turbo packages/*/dist"
   },
   "devDependencies": {
-    "@line/abc-def-prettier-config": "workspace:^",
-    "prettier": "catalog:",
     "turbo": "^2.7.4",
-    "typescript": "catalog:"
-  },
-  "prettier": "@line/abc-def-prettier-config"
+    "typescript": "^5.9.3"
+  }
 }
