@@ -68,6 +68,10 @@ const assert = (condition, message) => {
   }
 };
 
+const assertIncludes = (fileText, snippet, filePath, label) => {
+  assert(fileText.includes(snippet), `Missing ${label} in ${filePath}`);
+};
+
 const selectorRegexFor = (selector) =>
   new RegExp(
     String.raw`(^|[{},])\s*${escapeForRegex(selector)}(?=\s*(?:$|[,:{[>.#+~]))`,
@@ -241,6 +245,33 @@ assert(
   "semantic.css must declare at least one --abc- token",
 );
 
+assertIncludes(baseEntryText, "@theme", sourceFiles.baseEntry, "@theme block");
+for (const themeAlias of [
+  "--color-background",
+  "--color-foreground",
+  "--color-primary",
+  "--color-primary-foreground",
+  "--color-muted",
+  "--color-muted-foreground",
+  "--color-border",
+  "--radius-sm",
+  "--radius-md",
+  "--radius-lg",
+  "--spacing-1",
+  "--spacing-2",
+  "--spacing-3",
+  "--spacing-4",
+  "--spacing-6",
+  "--spacing-8",
+]) {
+  assertIncludes(
+    baseEntryText,
+    themeAlias,
+    sourceFiles.baseEntry,
+    `${themeAlias} theme alias`,
+  );
+}
+
 const componentTokenFiles = [
   ["button", sourceFiles.buttonTokens, buttonTokenText],
   ["card", sourceFiles.cardTokens, cardTokenText],
@@ -369,6 +400,13 @@ for (const utilityName of ["abc-text-dim", "abc-surface-base"]) {
     `Utilities entry must not define plain selector .${utilityName}; use @utility instead`,
   );
 }
+
+assertTokenReferencesSubset({
+  fileLabel: "utilities entry",
+  filePath: sourceFiles.utilitiesEntry,
+  fileText: utilitiesEntryText,
+  allowedTokens: semanticDeclared,
+});
 
 for (const importPath of ["../tokens/primitive.css", "../tokens/semantic.css"]) {
   assert(
