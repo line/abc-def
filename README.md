@@ -7,7 +7,6 @@ ABC Def is a reset design system monorepo shell for building core UI packages.
 - `packages/styles`: shared tokens and base styles
 - `packages/react`: React components
 - `packages/vue`: Vue components
-- `packages/html`: framework-agnostic primitives
 
 ## Contributing Guidelines
 
