@@ -13,7 +13,7 @@ const cssWithoutComments = cssContent.replace(/\/\*[\s\S]*?\*\//g, "");
 const cssVars = new Map();
 const cssVarRegex = /--abc-([a-z0-9-]+):\s*([^;]+);/gi;
 
-for (const match of cssContent.matchAll(cssVarRegex)) {
+for (const match of cssWithoutComments.matchAll(cssVarRegex)) {
   cssVars.set(match[1], match[2].trim());
 }
 
@@ -34,7 +34,7 @@ const escapeForRegex = (value) =>
 
 for (const selector of requiredSelectors) {
   const selectorRegex = new RegExp(
-    String.raw`(^|}|,)\s*${escapeForRegex(selector)}(?=$|\s|[,:{[>.#+~])`,
+    String.raw`(^|[{},])\s*${escapeForRegex(selector)}(?=\s*(?:$|[,:{[>.#+~]))`,
     "m",
   );
 
