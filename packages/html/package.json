@@ -28,7 +28,8 @@
     "@abc-def/styles": "workspace:*"
   },
   "devDependencies": {
-    "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
+    "@line/abc-def-tsconfig": "workspace:^",
+    "tsup": "catalog:",
+    "typescript": "catalog:"
   }
 }

@@ -25,6 +25,15 @@ import tseslint from "typescript-eslint";
 
 import headerPlugin from "@line/abc-def-eslint-plugin-header";
 
+const turboRecommended =
+  turboPlugin.configs &&
+  "recommended" in turboPlugin.configs &&
+  turboPlugin.configs.recommended &&
+  !Array.isArray(turboPlugin.configs.recommended) &&
+  "rules" in turboPlugin.configs.recommended
+    ? turboPlugin.configs.recommended.rules
+    : {};
+
 export default tseslint.config(
   // Ignore files not tracked by VCS and any config files
   includeIgnoreFile(path.join(import.meta.dirname, "../../.gitignore")),
@@ -43,7 +52,7 @@ export default tseslint.config(
       ...tseslint.configs.stylisticTypeChecked,
     ],
     rules: {
-      ...turboPlugin.configs.recommended.rules,
+      ...turboRecommended,
       "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
