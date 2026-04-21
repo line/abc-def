@@ -16,16 +16,11 @@ Selectors live under `src/css` and consume those token layers.
 
 ## CSS Entries
 
-The primary public stylesheet entry is `@abc-def/styles/css`. Consumers should continue to import Tailwind first, then this aggregate entry:
-
-```css
-@import "tailwindcss";
-@import "@abc-def/styles/css";
-```
+The primary public stylesheet entry is `@abc-def/styles/css`. Consumers should continue to load Tailwind before this aggregate entry (see Usage for the canonical import snippet).
 
 - `@abc-def/styles/css`: aggregate base + components + utilities and the documented public contract.
 - `@abc-def/styles/css/base`: base imports, token/theme wiring, and resets scoped under `@layer base`.
-- `@abc-def/styles/css/components`: component selectors and component-token imports, each emitting selectors inside `@layer components`.
+- `@abc-def/styles/css/components`: component selectors and component-token imports; the selectors themselves emit inside `@layer components` while tokens establish the semantic variables the selectors rely on.
 - `@abc-def/styles/css/utilities`: small shared semantic utility classes exposed via `@utility`.
 
 The secondary entry points remain exported for compatibility and focused debugging when you need to tease apart layers; the primary entry is what most consumers should depend on.
@@ -57,13 +52,14 @@ Plain HTML apps should also register sources via `@source` (see `examples/html-v
 
 ## Public Selector Contract
 
-The public surface area of this package is the semantic selector contract under `@abc-def/styles/css`:
+The public surface area of this package is the semantic selector contract provided by `@abc-def/styles/css`, plus the focused helpers exported from `@abc-def/styles/css/utilities`. The documented selectors include:
 
 - `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-outline`
 - `.card`, `.card-header`, `.card-content`, `.card-body`, `.card-title`, `.card-actions`
 - `.input`
+- Utility helpers such as `.abc-text-dim` and `.abc-surface-base`
 
-This contract is validated in `packages/styles/scripts/verify-build.mjs`.
+This contract, including the utilities helpers, is validated in `packages/styles/scripts/verify-build.mjs`.
 
 ## Example Workspaces
 
