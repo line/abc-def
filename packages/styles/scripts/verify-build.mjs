@@ -68,6 +68,93 @@ const assert = (condition, message) => {
   }
 };
 
+const selectorRegexFor = (selector) =>
+  new RegExp(
+    String.raw`(^|[{},])\s*${escapeForRegex(selector)}(?=\s*(?:$|[,:{[>.#+~]))`,
+    "m",
+  );
+
+const findLayerBlocks = (fileText, layerName) => {
+  const layerRegex = new RegExp(
+    String.raw`@layer\s+${escapeForRegex(layerName)}\s*\{`,
+    "g",
+  );
+  const blocks = [];
+
+  for (const match of fileText.matchAll(layerRegex)) {
+    let depth = 1;
+    let index = match.index + match[0].length;
+
+    for (; index < fileText.length; index += 1) {
+      const char = fileText[index];
+      if (char === "{") {
+        depth += 1;
+      } else if (char === "}") {
+        depth -= 1;
+      }
+
+      if (depth === 0) {
+        blocks.push({ start: match.index, end: index + 1 });
+        break;
+      }
+    }
+  }
+
+  return blocks;
+};
+
+const selectorInLayer = (fileText, layerName, selector) => {
+  const layerBlocks = findLayerBlocks(fileText, layerName);
+  if (layerBlocks.length === 0) {
+    return false;
+  }
+
+  const selectorRegex = selectorRegexFor(selector);
+  return layerBlocks.some(({ start, end }) =>
+    selectorRegex.test(fileText.slice(start, end)),
+  );
+};
+
+const stripLayerBlocks = (fileText, layerName) => {
+  const layerBlocks = findLayerBlocks(fileText, layerName);
+  if (layerBlocks.length === 0) {
+    return fileText;
+  }
+
+  let output = "";
+  let lastIndex = 0;
+
+  for (const { start, end } of layerBlocks) {
+    output += fileText.slice(lastIndex, start);
+    lastIndex = end;
+  }
+
+  output += fileText.slice(lastIndex);
+  return output;
+};
+
+const assertSelectorInLayer = (fileText, layerName, selector, filePath) => {
+  assert(
+    selectorInLayer(fileText, layerName, selector),
+    `Missing selector ${selector} inside @layer ${layerName} in ${filePath}`,
+  );
+};
+
+const hasPlainClassSelector = (fileText, className) => {
+  const selectorRegex = new RegExp(
+    String.raw`\.${escapeForRegex(className)}(?=[\s.:#\[>+~,]|$)`,
+  );
+  const selectorListRegex = /(^|\n)\s*([^@\n][^{]*?)\s*\{/g;
+
+  for (const match of fileText.matchAll(selectorListRegex)) {
+    if (selectorRegex.test(match[2])) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 const declaredTokens = (cssText) =>
   new Set(cssText.match(/--abc-[a-z0-9-]+(?=\s*:)/g) ?? []);
 
@@ -97,13 +184,8 @@ const assertTokenReferencesSubset = ({
 };
 
 const assertSelectorPresent = (fileText, selector, filePath) => {
-  const selectorRegex = new RegExp(
-    String.raw`(^|[{},])\s*${escapeForRegex(selector)}(?=\s*(?:$|[,:{[>.#+~]))`,
-    "m",
-  );
-
   assert(
-    selectorRegex.test(fileText),
+    selectorRegexFor(selector).test(fileText),
     `Missing selector ${selector} in ${filePath}`,
   );
 };
@@ -242,9 +324,50 @@ for (const [name, filePath, fileText, requiredSelectors] of [
     ),
     `${name} selectors must consume shared tokens (expected var(--abc-${name}-...) reference)`,
   );
+
+  const componentSelectorsOutsideLayer = stripLayerBlocks(
+    fileText,
+    "components",
+  );
   for (const selector of requiredSelectors) {
     assertSelectorPresent(fileText, selector, filePath);
+    assertSelectorInLayer(fileText, "components", selector, filePath);
+    assert(
+      !selectorRegexFor(selector).test(componentSelectorsOutsideLayer),
+      `Selector ${selector} must only appear inside @layer components in ${filePath}`,
+    );
   }
+}
+
+const baseSelectorsOutsideLayer = stripLayerBlocks(baseEntryText, "base");
+for (const selector of [
+  "*",
+  "body",
+  "img",
+  "button",
+  "input",
+  "textarea",
+  "select",
+]) {
+  assertSelectorPresent(baseEntryText, selector, sourceFiles.baseEntry);
+  assertSelectorInLayer(baseEntryText, "base", selector, sourceFiles.baseEntry);
+  assert(
+    !selectorRegexFor(selector).test(baseSelectorsOutsideLayer),
+    `Selector ${selector} must only appear inside @layer base in ${sourceFiles.baseEntry}`,
+  );
+}
+
+for (const utilityName of ["abc-text-dim", "abc-surface-base"]) {
+  assert(
+    new RegExp(String.raw`@utility\s+${escapeForRegex(utilityName)}\b`).test(
+      utilitiesEntryText,
+    ),
+    `Missing @utility ${utilityName} in ${sourceFiles.utilitiesEntry}`,
+  );
+  assert(
+    !hasPlainClassSelector(utilitiesEntryText, utilityName),
+    `Utilities entry must not define plain selector .${utilityName}; use @utility instead`,
+  );
 }
 
 for (const importPath of ["../tokens/primitive.css", "../tokens/semantic.css"]) {

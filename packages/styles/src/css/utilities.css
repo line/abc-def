@@ -2,11 +2,11 @@
 @import "../tokens/primitive.css";
 @import "../tokens/semantic.css";
 
-.abc-text-dim {
+@utility abc-text-dim {
   color: hsl(var(--abc-fg-muted));
 }
 
-.abc-surface-base {
+@utility abc-surface-base {
   background: hsl(var(--abc-bg-base));
   color: hsl(var(--abc-fg-base));
 }
