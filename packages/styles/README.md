@@ -16,10 +16,27 @@ Selectors live under `src/css` and consume those token layers.
 
 ## CSS Entries
 
-- `@abc-def/styles/css`: aggregate base + components + utilities
-- `@abc-def/styles/css/base`: base imports, theme variables, resets
-- `@abc-def/styles/css/components`: component selectors and component-token imports
-- `@abc-def/styles/css/utilities`: small shared semantic utility classes
+The primary public stylesheet entry is `@abc-def/styles/css`. Consumers should continue to import Tailwind first, then this aggregate entry:
+
+```css
+@import "tailwindcss";
+@import "@abc-def/styles/css";
+```
+
+- `@abc-def/styles/css`: aggregate base + components + utilities and the documented public contract.
+- `@abc-def/styles/css/base`: base imports, token/theme wiring, and resets scoped under `@layer base`.
+- `@abc-def/styles/css/components`: component selectors and component-token imports, each emitting selectors inside `@layer components`.
+- `@abc-def/styles/css/utilities`: small shared semantic utility classes exposed via `@utility`.
+
+The secondary entry points remain exported for compatibility and focused debugging when you need to tease apart layers; the primary entry is what most consumers should depend on.
+
+## Layered Internals
+
+`base.css` keeps the token imports and `@theme` declarations together before wrapping the shared element rules in `@layer base`, ensuring those primitives surface before the component selectors.
+
+Each component selector file defines its semantic classes inside `@layer components`, so compositions respect Tailwind’s component ordering while still relying on the shared tokens.
+
+`utilities.css` exposes helper selectors through `@utility` so downstream builds can opt into the same semantic helpers without picking up the broader component bundle.
 
 ## Install
 
