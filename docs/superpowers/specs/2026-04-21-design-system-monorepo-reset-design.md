@@ -146,7 +146,6 @@ The reset target should look like this:
 │   │   ├── README.md
 │   │   └── src/
 │   │       ├── css/
-│   │       ├── tailwind/
 │   │       ├── tokens/
 │   │       └── index.ts
 │   ├── react/
@@ -179,7 +178,7 @@ The reset is intentionally destructive with respect to legacy implementation str
 The following areas are expected to be removed or replaced:
 
 - `storybooks/*`
-- `examples/*`
+- legacy example apps that predate the new minimal reference consumers
 - existing legacy component source that does not match the new package contracts
 - old Tailwind package structure centered on the previous `packages/tailwindcss`
 - legacy docs that describe the old package architecture
