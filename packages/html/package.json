@@ -22,6 +22,7 @@
   },
   "scripts": {
     "build": "tsup --config tsup.config.ts",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"

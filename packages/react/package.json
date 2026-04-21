@@ -20,8 +20,9 @@
     }
   },
   "scripts": {
-    "build": "tsup --config tsup.config.ts",
+    "dev": "tsup --config tsup.config.ts",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "build": "tsup --config tsup.config.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"

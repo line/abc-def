@@ -21,6 +21,8 @@
   },
   "scripts": {
     "build": "tsup --config tsup.config.ts && node scripts/verify-build.mjs",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsup --config tsup.config.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
