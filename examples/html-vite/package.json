@@ -1,0 +1,20 @@
+{
+  "name": "@abc-def/example-html-vite",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@abc-def/styles": "workspace:*"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "catalog:",
+    "typescript": "catalog:",
+    "vite": "^7.0.0"
+  }
+}

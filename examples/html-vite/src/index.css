@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "@abc-def/styles/css";
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+}
+
+.demo-shell {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+}
+
+.demo-card {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.demo-copy {
+  margin: 0;
+  color: hsl(var(--abc-muted-foreground));
+}
+
+.demo-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.demo-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
