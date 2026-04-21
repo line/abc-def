@@ -38,5 +38,8 @@ jobs:
       - name: Setup
         uses: ./tooling/github/setup
 
+      - name: Reset Check
+        run: pnpm check:reset
+
       - name: Build
         run: pnpm build

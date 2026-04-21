@@ -8,6 +8,7 @@
   "packageManager": "pnpm@10.28.0",
   "scripts": {
     "build": "turbo run build",
+    "check:reset": "node scripts/check-reset-structure.mjs",
     "typecheck": "turbo run typecheck",
     "clean": "git clean -xdf node_modules .turbo packages/*/dist"
   },
