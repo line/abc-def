@@ -1,4 +1,5 @@
 import { defineComponent, h, type SetupContext } from "vue";
+import type { ClassValue } from "clsx";
 import { cn } from "../lib/cn";
 
 export const Card = defineComponent({
@@ -11,7 +12,7 @@ export const Card = defineComponent({
           ...attrs,
           class: cn(
             "rounded-lg border border-border bg-background p-6 shadow-sm",
-            attrs.class as string,
+            attrs.class as ClassValue,
           ),
         },
         slots.default?.(),
@@ -25,7 +26,7 @@ export const CardHeader = defineComponent({
     return () =>
       h(
         "div",
-        { ...attrs, class: cn("mb-4 flex flex-col gap-1.5", attrs.class as string) },
+        { ...attrs, class: cn("mb-4 flex flex-col gap-1.5", attrs.class as ClassValue) },
         slots.default?.(),
       );
   },
@@ -37,7 +38,7 @@ export const CardTitle = defineComponent({
     return () =>
       h(
         "h3",
-        { ...attrs, class: cn("text-lg font-semibold leading-none", attrs.class as string) },
+        { ...attrs, class: cn("text-lg font-semibold leading-none", attrs.class as ClassValue) },
         slots.default?.(),
       );
   },
@@ -49,7 +50,7 @@ export const CardContent = defineComponent({
     return () =>
       h(
         "div",
-        { ...attrs, class: cn("text-sm text-muted-foreground", attrs.class as string) },
+        { ...attrs, class: cn("text-sm text-muted-foreground", attrs.class as ClassValue) },
         slots.default?.(),
       );
   },
