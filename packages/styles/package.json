@@ -1,0 +1,37 @@
+{
+  "name": "@abc-def/styles",
+  "version": "0.0.1",
+  "description": "Shared design tokens, CSS variables, and Tailwind preset for abc-def",
+  "license": "Apache-2.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "src/css/base.css",
+    "README.md"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./tailwind": {
+      "types": "./dist/tailwind/index.d.ts",
+      "import": "./dist/tailwind/index.js",
+      "require": "./dist/tailwind/index.cjs"
+    },
+    "./css": "./src/css/base.css"
+  },
+  "scripts": {
+    "build": "tsup --config tsup.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}
