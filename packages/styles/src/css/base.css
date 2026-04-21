@@ -45,4 +45,111 @@ body {
   background: hsl(var(--abc-background));
   color: hsl(var(--abc-foreground));
   font-family: Inter, sans-serif;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--abc-spacing-2);
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--abc-radius-md);
+  background: hsl(var(--abc-foreground));
+  color: hsl(var(--abc-background));
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    filter 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(0.96);
+}
+
+.btn-primary {
+  background: hsl(var(--abc-primary));
+  color: hsl(var(--abc-primary-foreground));
+}
+
+.btn-secondary {
+  background: hsl(var(--abc-muted));
+  color: hsl(var(--abc-foreground));
+}
+
+.btn-outline {
+  background: transparent;
+  color: hsl(var(--abc-foreground));
+  border-color: hsl(var(--abc-border));
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid hsl(var(--abc-border));
+  border-radius: var(--abc-radius-lg);
+  background: hsl(var(--abc-background));
+  box-shadow: 0 18px 40px rgb(15 23 42 / 8%);
+}
+
+.card figure {
+  margin: 0;
+}
+
+.card figure img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--abc-spacing-4);
+  padding: var(--abc-spacing-6);
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--abc-spacing-3);
+}
+
+.input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid hsl(var(--abc-border));
+  border-radius: var(--abc-radius-md);
+  background: hsl(var(--abc-background));
+  color: hsl(var(--abc-foreground));
+}
+
+.input::placeholder {
+  color: hsl(var(--abc-muted-foreground));
 }

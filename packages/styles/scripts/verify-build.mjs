@@ -16,6 +16,29 @@ for (const match of cssContent.matchAll(cssVarRegex)) {
   cssVars.set(match[1], match[2].trim());
 }
 
+const requiredSelectors = [
+  ".btn",
+  ".btn-primary",
+  ".btn-secondary",
+  ".btn-outline",
+  ".card",
+  ".card-body",
+  ".card-title",
+  ".card-actions",
+  ".input",
+];
+
+for (const selector of requiredSelectors) {
+  if (
+    !cssContent.includes(`${selector} `) &&
+    !cssContent.includes(`${selector}{`) &&
+    !cssContent.includes(`${selector} {`)
+  ) {
+    console.error(`Missing semantic selector ${selector} in src/css/base.css`);
+    process.exit(1);
+  }
+}
+
 const distIndexUrl = pathToFileURL(distIndexPath).href;
 const distModule = await import(distIndexUrl);
 const exportKeys = Object.keys(distModule).sort();
