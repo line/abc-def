@@ -1,5 +1,7 @@
 # Tailwind CSS v4 Migration Implementation Plan
 
+> **Superseded:** This plan predates the removal of `@abc-def/html` and the addition of `examples/html-vite`. Plain HTML usage now consumes `@abc-def/styles/css` directly. References below to `packages/html` or older example/package layouts are historical context only.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Upgrade the repository to Tailwind CSS v4, replace the public preset API with a CSS-first contract, add a real workspace consumer example, and update package/internal docs to match the new breaking-change surface.

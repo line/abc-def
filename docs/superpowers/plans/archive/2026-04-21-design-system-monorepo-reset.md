@@ -1,6 +1,6 @@
 # Design System Monorepo Reset Implementation Plan
 
-> **Historical note (superseded):** This plan predates the removal of `@abc-def/html`. Plain HTML usage now consumes `@abc-def/styles/css` directly. Any references below to `packages/html` and deletion examples involving that package are historical context only.
+> **Superseded:** This plan predates the removal of `@abc-def/html`. Plain HTML usage now consumes `@abc-def/styles/css` directly. References below to `packages/html` and to removing `examples` are historical context only.
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
