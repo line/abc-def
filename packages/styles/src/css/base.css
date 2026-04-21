@@ -48,16 +48,6 @@ body {
   line-height: 1.5;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button,
-input {
-  font: inherit;
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -78,11 +68,27 @@ input {
     background-color 0.2s ease,
     color 0.2s ease,
     border-color 0.2s ease,
-    filter 0.2s ease;
+    box-shadow 0.2s ease,
+    filter 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .btn:hover {
   filter: brightness(0.96);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--abc-background)),
+    0 0 0 4px hsl(var(--abc-primary));
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+  filter: none;
 }
 
 .btn-primary {
@@ -102,7 +108,6 @@ input {
 }
 
 .card {
-  overflow: hidden;
   border: 1px solid hsl(var(--abc-border));
   border-radius: var(--abc-radius-lg);
   background: hsl(var(--abc-background));
@@ -148,6 +153,15 @@ input {
   border-radius: var(--abc-radius-md);
   background: hsl(var(--abc-background));
   color: hsl(var(--abc-foreground));
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: hsl(var(--abc-primary));
+  box-shadow: 0 0 0 3px hsl(var(--abc-primary) / 0.2);
 }
 
 .input::placeholder {

@@ -9,6 +9,7 @@ const sourceCssPath = path.join(packageRoot, "src", "css", "base.css");
 const distCssPath = path.join(packageRoot, "dist", "css", "base.css");
 
 const cssContent = await fs.readFile(sourceCssPath, "utf8");
+const cssWithoutComments = cssContent.replace(/\/\*[\s\S]*?\*\//g, "");
 const cssVars = new Map();
 const cssVarRegex = /--abc-([a-z0-9-]+):\s*([^;]+);/gi;
 
@@ -28,12 +29,16 @@ const requiredSelectors = [
   ".input",
 ];
 
+const escapeForRegex = (value) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 for (const selector of requiredSelectors) {
-  if (
-    !cssContent.includes(`${selector} `) &&
-    !cssContent.includes(`${selector}{`) &&
-    !cssContent.includes(`${selector} {`)
-  ) {
+  const selectorRegex = new RegExp(
+    String.raw`(^|}|,)\s*${escapeForRegex(selector)}(?=$|\s|[,:{[>.#+~])`,
+    "m",
+  );
+
+  if (!selectorRegex.test(cssWithoutComments)) {
     console.error(`Missing semantic selector ${selector} in src/css/base.css`);
     process.exit(1);
   }
