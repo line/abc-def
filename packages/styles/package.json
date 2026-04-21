@@ -6,7 +6,6 @@
   "type": "module",
   "files": [
     "dist",
-    "src/css/base.css",
     "README.md"
   ],
   "main": "dist/index.cjs",
@@ -23,10 +22,10 @@
       "import": "./dist/tailwind/index.js",
       "require": "./dist/tailwind/index.cjs"
     },
-    "./css": "./src/css/base.css"
+    "./css": "./dist/css/base.css"
   },
   "scripts": {
-    "build": "tsup --config tsup.config.ts",
+    "build": "tsup --config tsup.config.ts && node scripts/verify-build.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {

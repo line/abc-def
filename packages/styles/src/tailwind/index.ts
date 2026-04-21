@@ -1,6 +1,9 @@
+import type { Config } from "tailwindcss";
+
 import { tokens } from "../tokens";
 
-export const abcDefPreset = {
+export const abcDefPreset: Config = {
+  content: [],
   theme: {
     extend: {
       colors: {
