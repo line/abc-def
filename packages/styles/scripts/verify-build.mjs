@@ -67,12 +67,23 @@ const assertIncludes = (fileText, snippet, filePath, label) => {
 
 const blockBodiesForSelector = (fileText, selector) => {
   const selectorRegex = new RegExp(
-    String.raw`(^|[{},])\s*${escapeForRegex(selector)}\s*\{`,
+    String.raw`${escapeForRegex(selector)}\s*\{`,
     "gm",
   );
   const blocks = [];
 
   for (let match; (match = selectorRegex.exec(fileText)); ) {
+    const lineBreakIndex =
+      match.index > 0
+        ? fileText.lastIndexOf("\n", match.index - 1)
+        : -1;
+    const lineStart = lineBreakIndex === -1 ? 0 : lineBreakIndex + 1;
+    const prefix = fileText.slice(lineStart, match.index);
+    const trimmedPrefix = prefix.trimEnd();
+    if (trimmedPrefix !== "" && !trimmedPrefix.endsWith("{")) {
+      continue;
+    }
+
     let depth = 1;
     let index = match.index + match[0].length;
 
@@ -112,14 +123,24 @@ const assertDeclarationValue = ({
   );
 
   const blockBody = blockBodies[0];
-  const declarationRegex = new RegExp(
-    String.raw`${escapeForRegex(property)}\s*:\s*${escapeForRegex(
-      expectedValue,
-    )}\s*;`,
+  const propertyRegex = new RegExp(
+    String.raw`${escapeForRegex(property)}\s*:\s*([^;]+?)\s*;`,
+    "g",
+  );
+  const matches = [...blockBody.matchAll(propertyRegex)];
+  assert(
+    matches.length > 0,
+    `Missing declaration for ${property} inside ${selector} in ${filePath}`,
   );
   assert(
-    declarationRegex.test(blockBody),
-    `Expected ${property}: ${expectedValue}; inside ${selector} in ${filePath}`,
+    matches.length === 1,
+    `Expected exactly one declaration for ${property} inside ${selector} in ${filePath} but found ${matches.length}`,
+  );
+
+  const actualValue = matches[0][1].trim();
+  assert(
+    actualValue === expectedValue,
+    `Expected ${property}: ${expectedValue}; inside ${selector} in ${filePath} but found ${actualValue};`,
   );
 };
 
