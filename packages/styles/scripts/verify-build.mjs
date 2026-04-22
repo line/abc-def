@@ -84,6 +84,14 @@ const blockBodiesForSelector = (fileText, selector) => {
       continue;
     }
 
+    let prevIndex = match.index - 1;
+    while (prevIndex >= 0 && /\s/.test(fileText[prevIndex])) {
+      prevIndex -= 1;
+    }
+    if (prevIndex >= 0 && fileText[prevIndex] === ",") {
+      continue;
+    }
+
     let depth = 1;
     let index = match.index + match[0].length;
 
