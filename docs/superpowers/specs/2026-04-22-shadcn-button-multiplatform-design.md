@@ -1,6 +1,6 @@
 # Shadcn Button Multiplatform Design
 
-> **Superseded:** The React composition guidance in this document has been superseded by `docs/superpowers/specs/2026-04-22-button-aschild-and-color-token-values-design.md` and `docs/superpowers/plans/2026-04-22-button-aschild-and-color-token-values-design.md`.
+> **Superseded:** The React composition decision in this document has been superseded by `docs/superpowers/specs/2026-04-22-button-aschild-and-color-token-values-design.md` and `docs/superpowers/plans/2026-04-22-button-aschild-and-color-token-values-design.md`.
 
 ## Summary
 
@@ -78,7 +78,7 @@ The React package exposes the main `Button` API aligned with `shadcn`.
 The React wrapper is responsible for:
 
 - preserving the public `variant` and `size` prop surface
-- supporting Base UI-style composition through `render`
+- supporting Base UI-style composition through `legacyRenderProp`
 - emitting the shared class contract owned by `@abc-def/styles`
 
 The React wrapper is not responsible for owning visual design values.
@@ -171,7 +171,7 @@ The default variant is explicit in HTML through `btn-default` so the HTML contra
 
 React will not implement Radix-style `asChild`.
 
-Instead, React composition follows Base UI conventions and uses a `render`-oriented composition model.
+Instead, React composition follows Base UI conventions and uses a `legacyRenderProp`-oriented composition model.
 
 This keeps the React API aligned with the chosen primitive philosophy and avoids introducing Radix-specific behavior into a Base UI-aligned component contract.
 
@@ -295,7 +295,7 @@ The change is successful when all of the following are true:
 - React `Button` exposes the approved `variant` and `size` contract
 - React composition follows the Base UI-aligned design for this repository
 - Vue exposes the same approved `variant` and `size` contract
-- plain HTML can render all approved variants and sizes through classes alone
+- plain HTML can express all approved variants and sizes through classes alone
 - `@abc-def/styles` contains the required semantic and button component token coverage
 - shared selectors for variant and size mapping are present and exported
 - existing components such as `card` and `input` continue to work

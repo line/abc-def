@@ -7,10 +7,10 @@
     gap: var(--abc-button-gap);
     min-height: var(--abc-button-height);
     padding-inline: var(--abc-button-padding-inline);
-    border: 1px solid hsl(var(--abc-button-border));
+    border: 1px solid var(--abc-button-border);
     border-radius: var(--abc-button-radius);
-    background: hsl(var(--abc-button-bg));
-    color: hsl(var(--abc-button-fg));
+    background: var(--abc-button-bg);
+    color: var(--abc-button-fg);
     font-size: var(--abc-button-font-size);
     font-weight: 500;
     line-height: 1;
@@ -27,16 +27,16 @@
   }
 
   .btn:hover {
-    background: hsl(var(--abc-button-bg-hover));
-    color: hsl(var(--abc-button-fg-hover));
-    border-color: hsl(var(--abc-button-border-hover));
+    background: var(--abc-button-bg-hover);
+    color: var(--abc-button-fg-hover);
+    border-color: var(--abc-button-border-hover);
   }
 
   .btn:focus-visible {
     outline: none;
     box-shadow:
-      0 0 0 2px hsl(var(--abc-button-focus-surface)),
-      0 0 0 5px hsl(var(--abc-button-ring) / 0.35);
+      0 0 0 2px var(--abc-button-focus-surface),
+      0 0 0 5px var(--abc-button-ring-shadow);
   }
 
   .btn:disabled,
@@ -58,7 +58,7 @@
     --abc-button-fg-hover: var(--abc-button-default-fg-hover);
     --abc-button-border: var(--abc-button-default-border);
     --abc-button-border-hover: var(--abc-button-default-border-hover);
-    --abc-button-ring: var(--abc-button-default-ring);
+    --abc-button-ring-shadow: var(--abc-button-default-ring-shadow);
   }
 
   .btn-destructive {
@@ -68,7 +68,7 @@
     --abc-button-fg-hover: var(--abc-button-destructive-fg-hover);
     --abc-button-border: var(--abc-button-destructive-border);
     --abc-button-border-hover: var(--abc-button-destructive-border-hover);
-    --abc-button-ring: var(--abc-button-destructive-ring);
+    --abc-button-ring-shadow: var(--abc-button-destructive-ring-shadow);
   }
 
   .btn-outline {
@@ -78,7 +78,7 @@
     --abc-button-fg-hover: var(--abc-button-outline-fg-hover);
     --abc-button-border: var(--abc-button-outline-border);
     --abc-button-border-hover: var(--abc-button-outline-border-hover);
-    --abc-button-ring: var(--abc-button-outline-ring);
+    --abc-button-ring-shadow: var(--abc-button-outline-ring-shadow);
   }
 
   .btn-secondary {
@@ -88,7 +88,7 @@
     --abc-button-fg-hover: var(--abc-button-secondary-fg-hover);
     --abc-button-border: var(--abc-button-secondary-border);
     --abc-button-border-hover: var(--abc-button-secondary-border-hover);
-    --abc-button-ring: var(--abc-button-secondary-ring);
+    --abc-button-ring-shadow: var(--abc-button-secondary-ring-shadow);
   }
 
   .btn-ghost {
@@ -98,7 +98,7 @@
     --abc-button-fg-hover: var(--abc-button-ghost-fg-hover);
     --abc-button-border: var(--abc-button-ghost-border);
     --abc-button-border-hover: var(--abc-button-ghost-border-hover);
-    --abc-button-ring: var(--abc-button-ghost-ring);
+    --abc-button-ring-shadow: var(--abc-button-ghost-ring-shadow);
   }
 
   .btn-link {
@@ -108,7 +108,7 @@
     --abc-button-fg-hover: var(--abc-button-link-fg-hover);
     --abc-button-border: var(--abc-button-link-border);
     --abc-button-border-hover: var(--abc-button-link-border-hover);
-    --abc-button-ring: var(--abc-button-link-ring);
+    --abc-button-ring-shadow: var(--abc-button-link-ring-shadow);
     --abc-button-text-decoration: underline;
 
     min-height: auto;

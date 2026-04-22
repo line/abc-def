@@ -21,7 +21,7 @@ export default function App() {
           <CardContent>
             <Input placeholder="Type into the shared input component" />
             <div className="card-actions">
-              <Button variant="outline">Outline</Button>
+              <Button variant="outline" size="sm">Outline</Button>
               <Button variant="secondary">Secondary</Button>
               <Button variant="ghost">Ghost</Button>
               <Button variant="link">Link</Button>

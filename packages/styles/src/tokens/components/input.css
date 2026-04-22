@@ -9,4 +9,10 @@
   --abc-input-radius: var(--abc-radius-control);
   --abc-input-padding-inline: var(--abc-space-control-inline-compact);
   --abc-input-font-size: var(--abc-font-control);
+
+  --abc-input-focus-shadow: color-mix(
+    in srgb,
+    var(--abc-input-border-focus) 20%,
+    transparent
+  );
 }

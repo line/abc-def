@@ -3,10 +3,10 @@
 @import "../tokens/semantic.css";
 
 @utility abc-text-dim {
-  color: hsl(var(--abc-fg-muted));
+  color: var(--abc-fg-muted);
 }
 
 @utility abc-surface-base {
-  background: hsl(var(--abc-bg-base));
-  color: hsl(var(--abc-fg-base));
+  background: var(--abc-bg-base);
+  color: var(--abc-fg-base);
 }

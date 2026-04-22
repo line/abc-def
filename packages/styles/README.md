@@ -14,6 +14,9 @@ This package is CSS-first: consumers import `@abc-def/styles/css` from their app
 
 Selectors live under `src/css` and consume those token layers.
 
+Color token contract: `--abc-color-*` primitives and their semantic/component aliases resolve to complete CSS color values, so runtime selectors should consume them directly via `var(...)` (not `hsl(var(...))` wrapping).
+Focus shadow tokens in this package use `color-mix(...)`, so consumers should target browsers that support modern CSS color functions.
+
 ## CSS Entries
 
 The primary public stylesheet entry is `@abc-def/styles/css`. Consumers should continue to load Tailwind before this aggregate entry (see Usage for the canonical import snippet).
