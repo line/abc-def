@@ -14,11 +14,11 @@ The styles package defines the token and selector contract once, and the React a
 
 It owns:
 
-- primitive tokens in `src/tokens/primitive.css`
-- semantic tokens in `src/tokens/semantic.css`
-- component tokens in `src/tokens/components/*.css`
-- shared selectors in `src/css/base.css` and `src/css/components/*.css`
-- aggregate stylesheet entry points in `src/css/components.css`, `src/css/utilities.css`, and `src/css/index.css`
+- primitive tokens in `packages/styles/src/tokens/primitive.css`
+- semantic tokens in `packages/styles/src/tokens/semantic.css`
+- component tokens in `packages/styles/src/tokens/components/*.css`
+- shared selectors in `packages/styles/src/css/base.css` and `packages/styles/src/css/components/*.css`
+- aggregate stylesheet entry points in `packages/styles/src/css/components.css`, `packages/styles/src/css/utilities.css`, and `packages/styles/src/css/index.css`
 
 ### `@abc-def/react`
 
@@ -63,17 +63,17 @@ Each layer has one responsibility:
 - semantic tokens map shared UI meaning to primitive values
 - component tokens map component-level contracts to semantic values
 
-Selectors consume semantic and component tokens. Dependency direction only flows downward from selectors to component tokens to semantic tokens to primitive tokens.
+Selectors consume semantic tokens, and component selectors may additionally consume component tokens. Dependency direction only flows downward from selectors to component tokens to semantic tokens to primitive tokens, so base/utilities surfaces rely only on primitive and semantic tokens while component selectors may layer in component tokens as needed.
 
 ## CSS Structure
 
 The shared CSS is organized by responsibility.
 
-- `src/css/base.css` defines shared base rules and the public `@theme` alias layer
-- `src/css/components/*.css` defines component selectors
-- `src/css/components.css` aggregates component selector files
-- `src/css/utilities.css` exposes shared utility rules
-- `src/css/index.css` acts as the package entry point
+- `packages/styles/src/css/base.css` defines shared base rules and the public Tailwind-facing `@theme` alias at-rule for app utilities
+- `packages/styles/src/css/components/*.css` defines component selectors
+- `packages/styles/src/css/components.css` imports primitive tokens, semantic tokens, component token files such as `packages/styles/src/tokens/components/{button,card,input}.css`, and then the component selector files themselves so selectors render the enriched token contract
+- `packages/styles/src/css/utilities.css` imports primitive and semantic tokens before exposing shared utility rules
+- `packages/styles/src/css/index.css` acts as the package entry point and imports `base.css`, `components.css`, and `utilities.css` in that order
 
 This structure keeps token ownership separate from selector ownership while still exposing a coherent stylesheet surface to consumers.
 
