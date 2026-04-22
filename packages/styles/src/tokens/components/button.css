@@ -70,4 +70,37 @@
   --abc-button-link-border: var(--abc-border-clear);
   --abc-button-link-border-hover: var(--abc-border-clear);
   --abc-button-link-ring: var(--abc-ring-primary);
+
+  --abc-button-ring-shadow: var(--abc-button-default-ring-shadow);
+
+  --abc-button-default-ring-shadow: color-mix(
+    in srgb,
+    var(--abc-ring-primary) 35%,
+    transparent
+  );
+  --abc-button-destructive-ring-shadow: color-mix(
+    in srgb,
+    var(--abc-ring-destructive) 35%,
+    transparent
+  );
+  --abc-button-outline-ring-shadow: color-mix(
+    in srgb,
+    var(--abc-ring-primary) 35%,
+    transparent
+  );
+  --abc-button-secondary-ring-shadow: color-mix(
+    in srgb,
+    var(--abc-ring-primary) 35%,
+    transparent
+  );
+  --abc-button-ghost-ring-shadow: color-mix(
+    in srgb,
+    var(--abc-ring-primary) 35%,
+    transparent
+  );
+  --abc-button-link-ring-shadow: color-mix(
+    in srgb,
+    var(--abc-ring-primary) 35%,
+    transparent
+  );
 }
