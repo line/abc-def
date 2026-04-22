@@ -25,6 +25,7 @@
     "build": "tsup --config tsup.config.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
+    "test": "pnpm build && node scripts/button-type-regression.mjs",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
