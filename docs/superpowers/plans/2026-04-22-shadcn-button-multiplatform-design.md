@@ -6,9 +6,9 @@
 
 **Goal:** Align the repo's `Button` component contract with current `shadcn` and `shadcn-vue` button APIs for the approved variant and size set, while keeping `@abc-def/styles` as the single styling source of truth across React, Vue, and plain HTML.
 
-**Architecture:** Capture the upstream button contract in a repo-local reference note first, then extend the shared CSS token and selector contract in `@abc-def/styles` before changing framework wrappers. Keep React and Vue thin: React owns the `render` composition surface plus prop typing, Vue owns the template-friendly prop surface, and both wrappers emit only shared `btn*` classes. Finish by updating examples, READMEs, and repo verification so the public contract is exercised in all three consumption modes.
+**Architecture:** Capture the upstream button contract in a repo-local reference note first, then extend the shared CSS token and selector contract in `@abc-def/styles` before changing framework wrappers. Keep React and Vue thin: React owns the `legacyRenderProp` composition surface plus prop typing, Vue owns the template-friendly prop surface, and both wrappers emit only shared `btn*` classes. Finish by updating examples, READMEs, and repo verification so the public contract is exercised in all three consumption modes.
 
-**Tech Stack:** pnpm workspaces, Turborepo, Tailwind CSS v4 CSS-first authoring, TypeScript, React 19, Vue 3 render functions, `class-variance-authority`, Vite
+**Tech Stack:** pnpm workspaces, Turborepo, Tailwind CSS v4 CSS-first authoring, TypeScript, React 19, Vue 3 VNode composition functions, `class-variance-authority`, Vite
 
 ---
 
@@ -21,8 +21,8 @@
 - Modify `packages/styles/src/css/components/button.css` to implement `.btn`, the new `btn-*` variant classes, and the new size classes in `@layer components`.
 - Modify `packages/styles/scripts/verify-build.mjs` so the build enforces the new button selector and token contract and rejects the old `.btn-primary` naming.
 - Modify `packages/styles/README.md` to document the new public button selector contract.
-- Modify `packages/react/src/components/button.tsx` to expose the scoped `shadcn` variant/size API plus a Base UI-style `render` composition prop.
-- Modify `packages/react/README.md` to document React `Button` variants, sizes, and `render` usage.
+- Modify `packages/react/src/components/button.tsx` to expose the scoped `shadcn` variant/size API plus a Base UI-style `legacyRenderProp` composition prop.
+- Modify `packages/react/README.md` to document React `Button` variants, sizes, and `legacyRenderProp` usage.
 - Modify `packages/vue/src/components/button.ts` to expose the same approved variant and size prop surface in Vue.
 - Modify `packages/vue/README.md` to document Vue `Button` variants and sizes and to explicitly note that Vue is not adding a cross-framework composition prop in this phase.
 - Modify `examples/react-vite/src/App.tsx`, `examples/vue-vite/src/main.ts`, and `examples/html-vite/index.html` to demonstrate the same approved visual contract in all three consumers.
@@ -69,7 +69,7 @@ Expected: PASS with a scratch Vue button install that can be inspected and then 
 - Source command: `pnpm dlx shadcn@latest add button --dry-run --cwd packages/react`
 - Public variant names observed: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 - Public size names in scope for this repo: `default`, `sm`, `lg`, `icon`
-- Composition model upstream exposes Radix/Base-UI-flavored composition paths; this repo intentionally keeps only the Base UI-style `render` path from the design spec
+- Composition model upstream exposes Radix/Base-UI-flavored composition paths; this repo intentionally keeps only the Base UI-style `legacyRenderProp` path from the design spec
 
 ## Vue (`shadcn-vue`)
 
@@ -86,14 +86,14 @@ Expected: PASS with a scratch Vue button install that can be inspected and then 
   - base: `btn`
   - variants: `btn-default`, `btn-destructive`, `btn-outline`, `btn-secondary`, `btn-ghost`, `btn-link`
   - sizes: `btn-sm`, `btn-lg`, `btn-icon`, `btn-icon-sm`, `btn-icon-lg`
-- React composition: `render`
+- React composition: `legacyRenderProp`
 - Vue composition: no cross-framework composition prop in this phase
 ```
 
 - [ ] **Step 4: Verify the saved reference note contains the exact scoped contract**
 
-Run: `rg -n 'btn-default|btn-destructive|btn-ghost|btn-link|icon-sm|icon-lg|render|no cross-framework composition prop' docs/superpowers/references/2026-04-22-button-upstream-contract.md`
-Expected: PASS with matches for the scoped variant list, size list, React `render`, and the Vue composition decision.
+Run: `rg -n 'btn-default|btn-destructive|btn-ghost|btn-link|icon-sm|icon-lg|legacyRenderProp|no cross-framework composition prop' docs/superpowers/references/2026-04-22-button-upstream-contract.md`
+Expected: PASS with matches for the scoped variant list, size list, React `legacyRenderProp`, and the Vue composition decision.
 
 - [ ] **Step 5: Commit the reference note before touching implementation files**
 
@@ -521,7 +521,7 @@ git commit -m "feat: expand shared button contract"
 Run: `rg -n 'btn-primary|secondary: \"btn-secondary\"|outline: \"btn-outline\"|size:' packages/react/src/components/button.tsx packages/react/README.md examples/react-vite/src/App.tsx`
 Expected: PASS with `btn-primary` still present and no `size` variant mapping in the React button implementation.
 
-- [ ] **Step 2: Replace the React button wrapper with the scoped `variant`, `size`, and `render` API**
+- [ ] **Step 2: Replace the React button wrapper with the scoped `variant`, `size`, and `legacyRenderProp` API**
 
 ```tsx
 // packages/react/src/components/button.tsx
@@ -564,15 +564,15 @@ type ButtonRenderProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  render?: (props: ButtonRenderProps) => React.ReactElement;
+  legacyRenderProp?: (props: ButtonRenderProps) => React.ReactElement;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, render, size, type, variant, ...props }, ref) => {
+  ({ className, legacyRenderProp, size, type, variant, ...props }, ref) => {
     const resolvedClassName = cn(buttonVariants({ size, variant }), className);
 
-    if (render) {
-      return render({
+    if (legacyRenderProp) {
+      return legacyRenderProp({
         ...props,
         className: resolvedClassName,
         ref,
@@ -601,11 +601,11 @@ Button.displayName = "Button";
 
 - Variants: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 - Sizes: `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
-- Composition: React exposes a `render` prop for Base UI-style composition. This replaces any Radix `asChild` expectation.
+- Composition: React exposes a `legacyRenderProp` prop for Base UI-style composition. This replaces any Radix `asChild` expectation.
 
 ```tsx
 <Button variant="outline" size="sm">Outline</Button>
-<Button variant="link" render={(props) => <a {...props} href="/docs" />}>
+<Button variant="link" legacyRenderProp={(props) => <a {...props} href="/docs" />}>
   Docs
 </Button>
 ```
@@ -655,7 +655,7 @@ export default function App() {
 - [ ] **Step 4: Verify React types and the Vite example build**
 
 Run: `pnpm --filter @abc-def/react typecheck`
-Expected: PASS with the new `variant`, `size`, and `render` typing accepted.
+Expected: PASS with the new `variant`, `size`, and `legacyRenderProp` typing accepted.
 
 Run: `pnpm --filter @abc-def/example-react-vite build`
 Expected: PASS with the example rendering the expanded button contract without missing class references.
@@ -909,7 +909,7 @@ Use this wording everywhere live docs mention the current Button contract:
 - Default HTML class: `btn-default`
 - Approved variants: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 - Approved sizes: `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
-- React composition: `render`
+- React composition: `legacyRenderProp`
 - Vue composition: no shared composition prop in this phase
 ```
 
@@ -944,7 +944,7 @@ git commit -m "docs: finalize button multiplatform contract"
 
 ```md
 - React exposes `variant` and `size` for the approved contract
-- React uses `render` instead of `asChild`
+- React uses `legacyRenderProp` instead of `asChild`
 - Vue exposes the same approved `variant` and `size` contract
 - HTML renders the same contract through classes alone
 - `@abc-def/styles` owns the visual contract and verifies it in build checks
