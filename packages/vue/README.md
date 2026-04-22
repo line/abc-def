@@ -20,6 +20,7 @@ Then use the exported Vue render-function components from `@abc-def/vue`.
 
 ## Button API
 
-- Variants: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
-- Sizes: `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
-- Vue does not add an `asChild` or cross-framework composition prop in this phase; the shared contract here is variants, sizes, and classes.
+- Default HTML class: `btn-default`
+- Approved variants: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
+- Approved sizes: `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
+- Vue composition: no shared composition prop in this phase

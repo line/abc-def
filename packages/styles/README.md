@@ -60,6 +60,11 @@ The public surface area of this package is the semantic selector contract provid
 - `.input`
 - Utility helpers such as `.abc-text-dim` and `.abc-surface-base`
 
+Button contract summary:
+- Default HTML class: `btn-default`
+- Approved variants: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
+- Approved sizes: `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
+
 This contract, including the utilities helpers, is validated in `packages/styles/scripts/verify-build.mjs`.
 
 ## Example Workspaces
