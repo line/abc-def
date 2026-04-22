@@ -23,10 +23,12 @@ Then render components from `@abc-def/react`.
 - **Default HTML class:** `btn-default`
 - **Approved variants:** `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 - **Approved sizes:** `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
-- **React composition:** `render`
-- **Render props:** `render` receives the resolved `className` plus any explicitly provided element props such as `href` or `type`
+- **React composition:** `asChild`
+- **Composition behavior:** when `asChild` is true, Button renders `Slot.Root` and applies the resolved shared `btn*` classes to the slotted child
 
 ```tsx
 <Button variant="outline" size="sm">Outline</Button>
-<Button variant="link" render={(props) => <a {...props} href="/docs">Docs</a>} />
+<Button asChild variant="link">
+  <a href="/docs">Docs</a>
+</Button>
 ```

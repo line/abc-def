@@ -10,7 +10,7 @@
   - adds dependency `@radix-ui/react-slot`
 - Public variant names observed in the current React reference: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 - Public size names kept in scope for this repo from the current React reference: `default`, `sm`, `lg`, `icon`
-- Composition model upstream includes Radix-flavored composition. This repo intentionally keeps only the Base UI-style `render` path from the design spec.
+- Composition model upstream includes Radix-flavored composition. This repo intentionally keeps only the Radix-style `asChild` path from the design spec.
 
 ## Vue (`shadcn-vue`)
 
@@ -31,5 +31,6 @@
   - base: `btn`
   - variants: `btn-default`, `btn-destructive`, `btn-outline`, `btn-secondary`, `btn-ghost`, `btn-link`
   - sizes: `btn-sm`, `btn-lg`, `btn-icon`, `btn-icon-sm`, `btn-icon-lg`
-- React composition: `render`
+- React composition: `asChild`
+- React defaulting rule: default type="button" applies only when React renders a native `<button>`
 - Vue composition: no cross-framework composition prop in this phase
