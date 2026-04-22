@@ -25,6 +25,7 @@ Then render components from `@abc-def/react`.
 - **Approved sizes:** `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
 - **React composition:** `asChild`
 - **Composition behavior:** when `asChild` is `true`, `Button` renders `Slot.Root` and applies the resolved shared `btn*` classes to the slotted child
+- **Native type behavior:** `type` is applied only when rendering a native `<button>` and is not forwarded when `asChild` is `true`
 
 ```tsx
 <Button variant="outline" size="sm">Outline</Button>
