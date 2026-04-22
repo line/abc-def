@@ -32,5 +32,5 @@
   - variants: `btn-default`, `btn-destructive`, `btn-outline`, `btn-secondary`, `btn-ghost`, `btn-link`
   - sizes: `btn-sm`, `btn-lg`, `btn-icon`, `btn-icon-sm`, `btn-icon-lg`
 - React composition: `asChild`
-- React defaulting rule: default type="button" applies only when React renders a native `<button>`
+- React defaulting rule: default `type="button"` applies only when React renders a native `<button>`
 - Vue composition: no cross-framework composition prop in this phase

@@ -24,7 +24,7 @@ Then render components from `@abc-def/react`.
 - **Approved variants:** `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 - **Approved sizes:** `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
 - **React composition:** `asChild`
-- **Composition behavior:** when `asChild` is true, Button renders `Slot.Root` and applies the resolved shared `btn*` classes to the slotted child
+- **Composition behavior:** when `asChild` is `true`, `Button` renders `Slot.Root` and applies the resolved shared `btn*` classes to the slotted child
 
 ```tsx
 <Button variant="outline" size="sm">Outline</Button>
