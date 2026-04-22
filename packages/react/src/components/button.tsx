@@ -48,9 +48,8 @@ type ButtonRenderProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   "className" | "ref"
 > &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "className" | "ref"> & {
   className: string;
-  ref: React.Ref<HTMLElement>;
 };
 
 export interface ButtonProps
@@ -69,7 +68,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ...props,
         className: resolvedClassName,
         ...(type !== undefined ? { type } : {}),
-        ref,
       });
     }
 

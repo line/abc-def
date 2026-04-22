@@ -25,6 +25,14 @@ export default function App() {
               <Button variant="secondary">Secondary</Button>
               <Button variant="ghost">Ghost</Button>
               <Button variant="link">Link</Button>
+              <Button
+                variant="link"
+                render={(props) => (
+                  <a {...props} href="/docs">
+                    Docs
+                  </a>
+                )}
+              />
               <Button variant="destructive">Delete</Button>
               <Button>Default</Button>
             </div>
