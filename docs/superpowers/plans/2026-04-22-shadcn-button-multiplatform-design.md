@@ -1,5 +1,7 @@
 # Shadcn Button Multiplatform Implementation Plan
 
+> **Superseded:** The React composition guidance in this document has been superseded by `docs/superpowers/specs/2026-04-22-button-aschild-and-color-token-values-design.md` and `docs/superpowers/plans/2026-04-22-button-aschild-and-color-token-values-design.md`.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Align the repo's `Button` component contract with current `shadcn` and `shadcn-vue` button APIs for the approved variant and size set, while keeping `@abc-def/styles` as the single styling source of truth across React, Vue, and plain HTML.
