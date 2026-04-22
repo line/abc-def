@@ -65,34 +65,33 @@ const assertIncludes = (fileText, snippet, filePath, label) => {
   assert(fileText.includes(snippet), `Missing ${label} in ${filePath}`);
 };
 
-const blockBodyForSelector = (fileText, selector) => {
+const blockBodiesForSelector = (fileText, selector) => {
   const selectorRegex = new RegExp(
-    String.raw`${escapeForRegex(selector)}\s*\{`,
-    "g",
+    String.raw`(^|[{},])\s*${escapeForRegex(selector)}\s*\{`,
+    "gm",
   );
-  const match = selectorRegex.exec(fileText);
+  const blocks = [];
 
-  if (!match) {
-    return null;
+  for (let match; (match = selectorRegex.exec(fileText)); ) {
+    let depth = 1;
+    let index = match.index + match[0].length;
+
+    for (; index < fileText.length; index += 1) {
+      const char = fileText[index];
+      if (char === "{") {
+        depth += 1;
+      } else if (char === "}") {
+        depth -= 1;
+      }
+
+      if (depth === 0) {
+        blocks.push(fileText.slice(match.index + match[0].length, index));
+        break;
+      }
+    }
   }
 
-  let depth = 1;
-  let index = match.index + match[0].length;
-
-  for (; index < fileText.length; index += 1) {
-    const char = fileText[index];
-    if (char === "{") {
-      depth += 1;
-    } else if (char === "}") {
-      depth -= 1;
-    }
-
-    if (depth === 0) {
-      return fileText.slice(match.index + match[0].length, index);
-    }
-  }
-
-  return null;
+  return blocks;
 };
 
 const assertDeclarationValue = ({
@@ -102,9 +101,17 @@ const assertDeclarationValue = ({
   property,
   expectedValue,
 }) => {
-  const blockBody = blockBodyForSelector(fileText, selector);
-  assert(blockBody, `Missing selector ${selector} in ${filePath}`);
+  const blockBodies = blockBodiesForSelector(fileText, selector);
+  assert(
+    blockBodies.length > 0,
+    `Missing selector ${selector} in ${filePath}`,
+  );
+  assert(
+    blockBodies.length === 1,
+    `Expected a single ${selector} block in ${filePath} but found ${blockBodies.length}`,
+  );
 
+  const blockBody = blockBodies[0];
   const declarationRegex = new RegExp(
     String.raw`${escapeForRegex(property)}\s*:\s*${escapeForRegex(
       expectedValue,
