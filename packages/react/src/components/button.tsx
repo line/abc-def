@@ -19,21 +19,18 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "../lib/cn";
 
-const buttonVariants = cva(
-  "btn",
-  {
-    variants: {
-      variant: {
-        default: "btn-primary",
-        secondary: "btn-secondary",
-        outline: "btn-outline",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
+const buttonVariants = cva("btn", {
+  variants: {
+    variant: {
+      default: "btn-primary",
+      secondary: "btn-secondary",
+      outline: "btn-outline",
     },
   },
-);
+  defaultVariants: {
+    variant: "default",
+  },
+});
 
 export interface ButtonProps
   extends

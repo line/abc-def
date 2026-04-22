@@ -17,13 +17,7 @@ const sourceFiles = {
     "components",
     "button.css",
   ),
-  cardTokens: path.join(
-    packageRoot,
-    "src",
-    "tokens",
-    "components",
-    "card.css",
-  ),
+  cardTokens: path.join(packageRoot, "src", "tokens", "components", "card.css"),
   inputTokens: path.join(
     packageRoot,
     "src",
@@ -56,8 +50,7 @@ const distIndexCjsPath = path.join(packageRoot, "dist", "index.cjs");
 
 const read = async (filePath) => fs.readFile(filePath, "utf8");
 
-const escapeForRegex = (value) =>
-  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const escapeForRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const stripComments = (value) => value.replace(/\/\*[\s\S]*?\*\//g, "");
 
@@ -203,11 +196,17 @@ const baseEntryText = stripComments(await read(sourceFiles.baseEntry));
 const buttonTokenText = stripComments(await read(sourceFiles.buttonTokens));
 const cardTokenText = stripComments(await read(sourceFiles.cardTokens));
 const inputTokenText = stripComments(await read(sourceFiles.inputTokens));
-const buttonSelectorText = stripComments(await read(sourceFiles.buttonSelectors));
+const buttonSelectorText = stripComments(
+  await read(sourceFiles.buttonSelectors),
+);
 const cardSelectorText = stripComments(await read(sourceFiles.cardSelectors));
 const inputSelectorText = stripComments(await read(sourceFiles.inputSelectors));
-const componentsEntryText = stripComments(await read(sourceFiles.componentsEntry));
-const utilitiesEntryText = stripComments(await read(sourceFiles.utilitiesEntry));
+const componentsEntryText = stripComments(
+  await read(sourceFiles.componentsEntry),
+);
+const utilitiesEntryText = stripComments(
+  await read(sourceFiles.utilitiesEntry),
+);
 const cssIndexText = stripComments(await read(sourceFiles.cssIndex));
 
 if (
@@ -408,14 +407,20 @@ assertTokenReferencesSubset({
   allowedTokens: semanticDeclared,
 });
 
-for (const importPath of ["../tokens/primitive.css", "../tokens/semantic.css"]) {
+for (const importPath of [
+  "../tokens/primitive.css",
+  "../tokens/semantic.css",
+]) {
   assert(
     componentsEntryText.includes(importPath),
     `Missing import ${importPath} in ${sourceFiles.componentsEntry}`,
   );
 }
 
-for (const importPath of ["../tokens/primitive.css", "../tokens/semantic.css"]) {
+for (const importPath of [
+  "../tokens/primitive.css",
+  "../tokens/semantic.css",
+]) {
   assert(
     baseEntryText.includes(importPath),
     `Missing import ${importPath} in ${sourceFiles.baseEntry}`,
@@ -436,14 +441,21 @@ for (const importPath of [
   );
 }
 
-for (const importPath of ["../tokens/primitive.css", "../tokens/semantic.css"]) {
+for (const importPath of [
+  "../tokens/primitive.css",
+  "../tokens/semantic.css",
+]) {
   assert(
     utilitiesEntryText.includes(importPath),
     `Missing import ${importPath} in ${sourceFiles.utilitiesEntry}`,
   );
 }
 
-for (const importPath of ["./base.css", "./components.css", "./utilities.css"]) {
+for (const importPath of [
+  "./base.css",
+  "./components.css",
+  "./utilities.css",
+]) {
   assert(
     cssIndexText.includes(importPath),
     `Missing import ${importPath} in ${sourceFiles.cssIndex}`,

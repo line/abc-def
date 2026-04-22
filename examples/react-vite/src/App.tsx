@@ -9,7 +9,7 @@ import {
 
 export default function App() {
   return (
-    <main className="min-h-screen bg-background px-6 py-16 text-foreground">
+    <main className="bg-background text-foreground min-h-screen px-6 py-16">
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-6">
         <Card>
           <CardHeader>
