@@ -22,12 +22,13 @@ Treat that source as analysis input, not as the final public API.
 2. Analyze class meaning before copying code.
 3. Promote raw values into primitive tokens only when they are true scales.
 4. Promote shared UI meaning into semantic tokens before creating component tokens.
-5. Add public component tokens in `packages/styles/src/tokens/components/<component>.css`.
-6. Add selectors in `packages/styles/src/css/components/<component>.css`.
-7. Update React and Vue wrappers to render the shared selectors.
-8. Export the new components from `packages/react/src/index.ts` and `packages/vue/src/index.ts`.
-9. If the new component expands the hard-coded selector or token contract checks, extend `packages/styles/scripts/verify-build.mjs`.
-10. Verify `examples/html-vite`, `examples/react-vite`, and `examples/vue-vite`.
+5. Add public component tokens in `packages/styles/src/tokens/components/<component>.css`, declaring only `--abc-<component>-*` entries.
+6. Add selectors in `packages/styles/src/css/components/<component>.css`, consuming only the tokens defined in step 5.
+7. Wire both the new token file and selector file into `packages/styles/src/css/components.css` so the shared CSS entry picks them up; `verify-build.mjs` enforces this import pairing.
+8. Update React and Vue wrappers to render the shared selectors.
+9. Export the new components from `packages/react/src/index.ts` and `packages/vue/src/index.ts`.
+10. Extend `packages/styles/scripts/verify-build.mjs`, which hard-codes the component set along with token/selector contract checks, whenever the component adds selectors or tokens.
+11. Verify `examples/html-vite`, `examples/react-vite`, and `examples/vue-vite`.
 
 ## Decision Rules
 
@@ -69,6 +70,8 @@ Component token names should describe the component contract:
 
 Do not expose upstream utility-fragment names as the public token API.
 
+`packages/styles/scripts/verify-build.mjs` already validates that token files stick to `--abc-<component>-*` declarations, selector files reference only that token set, and `packages/styles/src/css/components.css` imports both files. Follow those guardrails when writing new onboarding assets.
+
 ## Files To Touch
 
 Most component onboarding work crosses the same set of files:
@@ -94,6 +97,8 @@ Verification should cover:
 - Vue wrapper behavior
 - plain HTML rendering where applicable
 - example apps in `examples/html-vite`, `examples/react-vite`, and `examples/vue-vite`
+
+Verification also requires extending `packages/styles/scripts/verify-build.mjs` because it hard-codes the sanctioned component tokens, selectors, and CSS entry imports.
 
 ## Working Rule
 
