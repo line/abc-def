@@ -14,22 +14,48 @@
  * under the License.
  */
 import type { ClassValue } from "clsx";
-import type { SetupContext } from "vue";
+import type { PropType, SetupContext } from "vue";
 import { defineComponent, h } from "vue";
 
 import { cn } from "../lib/cn";
+
+const variantClasses = {
+  default: "btn-default",
+  destructive: "btn-destructive",
+  outline: "btn-outline",
+  secondary: "btn-secondary",
+  ghost: "btn-ghost",
+  link: "btn-link",
+} as const;
+
+const sizeClasses = {
+  default: null,
+  sm: "btn-sm",
+  lg: "btn-lg",
+  icon: "btn-icon",
+  "icon-sm": "btn-icon-sm",
+  "icon-lg": "btn-icon-lg",
+} as const;
+
+type ButtonVariant = keyof typeof variantClasses;
+type ButtonSize = keyof typeof sizeClasses;
 
 export const Button = defineComponent({
   name: "AbcButton",
   props: {
     variant: {
-      type: String,
+      type: String as PropType<ButtonVariant>,
+      default: "default",
+    },
+    size: {
+      type: String as PropType<ButtonSize>,
       default: "default",
     },
   },
   setup(props, { attrs, slots }: SetupContext) {
     const hasType = Object.prototype.hasOwnProperty.call(attrs, "type");
     const resolvedType = hasType ? (attrs as { type?: string }).type : "button";
+
     return () =>
       h(
         "button",
@@ -38,9 +64,8 @@ export const Button = defineComponent({
           type: resolvedType,
           class: cn(
             "btn",
-            props.variant === "default" && "btn-primary",
-            props.variant === "secondary" && "btn-secondary",
-            props.variant === "outline" && "btn-outline",
+            variantClasses[props.variant],
+            sizeClasses[props.size],
             attrs.class as ClassValue,
           ),
         },
