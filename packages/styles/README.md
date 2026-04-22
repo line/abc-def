@@ -30,11 +30,7 @@ The secondary entry points remain exported for compatibility and focused debuggi
 
 ## Layered Internals
 
-`base.css` keeps the token imports and `@theme` declarations together before wrapping the shared element rules in `@layer base`, ensuring those primitives surface before the component selectors.
-
-Each component selector file defines its semantic classes inside `@layer components`, so compositions respect Tailwind’s component ordering while still relying on the shared tokens.
-
-`utilities.css` exposes helper selectors through `@utility` so downstream builds can opt into the same semantic helpers without picking up the broader component bundle.
+`base.css` keeps the token imports and `@theme` declarations together before wrapping the shared element rules in `@layer base`. The `@theme` block is the public Tailwind-facing alias layer for app utilities such as `bg-background` and `text-foreground`; the package's own selectors continue to consume `--abc-*` tokens directly.
 
 ## Install
 
@@ -52,6 +48,14 @@ Import the shared contract from an application stylesheet that Tailwind v4 proce
 ```
 
 Plain HTML apps should also register sources via `@source` (see `examples/html-vite`).
+
+## Dark Mode
+
+`@abc-def/styles` ships dark-mode token overrides through the `.dark` selector in `src/tokens/semantic.css`.
+
+- Apply `.dark` at the application root to activate the dark semantic token set.
+- Keep theme toggling logic in the consuming app.
+- Do not expect `@abc-def/styles` to manage `data-theme` attributes or `prefers-color-scheme` runtime behavior.
 
 ## Public Selector Contract
 
