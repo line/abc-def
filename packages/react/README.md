@@ -24,6 +24,7 @@ Then render components from `@abc-def/react`.
 - **Approved variants:** `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
 - **Approved sizes:** `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
 - **React composition:** `render`
+- **Render props:** `render` receives the resolved `className`, forwarded `ref`, and any explicitly provided element props such as `href` or `type`
 
 ```tsx
 <Button variant="outline" size="sm">Outline</Button>
