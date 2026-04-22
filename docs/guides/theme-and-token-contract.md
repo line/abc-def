@@ -12,7 +12,7 @@ The token contract defines both value ownership and dependency direction. Contri
 
 Primitive tokens live in `packages/styles/src/tokens/primitive.css`.
 
-They store raw scales such as color, spacing, radius, size, and typography values. Primitive tokens do not express UI meaning.
+They store foundational scales and low-level reusable values such as color, spacing, radius, size, typography, and shadow definitions (for example `--abc-shadow-raised-sm`). Primitive tokens do not bake in broader UI meaning.
 
 ### Semantic Tokens
 
@@ -27,6 +27,8 @@ Semantic tokens are also where theme variation lives. Light and dark mode use th
 Component tokens live in `packages/styles/src/tokens/components/*.css`.
 
 They map component-level contracts to semantic tokens. These tokens express values such as component background, foreground, border, height, padding, and ring behavior for a specific component.
+
+New component token files must be imported by `packages/styles/src/css/components.css` and then shipped through `packages/styles/src/css/index.css`, otherwise the values never reach downstream consumers.
 
 ## Dependency Direction
 
@@ -62,14 +64,14 @@ This keeps token growth intentional and prevents component work from bypassing t
 Its role is narrow and explicit:
 
 - it exposes Tailwind-friendly aliases for app consumers
-- it maps those aliases to the repository's semantic token contract
+- color aliases map to the repository's semantic token contract while radius and spacing aliases map directly to primitive tokens
 - it is not the source of truth for token values
 
 Internal selectors continue to consume `--abc-*` tokens directly. `@theme` exists as a public facade for app-level utility usage, not as a replacement for the repository's internal token naming.
 
 ## Dark Mode Contract
 
-Dark mode is activated with the `.dark` selector.
+Dark mode is activated with the `.dark` selector applied at the app root for global theming.
 
 The shared package provides the token definitions for both light and dark values, but consuming applications decide when to apply or remove `.dark`.
 
