@@ -1,6 +1,7 @@
 @import "../tokens/primitive.css";
 @import "../tokens/semantic.css";
 
+/* Public Tailwind alias layer for app utilities. Internal selectors use --abc-* tokens directly. */
 @theme {
   --color-background: var(--abc-bg-base);
   --color-foreground: var(--abc-fg-base);

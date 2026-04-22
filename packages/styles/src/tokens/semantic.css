@@ -49,3 +49,30 @@
 
   --abc-shadow-surface: var(--abc-shadow-raised-sm);
 }
+
+.dark {
+  --abc-bg-base: var(--abc-color-slate-950);
+  --abc-fg-base: var(--abc-color-slate-50);
+
+  --abc-bg-primary: var(--abc-color-slate-50);
+  --abc-fg-primary: var(--abc-color-slate-950);
+  --abc-ring-primary: var(--abc-color-slate-300);
+
+  --abc-bg-destructive: var(--abc-color-red-600);
+  --abc-fg-destructive: var(--abc-color-white);
+  --abc-ring-destructive: var(--abc-color-red-600);
+
+  --abc-bg-muted: var(--abc-color-slate-700);
+  --abc-fg-muted: var(--abc-color-slate-300);
+  --abc-border-muted: var(--abc-color-slate-700);
+
+  --abc-bg-secondary: var(--abc-color-slate-700);
+  --abc-fg-secondary: var(--abc-color-slate-50);
+
+  --abc-bg-accent: var(--abc-color-slate-700);
+  --abc-bg-accent-strong: var(--abc-color-slate-500);
+  --abc-fg-accent: var(--abc-color-slate-50);
+
+  --abc-fg-link: var(--abc-color-slate-50);
+  --abc-fg-link-hover: var(--abc-color-slate-300);
+}
