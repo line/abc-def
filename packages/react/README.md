@@ -16,7 +16,7 @@ Import `@abc-def/styles/css` from application CSS and register sources with Tail
 @source "../../../packages/react/src/**/*.{ts,tsx}";
 ```
 
-Then render components from `@abc-def/react`.
+Then use components from `@abc-def/react`.
 
 ## Button API
 
