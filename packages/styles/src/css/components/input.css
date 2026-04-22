@@ -4,10 +4,10 @@
     width: 100%;
     min-height: var(--abc-input-height);
     padding-inline: var(--abc-input-padding-inline);
-    border: 1px solid hsl(var(--abc-input-border));
+    border: 1px solid var(--abc-input-border);
     border-radius: var(--abc-input-radius);
-    background: hsl(var(--abc-input-bg));
-    color: hsl(var(--abc-input-fg));
+    background: var(--abc-input-bg);
+    color: var(--abc-input-fg);
     font-size: var(--abc-input-font-size);
     transition:
       border-color 0.2s ease,
@@ -16,12 +16,12 @@
 
   .input:focus-visible {
     outline: none;
-    border-color: hsl(var(--abc-input-border-focus));
-    box-shadow: 0 0 0 3px hsl(var(--abc-input-border-focus) / 0.2);
+    border-color: var(--abc-input-border-focus);
+    box-shadow: 0 0 0 3px var(--abc-input-focus-shadow);
   }
 
   .input::placeholder {
-    color: hsl(var(--abc-input-placeholder));
+    color: var(--abc-input-placeholder);
   }
 
   .input:disabled {

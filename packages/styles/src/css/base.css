@@ -2,13 +2,13 @@
 @import "../tokens/semantic.css";
 
 @theme {
-  --color-background: hsl(var(--abc-bg-base));
-  --color-foreground: hsl(var(--abc-fg-base));
-  --color-primary: hsl(var(--abc-bg-primary));
-  --color-primary-foreground: hsl(var(--abc-fg-primary));
-  --color-muted: hsl(var(--abc-bg-muted));
-  --color-muted-foreground: hsl(var(--abc-fg-muted));
-  --color-border: hsl(var(--abc-border-muted));
+  --color-background: var(--abc-bg-base);
+  --color-foreground: var(--abc-fg-base);
+  --color-primary: var(--abc-bg-primary);
+  --color-primary-foreground: var(--abc-fg-primary);
+  --color-muted: var(--abc-bg-muted);
+  --color-muted-foreground: var(--abc-fg-muted);
+  --color-border: var(--abc-border-muted);
 
   --radius-sm: var(--abc-radius-sm);
   --radius-md: var(--abc-radius-md);
@@ -29,8 +29,8 @@
 
   body {
     margin: 0;
-    background: hsl(var(--abc-bg-base));
-    color: hsl(var(--abc-fg-base));
+    background: var(--abc-bg-base);
+    color: var(--abc-fg-base);
     font-family: Inter, sans-serif;
     line-height: 1.5;
   }

@@ -190,6 +190,27 @@ const assertSelectorPresent = (fileText, selector, filePath) => {
 const tokenPrefixSet = (tokens, prefix) =>
   new Set([...tokens].filter((value) => value.startsWith(prefix)));
 
+const forbiddenHslVarPattern = /hsl\(\s*var\(\s*--abc-/i;
+
+const collectCssFilesRecursive = async (dirPath) => {
+  const entries = await fs.readdir(dirPath, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const entryPath = path.join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await collectCssFilesRecursive(entryPath)));
+      continue;
+    }
+
+    if (entry.isFile() && entry.name.endsWith(".css")) {
+      files.push(entryPath);
+    }
+  }
+
+  return files;
+};
+
 const primitiveText = stripComments(await read(sourceFiles.primitive));
 const semanticText = stripComments(await read(sourceFiles.semantic));
 const baseEntryText = stripComments(await read(sourceFiles.baseEntry));
@@ -208,6 +229,16 @@ const utilitiesEntryText = stripComments(
   await read(sourceFiles.utilitiesEntry),
 );
 const cssIndexText = stripComments(await read(sourceFiles.cssIndex));
+const liveCssFiles = await collectCssFilesRecursive(
+  path.join(packageRoot, "src", "css"),
+);
+for (const liveCssFile of liveCssFiles) {
+  const liveCssText = stripComments(await read(liveCssFile));
+  assert(
+    !forbiddenHslVarPattern.test(liveCssText),
+    `Live CSS must not wrap abc color tokens with hsl(var(...)): ${liveCssFile}`,
+  );
+}
 
 if (
   /var\(\s*--abc-/i.test(primitiveText) ||
@@ -276,6 +307,31 @@ const componentTokenFiles = [
   ["card", sourceFiles.cardTokens, cardTokenText],
   ["input", sourceFiles.inputTokens, inputTokenText],
 ];
+
+assertIncludes(
+  buttonTokenText,
+  "--abc-button-ring-shadow:",
+  sourceFiles.buttonTokens,
+  "--abc-button-ring-shadow declaration",
+);
+assertIncludes(
+  inputTokenText,
+  "--abc-input-focus-shadow:",
+  sourceFiles.inputTokens,
+  "--abc-input-focus-shadow declaration",
+);
+assertIncludes(
+  buttonSelectorText,
+  "var(--abc-button-ring-shadow)",
+  sourceFiles.buttonSelectors,
+  "button focus ring shadow token usage",
+);
+assertIncludes(
+  inputSelectorText,
+  "var(--abc-input-focus-shadow)",
+  sourceFiles.inputSelectors,
+  "input focus shadow token usage",
+);
 
 const componentDeclaredTokens = {};
 

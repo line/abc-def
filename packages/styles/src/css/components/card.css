@@ -5,9 +5,9 @@
     flex-direction: column;
     gap: var(--abc-card-gap);
     padding: var(--abc-card-padding);
-    border: 1px solid hsl(var(--abc-card-border));
+    border: 1px solid var(--abc-card-border);
     border-radius: var(--abc-card-radius);
-    background: hsl(var(--abc-card-bg));
+    background: var(--abc-card-bg);
     box-shadow: var(--abc-card-shadow);
   }
 
@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--abc-card-gap);
-    color: hsl(var(--abc-card-copy-color));
+    color: var(--abc-card-copy-color);
   }
 
   .card-content,
@@ -23,12 +23,12 @@
     display: flex;
     flex-direction: column;
     gap: var(--abc-card-gap);
-    color: hsl(var(--abc-card-copy-color));
+    color: var(--abc-card-copy-color);
   }
 
   .card-title {
     margin: 0;
-    color: hsl(var(--abc-card-title-color));
+    color: var(--abc-card-title-color);
     font-size: var(--abc-card-title-size);
     font-weight: 700;
     line-height: 1.2;
