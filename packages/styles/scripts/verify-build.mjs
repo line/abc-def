@@ -65,6 +65,57 @@ const assertIncludes = (fileText, snippet, filePath, label) => {
   assert(fileText.includes(snippet), `Missing ${label} in ${filePath}`);
 };
 
+const blockBodyForSelector = (fileText, selector) => {
+  const selectorRegex = new RegExp(
+    String.raw`${escapeForRegex(selector)}\s*\{`,
+    "g",
+  );
+  const match = selectorRegex.exec(fileText);
+
+  if (!match) {
+    return null;
+  }
+
+  let depth = 1;
+  let index = match.index + match[0].length;
+
+  for (; index < fileText.length; index += 1) {
+    const char = fileText[index];
+    if (char === "{") {
+      depth += 1;
+    } else if (char === "}") {
+      depth -= 1;
+    }
+
+    if (depth === 0) {
+      return fileText.slice(match.index + match[0].length, index);
+    }
+  }
+
+  return null;
+};
+
+const assertDeclarationValue = ({
+  filePath,
+  fileText,
+  selector,
+  property,
+  expectedValue,
+}) => {
+  const blockBody = blockBodyForSelector(fileText, selector);
+  assert(blockBody, `Missing selector ${selector} in ${filePath}`);
+
+  const declarationRegex = new RegExp(
+    String.raw`${escapeForRegex(property)}\s*:\s*${escapeForRegex(
+      expectedValue,
+    )}\s*;`,
+  );
+  assert(
+    declarationRegex.test(blockBody),
+    `Expected ${property}: ${expectedValue}; inside ${selector} in ${filePath}`,
+  );
+};
+
 const selectorRegexFor = (selector) =>
   new RegExp(
     String.raw`(^|[{},])\s*${escapeForRegex(selector)}(?=\s*(?:$|[,:{[>.#+~]))`,
@@ -276,30 +327,60 @@ assert(
 );
 
 assertIncludes(baseEntryText, "@theme", sourceFiles.baseEntry, "@theme block");
-for (const themeAlias of [
-  "--color-background",
-  "--color-foreground",
-  "--color-primary",
-  "--color-primary-foreground",
-  "--color-muted",
-  "--color-muted-foreground",
-  "--color-border",
-  "--radius-sm",
-  "--radius-md",
-  "--radius-lg",
-  "--spacing-1",
-  "--spacing-2",
-  "--spacing-3",
-  "--spacing-4",
-  "--spacing-6",
-  "--spacing-8",
+for (const [themeAlias, semanticToken] of [
+  ["--color-background", "var(--abc-bg-base)"],
+  ["--color-foreground", "var(--abc-fg-base)"],
+  ["--color-primary", "var(--abc-bg-primary)"],
+  ["--color-primary-foreground", "var(--abc-fg-primary)"],
+  ["--color-muted", "var(--abc-bg-muted)"],
+  ["--color-muted-foreground", "var(--abc-fg-muted)"],
+  ["--color-border", "var(--abc-border-muted)"],
+  ["--radius-sm", "var(--abc-radius-sm)"],
+  ["--radius-md", "var(--abc-radius-md)"],
+  ["--radius-lg", "var(--abc-radius-lg)"],
+  ["--spacing-1", "var(--abc-space-1)"],
+  ["--spacing-2", "var(--abc-space-2)"],
+  ["--spacing-3", "var(--abc-space-3)"],
+  ["--spacing-4", "var(--abc-space-4)"],
+  ["--spacing-6", "var(--abc-space-6)"],
+  ["--spacing-8", "var(--abc-space-8)"],
 ]) {
-  assertIncludes(
-    baseEntryText,
-    themeAlias,
-    sourceFiles.baseEntry,
-    `${themeAlias} theme alias`,
-  );
+  assertDeclarationValue({
+    filePath: sourceFiles.baseEntry,
+    fileText: baseEntryText,
+    selector: "@theme",
+    property: themeAlias,
+    expectedValue: semanticToken,
+  });
+}
+
+for (const [semanticToken, primitiveValue] of [
+  ["--abc-bg-base", "var(--abc-color-slate-950)"],
+  ["--abc-fg-base", "var(--abc-color-slate-50)"],
+  ["--abc-bg-primary", "var(--abc-color-slate-50)"],
+  ["--abc-fg-primary", "var(--abc-color-slate-950)"],
+  ["--abc-ring-primary", "var(--abc-color-slate-300)"],
+  ["--abc-bg-destructive", "var(--abc-color-red-600)"],
+  ["--abc-fg-destructive", "var(--abc-color-white)"],
+  ["--abc-ring-destructive", "var(--abc-color-red-600)"],
+  ["--abc-bg-muted", "var(--abc-color-slate-700)"],
+  ["--abc-fg-muted", "var(--abc-color-slate-300)"],
+  ["--abc-border-muted", "var(--abc-color-slate-700)"],
+  ["--abc-bg-secondary", "var(--abc-color-slate-700)"],
+  ["--abc-fg-secondary", "var(--abc-color-slate-50)"],
+  ["--abc-bg-accent", "var(--abc-color-slate-700)"],
+  ["--abc-bg-accent-strong", "var(--abc-color-slate-500)"],
+  ["--abc-fg-accent", "var(--abc-color-slate-50)"],
+  ["--abc-fg-link", "var(--abc-color-slate-50)"],
+  ["--abc-fg-link-hover", "var(--abc-color-slate-300)"],
+]) {
+  assertDeclarationValue({
+    filePath: sourceFiles.semantic,
+    fileText: semanticText,
+    selector: ".dark",
+    property: semanticToken,
+    expectedValue: primitiveValue,
+  });
 }
 
 const componentTokenFiles = [
