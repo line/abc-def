@@ -17,3 +17,14 @@ Import `@abc-def/styles/css` from application CSS and register sources with Tail
 ```
 
 Then render components from `@abc-def/react`.
+
+## Button API
+
+- **Variants:** `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`
+- **Sizes:** `default`, `sm`, `lg`, `icon`, `icon-sm`, `icon-lg`
+- **Composition:** React exposes a `render` prop for Base UI-style composition; this replaces any Radix `asChild` expectation.
+
+```tsx
+<Button variant="outline" size="sm">Outline</Button>
+<Button variant="link" render={(props) => <a {...props} href="/docs">Docs</a>} />
+```
