@@ -281,19 +281,31 @@ const componentDeclaredTokens = {};
 
 for (const [name, filePath, fileText] of componentTokenFiles) {
   const declaredInFile = declaredTokens(fileText);
-  assertTokenReferencesSubset({
-    fileLabel: `${name} component tokens`,
-    filePath,
-    fileText,
-    allowedTokens: new Set([...semanticDeclared, ...declaredInFile]),
-  });
-
   const componentPrefix = `--abc-${name}-`;
   const declared = tokenPrefixSet(declaredInFile, componentPrefix);
+  const disallowedDecls = [...declaredInFile].filter(
+    (decl) => !decl.startsWith(componentPrefix),
+  );
+  assert(
+    disallowedDecls.length === 0,
+    `${name} component token file declares tokens outside ${componentPrefix}*:\n- ${[
+      ...new Set(disallowedDecls),
+    ]
+      .sort()
+      .join("\n- ")}\nFile: ${filePath}`,
+  );
   assert(
     declared.size > 0,
     `${name} component token file must declare at least one ${componentPrefix}... token`,
   );
+
+  assertTokenReferencesSubset({
+    fileLabel: `${name} component tokens`,
+    filePath,
+    fileText,
+    allowedTokens: new Set([...semanticDeclared, ...declared]),
+  });
+
   componentDeclaredTokens[name] = declared;
 }
 
