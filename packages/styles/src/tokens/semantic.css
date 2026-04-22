@@ -6,11 +6,24 @@
   --abc-fg-primary: var(--abc-color-slate-50);
   --abc-ring-primary: var(--abc-color-blue-600);
 
+  --abc-bg-destructive: var(--abc-color-red-600);
+  --abc-fg-destructive: var(--abc-color-white);
+  --abc-ring-destructive: var(--abc-color-red-600);
+
   --abc-bg-muted: var(--abc-color-slate-100);
   --abc-fg-muted: var(--abc-color-slate-500);
   --abc-border-muted: var(--abc-color-slate-200);
 
-  --abc-bg-hover: var(--abc-color-slate-100);
+  --abc-bg-secondary: var(--abc-color-slate-100);
+  --abc-fg-secondary: var(--abc-color-slate-950);
+
+  --abc-bg-accent: var(--abc-color-slate-100);
+  --abc-bg-accent-strong: var(--abc-color-slate-200);
+  --abc-fg-accent: var(--abc-color-slate-950);
+
+  --abc-fg-link: var(--abc-color-blue-600);
+  --abc-fg-link-hover: var(--abc-color-slate-700);
+
   --abc-border-clear: var(--abc-color-transparent);
 
   --abc-radius-control: var(--abc-radius-md);
@@ -18,12 +31,18 @@
 
   --abc-space-control-inline: var(--abc-space-4);
   --abc-space-control-inline-compact: var(--abc-space-3);
+  --abc-space-control-inline-roomy: var(--abc-space-6);
   --abc-space-control-gap: var(--abc-space-2);
   --abc-space-actions-gap: var(--abc-space-3);
   --abc-space-surface-padding: var(--abc-space-6);
   --abc-space-content-gap: var(--abc-space-4);
 
-  --abc-size-control-md: var(--abc-size-11);
+  --abc-size-control-sm: var(--abc-size-8);
+  --abc-size-control-md: var(--abc-size-9);
+  --abc-size-control-lg: var(--abc-size-10);
+  --abc-size-icon-sm: var(--abc-size-4);
+  --abc-size-icon-md: var(--abc-size-4);
+  --abc-size-icon-lg: var(--abc-size-5);
 
   --abc-font-control: var(--abc-font-size-sm);
   --abc-font-title: var(--abc-font-size-xl);

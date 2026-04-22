@@ -12,9 +12,11 @@
     background: hsl(var(--abc-button-bg));
     color: hsl(var(--abc-button-fg));
     font-size: var(--abc-button-font-size);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1;
-    text-decoration: none;
+    white-space: nowrap;
+    text-decoration: var(--abc-button-text-decoration);
+    text-underline-offset: 0.2em;
     cursor: pointer;
     transition:
       background-color 0.2s ease,
@@ -25,37 +27,131 @@
   }
 
   .btn:hover {
-    opacity: 0.96;
+    background: hsl(var(--abc-button-bg-hover));
+    color: hsl(var(--abc-button-fg-hover));
+    border-color: hsl(var(--abc-button-border-hover));
   }
 
   .btn:focus-visible {
     outline: none;
     box-shadow:
       0 0 0 2px hsl(var(--abc-button-focus-surface)),
-      0 0 0 4px hsl(var(--abc-button-ring));
+      0 0 0 5px hsl(var(--abc-button-ring) / 0.35);
   }
 
   .btn:disabled,
   .btn[aria-disabled="true"] {
-    cursor: not-allowed;
-    opacity: 0.6;
+    pointer-events: none;
+    opacity: 0.5;
   }
 
-  .btn-primary {
-    --abc-button-bg: var(--abc-button-primary-bg);
-    --abc-button-fg: var(--abc-button-primary-fg);
-    --abc-button-border: var(--abc-button-primary-border);
+  .btn :where(svg) {
+    inline-size: var(--abc-button-icon-size);
+    block-size: var(--abc-button-icon-size);
+    flex: none;
   }
 
-  .btn-secondary {
-    --abc-button-bg: var(--abc-button-secondary-bg);
-    --abc-button-fg: var(--abc-button-secondary-fg);
-    --abc-button-border: var(--abc-button-secondary-border);
+  .btn-default {
+    --abc-button-bg: var(--abc-button-default-bg);
+    --abc-button-bg-hover: var(--abc-button-default-bg-hover);
+    --abc-button-fg: var(--abc-button-default-fg);
+    --abc-button-fg-hover: var(--abc-button-default-fg-hover);
+    --abc-button-border: var(--abc-button-default-border);
+    --abc-button-border-hover: var(--abc-button-default-border-hover);
+    --abc-button-ring: var(--abc-button-default-ring);
+  }
+
+  .btn-destructive {
+    --abc-button-bg: var(--abc-button-destructive-bg);
+    --abc-button-bg-hover: var(--abc-button-destructive-bg-hover);
+    --abc-button-fg: var(--abc-button-destructive-fg);
+    --abc-button-fg-hover: var(--abc-button-destructive-fg-hover);
+    --abc-button-border: var(--abc-button-destructive-border);
+    --abc-button-border-hover: var(--abc-button-destructive-border-hover);
+    --abc-button-ring: var(--abc-button-destructive-ring);
   }
 
   .btn-outline {
     --abc-button-bg: var(--abc-button-outline-bg);
+    --abc-button-bg-hover: var(--abc-button-outline-bg-hover);
     --abc-button-fg: var(--abc-button-outline-fg);
+    --abc-button-fg-hover: var(--abc-button-outline-fg-hover);
     --abc-button-border: var(--abc-button-outline-border);
+    --abc-button-border-hover: var(--abc-button-outline-border-hover);
+    --abc-button-ring: var(--abc-button-outline-ring);
+  }
+
+  .btn-secondary {
+    --abc-button-bg: var(--abc-button-secondary-bg);
+    --abc-button-bg-hover: var(--abc-button-secondary-bg-hover);
+    --abc-button-fg: var(--abc-button-secondary-fg);
+    --abc-button-fg-hover: var(--abc-button-secondary-fg-hover);
+    --abc-button-border: var(--abc-button-secondary-border);
+    --abc-button-border-hover: var(--abc-button-secondary-border-hover);
+    --abc-button-ring: var(--abc-button-secondary-ring);
+  }
+
+  .btn-ghost {
+    --abc-button-bg: var(--abc-button-ghost-bg);
+    --abc-button-bg-hover: var(--abc-button-ghost-bg-hover);
+    --abc-button-fg: var(--abc-button-ghost-fg);
+    --abc-button-fg-hover: var(--abc-button-ghost-fg-hover);
+    --abc-button-border: var(--abc-button-ghost-border);
+    --abc-button-border-hover: var(--abc-button-ghost-border-hover);
+    --abc-button-ring: var(--abc-button-ghost-ring);
+  }
+
+  .btn-link {
+    --abc-button-bg: var(--abc-button-link-bg);
+    --abc-button-bg-hover: var(--abc-button-link-bg-hover);
+    --abc-button-fg: var(--abc-button-link-fg);
+    --abc-button-fg-hover: var(--abc-button-link-fg-hover);
+    --abc-button-border: var(--abc-button-link-border);
+    --abc-button-border-hover: var(--abc-button-link-border-hover);
+    --abc-button-ring: var(--abc-button-link-ring);
+    --abc-button-text-decoration: underline;
+
+    min-height: auto;
+    padding-inline: 0;
+  }
+
+  .btn-sm {
+    min-height: var(--abc-button-height-sm);
+    padding-inline: var(--abc-button-padding-inline-sm);
+  }
+
+  .btn-lg {
+    min-height: var(--abc-button-height-lg);
+    padding-inline: var(--abc-button-padding-inline-lg);
+  }
+
+  .btn-icon,
+  .btn-icon-sm,
+  .btn-icon-lg {
+    padding-inline: 0;
+  }
+
+  .btn-icon {
+    inline-size: var(--abc-button-height);
+  }
+
+  .btn-icon-sm {
+    min-height: var(--abc-button-height-sm);
+    inline-size: var(--abc-button-height-sm);
+  }
+
+  .btn-icon-sm :where(svg) {
+    inline-size: var(--abc-button-icon-size-sm);
+    block-size: var(--abc-button-icon-size-sm);
+  }
+
+  .btn-icon-lg {
+    min-height: var(--abc-button-height-lg);
+    inline-size: var(--abc-button-height-lg);
+  }
+
+  .btn-icon-lg :where(svg) {
+    inline-size: var(--abc-button-icon-size-lg);
+    block-size: var(--abc-button-icon-size-lg);
   }
 }

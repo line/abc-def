@@ -54,7 +54,8 @@ Plain HTML apps should also register sources via `@source` (see `examples/html-v
 
 The public surface area of this package is the semantic selector contract provided by `@abc-def/styles/css`, plus the focused helpers exported from `@abc-def/styles/css/utilities`. The documented selectors include:
 
-- `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-outline`
+- `.btn`, `.btn-default`, `.btn-destructive`, `.btn-outline`, `.btn-secondary`, `.btn-ghost`, `.btn-link`
+- `.btn-sm`, `.btn-lg`, `.btn-icon`, `.btn-icon-sm`, `.btn-icon-lg`
 - `.card`, `.card-header`, `.card-content`, `.card-body`, `.card-title`, `.card-actions`
 - `.input`
 - Utility helpers such as `.abc-text-dim` and `.abc-surface-base`

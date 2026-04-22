@@ -1,26 +1,73 @@
 /* packages/styles/src/tokens/components/button.css */
 :root {
-  --abc-button-bg: var(--abc-bg-primary);
-  --abc-button-fg: var(--abc-fg-primary);
-  --abc-button-border: var(--abc-border-clear);
-  --abc-button-ring: var(--abc-ring-primary);
+  --abc-button-bg: var(--abc-button-default-bg);
+  --abc-button-bg-hover: var(--abc-button-default-bg-hover);
+  --abc-button-fg: var(--abc-button-default-fg);
+  --abc-button-fg-hover: var(--abc-button-default-fg-hover);
+  --abc-button-border: var(--abc-button-default-border);
+  --abc-button-border-hover: var(--abc-button-default-border-hover);
+  --abc-button-ring: var(--abc-button-default-ring);
   --abc-button-focus-surface: var(--abc-bg-base);
+  --abc-button-text-decoration: none;
 
   --abc-button-height: var(--abc-size-control-md);
+  --abc-button-height-sm: var(--abc-size-control-sm);
+  --abc-button-height-lg: var(--abc-size-control-lg);
   --abc-button-radius: var(--abc-radius-control);
   --abc-button-gap: var(--abc-space-control-gap);
   --abc-button-padding-inline: var(--abc-space-control-inline);
+  --abc-button-padding-inline-sm: var(--abc-space-control-inline-compact);
+  --abc-button-padding-inline-lg: var(--abc-space-control-inline-roomy);
   --abc-button-font-size: var(--abc-font-control);
+  --abc-button-icon-size: var(--abc-size-icon-md);
+  --abc-button-icon-size-sm: var(--abc-size-icon-sm);
+  --abc-button-icon-size-lg: var(--abc-size-icon-lg);
 
-  --abc-button-primary-bg: var(--abc-bg-primary);
-  --abc-button-primary-fg: var(--abc-fg-primary);
-  --abc-button-primary-border: var(--abc-border-clear);
+  --abc-button-default-bg: var(--abc-bg-primary);
+  --abc-button-default-bg-hover: var(--abc-bg-primary);
+  --abc-button-default-fg: var(--abc-fg-primary);
+  --abc-button-default-fg-hover: var(--abc-fg-primary);
+  --abc-button-default-border: var(--abc-border-clear);
+  --abc-button-default-border-hover: var(--abc-border-clear);
+  --abc-button-default-ring: var(--abc-ring-primary);
 
-  --abc-button-secondary-bg: var(--abc-bg-muted);
-  --abc-button-secondary-fg: var(--abc-fg-base);
-  --abc-button-secondary-border: var(--abc-border-clear);
+  --abc-button-destructive-bg: var(--abc-bg-destructive);
+  --abc-button-destructive-bg-hover: var(--abc-bg-destructive);
+  --abc-button-destructive-fg: var(--abc-fg-destructive);
+  --abc-button-destructive-fg-hover: var(--abc-fg-destructive);
+  --abc-button-destructive-border: var(--abc-border-clear);
+  --abc-button-destructive-border-hover: var(--abc-border-clear);
+  --abc-button-destructive-ring: var(--abc-ring-destructive);
 
   --abc-button-outline-bg: var(--abc-bg-base);
+  --abc-button-outline-bg-hover: var(--abc-bg-accent);
   --abc-button-outline-fg: var(--abc-fg-base);
+  --abc-button-outline-fg-hover: var(--abc-fg-base);
   --abc-button-outline-border: var(--abc-border-muted);
+  --abc-button-outline-border-hover: var(--abc-border-muted);
+  --abc-button-outline-ring: var(--abc-ring-primary);
+
+  --abc-button-secondary-bg: var(--abc-bg-secondary);
+  --abc-button-secondary-bg-hover: var(--abc-bg-accent-strong);
+  --abc-button-secondary-fg: var(--abc-fg-secondary);
+  --abc-button-secondary-fg-hover: var(--abc-fg-secondary);
+  --abc-button-secondary-border: var(--abc-border-clear);
+  --abc-button-secondary-border-hover: var(--abc-border-clear);
+  --abc-button-secondary-ring: var(--abc-ring-primary);
+
+  --abc-button-ghost-bg: var(--abc-border-clear);
+  --abc-button-ghost-bg-hover: var(--abc-bg-accent);
+  --abc-button-ghost-fg: var(--abc-fg-accent);
+  --abc-button-ghost-fg-hover: var(--abc-fg-accent);
+  --abc-button-ghost-border: var(--abc-border-clear);
+  --abc-button-ghost-border-hover: var(--abc-border-clear);
+  --abc-button-ghost-ring: var(--abc-ring-primary);
+
+  --abc-button-link-bg: var(--abc-border-clear);
+  --abc-button-link-bg-hover: var(--abc-border-clear);
+  --abc-button-link-fg: var(--abc-fg-link);
+  --abc-button-link-fg-hover: var(--abc-fg-link-hover);
+  --abc-button-link-border: var(--abc-border-clear);
+  --abc-button-link-border-hover: var(--abc-border-clear);
+  --abc-button-link-ring: var(--abc-ring-primary);
 }

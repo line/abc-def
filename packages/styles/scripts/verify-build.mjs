@@ -280,15 +280,16 @@ const componentTokenFiles = [
 const componentDeclaredTokens = {};
 
 for (const [name, filePath, fileText] of componentTokenFiles) {
+  const declaredInFile = declaredTokens(fileText);
   assertTokenReferencesSubset({
     fileLabel: `${name} component tokens`,
     filePath,
     fileText,
-    allowedTokens: semanticDeclared,
+    allowedTokens: new Set([...semanticDeclared, ...declaredInFile]),
   });
 
   const componentPrefix = `--abc-${name}-`;
-  const declared = tokenPrefixSet(declaredTokens(fileText), componentPrefix);
+  const declared = tokenPrefixSet(declaredInFile, componentPrefix);
   assert(
     declared.size > 0,
     `${name} component token file must declare at least one ${componentPrefix}... token`,
@@ -301,7 +302,20 @@ for (const [name, filePath, fileText, requiredSelectors] of [
     "button",
     sourceFiles.buttonSelectors,
     buttonSelectorText,
-    [".btn", ".btn-primary", ".btn-secondary", ".btn-outline"],
+    [
+      ".btn",
+      ".btn-default",
+      ".btn-destructive",
+      ".btn-outline",
+      ".btn-secondary",
+      ".btn-ghost",
+      ".btn-link",
+      ".btn-sm",
+      ".btn-lg",
+      ".btn-icon",
+      ".btn-icon-sm",
+      ".btn-icon-lg",
+    ],
   ],
   [
     "card",
@@ -366,6 +380,15 @@ for (const [name, filePath, fileText, requiredSelectors] of [
       !selectorRegexFor(selector).test(componentSelectorsOutsideLayer),
       `Selector ${selector} must only appear inside @layer components in ${filePath}`,
     );
+  }
+
+  if (name === "button") {
+    for (const forbiddenSelector of [".btn-primary"]) {
+      assert(
+        !selectorRegexFor(forbiddenSelector).test(fileText),
+        `Forbidden legacy selector ${forbiddenSelector} found in ${filePath}`,
+      );
+    }
   }
 }
 
