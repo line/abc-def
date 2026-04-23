@@ -16,8 +16,11 @@ ABC Def is a reset design system monorepo shell for building shared UI packages 
 
 ## Documentation
 
+Start with `docs/guides/README.md`.
+
 Contributor-facing guides live under `docs/guides`:
 
+- `docs/guides/README.md`
 - `docs/guides/design-system-architecture.md`
 - `docs/guides/theme-and-token-contract.md`
 - `docs/guides/component-onboarding.md`
