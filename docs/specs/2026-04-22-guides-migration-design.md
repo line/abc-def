@@ -1,5 +1,7 @@
 # Guides Migration Design
 
+> Historical note: this design captures the migration away from `docs/superpowers`. Any `docs/superpowers/...` paths mentioned below are legacy references only; the current contributor-facing docs entry point is `docs/guides/`.
+
 ## Summary
 
 This repository will replace the existing `docs/superpowers` documentation set with a smaller set of durable guides under `docs/guides`.

@@ -1,5 +1,7 @@
 # Guides Migration Implementation Plan
 
+> Historical note: this execution plan was written before the legacy `docs/superpowers` tree was removed. Any `docs/superpowers/...` paths mentioned below are historical references only; the current contributor-facing docs entry point is `docs/guides/`.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the legacy `docs/superpowers` document set with topic-based guides under `docs/guides`, remove duplicate onboarding docs, and leave the repository with a single contributor-facing documentation entry point.
