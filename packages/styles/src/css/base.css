@@ -2,25 +2,13 @@
 @import "../tokens/semantic.css";
 
 /* Public Tailwind alias layer for app utilities. Internal selectors use --abc-* tokens directly. */
-@theme {
-  --color-background: var(--abc-bg-base);
-  --color-foreground: var(--abc-fg-base);
-  --color-primary: var(--abc-bg-primary);
-  --color-primary-foreground: var(--abc-fg-primary);
-  --color-muted: var(--abc-bg-muted);
-  --color-muted-foreground: var(--abc-fg-muted);
-  --color-border: var(--abc-border-muted);
-
-  --radius-sm: var(--abc-radius-sm);
-  --radius-md: var(--abc-radius-md);
-  --radius-lg: var(--abc-radius-lg);
-
-  --spacing-1: var(--abc-space-1);
-  --spacing-2: var(--abc-space-2);
-  --spacing-3: var(--abc-space-3);
-  --spacing-4: var(--abc-space-4);
-  --spacing-6: var(--abc-space-6);
-  --spacing-8: var(--abc-space-8);
+@theme inline {
+  --radius: 0.375rem;
+  --radius-xs: calc(var(--radius) * 0.6);
+  --radius-sm: calc(var(--radius) * 0.8);
+  --radius-md: calc(var(--radius) * 1);
+  --radius-lg: calc(var(--radius) * 1.2);
+  --radius-xl: calc(var(--radius) * 1.4);
 }
 
 @layer base {

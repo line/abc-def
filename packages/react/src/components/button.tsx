@@ -20,28 +20,36 @@ import { Slot } from "radix-ui";
 
 import { cn } from "../lib/cn";
 
-const buttonVariants = cva("btn", {
+const buttonVariants = cva("group/button button", {
   variants: {
     variant: {
-      default: "btn-default",
-      destructive: "btn-destructive",
-      ghost: "btn-ghost",
-      link: "btn-link",
-      outline: "btn-outline",
-      secondary: "btn-secondary",
+      default: "button-variant-default",
+      destructive: "button-variant-destructive",
+      ghost: "button-variant-ghost",
+      link: "button-variant-link",
+      outline: "button-variant-outline",
     },
     size: {
-      default: null,
-      sm: "btn-sm",
-      lg: "btn-lg",
-      icon: "btn-icon",
-      "icon-sm": "btn-icon-sm",
-      "icon-lg": "btn-icon-lg",
+      default: "button-size-default",
+      xs: "button-size-xs",
+      sm: "button-size-sm",
+      lg: "button-size-lg",
+      icon: "button-size-icon",
+      "icon-xs": "button-size-icon-xs",
+      "icon-sm": "button-size-icon-sm",
+      "icon-lg": "button-size-icon-lg",
+    },
+    rounded: {
+      default: "button-rounded-default",
+      xs: "button-rounded-xs",
+      sm: "button-rounded-sm",
+      lg: "button-rounded-lg",
     },
   },
   defaultVariants: {
     variant: "default",
     size: "default",
+    rounded: "default",
   },
 });
 
@@ -53,7 +61,10 @@ export interface ButtonProps
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, className, size, type, variant, ...props }, ref) => {
+  (
+    { asChild = false, className, size, type, variant, rounded, ...props },
+    ref,
+  ) => {
     const Comp = asChild ? Slot.Root : "button";
 
     return (
@@ -61,7 +72,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         data-slot="button"
         data-variant={variant}
         data-size={size}
-        className={cn(buttonVariants({ variant, size, className }))}
+        data-rounded={rounded}
+        className={cn(buttonVariants({ variant, size, rounded, className }))}
         ref={ref}
         {...props}
       />

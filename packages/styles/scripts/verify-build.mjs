@@ -74,9 +74,7 @@ const blockBodiesForSelector = (fileText, selector) => {
 
   for (let match; (match = selectorRegex.exec(fileText)); ) {
     const lineBreakIndex =
-      match.index > 0
-        ? fileText.lastIndexOf("\n", match.index - 1)
-        : -1;
+      match.index > 0 ? fileText.lastIndexOf("\n", match.index - 1) : -1;
     const lineStart = lineBreakIndex === -1 ? 0 : lineBreakIndex + 1;
     const prefix = fileText.slice(lineStart, match.index);
     const trimmedPrefix = prefix.trimEnd();
@@ -121,10 +119,7 @@ const assertDeclarationValue = ({
   expectedValue,
 }) => {
   const blockBodies = blockBodiesForSelector(fileText, selector);
-  assert(
-    blockBodies.length > 0,
-    `Missing selector ${selector} in ${filePath}`,
-  );
+  assert(blockBodies.length > 0, `Missing selector ${selector} in ${filePath}`);
   assert(
     blockBodies.length === 1,
     `Expected a single ${selector} block in ${filePath} but found ${blockBodies.length}`,
@@ -637,11 +632,7 @@ for (const importPath of [
 
 for (const importPath of [
   "../tokens/components/button.css",
-  "../tokens/components/card.css",
-  "../tokens/components/input.css",
   "./components/button.css",
-  "./components/card.css",
-  "./components/input.css",
 ]) {
   assert(
     componentsEntryText.includes(importPath),

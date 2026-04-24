@@ -1,78 +1,57 @@
 :root {
-  --abc-bg-base: var(--abc-color-white);
-  --abc-fg-base: var(--abc-color-slate-950);
+  --abc-bg-base: var(--color-white);
+  --abc-fg-base: var(--color-slate-950);
 
-  --abc-bg-primary: var(--abc-color-blue-600);
-  --abc-fg-primary: var(--abc-color-slate-50);
-  --abc-ring-primary: var(--abc-color-blue-600);
+  --abc-ring: var(--color-blue-600);
 
-  --abc-bg-destructive: var(--abc-color-red-600);
-  --abc-fg-destructive: var(--abc-color-white);
-  --abc-ring-destructive: var(--abc-color-red-600);
+  --abc-bg-primary: var(--color-blue-600);
+  --abc-fg-primary: var(--color-slate-50);
+  --abc-border-primary: var(--color-blue-600);
 
-  --abc-bg-muted: var(--abc-color-slate-100);
-  --abc-fg-muted: var(--abc-color-slate-500);
-  --abc-border-muted: var(--abc-color-slate-200);
+  --abc-bg-secondary: var(--color-slate-100);
+  --abc-fg-secondary: var(--color-slate-950);
+  --abc-border-secondary: var(--color-slate-100);
 
-  --abc-bg-secondary: var(--abc-color-slate-100);
-  --abc-fg-secondary: var(--abc-color-slate-950);
+  --abc-bg-destructive: var(--color-red-600);
+  --abc-fg-destructive: var(--color-white);
+  --abc-border-destructive: var(--color-red-600);
+  --abc-ring-destructive: var(--color-red-600);
 
-  --abc-bg-accent: var(--abc-color-slate-100);
-  --abc-bg-accent-strong: var(--abc-color-slate-200);
-  --abc-fg-accent: var(--abc-color-slate-950);
+  --abc-bg-muted: var(--color-slate-100);
+  --abc-fg-muted: var(--color-slate-500);
+  --abc-border-muted: var(--color-slate-200);
 
-  --abc-fg-link: var(--abc-color-blue-600);
-  --abc-fg-link-hover: var(--abc-color-slate-700);
-
-  --abc-border-clear: var(--abc-color-transparent);
-
-  --abc-radius-control: var(--abc-radius-md);
-  --abc-radius-surface: var(--abc-radius-lg);
-
-  --abc-space-control-inline: var(--abc-space-4);
-  --abc-space-control-inline-compact: var(--abc-space-3);
-  --abc-space-control-inline-roomy: var(--abc-space-6);
-  --abc-space-control-gap: var(--abc-space-2);
-  --abc-space-actions-gap: var(--abc-space-3);
-  --abc-space-surface-padding: var(--abc-space-6);
-  --abc-space-content-gap: var(--abc-space-4);
-
-  --abc-size-control-sm: var(--abc-size-8);
-  --abc-size-control-md: var(--abc-size-9);
-  --abc-size-control-lg: var(--abc-size-10);
-  --abc-size-icon-sm: var(--abc-size-4);
-  --abc-size-icon-md: var(--abc-size-4);
-  --abc-size-icon-lg: var(--abc-size-5);
-
-  --abc-font-control: var(--abc-font-size-sm);
-  --abc-font-title: var(--abc-font-size-xl);
-
-  --abc-shadow-surface: var(--abc-shadow-raised-sm);
+  --abc-bg-accent: var(--color-slate-100);
+  --abc-fg-accent: var(--color-slate-950);
+  --abc-border-accent: var(--color-slate-200);
 }
 
 .dark {
-  --abc-bg-base: var(--abc-color-slate-950);
-  --abc-fg-base: var(--abc-color-slate-50);
+  --abc-bg-base: var(--color-slate-950);
+  --abc-fg-base: var(--color-slate-50);
 
-  --abc-bg-primary: var(--abc-color-slate-50);
-  --abc-fg-primary: var(--abc-color-slate-950);
-  --abc-ring-primary: var(--abc-color-slate-300);
+  --abc-bg-primary: var(--color-blue-600);
+  --abc-fg-primary: var(--color-slate-50);
+  --abc-border-primary: var(--color-blue-600);
+  --abc-ring-primary: var(--color-blue-600);
 
-  --abc-bg-destructive: var(--abc-color-red-600);
-  --abc-fg-destructive: var(--abc-color-white);
-  --abc-ring-destructive: var(--abc-color-red-600);
+  --abc-bg-secondary: var(--color-slate-100);
+  --abc-fg-secondary: var(--color-slate-950);
+  --abc-border-secondary: var(--color-slate-100);
+  --abc-ring-secondary: var(--color-slate-100);
 
-  --abc-bg-muted: var(--abc-color-slate-700);
-  --abc-fg-muted: var(--abc-color-slate-300);
-  --abc-border-muted: var(--abc-color-slate-700);
+  --abc-bg-destructive: var(--color-red-600);
+  --abc-fg-destructive: var(--color-white);
+  --abc-border-destructive: var(--color-red-600);
+  --abc-ring-destructive: var(--color-red-600);
 
-  --abc-bg-secondary: var(--abc-color-slate-700);
-  --abc-fg-secondary: var(--abc-color-slate-50);
+  --abc-bg-muted: var(--color-slate-100);
+  --abc-fg-muted: var(--color-slate-500);
+  --abc-border-muted: var(--color-slate-200);
+  --abc-ring-muted: var(--color-slate-200);
 
-  --abc-bg-accent: var(--abc-color-slate-700);
-  --abc-bg-accent-strong: var(--abc-color-slate-500);
-  --abc-fg-accent: var(--abc-color-slate-50);
-
-  --abc-fg-link: var(--abc-color-slate-50);
-  --abc-fg-link-hover: var(--abc-color-slate-300);
+  --abc-bg-accent: var(--color-slate-100);
+  --abc-fg-accent: var(--color-slate-950);
+  --abc-border-accent: var(--color-slate-200);
+  --abc-ring-accent: var(--color-slate-200);
 }

@@ -12,6 +12,7 @@
   "dependencies": {
     "@abc-def/react": "workspace:*",
     "@abc-def/styles": "workspace:*",
+    "lucide-react": "^1.8.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },

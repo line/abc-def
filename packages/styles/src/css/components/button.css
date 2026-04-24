@@ -1,157 +1,83 @@
 /* packages/styles/src/css/components/button.css */
 @layer components {
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--abc-button-gap);
-    min-height: var(--abc-button-height);
-    padding-inline: var(--abc-button-padding-inline);
-    border: 1px solid var(--abc-button-border);
-    border-radius: var(--abc-button-radius);
-    background: var(--abc-button-bg);
-    color: var(--abc-button-fg);
-    font-size: var(--abc-button-font-size);
-    font-weight: 500;
-    line-height: 1;
-    white-space: nowrap;
-    text-decoration: var(--abc-button-text-decoration);
-    text-underline-offset: 0.2em;
-    cursor: pointer;
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      opacity 0.2s ease;
+  .button {
+    @apply focus-visible:border-(--button-ring) focus-visible:ring-3 focus-visible:ring-(--button-ring)/50;
+    @apply aria-invalid:border-(--button-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--button-ring-destructive)/20;
+    @apply active:not-aria-[haspopup]:translate-y-px inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-clip-padding text-sm font-medium outline-none transition-all;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0;
   }
 
-  .btn:hover {
-    background: var(--abc-button-bg-hover);
-    color: var(--abc-button-fg-hover);
-    border-color: var(--abc-button-border-hover);
+  .button-variant-default {
+    /* @apply [a]:hover:bg-(--button-bg-primary)/80; */
+
+    @apply border-(--button-border-primary) bg-(--button-bg-primary) text-(--button-fg-primary);
+    @apply hover:border-(--button-border-primary-hover) hover:bg-(--button-bg-primary-hover) hover:text-(--button-fg-primary-hover);
+    @apply aria-expanded:bg-(--button-bg-primary-expanded) aria-expanded:text-(--button-fg-primary-expanded) aria-expanded:border-(--button-border-primary-expanded);
   }
 
-  .btn:focus-visible {
-    outline: none;
-    box-shadow:
-      0 0 0 2px var(--abc-button-focus-surface),
-      0 0 0 5px var(--abc-button-ring-shadow);
+  .button-variant-outline {
+    @apply border-(--button-border-outline) bg-(--button-bg-outline) text-(--button-fg-outline);
+    @apply hover:border-(--button-border-outline-hover) hover:bg-(--button-bg-outline-hover) hover:text-(--button-fg-outline-hover);
+    @apply aria-expanded:border-(--button-border-outline-expanded) aria-expanded:bg-(--button-bg-outline-expanded) aria-expanded:text-(--button-fg-outline-expanded);
   }
 
-  .btn:disabled,
-  .btn[aria-disabled="true"] {
-    pointer-events: none;
-    opacity: 0.5;
+  .button-variant-ghost {
+    @apply bg-(--button-bg-ghost) text-(--button-fg-ghost);
+    @apply hover:bg-(--button-bg-ghost-hover) hover:text-(--button-fg-ghost-hover);
+    @apply aria-expanded:bg-(--button-bg-ghost-expanded) aria-expanded:text-(--button-fg-ghost-expanded);
   }
 
-  .btn :where(svg) {
-    inline-size: var(--abc-button-icon-size);
-    block-size: var(--abc-button-icon-size);
-    flex: none;
+  .button-variant-destructive {
+    @apply focus-visible:border-(--button-ring-destructive) focus-visible:ring-3 focus-visible:ring-(--button-ring-destructive)/50;
+
+    @apply border-(--button-border-destructive) bg-(--button-bg-destructive) text-(--button-fg-destructive);
+    @apply hover:border-(--button-border-destructive-hover) hover:bg-(--button-bg-destructive-hover) hover:text-(--button-fg-destructive-hover);
+    @apply aria-expanded:border-(--button-border-destructive-expanded) aria-expanded:bg-(--button-bg-destructive-expanded) aria-expanded:text-(--button-fg-destructive-expanded);
   }
 
-  .btn-default {
-    --abc-button-bg: var(--abc-button-default-bg);
-    --abc-button-bg-hover: var(--abc-button-default-bg-hover);
-    --abc-button-fg: var(--abc-button-default-fg);
-    --abc-button-fg-hover: var(--abc-button-default-fg-hover);
-    --abc-button-border: var(--abc-button-default-border);
-    --abc-button-border-hover: var(--abc-button-default-border-hover);
-    --abc-button-ring-shadow: var(--abc-button-default-ring-shadow);
+  .button-variant-link {
+    @apply bg-(--button-bg-link) text-(--button-fg-link);
+    @apply hover:bg-(--button-bg-link-hover) hover:text-(--button-fg-link-hover);
+    @apply underline-offset-4 hover:underline;
   }
 
-  .btn-destructive {
-    --abc-button-bg: var(--abc-button-destructive-bg);
-    --abc-button-bg-hover: var(--abc-button-destructive-bg-hover);
-    --abc-button-fg: var(--abc-button-destructive-fg);
-    --abc-button-fg-hover: var(--abc-button-destructive-fg-hover);
-    --abc-button-border: var(--abc-button-destructive-border);
-    --abc-button-border-hover: var(--abc-button-destructive-border-hover);
-    --abc-button-ring-shadow: var(--abc-button-destructive-ring-shadow);
+  .button-size-default {
+    @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 h-8 gap-1.5 px-2.5;
+  }
+  .button-size-xs {
+    @apply has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 h-6 gap-1 px-2 text-xs [&_svg:not([class*='size-'])]:size-3;
+  }
+  .button-size-sm {
+    @apply has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 h-7 gap-1 px-2.5 text-[0.8rem] [&_svg:not([class*='size-'])]:size-3.5;
+  }
+  .button-size-lg {
+    @apply has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 h-9 gap-1.5 px-2.5;
   }
 
-  .btn-outline {
-    --abc-button-bg: var(--abc-button-outline-bg);
-    --abc-button-bg-hover: var(--abc-button-outline-bg-hover);
-    --abc-button-fg: var(--abc-button-outline-fg);
-    --abc-button-fg-hover: var(--abc-button-outline-fg-hover);
-    --abc-button-border: var(--abc-button-outline-border);
-    --abc-button-border-hover: var(--abc-button-outline-border-hover);
-    --abc-button-ring-shadow: var(--abc-button-outline-ring-shadow);
+  .button-size-icon {
+    @apply size-8;
+  }
+  .button-size-icon-xs {
+    @apply size-6 [&_svg:not([class*='size-'])]:size-3;
+  }
+  .button-size-icon-sm {
+    @apply size-7;
+  }
+  .button-size-icon-lg {
+    @apply size-9;
   }
 
-  .btn-secondary {
-    --abc-button-bg: var(--abc-button-secondary-bg);
-    --abc-button-bg-hover: var(--abc-button-secondary-bg-hover);
-    --abc-button-fg: var(--abc-button-secondary-fg);
-    --abc-button-fg-hover: var(--abc-button-secondary-fg-hover);
-    --abc-button-border: var(--abc-button-secondary-border);
-    --abc-button-border-hover: var(--abc-button-secondary-border-hover);
-    --abc-button-ring-shadow: var(--abc-button-secondary-ring-shadow);
+  .button-rounded-xs {
+    @apply in-data-[slot=button-group]:rounded-xs rounded-xs;
   }
-
-  .btn-ghost {
-    --abc-button-bg: var(--abc-button-ghost-bg);
-    --abc-button-bg-hover: var(--abc-button-ghost-bg-hover);
-    --abc-button-fg: var(--abc-button-ghost-fg);
-    --abc-button-fg-hover: var(--abc-button-ghost-fg-hover);
-    --abc-button-border: var(--abc-button-ghost-border);
-    --abc-button-border-hover: var(--abc-button-ghost-border-hover);
-    --abc-button-ring-shadow: var(--abc-button-ghost-ring-shadow);
+  .button-rounded-sm {
+    @apply in-data-[slot=button-group]:rounded-sm rounded-sm;
   }
-
-  .btn-link {
-    --abc-button-bg: var(--abc-button-link-bg);
-    --abc-button-bg-hover: var(--abc-button-link-bg-hover);
-    --abc-button-fg: var(--abc-button-link-fg);
-    --abc-button-fg-hover: var(--abc-button-link-fg-hover);
-    --abc-button-border: var(--abc-button-link-border);
-    --abc-button-border-hover: var(--abc-button-link-border-hover);
-    --abc-button-ring-shadow: var(--abc-button-link-ring-shadow);
-    --abc-button-text-decoration: underline;
-
-    min-height: auto;
-    padding-inline: 0;
+  .button-rounded-default {
+    @apply in-data-[slot=button-group]:rounded-md rounded-md;
   }
-
-  .btn-sm {
-    min-height: var(--abc-button-height-sm);
-    padding-inline: var(--abc-button-padding-inline-sm);
-  }
-
-  .btn-lg {
-    min-height: var(--abc-button-height-lg);
-    padding-inline: var(--abc-button-padding-inline-lg);
-  }
-
-  .btn-icon,
-  .btn-icon-sm,
-  .btn-icon-lg {
-    padding-inline: 0;
-  }
-
-  .btn-icon {
-    inline-size: var(--abc-button-height);
-  }
-
-  .btn-icon-sm {
-    min-height: var(--abc-button-height-sm);
-    inline-size: var(--abc-button-height-sm);
-  }
-
-  .btn-icon-sm :where(svg) {
-    inline-size: var(--abc-button-icon-size-sm);
-    block-size: var(--abc-button-icon-size-sm);
-  }
-
-  .btn-icon-lg {
-    min-height: var(--abc-button-height-lg);
-    inline-size: var(--abc-button-height-lg);
-  }
-
-  .btn-icon-lg :where(svg) {
-    inline-size: var(--abc-button-icon-size-lg);
-    block-size: var(--abc-button-icon-size-lg);
+  .button-rounded-lg {
+    @apply in-data-[slot=button-group]:rounded-lg rounded-lg;
   }
 }
