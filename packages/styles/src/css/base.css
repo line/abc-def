@@ -4,11 +4,6 @@
 /* Public Tailwind alias layer for app utilities. Internal selectors use --abc-* tokens directly. */
 @theme inline {
   --radius: 0.375rem;
-  --radius-xs: calc(var(--radius) * 0.6);
-  --radius-sm: calc(var(--radius) * 0.8);
-  --radius-md: calc(var(--radius) * 1);
-  --radius-lg: calc(var(--radius) * 1.2);
-  --radius-xl: calc(var(--radius) * 1.4);
 }
 
 @layer base {

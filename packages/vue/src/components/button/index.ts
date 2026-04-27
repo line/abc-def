@@ -13,20 +13,15 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-"use client";
-
 import type { VariantProps } from "class-variance-authority";
-import * as React from "react";
 import { cva } from "class-variance-authority";
-import { Slot } from "radix-ui";
 
-import { cn } from "../lib/utils";
+export { default as Button } from "./Button.vue";
 
-const buttonVariants = cva("group/button button", {
+export const buttonVariants = cva("group/button button", {
   variants: {
     variant: {
       default: "button-variant-default",
-      secondary: "button-variant-secondary",
       destructive: "button-variant-destructive",
       ghost: "button-variant-ghost",
       link: "button-variant-link",
@@ -59,36 +54,4 @@ const buttonVariants = cva("group/button button", {
   },
 });
 
-export interface ButtonProps
-  extends
-    React.ComponentPropsWithoutRef<"button">,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-}
-
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, rounded, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot.Root : "button";
-
-    return (
-      <Comp
-        data-slot="button"
-        data-variant={variant}
-        data-size={size}
-        data-rounded={rounded}
-        className={cn(
-          buttonVariants({
-            variant: variant ?? "default",
-            size: size ?? "default",
-            rounded: rounded ?? "default",
-            className,
-          }),
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
-  },
-);
-
-Button.displayName = "Button";
+export type ButtonVariants = VariantProps<typeof buttonVariants>;

@@ -1,0 +1,10 @@
+:root {
+  --input-ring: var(--abc-ring);
+  --input-border: var(--abc-border-muted);
+  --input-fg: var(--abc-fg-muted);
+  --input-bg: var(--abc-bg-base);
+
+  --input-fg-destructive: var(--abc-fg-destructive);
+
+  --input-file-fg: var(--abc-fg-base);
+}

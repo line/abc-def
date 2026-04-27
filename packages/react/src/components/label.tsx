@@ -13,15 +13,24 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-export { Button } from "./components/button";
-export type { ButtonProps } from "./components/button";
-export { Separator } from "./components/separator";
-export type { SeparatorProps } from "./components/separator";
+"use client";
 
-export {
-  ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
-} from "./components/button-group";
+import * as React from "react";
+import { Label as LabelPrimitive } from "radix-ui";
 
-export { Input } from "./components/input";
+import { cn } from "@/lib/utils";
+
+function Label({
+  className,
+  ...props
+}: React.ComponentProps<typeof LabelPrimitive.Root>) {
+  return (
+    <LabelPrimitive.Root
+      data-slot="label"
+      className={cn("label", className)}
+      {...props}
+    />
+  );
+}
+
+export { Label };

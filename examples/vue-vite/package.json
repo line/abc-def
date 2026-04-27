@@ -12,6 +12,8 @@
   "dependencies": {
     "@abc-def/styles": "workspace:*",
     "@abc-def/vue": "workspace:*",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "lucide-vue-next": "^1.0.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
@@ -21,4 +23,3 @@
     "vite": "^7.0.0"
   }
 }
-

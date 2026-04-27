@@ -13,19 +13,32 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type { ClassValue } from "clsx";
-import type { SetupContext } from "vue";
-import { defineComponent, h } from "vue";
+"use client";
 
-import { cn } from "../lib/cn";
+import * as React from "react";
+import { Separator as SeparatorPrimitive } from "radix-ui";
 
-export const Input = defineComponent({
-  name: "AbcInput",
-  setup(_props, { attrs }: SetupContext) {
-    return () =>
-      h("input", {
-        ...attrs,
-        class: cn("input", attrs.class as ClassValue),
-      });
-  },
-});
+import { cn } from "../lib/utils";
+
+export interface SeparatorProps extends React.ComponentProps<
+  typeof SeparatorPrimitive.Root
+> {}
+
+function Separator({
+  className,
+  orientation = "horizontal",
+  decorative = true,
+  ...props
+}: SeparatorProps) {
+  return (
+    <SeparatorPrimitive.Root
+      data-slot="separator"
+      decorative={decorative}
+      orientation={orientation}
+      className={cn("separator", className)}
+      {...props}
+    />
+  );
+}
+
+export { Separator };

@@ -3,17 +3,33 @@
   .button {
     @apply focus-visible:border-(--button-ring) focus-visible:ring-3 focus-visible:ring-(--button-ring)/50;
     @apply aria-invalid:border-(--button-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--button-ring-destructive)/20;
-    @apply active:not-aria-[haspopup]:translate-y-px inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-clip-padding text-sm font-medium outline-none transition-all;
+    @apply active:not-aria-[haspopup]:translate-y-px inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap border border-transparent bg-clip-padding text-sm font-medium outline-none transition-all;
     @apply disabled:pointer-events-none disabled:opacity-50;
-    @apply [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0;
+    /* @apply button-rounded-default; */
+    /* @apply [&_svg:not([class*='size-'])]:size-4; */
+
+    /* variant default */
+    /* @apply border-(--button-border-primary) bg-(--button-bg-primary) text-(--button-fg-primary); */
+    /* @apply hover:border-(--button-border-primary-hover) hover:bg-(--button-bg-primary-hover) hover:text-(--button-fg-primary-hover); */
+    /* @apply aria-expanded:bg-(--button-bg-primary-expanded) aria-expanded:text-(--button-fg-primary-expanded) aria-expanded:border-(--button-border-primary-expanded); */
+
+    /* size default */
+    /* @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 h-8 gap-1.5 px-2.5; */
+
+    /* rounded default */
+    /* @apply rounded-(--button-radius-md); */
   }
 
   .button-variant-default {
-    /* @apply [a]:hover:bg-(--button-bg-primary)/80; */
-
     @apply border-(--button-border-primary) bg-(--button-bg-primary) text-(--button-fg-primary);
     @apply hover:border-(--button-border-primary-hover) hover:bg-(--button-bg-primary-hover) hover:text-(--button-fg-primary-hover);
     @apply aria-expanded:bg-(--button-bg-primary-expanded) aria-expanded:text-(--button-fg-primary-expanded) aria-expanded:border-(--button-border-primary-expanded);
+  }
+  .button-variant-secondary {
+    @apply border-(--button-border-secondary) bg-(--button-bg-secondary) text-(--button-fg-secondary);
+    @apply hover:border-(--button-border-secondary-hover) hover:bg-(--button-bg-secondary-hover) hover:text-(--button-fg-secondary-hover);
+    @apply aria-expanded:bg-(--button-bg-secondary-expanded) aria-expanded:text-(--button-fg-secondary-expanded) aria-expanded:border-(--button-border-secondary-expanded);
   }
 
   .button-variant-outline {
@@ -22,10 +38,11 @@
     @apply aria-expanded:border-(--button-border-outline-expanded) aria-expanded:bg-(--button-bg-outline-expanded) aria-expanded:text-(--button-fg-outline-expanded);
   }
 
+  /* border-transparent */
   .button-variant-ghost {
-    @apply bg-(--button-bg-ghost) text-(--button-fg-ghost);
-    @apply hover:bg-(--button-bg-ghost-hover) hover:text-(--button-fg-ghost-hover);
-    @apply aria-expanded:bg-(--button-bg-ghost-expanded) aria-expanded:text-(--button-fg-ghost-expanded);
+    @apply bg-(--button-bg-ghost) text-(--button-fg-ghost) border-transparent;
+    @apply hover:bg-(--button-bg-ghost-hover) hover:text-(--button-fg-ghost-hover) hover:border-transparent;
+    @apply aria-expanded:bg-(--button-bg-ghost-expanded) aria-expanded:text-(--button-fg-ghost-expanded) aria-expanded:border-transparent;
   }
 
   .button-variant-destructive {
@@ -42,42 +59,51 @@
     @apply underline-offset-4 hover:underline;
   }
 
+  .button-size-xs {
+    @apply has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 h-6 gap-1 px-2 text-xs;
+  }
+  .button-size-sm {
+    @apply has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 h-7 gap-1 px-2.5 text-sm;
+  }
   .button-size-default {
     @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 h-8 gap-1.5 px-2.5;
   }
-  .button-size-xs {
-    @apply has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 h-6 gap-1 px-2 text-xs [&_svg:not([class*='size-'])]:size-3;
-  }
-  .button-size-sm {
-    @apply has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 h-7 gap-1 px-2.5 text-[0.8rem] [&_svg:not([class*='size-'])]:size-3.5;
-  }
   .button-size-lg {
-    @apply has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 h-9 gap-1.5 px-2.5;
+    @apply has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5 h-9 gap-1.5 px-2.5 text-lg;
+  }
+  .button-size-xl {
+    @apply has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 h-10 gap-1.5 px-3 text-xl;
   }
 
-  .button-size-icon {
-    @apply size-8;
-  }
   .button-size-icon-xs {
     @apply size-6 [&_svg:not([class*='size-'])]:size-3;
   }
   .button-size-icon-sm {
-    @apply size-7;
+    @apply size-7 [&_svg:not([class*='size-'])]:size-4;
+  }
+  .button-size-icon {
+    @apply size-8 [&_svg:not([class*='size-'])]:size-5;
   }
   .button-size-icon-lg {
-    @apply size-9;
+    @apply size-9 [&_svg:not([class*='size-'])]:size-6;
+  }
+  .button-size-icon-xl {
+    @apply size-10 [&_svg:not([class*='size-'])]:size-7;
   }
 
   .button-rounded-xs {
-    @apply in-data-[slot=button-group]:rounded-xs rounded-xs;
+    @apply rounded-(--button-radius-xs);
   }
   .button-rounded-sm {
-    @apply in-data-[slot=button-group]:rounded-sm rounded-sm;
+    @apply rounded-(--button-radius-sm);
   }
   .button-rounded-default {
-    @apply in-data-[slot=button-group]:rounded-md rounded-md;
+    @apply rounded-(--button-radius-md);
   }
   .button-rounded-lg {
-    @apply in-data-[slot=button-group]:rounded-lg rounded-lg;
+    @apply rounded-(--button-radius-lg);
+  }
+  .button-rounded-xl {
+    @apply rounded-(--button-radius-xl);
   }
 }

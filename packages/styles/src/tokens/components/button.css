@@ -16,6 +16,19 @@
   --button-fg-primary-expanded: var(--abc-fg-base);
   --button-border-primary-expanded: var(--abc-border-primary);
 
+  /* Secondary button styles */
+  --button-bg-secondary: var(--abc-bg-secondary);
+  --button-fg-secondary: var(--abc-fg-secondary);
+  --button-border-secondary: var(--abc-border-secondary);
+
+  --button-bg-secondary-hover: var(--abc-bg-secondary);
+  --button-fg-secondary-hover: var(--abc-fg-secondary);
+  --button-border-secondary-hover: var(--abc-border-secondary);
+
+  --button-bg-secondary-expanded: var(--abc-bg-secondary);
+  --button-fg-secondary-expanded: var(--abc-fg-secondary);
+  --button-border-secondary-expanded: var(--abc-border-secondary);
+
   /* Outline button styles */
   --button-bg-outline: var(--abc-bg-base);
   --button-fg-outline: var(--abc-fg-base);
@@ -23,11 +36,11 @@
 
   --button-bg-outline-hover: var(--abc-bg-accent);
   --button-fg-outline-hover: var(--abc-fg-base);
-  --button-border-outline-hover: var(--abc-border-primary);
+  --button-border-outline-hover: var(--abc-border-muted);
 
   --button-bg-outline-expanded: var(--abc-bg-accent);
   --button-fg-outline-expanded: var(--abc-fg-base);
-  --button-border-outline-expanded: var(--abc-border-primary);
+  --button-border-outline-expanded: var(--abc-border-muted);
 
   /* Ghost button styles */
   --button-bg-ghost: var(--abc-bg-clear);
@@ -41,21 +54,27 @@
 
   /* Destructive button styles */
   --button-bg-destructive: var(--abc-bg-destructive);
-  --button-fg-destructive: var(--abc-fg-destructive);
+  --button-fg-destructive: var(--abc-fg-primary);
   --button-border-destructive: var(--abc-border-destructive);
 
   --button-bg-destructive-hover: var(--abc-bg-destructive);
-  --button-fg-destructive-hover: var(--abc-fg-destructive-hover);
-  --button-border-destructive-hover: var(--abc-border-destructive-hover);
+  --button-fg-destructive-hover: var(--abc-fg-primary);
+  --button-border-destructive-hover: var(--abc-border-destructive);
 
   --button-bg-destructive-expanded: var(--abc-bg-accent);
-  --button-fg-destructive-expanded: var(--abc-fg-base);
-  --button-border-destructive-expanded: var(--abc-border-primary);
+  --button-fg-destructive-expanded: var(--abc-fg-primary);
+  --button-border-destructive-expanded: var(--abc-border-destructive);
 
   /* Link button styles */
-  --button-bg-link: var(--abc-bg-clear);
-  --button-fg-link: var(--abc-fg-primary);
+  --button-bg-link: var(--abc-bg-base);
+  --button-fg-link: var(--abc-fg-base);
 
   --button-bg-link-hover: var(--abc-bg-link);
   --button-fg-link-hover: var(--abc-fg-link-hover);
+
+  --button-radius-xs: var(--abc-radius-xs);
+  --button-radius-sm: var(--abc-radius-sm);
+  --button-radius-md: var(--abc-radius-md);
+  --button-radius-lg: var(--abc-radius-lg);
+  --button-radius-xl: var(--abc-radius-xl);
 }

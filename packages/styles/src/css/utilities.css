@@ -1,12 +1,1 @@
 /* packages/styles/src/css/utilities.css */
-@import "../tokens/primitive.css";
-@import "../tokens/semantic.css";
-
-@utility abc-text-dim {
-  color: var(--abc-fg-muted);
-}
-
-@utility abc-surface-base {
-  background: var(--abc-bg-base);
-  color: var(--abc-fg-base);
-}

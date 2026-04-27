@@ -13,15 +13,19 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-export { Button } from "./components/button";
-export type { ButtonProps } from "./components/button";
-export { Separator } from "./components/separator";
-export type { SeparatorProps } from "./components/separator";
+import * as React from "react";
 
-export {
-  ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
-} from "./components/button-group";
+import { cn } from "@/lib/utils";
 
-export { Input } from "./components/input";
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  return (
+    <input
+      type={type}
+      data-slot="input"
+      className={cn("input", className)}
+      {...props}
+    />
+  );
+}
+
+export { Input };

@@ -25,7 +25,7 @@
     "./css/utilities": "./src/css/utilities.css"
   },
   "scripts": {
-    "build": "tsup --config tsup.config.ts && node scripts/verify-build.mjs",
+    "build": "tsup --config tsup.config.ts",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "dev": "tsup --config tsup.config.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",

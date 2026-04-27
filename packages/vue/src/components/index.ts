@@ -13,10 +13,5 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type { ClassValue } from "clsx";
-import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+export { Button } from "./button";
+export { Separator } from "./separator";

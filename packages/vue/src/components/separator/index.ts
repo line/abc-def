@@ -13,15 +13,4 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-export { Button } from "./components/button";
-export type { ButtonProps } from "./components/button";
-export { Separator } from "./components/separator";
-export type { SeparatorProps } from "./components/separator";
-
-export {
-  ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
-} from "./components/button-group";
-
-export { Input } from "./components/input";
+export { default as Separator } from "./Separator.vue";

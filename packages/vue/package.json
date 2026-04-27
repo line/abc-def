@@ -28,6 +28,7 @@
   "dependencies": {
     "@abc-def/styles": "workspace:*",
     "clsx": "^2.1.1",
+    "reka-ui": "^2.9.6",
     "tailwind-merge": "^3.4.0",
     "vue": "^3.5.13"
   },
@@ -38,7 +39,8 @@
     "eslint": "catalog:",
     "prettier": "catalog:",
     "tsup": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "unplugin-vue": "^7.1.1"
   },
   "peerDependencies": {
     "vue": "^3.5.13"

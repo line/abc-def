@@ -24,6 +24,12 @@
   --abc-bg-accent: var(--color-slate-100);
   --abc-fg-accent: var(--color-slate-950);
   --abc-border-accent: var(--color-slate-200);
+
+  --abc-radius-xs: calc(var(--radius) * 0);
+  --abc-radius-sm: calc(var(--radius) * 0.5);
+  --abc-radius-md: calc(var(--radius) * 1);
+  --abc-radius-lg: calc(var(--radius) * 1.5);
+  --abc-radius-xl: calc(var(--radius) * 2);
 }
 
 .dark {
