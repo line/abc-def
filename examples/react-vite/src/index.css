@@ -18,8 +18,8 @@
 
   body {
     margin: 0;
-    background: var(--abc-bg-base);
-    color: var(--abc-fg-base);
+    background: var(--background);
+    color: var(--foreground);
     font-family: Inter, sans-serif;
     line-height: 1.5;
   }

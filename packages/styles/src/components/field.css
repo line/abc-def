@@ -1,0 +1,225 @@
+:root {
+  --field-description-fg: var(--muted-foreground);
+  --field-description-link-fg: var(--primary);
+  --field-error-fg: var(--destructive);
+  --field-label-checked-border: color-mix(
+    in oklab,
+    var(--primary) 30%,
+    transparent
+  );
+  --field-label-checked-bg: color-mix(in oklab, var(--primary) 5%, transparent);
+  --field-separator-content-bg: var(--background);
+  --field-separator-content-fg: var(--muted-foreground);
+}
+
+.dark {
+  --field-label-checked-border: color-mix(
+    in oklab,
+    var(--primary) 20%,
+    transparent
+  );
+  --field-label-checked-bg: color-mix(
+    in oklab,
+    var(--primary) 10%,
+    transparent
+  );
+}
+
+@layer components {
+  .field-set {
+    @apply flex flex-col gap-4;
+  }
+
+  .field-set:has(> [data-slot="checkbox-group"]),
+  .field-set:has(> [data-slot="radio-group"]) {
+    @apply gap-3;
+  }
+
+  .field-legend {
+    @apply mb-1.5 font-medium;
+  }
+
+  .field-legend-variant-label {
+    @apply text-sm;
+  }
+
+  .field-legend-variant-legend {
+    @apply text-base;
+  }
+
+  .field-group {
+    @apply flex w-full flex-col gap-5;
+    container-name: field-group;
+    container-type: inline-size;
+  }
+
+  .field-group[data-slot="checkbox-group"] {
+    @apply gap-3;
+  }
+
+  .field-group > [data-slot="field-group"] {
+    @apply gap-4;
+  }
+
+  .field {
+    @apply flex w-full gap-2;
+  }
+
+  .field[data-invalid="true"] {
+    color: var(--field-error-fg);
+  }
+
+  .field-orientation-vertical {
+    @apply flex-col;
+  }
+
+  .field-orientation-vertical > * {
+    width: 100%;
+  }
+
+  .field-orientation-vertical > .sr-only {
+    width: auto;
+  }
+
+  .field-orientation-horizontal {
+    @apply flex-row items-center;
+  }
+
+  .field-orientation-horizontal:has(> [data-slot="field-content"]) {
+    @apply items-start;
+  }
+
+  .field-orientation-horizontal > [data-slot="field-label"] {
+    flex: 1 1 auto;
+  }
+
+  .field-orientation-horizontal:has(> [data-slot="field-content"])
+    > :is([role="checkbox"], [role="radio"]) {
+    margin-top: 1px;
+  }
+
+  .field-orientation-horizontal [data-slot="field-description"] {
+    text-wrap: balance;
+  }
+
+  .field-orientation-responsive {
+    @apply flex-col;
+  }
+
+  .field-orientation-responsive > * {
+    width: 100%;
+  }
+
+  .field-orientation-responsive > .sr-only {
+    width: auto;
+  }
+
+  .field-content {
+    @apply flex flex-1 flex-col gap-0.5 leading-snug;
+  }
+
+  .field-label {
+    @apply flex w-fit gap-2 leading-snug;
+  }
+
+  .field-label:has([data-checked]) {
+    background-color: var(--field-label-checked-bg);
+    border-color: var(--field-label-checked-border);
+  }
+
+  .field-label:has(> [data-slot="field"]) {
+    @apply w-full flex-col rounded-lg border;
+  }
+
+  .field-label:has(> [data-slot="field"]) > [data-slot="field"] {
+    @apply p-2.5;
+  }
+
+  .field-title {
+    @apply flex w-fit items-center gap-2 text-sm font-medium;
+  }
+
+  .field-description {
+    @apply text-left text-sm font-normal leading-normal;
+    color: var(--field-description-fg);
+  }
+
+  [data-slot="field-legend"][data-variant="legend"] + .field-description {
+    @apply -mt-1.5;
+  }
+
+  .field-description:nth-last-child(2) {
+    @apply -mt-1;
+  }
+
+  .field-description:last-child {
+    margin-top: 0;
+  }
+
+  .field-description > a {
+    @apply underline underline-offset-4;
+  }
+
+  .field-description > a:hover {
+    color: var(--field-description-link-fg);
+  }
+
+  .field-separator {
+    @apply relative -my-2 h-5 text-sm;
+  }
+
+  [data-slot="field-group"][data-variant="outline"] .field-separator {
+    @apply -mb-2;
+  }
+
+  .field-separator-line {
+    @apply absolute inset-0 top-1/2;
+  }
+
+  .field-separator-content {
+    @apply relative mx-auto block w-fit px-2;
+    background-color: var(--field-separator-content-bg);
+    color: var(--field-separator-content-fg);
+  }
+
+  .field-error {
+    @apply text-sm font-normal;
+    color: var(--field-error-fg);
+  }
+
+  .field-error-list {
+    @apply ml-4 flex list-disc flex-col gap-1;
+  }
+
+  [data-slot="field"][data-disabled="true"] .field-label,
+  [data-slot="field"][data-disabled="true"] .field-title {
+    @apply opacity-50;
+  }
+
+  @container field-group (min-width: 28rem) {
+    .field-orientation-responsive {
+      @apply flex-row items-center;
+    }
+
+    .field-orientation-responsive:has(> [data-slot="field-content"]) {
+      @apply items-start;
+    }
+
+    .field-orientation-responsive > * {
+      width: auto;
+    }
+
+    .field-orientation-responsive > [data-slot="field-label"] {
+      flex: 1 1 auto;
+    }
+
+    .field-orientation-responsive:has(> [data-slot="field-content"])
+      > :is([role="checkbox"], [role="radio"]) {
+      margin-top: 1px;
+    }
+
+    .field-orientation-responsive [data-slot="field-description"] {
+      text-wrap: balance;
+    }
+  }
+}

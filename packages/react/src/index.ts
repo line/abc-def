@@ -26,7 +26,32 @@ export {
 
 export { Input } from "./components/input";
 export { Label } from "./components/label";
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "./components/select";
 export { Spinner } from "./components/spinner";
+export { Textarea } from "./components/textarea";
+export {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
+  FieldSeparator,
+  FieldSet,
+  FieldTitle,
+} from "./components/field";
 export {
   Accordion,
   AccordionContent,
@@ -39,3 +64,8 @@ export {
   AlertDescription,
   AlertTitle,
 } from "./components/alert";
+
+export { Slider } from "./components/slider";
+export { Switch } from "./components/switch";
+export { Checkbox } from "./components/checkbox";
+export { RadioGroup, RadioGroupItem } from "./components/radio-group";

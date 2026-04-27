@@ -1,20 +1,130 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 @import "@abc-def/styles/css";
 @source "../index.html";
 
 body {
   min-height: 100vh;
-  padding: 3rem 1.5rem;
+  margin: 0;
+  padding: 3rem 1.5rem 5rem;
+  background:
+    radial-gradient(circle at top, color-mix(in oklab, var(--accent) 35%, transparent), transparent 45%),
+    linear-gradient(180deg, color-mix(in oklab, var(--background) 94%, var(--muted) 6%), var(--background));
+  color: var(--foreground);
+  font-family:
+    Inter, "SF Pro Text", "Segoe UI", sans-serif;
 }
 
 .demo-shell {
   width: min(100%, 72rem);
   margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.demo-hero {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(135deg, color-mix(in oklab, var(--card) 94%, var(--accent) 6%), color-mix(in oklab, var(--card) 98%, transparent)),
+    var(--card);
+  box-shadow: 0 24px 60px -36px color-mix(in oklab, var(--foreground) 25%, transparent);
+}
+
+.demo-eyebrow {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.demo-title {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.demo-copy {
+  max-width: 54rem;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.demo-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.demo-section-heading {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.demo-section-heading h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.demo-section-heading p {
+  margin: 0;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.demo-grid {
+  display: grid;
+  gap: 1rem;
 }
 
 .demo-card {
-  max-width: 42rem;
-  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: 1.25rem;
+  background: color-mix(in oklab, var(--card) 96%, var(--accent) 4%);
+  box-shadow: 0 18px 40px -36px color-mix(in oklab, var(--foreground) 40%, transparent);
+}
+
+.demo-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.demo-card p {
+  margin: 0;
+}
+
+.demo-muted {
+  color: var(--muted-foreground);
+}
+
+.demo-stack {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.demo-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.demo-cluster-tight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .demo-field {
@@ -25,4 +135,110 @@ body {
 .demo-label {
   font-size: 0.875rem;
   font-weight: 600;
+}
+
+.demo-divider {
+  height: 1px;
+  background: color-mix(in oklab, var(--border) 80%, transparent);
+}
+
+.demo-form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.demo-select-shell {
+  position: relative;
+  width: min(100%, 18rem);
+}
+
+.demo-select-shell .select-trigger {
+  width: 100%;
+}
+
+.demo-select-shell .select-content {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  width: 100%;
+}
+
+.demo-slider-shell {
+  position: relative;
+  width: min(100%, 18rem);
+  padding: 0.5rem 0;
+}
+
+.demo-slider-root {
+  position: relative;
+}
+
+.demo-slider-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.demo-slider-range {
+  left: 25%;
+  width: 50%;
+}
+
+.demo-slider-shell-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 12rem;
+}
+
+.demo-slider-shell-vertical .demo-slider-root {
+  position: relative;
+  height: 100%;
+}
+
+.demo-slider-shell-vertical .slider {
+  height: 100%;
+}
+
+.demo-slider-shell-vertical .demo-slider-thumb {
+  left: 50%;
+  top: auto;
+  transform: translate(-50%, 50%);
+}
+
+.demo-slider-shell-vertical .demo-slider-range {
+  bottom: 20%;
+  left: auto;
+  width: 100%;
+  height: 45%;
+}
+
+.demo-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+}
+
+.demo-card-action {
+  margin-top: 0.5rem;
+}
+
+.demo-accordion-copy {
+  padding-bottom: 1rem;
+  color: var(--muted-foreground);
+}
+
+@media (min-width: 48rem) {
+  .demo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .demo-card-span-2 {
+    grid-column: span 2;
+  }
+
+  .demo-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

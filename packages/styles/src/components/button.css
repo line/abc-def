@@ -6,15 +6,15 @@
   /* Primary button styles */
   --button-bg-primary: var(--primary);
   --button-fg-primary: var(--primary-foreground);
-  --button-border-primary: var(--abc-border-primary);
+  --button-border-primary: var(--primary);
 
   --button-bg-primary-hover: var(--primary);
   --button-fg-primary-hover: var(--primary-foreground);
-  --button-border-primary-hover: var(--abc-border-primary);
+  --button-border-primary-hover: var(--primary);
 
-  --button-bg-primary-expanded: var(--abc-bg-accent);
-  --button-fg-primary-expanded: var(--abc-fg-base);
-  --button-border-primary-expanded: var(--abc-border-primary);
+  --button-bg-primary-expanded: var(--accent);
+  --button-fg-primary-expanded: var(--accent-foreground);
+  --button-border-primary-expanded: var(--primary);
 
   /* Secondary button styles */
   --button-bg-secondary: var(--secondary);
@@ -31,46 +31,46 @@
 
   /* Outline button styles */
   --button-bg-outline: transparent;
-  --button-fg-outline: var(--fg-base);
-  --button-border-outline: var(--border-muted);
+  --button-fg-outline: var(--foreground);
+  --button-border-outline: var(--border);
 
-  --button-bg-outline-hover: var(--bg-accent);
-  --button-fg-outline-hover: var(--fg-base);
-  --button-border-outline-hover: var(--border-muted);
+  --button-bg-outline-hover: var(--accent);
+  --button-fg-outline-hover: var(--accent-foreground);
+  --button-border-outline-hover: var(--border);
 
-  --button-bg-outline-expanded: var(--bg-accent);
-  --button-fg-outline-expanded: var(--fg-base);
-  --button-border-outline-expanded: var(--border-muted);
+  --button-bg-outline-expanded: var(--accent);
+  --button-fg-outline-expanded: var(--accent-foreground);
+  --button-border-outline-expanded: var(--border);
 
   /* Ghost button styles */
-  --button-bg-ghost: var(--bg-clear);
-  --button-fg-ghost: var(--fg-accent);
+  --button-bg-ghost: transparent;
+  --button-fg-ghost: var(--accent-foreground);
 
-  --button-bg-ghost-hover: var(--abc-bg-accent);
-  --button-fg-ghost-hover: var(--abc-fg-accent);
+  --button-bg-ghost-hover: var(--accent);
+  --button-fg-ghost-hover: var(--accent-foreground);
 
-  --button-bg-ghost-expanded: var(--abc-bg-accent);
-  --button-fg-ghost-expanded: var(--abc-fg-accent);
+  --button-bg-ghost-expanded: var(--accent);
+  --button-fg-ghost-expanded: var(--accent-foreground);
 
   /* Destructive button styles */
-  --button-bg-destructive: var(--abc-bg-destructive);
-  --button-fg-destructive: var(--abc-fg-primary);
-  --button-border-destructive: var(--abc-border-destructive);
+  --button-bg-destructive: var(--destructive);
+  --button-fg-destructive: var(--destructive-foreground);
+  --button-border-destructive: var(--destructive);
 
-  --button-bg-destructive-hover: var(--abc-bg-destructive);
-  --button-fg-destructive-hover: var(--abc-fg-primary);
-  --button-border-destructive-hover: var(--abc-border-destructive);
+  --button-bg-destructive-hover: var(--destructive);
+  --button-fg-destructive-hover: var(--destructive-foreground);
+  --button-border-destructive-hover: var(--destructive);
 
-  --button-bg-destructive-expanded: var(--abc-bg-accent);
-  --button-fg-destructive-expanded: var(--abc-fg-primary);
-  --button-border-destructive-expanded: var(--abc-border-destructive);
+  --button-bg-destructive-expanded: var(--accent);
+  --button-fg-destructive-expanded: var(--accent-foreground);
+  --button-border-destructive-expanded: var(--destructive);
 
   /* Link button styles */
-  --button-bg-link: var(--abc-bg-base);
-  --button-fg-link: var(--abc-fg-base);
+  --button-bg-link: transparent;
+  --button-fg-link: var(--foreground);
 
-  --button-bg-link-hover: var(--abc-bg-link);
-  --button-fg-link-hover: var(--abc-fg-link-hover);
+  --button-bg-link-hover: transparent;
+  --button-fg-link-hover: var(--primary);
 
   --button-radius-xs: var(--radius-xs);
   --button-radius-sm: var(--radius-sm);

@@ -1,12 +1,13 @@
 :root {
-  --input-ring: var(--abc-ring);
+  --input-ring: var(--ring);
 
-  --input-fg: var(--abc-fg-muted);
-  --input-bg: var(--abc-bg-base);
-  --input-border: var(--abc-border-muted);
+  --input-fg: var(--muted-foreground);
+  --input-bg: var(--background);
+  --input-border: var(--input);
+  --input-border-destructive: var(--destructive);
 
-  --input-fg-destructive: var(--abc-fg-destructive);
-  --input-file-fg: var(--abc-fg-base);
+  --input-fg-destructive: var(--destructive);
+  --input-file-fg: var(--foreground);
 }
 
 @layer components {

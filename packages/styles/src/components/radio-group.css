@@ -1,0 +1,63 @@
+:root {
+  --radio-group-item-ring: var(--ring);
+  --radio-group-item-bg: transparent;
+  --radio-group-item-bg-dark: color-mix(
+    in oklab,
+    var(--input) 30%,
+    transparent
+  );
+  --radio-group-item-border: var(--input);
+  --radio-group-item-border-invalid: var(--destructive);
+  --radio-group-item-border-checked: var(--primary);
+  --radio-group-item-border-invalid-checked: var(--primary);
+  --radio-group-item-bg-checked: var(--primary);
+  --radio-group-item-fg-checked: var(--primary-foreground);
+  --radio-group-indicator-dot-bg: var(--primary-foreground);
+}
+
+@layer components {
+  .radio-group {
+    @apply grid w-full gap-2;
+  }
+
+  .radio-group-item {
+    @apply focus-visible:border-(--radio-group-item-ring) focus-visible:ring-3 focus-visible:ring-(--radio-group-item-ring)/50;
+    @apply aria-invalid:border-(--radio-group-item-border-invalid) aria-invalid:ring-3 aria-invalid:ring-(--radio-group-item-border-invalid)/20;
+    @apply data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50;
+    @apply relative flex aspect-square size-4 shrink-0 rounded-full border outline-none;
+    @apply after:absolute after:-inset-x-3 after:-inset-y-2;
+    background-color: var(--radio-group-item-bg);
+    border-color: var(--radio-group-item-border);
+  }
+
+  .dark .radio-group-item {
+    background-color: var(--radio-group-item-bg-dark);
+  }
+
+  .radio-group-item[data-state="checked"] {
+    background-color: var(--radio-group-item-bg-checked);
+    border-color: var(--radio-group-item-border-checked);
+    color: var(--radio-group-item-fg-checked);
+  }
+
+  .dark .radio-group-item[data-state="checked"] {
+    background-color: var(--radio-group-item-bg-checked);
+  }
+
+  .radio-group-item[aria-invalid="true"][data-state="checked"] {
+    border-color: var(--radio-group-item-border-invalid-checked);
+  }
+
+  [data-slot="field"]:has([disabled]) .radio-group-item {
+    opacity: 0.5;
+  }
+
+  .radio-group-indicator {
+    @apply relative flex size-4 items-center justify-center;
+  }
+
+  .radio-group-indicator-dot {
+    @apply absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full;
+    background-color: var(--radio-group-indicator-dot-bg);
+  }
+}

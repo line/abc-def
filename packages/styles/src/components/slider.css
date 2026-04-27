@@ -1,0 +1,42 @@
+:root {
+  --slider-track-bg: var(--muted);
+  --slider-range-bg: var(--primary);
+  --slider-thumb-bg: var(--background);
+  --slider-thumb-border: var(--ring);
+  --slider-thumb-ring: var(--ring);
+}
+
+@layer components {
+  .slider {
+    @apply relative flex w-full touch-none select-none items-center;
+    @apply data-disabled:opacity-50;
+    @apply data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-40 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col;
+  }
+
+  .slider-track {
+    @apply relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-1 data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-1;
+    background-color: var(--slider-track-bg);
+  }
+
+  .slider-range {
+    @apply absolute select-none data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full;
+    background-color: var(--slider-range-bg);
+  }
+
+  .slider-thumb {
+    @apply relative block size-3 shrink-0 select-none rounded-full border transition-[color,box-shadow];
+    @apply ring-(--slider-thumb-ring)/50 hover:ring-3 focus-visible:ring-3 active:ring-3 focus-visible:outline-hidden;
+    background-color: var(--slider-thumb-bg);
+    border-color: var(--slider-thumb-border);
+  }
+
+  .slider-thumb::after {
+    content: "";
+    position: absolute;
+    inset: -0.5rem;
+  }
+
+  .slider[data-disabled="true"] .slider-thumb {
+    pointer-events: none;
+  }
+}

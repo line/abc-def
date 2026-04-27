@@ -1,0 +1,57 @@
+:root {
+  --switch-ring: var(--ring);
+  --switch-border-destructive: var(--destructive);
+  --switch-bg-checked: var(--primary);
+  --switch-bg-unchecked: var(--input);
+  --switch-thumb-bg-checked: var(--background);
+  --switch-thumb-bg-unchecked: var(--background);
+}
+
+.dark {
+  --switch-bg-unchecked: color-mix(in oklab, var(--input) 80%, transparent);
+  --switch-thumb-bg-checked: var(--primary-foreground);
+  --switch-thumb-bg-unchecked: var(--foreground);
+}
+
+@layer components {
+  .switch {
+    @apply focus-visible:border-(--switch-ring) focus-visible:ring-3 focus-visible:ring-(--switch-ring)/50;
+    @apply aria-invalid:border-(--switch-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--switch-border-destructive)/20;
+    @apply data-disabled:cursor-not-allowed data-disabled:opacity-50;
+    @apply relative inline-flex shrink-0 items-center rounded-full border border-transparent outline-none transition-all;
+    @apply after:absolute after:-inset-x-3 after:-inset-y-2;
+    @apply data-[size=default]:h-[18.4px] data-[size=default]:w-[32px];
+    @apply data-[size=sm]:h-[14px] data-[size=sm]:w-[24px];
+  }
+
+  .switch[data-state="checked"] {
+    background-color: var(--switch-bg-checked);
+  }
+
+  .switch[data-state="unchecked"] {
+    background-color: var(--switch-bg-unchecked);
+  }
+
+  .switch-thumb {
+    @apply pointer-events-none block rounded-full ring-0 transition-transform;
+    @apply group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3;
+  }
+
+  .switch-thumb[data-state="checked"] {
+    background-color: var(--switch-thumb-bg-checked);
+  }
+
+  .switch-thumb[data-state="unchecked"] {
+    background-color: var(--switch-thumb-bg-unchecked);
+  }
+
+  .switch[data-size="default"] .switch-thumb[data-state="checked"],
+  .switch[data-size="sm"] .switch-thumb[data-state="checked"] {
+    transform: translateX(calc(100% - 2px));
+  }
+
+  .switch[data-size="default"] .switch-thumb[data-state="unchecked"],
+  .switch[data-size="sm"] .switch-thumb[data-state="unchecked"] {
+    transform: translateX(0);
+  }
+}

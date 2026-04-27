@@ -1,0 +1,53 @@
+:root {
+  --checkbox-ring: var(--ring);
+  --checkbox-bg: transparent;
+  --checkbox-bg-dark: color-mix(in oklab, var(--input) 30%, transparent);
+  --checkbox-border: var(--input);
+  --checkbox-border-invalid: var(--destructive);
+  --checkbox-border-checked: var(--primary);
+  --checkbox-border-invalid-checked: var(--primary);
+  --checkbox-bg-checked: var(--primary);
+  --checkbox-fg-checked: var(--primary-foreground);
+}
+
+@layer components {
+  .checkbox {
+    @apply focus-visible:border-(--checkbox-ring) focus-visible:ring-3 focus-visible:ring-(--checkbox-ring)/50;
+    @apply aria-invalid:border-(--checkbox-border-invalid) aria-invalid:ring-3 aria-invalid:ring-(--checkbox-border-invalid)/20;
+    @apply data-disabled:cursor-not-allowed data-disabled:opacity-50;
+    @apply relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border outline-none transition-colors;
+    @apply after:absolute after:-inset-x-3 after:-inset-y-2;
+    background-color: var(--checkbox-bg);
+    border-color: var(--checkbox-border);
+  }
+
+  .dark .checkbox {
+    background-color: var(--checkbox-bg-dark);
+  }
+
+  .checkbox[data-state="checked"] {
+    background-color: var(--checkbox-bg-checked);
+    border-color: var(--checkbox-border-checked);
+    color: var(--checkbox-fg-checked);
+  }
+
+  .dark .checkbox[data-state="checked"] {
+    background-color: var(--checkbox-bg-checked);
+  }
+
+  .checkbox[aria-invalid="true"][data-state="checked"] {
+    border-color: var(--checkbox-border-invalid-checked);
+  }
+
+  [data-slot="field"]:has([disabled]) .checkbox {
+    opacity: 0.5;
+  }
+
+  .checkbox-indicator {
+    @apply grid place-content-center text-current transition-none;
+  }
+
+  .checkbox-indicator > svg {
+    @apply size-3.5;
+  }
+}

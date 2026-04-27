@@ -1,0 +1,19 @@
+:root {
+  --textarea-ring: var(--ring);
+
+  --textarea-bg: var(--background);
+  --textarea-border: var(--input);
+  --textarea-border-destructive: var(--destructive);
+
+  --textarea-placeholder-fg: var(--muted-foreground);
+}
+
+@layer components {
+  .textarea {
+    @apply focus-visible:border-(--textarea-ring) focus-visible:ring-3 focus-visible:ring-(--textarea-ring)/50;
+    @apply disabled:bg-(--textarea-bg)/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50;
+    @apply aria-invalid:border-(--textarea-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--textarea-border-destructive)/20;
+    @apply border-(--textarea-border) placeholder:text-(--textarea-placeholder-fg) bg-(--textarea-bg);
+    @apply field-sizing-content flex min-h-16 w-full rounded-lg border px-2.5 py-2 text-base outline-none transition-colors md:text-sm;
+  }
+}

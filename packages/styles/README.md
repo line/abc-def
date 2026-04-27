@@ -14,7 +14,7 @@ This package is CSS-first: consumers import `@abc-def/styles/css` from their app
 
 Selectors live under `src/css` and consume those token layers.
 
-Color token contract: `--abc-color-*` primitives and their semantic/component aliases resolve to complete CSS color values, so runtime selectors should consume them directly via `var(...)` (not `hsl(var(...))` wrapping).
+Color token contract: Tailwind primitive `--color-*` values flow into semantic tokens and then into component-scoped aliases, so runtime selectors should consume them directly via `var(...)` (not `hsl(var(...))` wrapping).
 Focus shadow tokens in this package use `color-mix(...)`, so consumers should target browsers that support modern CSS color functions.
 
 ## CSS Entries
@@ -30,7 +30,7 @@ The secondary entry points remain exported for compatibility and focused debuggi
 
 ## Layered Internals
 
-`base.css` keeps the token imports and `@theme` declarations together before wrapping the shared element rules in `@layer base`. The `@theme` block is the public Tailwind-facing alias layer for app utilities such as `bg-background` and `text-foreground`; the package's own selectors continue to consume `--abc-*` tokens directly.
+`base.css` keeps the token imports and `@theme` declarations together before wrapping the shared element rules in `@layer base`. The `@theme` block is the public Tailwind-facing alias layer for app utilities such as `bg-background` and `text-foreground`; the package's own selectors should consume semantic tokens and component-scoped aliases directly.
 
 ## Install
 

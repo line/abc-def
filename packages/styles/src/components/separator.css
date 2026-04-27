@@ -1,5 +1,5 @@
 :root {
-  --separator-bg: var(--abc-border-muted);
+  --separator-bg: var(--border);
 }
 
 @layer components {

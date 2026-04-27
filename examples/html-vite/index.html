@@ -7,280 +7,403 @@
     <link rel="stylesheet" href="/src/index.css" />
   </head>
   <body>
-    <main class="bg-background text-foreground min-h-screen px-6">
-      <div class="mx-auto flex w-full max-w-3xl flex-col gap-6">
-        <div class="flex gap-2">
-          <button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-default button-rounded-default"
-          >
-            null</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-default button-rounded-default"
-          >
-            default</button
-          ><button
-            data-slot="button"
-            data-variant="destructive"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-destructive button-size-default button-rounded-default"
-          >
-            destructive</button
-          ><button
-            data-slot="button"
-            data-variant="ghost"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-ghost button-size-default button-rounded-default"
-          >
-            ghost</button
-          ><button
-            data-slot="button"
-            data-variant="link"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-link button-size-default button-rounded-default"
-          >
-            link</button
-          ><button
-            data-slot="button"
-            data-variant="outline"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-outline button-size-default button-rounded-default"
-          >
-            outline
-          </button>
+    <main class="demo-shell">
+      <header class="demo-hero">
+        <p class="demo-eyebrow">abc-def / html-vite</p>
+        <h1 class="demo-title">CSS-first component showcase</h1>
+        <p class="demo-copy">
+          Plain HTML examples wired against <code>@abc-def/styles/css</code>.
+          Native form elements are used where possible, and stateful primitives
+          get a small demo script that toggles <code>data-state</code> and ARIA
+          attributes.
+        </p>
+      </header>
+
+      <section class="demo-section">
+        <div class="demo-section-heading">
+          <h2>Buttons</h2>
+          <p>Variants, sizes, rounded options, and grouped actions.</p>
         </div>
-        <div class="flex gap-2">
-          <button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-default button-rounded-default"
-          >
-            size - null</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="xs"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-xs button-rounded-default"
-          >
-            size - xs</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="sm"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-sm button-rounded-default"
-          >
-            size - sm</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-default button-rounded-default"
-          >
-            size - default</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="lg"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-lg button-rounded-default"
-          >
-            size - lg</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="xl"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-xl button-rounded-default"
-          >
-            size - xl
-          </button>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Variants</h3>
+            <div class="demo-cluster">
+              <button class="group/button button button-variant-default button-size-default button-rounded-default" data-slot="button" data-variant="default" data-size="default" data-rounded="default">Default</button>
+              <button class="group/button button button-variant-secondary button-size-default button-rounded-default" data-slot="button" data-variant="secondary" data-size="default" data-rounded="default">Secondary</button>
+              <button class="group/button button button-variant-outline button-size-default button-rounded-default" data-slot="button" data-variant="outline" data-size="default" data-rounded="default">Outline</button>
+              <button class="group/button button button-variant-ghost button-size-default button-rounded-default" data-slot="button" data-variant="ghost" data-size="default" data-rounded="default">Ghost</button>
+              <button class="group/button button button-variant-link button-size-default button-rounded-default" data-slot="button" data-variant="link" data-size="default" data-rounded="default">Link</button>
+              <button class="group/button button button-variant-destructive button-size-default button-rounded-default" data-slot="button" data-variant="destructive" data-size="default" data-rounded="default">Destructive</button>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <h3>Sizes</h3>
+            <div class="demo-stack">
+              <div class="demo-cluster-tight">
+                <button class="group/button button button-variant-outline button-size-xs button-rounded-default" data-slot="button" data-variant="outline" data-size="xs" data-rounded="default">Extra Small</button>
+                <button class="group/button button button-variant-outline button-size-icon-xs button-rounded-default" aria-label="Add" data-slot="button" data-variant="outline" data-size="icon-xs" data-rounded="default">
+                  <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                </button>
+              </div>
+              <div class="demo-cluster-tight">
+                <button class="group/button button button-variant-outline button-size-sm button-rounded-default" data-slot="button" data-variant="outline" data-size="sm" data-rounded="default">Small</button>
+                <button class="group/button button button-variant-outline button-size-default button-rounded-default" data-slot="button" data-variant="outline" data-size="default" data-rounded="default">Default</button>
+                <button class="group/button button button-variant-outline button-size-lg button-rounded-default" data-slot="button" data-variant="outline" data-size="lg" data-rounded="default">Large</button>
+                <button class="group/button button button-variant-outline button-size-xl button-rounded-default" data-slot="button" data-variant="outline" data-size="xl" data-rounded="default">Extra Large</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="demo-card demo-card-span-2">
+            <h3>Button Groups</h3>
+            <div class="demo-cluster">
+              <div class="button-group button-group-orientation-horizontal" role="group" aria-label="Time range">
+                <button class="group/button button button-variant-outline button-size-sm button-rounded-default" data-slot="button">Today</button>
+                <button class="group/button button button-variant-outline button-size-sm button-rounded-default" data-slot="button">Week</button>
+                <button class="group/button button button-variant-default button-size-sm button-rounded-default" data-slot="button">Month</button>
+              </div>
+              <div class="button-group button-group-orientation-horizontal" role="group" aria-label="Media controls">
+                <button class="group/button button button-variant-outline button-size-icon button-rounded-default" data-slot="button" aria-label="Previous">
+                  <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 20 9 12l10-8" /><path d="M5 19V5" /></svg>
+                </button>
+                <button class="group/button button button-variant-outline button-size-icon button-rounded-default" data-slot="button" aria-label="Play">
+                  <svg class="demo-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z" /></svg>
+                </button>
+                <button class="group/button button button-variant-outline button-size-icon button-rounded-default" data-slot="button" aria-label="Next">
+                  <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 4 10 8-10 8" /><path d="M19 5v14" /></svg>
+                </button>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="flex gap-2">
-          <button
-            data-slot="button"
-            data-variant="default"
-            data-size="icon-xs"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-icon-xs button-rounded-default"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-plus-icon lucide-plus"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14"></path>
-              <path d="M12 5v14"></path>
-            </svg></button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="icon-sm"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-icon-sm button-rounded-default"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-plus-icon lucide-plus"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14"></path>
-              <path d="M12 5v14"></path>
-            </svg></button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="icon"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-icon button-rounded-default"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-plus-icon lucide-plus"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14"></path>
-              <path d="M12 5v14"></path>
-            </svg></button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="icon-lg"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-icon-lg button-rounded-default"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-plus-icon lucide-plus"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14"></path>
-              <path d="M12 5v14"></path>
-            </svg></button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="icon-xl"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-icon-xl button-rounded-default"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-plus-icon lucide-plus"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14"></path>
-              <path d="M12 5v14"></path>
-            </svg>
-          </button>
+      </section>
+
+      <section class="demo-section">
+        <div class="demo-section-heading">
+          <h2>Feedback</h2>
+          <p>Alerts, separators, and disclosure patterns.</p>
         </div>
-        <div class="flex gap-2">
-          <button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-default button-rounded-default"
-          >
-            rounded - null</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="xs"
-            class="group/button button button-variant-default button-size-default button-rounded-xs"
-          >
-            rounded - xs</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="sm"
-            class="group/button button button-variant-default button-size-default button-rounded-sm"
-          >
-            rounded - sm</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="default"
-            class="group/button button button-variant-default button-size-default button-rounded-default"
-          >
-            rounded - default</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="lg"
-            class="group/button button button-variant-default button-size-default button-rounded-lg"
-          >
-            rounded - lg</button
-          ><button
-            data-slot="button"
-            data-variant="default"
-            data-size="default"
-            data-rounded="xl"
-            class="group/button button button-variant-default button-size-default button-rounded-xl"
-          >
-            rounded - xl
-          </button>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Alerts</h3>
+            <div class="demo-stack">
+              <div class="group/alert alert alert-default">
+                <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 8v4" /><path d="M12 16h.01" /><circle cx="12" cy="12" r="10" /></svg>
+                <div data-slot="alert-title" class="alert-title">Profile updated</div>
+                <div data-slot="alert-description" class="alert-description">Your account settings were saved successfully.</div>
+              </div>
+              <div class="group/alert alert alert-destructive">
+                <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" /></svg>
+                <div data-slot="alert-title" class="alert-title">Payment failed</div>
+                <div data-slot="alert-description" class="alert-description">Please review your card details and try again.</div>
+                <div data-slot="alert-action" class="alert-action">
+                  <button class="group/button button button-variant-default button-size-xs button-rounded-default" data-slot="button">Retry</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <h3>Separators</h3>
+            <div class="demo-stack">
+              <div class="demo-cluster-tight">
+                <span>Blog</span>
+                <div class="separator" data-orientation="vertical"></div>
+                <span>Docs</span>
+                <div class="separator" data-orientation="vertical"></div>
+                <span>Source</span>
+              </div>
+              <div class="demo-stack">
+                <div class="demo-cluster-tight" style="justify-content: space-between;">
+                  <span>Usage</span>
+                  <span class="demo-muted">HTML</span>
+                </div>
+                <div class="separator" data-orientation="horizontal"></div>
+                <div class="demo-cluster-tight" style="justify-content: space-between;">
+                  <span>Framework</span>
+                  <span class="demo-muted">React / Vue</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="demo-card demo-card-span-2">
+            <h3>Accordion</h3>
+            <div class="accordion" data-demo-accordion data-type="single">
+              <div class="accordion-item" data-accordion-item>
+                <button class="accordion-trigger" type="button" data-accordion-trigger aria-expanded="true" data-state="open">
+                  How do I reset my password?
+                  <svg class="demo-icon" data-slot="accordion-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <div class="accordion-content demo-accordion-copy" data-accordion-content data-state="open">
+                  Click <strong>Forgot Password</strong> on the login page and follow the reset link sent to your email.
+                </div>
+              </div>
+              <div class="accordion-item" data-accordion-item>
+                <button class="accordion-trigger" type="button" data-accordion-trigger aria-expanded="false" data-state="closed">
+                  Can I change my subscription later?
+                  <svg class="demo-icon" data-slot="accordion-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <div class="accordion-content demo-accordion-copy" data-accordion-content data-state="closed" hidden>
+                  Yes. Plan changes take effect at the next billing cycle unless you upgrade immediately.
+                </div>
+              </div>
+              <div class="accordion-item" data-accordion-item>
+                <button class="accordion-trigger" type="button" data-accordion-trigger aria-expanded="false" data-state="closed">
+                  Which payment methods are supported?
+                  <svg class="demo-icon" data-slot="accordion-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <div class="accordion-content demo-accordion-copy" data-accordion-content data-state="closed" hidden>
+                  Major credit cards, PayPal, and bank transfer are all supported.
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
-      </div>
+      </section>
+
+      <section class="demo-section">
+        <div class="demo-section-heading">
+          <h2>Form Fields</h2>
+          <p>Inputs, textareas, and a custom select rendered with plain HTML.</p>
+        </div>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Input</h3>
+            <div class="field-group">
+              <div class="field field-orientation-vertical" data-slot="field">
+                <label class="label field-label" for="html-demo-username">Username</label>
+                <input id="html-demo-username" class="input" type="text" placeholder="Max Leiter" />
+                <p class="field-description" data-slot="field-description">Choose a unique username for your account.</p>
+              </div>
+              <div class="field field-orientation-vertical" data-slot="field" data-invalid="true">
+                <label class="label field-label" for="html-demo-password">Password</label>
+                <input id="html-demo-password" class="input" type="password" placeholder="••••••••" aria-invalid="true" />
+                <p class="field-error" data-slot="field-error">Must be at least 8 characters long.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <h3>Textarea</h3>
+            <div class="field field-orientation-vertical" data-slot="field">
+              <label class="label field-label" for="html-demo-feedback">Feedback</label>
+              <p class="field-description" data-slot="field-description">Tell us what worked and what needs improvement.</p>
+              <textarea id="html-demo-feedback" class="textarea" rows="4" placeholder="Your feedback helps us improve..."></textarea>
+            </div>
+          </article>
+
+          <article class="demo-card demo-card-span-2">
+            <h3>Select</h3>
+            <div class="field field-orientation-vertical" data-slot="field">
+              <label class="label field-label" for="html-demo-select-trigger">Department</label>
+              <p class="field-description" data-slot="field-description">Open the list and pick one of the available teams.</p>
+              <div class="demo-select-shell" data-demo-select>
+                <button id="html-demo-select-trigger" class="select-trigger" type="button" data-size="default" data-slot="select-trigger" aria-expanded="false" aria-haspopup="listbox" data-placeholder>
+                  <span class="select-value" data-slot="select-value" data-select-value>Choose department</span>
+                  <svg class="demo-icon select-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <div class="select-content" data-slot="select-content" data-state="closed" data-align-trigger="true" data-side="bottom" hidden style="--radix-select-content-available-height: 16rem; --radix-select-content-transform-origin: top center;">
+                  <div class="select-viewport" data-position="item-aligned">
+                    <div class="select-group" data-slot="select-group">
+                      <div class="select-label" data-slot="select-label">Core Teams</div>
+                      <button class="select-item" type="button" role="option" data-select-item data-value="engineering">
+                        <span class="select-item-indicator" hidden>
+                          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                        </span>
+                        <span class="select-item-text" data-slot="select-item-text">Engineering</span>
+                      </button>
+                      <button class="select-item" type="button" role="option" data-select-item data-value="design">
+                        <span class="select-item-indicator" hidden>
+                          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                        </span>
+                        <span class="select-item-text" data-slot="select-item-text">Design</span>
+                      </button>
+                      <button class="select-item" type="button" role="option" data-select-item data-value="product">
+                        <span class="select-item-indicator" hidden>
+                          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                        </span>
+                        <span class="select-item-text" data-slot="select-item-text">Product</span>
+                      </button>
+                    </div>
+                    <div class="select-separator" data-slot="select-separator"></div>
+                    <div class="select-group" data-slot="select-group">
+                      <div class="select-label" data-slot="select-label">Go-to-market</div>
+                      <button class="select-item" type="button" role="option" data-select-item data-value="marketing">
+                        <span class="select-item-indicator" hidden>
+                          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                        </span>
+                        <span class="select-item-text" data-slot="select-item-text">Marketing</span>
+                      </button>
+                      <button class="select-item" type="button" role="option" data-select-item data-value="sales">
+                        <span class="select-item-indicator" hidden>
+                          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                        </span>
+                        <span class="select-item-text" data-slot="select-item-text">Sales</span>
+                      </button>
+                      <button class="select-item" type="button" role="option" data-select-item data-value="support">
+                        <span class="select-item-indicator" hidden>
+                          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                        </span>
+                        <span class="select-item-text" data-slot="select-item-text">Support</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <div class="demo-section-heading">
+          <h2>Choices</h2>
+          <p>Switches, checkboxes, and radio groups using the CSS-only contracts.</p>
+        </div>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Switch</h3>
+            <div class="field-group">
+              <div class="field field-orientation-horizontal" data-slot="field">
+                <div class="field-content" data-slot="field-content">
+                  <label class="label field-label" for="html-switch-share">Share across devices</label>
+                  <p class="field-description" data-slot="field-description">Enable syncing for your focus settings.</p>
+                </div>
+                <button id="html-switch-share" class="group/switch peer switch" type="button" role="switch" aria-checked="false" data-slot="switch" data-demo-switch data-size="default" data-state="unchecked">
+                  <span class="switch-thumb" data-slot="switch-thumb" data-state="unchecked"></span>
+                </button>
+              </div>
+              <label class="label field-label" for="html-switch-notify">
+                <div class="field field-orientation-horizontal" data-slot="field">
+                  <div class="field-content" data-slot="field-content">
+                    <div class="field-title" data-slot="field-title">Enable notifications</div>
+                    <p class="field-description" data-slot="field-description">Receive a message when the setting changes.</p>
+                  </div>
+                  <button id="html-switch-notify" class="group/switch peer switch" type="button" role="switch" aria-checked="true" data-slot="switch" data-demo-switch data-size="default" data-state="checked" data-checked>
+                    <span class="switch-thumb" data-slot="switch-thumb" data-state="checked"></span>
+                  </button>
+                </div>
+              </label>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <h3>Checkbox</h3>
+            <fieldset class="field-set" data-slot="field-set">
+              <legend class="field-legend field-legend-variant-label" data-slot="field-legend" data-variant="label">Display on desktop</legend>
+              <p class="field-description" data-slot="field-description">Select the shortcuts you want to keep visible.</p>
+              <div class="field-group" data-slot="field-group">
+                <div class="field field-orientation-horizontal" data-slot="field">
+                  <button id="html-checkbox-drives" class="peer checkbox" type="button" role="checkbox" aria-checked="true" data-slot="checkbox" data-demo-checkbox data-state="checked" data-checked>
+                    <span class="checkbox-indicator" data-slot="checkbox-indicator">
+                      <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                    </span>
+                  </button>
+                  <label class="label field-label" for="html-checkbox-drives">Hard disks</label>
+                </div>
+                <div class="field field-orientation-horizontal" data-slot="field">
+                  <button id="html-checkbox-external" class="peer checkbox" type="button" role="checkbox" aria-checked="false" data-slot="checkbox" data-demo-checkbox data-state="unchecked">
+                    <span class="checkbox-indicator" data-slot="checkbox-indicator" hidden>
+                      <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                    </span>
+                  </button>
+                  <label class="label field-label" for="html-checkbox-external">External disks</label>
+                </div>
+                <div class="field field-orientation-horizontal" data-slot="field" data-disabled="true">
+                  <button id="html-checkbox-disabled" class="peer checkbox" type="button" role="checkbox" aria-checked="false" data-slot="checkbox" data-demo-checkbox data-state="unchecked" data-disabled="true" disabled>
+                    <span class="checkbox-indicator" data-slot="checkbox-indicator" hidden>
+                      <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+                    </span>
+                  </button>
+                  <label class="label field-label" for="html-checkbox-disabled">Disabled option</label>
+                </div>
+              </div>
+            </fieldset>
+          </article>
+
+          <article class="demo-card demo-card-span-2">
+            <h3>Radio Group</h3>
+            <fieldset class="field-set" data-slot="field-set">
+              <legend class="field-legend field-legend-variant-label" data-slot="field-legend" data-variant="label">Choose a billing plan</legend>
+              <p class="field-description" data-slot="field-description">Only one option can be active at a time.</p>
+              <div class="radio-group" data-slot="radio-group" role="radiogroup" data-demo-radio-group>
+                <div class="field field-orientation-horizontal" data-slot="field">
+                  <button id="html-radio-monthly" class="peer radio-group-item" type="button" role="radio" aria-checked="true" data-slot="radio-group-item" data-demo-radio-item data-state="checked" data-checked>
+                    <span class="radio-group-indicator" data-slot="radio-group-indicator">
+                      <span class="radio-group-indicator-dot"></span>
+                    </span>
+                  </button>
+                  <label class="label field-label" for="html-radio-monthly">Monthly ($19.99)</label>
+                </div>
+                <div class="field field-orientation-horizontal" data-slot="field">
+                  <button id="html-radio-yearly" class="peer radio-group-item" type="button" role="radio" aria-checked="false" data-slot="radio-group-item" data-demo-radio-item data-state="unchecked">
+                    <span class="radio-group-indicator" data-slot="radio-group-indicator" hidden>
+                      <span class="radio-group-indicator-dot"></span>
+                    </span>
+                  </button>
+                  <label class="label field-label" for="html-radio-yearly">Yearly ($199.99)</label>
+                </div>
+                <div class="field field-orientation-horizontal" data-slot="field">
+                  <button id="html-radio-lifetime" class="peer radio-group-item" type="button" role="radio" aria-checked="false" data-slot="radio-group-item" data-demo-radio-item data-state="unchecked">
+                    <span class="radio-group-indicator" data-slot="radio-group-indicator" hidden>
+                      <span class="radio-group-indicator-dot"></span>
+                    </span>
+                  </button>
+                  <label class="label field-label" for="html-radio-lifetime">Lifetime ($299.99)</label>
+                </div>
+              </div>
+            </fieldset>
+          </article>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <div class="demo-section-heading">
+          <h2>Ranges</h2>
+          <p>Slider styling shown with static positions in plain HTML.</p>
+        </div>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <h3>Horizontal</h3>
+            <div class="demo-stack">
+              <div class="demo-cluster-tight" style="justify-content: space-between;">
+                <span class="label">Budget range</span>
+                <span class="demo-muted">$250 - $750</span>
+              </div>
+              <div class="demo-slider-shell">
+                <div class="slider demo-slider-root" data-slot="slider" data-orientation="horizontal">
+                  <div class="slider-track" data-slot="slider-track" data-orientation="horizontal">
+                    <div class="slider-range demo-slider-range" data-slot="slider-range" data-orientation="horizontal"></div>
+                  </div>
+                  <span class="slider-thumb demo-slider-thumb" data-slot="slider-thumb" style="left: 25%;"></span>
+                  <span class="slider-thumb demo-slider-thumb" data-slot="slider-thumb" style="left: 75%;"></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <h3>Vertical / Disabled</h3>
+            <div class="demo-slider-shell-vertical">
+              <div class="slider demo-slider-root" data-slot="slider" data-orientation="vertical">
+                <div class="slider-track" data-slot="slider-track" data-orientation="vertical">
+                  <div class="slider-range demo-slider-range" data-slot="slider-range" data-orientation="vertical"></div>
+                </div>
+                <span class="slider-thumb demo-slider-thumb" data-slot="slider-thumb" style="bottom: 20%;"></span>
+              </div>
+              <div class="slider demo-slider-root" data-slot="slider" data-orientation="vertical" data-disabled="true">
+                <div class="slider-track" data-slot="slider-track" data-orientation="vertical">
+                  <div class="slider-range" data-slot="slider-range" data-orientation="vertical" style="bottom: 0; height: 30%;"></div>
+                </div>
+                <span class="slider-thumb demo-slider-thumb" data-slot="slider-thumb" style="bottom: 30%;"></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
