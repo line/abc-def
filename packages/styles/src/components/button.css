@@ -1,7 +1,7 @@
 /* packages/styles/src/tokens/components/button.css */
 :root {
   --button-ring: var(--ring);
-  --button-ring-destructive: var(--abc-ring-destructive);
+  --button-ring-destructive: var(--destructive);
 
   /* Primary button styles */
   --button-bg-primary: var(--primary);
@@ -43,8 +43,8 @@
   --button-border-outline-expanded: var(--border-muted);
 
   /* Ghost button styles */
-  --button-bg-ghost: var(--abc-bg-clear);
-  --button-fg-ghost: var(--abc-fg-accent);
+  --button-bg-ghost: var(--bg-clear);
+  --button-fg-ghost: var(--fg-accent);
 
   --button-bg-ghost-hover: var(--abc-bg-accent);
   --button-fg-ghost-hover: var(--abc-fg-accent);

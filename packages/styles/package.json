@@ -12,7 +12,7 @@
   "exports": {
     "./css": "./src/index.css",
     "./semantic": "./src/semantic.css",
-    "./components": "./src/css/components/index.css"
+    "./components": "./src/components/index.css"
   },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo dist node_modules",

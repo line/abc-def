@@ -1,3 +1,0 @@
-display_name: Component Token Onboarding
-short_description: Analyze a component source and map it into abc-def's token architecture with approval gates.
-default_prompt: First confirm the required inputs (component name, source reference, requested scope, variant and size scope, approval checkpoints). If any required inputs are missing, ask for them before proposing any token mappings. Once inputs are complete, review the source component, propose primitive/semantic/component token mappings, list exact repo files to change (including packages/react/src/index.ts, packages/vue/src/index.ts, and packages/styles/scripts/verify-build.mjs when applicable), and stop for approval before finalizing new semantic tokens or public component token names.

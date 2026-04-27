@@ -14,17 +14,6 @@ ABC Def is a reset design system monorepo shell for building shared UI packages 
 - `examples/react-vite`: React consumer of `@abc-def/styles/css` and `@abc-def/react`
 - `examples/vue-vite`: Vue consumer of `@abc-def/styles/css` and `@abc-def/vue`
 
-## Documentation
-
-Start with `docs/guides/README.md`.
-
-Contributor-facing guides live under `docs/guides`:
-
-- `docs/guides/README.md`
-- `docs/guides/design-system-architecture.md`
-- `docs/guides/theme-and-token-contract.md`
-- `docs/guides/component-onboarding.md`
-
 ## Plain HTML Usage
 
 Treat `@abc-def/styles/css` as the semantic entry point for plain HTML projects. In a Tailwind v4 stylesheet (for example `src/styles/app.css`) import the shared dependencies before writing markup:
