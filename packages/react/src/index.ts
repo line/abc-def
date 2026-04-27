@@ -25,3 +25,17 @@ export {
 } from "./components/button-group";
 
 export { Input } from "./components/input";
+export { Label } from "./components/label";
+export { Spinner } from "./components/spinner";
+export {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./components/accordion";
+export {
+  Alert,
+  AlertAction,
+  AlertDescription,
+  AlertTitle,
+} from "./components/alert";

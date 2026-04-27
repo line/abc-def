@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 @import "@abc-def/styles/css";
 
 @source "./**/*.{ts,tsx}";
@@ -7,4 +8,31 @@
 #root {
   min-height: 100vh;
   /* --button-bg-primary: yellow; */
+  --accordion-trigger-icon-fg: red;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--abc-bg-base);
+    color: var(--abc-fg-base);
+    font-family: Inter, sans-serif;
+    line-height: 1.5;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
 }

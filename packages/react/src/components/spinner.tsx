@@ -13,10 +13,19 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-export const cssEntry = "@abc-def/styles/css";
+import { Loader2Icon } from "lucide-react";
 
-export const cssEntries = {
-  base: "@abc-def/styles/css/base",
-  components: "@abc-def/styles/css/components",
-  utilities: "@abc-def/styles/css/utilities",
-} as const;
+import { cn } from "@/lib/utils";
+
+function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
+  return (
+    <Loader2Icon
+      role="status"
+      aria-label="Loading"
+      className={cn("size-4 animate-spin", className)}
+      {...props}
+    />
+  );
+}
+
+export { Spinner };

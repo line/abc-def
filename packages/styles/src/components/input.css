@@ -1,3 +1,14 @@
+:root {
+  --input-ring: var(--abc-ring);
+
+  --input-fg: var(--abc-fg-muted);
+  --input-bg: var(--abc-bg-base);
+  --input-border: var(--abc-border-muted);
+
+  --input-fg-destructive: var(--abc-fg-destructive);
+  --input-file-fg: var(--abc-fg-base);
+}
+
 @layer components {
   .input {
     @apply focus-visible:border-(--input-ring) focus-visible:ring-3 focus-visible:ring-(--input-ring)/50;

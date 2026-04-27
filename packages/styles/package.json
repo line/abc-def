@@ -6,28 +6,16 @@
   "type": "module",
   "files": [
     "dist",
-    "src/css",
-    "src/tokens",
+    "src",
     "README.md"
   ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./css": "./src/css/index.css",
-    "./css/base": "./src/css/base.css",
-    "./css/components": "./src/css/components.css",
-    "./css/utilities": "./src/css/utilities.css"
+    "./css": "./src/index.css",
+    "./semantic": "./src/semantic.css",
+    "./components": "./src/css/components/index.css"
   },
   "scripts": {
-    "build": "tsup --config tsup.config.ts",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsup --config tsup.config.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
@@ -38,9 +26,7 @@
     "@line/abc-def-tsconfig": "workspace:^",
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "tailwindcss": "catalog:",
-    "tsup": "catalog:",
-    "typescript": "catalog:"
+    "tailwindcss": "catalog:"
   },
   "prettier": "@line/abc-def-prettier-config"
 }

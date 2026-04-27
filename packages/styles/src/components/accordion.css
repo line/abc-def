@@ -1,0 +1,25 @@
+:root {
+  --accordion-ring: var(--ring);
+  --accordion-trigger-icon-fg: var(--muted-foreground);
+}
+
+@layer components {
+  .accordion {
+    @apply flex w-full flex-col;
+  }
+
+  .accordion-item {
+    @apply not-last:border-b;
+  }
+
+  .accordion-trigger {
+    @apply focus-visible:border-(--accordion-ring) focus-visible:ring-3 focus-visible:ring-(--accordion-ring)/50 focus-visible:after:border-(--accordion-ring);
+    @apply **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-(--accordion-trigger-icon-fg);
+    @apply relative flex flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-sm font-medium outline-none transition-all;
+    @apply hover:underline disabled:pointer-events-none disabled:opacity-50;
+  }
+  .accordion-content {
+    @apply data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden text-sm;
+    /* @apply data-open:animate-accordion-down data-closed:animate-accordion-up overflow-hidden text-sm; */
+  }
+}

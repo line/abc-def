@@ -1,0 +1,40 @@
+:root {
+  --alert-bg-default: var(--card);
+  --alert-fg-default: var(--card-foreground);
+
+  --alert-bg-destructive: var(--card);
+  --alert-fg-destructive: var(--destructive);
+
+  --alert-title-fg-link: var(--primary);
+
+  --alert-description-fg: var(--muted-foreground);
+  --alert-description-fg-link: var(--primary);
+}
+
+@layer components {
+  .alert {
+    @apply relative grid w-full gap-0.5 rounded-lg border px-2.5 py-2 text-left text-sm;
+    @apply *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4;
+    @apply has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18;
+    @apply has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2;
+  }
+
+  .alert-default {
+    @apply bg-(--alert-bg-default) text-(--alert-fg-default);
+  }
+
+  .alert-destructive {
+    @apply bg-(--alert-bg-destructive) text-(--alert-fg-destructive) *:data-[slot=alert-description]:text-(--alert-fg-destructive)/90 *:[svg]:text-current;
+  }
+
+  .alert-title {
+    @apply [&_a]:underline-offset-3 [&_a]:hover:text-(--alert-title-fg-link) font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline;
+  }
+
+  .alert-description {
+    @apply text-(--alert-description-fg) [&_a]:underline-offset-3 [&_a]:hover:text-(--alert-description-fg-link) text-balance text-sm md:text-pretty [&_a]:underline [&_p:not(:last-child)]:mb-4;
+  }
+  .alert-action {
+    @apply absolute right-2 top-2;
+  }
+}

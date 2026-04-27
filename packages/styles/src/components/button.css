@@ -1,4 +1,84 @@
-/* packages/styles/src/css/components/button.css */
+/* packages/styles/src/tokens/components/button.css */
+:root {
+  --button-ring: var(--ring);
+  --button-ring-destructive: var(--abc-ring-destructive);
+
+  /* Primary button styles */
+  --button-bg-primary: var(--primary);
+  --button-fg-primary: var(--primary-foreground);
+  --button-border-primary: var(--abc-border-primary);
+
+  --button-bg-primary-hover: var(--primary);
+  --button-fg-primary-hover: var(--primary-foreground);
+  --button-border-primary-hover: var(--abc-border-primary);
+
+  --button-bg-primary-expanded: var(--abc-bg-accent);
+  --button-fg-primary-expanded: var(--abc-fg-base);
+  --button-border-primary-expanded: var(--abc-border-primary);
+
+  /* Secondary button styles */
+  --button-bg-secondary: var(--secondary);
+  --button-fg-secondary: var(--secondary-foreground);
+  --button-border-secondary: transparent;
+
+  --button-bg-secondary-hover: var(--secondary);
+  --button-fg-secondary-hover: var(--secondary-foreground);
+  --button-border-secondary-hover: transparent;
+
+  --button-bg-secondary-expanded: var(--secondary);
+  --button-fg-secondary-expanded: var(--secondary-foreground);
+  --button-border-secondary-expanded: transparent;
+
+  /* Outline button styles */
+  --button-bg-outline: transparent;
+  --button-fg-outline: var(--fg-base);
+  --button-border-outline: var(--border-muted);
+
+  --button-bg-outline-hover: var(--bg-accent);
+  --button-fg-outline-hover: var(--fg-base);
+  --button-border-outline-hover: var(--border-muted);
+
+  --button-bg-outline-expanded: var(--bg-accent);
+  --button-fg-outline-expanded: var(--fg-base);
+  --button-border-outline-expanded: var(--border-muted);
+
+  /* Ghost button styles */
+  --button-bg-ghost: var(--abc-bg-clear);
+  --button-fg-ghost: var(--abc-fg-accent);
+
+  --button-bg-ghost-hover: var(--abc-bg-accent);
+  --button-fg-ghost-hover: var(--abc-fg-accent);
+
+  --button-bg-ghost-expanded: var(--abc-bg-accent);
+  --button-fg-ghost-expanded: var(--abc-fg-accent);
+
+  /* Destructive button styles */
+  --button-bg-destructive: var(--abc-bg-destructive);
+  --button-fg-destructive: var(--abc-fg-primary);
+  --button-border-destructive: var(--abc-border-destructive);
+
+  --button-bg-destructive-hover: var(--abc-bg-destructive);
+  --button-fg-destructive-hover: var(--abc-fg-primary);
+  --button-border-destructive-hover: var(--abc-border-destructive);
+
+  --button-bg-destructive-expanded: var(--abc-bg-accent);
+  --button-fg-destructive-expanded: var(--abc-fg-primary);
+  --button-border-destructive-expanded: var(--abc-border-destructive);
+
+  /* Link button styles */
+  --button-bg-link: var(--abc-bg-base);
+  --button-fg-link: var(--abc-fg-base);
+
+  --button-bg-link-hover: var(--abc-bg-link);
+  --button-fg-link-hover: var(--abc-fg-link-hover);
+
+  --button-radius-xs: var(--radius-xs);
+  --button-radius-sm: var(--radius-sm);
+  --button-radius-md: var(--radius-md);
+  --button-radius-lg: var(--radius-lg);
+  --button-radius-xl: var(--radius-xl);
+}
+
 @layer components {
   .button {
     @apply focus-visible:border-(--button-ring) focus-visible:ring-3 focus-visible:ring-(--button-ring)/50;
@@ -6,19 +86,6 @@
     @apply active:not-aria-[haspopup]:translate-y-px inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap border border-transparent bg-clip-padding text-sm font-medium outline-none transition-all;
     @apply disabled:pointer-events-none disabled:opacity-50;
     @apply [&_svg]:pointer-events-none [&_svg]:shrink-0;
-    /* @apply button-rounded-default; */
-    /* @apply [&_svg:not([class*='size-'])]:size-4; */
-
-    /* variant default */
-    /* @apply border-(--button-border-primary) bg-(--button-bg-primary) text-(--button-fg-primary); */
-    /* @apply hover:border-(--button-border-primary-hover) hover:bg-(--button-bg-primary-hover) hover:text-(--button-fg-primary-hover); */
-    /* @apply aria-expanded:bg-(--button-bg-primary-expanded) aria-expanded:text-(--button-fg-primary-expanded) aria-expanded:border-(--button-border-primary-expanded); */
-
-    /* size default */
-    /* @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 h-8 gap-1.5 px-2.5; */
-
-    /* rounded default */
-    /* @apply rounded-(--button-radius-md); */
   }
 
   .button-variant-default {
