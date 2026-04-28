@@ -1,3 +1,9 @@
+:root {
+  --button-group-text-bg: var(--surface);
+  --button-group-text-fg: var(--foreground);
+  --button-group-separator-bg: var(--border);
+}
+
 @layer components {
   .button-group {
     @apply flex w-fit items-stretch *:focus-visible:relative *:focus-visible:z-10 has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-r-lg [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1;
@@ -11,7 +17,7 @@
   }
 
   .button-group-text {
-    @apply bg-(--button-group-text-fg) flex items-center gap-2 rounded-lg border px-2.5 text-sm font-medium [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none;
+    @apply bg-(--button-group-text-bg) text-(--button-group-text-fg) flex items-center gap-2 rounded-lg border px-2.5 text-sm font-medium [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none;
   }
   .button-group-separator {
     @apply bg-(--button-group-separator-bg) data-horizontal:mx-px data-horizontal:w-auto data-vertical:my-px data-vertical:h-auto relative self-stretch;

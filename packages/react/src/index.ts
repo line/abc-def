@@ -64,6 +64,17 @@ export {
   AlertDescription,
   AlertTitle,
 } from "./components/alert";
+export {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./components/card";
+export { Badge } from "./components/badge";
+export type { BadgeProps } from "./components/badge";
 
 export { Slider } from "./components/slider";
 export { Switch } from "./components/switch";

@@ -18,7 +18,7 @@
     @apply focus-visible:border-(--switch-ring) focus-visible:ring-3 focus-visible:ring-(--switch-ring)/50;
     @apply aria-invalid:border-(--switch-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--switch-border-destructive)/20;
     @apply data-disabled:cursor-not-allowed data-disabled:opacity-50;
-    @apply relative inline-flex shrink-0 items-center rounded-full border border-transparent outline-none transition-all;
+    @apply relative inline-flex shrink-0 items-center rounded-full border border-transparent transition-all outline-none;
     @apply after:absolute after:-inset-x-3 after:-inset-y-2;
     @apply data-[size=default]:h-[18.4px] data-[size=default]:w-[32px];
     @apply data-[size=sm]:h-[14px] data-[size=sm]:w-[24px];

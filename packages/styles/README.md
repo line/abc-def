@@ -8,11 +8,11 @@ This package is CSS-first: consumers import `@abc-def/styles/css` from their app
 
 `@abc-def/styles` is authored in three token layers: `primitive -> semantic -> component-specific`.
 
-1. primitive tokens in `src/tokens/primitive.css`
-2. semantic tokens in `src/tokens/semantic.css`
-3. component tokens in `src/tokens/components/*.css`
+1. primitive tokens from Tailwind's `--color-*` theme variables
+2. semantic tokens in `src/semantic.css` such as `--background`, `--foreground`, `--surface`, and `--surface-foreground`
+3. component tokens in `src/components/*.css`
 
-Selectors live under `src/css` and consume those token layers.
+Selectors live alongside those token files under `src/` and consume the semantic and component layers.
 
 Color token contract: Tailwind primitive `--color-*` values flow into semantic tokens and then into component-scoped aliases, so runtime selectors should consume them directly via `var(...)` (not `hsl(var(...))` wrapping).
 Focus shadow tokens in this package use `color-mix(...)`, so consumers should target browsers that support modern CSS color functions.
@@ -51,7 +51,7 @@ Plain HTML apps should also register sources via `@source` (see `examples/html-v
 
 ## Dark Mode
 
-`@abc-def/styles` ships dark-mode token overrides through the `.dark` selector in `src/tokens/semantic.css`.
+`@abc-def/styles` ships dark-mode token overrides through the `.dark` selector in `src/semantic.css`.
 
 - Apply `.dark` at the application root to activate the dark semantic token set.
 - Keep theme toggling logic in the consuming app.
@@ -63,7 +63,8 @@ The public surface area of this package is the semantic selector contract provid
 
 - `.btn`, `.btn-default`, `.btn-destructive`, `.btn-outline`, `.btn-secondary`, `.btn-ghost`, `.btn-link`
 - `.btn-sm`, `.btn-lg`, `.btn-icon`, `.btn-icon-sm`, `.btn-icon-lg`
-- `.card`, `.card-header`, `.card-content`, `.card-body`, `.card-title`, `.card-actions`
+- `.card`, `.card-header`, `.card-title`, `.card-description`, `.card-action`, `.card-content`, `.card-footer`
+- `.card-size-default`, `.card-size-sm`
 - `.input`
 - Utility helpers such as `.abc-text-dim` and `.abc-surface-base`
 

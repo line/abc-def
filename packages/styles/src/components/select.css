@@ -30,7 +30,10 @@
 @keyframes select-content-enter {
   from {
     opacity: 0;
-    transform: translate(var(--select-content-enter-x), var(--select-content-enter-y))
+    transform: translate(
+        var(--select-content-enter-x),
+        var(--select-content-enter-y)
+      )
       scale(0.95);
   }
 
@@ -48,7 +51,10 @@
 
   to {
     opacity: 0;
-    transform: translate(var(--select-content-enter-x), var(--select-content-enter-y))
+    transform: translate(
+        var(--select-content-enter-x),
+        var(--select-content-enter-y)
+      )
       scale(0.95);
   }
 }
@@ -66,10 +72,10 @@
     @apply focus-visible:border-(--select-trigger-ring) focus-visible:ring-3 focus-visible:ring-(--select-trigger-ring)/50;
     @apply aria-invalid:border-(--select-trigger-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--select-trigger-border-destructive)/20;
     @apply data-placeholder:text-(--select-trigger-placeholder-fg);
-    @apply flex w-fit select-none items-center justify-between gap-1.5 whitespace-nowrap rounded-lg border py-2 pl-2.5 pr-2 text-sm outline-none transition-colors;
+    @apply flex w-fit items-center justify-between gap-1.5 rounded-lg border py-2 pr-2 pl-2.5 text-sm whitespace-nowrap transition-colors outline-none select-none;
     @apply disabled:cursor-not-allowed disabled:opacity-50;
     @apply data-[size=default]:h-8 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)];
-    @apply [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
     background-color: var(--select-trigger-bg);
     border-color: var(--select-trigger-border);
   }
@@ -88,7 +94,7 @@
     --select-content-enter-x: 0px;
     --select-content-enter-y: 0px;
 
-    @apply relative z-50 min-w-36 overflow-y-auto overflow-x-hidden rounded-lg shadow-md duration-100;
+    @apply relative z-50 min-w-36 overflow-x-hidden overflow-y-auto rounded-lg shadow-md duration-100;
     @apply max-h-(--radix-select-content-available-height);
     background-color: var(--select-content-bg);
     border: 1px solid var(--select-content-border);
@@ -152,10 +158,10 @@
   }
 
   .select-item {
-    @apply relative flex w-full cursor-default select-none items-center gap-1.5 rounded-md py-1 pl-1.5 pr-8 text-sm outline-none;
+    @apply relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-none select-none;
     @apply data-disabled:pointer-events-none data-disabled:opacity-50;
     @apply focus:bg-(--select-item-focus-bg) focus:text-(--select-item-focus-fg);
-    @apply [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
   }
 
   .select-item-text {

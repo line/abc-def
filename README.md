@@ -2,6 +2,14 @@
 
 ABC Def is a reset design system monorepo shell for building shared UI packages from one CSS token contract.
 
+## Benefits
+
+ABC Def is designed so theme work can happen primarily at the shared CSS token layer instead of being rediscovered inside each component implementation.
+
+- Faster theme iteration for developers and AI agents because the visual contract is centralized in shared tokens rather than scattered across framework-specific component code
+- More consistent UI updates because primitive, semantic, and component-specific tokens define one styling contract that flows across the system
+- Better cross-framework reuse because `packages/styles` owns the visual layer while the React and Vue packages render the same shared selectors
+
 ## Packages
 
 - `packages/styles`: canonical primitive, semantic, and component-specific CSS tokens plus stable CSS entry points

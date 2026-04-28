@@ -1,0 +1,103 @@
+:root {
+  --card-bg: var(--surface);
+  --card-fg: var(--surface-foreground);
+  --card-border: var(--border);
+  --card-description-fg: var(--muted-foreground);
+  --card-footer-bg: color-mix(in oklab, var(--muted) 50%, transparent);
+  --card-footer-border: var(--border);
+}
+
+@layer components {
+  .card {
+    @apply flex flex-col gap-4 overflow-hidden rounded-xl border py-4 text-sm;
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    color: var(--card-fg);
+  }
+
+  .card:has(> [data-slot="card-footer"]) {
+    @apply pb-0;
+  }
+
+  .card:has(> img:first-child) {
+    @apply pt-0;
+  }
+
+  .card > img:first-child {
+    @apply rounded-t-xl;
+  }
+
+  .card > img:last-child {
+    @apply rounded-b-xl;
+  }
+
+  .card-size-default {
+    @apply gap-4 py-4;
+  }
+
+  .card-size-sm {
+    @apply gap-3 py-3;
+  }
+
+  .card-header {
+    @apply grid auto-rows-min items-start gap-1 px-4;
+    container-name: card-header;
+    container-type: inline-size;
+  }
+
+  .card-header:has(> [data-slot="card-action"]) {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .card-header:has(> [data-slot="card-description"]) {
+    grid-template-rows: auto auto;
+  }
+
+  .card-header.border-b {
+    @apply pb-4;
+  }
+
+  .card-size-sm > .card-header {
+    @apply px-3;
+  }
+
+  .card-size-sm > .card-header.border-b {
+    @apply pb-3;
+  }
+
+  .card-title {
+    @apply text-base leading-snug font-medium;
+    /* @apply cn-font-heading text-base leading-snug font-medium; */
+  }
+
+  .card-size-sm .card-title {
+    @apply text-sm;
+  }
+
+  .card-description {
+    @apply text-sm;
+    color: var(--card-description-fg);
+  }
+
+  .card-action {
+    @apply col-start-2 row-span-2 row-start-1 self-start justify-self-end;
+  }
+
+  .card-content {
+    @apply px-4;
+  }
+
+  .card-size-sm > .card-content {
+    @apply px-3;
+  }
+
+  .card-footer {
+    @apply flex items-center rounded-b-xl border-t p-4;
+    background-color: var(--card-footer-bg);
+    border-color: var(--card-footer-border);
+  }
+
+  .card-size-sm > .card-footer {
+    @apply p-3;
+  }
+}

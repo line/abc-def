@@ -1,24 +1,24 @@
 :root {
   --field-description-fg: var(--muted-foreground);
-  --field-description-link-fg: var(--primary);
+  --field-description-fg-link: var(--primary);
   --field-error-fg: var(--destructive);
-  --field-label-checked-border: color-mix(
+  --field-label-border-checked: color-mix(
     in oklab,
     var(--primary) 30%,
     transparent
   );
-  --field-label-checked-bg: color-mix(in oklab, var(--primary) 5%, transparent);
+  --field-label-bg-checked: color-mix(in oklab, var(--primary) 5%, transparent);
   --field-separator-content-bg: var(--background);
   --field-separator-content-fg: var(--muted-foreground);
 }
 
 .dark {
-  --field-label-checked-border: color-mix(
+  --field-label-border-checked: color-mix(
     in oklab,
     var(--primary) 20%,
     transparent
   );
-  --field-label-checked-bg: color-mix(
+  --field-label-bg-checked: color-mix(
     in oklab,
     var(--primary) 10%,
     transparent
@@ -123,8 +123,8 @@
   }
 
   .field-label:has([data-checked]) {
-    background-color: var(--field-label-checked-bg);
-    border-color: var(--field-label-checked-border);
+    background-color: var(--field-label-bg-checked);
+    border-color: var(--field-label-border-checked);
   }
 
   .field-label:has(> [data-slot="field"]) {
@@ -161,7 +161,7 @@
   }
 
   .field-description > a:hover {
-    color: var(--field-description-link-fg);
+    color: var(--field-description-fg-link);
   }
 
   .field-separator {

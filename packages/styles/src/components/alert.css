@@ -1,8 +1,8 @@
 :root {
-  --alert-bg-default: var(--card);
-  --alert-fg-default: var(--card-foreground);
+  --alert-bg-default: var(--surface);
+  --alert-fg-default: var(--surface-foreground);
 
-  --alert-bg-destructive: var(--card);
+  --alert-bg-destructive: var(--surface);
   --alert-fg-destructive: var(--destructive);
 
   --alert-title-fg-link: var(--primary);
@@ -28,13 +28,13 @@
   }
 
   .alert-title {
-    @apply [&_a]:underline-offset-3 [&_a]:hover:text-(--alert-title-fg-link) font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline;
+    @apply font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-(--alert-title-fg-link);
   }
 
   .alert-description {
-    @apply text-(--alert-description-fg) [&_a]:underline-offset-3 [&_a]:hover:text-(--alert-description-fg-link) text-balance text-sm md:text-pretty [&_a]:underline [&_p:not(:last-child)]:mb-4;
+    @apply text-sm text-balance text-(--alert-description-fg) md:text-pretty [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-(--alert-description-fg-link) [&_p:not(:last-child)]:mb-4;
   }
   .alert-action {
-    @apply absolute right-2 top-2;
+    @apply absolute top-2 right-2;
   }
 }

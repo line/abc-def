@@ -2,7 +2,7 @@
 
 React components built as semantic wrappers around `@abc-def/styles`.
 
-The React package does not own the visual contract directly; it renders the shared semantic selectors (for example `.btn`, `.card`, `.card-header`, `.card-content`, and `.input`).
+The React package does not own the visual contract directly; it renders the shared semantic selectors from `@abc-def/styles` (for example `.btn`, `.card`, `.card-header`, `.card-content`, and `.input`).
 
 ## Setup
 
@@ -17,6 +17,8 @@ Import `@abc-def/styles/css` from application CSS and register sources with Tail
 ```
 
 Then use components from `@abc-def/react`.
+
+`Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardAction`, `CardContent`, and `CardFooter` follow the same pattern and map directly to the shared `card*` selector contract.
 
 ## Button API
 

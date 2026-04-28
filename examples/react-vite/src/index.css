@@ -7,8 +7,14 @@
 
 #root {
   min-height: 100vh;
-  /* --button-bg-primary: yellow; */
-  --accordion-trigger-icon-fg: red;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
 }
 
 @layer base {
@@ -22,6 +28,10 @@
     color: var(--foreground);
     font-family: Inter, sans-serif;
     line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
   }
 
   img {
@@ -35,4 +45,137 @@
   select {
     font: inherit;
   }
+}
+
+@layer components {
+  .theme-toggle {
+    @apply inline-flex items-center gap-3 rounded-full border px-2 py-2;
+    background-color: color-mix(in oklab, var(--surface) 86%, transparent);
+    border-color: color-mix(in oklab, var(--border) 84%, transparent);
+    box-shadow: 0 18px 40px -28px
+      color-mix(in oklab, var(--foreground) 28%, transparent);
+  }
+
+  .theme-toggle-label {
+    @apply px-2 text-xs font-semibold tracking-[0.18em] uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .theme-toggle-hero {
+    background-color: color-mix(in oklab, white 8%, transparent);
+    border-color: rgb(255 255 255 / 0.14);
+    box-shadow: none;
+  }
+
+  .theme-toggle-hero .theme-toggle-label {
+    color: rgb(255 255 255 / 0.68);
+  }
+}
+
+.theme-proof-token {
+  background-color: color-mix(in oklab, var(--muted) 82%, transparent);
+  border-color: color-mix(in oklab, var(--border) 88%, transparent);
+}
+
+.dark .theme-proof-page {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--surface) 92%, black 8%) 0%,
+    color-mix(in oklab, var(--background) 86%, rgb(30 41 59) 14%) 100%
+  );
+}
+
+.dark .theme-proof-hero,
+.dark .theme-proof-section {
+  background: color-mix(in oklab, var(--surface) 94%, transparent);
+  border-color: color-mix(in oklab, var(--border) 84%, transparent);
+  box-shadow: 0 30px 100px -60px rgb(2 6 23 / 0.85);
+}
+
+.dark .theme-proof-link,
+.dark .theme-proof-kicker {
+  color: color-mix(in oklab, var(--muted-foreground) 88%, white 12%);
+}
+
+.dark .theme-proof-title,
+.dark .theme-proof-section-title,
+.dark .theme-proof-summary {
+  color: var(--foreground);
+}
+
+.dark .theme-proof-copy {
+  color: var(--muted-foreground);
+}
+
+.dark .theme-proof-token {
+  color: var(--foreground);
+  background-color: color-mix(in oklab, var(--muted) 48%, transparent);
+  border-color: color-mix(in oklab, var(--border) 90%, transparent);
+}
+
+.component-proof {
+  isolation: isolate;
+}
+
+.component-proof[data-proof="button"] {
+  --button-bg-primary: oklch(0.21 0.03 260);
+  --button-fg-primary: oklch(0.98 0.01 95);
+  --button-border-primary: oklch(0.21 0.03 260);
+  --button-bg-primary-hover: oklch(0.3 0.04 260);
+  --button-border-primary-hover: oklch(0.3 0.04 260);
+  --button-bg-secondary: oklch(0.95 0.01 250);
+  --button-fg-secondary: oklch(0.28 0.02 250);
+  --button-bg-outline: oklch(0.99 0.01 95);
+  --button-fg-outline: oklch(0.25 0.03 260);
+  --button-border-outline: oklch(0.76 0.06 270);
+  --button-bg-outline-hover: oklch(0.95 0.02 270);
+  --button-fg-outline-hover: oklch(0.23 0.03 260);
+  --button-bg-ghost-hover: oklch(0.94 0.02 270);
+  --button-fg-ghost: oklch(0.29 0.03 260);
+  --button-fg-ghost-hover: oklch(0.24 0.03 260);
+  --button-radius-md: 999px;
+  --button-radius-lg: 999px;
+}
+
+.component-proof[data-proof="form"] {
+  --input-bg: oklch(0.985 0.01 85);
+  --input-border: oklch(0.78 0.05 85);
+  --input-fg: oklch(0.53 0.03 85);
+  --textarea-bg: oklch(0.985 0.01 85);
+  --textarea-border: oklch(0.78 0.05 85);
+  --textarea-placeholder-fg: oklch(0.53 0.03 85);
+  --checkbox-bg: oklch(1 0 0);
+  --checkbox-border: oklch(0.74 0.05 85);
+  --checkbox-bg-checked: oklch(0.63 0.14 155);
+  --checkbox-border-checked: oklch(0.63 0.14 155);
+  --checkbox-fg-checked: oklch(0.98 0.01 140);
+  --radio-group-item-bg: oklch(1 0 0);
+  --radio-group-item-border: oklch(0.74 0.05 85);
+  --radio-group-item-bg-checked: oklch(0.63 0.14 155);
+  --radio-group-item-border-checked: oklch(0.63 0.14 155);
+  --radio-group-item-fg-checked: oklch(0.98 0.01 140);
+  --radio-group-indicator-dot-bg: oklch(0.98 0.01 140);
+  --switch-bg-unchecked: oklch(0.86 0.03 85);
+  --switch-bg-checked: oklch(0.63 0.14 155);
+  --switch-thumb-bg-checked: oklch(0.98 0.01 140);
+  --switch-thumb-bg-unchecked: white;
+}
+
+.component-proof[data-proof="alert"] {
+  --alert-bg-default: oklch(0.97 0.02 230);
+  --alert-fg-default: oklch(0.33 0.04 245);
+  --alert-title-fg-link: oklch(0.46 0.12 245);
+  --alert-description-fg: oklch(0.46 0.03 245);
+  --alert-description-fg-link: oklch(0.46 0.12 245);
+  --alert-bg-destructive: oklch(0.97 0.03 25);
+  --alert-fg-destructive: oklch(0.58 0.19 25);
+}
+
+.component-proof[data-proof="card"] {
+  --card-bg: oklch(0.97 0.02 85);
+  --card-fg: oklch(0.24 0.03 55);
+  --card-border: oklch(0.81 0.07 82);
+  --card-description-fg: oklch(0.46 0.04 65);
+  --card-footer-bg: oklch(0.92 0.03 83);
+  --card-footer-border: oklch(0.8 0.05 82);
 }

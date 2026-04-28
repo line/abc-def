@@ -1,0 +1,96 @@
+:root {
+  --badge-ring: var(--ring);
+  --badge-ring-destructive: var(--destructive);
+
+  --badge-radius: 9999px;
+  --badge-border-default: transparent;
+
+  --badge-bg-default: var(--primary);
+  --badge-fg-default: var(--primary-foreground);
+  --badge-bg-default-hover: color-mix(in srgb, var(--primary) 90%, transparent);
+  --badge-fg-default-hover: var(--primary-foreground);
+
+  --badge-bg-secondary: var(--secondary);
+  --badge-fg-secondary: var(--secondary-foreground);
+  --badge-bg-secondary-hover: color-mix(
+    in srgb,
+    var(--secondary) 90%,
+    transparent
+  );
+  --badge-fg-secondary-hover: var(--secondary-foreground);
+
+  --badge-bg-destructive: var(--destructive);
+  --badge-fg-destructive: var(--destructive-foreground);
+  --badge-bg-destructive-hover: color-mix(
+    in srgb,
+    var(--destructive) 90%,
+    transparent
+  );
+  --badge-fg-destructive-hover: var(--destructive-foreground);
+
+  --badge-bg-outline: transparent;
+  --badge-fg-outline: var(--foreground);
+  --badge-border-outline: var(--border);
+  --badge-bg-outline-hover: var(--accent);
+  --badge-fg-outline-hover: var(--accent-foreground);
+
+  --badge-bg-ghost: transparent;
+  --badge-fg-ghost: var(--foreground);
+  --badge-bg-ghost-hover: var(--accent);
+  --badge-fg-ghost-hover: var(--accent-foreground);
+
+  --badge-bg-link: transparent;
+  --badge-fg-link: var(--primary);
+}
+
+@layer components {
+  .badge {
+    @apply inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-(--badge-radius) border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,background-color,border-color,box-shadow] outline-none;
+    @apply border-(--badge-border-default) focus-visible:border-(--badge-ring) focus-visible:ring-3 focus-visible:ring-(--badge-ring)/50;
+    @apply aria-invalid:border-(--badge-ring-destructive) aria-invalid:ring-3 aria-invalid:ring-(--badge-ring-destructive)/20;
+    @apply [&>svg]:pointer-events-none [&>svg]:size-3;
+  }
+
+  .badge-variant-default {
+    @apply bg-(--badge-bg-default) text-(--badge-fg-default);
+  }
+  a.badge-variant-default:hover {
+    @apply bg-(--badge-bg-default-hover) text-(--badge-fg-default-hover);
+  }
+
+  .badge-variant-secondary {
+    @apply bg-(--badge-bg-secondary) text-(--badge-fg-secondary);
+  }
+  a.badge-variant-secondary:hover {
+    @apply bg-(--badge-bg-secondary-hover) text-(--badge-fg-secondary-hover);
+  }
+
+  .badge-variant-destructive {
+    @apply bg-(--badge-bg-destructive) text-(--badge-fg-destructive);
+    @apply focus-visible:border-(--badge-ring-destructive) focus-visible:ring-(--badge-ring-destructive)/20;
+  }
+  a.badge-variant-destructive:hover {
+    @apply bg-(--badge-bg-destructive-hover) text-(--badge-fg-destructive-hover);
+  }
+
+  .badge-variant-outline {
+    @apply border-(--badge-border-outline) bg-(--badge-bg-outline) text-(--badge-fg-outline);
+  }
+  a.badge-variant-outline:hover {
+    @apply bg-(--badge-bg-outline-hover) text-(--badge-fg-outline-hover);
+  }
+
+  .badge-variant-ghost {
+    @apply bg-(--badge-bg-ghost) text-(--badge-fg-ghost);
+  }
+  a.badge-variant-ghost:hover {
+    @apply bg-(--badge-bg-ghost-hover) text-(--badge-fg-ghost-hover);
+  }
+
+  .badge-variant-link {
+    @apply bg-(--badge-bg-link) text-(--badge-fg-link) underline-offset-4;
+  }
+  a.badge-variant-link:hover {
+    @apply underline;
+  }
+}

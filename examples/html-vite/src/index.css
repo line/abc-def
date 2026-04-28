@@ -8,11 +8,18 @@ body {
   margin: 0;
   padding: 3rem 1.5rem 5rem;
   background:
-    radial-gradient(circle at top, color-mix(in oklab, var(--accent) 35%, transparent), transparent 45%),
-    linear-gradient(180deg, color-mix(in oklab, var(--background) 94%, var(--muted) 6%), var(--background));
+    radial-gradient(
+      circle at top,
+      color-mix(in oklab, var(--accent) 35%, transparent),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--background) 94%, var(--muted) 6%),
+      var(--background)
+    );
   color: var(--foreground);
-  font-family:
-    Inter, "SF Pro Text", "Segoe UI", sans-serif;
+  font-family: Inter, "SF Pro Text", "Segoe UI", sans-serif;
 }
 
 .demo-shell {
@@ -29,9 +36,14 @@ body {
   border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
   border-radius: 1.5rem;
   background:
-    linear-gradient(135deg, color-mix(in oklab, var(--card) 94%, var(--accent) 6%), color-mix(in oklab, var(--card) 98%, transparent)),
-    var(--card);
-  box-shadow: 0 24px 60px -36px color-mix(in oklab, var(--foreground) 25%, transparent);
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--surface) 94%, var(--accent) 6%),
+      color-mix(in oklab, var(--surface) 98%, transparent)
+    ),
+    var(--surface);
+  box-shadow: 0 24px 60px -36px
+    color-mix(in oklab, var(--foreground) 25%, transparent);
 }
 
 .demo-eyebrow {
@@ -91,8 +103,9 @@ body {
   padding: 1.25rem;
   border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
   border-radius: 1.25rem;
-  background: color-mix(in oklab, var(--card) 96%, var(--accent) 4%);
-  box-shadow: 0 18px 40px -36px color-mix(in oklab, var(--foreground) 40%, transparent);
+  background: color-mix(in oklab, var(--surface) 96%, var(--accent) 4%);
+  box-shadow: 0 18px 40px -36px
+    color-mix(in oklab, var(--foreground) 40%, transparent);
 }
 
 .demo-card h3 {
