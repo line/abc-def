@@ -1,0 +1,185 @@
+:root {
+  --input-group-ring: var(--ring);
+  --input-group-ring-shadow: color-mix(
+    in oklab,
+    var(--input-group-ring) 50%,
+    transparent
+  );
+  --input-group-border: var(--border-input);
+  --input-group-border-destructive: var(--destructive);
+  --input-group-border-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-group-border-destructive) 20%,
+    transparent
+  );
+  --input-group-bg: transparent;
+  --input-group-bg-disabled: color-mix(
+    in oklab,
+    var(--input-group-border) 50%,
+    transparent
+  );
+  --input-group-addon-fg: var(--muted-foreground);
+  --input-group-text-fg: var(--muted-foreground);
+}
+
+.dark {
+  --input-group-bg: color-mix(
+    in oklab,
+    var(--input-group-border) 30%,
+    transparent
+  );
+  --input-group-bg-disabled: color-mix(
+    in oklab,
+    var(--input-group-border) 80%,
+    transparent
+  );
+  --input-group-border-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-group-border-destructive) 40%,
+    transparent
+  );
+}
+
+@layer components {
+  .input-group {
+    @apply relative flex h-8 w-full min-w-0 items-center rounded-lg border transition-colors outline-none;
+
+    background-color: var(--input-group-bg);
+    border-color: var(--input-group-border);
+  }
+
+  .input-group:has(:disabled) {
+    @apply opacity-50;
+
+    background-color: var(--input-group-bg-disabled);
+  }
+
+  .input-group:has([data-slot="input-group-control"]:focus-visible) {
+    border-color: var(--input-group-ring);
+    box-shadow: 0 0 0 3px var(--input-group-ring-shadow);
+  }
+
+  .input-group:has([data-slot][aria-invalid="true"]) {
+    border-color: var(--input-group-border-destructive);
+    box-shadow: 0 0 0 3px var(--input-group-border-destructive-shadow);
+  }
+
+  [data-slot="combobox-content"] .input-group:focus-within {
+    border-color: inherit;
+    box-shadow: none;
+  }
+
+  .input-group:has(> [data-align="block-start"]),
+  .input-group:has(> [data-align="block-end"]) {
+    @apply h-auto flex-col;
+  }
+
+  .input-group:has(> textarea),
+  .input-group:has(> [data-slot="input-group-textarea"]) {
+    @apply h-auto;
+  }
+
+  .input-group:has(> [data-align="block-start"])
+    > input[data-slot="input-group-control"] {
+    @apply pb-3;
+  }
+
+  .input-group:has(> [data-align="block-end"])
+    > input[data-slot="input-group-control"] {
+    @apply pt-3;
+  }
+
+  .input-group:has(> [data-align="inline-start"])
+    > input[data-slot="input-group-control"] {
+    @apply pl-1.5;
+  }
+
+  .input-group:has(> [data-align="inline-end"])
+    > input[data-slot="input-group-control"] {
+    @apply pr-1.5;
+  }
+
+  .input-group-addon {
+    @apply flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4;
+
+    color: var(--input-group-addon-fg);
+  }
+
+  .input-group:has(:disabled) .input-group-addon {
+    @apply opacity-50;
+  }
+
+  .input-group-addon-align-inline-start {
+    @apply order-first pl-2;
+  }
+
+  .input-group-addon-align-inline-start:has(> button) {
+    margin-left: -0.3rem;
+  }
+
+  .input-group-addon-align-inline-start:has(> kbd) {
+    margin-left: -0.15rem;
+  }
+
+  .input-group-addon-align-inline-end {
+    @apply order-last pr-2;
+  }
+
+  .input-group-addon-align-inline-end:has(> button) {
+    margin-right: -0.3rem;
+  }
+
+  .input-group-addon-align-inline-end:has(> kbd) {
+    margin-right: -0.15rem;
+  }
+
+  .input-group-addon-align-block-start {
+    @apply order-first w-full justify-start px-2.5 pt-2;
+  }
+
+  .input-group-addon-align-block-start .border-b {
+    @apply pb-2;
+  }
+
+  .input-group-addon-align-block-end {
+    @apply order-last w-full justify-start px-2.5 pb-2;
+  }
+
+  .input-group-addon-align-block-end .border-t {
+    @apply pt-2;
+  }
+
+  .input-group-button {
+    @apply flex items-center gap-2 text-sm shadow-none;
+  }
+
+  .input-group-button-size-xs {
+    @apply h-6 gap-1 rounded-[calc(var(--radius)-3px)] px-1.5 [&>svg:not([class*='size-'])]:size-3.5;
+  }
+
+  .input-group-button-size-icon-xs {
+    @apply size-6 rounded-[calc(var(--radius)-3px)] p-0 has-[>svg]:p-0;
+  }
+
+  .input-group-button-size-icon-sm {
+    @apply size-8 p-0 has-[>svg]:p-0;
+  }
+
+  .input-group-text {
+    @apply flex items-center gap-2 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4;
+
+    color: var(--input-group-text-fg);
+  }
+
+  .input-group-control {
+    @apply flex-1 rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0;
+  }
+
+  .input-group-input {
+    @apply px-2.5;
+  }
+
+  .input-group-textarea {
+    @apply resize-none px-2.5 py-2;
+  }
+}

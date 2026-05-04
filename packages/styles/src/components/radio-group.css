@@ -3,10 +3,10 @@
   --radio-group-item-bg: transparent;
   --radio-group-item-bg-dark: color-mix(
     in oklab,
-    var(--input) 30%,
+    var(--border-input) 30%,
     transparent
   );
-  --radio-group-item-border: var(--input);
+  --radio-group-item-border: var(--border-input);
   --radio-group-item-border-invalid: var(--destructive);
   --radio-group-item-border-checked: var(--primary);
   --radio-group-item-border-invalid-checked: var(--primary);
@@ -57,7 +57,7 @@
   }
 
   .radio-group-indicator-dot {
-    @apply absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full;
+    @apply absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full;
     background-color: var(--radio-group-indicator-dot-bg);
   }
 }

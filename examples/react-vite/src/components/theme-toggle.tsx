@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import { Button, ButtonGroup } from "@abc-def/react";
 import { MoonStarIcon, SunMediumIcon } from "lucide-react";
 
-type ThemeMode = "light" | "dark";
+export type ThemeMode = "light" | "dark";
 
 const THEME_STORAGE_KEY = "abc-def-example-theme";
 
-function getPreferredTheme(): ThemeMode {
+export function getPreferredTheme(): ThemeMode {
   if (typeof window === "undefined") {
     return "light";
   }
@@ -21,21 +20,28 @@ function getPreferredTheme(): ThemeMode {
     : "light";
 }
 
-function applyTheme(theme: ThemeMode) {
+export function applyTheme(theme: ThemeMode) {
   const root = document.documentElement;
 
   root.classList.toggle("dark", theme === "dark");
   root.style.colorScheme = theme;
 }
 
-export function ThemeToggle({ className }: { className?: string }) {
-  const [theme, setTheme] = useState<ThemeMode>(getPreferredTheme);
-
-  useEffect(() => {
-    applyTheme(theme);
+export function persistTheme(theme: ThemeMode) {
+  if (typeof window !== "undefined") {
     window.localStorage.setItem(THEME_STORAGE_KEY, theme);
-  }, [theme]);
+  }
+}
 
+export function ThemeToggle({
+  className,
+  onThemeChange,
+  theme,
+}: {
+  className?: string;
+  onThemeChange: (theme: ThemeMode) => void;
+  theme: ThemeMode;
+}) {
   return (
     <div className={["theme-toggle", className].filter(Boolean).join(" ")}>
       <span className="theme-toggle-label">Theme</span>
@@ -44,7 +50,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           size="sm"
           variant={theme === "light" ? "default" : "outline"}
           aria-pressed={theme === "light"}
-          onClick={() => setTheme("light")}
+          onClick={() => onThemeChange("light")}
         >
           <SunMediumIcon />
           Light
@@ -53,7 +59,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           size="sm"
           variant={theme === "dark" ? "default" : "outline"}
           aria-pressed={theme === "dark"}
-          onClick={() => setTheme("dark")}
+          onClick={() => onThemeChange("dark")}
         >
           <MoonStarIcon />
           Dark

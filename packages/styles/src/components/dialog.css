@@ -1,0 +1,119 @@
+:root {
+  --dialog-overlay-bg: rgb(0 0 0 / 0.1);
+  --dialog-content-bg: var(--popover);
+  --dialog-content-fg: var(--popover-foreground);
+  --dialog-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --dialog-footer-bg: color-mix(in oklab, var(--muted) 50%, transparent);
+  --dialog-footer-border: var(--border);
+  --dialog-description-fg: var(--muted-foreground);
+}
+
+@keyframes dialog-overlay-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-overlay-exit {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-content-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes dialog-content-exit {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+@layer components {
+  .dialog-overlay {
+    @apply fixed inset-0 isolate z-50 duration-100;
+
+    background-color: var(--dialog-overlay-bg);
+    backdrop-filter: blur(2px);
+  }
+
+  .dialog-overlay[data-state="open"] {
+    animation: dialog-overlay-enter 100ms ease-out;
+  }
+
+  .dialog-overlay[data-state="closed"] {
+    animation: dialog-overlay-exit 100ms ease-in;
+  }
+
+  .dialog-content {
+    @apply fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl p-4 text-sm outline-none duration-100 sm:max-w-sm;
+
+    background-color: var(--dialog-content-bg);
+    border: 1px solid var(--dialog-content-border);
+    color: var(--dialog-content-fg);
+  }
+
+  .dialog-content[data-state="open"] {
+    animation: dialog-content-enter 100ms ease-out;
+  }
+
+  .dialog-content[data-state="closed"] {
+    animation: dialog-content-exit 100ms ease-in;
+  }
+
+  .dialog-header {
+    @apply flex flex-col gap-2;
+  }
+
+  .dialog-footer {
+    @apply -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4 sm:flex-row sm:justify-end;
+
+    background-color: var(--dialog-footer-bg);
+    border-color: var(--dialog-footer-border);
+  }
+
+  .dialog-title {
+    @apply text-base leading-none font-medium tracking-tight;
+  }
+
+  .dialog-description {
+    @apply text-sm;
+
+    color: var(--dialog-description-fg);
+  }
+
+  .dialog-description a {
+    @apply underline underline-offset-3;
+  }
+
+  .dialog-description a:hover {
+    color: var(--foreground);
+  }
+}

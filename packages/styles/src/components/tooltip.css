@@ -1,0 +1,90 @@
+:root {
+  --tooltip-content-bg: var(--foreground);
+  --tooltip-content-fg: var(--background);
+  --tooltip-arrow-bg: var(--foreground);
+}
+
+@keyframes tooltip-content-enter {
+  from {
+    opacity: 0;
+    transform: translate(
+        var(--tooltip-content-enter-x),
+        var(--tooltip-content-enter-y)
+      )
+      scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes tooltip-content-exit {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(
+        var(--tooltip-content-enter-x),
+        var(--tooltip-content-enter-y)
+      )
+      scale(0.95);
+  }
+}
+
+@layer components {
+  .tooltip-content {
+    --tooltip-content-enter-x: 0px;
+    --tooltip-content-enter-y: 0px;
+
+    @apply z-50 inline-flex w-fit max-w-xs items-center gap-1.5 rounded-md px-3 py-1.5 text-xs;
+
+    background-color: var(--tooltip-content-bg);
+    color: var(--tooltip-content-fg);
+    transform-origin: var(--radix-tooltip-content-transform-origin);
+  }
+
+  .tooltip-content:has([data-slot="kbd"]) {
+    @apply pr-1.5;
+  }
+
+  .tooltip-content [data-slot="kbd"] {
+    @apply relative isolate z-50 rounded-sm;
+  }
+
+  .tooltip-content[data-side="bottom"] {
+    --tooltip-content-enter-y: -0.5rem;
+  }
+
+  .tooltip-content[data-side="left"] {
+    --tooltip-content-enter-x: 0.5rem;
+  }
+
+  .tooltip-content[data-side="right"] {
+    --tooltip-content-enter-x: -0.5rem;
+  }
+
+  .tooltip-content[data-side="top"] {
+    --tooltip-content-enter-y: 0.5rem;
+  }
+
+  .tooltip-content[data-state="delayed-open"],
+  .tooltip-content[data-state="instant-open"] {
+    animation: tooltip-content-enter 100ms ease-out;
+  }
+
+  .tooltip-content[data-state="closed"] {
+    animation: tooltip-content-exit 100ms ease-in;
+  }
+
+  .tooltip-arrow {
+    @apply z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px];
+
+    background-color: var(--tooltip-arrow-bg);
+    fill: var(--tooltip-arrow-bg);
+  }
+}

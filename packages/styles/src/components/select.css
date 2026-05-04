@@ -2,7 +2,7 @@
   --select-trigger-ring: var(--ring);
   --select-trigger-bg: transparent;
   --select-trigger-bg-hover: transparent;
-  --select-trigger-border: var(--input);
+  --select-trigger-border: var(--border-input);
   --select-trigger-border-destructive: var(--destructive);
   --select-trigger-placeholder-fg: var(--muted-foreground);
   --select-trigger-icon-fg: var(--muted-foreground);
@@ -23,8 +23,16 @@
 }
 
 .dark {
-  --select-trigger-bg: color-mix(in oklab, var(--input) 30%, transparent);
-  --select-trigger-bg-hover: color-mix(in oklab, var(--input) 50%, transparent);
+  --select-trigger-bg: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --select-trigger-bg-hover: color-mix(
+    in oklab,
+    var(--border-input) 50%,
+    transparent
+  );
 }
 
 @keyframes select-content-enter {

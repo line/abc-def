@@ -24,9 +24,12 @@
 
   body {
     margin: 0;
-    background: var(--background);
+    background:
+      radial-gradient(circle at top, rgb(249 250 251 / 0.95), transparent 38%),
+      linear-gradient(180deg, #fff7ed 0%, #f8fafc 42%, #e0f2fe 100%);
     color: var(--foreground);
-    font-family: Inter, sans-serif;
+    font-family:
+      "Avenir Next", Avenir, "Segoe UI", sans-serif;
     line-height: 1.5;
     text-rendering: optimizeLegibility;
     transition:
@@ -50,7 +53,7 @@
 @layer components {
   .theme-toggle {
     @apply inline-flex items-center gap-3 rounded-full border px-2 py-2;
-    background-color: color-mix(in oklab, var(--surface) 86%, transparent);
+    background-color: color-mix(in oklab, var(--surface) 88%, transparent);
     border-color: color-mix(in oklab, var(--border) 84%, transparent);
     box-shadow: 0 18px 40px -28px
       color-mix(in oklab, var(--foreground) 28%, transparent);
@@ -60,122 +63,164 @@
     @apply px-2 text-xs font-semibold tracking-[0.18em] uppercase;
     color: var(--muted-foreground);
   }
-
-  .theme-toggle-hero {
-    background-color: color-mix(in oklab, white 8%, transparent);
-    border-color: rgb(255 255 255 / 0.14);
-    box-shadow: none;
-  }
-
-  .theme-toggle-hero .theme-toggle-label {
-    color: rgb(255 255 255 / 0.68);
-  }
 }
 
-.theme-proof-token {
-  background-color: color-mix(in oklab, var(--muted) 82%, transparent);
-  border-color: color-mix(in oklab, var(--border) 88%, transparent);
+.example-app {
+  background:
+    radial-gradient(circle at top right, rgb(252 211 77 / 0.18), transparent 25%),
+    radial-gradient(circle at left 20%, rgb(125 211 252 / 0.18), transparent 32%);
 }
 
-.dark .theme-proof-page {
-  background: linear-gradient(
-    180deg,
-    color-mix(in oklab, var(--surface) 92%, black 8%) 0%,
-    color-mix(in oklab, var(--background) 86%, rgb(30 41 59) 14%) 100%
-  );
+.app-shell {
+  position: relative;
 }
 
-.dark .theme-proof-hero,
-.dark .theme-proof-section {
-  background: color-mix(in oklab, var(--surface) 94%, transparent);
-  border-color: color-mix(in oklab, var(--border) 84%, transparent);
-  box-shadow: 0 30px 100px -60px rgb(2 6 23 / 0.85);
+.app-panel {
+  background: rgb(255 255 255 / 0.84);
+  border: 1px solid rgb(15 23 42 / 0.08);
+  box-shadow: 0 28px 90px -60px rgb(15 23 42 / 0.45);
+  backdrop-filter: blur(18px);
 }
 
-.dark .theme-proof-link,
-.dark .theme-proof-kicker {
-  color: color-mix(in oklab, var(--muted-foreground) 88%, white 12%);
+.app-panel-muted {
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 84%, transparent);
 }
 
-.dark .theme-proof-title,
-.dark .theme-proof-section-title,
-.dark .theme-proof-summary {
+.app-kicker {
+  color: rgb(100 116 139);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.app-copy {
+  color: rgb(71 85 105);
+}
+
+.app-theme-toggle {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mode-chip {
+  border: 1px solid color-mix(in oklab, var(--border) 86%, transparent);
+  background-color: color-mix(in oklab, var(--surface) 90%, transparent);
+  border-radius: 999px;
   color: var(--foreground);
+  cursor: pointer;
+  font-size: 0.925rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
 }
 
-.dark .theme-proof-copy {
-  color: var(--muted-foreground);
+.mode-chip:hover {
+  transform: translateY(-1px);
+  background-color: color-mix(in oklab, var(--muted) 58%, transparent);
 }
 
-.dark .theme-proof-token {
-  color: var(--foreground);
-  background-color: color-mix(in oklab, var(--muted) 48%, transparent);
-  border-color: color-mix(in oklab, var(--border) 90%, transparent);
+.mode-chip[data-active="true"] {
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  border-color: transparent;
+  color: white;
 }
 
-.component-proof {
+.example-card,
+.playground-section,
+.playground-preview-banner,
+.playground-control-group {
+  background-color: color-mix(in oklab, var(--surface) 92%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 84%, transparent);
+}
+
+.playground-preview-shell {
+  display: grid;
+  gap: 1.25rem;
   isolation: isolate;
 }
 
-.component-proof[data-proof="button"] {
-  --button-bg-primary: oklch(0.21 0.03 260);
-  --button-fg-primary: oklch(0.98 0.01 95);
-  --button-border-primary: oklch(0.21 0.03 260);
-  --button-bg-primary-hover: oklch(0.3 0.04 260);
-  --button-border-primary-hover: oklch(0.3 0.04 260);
-  --button-bg-secondary: oklch(0.95 0.01 250);
-  --button-fg-secondary: oklch(0.28 0.02 250);
-  --button-bg-outline: oklch(0.99 0.01 95);
-  --button-fg-outline: oklch(0.25 0.03 260);
-  --button-border-outline: oklch(0.76 0.06 270);
-  --button-bg-outline-hover: oklch(0.95 0.02 270);
-  --button-fg-outline-hover: oklch(0.23 0.03 260);
-  --button-bg-ghost-hover: oklch(0.94 0.02 270);
-  --button-fg-ghost: oklch(0.29 0.03 260);
-  --button-fg-ghost-hover: oklch(0.24 0.03 260);
-  --button-radius-md: 999px;
-  --button-radius-lg: 999px;
+.playground-preview-banner,
+.playground-section,
+.playground-control-group {
+  border-radius: 28px;
+  padding: 1.25rem;
 }
 
-.component-proof[data-proof="form"] {
-  --input-bg: oklch(0.985 0.01 85);
-  --input-border: oklch(0.78 0.05 85);
-  --input-fg: oklch(0.53 0.03 85);
-  --textarea-bg: oklch(0.985 0.01 85);
-  --textarea-border: oklch(0.78 0.05 85);
-  --textarea-placeholder-fg: oklch(0.53 0.03 85);
-  --checkbox-bg: oklch(1 0 0);
-  --checkbox-border: oklch(0.74 0.05 85);
-  --checkbox-bg-checked: oklch(0.63 0.14 155);
-  --checkbox-border-checked: oklch(0.63 0.14 155);
-  --checkbox-fg-checked: oklch(0.98 0.01 140);
-  --radio-group-item-bg: oklch(1 0 0);
-  --radio-group-item-border: oklch(0.74 0.05 85);
-  --radio-group-item-bg-checked: oklch(0.63 0.14 155);
-  --radio-group-item-border-checked: oklch(0.63 0.14 155);
-  --radio-group-item-fg-checked: oklch(0.98 0.01 140);
-  --radio-group-indicator-dot-bg: oklch(0.98 0.01 140);
-  --switch-bg-unchecked: oklch(0.86 0.03 85);
-  --switch-bg-checked: oklch(0.63 0.14 155);
-  --switch-thumb-bg-checked: oklch(0.98 0.01 140);
-  --switch-thumb-bg-unchecked: white;
+.playground-section {
+  display: grid;
+  gap: 1.25rem;
 }
 
-.component-proof[data-proof="alert"] {
-  --alert-bg-default: oklch(0.97 0.02 230);
-  --alert-fg-default: oklch(0.33 0.04 245);
-  --alert-title-fg-link: oklch(0.46 0.12 245);
-  --alert-description-fg: oklch(0.46 0.03 245);
-  --alert-description-fg-link: oklch(0.46 0.12 245);
-  --alert-bg-destructive: oklch(0.97 0.03 25);
-  --alert-fg-destructive: oklch(0.58 0.19 25);
+.playground-badge {
+  align-items: center;
+  background-color: color-mix(in oklab, var(--muted) 82%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 88%, transparent);
+  border-radius: 999px;
+  color: var(--foreground);
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 0.45rem 0.8rem;
+  text-transform: uppercase;
 }
 
-.component-proof[data-proof="card"] {
-  --card-bg: oklch(0.97 0.02 85);
-  --card-fg: oklch(0.24 0.03 55);
-  --card-border: oklch(0.81 0.07 82);
-  --card-description-fg: oklch(0.46 0.04 65);
-  --card-footer-bg: oklch(0.92 0.03 83);
-  --card-footer-border: oklch(0.8 0.05 82);
+.playground-badge-muted {
+  color: var(--muted-foreground);
+}
+
+.playground-drawer-body {
+  display: grid;
+  gap: 1rem;
+  overflow-y: auto;
+  padding: 0 1rem 1rem;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top, rgb(14 165 233 / 0.12), transparent 30%),
+    linear-gradient(180deg, #020617 0%, #0f172a 42%, #111827 100%);
+}
+
+.dark .app-panel {
+  background: color-mix(in oklab, var(--surface) 92%, transparent);
+  border-color: color-mix(in oklab, var(--border) 84%, transparent);
+  box-shadow: 0 28px 90px -60px rgb(2 6 23 / 0.92);
+}
+
+.dark .app-panel-muted,
+.dark .example-card,
+.dark .playground-section,
+.dark .playground-preview-banner,
+.dark .playground-control-group {
+  background: color-mix(in oklab, var(--surface) 94%, transparent);
+  border-color: color-mix(in oklab, var(--border) 88%, transparent);
+}
+
+.dark .app-kicker {
+  color: color-mix(in oklab, var(--muted-foreground) 86%, white 14%);
+}
+
+.dark .app-copy {
+  color: var(--muted-foreground);
+}
+
+.dark .mode-chip {
+  background-color: color-mix(in oklab, var(--muted) 42%, transparent);
+  border-color: color-mix(in oklab, var(--border) 88%, transparent);
+}
+
+.dark .mode-chip:hover {
+  background-color: color-mix(in oklab, var(--muted) 60%, transparent);
+}
+
+.dark .mode-chip[data-active="true"] {
+  background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+  color: #020617;
 }

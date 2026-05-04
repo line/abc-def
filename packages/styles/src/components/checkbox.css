@@ -1,8 +1,8 @@
 :root {
   --checkbox-ring: var(--ring);
   --checkbox-bg: transparent;
-  --checkbox-bg-dark: color-mix(in oklab, var(--input) 30%, transparent);
-  --checkbox-border: var(--input);
+  --checkbox-bg-dark: color-mix(in oklab, var(--border-input) 30%, transparent);
+  --checkbox-border: var(--border-input);
   --checkbox-border-invalid: var(--destructive);
   --checkbox-border-checked: var(--primary);
   --checkbox-border-invalid-checked: var(--primary);
@@ -15,7 +15,7 @@
     @apply focus-visible:border-(--checkbox-ring) focus-visible:ring-3 focus-visible:ring-(--checkbox-ring)/50;
     @apply aria-invalid:border-(--checkbox-border-invalid) aria-invalid:ring-3 aria-invalid:ring-(--checkbox-border-invalid)/20;
     @apply data-disabled:cursor-not-allowed data-disabled:opacity-50;
-    @apply relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border outline-none transition-colors;
+    @apply relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border transition-colors outline-none;
     @apply after:absolute after:-inset-x-3 after:-inset-y-2;
     background-color: var(--checkbox-bg);
     border-color: var(--checkbox-border);

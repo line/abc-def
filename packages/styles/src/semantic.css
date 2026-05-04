@@ -4,16 +4,16 @@
   --background: var(--color-white);
   --foreground: var(--color-slate-950);
 
-  --surface: var(--color-white);
-  --surface-foreground: var(--color-slate-950);
+  --surface: var(--color-white); /* --card */
+  --surface-foreground: var(--color-slate-950); /* --card-foreground */
 
   --popover: var(--color-white);
   --popover-foreground: var(--color-slate-950);
 
-  --primary: var(--color-blue-600);
+  --primary: var(--color-slate-800);
   --primary-foreground: var(--color-slate-50);
 
-  --secondary: var(--color-slate-100);
+  --secondary: var(--color-slate-200);
   --secondary-foreground: var(--color-slate-950);
 
   --muted: var(--color-slate-100);
@@ -26,14 +26,8 @@
   --destructive-foreground: var(--color-slate-50);
 
   --border: var(--color-slate-200);
-  --input: var(--color-slate-200);
+  --border-input: var(--color-slate-200);
   --ring: var(--color-blue-600);
-
-  --chart-1: var(--color-blue-600);
-  --chart-2: var(--color-green-600);
-  --chart-3: var(--color-yellow-600);
-  --chart-4: var(--color-red-600);
-  --chart-5: var(--color-purple-600);
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);

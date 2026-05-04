@@ -3,7 +3,7 @@
 
   --input-fg: var(--muted-foreground);
   --input-bg: var(--background);
-  --input-border: var(--input);
+  --input-border: var(--border-input);
   --input-border-destructive: var(--destructive);
 
   --input-fg-destructive: var(--destructive);
@@ -13,13 +13,13 @@
 @layer components {
   .input {
     @apply focus-visible:border-(--input-ring) focus-visible:ring-3 focus-visible:ring-(--input-ring)/50;
-    @apply disabled:bg-(--input-bg)/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50;
+    @apply disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-(--input-bg)/50 disabled:opacity-50;
     @apply aria-invalid:border-(--input-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--input-border-destructive)/20;
 
-    @apply border-(--input-border) placeholder:text-(--input-fg) bg-(--input-bg);
+    @apply border-(--input-border) bg-(--input-bg) placeholder:text-(--input-fg);
 
-    @apply h-8 w-full min-w-0 rounded-lg border px-2.5 py-1 text-base outline-none transition-colors md:text-sm;
+    @apply h-8 w-full min-w-0 rounded-lg border px-2.5 py-1 text-base transition-colors outline-none md:text-sm;
 
-    @apply file:text-(--input-file-fg) file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium;
+    @apply file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-(--input-file-fg);
   }
 }

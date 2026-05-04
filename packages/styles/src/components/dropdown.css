@@ -1,0 +1,193 @@
+:root {
+  --dropdown-menu-content-bg: var(--popover);
+  --dropdown-menu-content-fg: var(--popover-foreground);
+  --dropdown-menu-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --dropdown-menu-label-fg: var(--muted-foreground);
+  --dropdown-menu-item-focus-bg: var(--accent);
+  --dropdown-menu-item-focus-fg: var(--accent-foreground);
+  --dropdown-menu-item-destructive-fg: var(--destructive);
+  --dropdown-menu-item-destructive-focus-bg: color-mix(
+    in oklab,
+    var(--destructive) 10%,
+    transparent
+  );
+  --dropdown-menu-item-destructive-focus-fg: var(--destructive);
+  --dropdown-menu-separator-bg: var(--border);
+  --dropdown-menu-shortcut-fg: var(--muted-foreground);
+}
+
+.dark {
+  --dropdown-menu-item-destructive-focus-bg: color-mix(
+    in oklab,
+    var(--destructive) 20%,
+    transparent
+  );
+}
+
+@keyframes dropdown-menu-content-enter {
+  from {
+    opacity: 0;
+    transform: translate(
+        var(--dropdown-menu-content-enter-x),
+        var(--dropdown-menu-content-enter-y)
+      )
+      scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes dropdown-menu-content-exit {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(
+        var(--dropdown-menu-content-enter-x),
+        var(--dropdown-menu-content-enter-y)
+      )
+      scale(0.95);
+  }
+}
+
+@layer components {
+  .dropdown-menu-content,
+  .dropdown-menu-sub-content {
+    --dropdown-menu-content-enter-x: 0px;
+    --dropdown-menu-content-enter-y: 0px;
+
+    @apply z-50 overflow-x-hidden rounded-lg p-1 shadow-md duration-100;
+
+    background-color: var(--dropdown-menu-content-bg);
+    border: 1px solid var(--dropdown-menu-content-border);
+    color: var(--dropdown-menu-content-fg);
+  }
+
+  .dropdown-menu-content {
+    @apply max-h-(--radix-dropdown-menu-content-available-height) min-w-32 overflow-y-auto;
+
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+    width: var(--radix-dropdown-menu-trigger-width);
+  }
+
+  .dropdown-menu-sub-content {
+    @apply min-w-24 overflow-hidden;
+
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+  }
+
+  .dropdown-menu-content[data-side="bottom"],
+  .dropdown-menu-sub-content[data-side="bottom"] {
+    --dropdown-menu-content-enter-y: -0.5rem;
+  }
+
+  .dropdown-menu-content[data-side="left"],
+  .dropdown-menu-sub-content[data-side="left"] {
+    --dropdown-menu-content-enter-x: 0.5rem;
+  }
+
+  .dropdown-menu-content[data-side="right"],
+  .dropdown-menu-sub-content[data-side="right"] {
+    --dropdown-menu-content-enter-x: -0.5rem;
+  }
+
+  .dropdown-menu-content[data-side="top"],
+  .dropdown-menu-sub-content[data-side="top"] {
+    --dropdown-menu-content-enter-y: 0.5rem;
+  }
+
+  .dropdown-menu-content[data-state="open"],
+  .dropdown-menu-sub-content[data-state="open"] {
+    animation: dropdown-menu-content-enter 100ms ease-out;
+  }
+
+  .dropdown-menu-content[data-state="closed"],
+  .dropdown-menu-sub-content[data-state="closed"] {
+    animation: dropdown-menu-content-exit 100ms ease-in;
+  }
+
+  .dropdown-menu-group {
+    @apply scroll-my-1;
+  }
+
+  .dropdown-menu-item,
+  .dropdown-menu-checkbox-item,
+  .dropdown-menu-radio-item,
+  .dropdown-menu-sub-trigger {
+    @apply relative flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-none select-none;
+    @apply data-disabled:pointer-events-none data-disabled:opacity-50 data-inset:pl-7;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .dropdown-menu-checkbox-item,
+  .dropdown-menu-radio-item {
+    @apply pr-8;
+  }
+
+  .dropdown-menu-item:focus,
+  .dropdown-menu-checkbox-item:focus,
+  .dropdown-menu-radio-item:focus,
+  .dropdown-menu-sub-trigger:focus,
+  .dropdown-menu-sub-trigger[data-state="open"] {
+    background-color: var(--dropdown-menu-item-focus-bg);
+    color: var(--dropdown-menu-item-focus-fg);
+  }
+
+  .dropdown-menu-item[data-variant="destructive"] {
+    color: var(--dropdown-menu-item-destructive-fg);
+  }
+
+  .dropdown-menu-item[data-variant="destructive"] [data-slot="dropdown-menu-shortcut"],
+  .dropdown-menu-item[data-variant="destructive"] svg {
+    color: var(--dropdown-menu-item-destructive-fg);
+  }
+
+  .dropdown-menu-item[data-variant="destructive"]:focus {
+    background-color: var(--dropdown-menu-item-destructive-focus-bg);
+    color: var(--dropdown-menu-item-destructive-focus-fg);
+  }
+
+  .dropdown-menu-item-indicator {
+    @apply pointer-events-none absolute right-2 flex size-4 items-center justify-center;
+  }
+
+  .dropdown-menu-label {
+    @apply px-1.5 py-1 text-xs font-medium data-inset:pl-7;
+
+    color: var(--dropdown-menu-label-fg);
+  }
+
+  .dropdown-menu-separator {
+    @apply pointer-events-none -mx-1 my-1 h-px;
+
+    background-color: var(--dropdown-menu-separator-bg);
+  }
+
+  .dropdown-menu-shortcut {
+    @apply ml-auto text-xs tracking-widest;
+
+    color: var(--dropdown-menu-shortcut-fg);
+  }
+
+  .dropdown-menu-item:focus .dropdown-menu-shortcut,
+  .dropdown-menu-checkbox-item:focus .dropdown-menu-shortcut,
+  .dropdown-menu-radio-item:focus .dropdown-menu-shortcut,
+  .dropdown-menu-sub-trigger:focus .dropdown-menu-shortcut,
+  .dropdown-menu-sub-trigger[data-state="open"] .dropdown-menu-shortcut {
+    color: var(--dropdown-menu-item-focus-fg);
+  }
+
+  .dropdown-menu-item[data-variant="destructive"]:focus .dropdown-menu-shortcut {
+    color: var(--dropdown-menu-item-destructive-focus-fg);
+  }
+}

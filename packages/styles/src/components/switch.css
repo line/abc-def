@@ -2,13 +2,17 @@
   --switch-ring: var(--ring);
   --switch-border-destructive: var(--destructive);
   --switch-bg-checked: var(--primary);
-  --switch-bg-unchecked: var(--input);
+  --switch-bg-unchecked: var(--border-input);
   --switch-thumb-bg-checked: var(--background);
   --switch-thumb-bg-unchecked: var(--background);
 }
 
 .dark {
-  --switch-bg-unchecked: color-mix(in oklab, var(--input) 80%, transparent);
+  --switch-bg-unchecked: color-mix(
+    in oklab,
+    var(--border-input) 80%,
+    transparent
+  );
   --switch-thumb-bg-checked: var(--primary-foreground);
   --switch-thumb-bg-unchecked: var(--foreground);
 }
