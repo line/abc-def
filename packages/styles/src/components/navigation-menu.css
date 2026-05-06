@@ -1,0 +1,273 @@
+:root {
+  --navigation-menu-trigger-bg: var(--background);
+  --navigation-menu-trigger-bg-hover: var(--accent);
+  --navigation-menu-trigger-fg-hover: var(--accent-foreground);
+  --navigation-menu-trigger-bg-open: color-mix(
+    in oklab,
+    var(--accent) 50%,
+    transparent
+  );
+  --navigation-menu-trigger-fg-open: var(--accent-foreground);
+  --navigation-menu-trigger-ring: var(--ring);
+  --navigation-menu-trigger-icon-fg: currentColor;
+
+  --navigation-menu-content-bg: var(--popover);
+  --navigation-menu-content-fg: var(--popover-foreground);
+  --navigation-menu-content-border: var(--border);
+
+  --navigation-menu-link-bg-hover: var(--accent);
+  --navigation-menu-link-fg-hover: var(--accent-foreground);
+  --navigation-menu-link-bg-active: color-mix(
+    in oklab,
+    var(--accent) 50%,
+    transparent
+  );
+  --navigation-menu-link-fg-active: var(--accent-foreground);
+  --navigation-menu-link-ring: var(--ring);
+  --navigation-menu-link-icon-fg: var(--muted-foreground);
+
+  --navigation-menu-indicator-bg: var(--border);
+}
+
+@keyframes navigation-menu-content-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navigation-menu-content-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes navigation-menu-indicator-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navigation-menu-indicator-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes navigation-menu-viewport-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes navigation-menu-viewport-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@layer components {
+  .navigation-menu {
+    @apply relative flex max-w-max flex-1 items-center justify-center;
+  }
+
+  .navigation-menu-list {
+    @apply group flex flex-1 list-none items-center justify-center gap-1;
+  }
+
+  .navigation-menu-item {
+    @apply relative;
+  }
+
+  .navigation-menu-trigger {
+    @apply inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium outline-none;
+    @apply transition-[color,background-color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+
+    background-color: var(--navigation-menu-trigger-bg);
+  }
+
+  .navigation-menu-trigger:hover,
+  .navigation-menu-trigger:focus {
+    background-color: var(--navigation-menu-trigger-bg-hover);
+    color: var(--navigation-menu-trigger-fg-hover);
+  }
+
+  .navigation-menu-trigger:focus-visible {
+    box-shadow: 0 0 0 3px
+      color-mix(in oklab, var(--navigation-menu-trigger-ring) 50%, transparent);
+  }
+
+  .navigation-menu-trigger[data-state="open"] {
+    background-color: var(--navigation-menu-trigger-bg-open);
+    color: var(--navigation-menu-trigger-fg-open);
+  }
+
+  .navigation-menu-trigger[data-state="open"]:hover,
+  .navigation-menu-trigger[data-state="open"]:focus {
+    background-color: var(--navigation-menu-trigger-bg-hover);
+  }
+
+  .navigation-menu-trigger-icon {
+    @apply relative top-[1px] ml-1 size-3 transition duration-300;
+
+    color: var(--navigation-menu-trigger-icon-fg);
+  }
+
+  .navigation-menu-trigger[data-state="open"] .navigation-menu-trigger-icon {
+    @apply rotate-180;
+  }
+
+  .navigation-menu-content {
+    @apply top-0 left-0 w-full p-2 pr-2.5 md:absolute md:w-auto;
+  }
+
+  .navigation-menu-content[data-motion^="from-"] {
+    animation: navigation-menu-content-in 200ms ease;
+  }
+
+  .navigation-menu-content[data-motion^="to-"] {
+    animation: navigation-menu-content-out 200ms ease;
+  }
+
+  .navigation-menu-content[data-motion="from-start"] {
+    @apply slide-in-from-left-52;
+  }
+
+  .navigation-menu-content[data-motion="from-end"] {
+    @apply slide-in-from-right-52;
+  }
+
+  .navigation-menu-content[data-motion="to-start"] {
+    @apply slide-out-to-left-52;
+  }
+
+  .navigation-menu-content[data-motion="to-end"] {
+    @apply slide-out-to-right-52;
+  }
+
+  .navigation-menu[data-viewport="false"] .navigation-menu-content {
+    @apply top-full mt-1.5 overflow-hidden rounded-md border shadow duration-200;
+
+    background-color: var(--navigation-menu-content-bg);
+    border-color: var(--navigation-menu-content-border);
+    color: var(--navigation-menu-content-fg);
+  }
+
+  .navigation-menu[data-viewport="false"]
+    .navigation-menu-content[data-state="open"] {
+    @apply fade-in-0 zoom-in-95;
+    animation: navigation-menu-content-in 200ms ease;
+  }
+
+  .navigation-menu[data-viewport="false"]
+    .navigation-menu-content[data-state="closed"] {
+    @apply fade-out-0 zoom-out-95;
+    animation: navigation-menu-content-out 200ms ease;
+  }
+
+  .navigation-menu[data-viewport="false"]
+    .navigation-menu-content
+    [data-slot="navigation-menu-link"]:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .navigation-menu-viewport-position {
+    @apply absolute top-full left-0 isolate z-50 flex justify-center;
+  }
+
+  .navigation-menu-viewport {
+    @apply relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow;
+    @apply md:w-[var(--radix-navigation-menu-viewport-width)];
+
+    background-color: var(--navigation-menu-content-bg);
+    border-color: var(--navigation-menu-content-border);
+    color: var(--navigation-menu-content-fg);
+    transform-origin: top center;
+  }
+
+  .navigation-menu-viewport[data-state="open"] {
+    animation: navigation-menu-viewport-in 200ms ease;
+  }
+
+  .navigation-menu-viewport[data-state="closed"] {
+    animation: navigation-menu-viewport-out 200ms ease;
+  }
+
+  .navigation-menu-link {
+    @apply flex flex-col gap-1 rounded-sm p-2 text-sm outline-none;
+    @apply transition-all focus-visible:ring-[3px] focus-visible:outline-1;
+    @apply [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .navigation-menu-link:hover,
+  .navigation-menu-link:focus {
+    background-color: var(--navigation-menu-link-bg-hover);
+    color: var(--navigation-menu-link-fg-hover);
+  }
+
+  .navigation-menu-link:focus-visible {
+    box-shadow: 0 0 0 3px
+      color-mix(in oklab, var(--navigation-menu-link-ring) 50%, transparent);
+  }
+
+  .navigation-menu-link[data-active="true"] {
+    background-color: var(--navigation-menu-link-bg-active);
+    color: var(--navigation-menu-link-fg-active);
+  }
+
+  .navigation-menu-link[data-active="true"]:hover,
+  .navigation-menu-link[data-active="true"]:focus {
+    background-color: var(--navigation-menu-link-bg-hover);
+  }
+
+  .navigation-menu-link svg:not([class*="text-"]) {
+    color: var(--navigation-menu-link-icon-fg);
+  }
+
+  .navigation-menu-indicator {
+    @apply top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden;
+  }
+
+  .navigation-menu-indicator[data-state="visible"] {
+    animation: navigation-menu-indicator-in 200ms ease;
+  }
+
+  .navigation-menu-indicator[data-state="hidden"] {
+    animation: navigation-menu-indicator-out 200ms ease;
+  }
+
+  .navigation-menu-indicator-arrow {
+    @apply relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md;
+
+    background-color: var(--navigation-menu-indicator-bg);
+  }
+}

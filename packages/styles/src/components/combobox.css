@@ -1,0 +1,261 @@
+:root {
+  --combobox-trigger-icon-fg: var(--muted-foreground);
+
+  --combobox-content-bg: var(--popover);
+  --combobox-content-fg: var(--popover-foreground);
+  --combobox-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --combobox-content-ring: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+
+  --combobox-content-input-group-border: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --combobox-content-input-group-bg: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+
+  --combobox-item-bg-highlighted: var(--accent);
+  --combobox-item-fg-highlighted: var(--accent-foreground);
+  --combobox-label-fg: var(--muted-foreground);
+  --combobox-empty-fg: var(--muted-foreground);
+  --combobox-separator-bg: var(--border);
+
+  --combobox-chips-border: var(--border-input);
+  --combobox-chips-border-focus: var(--ring);
+  --combobox-chips-ring-focus: color-mix(
+    in oklab,
+    var(--combobox-chips-border-focus) 50%,
+    transparent
+  );
+  --combobox-chips-border-destructive: var(--destructive);
+  --combobox-chips-ring-destructive: color-mix(
+    in oklab,
+    var(--combobox-chips-border-destructive) 20%,
+    transparent
+  );
+  --combobox-chips-bg: transparent;
+
+  --combobox-chip-bg: var(--muted);
+  --combobox-chip-fg: var(--foreground);
+}
+
+.dark {
+  --combobox-chips-bg: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --combobox-chips-border-destructive: color-mix(
+    in oklab,
+    var(--destructive) 50%,
+    transparent
+  );
+  --combobox-chips-ring-destructive: color-mix(
+    in oklab,
+    var(--destructive) 40%,
+    transparent
+  );
+}
+
+@keyframes combobox-content-enter {
+  from {
+    opacity: 0;
+    transform: translate(
+        var(--combobox-content-enter-x),
+        var(--combobox-content-enter-y)
+      )
+      scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes combobox-content-exit {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(
+        var(--combobox-content-enter-x),
+        var(--combobox-content-enter-y)
+      )
+      scale(0.95);
+  }
+}
+
+@layer components {
+  .combobox-trigger {
+    @apply [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .combobox-trigger-icon {
+    @apply pointer-events-none size-4;
+
+    color: var(--combobox-trigger-icon-fg);
+  }
+
+  .combobox-content {
+    --combobox-content-enter-x: 0px;
+    --combobox-content-enter-y: 0px;
+
+    @apply relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+--spacing(7))] overflow-hidden rounded-lg shadow-md duration-100;
+
+    background-color: var(--combobox-content-bg);
+    color: var(--combobox-content-fg);
+    box-shadow: 0 0 0 1px var(--combobox-content-ring);
+    transform-origin: var(--transform-origin);
+  }
+
+  .combobox-content[data-chips="true"] {
+    min-width: var(--anchor-width);
+  }
+
+  .combobox-content[data-side="bottom"] {
+    --combobox-content-enter-y: -0.5rem;
+  }
+
+  .combobox-content[data-side="inline-end"],
+  .combobox-content[data-side="right"] {
+    --combobox-content-enter-x: -0.5rem;
+  }
+
+  .combobox-content[data-side="inline-start"],
+  .combobox-content[data-side="left"] {
+    --combobox-content-enter-x: 0.5rem;
+  }
+
+  .combobox-content[data-side="top"] {
+    --combobox-content-enter-y: 0.5rem;
+  }
+
+  .combobox-content[data-open] {
+    animation: combobox-content-enter 100ms ease-out;
+  }
+
+  .combobox-content[data-starting-style],
+  .combobox-content[data-ending-style] {
+    animation: none;
+  }
+
+  .combobox-content .input-group {
+    @apply m-1 mb-0 h-8 shadow-none;
+
+    background-color: var(--combobox-content-input-group-bg);
+    border-color: var(--combobox-content-input-group-border);
+  }
+
+  .combobox-list {
+    @apply no-scrollbar max-h-[min(18rem,var(--available-height))] scroll-py-1 overflow-y-auto overscroll-contain p-1 data-empty:p-0;
+  }
+
+  .combobox-item {
+    @apply relative flex w-full cursor-default items-center gap-2 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none;
+    @apply data-disabled:pointer-events-none data-disabled:opacity-50;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .combobox-item[data-highlighted] {
+    background-color: var(--combobox-item-bg-highlighted);
+    color: var(--combobox-item-fg-highlighted);
+  }
+
+  .combobox-item:not([data-variant="destructive"])[data-highlighted] * {
+    color: var(--combobox-item-fg-highlighted);
+  }
+
+  .combobox-item-indicator {
+    @apply pointer-events-none absolute right-2 flex size-4 items-center justify-center;
+  }
+
+  .combobox-label {
+    @apply px-2 py-1.5 text-xs;
+
+    color: var(--combobox-label-fg);
+  }
+
+  .combobox-empty {
+    @apply hidden w-full justify-center py-2 text-center text-sm;
+
+    color: var(--combobox-empty-fg);
+  }
+
+  .combobox-content[data-empty] .combobox-empty {
+    @apply flex;
+  }
+
+  .combobox-separator {
+    @apply -mx-1 my-1 h-px;
+
+    background-color: var(--combobox-separator-bg);
+  }
+
+  .combobox-chips {
+    @apply flex min-h-8 flex-wrap items-center gap-1 rounded-lg border bg-clip-padding px-2.5 py-1 text-sm transition-colors;
+  }
+
+  .combobox-chips:focus-within {
+    border-color: var(--combobox-chips-border-focus);
+    box-shadow: 0 0 0 3px var(--combobox-chips-ring-focus);
+  }
+
+  .combobox-chips:has([aria-invalid="true"]) {
+    border-color: var(--combobox-chips-border-destructive);
+    box-shadow: 0 0 0 3px var(--combobox-chips-ring-destructive);
+  }
+
+  .combobox-chips:has([data-slot="combobox-chip"]) {
+    @apply px-1;
+  }
+
+  .combobox-chip {
+    @apply flex h-[calc(--spacing(5.25))] w-fit items-center justify-center gap-1 rounded-sm px-1.5 text-xs font-medium whitespace-nowrap;
+    @apply has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50;
+  }
+
+  .combobox-chip:has([data-slot="combobox-chip-remove"]) {
+    @apply pr-0;
+  }
+
+  .combobox-chip-remove {
+    @apply -ml-1 opacity-50;
+  }
+
+  .combobox-chip-remove:hover {
+    @apply opacity-100;
+  }
+
+  .combobox-chip-input {
+    @apply min-w-16 flex-1 outline-none;
+  }
+
+  .combobox-chip {
+    background-color: var(--combobox-chip-bg);
+    color: var(--combobox-chip-fg);
+  }
+
+  .combobox-chip-input {
+    color: var(--combobox-chip-fg);
+  }
+
+  .combobox-chips {
+    background-color: var(--combobox-chips-bg);
+    border-color: var(--combobox-chips-border);
+  }
+}

@@ -1,0 +1,30 @@
+:root {
+  --kbd-bg: var(--muted);
+  --kbd-fg: var(--muted-foreground);
+  --kbd-bg-tooltip: rgb(from var(--background) r g b / 0.2);
+  --kbd-fg-tooltip: var(--background);
+  --kbd-bg-tooltip-dark: rgb(from var(--background) r g b / 0.1);
+}
+
+@layer components {
+  .kbd {
+    @apply pointer-events-none inline-flex h-5 w-fit min-w-5 items-center justify-center gap-1 rounded-sm px-1 font-sans text-xs font-medium select-none;
+    @apply [&_svg:not([class*='size-'])]:size-3;
+
+    background-color: var(--kbd-bg);
+    color: var(--kbd-fg);
+  }
+
+  .tooltip-content .kbd {
+    background-color: var(--kbd-bg-tooltip);
+    color: var(--kbd-fg-tooltip);
+  }
+
+  .dark .tooltip-content .kbd {
+    background-color: var(--kbd-bg-tooltip-dark);
+  }
+
+  .kbd-group {
+    @apply inline-flex items-center gap-1;
+  }
+}

@@ -1,0 +1,118 @@
+:root {
+  --avatar-fallback-bg: var(--muted);
+  --avatar-fallback-fg: var(--muted-foreground);
+  --avatar-badge-bg: var(--primary);
+  --avatar-badge-fg: var(--primary-foreground);
+  --avatar-badge-ring: var(--background);
+  --avatar-group-ring: var(--background);
+  --avatar-group-count-bg: var(--muted);
+  --avatar-group-count-fg: var(--muted-foreground);
+}
+
+@layer components {
+  .avatar {
+    @apply relative flex shrink-0 overflow-hidden rounded-full select-none;
+  }
+
+  .avatar-size-default {
+    @apply size-8;
+  }
+
+  .avatar-size-sm {
+    @apply size-6;
+  }
+
+  .avatar-size-lg {
+    @apply size-10;
+  }
+
+  .avatar-image {
+    @apply aspect-square size-full;
+  }
+
+  .avatar-fallback {
+    @apply flex size-full items-center justify-center rounded-full text-sm;
+
+    background-color: var(--avatar-fallback-bg);
+    color: var(--avatar-fallback-fg);
+  }
+
+  .avatar-size-sm .avatar-fallback {
+    @apply text-xs;
+  }
+
+  .avatar-badge {
+    @apply absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full ring-2 select-none;
+
+    background-color: var(--avatar-badge-bg);
+    color: var(--avatar-badge-fg);
+    ring-color: var(--avatar-badge-ring);
+  }
+
+  .avatar-size-sm .avatar-badge {
+    @apply size-2;
+  }
+
+  .avatar-size-sm .avatar-badge > svg {
+    @apply hidden;
+  }
+
+  .avatar-size-default .avatar-badge {
+    @apply size-2.5;
+  }
+
+  .avatar-size-default .avatar-badge > svg {
+    @apply size-2;
+  }
+
+  .avatar-size-lg .avatar-badge {
+    @apply size-3;
+  }
+
+  .avatar-size-lg .avatar-badge > svg {
+    @apply size-2;
+  }
+
+  .avatar-group {
+    @apply flex -space-x-2;
+  }
+
+  .avatar-group [data-slot="avatar"] {
+    @apply ring-2;
+
+    ring-color: var(--avatar-group-ring);
+  }
+
+  .avatar-group-count {
+    @apply relative flex shrink-0 items-center justify-center rounded-full text-sm ring-2;
+
+    background-color: var(--avatar-group-count-bg);
+    color: var(--avatar-group-count-fg);
+    ring-color: var(--avatar-group-ring);
+  }
+
+  .avatar-group-count,
+  .avatar-group:has([data-size="default"]) .avatar-group-count {
+    @apply size-8;
+  }
+
+  .avatar-group:has([data-size="sm"]) .avatar-group-count {
+    @apply size-6;
+  }
+
+  .avatar-group:has([data-size="lg"]) .avatar-group-count {
+    @apply size-10;
+  }
+
+  .avatar-group-count > svg {
+    @apply size-4;
+  }
+
+  .avatar-group:has([data-size="sm"]) .avatar-group-count > svg {
+    @apply size-3;
+  }
+
+  .avatar-group:has([data-size="lg"]) .avatar-group-count > svg {
+    @apply size-5;
+  }
+}

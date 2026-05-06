@@ -1,0 +1,217 @@
+:root {
+  --menubar-bg: transparent;
+  --menubar-border: var(--border);
+  --menubar-trigger-bg-hover: var(--muted);
+  --menubar-trigger-bg-expanded: var(--muted);
+
+  --menubar-content-bg: var(--popover);
+  --menubar-content-fg: var(--popover-foreground);
+  --menubar-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --menubar-label-fg: var(--muted-foreground);
+  --menubar-item-bg-focus: var(--accent);
+  --menubar-item-fg-focus: var(--accent-foreground);
+  --menubar-item-fg-destructive: var(--destructive);
+  --menubar-item-bg-destructive-focus: color-mix(
+    in oklab,
+    var(--destructive) 10%,
+    transparent
+  );
+  --menubar-item-fg-destructive-focus: var(--destructive);
+  --menubar-separator-bg: var(--border);
+  --menubar-shortcut-fg: var(--muted-foreground);
+}
+
+.dark {
+  --menubar-item-bg-destructive-focus: color-mix(
+    in oklab,
+    var(--destructive) 20%,
+    transparent
+  );
+}
+
+@keyframes menubar-content-enter {
+  from {
+    opacity: 0;
+    transform: translate(
+        var(--menubar-content-enter-x),
+        var(--menubar-content-enter-y)
+      )
+      scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes menubar-content-exit {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(
+        var(--menubar-content-enter-x),
+        var(--menubar-content-enter-y)
+      )
+      scale(0.95);
+  }
+}
+
+@layer components {
+  .menubar {
+    @apply flex h-8 items-center gap-0.5 rounded-lg border p-[3px];
+
+    background-color: var(--menubar-bg);
+    border-color: var(--menubar-border);
+  }
+
+  .menubar-trigger {
+    @apply flex items-center rounded-sm px-1.5 py-[2px] text-sm font-medium outline-hidden select-none;
+  }
+
+  .menubar-trigger:hover {
+    background-color: var(--menubar-trigger-bg-hover);
+  }
+
+  .menubar-trigger[aria-expanded="true"] {
+    background-color: var(--menubar-trigger-bg-expanded);
+  }
+
+  .menubar-content,
+  .menubar-sub-content {
+    --menubar-content-enter-x: 0px;
+    --menubar-content-enter-y: 0px;
+
+    @apply z-50 overflow-hidden rounded-lg p-1 shadow-md duration-100;
+
+    background-color: var(--menubar-content-bg);
+    border: 1px solid var(--menubar-content-border);
+    color: var(--menubar-content-fg);
+  }
+
+  .menubar-content {
+    @apply min-w-36;
+
+    transform-origin: var(--radix-menubar-content-transform-origin);
+  }
+
+  .menubar-sub-content {
+    @apply min-w-32;
+
+    transform-origin: var(--radix-menubar-content-transform-origin);
+  }
+
+  .menubar-content[data-side="bottom"],
+  .menubar-sub-content[data-side="bottom"] {
+    --menubar-content-enter-y: -0.5rem;
+  }
+
+  .menubar-content[data-side="left"],
+  .menubar-sub-content[data-side="left"] {
+    --menubar-content-enter-x: 0.5rem;
+  }
+
+  .menubar-content[data-side="right"],
+  .menubar-sub-content[data-side="right"] {
+    --menubar-content-enter-x: -0.5rem;
+  }
+
+  .menubar-content[data-side="top"],
+  .menubar-sub-content[data-side="top"] {
+    --menubar-content-enter-y: 0.5rem;
+  }
+
+  .menubar-content[data-state="open"],
+  .menubar-sub-content[data-state="open"] {
+    animation: menubar-content-enter 100ms ease-out;
+  }
+
+  .menubar-content[data-state="closed"],
+  .menubar-sub-content[data-state="closed"] {
+    animation: menubar-content-exit 100ms ease-in;
+  }
+
+  .menubar-group {
+    @apply scroll-my-1;
+  }
+
+  .menubar-item,
+  .menubar-checkbox-item,
+  .menubar-radio-item,
+  .menubar-sub-trigger {
+    @apply relative flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-none select-none;
+    @apply data-disabled:pointer-events-none data-disabled:opacity-50 data-inset:pl-7;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .menubar-item:focus,
+  .menubar-checkbox-item:focus,
+  .menubar-radio-item:focus,
+  .menubar-sub-trigger:focus,
+  .menubar-sub-trigger[data-state="open"] {
+    background-color: var(--menubar-item-bg-focus);
+    color: var(--menubar-item-fg-focus);
+  }
+
+  .menubar-item[data-variant="destructive"] {
+    color: var(--menubar-item-fg-destructive);
+  }
+
+  .menubar-item[data-variant="destructive"] [data-slot="menubar-shortcut"],
+  .menubar-item[data-variant="destructive"] svg {
+    color: var(--menubar-item-fg-destructive);
+  }
+
+  .menubar-item[data-variant="destructive"]:focus {
+    background-color: var(--menubar-item-bg-destructive-focus);
+    color: var(--menubar-item-fg-destructive-focus);
+  }
+
+  .menubar-checkbox-item,
+  .menubar-radio-item {
+    @apply pr-1.5 pl-7;
+  }
+
+  .menubar-item-indicator {
+    @apply pointer-events-none absolute left-1.5 flex size-4 items-center justify-center;
+    @apply [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .menubar-label {
+    @apply px-1.5 py-1 text-sm font-medium data-inset:pl-7;
+
+    color: var(--menubar-label-fg);
+  }
+
+  .menubar-separator {
+    @apply pointer-events-none -mx-1 my-1 h-px;
+
+    background-color: var(--menubar-separator-bg);
+  }
+
+  .menubar-shortcut {
+    @apply ml-auto text-xs tracking-widest;
+
+    color: var(--menubar-shortcut-fg);
+  }
+
+  .group\/menubar-item:focus .menubar-shortcut,
+  .menubar-checkbox-item:focus .menubar-shortcut,
+  .menubar-radio-item:focus .menubar-shortcut,
+  .menubar-sub-trigger:focus .menubar-shortcut,
+  .menubar-sub-trigger[data-state="open"] .menubar-shortcut {
+    color: var(--menubar-item-fg-focus);
+  }
+
+  .menubar-sub-trigger-chevron {
+    @apply cn-rtl-flip ml-auto size-4;
+  }
+}

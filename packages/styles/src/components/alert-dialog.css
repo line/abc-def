@@ -1,0 +1,135 @@
+:root {
+  --alert-dialog-overlay-bg: rgb(0 0 0 / 0.1);
+  --alert-dialog-content-bg: var(--popover);
+  --alert-dialog-content-fg: var(--popover-foreground);
+  --alert-dialog-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --alert-dialog-footer-bg: color-mix(in oklab, var(--muted) 50%, transparent);
+  --alert-dialog-footer-border: var(--border);
+  --alert-dialog-media-bg: var(--muted);
+  --alert-dialog-description-fg: var(--muted-foreground);
+}
+
+@keyframes alert-dialog-overlay-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes alert-dialog-overlay-exit {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes alert-dialog-content-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes alert-dialog-content-exit {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+@layer components {
+  .alert-dialog-overlay {
+    @apply fixed inset-0 isolate z-50 duration-100;
+
+    background-color: var(--alert-dialog-overlay-bg);
+    backdrop-filter: blur(2px);
+  }
+
+  .alert-dialog-overlay[data-state="open"] {
+    animation: alert-dialog-overlay-enter 100ms ease-out;
+  }
+
+  .alert-dialog-overlay[data-state="closed"] {
+    animation: alert-dialog-overlay-exit 100ms ease-in;
+  }
+
+  .alert-dialog-content {
+    @apply fixed top-1/2 left-1/2 z-50 grid w-full max-w-xs -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl p-4 text-sm duration-100 outline-none;
+
+    background-color: var(--alert-dialog-content-bg);
+    border: 1px solid var(--alert-dialog-content-border);
+    color: var(--alert-dialog-content-fg);
+  }
+
+  .alert-dialog-content[data-state="open"] {
+    animation: alert-dialog-content-enter 100ms ease-out;
+  }
+
+  .alert-dialog-content[data-state="closed"] {
+    animation: alert-dialog-content-exit 100ms ease-in;
+  }
+
+  .alert-dialog-content[data-size="default"] {
+    @apply sm:max-w-sm;
+  }
+
+  .alert-dialog-header {
+    @apply grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center;
+    @apply has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-4;
+    @apply sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-left;
+    @apply sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr];
+  }
+
+  .alert-dialog-footer {
+    @apply -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4;
+    @apply group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2;
+    @apply sm:flex-row sm:justify-end;
+
+    background-color: var(--alert-dialog-footer-bg);
+    border-color: var(--alert-dialog-footer-border);
+  }
+
+  .alert-dialog-media {
+    @apply mb-2 inline-flex size-10 items-center justify-center rounded-md;
+    @apply sm:group-data-[size=default]/alert-dialog-content:row-span-2;
+    @apply *:[svg:not([class*='size-'])]:size-6;
+
+    background-color: var(--alert-dialog-media-bg);
+  }
+
+  .alert-dialog-title {
+    @apply cn-font-heading text-base font-medium;
+    @apply sm:group-data-[size=default]/alert-dialog-content:group-has-data-[slot=alert-dialog-media]/alert-dialog-content:col-start-2;
+  }
+
+  .alert-dialog-description {
+    @apply text-sm text-balance md:text-pretty;
+    @apply *:[a]:underline *:[a]:underline-offset-3;
+
+    color: var(--alert-dialog-description-fg);
+  }
+
+  .alert-dialog-description a:hover {
+    color: var(--foreground);
+  }
+}
