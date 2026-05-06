@@ -7,21 +7,21 @@
     transparent
   );
   --dropdown-menu-label-fg: var(--muted-foreground);
-  --dropdown-menu-item-focus-bg: var(--accent);
-  --dropdown-menu-item-focus-fg: var(--accent-foreground);
-  --dropdown-menu-item-destructive-fg: var(--destructive);
-  --dropdown-menu-item-destructive-focus-bg: color-mix(
+  --dropdown-menu-item-bg-focus: var(--accent);
+  --dropdown-menu-item-fg-focus: var(--accent-foreground);
+  --dropdown-menu-item-fg-destructive: var(--destructive);
+  --dropdown-menu-item-bg-destructive-focus: color-mix(
     in oklab,
     var(--destructive) 10%,
     transparent
   );
-  --dropdown-menu-item-destructive-focus-fg: var(--destructive);
+  --dropdown-menu-item-fg-destructive-focus: var(--destructive);
   --dropdown-menu-separator-bg: var(--border);
   --dropdown-menu-shortcut-fg: var(--muted-foreground);
 }
 
 .dark {
-  --dropdown-menu-item-destructive-focus-bg: color-mix(
+  --dropdown-menu-item-bg-destructive-focus: color-mix(
     in oklab,
     var(--destructive) 20%,
     transparent
@@ -139,22 +139,22 @@
   .dropdown-menu-radio-item:focus,
   .dropdown-menu-sub-trigger:focus,
   .dropdown-menu-sub-trigger[data-state="open"] {
-    background-color: var(--dropdown-menu-item-focus-bg);
-    color: var(--dropdown-menu-item-focus-fg);
+    background-color: var(--dropdown-menu-item-bg-focus);
+    color: var(--dropdown-menu-item-fg-focus);
   }
 
   .dropdown-menu-item[data-variant="destructive"] {
-    color: var(--dropdown-menu-item-destructive-fg);
+    color: var(--dropdown-menu-item-fg-destructive);
   }
 
   .dropdown-menu-item[data-variant="destructive"] [data-slot="dropdown-menu-shortcut"],
   .dropdown-menu-item[data-variant="destructive"] svg {
-    color: var(--dropdown-menu-item-destructive-fg);
+    color: var(--dropdown-menu-item-fg-destructive);
   }
 
   .dropdown-menu-item[data-variant="destructive"]:focus {
-    background-color: var(--dropdown-menu-item-destructive-focus-bg);
-    color: var(--dropdown-menu-item-destructive-focus-fg);
+    background-color: var(--dropdown-menu-item-bg-destructive-focus);
+    color: var(--dropdown-menu-item-fg-destructive-focus);
   }
 
   .dropdown-menu-item-indicator {
@@ -184,10 +184,10 @@
   .dropdown-menu-radio-item:focus .dropdown-menu-shortcut,
   .dropdown-menu-sub-trigger:focus .dropdown-menu-shortcut,
   .dropdown-menu-sub-trigger[data-state="open"] .dropdown-menu-shortcut {
-    color: var(--dropdown-menu-item-focus-fg);
+    color: var(--dropdown-menu-item-fg-focus);
   }
 
   .dropdown-menu-item[data-variant="destructive"]:focus .dropdown-menu-shortcut {
-    color: var(--dropdown-menu-item-destructive-focus-fg);
+    color: var(--dropdown-menu-item-fg-destructive-focus);
   }
 }

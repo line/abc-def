@@ -1,7 +1,7 @@
 :root {
   --input-ring: var(--ring);
 
-  --input-fg: var(--muted-foreground);
+  --input-fg-placeholder: var(--muted-foreground);
   --input-bg: var(--background);
   --input-border: var(--border-input);
   --input-border-destructive: var(--destructive);
@@ -16,7 +16,7 @@
     @apply disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-(--input-bg)/50 disabled:opacity-50;
     @apply aria-invalid:border-(--input-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--input-border-destructive)/20;
 
-    @apply border-(--input-border) bg-(--input-bg) placeholder:text-(--input-fg);
+    @apply border-(--input-border) bg-(--input-bg) placeholder:text-(--input-fg-placeholder);
 
     @apply h-8 w-full min-w-0 rounded-lg border px-2.5 py-1 text-base transition-colors outline-none md:text-sm;
 

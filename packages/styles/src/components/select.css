@@ -4,7 +4,7 @@
   --select-trigger-bg-hover: transparent;
   --select-trigger-border: var(--border-input);
   --select-trigger-border-destructive: var(--destructive);
-  --select-trigger-placeholder-fg: var(--muted-foreground);
+  --select-trigger-fg-placeholder: var(--muted-foreground);
   --select-trigger-icon-fg: var(--muted-foreground);
 
   --select-content-bg: var(--popover);
@@ -16,8 +16,8 @@
   );
 
   --select-label-fg: var(--muted-foreground);
-  --select-item-focus-bg: var(--accent);
-  --select-item-focus-fg: var(--accent-foreground);
+  --select-item-bg-focus: var(--accent);
+  --select-item-fg-focus: var(--accent-foreground);
   --select-separator-bg: var(--border);
   --select-scroll-button-bg: var(--popover);
 }
@@ -79,7 +79,7 @@
   .select-trigger {
     @apply focus-visible:border-(--select-trigger-ring) focus-visible:ring-3 focus-visible:ring-(--select-trigger-ring)/50;
     @apply aria-invalid:border-(--select-trigger-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--select-trigger-border-destructive)/20;
-    @apply data-placeholder:text-(--select-trigger-placeholder-fg);
+    @apply data-placeholder:text-(--select-trigger-fg-placeholder);
     @apply flex w-fit items-center justify-between gap-1.5 rounded-lg border py-2 pr-2 pl-2.5 text-sm whitespace-nowrap transition-colors outline-none select-none;
     @apply disabled:cursor-not-allowed disabled:opacity-50;
     @apply data-[size=default]:h-8 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)];
@@ -168,7 +168,7 @@
   .select-item {
     @apply relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-none select-none;
     @apply data-disabled:pointer-events-none data-disabled:opacity-50;
-    @apply focus:bg-(--select-item-focus-bg) focus:text-(--select-item-focus-fg);
+    @apply focus:bg-(--select-item-bg-focus) focus:text-(--select-item-fg-focus);
     @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
   }
 

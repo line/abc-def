@@ -22,7 +22,7 @@ import { Slot } from "radix-ui";
 
 import { cn } from "../lib/utils";
 
-const buttonVariants = cva("group/button button", {
+export const buttonVariants = cva("group/button button", {
   variants: {
     variant: {
       default: "button-variant-default",
