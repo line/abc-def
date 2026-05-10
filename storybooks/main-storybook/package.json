@@ -27,7 +27,7 @@
     "@storybook/react-vite": "catalog:storybook",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",
-    "@vitejs/plugin-react": "^5.1.2",
+    "@vitejs/plugin-react": "^5.2.0",
     "autoprefixer": "^10.4.23",
     "eslint": "catalog:",
     "globals": "^17.0.0",
