@@ -116,7 +116,7 @@
   }
 
   .calendar-day {
-    @apply group/day relative aspect-square h-full w-full rounded-(--cell-radius) p-0 text-center select-none;
+    @apply relative aspect-square h-full w-full rounded-(--cell-radius) p-0 text-center select-none;
   }
 
   .calendar-day:last-child[data-selected="true"] .calendar-day-button {

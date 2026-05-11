@@ -1,4 +1,5 @@
 :root {
+  --avatar-border: var(--border);
   --avatar-fallback-bg: var(--muted);
   --avatar-fallback-fg: var(--muted-foreground);
   --avatar-badge-bg: var(--primary);
@@ -11,7 +12,9 @@
 
 @layer components {
   .avatar {
-    @apply relative flex shrink-0 overflow-hidden rounded-full select-none;
+    /* @apply relative flex shrink-0 overflow-hidden rounded-full select-none; */
+    @apply relative flex size-8 shrink-0 rounded-full select-none;
+    @apply after:absolute after:inset-0 after:rounded-full after:border after:border-(--avatar-border) after:mix-blend-darken;
   }
 
   .avatar-size-default {
@@ -27,12 +30,11 @@
   }
 
   .avatar-image {
-    @apply aspect-square size-full;
+    @apply aspect-square size-full rounded-full object-cover;
   }
 
   .avatar-fallback {
-    @apply flex size-full items-center justify-center rounded-full text-sm;
-
+    @apply flex size-full items-center justify-center rounded-full text-sm group-data-[size=sm]/avatar:text-xs;
     background-color: var(--avatar-fallback-bg);
     color: var(--avatar-fallback-fg);
   }
@@ -42,11 +44,12 @@
   }
 
   .avatar-badge {
-    @apply absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full ring-2 select-none;
+    @apply absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full bg-blend-color ring-2 ring-(--avatar-badge-ring) select-none;
+    /* @apply absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full ring-2 ring-(--avatar-badge-ring) select-none; */
 
     background-color: var(--avatar-badge-bg);
     color: var(--avatar-badge-fg);
-    ring-color: var(--avatar-badge-ring);
+    /* bg-primary text-primary-foreground  */
   }
 
   .avatar-size-sm .avatar-badge {
@@ -78,17 +81,14 @@
   }
 
   .avatar-group [data-slot="avatar"] {
-    @apply ring-2;
-
-    ring-color: var(--avatar-group-ring);
+    @apply ring-2 ring-(--avatar-group-ring);
   }
 
   .avatar-group-count {
-    @apply relative flex shrink-0 items-center justify-center rounded-full text-sm ring-2;
+    @apply relative flex shrink-0 items-center justify-center rounded-full text-sm ring-2 ring-(--avatar-group-ring);
 
     background-color: var(--avatar-group-count-bg);
     color: var(--avatar-group-count-fg);
-    ring-color: var(--avatar-group-ring);
   }
 
   .avatar-group-count,

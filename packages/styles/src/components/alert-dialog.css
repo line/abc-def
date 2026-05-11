@@ -59,10 +59,7 @@
 
 @layer components {
   .alert-dialog-overlay {
-    @apply fixed inset-0 isolate z-50 duration-100;
-
-    background-color: var(--alert-dialog-overlay-bg);
-    backdrop-filter: blur(2px);
+    @apply fixed inset-0 isolate z-50 bg-(--alert-dialog-overlay-bg) backdrop-blur-[2px] duration-100;
   }
 
   .alert-dialog-overlay[data-state="open"] {
@@ -74,11 +71,7 @@
   }
 
   .alert-dialog-content {
-    @apply fixed top-1/2 left-1/2 z-50 grid w-full max-w-xs -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl p-4 text-sm duration-100 outline-none;
-
-    background-color: var(--alert-dialog-content-bg);
-    border: 1px solid var(--alert-dialog-content-border);
-    color: var(--alert-dialog-content-fg);
+    @apply fixed top-1/2 left-1/2 z-50 grid w-full max-w-xs -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border border-(--alert-dialog-content-border) bg-(--alert-dialog-content-bg) p-4 text-sm text-(--alert-dialog-content-fg) duration-100 outline-none;
   }
 
   .alert-dialog-content[data-state="open"] {
@@ -101,35 +94,25 @@
   }
 
   .alert-dialog-footer {
-    @apply -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4;
+    @apply -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t border-(--alert-dialog-footer-border) bg-(--alert-dialog-footer-bg) p-4;
     @apply group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2;
     @apply sm:flex-row sm:justify-end;
-
-    background-color: var(--alert-dialog-footer-bg);
-    border-color: var(--alert-dialog-footer-border);
   }
 
   .alert-dialog-media {
-    @apply mb-2 inline-flex size-10 items-center justify-center rounded-md;
+    @apply mb-2 inline-flex size-10 items-center justify-center rounded-md bg-(--alert-dialog-media-bg);
     @apply sm:group-data-[size=default]/alert-dialog-content:row-span-2;
     @apply *:[svg:not([class*='size-'])]:size-6;
-
-    background-color: var(--alert-dialog-media-bg);
   }
 
   .alert-dialog-title {
-    @apply cn-font-heading text-base font-medium;
+    /* @apply cn-font-heading text-base font-medium; */
+    @apply text-base font-medium;
     @apply sm:group-data-[size=default]/alert-dialog-content:group-has-data-[slot=alert-dialog-media]/alert-dialog-content:col-start-2;
   }
 
   .alert-dialog-description {
-    @apply text-sm text-balance md:text-pretty;
-    @apply *:[a]:underline *:[a]:underline-offset-3;
-
-    color: var(--alert-dialog-description-fg);
-  }
-
-  .alert-dialog-description a:hover {
-    color: var(--foreground);
+    @apply text-sm text-balance text-(--alert-dialog-description-fg) md:text-pretty;
+    @apply [&_a]:hover:text-(--foreground) *:[a]:underline *:[a]:underline-offset-3;
   }
 }

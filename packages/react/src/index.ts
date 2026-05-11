@@ -33,6 +33,12 @@ export {
   InputGroupText,
   InputGroupTextarea,
 } from "./components/input-group";
+export {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "./components/input-otp";
 export { Label } from "./components/label";
 export {
   Select,
@@ -248,6 +254,14 @@ export {
   ContextMenuTrigger,
 } from "./components/context-menu";
 export {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "./components/empty";
+export {
   Pagination,
   PaginationContent,
   PaginationEllipsis,
@@ -256,11 +270,18 @@ export {
   PaginationNext,
   PaginationPrevious,
 } from "./components/pagination";
+export { Progress } from "./components/progress";
 
 export { Slider } from "./components/slider";
 export { Switch } from "./components/switch";
 export { Checkbox } from "./components/checkbox";
 export { RadioGroup, RadioGroupItem } from "./components/radio-group";
+export {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "./components/resizable";
+export { ScrollArea, ScrollBar } from "./components/scroll-area";
 export {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -277,4 +298,6 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "./components/dropdown";
+} from "./components/dropdown-menu";
+export { Toggle, toggleVariants } from "./components/toggle";
+export { ToggleGroup, ToggleGroupItem } from "./components/toggle-group";

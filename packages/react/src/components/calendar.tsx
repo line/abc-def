@@ -95,7 +95,7 @@ function Calendar({
         ),
         week_number: cn("calendar-week-number", defaultClassNames.week_number),
         day: cn(
-          "calendar-day [&:last-child[data-selected=true]_button]:rounded-r-(--cell-radius)",
+          "group/day calendar-day [&:last-child[data-selected=true]_button]:rounded-r-(--cell-radius)",
           props.showWeekNumber
             ? "[&:nth-child(2)[data-selected=true]_button]:rounded-l-(--cell-radius)"
             : "[&:first-child[data-selected=true]_button]:rounded-l-(--cell-radius)",

@@ -1,0 +1,69 @@
+:root {
+  --toggle-ring: var(--ring);
+  --toggle-border-destructive: var(--destructive);
+  --toggle-bg-hover: var(--muted);
+  --toggle-fg-hover: var(--foreground);
+  --toggle-bg-active: var(--muted);
+  --toggle-fg-active: var(--foreground);
+  --toggle-border-outline: var(--border-input);
+}
+
+@layer components {
+  .toggle {
+    @apply inline-flex items-center justify-center gap-1 rounded-lg text-sm font-medium whitespace-nowrap transition-all outline-none;
+    @apply focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+
+    --tw-ring-color: color-mix(in oklab, var(--toggle-ring) 50%, transparent);
+  }
+
+  .toggle:hover {
+    background-color: var(--toggle-bg-hover);
+    color: var(--toggle-fg-hover);
+  }
+
+  .toggle[aria-invalid="true"] {
+    border-color: var(--toggle-border-destructive);
+    box-shadow: 0 0 0 3px
+      color-mix(in oklab, var(--toggle-border-destructive) 20%, transparent);
+  }
+
+  .dark .toggle[aria-invalid="true"] {
+    box-shadow: 0 0 0 3px
+      color-mix(in oklab, var(--toggle-border-destructive) 40%, transparent);
+  }
+
+  .toggle[aria-pressed="true"],
+  .toggle[data-state="on"] {
+    background-color: var(--toggle-bg-active);
+    color: var(--toggle-fg-active);
+  }
+
+  .toggle-variant-default {
+    @apply bg-transparent;
+  }
+
+  .toggle-variant-outline {
+    @apply border bg-transparent;
+
+    border-color: var(--toggle-border-outline);
+  }
+
+  .toggle-size-default {
+    @apply h-8 min-w-8 px-2.5;
+    @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
+  }
+
+  .toggle-size-sm {
+    @apply h-7 min-w-7 px-2.5 text-[0.8rem];
+    @apply has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5;
+    @apply [&_svg:not([class*='size-'])]:size-3.5;
+
+    border-radius: min(var(--radius-md), 12px);
+  }
+
+  .toggle-size-lg {
+    @apply h-9 min-w-9 px-2.5;
+    @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
+  }
+}

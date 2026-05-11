@@ -17,8 +17,8 @@
 
 import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
+import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
 import { cva } from "class-variance-authority";
-import { Avatar as AvatarPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 

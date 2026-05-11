@@ -1,0 +1,33 @@
+:root {
+  --scroll-area-viewport-ring: var(--ring);
+  --scroll-area-thumb-bg: var(--border);
+}
+
+@layer components {
+  .scroll-area {
+    @apply relative;
+  }
+
+  .scroll-area-viewport {
+    @apply size-full rounded-[inherit] transition-[color,box-shadow] outline-none;
+    @apply focus-visible:ring-[3px] focus-visible:outline-1;
+
+    --tw-ring-color: color-mix(
+      in oklab,
+      var(--scroll-area-viewport-ring) 50%,
+      transparent
+    );
+  }
+
+  .scroll-area-scrollbar {
+    @apply flex touch-none p-px transition-colors select-none;
+    @apply data-horizontal:h-2.5 data-horizontal:flex-col data-horizontal:border-t data-horizontal:border-t-transparent;
+    @apply data-vertical:h-full data-vertical:w-2.5 data-vertical:border-l data-vertical:border-l-transparent;
+  }
+
+  .scroll-area-thumb {
+    @apply relative flex-1 rounded-full;
+
+    background-color: var(--scroll-area-thumb-bg);
+  }
+}

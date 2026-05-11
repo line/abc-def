@@ -212,6 +212,7 @@
   }
 
   .menubar-sub-trigger-chevron {
-    @apply cn-rtl-flip ml-auto size-4;
+    /* @apply cn-rtl-flip ml-auto size-4; */
+    @apply ml-auto size-4;
   }
 }

@@ -5,141 +5,93 @@
 
 :root {
   /* accordion.css */
-  --accordion-item-border: var(--border);
+  --accordion-ring: var(--ring);
+  --accordion-trigger-icon-fg: var(--muted-foreground);
 
   /* alert.css */
-  --alert-border: var(--border);
-  --alert-bg: var(--background);
-  --alert-fg: var(--foreground);
-  --alert-title-fg: var(--foreground);
-  --alert-description-fg: var(--muted-foreground);
-  --alert-icon-fg: var(--foreground);
-  --alert-description-fg-link: var(--foreground);
-  --alert-border-destructive: color-mix(in oklab, var(--destructive) 20%, transparent);
-  --alert-bg-destructive: color-mix(in oklab, var(--destructive) 6%, transparent);
+  --alert-bg-default: var(--surface);
+  --alert-fg-default: var(--surface-foreground);
+
+  --alert-bg-destructive: var(--surface);
   --alert-fg-destructive: var(--destructive);
-  --alert-title-fg-destructive: var(--destructive);
-  --alert-description-fg-destructive: color-mix(
+
+  --alert-title-fg-link: var(--primary);
+
+  --alert-description-fg: var(--muted-foreground);
+  --alert-description-fg-link: var(--primary);
+
+  /* alert-dialog.css */
+  --alert-dialog-overlay-bg: rgb(0 0 0 / 0.1);
+  --alert-dialog-content-bg: var(--popover);
+  --alert-dialog-content-fg: var(--popover-foreground);
+  --alert-dialog-content-border: color-mix(
     in oklab,
-    var(--destructive) 80%,
-    var(--foreground)
+    var(--foreground) 10%,
+    transparent
   );
-  --alert-icon-fg-destructive: var(--destructive);
-  --alert-description-fg-link-destructive: var(--destructive);
+  --alert-dialog-footer-bg: color-mix(in oklab, var(--muted) 50%, transparent);
+  --alert-dialog-footer-border: var(--border);
+  --alert-dialog-media-bg: var(--muted);
+  --alert-dialog-description-fg: var(--muted-foreground);
+
+  /* avatar.css */
+  --avatar-fallback-bg: var(--muted);
+  --avatar-fallback-fg: var(--muted-foreground);
+  --avatar-badge-bg: var(--primary);
+  --avatar-badge-fg: var(--primary-foreground);
+  --avatar-badge-ring: var(--background);
+  --avatar-group-ring: var(--background);
+  --avatar-group-count-bg: var(--muted);
+  --avatar-group-count-fg: var(--muted-foreground);
 
   /* badge.css */
-  --badge-bg-primary: var(--primary);
-  --badge-fg-primary: var(--primary-foreground);
-  --badge-border-primary: transparent;
-  --badge-bg-primary-hover: color-mix(in oklab, var(--primary) 90%, transparent);
-  --badge-fg-primary-hover: var(--primary-foreground);
-  --badge-border-primary-hover: transparent;
-  --badge-bg-primary-focus: color-mix(in oklab, var(--primary) 90%, transparent);
-  --badge-fg-primary-focus: var(--primary-foreground);
-  --badge-border-primary-focus: transparent;
-  --badge-bg-primary-active: color-mix(in oklab, var(--primary) 85%, transparent);
-  --badge-fg-primary-active: var(--primary-foreground);
-  --badge-border-primary-active: transparent;
+  --badge-ring: var(--ring);
+  --badge-ring-destructive: var(--destructive);
+
+  --badge-radius: 9999px;
+  --badge-border-default: transparent;
+
+  --badge-bg-default: var(--primary);
+  --badge-fg-default: var(--primary-foreground);
+  --badge-bg-default-hover: color-mix(in srgb, var(--primary) 90%, transparent);
+  --badge-fg-default-hover: var(--primary-foreground);
+
   --badge-bg-secondary: var(--secondary);
   --badge-fg-secondary: var(--secondary-foreground);
-  --badge-border-secondary: transparent;
   --badge-bg-secondary-hover: color-mix(
-    in oklab,
-    var(--secondary) 94%,
-    var(--foreground)
+    in srgb,
+    var(--secondary) 90%,
+    transparent
   );
   --badge-fg-secondary-hover: var(--secondary-foreground);
-  --badge-border-secondary-hover: transparent;
-  --badge-bg-secondary-focus: color-mix(
-    in oklab,
-    var(--secondary) 94%,
-    var(--foreground)
+
+  --badge-bg-destructive: var(--destructive);
+  --badge-fg-destructive: var(--destructive-foreground);
+  --badge-bg-destructive-hover: color-mix(
+    in srgb,
+    var(--destructive) 90%,
+    transparent
   );
-  --badge-fg-secondary-focus: var(--secondary-foreground);
-  --badge-border-secondary-focus: transparent;
-  --badge-bg-secondary-active: color-mix(
-    in oklab,
-    var(--secondary) 88%,
-    var(--foreground)
-  );
-  --badge-fg-secondary-active: var(--secondary-foreground);
-  --badge-border-secondary-active: transparent;
+  --badge-fg-destructive-hover: var(--destructive-foreground);
+
   --badge-bg-outline: transparent;
   --badge-fg-outline: var(--foreground);
   --badge-border-outline: var(--border);
   --badge-bg-outline-hover: var(--accent);
   --badge-fg-outline-hover: var(--accent-foreground);
-  --badge-border-outline-hover: var(--border);
-  --badge-bg-outline-focus: var(--accent);
-  --badge-fg-outline-focus: var(--accent-foreground);
-  --badge-border-outline-focus: var(--border);
-  --badge-bg-outline-active: color-mix(in oklab, var(--accent) 90%, var(--foreground));
-  --badge-fg-outline-active: var(--accent-foreground);
-  --badge-border-outline-active: var(--border);
-  --badge-bg-destructive: var(--destructive);
-  --badge-fg-destructive: var(--destructive-foreground);
-  --badge-border-destructive: transparent;
-  --badge-bg-destructive-hover: color-mix(
-    in oklab,
-    var(--destructive) 90%,
-    transparent
-  );
-  --badge-fg-destructive-hover: var(--destructive-foreground);
-  --badge-border-destructive-hover: transparent;
-  --badge-bg-destructive-focus: color-mix(
-    in oklab,
-    var(--destructive) 90%,
-    transparent
-  );
-  --badge-fg-destructive-focus: var(--destructive-foreground);
-  --badge-border-destructive-focus: transparent;
-  --badge-bg-destructive-active: color-mix(
-    in oklab,
-    var(--destructive) 85%,
-    transparent
-  );
-  --badge-fg-destructive-active: var(--destructive-foreground);
-  --badge-border-destructive-active: transparent;
-  --badge-bg-soft: color-mix(in oklab, var(--primary) 12%, transparent);
-  --badge-fg-soft: var(--primary);
-  --badge-border-soft: transparent;
-  --badge-bg-soft-hover: color-mix(in oklab, var(--primary) 16%, transparent);
-  --badge-fg-soft-hover: var(--primary);
-  --badge-border-soft-hover: transparent;
-  --badge-bg-soft-focus: color-mix(in oklab, var(--primary) 16%, transparent);
-  --badge-fg-soft-focus: var(--primary);
-  --badge-border-soft-focus: transparent;
-  --badge-bg-soft-active: color-mix(in oklab, var(--primary) 20%, transparent);
-  --badge-fg-soft-active: var(--primary);
-  --badge-border-soft-active: transparent;
-  --badge-bg-soft-destructive: color-mix(
-    in oklab,
-    var(--destructive) 12%,
-    transparent
-  );
-  --badge-fg-soft-destructive: var(--destructive);
-  --badge-border-soft-destructive: transparent;
-  --badge-bg-soft-destructive-hover: color-mix(
-    in oklab,
-    var(--destructive) 16%,
-    transparent
-  );
-  --badge-fg-soft-destructive-hover: var(--destructive);
-  --badge-border-soft-destructive-hover: transparent;
-  --badge-bg-soft-destructive-focus: color-mix(
-    in oklab,
-    var(--destructive) 16%,
-    transparent
-  );
-  --badge-fg-soft-destructive-focus: var(--destructive);
-  --badge-border-soft-destructive-focus: transparent;
-  --badge-bg-soft-destructive-active: color-mix(
-    in oklab,
-    var(--destructive) 20%,
-    transparent
-  );
-  --badge-fg-soft-destructive-active: var(--destructive);
-  --badge-border-soft-destructive-active: transparent;
+
+  --badge-bg-ghost: transparent;
+  --badge-fg-ghost: var(--foreground);
+  --badge-bg-ghost-hover: var(--accent);
+  --badge-fg-ghost-hover: var(--accent-foreground);
+
+  --badge-bg-link: transparent;
+  --badge-fg-link: var(--primary);
+
+  /* breadcrumb.css */
+  --breadcrumb-fg: var(--muted-foreground);
+  --breadcrumb-link-fg-hover: var(--foreground);
+  --breadcrumb-page-fg: var(--foreground);
 
   /* button-group.css */
   --button-group-text-bg: var(--surface);
@@ -149,99 +101,234 @@
   /* button.css */
   --button-ring: var(--ring);
   --button-ring-destructive: var(--destructive);
+
+  /* Primary button styles */
   --button-bg-primary: var(--primary);
   --button-fg-primary: var(--primary-foreground);
   --button-border-primary: var(--primary);
+
   --button-bg-primary-hover: var(--primary);
   --button-fg-primary-hover: var(--primary-foreground);
   --button-border-primary-hover: var(--primary);
+
   --button-bg-primary-expanded: var(--accent);
   --button-fg-primary-expanded: var(--accent-foreground);
   --button-border-primary-expanded: var(--primary);
+
+  /* Secondary button styles */
   --button-bg-secondary: var(--secondary);
   --button-fg-secondary: var(--secondary-foreground);
   --button-border-secondary: transparent;
+
   --button-bg-secondary-hover: var(--secondary);
   --button-fg-secondary-hover: var(--secondary-foreground);
   --button-border-secondary-hover: transparent;
+
   --button-bg-secondary-expanded: var(--secondary);
   --button-fg-secondary-expanded: var(--secondary-foreground);
   --button-border-secondary-expanded: transparent;
+
+  /* Outline button styles */
   --button-bg-outline: transparent;
   --button-fg-outline: var(--foreground);
   --button-border-outline: var(--border);
+
   --button-bg-outline-hover: var(--accent);
   --button-fg-outline-hover: var(--accent-foreground);
   --button-border-outline-hover: var(--border);
+
   --button-bg-outline-expanded: var(--accent);
   --button-fg-outline-expanded: var(--accent-foreground);
   --button-border-outline-expanded: var(--border);
+
+  /* Ghost button styles */
   --button-bg-ghost: transparent;
   --button-fg-ghost: var(--accent-foreground);
+
   --button-bg-ghost-hover: var(--accent);
   --button-fg-ghost-hover: var(--accent-foreground);
+
   --button-bg-ghost-expanded: var(--accent);
   --button-fg-ghost-expanded: var(--accent-foreground);
+
+  /* Destructive button styles */
   --button-bg-destructive: var(--destructive);
   --button-fg-destructive: var(--destructive-foreground);
   --button-border-destructive: var(--destructive);
+
   --button-bg-destructive-hover: var(--destructive);
   --button-fg-destructive-hover: var(--destructive-foreground);
   --button-border-destructive-hover: var(--destructive);
+
   --button-bg-destructive-expanded: var(--accent);
   --button-fg-destructive-expanded: var(--accent-foreground);
   --button-border-destructive-expanded: var(--destructive);
+
+  /* Link button styles */
   --button-bg-link: transparent;
   --button-fg-link: var(--foreground);
+
   --button-bg-link-hover: transparent;
   --button-fg-link-hover: var(--primary);
+
   --button-radius-xs: var(--radius-xs);
   --button-radius-sm: var(--radius-sm);
   --button-radius-md: var(--radius-md);
   --button-radius-lg: var(--radius-lg);
   --button-radius-xl: var(--radius-xl);
 
+  /* calendar.css */
+  --calendar-bg: var(--background);
+  --calendar-dropdown-bg: var(--popover);
+  --calendar-caption-icon-fg: var(--muted-foreground);
+  --calendar-weekday-fg: var(--muted-foreground);
+  --calendar-week-number-fg: var(--muted-foreground);
+  --calendar-range-bg: var(--muted);
+  --calendar-today-bg: var(--muted);
+  --calendar-today-fg: var(--foreground);
+  --calendar-outside-fg: var(--muted-foreground);
+  --calendar-disabled-fg: var(--muted-foreground);
+  --calendar-selected-bg: var(--primary);
+  --calendar-selected-fg: var(--primary-foreground);
+  --calendar-range-middle-bg: var(--muted);
+  --calendar-range-middle-fg: var(--foreground);
+  --calendar-focus-ring: var(--ring);
+
   /* card.css */
   --card-bg: var(--surface);
   --card-fg: var(--surface-foreground);
   --card-border: var(--border);
-  --card-title-fg: var(--surface-foreground);
   --card-description-fg: var(--muted-foreground);
-  --card-action-fg: var(--muted-foreground);
+  --card-footer-bg: color-mix(in oklab, var(--muted) 50%, transparent);
   --card-footer-border: var(--border);
 
   /* checkbox.css */
   --checkbox-ring: var(--ring);
-  --checkbox-bg: var(--background);
+  --checkbox-bg: transparent;
+  --checkbox-bg-dark: color-mix(in oklab, var(--border-input) 30%, transparent);
   --checkbox-border: var(--border-input);
   --checkbox-border-invalid: var(--destructive);
-  --checkbox-bg-checked: var(--primary);
   --checkbox-border-checked: var(--primary);
+  --checkbox-border-invalid-checked: var(--primary);
+  --checkbox-bg-checked: var(--primary);
   --checkbox-fg-checked: var(--primary-foreground);
-  --checkbox-indicator-icon-fg: var(--primary-foreground);
-  --checkbox-label-fg: var(--foreground);
-  --checkbox-description-fg: var(--muted-foreground);
+
+  /* combobox.css */
+  --combobox-trigger-icon-fg: var(--muted-foreground);
+
+  --combobox-content-bg: var(--popover);
+  --combobox-content-fg: var(--popover-foreground);
+  --combobox-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --combobox-content-ring: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+
+  --combobox-content-input-group-border: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --combobox-content-input-group-bg: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+
+  --combobox-item-bg-highlighted: var(--accent);
+  --combobox-item-fg-highlighted: var(--accent-foreground);
+  --combobox-label-fg: var(--muted-foreground);
+  --combobox-empty-fg: var(--muted-foreground);
+  --combobox-separator-bg: var(--border);
+
+  --combobox-chips-border: var(--border-input);
+  --combobox-chips-border-focus: var(--ring);
+  --combobox-chips-ring-focus: color-mix(
+    in oklab,
+    var(--combobox-chips-border-focus) 50%,
+    transparent
+  );
+  --combobox-chips-border-destructive: var(--destructive);
+  --combobox-chips-ring-destructive: color-mix(
+    in oklab,
+    var(--combobox-chips-border-destructive) 20%,
+    transparent
+  );
+  --combobox-chips-bg: transparent;
+
+  --combobox-chip-bg: var(--muted);
+  --combobox-chip-fg: var(--foreground);
+
+  /* command.css */
+  --command-bg: var(--popover);
+  --command-fg: var(--popover-foreground);
+  --command-input-group-border: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --command-input-group-bg: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --command-input-icon-fg: var(--muted-foreground);
+  --command-empty-fg: var(--muted-foreground);
+  --command-group-heading-fg: var(--muted-foreground);
+  --command-separator-bg: var(--border);
+  --command-item-bg-selected: var(--muted);
+  --command-item-fg-selected: var(--foreground);
+  --command-shortcut-fg: var(--muted-foreground);
+  --command-shortcut-fg-selected: var(--foreground);
+
+  /* context-menu.css */
+  --context-menu-content-bg: var(--popover);
+  --context-menu-content-fg: var(--popover-foreground);
+  --context-menu-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --context-menu-label-fg: var(--muted-foreground);
+  --context-menu-item-bg-focus: var(--accent);
+  --context-menu-item-fg-focus: var(--accent-foreground);
+  --context-menu-item-fg-destructive: var(--destructive);
+  --context-menu-item-bg-destructive-focus: color-mix(
+    in oklab,
+    var(--destructive) 10%,
+    transparent
+  );
+  --context-menu-item-fg-destructive-focus: var(--destructive);
+  --context-menu-separator-bg: var(--border);
+  --context-menu-shortcut-fg: var(--muted-foreground);
 
   /* dialog.css */
-  --dialog-overlay-bg: color-mix(in oklab, var(--foreground) 50%, transparent);
-  --dialog-content-bg: var(--background);
-  --dialog-content-border: var(--border);
-  --dialog-content-fg: var(--foreground);
-  --dialog-title-fg: var(--foreground);
+  --dialog-overlay-bg: rgb(0 0 0 / 0.1);
+  --dialog-content-bg: var(--popover);
+  --dialog-content-fg: var(--popover-foreground);
+  --dialog-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --dialog-footer-bg: color-mix(in oklab, var(--muted) 50%, transparent);
+  --dialog-footer-border: var(--border);
   --dialog-description-fg: var(--muted-foreground);
-  --dialog-close-fg: var(--muted-foreground);
-  --dialog-close-bg-hover: var(--accent);
-  --dialog-close-fg-hover: var(--accent-foreground);
 
   /* drawer.css */
-  --drawer-overlay-bg: color-mix(in oklab, var(--foreground) 50%, transparent);
-  --drawer-content-bg: var(--background);
-  --drawer-content-fg: var(--foreground);
+  --drawer-overlay-bg: rgb(0 0 0 / 0.1);
+  --drawer-content-bg: var(--popover);
+  --drawer-content-fg: var(--popover-foreground);
+  --drawer-content-border: var(--border);
   --drawer-handle-bg: var(--muted);
-  --drawer-title-fg: var(--foreground);
   --drawer-description-fg: var(--muted-foreground);
 
-  /* dropdown.css */
+  /* dropdown-menu.css */
   --dropdown-menu-content-bg: var(--popover);
   --dropdown-menu-content-fg: var(--popover-foreground);
   --dropdown-menu-content-border: color-mix(
@@ -262,52 +349,154 @@
   --dropdown-menu-separator-bg: var(--border);
   --dropdown-menu-shortcut-fg: var(--muted-foreground);
 
+  /* empty.css */
+  --empty-media-icon-bg: var(--muted);
+  --empty-media-icon-fg: var(--foreground);
+  --empty-description-fg: var(--muted-foreground);
+  --empty-description-link-fg-hover: var(--primary);
+
   /* field.css */
-  --field-group-gap-y: 0.375rem;
-  --field-group-gap-x: 1rem;
-  --field-label-fg: var(--foreground);
-  --field-label-fg-muted: var(--muted-foreground);
-  --field-label-fg-destructive: var(--destructive);
   --field-description-fg: var(--muted-foreground);
+  --field-description-fg-link: var(--primary);
   --field-error-fg: var(--destructive);
+  --field-label-border-checked: color-mix(
+    in oklab,
+    var(--primary) 30%,
+    transparent
+  );
+  --field-label-bg-checked: color-mix(in oklab, var(--primary) 5%, transparent);
+  --field-separator-content-bg: var(--background);
+  --field-separator-content-fg: var(--muted-foreground);
 
   /* input.css */
   --input-ring: var(--ring);
+
   --input-fg-placeholder: var(--muted-foreground);
   --input-bg: var(--background);
   --input-border: var(--border-input);
   --input-border-destructive: var(--destructive);
+
   --input-fg-destructive: var(--destructive);
   --input-file-fg: var(--foreground);
 
-  /* input-group.css */
-  --input-group-addon-bg: var(--muted);
-  --input-group-addon-border: var(--border-input);
-  --input-group-addon-fg: var(--muted-foreground);
-  --input-group-addon-fg-destructive: var(--destructive);
-  --input-group-addon-fg-active: var(--foreground);
-  --input-group-addon-fg-disabled: var(--muted-foreground);
-  --input-group-addon-bg-disabled: color-mix(
+  /* input-otp.css */
+  --input-otp-slot-border: var(--border-input);
+  --input-otp-slot-border-active: var(--ring);
+  --input-otp-slot-border-destructive: var(--destructive);
+  --input-otp-slot-bg-dark: color-mix(in oklab, var(--input) 30%, transparent);
+  --input-otp-slot-caret: var(--foreground);
+  --input-otp-group-ring-destructive: var(--destructive);
+
+  /* item.css */
+  --item-border-outline: var(--border);
+  --item-bg-muted: color-mix(in oklab, var(--muted) 50%, transparent);
+  --item-hover-bg: var(--muted);
+  --item-description-fg: var(--muted-foreground);
+  --item-description-link-hover: var(--primary);
+  --item-ring: var(--ring);
+
+  /* kbd.css */
+  --kbd-bg: var(--muted);
+  --kbd-fg: var(--muted-foreground);
+  --kbd-bg-tooltip: rgb(from var(--background) r g b / 0.2);
+  --kbd-fg-tooltip: var(--background);
+  --kbd-bg-tooltip-dark: rgb(from var(--background) r g b / 0.1);
+
+  /* menubar.css */
+  --menubar-bg: transparent;
+  --menubar-border: var(--border);
+  --menubar-trigger-bg-hover: var(--muted);
+  --menubar-trigger-bg-expanded: var(--muted);
+
+  --menubar-content-bg: var(--popover);
+  --menubar-content-fg: var(--popover-foreground);
+  --menubar-content-border: color-mix(
     in oklab,
-    var(--muted) 50%,
+    var(--foreground) 10%,
     transparent
   );
-  --input-group-addon-border-disabled: color-mix(
+  --menubar-label-fg: var(--muted-foreground);
+  --menubar-item-bg-focus: var(--accent);
+  --menubar-item-fg-focus: var(--accent-foreground);
+  --menubar-item-fg-destructive: var(--destructive);
+  --menubar-item-bg-destructive-focus: color-mix(
+    in oklab,
+    var(--destructive) 10%,
+    transparent
+  );
+  --menubar-item-fg-destructive-focus: var(--destructive);
+  --menubar-separator-bg: var(--border);
+  --menubar-shortcut-fg: var(--muted-foreground);
+
+  /* native-select.css */
+  --native-select-ring: var(--ring);
+  --native-select-bg: transparent;
+  --native-select-bg-dark: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --native-select-bg-dark-hover: color-mix(
     in oklab,
     var(--border-input) 50%,
     transparent
   );
-  --input-group-ring: var(--ring);
+  --native-select-border: var(--border-input);
+  --native-select-border-destructive: var(--destructive);
+  --native-select-placeholder-fg: var(--muted-foreground);
+  --native-select-selection-bg: var(--primary);
+  --native-select-selection-fg: var(--primary-foreground);
+  --native-select-icon-fg: var(--muted-foreground);
+  --native-select-option-bg: Canvas;
+  --native-select-option-fg: CanvasText;
+
+  /* navigation-menu.css */
+  --navigation-menu-trigger-bg: var(--background);
+  --navigation-menu-trigger-bg-hover: var(--accent);
+  --navigation-menu-trigger-fg-hover: var(--accent-foreground);
+  --navigation-menu-trigger-bg-open: color-mix(
+    in oklab,
+    var(--accent) 50%,
+    transparent
+  );
+  --navigation-menu-trigger-fg-open: var(--accent-foreground);
+  --navigation-menu-trigger-ring: var(--ring);
+  --navigation-menu-trigger-icon-fg: currentColor;
+
+  --navigation-menu-content-bg: var(--popover);
+  --navigation-menu-content-fg: var(--popover-foreground);
+  --navigation-menu-content-border: var(--border);
+
+  --navigation-menu-link-bg-hover: var(--accent);
+  --navigation-menu-link-fg-hover: var(--accent-foreground);
+  --navigation-menu-link-bg-active: color-mix(
+    in oklab,
+    var(--accent) 50%,
+    transparent
+  );
+  --navigation-menu-link-fg-active: var(--accent-foreground);
+  --navigation-menu-link-ring: var(--ring);
+  --navigation-menu-link-icon-fg: var(--muted-foreground);
+
+  --navigation-menu-indicator-bg: var(--border);
+
+  /* pagination.css */
+  --pagination-gap: 0.125rem;
+  --pagination-inline-padding: 0.375rem;
 
   /* popover.css */
   --popover-content-bg: var(--popover);
   --popover-content-fg: var(--popover-foreground);
-  --popover-content-border: color-mix(in oklab, var(--foreground) 10%, transparent);
-  --popover-arrow-fill: var(--popover);
-  --popover-arrow-stroke: color-mix(in oklab, var(--foreground) 10%, transparent);
-  --popover-close-bg-hover: var(--accent);
-  --popover-close-fg: var(--muted-foreground);
-  --popover-close-fg-hover: var(--accent-foreground);
+  --popover-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --popover-description-fg: var(--muted-foreground);
+
+  /* progress.css */
+  --progress-bg: var(--muted);
+  --progress-indicator-bg: var(--primary);
 
   /* radio-group.css */
   --radio-group-item-ring: var(--ring);
@@ -325,6 +514,15 @@
   --radio-group-item-fg-checked: var(--primary-foreground);
   --radio-group-indicator-dot-bg: var(--primary-foreground);
 
+  /* resizable.css */
+  --resizable-handle-bg: var(--border);
+  --resizable-handle-ring: var(--ring);
+  --resizable-handle-ring-offset: var(--background);
+
+  /* scroll-area.css */
+  --scroll-area-viewport-ring: var(--ring);
+  --scroll-area-thumb-bg: var(--border);
+
   /* select.css */
   --select-trigger-ring: var(--ring);
   --select-trigger-bg: transparent;
@@ -333,6 +531,7 @@
   --select-trigger-border-destructive: var(--destructive);
   --select-trigger-fg-placeholder: var(--muted-foreground);
   --select-trigger-icon-fg: var(--muted-foreground);
+
   --select-content-bg: var(--popover);
   --select-content-fg: var(--popover-foreground);
   --select-content-border: color-mix(
@@ -340,6 +539,7 @@
     var(--foreground) 10%,
     transparent
   );
+
   --select-label-fg: var(--muted-foreground);
   --select-item-bg-focus: var(--accent);
   --select-item-fg-focus: var(--accent-foreground);
@@ -353,30 +553,90 @@
   --slider-track-bg: var(--muted);
   --slider-range-bg: var(--primary);
   --slider-thumb-bg: var(--background);
-  --slider-thumb-border: var(--primary);
+  --slider-thumb-border: var(--ring);
   --slider-thumb-ring: var(--ring);
 
   /* switch.css */
-  --switch-root-ring: var(--ring);
-  --switch-root-bg: var(--muted);
-  --switch-root-bg-checked: var(--primary);
-  --switch-thumb-bg: var(--background);
-  --switch-thumb-bg-checked: var(--primary-foreground);
+  --switch-ring: var(--ring);
+  --switch-border-destructive: var(--destructive);
+  --switch-bg-checked: var(--primary);
+  --switch-bg-unchecked: var(--border-input);
+  --switch-thumb-bg-checked: var(--background);
+  --switch-thumb-bg-unchecked: var(--background);
 
   /* textarea.css */
   --textarea-ring: var(--ring);
+
   --textarea-bg: var(--background);
   --textarea-border: var(--border-input);
   --textarea-border-destructive: var(--destructive);
+
   --textarea-fg-placeholder: var(--muted-foreground);
+
+  /* toggle.css */
+  --toggle-ring: var(--ring);
+  --toggle-border-destructive: var(--destructive);
+  --toggle-bg-hover: var(--muted);
+  --toggle-fg-hover: var(--foreground);
+  --toggle-bg-active: var(--muted);
+  --toggle-fg-active: var(--foreground);
+  --toggle-border-outline: var(--border-input);
+
+  /* input-group.css */
+  --input-group-ring: var(--ring);
+  --input-group-ring-shadow: color-mix(
+    in oklab,
+    var(--input-group-ring) 50%,
+    transparent
+  );
+  --input-group-border: var(--border-input);
+  --input-group-border-destructive: var(--destructive);
+  --input-group-border-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-group-border-destructive) 20%,
+    transparent
+  );
+  --input-group-bg: transparent;
+  --input-group-bg-disabled: color-mix(
+    in oklab,
+    var(--input-group-border) 50%,
+    transparent
+  );
+  --input-group-addon-fg: var(--muted-foreground);
+  --input-group-text-fg: var(--muted-foreground);
 
   /* tooltip.css */
   --tooltip-content-bg: var(--foreground);
   --tooltip-content-fg: var(--background);
+  --tooltip-arrow-bg: var(--foreground);
 }
 
 .dark {
-  /* dropdown.css */
+  /* combobox.css */
+  --combobox-chips-bg: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --combobox-chips-border-destructive: color-mix(
+    in oklab,
+    var(--destructive) 50%,
+    transparent
+  );
+  --combobox-chips-ring-destructive: color-mix(
+    in oklab,
+    var(--destructive) 40%,
+    transparent
+  );
+
+  /* context-menu.css */
+  --context-menu-item-bg-destructive-focus: color-mix(
+    in oklab,
+    var(--destructive) 20%,
+    transparent
+  );
+
+  /* dropdown-menu.css */
   --dropdown-menu-item-bg-destructive-focus: color-mix(
     in oklab,
     var(--destructive) 20%,
@@ -384,13 +644,21 @@
   );
 
   /* field.css */
-  --field-label-fg-muted: color-mix(in oklab, var(--foreground) 65%, var(--background));
-
-  /* input-group.css */
-  --input-group-addon-bg: color-mix(in oklab, var(--border-input) 30%, transparent);
-  --input-group-addon-bg-disabled: color-mix(
+  --field-label-border-checked: color-mix(
     in oklab,
-    var(--border-input) 18%,
+    var(--primary) 20%,
+    transparent
+  );
+  --field-label-bg-checked: color-mix(
+    in oklab,
+    var(--primary) 10%,
+    transparent
+  );
+
+  /* menubar.css */
+  --menubar-item-bg-destructive-focus: color-mix(
+    in oklab,
+    var(--destructive) 20%,
     transparent
   );
 
@@ -407,5 +675,28 @@
   );
 
   /* switch.css */
-  --switch-root-bg: color-mix(in oklab, var(--foreground) 15%, transparent);
+  --switch-bg-unchecked: color-mix(
+    in oklab,
+    var(--border-input) 80%,
+    transparent
+  );
+  --switch-thumb-bg-checked: var(--primary-foreground);
+  --switch-thumb-bg-unchecked: var(--foreground);
+
+  /* input-group.css */
+  --input-group-bg: color-mix(
+    in oklab,
+    var(--input-group-border) 30%,
+    transparent
+  );
+  --input-group-bg-disabled: color-mix(
+    in oklab,
+    var(--input-group-border) 80%,
+    transparent
+  );
+  --input-group-border-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-group-border-destructive) 40%,
+    transparent
+  );
 }

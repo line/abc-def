@@ -1,0 +1,52 @@
+:root {
+  --empty-media-icon-bg: var(--muted);
+  --empty-media-icon-fg: var(--foreground);
+  --empty-description-fg: var(--muted-foreground);
+  --empty-description-link-fg-hover: var(--primary);
+}
+
+@layer components {
+  .empty {
+    @apply flex w-full min-w-0 flex-1 flex-col items-center justify-center gap-4 rounded-xl border-dashed p-6 text-center text-balance;
+  }
+
+  .empty-header {
+    @apply flex max-w-sm flex-col items-center gap-2;
+  }
+
+  .empty-media {
+    @apply mb-2 flex shrink-0 items-center justify-center;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0;
+  }
+
+  .empty-media-default {
+    @apply bg-transparent;
+  }
+
+  .empty-media-icon {
+    @apply flex size-8 shrink-0 items-center justify-center rounded-lg;
+    @apply [&_svg:not([class*='size-'])]:size-4;
+
+    background-color: var(--empty-media-icon-bg);
+    color: var(--empty-media-icon-fg);
+  }
+
+  .empty-title {
+    /* @apply cn-font-heading text-sm font-medium tracking-tight; */
+    @apply text-sm font-medium tracking-tight;
+  }
+
+  .empty-description {
+    @apply text-sm/relaxed [&>a]:underline [&>a]:underline-offset-4;
+
+    color: var(--empty-description-fg);
+  }
+
+  .empty-description > a:hover {
+    color: var(--empty-description-link-fg-hover);
+  }
+
+  .empty-content {
+    @apply flex w-full max-w-sm min-w-0 flex-col items-center gap-2.5 text-sm text-balance;
+  }
+}

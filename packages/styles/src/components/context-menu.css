@@ -162,7 +162,8 @@
   }
 
   .context-menu-sub-trigger-chevron {
-    @apply cn-rtl-flip ml-auto;
+    /* @apply cn-rtl-flip ml-auto; */
+    @apply ml-auto;
   }
 
   .context-menu-item-indicator {

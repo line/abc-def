@@ -151,7 +151,7 @@ function CommandItem({
   return (
     <CommandPrimitive.Item
       data-slot="command-item"
-      className={cn("command-item", className)}
+      className={cn("group/command-item command-item", className)}
       {...props}
     >
       {children}

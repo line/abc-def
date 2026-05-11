@@ -4,23 +4,45 @@ import { Separator } from "@abc-def/react";
 
 import * as accordionExamples from "../components/accordion";
 import * as alertExamples from "../components/alert";
+import * as alertDialogExamples from "../components/alert-dialog";
+import * as avatarExamples from "../components/avatar";
+import * as badgeExamples from "../components/badge";
+import * as breadcrumbExamples from "../components/breadcrumb";
 import * as buttonExamples from "../components/button";
 import * as buttonGroupExamples from "../components/button-group";
 import * as cardExamples from "../components/card";
 import * as checkboxExamples from "../components/checkbox";
+import * as comboboxExamples from "../components/combobox";
+import * as commandExamples from "../components/command";
+import * as contextMenuExamples from "../components/context-menu";
 import * as dialogExamples from "../components/dialog";
 import * as drawerExamples from "../components/drawer";
 import * as dropdownExamples from "../components/dropdown";
+import * as emptyExamples from "../components/empty";
 import * as fieldExamples from "../components/field";
 import * as inputExamples from "../components/input";
 import * as inputGroupExamples from "../components/input-group";
+import * as inputOtpExamples from "../components/input-otp";
+import * as itemExamples from "../components/item";
+import * as kbdExamples from "../components/kbd";
+import * as labelExamples from "../components/label";
+import * as menubarExamples from "../components/menubar";
+import * as nativeSelectExamples from "../components/native-select";
+import * as navigationMenuExamples from "../components/navigation-menu";
+import * as paginationExamples from "../components/pagination";
 import * as popoverExamples from "../components/popover";
+import * as progressExamples from "../components/progress";
 import * as radioGroupExamples from "../components/radio-group";
+import * as resizableExamples from "../components/resizable";
+import * as scrollAreaExamples from "../components/scroll-area";
 import * as selectExamples from "../components/select";
 import * as separatorExamples from "../components/separator";
 import * as sliderExamples from "../components/slider";
+import * as spinnerExamples from "../components/spinner";
 import * as switchExamples from "../components/switch";
 import * as textareaExamples from "../components/textarea";
+import * as toggleExamples from "../components/toggle";
+import * as toggleGroupExamples from "../components/toggle-group";
 import * as tooltipExamples from "../components/tooltip";
 
 type ExampleModule = Record<string, ComponentType>;
@@ -35,6 +57,26 @@ const componentCatalog = {
     label: "Alerts",
     description: "Inline status messaging with default and destructive states.",
     examples: alertExamples,
+  },
+  alertDialogs: {
+    label: "Alert Dialogs",
+    description: "Confirmation flows with destructive and cautionary decisions.",
+    examples: alertDialogExamples,
+  },
+  avatars: {
+    label: "Avatars",
+    description: "Identity surfaces with image, fallback, badge, and group states.",
+    examples: avatarExamples,
+  },
+  badges: {
+    label: "Badges",
+    description: "Compact status labels across semantic and link-like variants.",
+    examples: badgeExamples,
+  },
+  breadcrumbs: {
+    label: "Breadcrumbs",
+    description: "Hierarchical navigation with current-page and collapsed states.",
+    examples: breadcrumbExamples,
   },
   buttons: {
     label: "Buttons",
@@ -56,6 +98,21 @@ const componentCatalog = {
     description: "Single, grouped, descriptive, and disabled selection states.",
     examples: checkboxExamples,
   },
+  comboboxes: {
+    label: "Comboboxes",
+    description: "Searchable selection menus with grouped and controlled values.",
+    examples: comboboxExamples,
+  },
+  commands: {
+    label: "Commands",
+    description: "Palette-style search lists with inline and dialog presentations.",
+    examples: commandExamples,
+  },
+  contextMenus: {
+    label: "Context Menus",
+    description: "Right-click action menus with toggles, radios, and nested items.",
+    examples: contextMenuExamples,
+  },
   dialogs: {
     label: "Dialogs",
     description: "Modal surfaces with overlay, header, description, and footer treatments.",
@@ -70,6 +127,11 @@ const componentCatalog = {
     label: "Dropdown Menus",
     description: "Action menus with basic items, checkboxes, radios, and submenus.",
     examples: dropdownExamples,
+  },
+  empties: {
+    label: "Empty States",
+    description: "No-data messaging with media, titles, and follow-up actions.",
+    examples: emptyExamples,
   },
   fields: {
     label: "Fields",
@@ -86,15 +148,70 @@ const componentCatalog = {
     description: "Baseline text-entry surfaces for focused regression checks.",
     examples: inputExamples,
   },
+  inputOtp: {
+    label: "Input OTP",
+    description: "One-time-code entry with grouped slots and controlled values.",
+    examples: inputOtpExamples,
+  },
+  items: {
+    label: "Items",
+    description: "Structured row compositions with media, copy, and action areas.",
+    examples: itemExamples,
+  },
+  kbds: {
+    label: "Kbd",
+    description: "Keyboard key hints for shortcuts and condensed command legends.",
+    examples: kbdExamples,
+  },
+  labels: {
+    label: "Labels",
+    description: "Accessible text labels paired with standalone controls and inputs.",
+    examples: labelExamples,
+  },
+  menubars: {
+    label: "Menubars",
+    description: "Desktop-style app menus with nested content and selection state.",
+    examples: menubarExamples,
+  },
+  nativeSelects: {
+    label: "Native Selects",
+    description: "Browser-native select controls with grouped options and validation.",
+    examples: nativeSelectExamples,
+  },
+  navigationMenus: {
+    label: "Navigation Menus",
+    description: "Top-level nav surfaces with trigger/content and viewport coverage.",
+    examples: navigationMenuExamples,
+  },
+  pagination: {
+    label: "Pagination",
+    description: "Page navigation with active links, ellipsis, and next/previous controls.",
+    examples: paginationExamples,
+  },
   popovers: {
     label: "Popovers",
     description: "Anchored overlays for compact details and inspection flows.",
     examples: popoverExamples,
   },
+  progress: {
+    label: "Progress",
+    description: "Linear completion indicators for upload and workflow progress.",
+    examples: progressExamples,
+  },
   radioGroups: {
     label: "Radio Groups",
     description: "Single-choice controls with descriptive and invalid states.",
     examples: radioGroupExamples,
+  },
+  resizable: {
+    label: "Resizable",
+    description: "Panel layouts with horizontal and vertical drag handles.",
+    examples: resizableExamples,
+  },
+  scrollArea: {
+    label: "Scroll Area",
+    description: "Overflow containers with custom scrollbar treatments.",
+    examples: scrollAreaExamples,
   },
   selects: {
     label: "Selects",
@@ -111,6 +228,11 @@ const componentCatalog = {
     description: "Range, multi-thumb, vertical, controlled, and disabled states.",
     examples: sliderExamples,
   },
+  spinners: {
+    label: "Spinners",
+    description: "Inline loading indicators for standalone and button-bound states.",
+    examples: spinnerExamples,
+  },
   switches: {
     label: "Switches",
     description: "Binary controls with descriptive, invalid, and size variants.",
@@ -120,6 +242,16 @@ const componentCatalog = {
     label: "Textareas",
     description: "Long-form entry surfaces with disabled and invalid states.",
     examples: textareaExamples,
+  },
+  toggles: {
+    label: "Toggles",
+    description: "Single pressed-state buttons with icon and controlled coverage.",
+    examples: toggleExamples,
+  },
+  toggleGroups: {
+    label: "Toggle Groups",
+    description: "Exclusive and multi-select toggle sets across axis variations.",
+    examples: toggleGroupExamples,
   },
   tooltips: {
     label: "Tooltips",

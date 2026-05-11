@@ -1,0 +1,18 @@
+:root {
+  --progress-bg: var(--muted);
+  --progress-indicator-bg: var(--primary);
+}
+
+@layer components {
+  .progress {
+    @apply relative flex h-1 w-full items-center overflow-x-hidden rounded-full;
+
+    background-color: var(--progress-bg);
+  }
+
+  .progress-indicator {
+    @apply size-full flex-1 transition-all;
+
+    background-color: var(--progress-indicator-bg);
+  }
+}

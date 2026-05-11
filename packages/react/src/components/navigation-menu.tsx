@@ -48,7 +48,7 @@ function NavigationMenuList({
   return (
     <NavigationMenuPrimitive.List
       data-slot="navigation-menu-list"
-      className={cn("navigation-menu-list", className)}
+      className={cn("group navigation-menu-list", className)}
       {...props}
     />
   );
