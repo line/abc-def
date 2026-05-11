@@ -50,6 +50,32 @@ export function ButtonSize() {
     </div>
   );
 }
+export function ButtonSizeWithIcon() {
+  return (
+    <div className="flex flex-col items-start gap-8 sm:flex-row">
+      <Button size="xs" variant="outline">
+        Extra Small
+        <ArrowUpRightIcon />
+      </Button>
+      <Button size="sm" variant="outline">
+        Small
+        <ArrowUpRightIcon />
+      </Button>
+      <Button variant="outline">
+        Default
+        <ArrowUpRightIcon />
+      </Button>
+      <Button variant="outline" size="lg">
+        Large
+        <ArrowUpRightIcon />
+      </Button>
+      <Button variant="outline" size="xl">
+        Extra Large
+        <ArrowUpRightIcon />
+      </Button>
+    </div>
+  );
+}
 
 export function ButtonDefault() {
   return <Button>Button</Button>;

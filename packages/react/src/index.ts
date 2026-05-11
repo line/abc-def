@@ -301,3 +301,14 @@ export {
 } from "./components/dropdown-menu";
 export { Toggle, toggleVariants } from "./components/toggle";
 export { ToggleGroup, ToggleGroupItem } from "./components/toggle-group";
+export { Calendar, CalendarDayButton } from "./components/calendar";
+
+export {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  useCarousel,
+} from "./components/carousel";

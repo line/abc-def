@@ -1,6 +1,26 @@
+@theme {
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+}
+
 :root {
   --accordion-ring: var(--ring);
   --accordion-trigger-icon-fg: var(--muted-foreground);
+  --accordion-border: var(--border);
 }
 
 @layer components {
@@ -9,15 +29,37 @@
   }
 
   .accordion-item {
-    @apply not-last:border-b;
+    @apply border-(--accordion-border) not-last:border-b;
   }
 
   .accordion-trigger {
+    @apply relative flex flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-sm font-medium transition-all outline-none hover:underline;
+    @apply disabled:pointer-events-none disabled:opacity-50;
     @apply focus-visible:border-(--accordion-ring) focus-visible:ring-3 focus-visible:ring-(--accordion-ring)/50 focus-visible:after:border-(--accordion-ring);
     @apply **:data-[slot=accordion-trigger-icon]:ml-auto **:data-[slot=accordion-trigger-icon]:size-4 **:data-[slot=accordion-trigger-icon]:text-(--accordion-trigger-icon-fg);
-    @apply relative flex flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-sm font-medium transition-all outline-none;
-    @apply hover:underline disabled:pointer-events-none disabled:opacity-50;
+
+    &[aria-expanded="true"] {
+      .accordion-trigger-icon-down {
+        @apply hidden;
+      }
+      .accordion-trigger-icon-up {
+        @apply inline;
+      }
+    }
   }
+
+  .accordion-trigger-icon {
+    @apply pointer-events-none inline shrink-0;
+  }
+
+  .accordion-trigger-icon-down {
+    @apply inline;
+  }
+
+  .accordion-trigger-icon-up {
+    @apply hidden;
+  }
+
   .accordion-content {
     @apply data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden text-sm;
   }

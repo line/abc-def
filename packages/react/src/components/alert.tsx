@@ -19,7 +19,7 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-const alertVariants = cva("group/alert alert", {
+const alertVariants = cva("alert", {
   variants: {
     variant: {
       default: "alert-default",
@@ -39,7 +39,7 @@ function Alert({
   return (
     <div
       data-slot="alert"
-      role="alert"
+      role="group/alert alert"
       className={cn(alertVariants({ variant }), className)}
       {...props}
     />

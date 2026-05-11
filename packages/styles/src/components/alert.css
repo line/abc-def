@@ -5,7 +5,7 @@
   --alert-bg-destructive: var(--surface);
   --alert-fg-destructive: var(--destructive);
 
-  --alert-title-fg-link: var(--primary);
+  --alert-title-fg-link: var(--foreground);
 
   --alert-description-fg: var(--muted-foreground);
   --alert-description-fg-link: var(--primary);
@@ -14,9 +14,11 @@
 @layer components {
   .alert {
     @apply relative grid w-full gap-0.5 rounded-lg border px-2.5 py-2 text-left text-sm;
-    @apply *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4;
-    @apply has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18;
-    @apply has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2;
+    @apply has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4;
+
+    &:has(> svg) .alert-title {
+      @apply col-start-2;
+    }
   }
 
   .alert-default {
@@ -28,7 +30,7 @@
   }
 
   .alert-title {
-    @apply font-medium group-has-[>svg]/alert:col-start-2 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-(--alert-title-fg-link);
+    @apply font-medium [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-(--alert-title-fg-link);
   }
 
   .alert-description {

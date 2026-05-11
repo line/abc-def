@@ -15,47 +15,29 @@
  */
 "use client";
 
-import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
-import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
-
-const avatarVariants = cva("group/avatar avatar", {
-  variants: {
-    size: {
-      default: "avatar-size-default",
-      sm: "avatar-size-sm",
-      lg: "avatar-size-lg",
-    },
-  },
-  defaultVariants: {
-    size: "default",
-  },
-});
 
 function Avatar({
   className,
   size = "default",
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Root> & {
+}: AvatarPrimitive.Root.Props & {
   size?: "default" | "sm" | "lg";
 }) {
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
       data-size={size}
-      className={cn(avatarVariants({ size }), className)}
+      className={cn("avatar", className)}
       {...props}
     />
   );
 }
 
-function AvatarImage({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
@@ -68,7 +50,7 @@ function AvatarImage({
 function AvatarFallback({
   className,
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {
+}: AvatarPrimitive.Fallback.Props) {
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
@@ -92,7 +74,7 @@ function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="avatar-group"
-      className={cn("group/avatar-group avatar-group", className)}
+      className={cn("avatar-group", className)}
       {...props}
     />
   );
@@ -101,7 +83,7 @@ function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
 function AvatarGroupCount({
   className,
   ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof avatarVariants>) {
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="avatar-group-count"
@@ -115,7 +97,7 @@ export {
   Avatar,
   AvatarImage,
   AvatarFallback,
-  AvatarBadge,
   AvatarGroup,
   AvatarGroupCount,
+  AvatarBadge,
 };

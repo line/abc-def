@@ -3,6 +3,10 @@ packages:
   - "examples/*"
   - tooling/*
 
+allowBuilds:
+  esbuild: true
+  vue-demi: true
+
 catalog:
   "@types/node": ^22.18.12
   eslint: ^9.39.2
@@ -15,3 +19,7 @@ catalog:
 
 onlyBuiltDependencies:
   - esbuild
+
+publicHoistPattern:
+  - "@ianvs/prettier-plugin-sort-imports"
+  - prettier-plugin-tailwindcss

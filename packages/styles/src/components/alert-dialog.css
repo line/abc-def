@@ -2,7 +2,7 @@
   --alert-dialog-overlay-bg: rgb(0 0 0 / 0.1);
   --alert-dialog-content-bg: var(--popover);
   --alert-dialog-content-fg: var(--popover-foreground);
-  --alert-dialog-content-border: color-mix(
+  --alert-dialog-content-ring: color-mix(
     in oklab,
     var(--foreground) 10%,
     transparent
@@ -13,106 +13,64 @@
   --alert-dialog-description-fg: var(--muted-foreground);
 }
 
-@keyframes alert-dialog-overlay-enter {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes alert-dialog-overlay-exit {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes alert-dialog-content-enter {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes alert-dialog-content-exit {
-  from {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-}
-
 @layer components {
   .alert-dialog-overlay {
-    @apply fixed inset-0 isolate z-50 bg-(--alert-dialog-overlay-bg) backdrop-blur-[2px] duration-100;
-  }
-
-  .alert-dialog-overlay[data-state="open"] {
-    animation: alert-dialog-overlay-enter 100ms ease-out;
-  }
-
-  .alert-dialog-overlay[data-state="closed"] {
-    animation: alert-dialog-overlay-exit 100ms ease-in;
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs;
   }
 
   .alert-dialog-content {
-    @apply fixed top-1/2 left-1/2 z-50 grid w-full max-w-xs -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border border-(--alert-dialog-content-border) bg-(--alert-dialog-content-bg) p-4 text-sm text-(--alert-dialog-content-fg) duration-100 outline-none;
-  }
+    @apply fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-(--alert-dialog-content-bg) p-4 text-(--alert-dialog-content-fg) ring-1 ring-(--alert-dialog-content-ring) duration-100 outline-none;
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
+    @apply data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm;
 
-  .alert-dialog-content[data-state="open"] {
-    animation: alert-dialog-content-enter 100ms ease-out;
-  }
-
-  .alert-dialog-content[data-state="closed"] {
-    animation: alert-dialog-content-exit 100ms ease-in;
-  }
-
-  .alert-dialog-content[data-size="default"] {
-    @apply sm:max-w-sm;
+    &[data-size="sm"] .alert-dialog-footer {
+      @apply grid grid-cols-2;
+    }
   }
 
   .alert-dialog-header {
     @apply grid grid-rows-[auto_1fr] place-items-center gap-1.5 text-center;
     @apply has-data-[slot=alert-dialog-media]:grid-rows-[auto_auto_1fr] has-data-[slot=alert-dialog-media]:gap-x-4;
-    @apply sm:group-data-[size=default]/alert-dialog-content:place-items-start sm:group-data-[size=default]/alert-dialog-content:text-left;
-    @apply sm:group-data-[size=default]/alert-dialog-content:has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr];
   }
 
   .alert-dialog-footer {
     @apply -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t border-(--alert-dialog-footer-border) bg-(--alert-dialog-footer-bg) p-4;
-    @apply group-data-[size=sm]/alert-dialog-content:grid group-data-[size=sm]/alert-dialog-content:grid-cols-2;
     @apply sm:flex-row sm:justify-end;
   }
 
   .alert-dialog-media {
     @apply mb-2 inline-flex size-10 items-center justify-center rounded-md bg-(--alert-dialog-media-bg);
-    @apply sm:group-data-[size=default]/alert-dialog-content:row-span-2;
     @apply *:[svg:not([class*='size-'])]:size-6;
   }
 
   .alert-dialog-title {
-    /* @apply cn-font-heading text-base font-medium; */
     @apply text-base font-medium;
-    @apply sm:group-data-[size=default]/alert-dialog-content:group-has-data-[slot=alert-dialog-media]/alert-dialog-content:col-start-2;
   }
 
   .alert-dialog-description {
     @apply text-sm text-balance text-(--alert-dialog-description-fg) md:text-pretty;
     @apply [&_a]:hover:text-(--foreground) *:[a]:underline *:[a]:underline-offset-3;
+  }
+
+  @variant sm {
+    .alert-dialog-content[data-size="default"] .alert-dialog-header {
+      @apply place-items-start text-left;
+    }
+
+    .alert-dialog-content[data-size="default"]:has(
+        [data-slot="alert-dialog-media"]
+      )
+      .alert-dialog-title {
+      @apply col-start-2;
+    }
+
+    /* sm:group-data-[size=default]/alert-dialog-content: */
+    .alert-dialog-content[data-size="default"] .alert-dialog-header {
+      @apply has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr];
+    }
+
+    .alert-dialog-content[data-size="default"] .alert-dialog-media {
+      @apply row-span-2;
+    }
   }
 }

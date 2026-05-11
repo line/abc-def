@@ -98,15 +98,15 @@ export function AvatarGroupCountExample() {
 export function AvatarGroupCountIconExample() {
   return (
     <AvatarGroup className="grayscale">
-      <Avatar>
+      <Avatar size="sm">
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
-      <Avatar>
+      <Avatar size="sm">
         <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
         <AvatarFallback>LR</AvatarFallback>
       </Avatar>
-      <Avatar>
+      <Avatar size="sm">
         <AvatarImage
           src="https://github.com/evilrabbit.png"
           alt="@evilrabbit"

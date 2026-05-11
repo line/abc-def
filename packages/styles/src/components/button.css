@@ -30,7 +30,7 @@
   --button-border-secondary-expanded: transparent;
 
   /* Outline button styles */
-  --button-bg-outline: transparent;
+  --button-bg-outline: var(--background);
   --button-fg-outline: var(--foreground);
   --button-border-outline: var(--border);
 
@@ -45,12 +45,15 @@
   /* Ghost button styles */
   --button-bg-ghost: transparent;
   --button-fg-ghost: var(--accent-foreground);
+  --button-border-ghost: transparent;
 
   --button-bg-ghost-hover: var(--accent);
   --button-fg-ghost-hover: var(--accent-foreground);
+  --button-border-ghost-hover: transparent;
 
   --button-bg-ghost-expanded: var(--accent);
   --button-fg-ghost-expanded: var(--accent-foreground);
+  --button-border-ghost-expanded: transparent;
 
   /* Destructive button styles */
   --button-bg-destructive: var(--destructive);
@@ -61,8 +64,8 @@
   --button-fg-destructive-hover: var(--destructive-foreground);
   --button-border-destructive-hover: var(--destructive);
 
-  --button-bg-destructive-expanded: var(--accent);
-  --button-fg-destructive-expanded: var(--accent-foreground);
+  --button-bg-destructive-expanded: var(--destructive);
+  --button-fg-destructive-expanded: var(--destructive-foreground);
   --button-border-destructive-expanded: var(--destructive);
 
   /* Link button styles */
@@ -83,7 +86,7 @@
   .button {
     @apply focus-visible:border-(--button-ring) focus-visible:ring-3 focus-visible:ring-(--button-ring)/50;
     @apply aria-invalid:border-(--button-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--button-ring-destructive)/20;
-    @apply active:not-aria-[haspopup]:translate-y-px inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap border border-transparent bg-clip-padding text-sm font-medium outline-none transition-all;
+    @apply inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none active:not-aria-[haspopup]:translate-y-px;
     @apply disabled:pointer-events-none disabled:opacity-50;
     @apply [&_svg]:pointer-events-none [&_svg]:shrink-0;
   }
@@ -91,12 +94,12 @@
   .button-variant-default {
     @apply border-(--button-border-primary) bg-(--button-bg-primary) text-(--button-fg-primary);
     @apply hover:border-(--button-border-primary-hover) hover:bg-(--button-bg-primary-hover) hover:text-(--button-fg-primary-hover);
-    @apply aria-expanded:bg-(--button-bg-primary-expanded) aria-expanded:text-(--button-fg-primary-expanded) aria-expanded:border-(--button-border-primary-expanded);
+    @apply aria-expanded:border-(--button-border-primary-expanded) aria-expanded:bg-(--button-bg-primary-expanded) aria-expanded:text-(--button-fg-primary-expanded);
   }
   .button-variant-secondary {
     @apply border-(--button-border-secondary) bg-(--button-bg-secondary) text-(--button-fg-secondary);
     @apply hover:border-(--button-border-secondary-hover) hover:bg-(--button-bg-secondary-hover) hover:text-(--button-fg-secondary-hover);
-    @apply aria-expanded:bg-(--button-bg-secondary-expanded) aria-expanded:text-(--button-fg-secondary-expanded) aria-expanded:border-(--button-border-secondary-expanded);
+    @apply aria-expanded:border-(--button-border-secondary-expanded) aria-expanded:bg-(--button-bg-secondary-expanded) aria-expanded:text-(--button-fg-secondary-expanded);
   }
 
   .button-variant-outline {
@@ -107,9 +110,9 @@
 
   /* border-transparent */
   .button-variant-ghost {
-    @apply bg-(--button-bg-ghost) text-(--button-fg-ghost) border-transparent;
-    @apply hover:bg-(--button-bg-ghost-hover) hover:text-(--button-fg-ghost-hover) hover:border-transparent;
-    @apply aria-expanded:bg-(--button-bg-ghost-expanded) aria-expanded:text-(--button-fg-ghost-expanded) aria-expanded:border-transparent;
+    @apply border-(--button-border-ghost) bg-(--button-bg-ghost) text-(--button-fg-ghost);
+    @apply hover:border-(--button-border-ghost-hover) hover:bg-(--button-bg-ghost-hover) hover:text-(--button-fg-ghost-hover);
+    @apply aria-expanded:border-(--button-border-ghost-expanded) aria-expanded:bg-(--button-bg-ghost-expanded) aria-expanded:text-(--button-fg-ghost-expanded);
   }
 
   .button-variant-destructive {
@@ -127,35 +130,35 @@
   }
 
   .button-size-xs {
-    @apply has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 h-6 gap-1 px-2 text-xs;
+    @apply h-6 gap-1 px-2 text-xs has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1 [&_svg:not([class*='size-'])]:size-3;
   }
   .button-size-sm {
-    @apply has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 h-7 gap-1 px-2.5 text-sm;
+    @apply h-7 gap-1 px-2.5 text-sm has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5;
   }
   .button-size-default {
-    @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 h-8 gap-1.5 px-2.5;
+    @apply h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 [&_svg:not([class*='size-'])]:size-4;
   }
   .button-size-lg {
-    @apply has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5 h-9 gap-1.5 px-2.5 text-lg;
+    @apply h-9 gap-1.5 px-2.5 text-lg has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5 [&_svg:not([class*='size-'])]:size-4.5;
   }
   .button-size-xl {
-    @apply has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 h-10 gap-1.5 px-3 text-xl;
+    @apply h-10 gap-1.5 px-3 text-xl has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3 [&_svg:not([class*='size-'])]:size-5;
   }
 
   .button-size-icon-xs {
     @apply size-6 [&_svg:not([class*='size-'])]:size-3;
   }
   .button-size-icon-sm {
-    @apply size-7 [&_svg:not([class*='size-'])]:size-4;
+    @apply size-7 [&_svg:not([class*='size-'])]:size-3.5;
   }
   .button-size-icon {
-    @apply size-8 [&_svg:not([class*='size-'])]:size-5;
+    @apply size-8 [&_svg:not([class*='size-'])]:size-4;
   }
   .button-size-icon-lg {
-    @apply size-9 [&_svg:not([class*='size-'])]:size-6;
+    @apply size-9 [&_svg:not([class*='size-'])]:size-4.5;
   }
   .button-size-icon-xl {
-    @apply size-10 [&_svg:not([class*='size-'])]:size-7;
+    @apply size-10 [&_svg:not([class*='size-'])]:size-5;
   }
 
   .button-rounded-xs {

@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
+import { TooltipProvider } from "@abc-def/react";
 
+import type { ThemeMode } from "./components/theme-toggle";
+import type { ComponentKey } from "./pages/component-examples";
+import type { AppMode } from "./pages/components/example-shell";
 import {
   applyTheme,
   getPreferredTheme,
   persistTheme,
-  type ThemeMode,
 } from "./components/theme-toggle";
 import {
   ComponentExamplesPage,
   defaultComponentKey,
-  type ComponentKey,
 } from "./pages/component-examples";
-import {
-  ExampleShell,
-  type AppMode,
-} from "./pages/components/example-shell";
+import { ExampleShell } from "./pages/components/example-shell";
 import { ThemePlaygroundPage } from "./pages/theme-playground";
 
 export default function App() {
@@ -29,20 +28,22 @@ export default function App() {
   }, [themeMode]);
 
   return (
-    <ExampleShell
-      mode={mode}
-      onModeChange={setMode}
-      onThemeModeChange={setThemeMode}
-      themeMode={themeMode}
-    >
-      {mode === "examples" ? (
-        <ComponentExamplesPage
-          currentComponentKey={currentComponentKey}
-          onComponentChange={setCurrentComponentKey}
-        />
-      ) : (
-        <ThemePlaygroundPage />
-      )}
-    </ExampleShell>
+    <TooltipProvider>
+      <ExampleShell
+        mode={mode}
+        onModeChange={setMode}
+        onThemeModeChange={setThemeMode}
+        themeMode={themeMode}
+      >
+        {mode === "examples" ? (
+          <ComponentExamplesPage
+            currentComponentKey={currentComponentKey}
+            onComponentChange={setCurrentComponentKey}
+          />
+        ) : (
+          <ThemePlaygroundPage />
+        )}
+      </ExampleShell>
+    </TooltipProvider>
   );
 }

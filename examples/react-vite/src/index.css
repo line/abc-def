@@ -2,8 +2,100 @@
 @import "tw-animate-css";
 @import "@abc-def/styles/css";
 
+@custom-variant dark (&:is(.dark *));
 @source "./**/*.{ts,tsx}";
 @source "../../../packages/react/src/**/*.{ts,tsx}";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  --background: var(--color-white);
+  --foreground: var(--color-slate-950);
+
+  --surface: var(--color-white); /* --card */
+  --surface-foreground: var(--color-slate-950); /* --card-foreground */
+
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-slate-950);
+
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: var(--color-slate-50);
+
+  --border: var(--color-slate-200);
+  --border-input: var(--color-slate-200);
+  --ring: var(--color-blue-600);
+}
+
+.dark {
+  --background: var(--color-slate-950);
+  --foreground: var(--color-slate-50);
+
+  --surface: var(--color-slate-950);
+  --surface-foreground: var(--color-slate-50);
+
+  --popover: var(--color-slate-950);
+  --popover-foreground: var(--color-slate-50);
+
+  --primary: var(--color-blue-600);
+  --primary-foreground: var(--color-slate-50);
+
+  --secondary: var(--color-slate-800);
+  --secondary-foreground: var(--color-slate-50);
+
+  --muted: var(--color-slate-800);
+  --muted-foreground: var(--color-slate-500);
+
+  --accent: var(--color-slate-800);
+  --accent-foreground: var(--color-slate-50);
+
+  --destructive: var(--color-red-600);
+  --destructive-foreground: var(--color-slate-50);
+
+  --border: var(--color-slate-700);
+  --input: var(--color-slate-700);
+  --ring: var(--color-blue-600);
+}
 
 #root {
   min-height: 100vh;
@@ -19,34 +111,11 @@
 
 @layer base {
   * {
-    box-sizing: border-box;
+    @apply border-border outline-ring/50;
   }
 
   body {
-    margin: 0;
-    background:
-      radial-gradient(circle at top, rgb(249 250 251 / 0.95), transparent 38%),
-      linear-gradient(180deg, #fff7ed 0%, #f8fafc 42%, #e0f2fe 100%);
-    color: var(--foreground);
-    font-family:
-      "Avenir Next", Avenir, "Segoe UI", sans-serif;
-    line-height: 1.5;
-    text-rendering: optimizeLegibility;
-    transition:
-      background-color 180ms ease,
-      color 180ms ease;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
-  button,
-  input,
-  textarea,
-  select {
-    font: inherit;
+    @apply bg-background text-foreground;
   }
 }
 
@@ -67,8 +136,16 @@
 
 .example-app {
   background:
-    radial-gradient(circle at top right, rgb(252 211 77 / 0.18), transparent 25%),
-    radial-gradient(circle at left 20%, rgb(125 211 252 / 0.18), transparent 32%);
+    radial-gradient(
+      circle at top right,
+      rgb(252 211 77 / 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at left 20%,
+      rgb(125 211 252 / 0.18),
+      transparent 32%
+    );
 }
 
 .app-shell {

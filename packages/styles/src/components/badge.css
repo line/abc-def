@@ -53,44 +53,32 @@
 
   .badge-variant-default {
     @apply bg-(--badge-bg-default) text-(--badge-fg-default);
-  }
-  a.badge-variant-default:hover {
-    @apply bg-(--badge-bg-default-hover) text-(--badge-fg-default-hover);
+    @apply [a&]:hover:bg-(--badge-bg-default-hover) [a&]:hover:text-(--badge-fg-default-hover);
   }
 
   .badge-variant-secondary {
     @apply bg-(--badge-bg-secondary) text-(--badge-fg-secondary);
-  }
-  a.badge-variant-secondary:hover {
-    @apply bg-(--badge-bg-secondary-hover) text-(--badge-fg-secondary-hover);
+    @apply [a&]:hover:bg-(--badge-bg-secondary-hover) [a&]:hover:text-(--badge-fg-secondary-hover);
   }
 
   .badge-variant-destructive {
     @apply bg-(--badge-bg-destructive) text-(--badge-fg-destructive);
     @apply focus-visible:border-(--badge-ring-destructive) focus-visible:ring-(--badge-ring-destructive)/20;
-  }
-  a.badge-variant-destructive:hover {
-    @apply bg-(--badge-bg-destructive-hover) text-(--badge-fg-destructive-hover);
+    @apply [a&]:hover:bg-(--badge-bg-destructive-hover) [a&]:hover:text-(--badge-fg-destructive-hover);
   }
 
   .badge-variant-outline {
     @apply border-(--badge-border-outline) bg-(--badge-bg-outline) text-(--badge-fg-outline);
-  }
-  a.badge-variant-outline:hover {
-    @apply bg-(--badge-bg-outline-hover) text-(--badge-fg-outline-hover);
+    @apply [a&]:hover:bg-(--badge-bg-outline-hover) [a&]:hover:text-(--badge-fg-outline-hover);
   }
 
   .badge-variant-ghost {
     @apply bg-(--badge-bg-ghost) text-(--badge-fg-ghost);
-  }
-  a.badge-variant-ghost:hover {
-    @apply bg-(--badge-bg-ghost-hover) text-(--badge-fg-ghost-hover);
+    @apply [a&]:hover:bg-(--badge-bg-ghost-hover) [a&]:hover:text-(--badge-fg-ghost-hover);
   }
 
   .badge-variant-link {
     @apply bg-(--badge-bg-link) text-(--badge-fg-link) underline-offset-4;
-  }
-  a.badge-variant-link:hover {
-    @apply underline;
+    @apply [a&]:hover:underline;
   }
 }

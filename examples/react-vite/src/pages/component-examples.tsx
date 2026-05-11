@@ -1,5 +1,4 @@
 import type { ComponentType } from "react";
-
 import { Separator } from "@abc-def/react";
 
 import * as accordionExamples from "../components/accordion";
@@ -10,7 +9,9 @@ import * as badgeExamples from "../components/badge";
 import * as breadcrumbExamples from "../components/breadcrumb";
 import * as buttonExamples from "../components/button";
 import * as buttonGroupExamples from "../components/button-group";
+import * as calendarExamples from "../components/calendar";
 import * as cardExamples from "../components/card";
+import * as carouselExamples from "../components/carousel";
 import * as checkboxExamples from "../components/checkbox";
 import * as comboboxExamples from "../components/combobox";
 import * as commandExamples from "../components/command";
@@ -60,22 +61,26 @@ const componentCatalog = {
   },
   alertDialogs: {
     label: "Alert Dialogs",
-    description: "Confirmation flows with destructive and cautionary decisions.",
+    description:
+      "Confirmation flows with destructive and cautionary decisions.",
     examples: alertDialogExamples,
   },
   avatars: {
     label: "Avatars",
-    description: "Identity surfaces with image, fallback, badge, and group states.",
+    description:
+      "Identity surfaces with image, fallback, badge, and group states.",
     examples: avatarExamples,
   },
   badges: {
     label: "Badges",
-    description: "Compact status labels across semantic and link-like variants.",
+    description:
+      "Compact status labels across semantic and link-like variants.",
     examples: badgeExamples,
   },
   breadcrumbs: {
     label: "Breadcrumbs",
-    description: "Hierarchical navigation with current-page and collapsed states.",
+    description:
+      "Hierarchical navigation with current-page and collapsed states.",
     examples: breadcrumbExamples,
   },
   buttons: {
@@ -88,10 +93,20 @@ const componentCatalog = {
     description: "Grouped actions with orientation and size coverage.",
     examples: buttonGroupExamples,
   },
+  calendars: {
+    label: "Calendars",
+    description: "Date selection with single, range, and multiple modes.",
+    examples: calendarExamples,
+  },
   cards: {
     label: "Cards",
     description: "Boxed surfaces with media, actions, and footer treatments.",
     examples: cardExamples,
+  },
+  carousels: {
+    label: "Carousels",
+    description: "Scrollable content with navigation controls and indicators.",
+    examples: carouselExamples,
   },
   checkboxes: {
     label: "Checkboxes",
@@ -100,32 +115,38 @@ const componentCatalog = {
   },
   comboboxes: {
     label: "Comboboxes",
-    description: "Searchable selection menus with grouped and controlled values.",
+    description:
+      "Searchable selection menus with grouped and controlled values.",
     examples: comboboxExamples,
   },
   commands: {
     label: "Commands",
-    description: "Palette-style search lists with inline and dialog presentations.",
+    description:
+      "Palette-style search lists with inline and dialog presentations.",
     examples: commandExamples,
   },
   contextMenus: {
     label: "Context Menus",
-    description: "Right-click action menus with toggles, radios, and nested items.",
+    description:
+      "Right-click action menus with toggles, radios, and nested items.",
     examples: contextMenuExamples,
   },
   dialogs: {
     label: "Dialogs",
-    description: "Modal surfaces with overlay, header, description, and footer treatments.",
+    description:
+      "Modal surfaces with overlay, header, description, and footer treatments.",
     examples: dialogExamples,
   },
   drawers: {
     label: "Drawers",
-    description: "Bottom and side drawers for controls, summaries, and mobile actions.",
+    description:
+      "Bottom and side drawers for controls, summaries, and mobile actions.",
     examples: drawerExamples,
   },
   dropdowns: {
     label: "Dropdown Menus",
-    description: "Action menus with basic items, checkboxes, radios, and submenus.",
+    description:
+      "Action menus with basic items, checkboxes, radios, and submenus.",
     examples: dropdownExamples,
   },
   empties: {
@@ -140,7 +161,8 @@ const componentCatalog = {
   },
   inputGroup: {
     label: "Input Group",
-    description: "Structured text entry with add-ons, helper text, and action slots.",
+    description:
+      "Structured text entry with add-ons, helper text, and action slots.",
     examples: inputGroupExamples,
   },
   inputs: {
@@ -150,42 +172,50 @@ const componentCatalog = {
   },
   inputOtp: {
     label: "Input OTP",
-    description: "One-time-code entry with grouped slots and controlled values.",
+    description:
+      "One-time-code entry with grouped slots and controlled values.",
     examples: inputOtpExamples,
   },
   items: {
     label: "Items",
-    description: "Structured row compositions with media, copy, and action areas.",
+    description:
+      "Structured row compositions with media, copy, and action areas.",
     examples: itemExamples,
   },
   kbds: {
     label: "Kbd",
-    description: "Keyboard key hints for shortcuts and condensed command legends.",
+    description:
+      "Keyboard key hints for shortcuts and condensed command legends.",
     examples: kbdExamples,
   },
   labels: {
     label: "Labels",
-    description: "Accessible text labels paired with standalone controls and inputs.",
+    description:
+      "Accessible text labels paired with standalone controls and inputs.",
     examples: labelExamples,
   },
   menubars: {
     label: "Menubars",
-    description: "Desktop-style app menus with nested content and selection state.",
+    description:
+      "Desktop-style app menus with nested content and selection state.",
     examples: menubarExamples,
   },
   nativeSelects: {
     label: "Native Selects",
-    description: "Browser-native select controls with grouped options and validation.",
+    description:
+      "Browser-native select controls with grouped options and validation.",
     examples: nativeSelectExamples,
   },
   navigationMenus: {
     label: "Navigation Menus",
-    description: "Top-level nav surfaces with trigger/content and viewport coverage.",
+    description:
+      "Top-level nav surfaces with trigger/content and viewport coverage.",
     examples: navigationMenuExamples,
   },
   pagination: {
     label: "Pagination",
-    description: "Page navigation with active links, ellipsis, and next/previous controls.",
+    description:
+      "Page navigation with active links, ellipsis, and next/previous controls.",
     examples: paginationExamples,
   },
   popovers: {
@@ -195,7 +225,8 @@ const componentCatalog = {
   },
   progress: {
     label: "Progress",
-    description: "Linear completion indicators for upload and workflow progress.",
+    description:
+      "Linear completion indicators for upload and workflow progress.",
     examples: progressExamples,
   },
   radioGroups: {
@@ -225,17 +256,20 @@ const componentCatalog = {
   },
   sliders: {
     label: "Sliders",
-    description: "Range, multi-thumb, vertical, controlled, and disabled states.",
+    description:
+      "Range, multi-thumb, vertical, controlled, and disabled states.",
     examples: sliderExamples,
   },
   spinners: {
     label: "Spinners",
-    description: "Inline loading indicators for standalone and button-bound states.",
+    description:
+      "Inline loading indicators for standalone and button-bound states.",
     examples: spinnerExamples,
   },
   switches: {
     label: "Switches",
-    description: "Binary controls with descriptive, invalid, and size variants.",
+    description:
+      "Binary controls with descriptive, invalid, and size variants.",
     examples: switchExamples,
   },
   textareas: {
@@ -245,17 +279,20 @@ const componentCatalog = {
   },
   toggles: {
     label: "Toggles",
-    description: "Single pressed-state buttons with icon and controlled coverage.",
+    description:
+      "Single pressed-state buttons with icon and controlled coverage.",
     examples: toggleExamples,
   },
   toggleGroups: {
     label: "Toggle Groups",
-    description: "Exclusive and multi-select toggle sets across axis variations.",
+    description:
+      "Exclusive and multi-select toggle sets across axis variations.",
     examples: toggleGroupExamples,
   },
   tooltips: {
     label: "Tooltips",
-    description: "Hover and focus affordances across sides, icons, and disabled triggers.",
+    description:
+      "Hover and focus affordances across sides, icons, and disabled triggers.",
     examples: tooltipExamples,
   },
 } satisfies Record<
