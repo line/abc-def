@@ -43,7 +43,7 @@
     "@line/abc-def-prettier-config": "workspace:*",
     "@line/abc-def-stylelint-config": "workspace:*",
     "@line/abc-def-tsconfig": "workspace:^",
-    "autoprefixer": "^10.4.23",
+    "autoprefixer": "^10.5.0",
     "eslint": "catalog:",
     "glob": "^13.0.6",
     "postcss": "^8.5.14",
