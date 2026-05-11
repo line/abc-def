@@ -429,8 +429,8 @@ importers:
         specifier: 'catalog:'
         version: 9.39.4(jiti@2.4.2)
       globals:
-        specifier: ^17.0.0
-        version: 17.0.0
+        specifier: ^17.6.0
+        version: 17.6.0
       postcss:
         specifier: ^8.5.14
         version: 8.5.14
@@ -511,8 +511,8 @@ importers:
         specifier: 'catalog:'
         version: 9.39.4(jiti@2.4.2)
       globals:
-        specifier: ^17.0.0
-        version: 17.0.0
+        specifier: ^17.6.0
+        version: 17.6.0
       postcss:
         specifier: ^8.5.14
         version: 8.5.14
@@ -4534,8 +4534,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@17.0.0:
-    resolution: {integrity: sha512-gv5BeD2EssA793rlFWVPMMCqefTlpusw6/2TbAVMy0FzcG8wKJn4O+NqJ4+XWmmwrayJgw5TzrmWjFgmz1XPqw==}
+  globals@17.6.0:
+    resolution: {integrity: sha512-sepffkT8stwnIYbsMBpoCHJuJM5l98FUF2AnE07hfvE0m/qp3R586hw4jF4uadbhvg1ooIdzuu7CsfD2jzCaNA==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -10740,7 +10740,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@17.0.0: {}
+  globals@17.6.0: {}
 
   globalthis@1.0.4:
     dependencies:
