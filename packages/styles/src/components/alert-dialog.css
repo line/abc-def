@@ -51,26 +51,22 @@
     @apply text-sm text-balance text-(--alert-dialog-description-fg) md:text-pretty;
     @apply [&_a]:hover:text-(--foreground) *:[a]:underline *:[a]:underline-offset-3;
   }
+  .alert-dialog-content[data-size="default"] {
+    @variant sm {
+      .alert-dialog-header {
+        @apply place-items-start text-left;
+      }
 
-  @variant sm {
-    .alert-dialog-content[data-size="default"] .alert-dialog-header {
-      @apply place-items-start text-left;
-    }
+      &:has([data-slot="alert-dialog-media"]) .alert-dialog-title {
+        @apply col-start-2;
+      }
+      .alert-dialog-header {
+        @apply has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr];
+      }
 
-    .alert-dialog-content[data-size="default"]:has(
-        [data-slot="alert-dialog-media"]
-      )
-      .alert-dialog-title {
-      @apply col-start-2;
-    }
-
-    /* sm:group-data-[size=default]/alert-dialog-content: */
-    .alert-dialog-content[data-size="default"] .alert-dialog-header {
-      @apply has-data-[slot=alert-dialog-media]:grid-rows-[auto_1fr];
-    }
-
-    .alert-dialog-content[data-size="default"] .alert-dialog-media {
-      @apply row-span-2;
+      .alert-dialog-media {
+        @apply row-span-2;
+      }
     }
   }
 }

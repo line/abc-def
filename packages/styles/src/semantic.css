@@ -1,13 +1,13 @@
 :root {
-  --radius: 0.625rem;
+  /* --radius: 0.625rem;
 
   --background: var(--color-white);
-  --foreground: var(--color-slate-950);
+  --foreground: var(--color-slate-950); */
 
   --surface: var(--color-white); /* --card */
   --surface-foreground: var(--color-slate-950); /* --card-foreground */
 
-  --popover: var(--color-white);
+  /* --popover: var(--color-white);
   --popover-foreground: var(--color-slate-950);
 
   --primary: var(--color-slate-800);
@@ -34,11 +34,11 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-3xl: calc(var(--radius) * 2.2); */
 }
 
 .dark {
-  --background: var(--color-slate-950);
+  /* --background: var(--color-slate-950);
   --foreground: var(--color-slate-50);
 
   --surface: var(--color-slate-950);
@@ -64,5 +64,5 @@
 
   --border: var(--color-slate-700);
   --input: var(--color-slate-700);
-  --ring: var(--color-blue-600);
+  --ring: var(--color-blue-600); */
 }

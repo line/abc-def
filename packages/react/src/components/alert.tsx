@@ -39,7 +39,7 @@ function Alert({
   return (
     <div
       data-slot="alert"
-      role="group/alert alert"
+      role="alert"
       className={cn(alertVariants({ variant }), className)}
       {...props}
     />

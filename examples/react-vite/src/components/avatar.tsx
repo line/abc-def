@@ -30,7 +30,7 @@ export function AvatarDemo() {
 
 export function AvatarWithBadge() {
   return (
-    <Avatar>
+    <Avatar size="sm">
       <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
       <AvatarFallback>CN</AvatarFallback>
       <AvatarBadge className="bg-green-600 dark:bg-green-800" />
@@ -40,7 +40,7 @@ export function AvatarWithBadge() {
 
 export function AvatarBadgeIconExample() {
   return (
-    <Avatar className="grayscale">
+    <Avatar className="grayscale" size="sm">
       <AvatarImage src="https://github.com/pranathip.png" alt="@pranathip" />
       <AvatarFallback>PP</AvatarFallback>
       <AvatarBadge>

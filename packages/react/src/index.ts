@@ -312,3 +312,15 @@ export {
   CarouselPrevious,
   useCarousel,
 } from "./components/carousel";
+export {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "./components/collapsible";
+export {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  tabsListVariants,
+} from "./components/tabs";

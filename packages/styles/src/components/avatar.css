@@ -21,25 +21,13 @@
     }
 
     &[data-size="sm"] .avatar-badge {
-      @apply size-2;
-
-      & > svg {
-        @apply hidden;
-      }
+      @apply size-2 [&>svg]:hidden;
     }
     &[data-size="default"] .avatar-badge {
-      @apply size-2.5;
-
-      & > svg {
-        @apply size-2;
-      }
+      @apply size-2.5 [&>svg]:size-2;
     }
     &[data-size="lg"] .avatar-badge {
-      @apply size-3;
-
-      & > svg {
-        @apply size-2;
-      }
+      @apply size-3 [&>svg]:size-2;
     }
   }
 
@@ -61,19 +49,13 @@
 
     &:has([data-size="sm"]) {
       .avatar-group-count {
-        @apply size-6;
-        & > svg {
-          @apply size-3;
-        }
+        @apply size-6 [&>svg]:size-3;
       }
     }
 
     &:has([data-size="lg"]) {
       .avatar-group-count {
-        @apply size-10;
-        & > svg {
-          @apply size-5;
-        }
+        @apply size-10 [&>svg]:size-5;
       }
     }
   }

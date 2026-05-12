@@ -106,79 +106,34 @@
   }
 
   .combobox-trigger-icon {
-    @apply pointer-events-none size-4;
-
-    color: var(--combobox-trigger-icon-fg);
+    @apply pointer-events-none size-4 text-(--combobox-trigger-icon-fg);
   }
 
   .combobox-content {
-    --combobox-content-enter-x: 0px;
-    --combobox-content-enter-y: 0px;
+    @apply relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+--spacing(7))] origin-(--transform-origin) overflow-hidden rounded-lg shadow-md ring-1 duration-100;
+    @apply bg-(--combobox-content-bg) text-(--combobox-content-fg) ring-(--combobox-content-ring);
+    @apply data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[chips=true]:min-w-(--anchor-width);
+    @apply *:data-[slot=input-group]:m-1 *:data-[slot=input-group]:mb-0 *:data-[slot=input-group]:h-8;
+    @apply data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95;
 
-    @apply relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+--spacing(7))] overflow-hidden rounded-lg shadow-md duration-100;
-
-    background-color: var(--combobox-content-bg);
-    color: var(--combobox-content-fg);
-    box-shadow: 0 0 0 1px var(--combobox-content-ring);
-    transform-origin: var(--transform-origin);
-  }
-
-  .combobox-content[data-chips="true"] {
-    min-width: var(--anchor-width);
-  }
-
-  .combobox-content[data-side="bottom"] {
-    --combobox-content-enter-y: -0.5rem;
-  }
-
-  .combobox-content[data-side="inline-end"],
-  .combobox-content[data-side="right"] {
-    --combobox-content-enter-x: -0.5rem;
-  }
-
-  .combobox-content[data-side="inline-start"],
-  .combobox-content[data-side="left"] {
-    --combobox-content-enter-x: 0.5rem;
-  }
-
-  .combobox-content[data-side="top"] {
-    --combobox-content-enter-y: 0.5rem;
-  }
-
-  .combobox-content[data-open] {
-    animation: combobox-content-enter 100ms ease-out;
-  }
-
-  .combobox-content[data-starting-style],
-  .combobox-content[data-ending-style] {
-    animation: none;
-  }
-
-  .combobox-content .input-group {
-    @apply m-1 mb-0 h-8 shadow-none;
-
-    background-color: var(--combobox-content-input-group-bg);
-    border-color: var(--combobox-content-input-group-border);
+    /*   
+    *:data-[slot=input-group]:border-input/30 
+    *:data-[slot=input-group]:shadow-none 
+    *:data-[slot=input-group]:bg-input/30 
+    */
   }
 
   .combobox-list {
     /* @apply no-scrollbar max-h-[min(18rem,var(--available-height))] scroll-py-1 overflow-y-auto overscroll-contain p-1 data-empty:p-0; */
-    @apply max-h-[min(18rem,var(--available-height))] scroll-py-1 overflow-y-auto overscroll-contain p-1 data-empty:p-0;
+    @apply max-h-[min(calc(--spacing(72)---spacing(9)),calc(var(--available-height)---spacing(9)))] scroll-py-1 overflow-y-auto overscroll-contain p-1 data-empty:p-0;
   }
 
   .combobox-item {
     @apply relative flex w-full cursor-default items-center gap-2 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none;
     @apply data-disabled:pointer-events-none data-disabled:opacity-50;
     @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
-  }
-
-  .combobox-item[data-highlighted] {
-    background-color: var(--combobox-item-bg-highlighted);
-    color: var(--combobox-item-fg-highlighted);
-  }
-
-  .combobox-item:not([data-variant="destructive"])[data-highlighted] * {
-    color: var(--combobox-item-fg-highlighted);
+    @apply data-highlighted:bg-(--combobox-item-bg-highlighted) data-highlighted:text-(--combobox-item-fg-highlighted);
+    @apply not-data-[variant=destructive]:data-highlighted:**:text-(--combobox-item-fg-highlighted);
   }
 
   .combobox-item-indicator {
@@ -186,15 +141,11 @@
   }
 
   .combobox-label {
-    @apply px-2 py-1.5 text-xs;
-
-    color: var(--combobox-label-fg);
+    @apply px-2 py-1.5 text-xs text-(--combobox-label-fg);
   }
 
   .combobox-empty {
-    @apply hidden w-full justify-center py-2 text-center text-sm;
-
-    color: var(--combobox-empty-fg);
+    @apply hidden w-full justify-center py-2 text-center text-sm text-(--combobox-empty-f);
   }
 
   .combobox-content[data-empty] .combobox-empty {
@@ -202,9 +153,7 @@
   }
 
   .combobox-separator {
-    @apply -mx-1 my-1 h-px;
-
-    background-color: var(--combobox-separator-bg);
+    @apply -mx-1 my-1 h-px bg-(--combobox-separator-bg);
   }
 
   .combobox-chips {

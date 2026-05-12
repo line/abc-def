@@ -129,7 +129,7 @@ function ComboboxContent({
         <ComboboxPrimitive.Popup
           data-slot="combobox-content"
           data-chips={!!anchor}
-          className={cn("group/combobox-content combobox-content", className)}
+          className={cn("combobox-content", className)}
           {...props}
         />
       </ComboboxPrimitive.Positioner>
@@ -160,12 +160,10 @@ function ComboboxItem({
     >
       {children}
       <ComboboxPrimitive.ItemIndicator
-        render={
-          <span className="combobox-item-indicator">
-            <CheckIcon className="pointer-events-none" />
-          </span>
-        }
-      />
+        render={<span className="combobox-item-indicator" />}
+      >
+        <CheckIcon className="pointer-events-none" />
+      </ComboboxPrimitive.ItemIndicator>
     </ComboboxPrimitive.Item>
   );
 }

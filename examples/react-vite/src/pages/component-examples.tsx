@@ -13,6 +13,7 @@ import * as calendarExamples from "../components/calendar";
 import * as cardExamples from "../components/card";
 import * as carouselExamples from "../components/carousel";
 import * as checkboxExamples from "../components/checkbox";
+import * as collapsibleExamples from "../components/collapsible";
 import * as comboboxExamples from "../components/combobox";
 import * as commandExamples from "../components/command";
 import * as contextMenuExamples from "../components/context-menu";
@@ -112,6 +113,11 @@ const componentCatalog = {
     label: "Checkboxes",
     description: "Single, grouped, descriptive, and disabled selection states.",
     examples: checkboxExamples,
+  },
+  collapsibles: {
+    label: "Collapsibles",
+    description: "Toggleable content sections with trigger and content slots.",
+    examples: collapsibleExamples,
   },
   comboboxes: {
     label: "Comboboxes",
