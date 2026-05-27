@@ -1,0 +1,30 @@
+:root {
+  --checkbox-ring: var(--ring);
+  --checkbox-bg: transparent;
+  --checkbox-border: var(--border);
+  --checkbox-border-destructive: var(--destructive);
+
+  --checkbox-border-checked-destructive: var(--primary);
+  --checkbox-border-checked: var(--primary);
+  --checkbox-bg-checked: var(--primary);
+  --checkbox-fg-checked: var(--primary-foreground);
+}
+
+@layer components {
+  .checkbox {
+    @apply relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border transition-colors outline-none;
+    @apply border-(--checkbox-border) bg-(--checkbox-bg);
+    @apply after:absolute after:-inset-x-3 after:-inset-y-2;
+    @apply focus-visible:border-(--checkbox-ring) focus-visible:ring-3 focus-visible:ring-(--checkbox-ring)/50;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+    @apply data-[state=checked]:border-(--checkbox-border-checked) data-[state=checked]:bg-(--checkbox-bg-checked) data-[state=checked]:text-(--checkbox-fg-checked);
+    @apply aria-invalid:aria-checked:border-(--checkbox-border-checked-destructive);
+    @apply aria-invalid:border-(--checkbox-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--checkbox-border-invalid)/20;
+    @apply [.field:has([disabled])_&]:opacity-50;
+  }
+
+  .checkbox-indicator {
+    @apply grid place-content-center text-current transition-none;
+    @apply [&>svg]:size-3.5;
+  }
+}

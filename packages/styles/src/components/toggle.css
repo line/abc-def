@@ -1,0 +1,60 @@
+:root {
+  --toggle-ring: var(--ring);
+  --toggle-border-destructive: var(--destructive);
+  --toggle-bg-hover: var(--muted);
+  --toggle-fg-hover: var(--foreground);
+  --toggle-bg-active: var(--muted);
+  --toggle-fg-active: var(--foreground);
+  --toggle-border-outline: var(--border-input);
+  --toggle-border-destructive-shadow: color-mix(
+    in oklab,
+    var(--toggle-border-destructive) 20%,
+    transparent
+  );
+}
+
+.dark {
+  --toggle-border-destructive-shadow: color-mix(
+    in oklab,
+    var(--toggle-border-destructive) 40%,
+    transparent
+  );
+}
+
+@layer components {
+  .toggle {
+    @apply inline-flex items-center justify-center gap-1 rounded-lg text-sm font-medium whitespace-nowrap transition-all outline-none;
+    @apply focus-visible:ring-3 focus-visible:ring-(--toggle-ring)/50;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+    @apply hover:bg-(--toggle-bg-hover) hover:text-(--toggle-fg-hover);
+    @apply aria-invalid:border-(--toggle-border-destructive);
+    @apply aria-invalid:shadow-[0_0_0_3px_var(--toggle-border-destructive-shadow)];
+    @apply aria-pressed:bg-(--toggle-bg-active) aria-pressed:text-(--toggle-fg-active);
+    @apply data-[state=on]:bg-(--toggle-bg-active) data-[state=on]:text-(--toggle-fg-active);
+  }
+
+  .toggle-variant-default {
+    @apply bg-transparent;
+  }
+
+  .toggle-variant-outline {
+    @apply border border-(--toggle-border-outline) bg-transparent;
+  }
+
+  .toggle-size-default {
+    @apply h-8 min-w-8 px-2.5;
+    @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
+  }
+
+  .toggle-size-sm {
+    @apply h-7 min-w-7 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem];
+    @apply has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5;
+    @apply [&_svg:not([class*='size-'])]:size-3.5;
+  }
+
+  .toggle-size-lg {
+    @apply h-9 min-w-9 px-2.5;
+    @apply has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2;
+  }
+}

@@ -1,8 +1,11 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
+  entry: ["src/components/*.{ts,tsx}"],
+  dts: true,
+  format: ["esm", "cjs"],
   clean: true,
-  format: ["cjs", "esm"],
-  banner: { js: '"use client";' },
-  external: ["react", "react-dom", "react-hook-form"],
+  minify: true,
+  sourcemap: false,
+  external: ["react", "react-dom"],
 });

@@ -9,14 +9,6 @@
       "dependsOn": ["^build"],
       "outputs": [".cache/tsbuildinfo.json", "dist/**"]
     },
-    "dev:storybook": {
-      "dependsOn": [
-        "@line/abc-def-react#build",
-        "@line/abc-def-tailwindcss#build"
-      ],
-      "cache": false,
-      "persistent": false
-    },
     "dev": {
       "dependsOn": ["^dev"],
       "cache": false,
@@ -39,10 +31,6 @@
     },
     "//#clean": {
       "cache": false
-    },
-    "build:storybook": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
     }
   }
 }

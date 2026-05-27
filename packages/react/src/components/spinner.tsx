@@ -13,47 +13,19 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+import { Loader2Icon } from "lucide-react";
 
-import React from "react";
-import { cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-import type { Size } from "../types";
-import { cn } from "../lib/utils";
-import useTheme from "./use-theme";
-
-export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
-  size?: Size;
+function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
+  return (
+    <Loader2Icon
+      role="status"
+      aria-label="Loading"
+      className={cn("size-4 animate-spin", className)}
+      {...props}
+    />
+  );
 }
 
-const defaultVariants: {
-  size?: Size;
-} = {
-  size: undefined,
-};
-
-const spinnerVariants = cva("spinner", {
-  variants: {
-    size: {
-      small: "spinner-small",
-      medium: "spinner-medium",
-      large: "spinner-large",
-    },
-  },
-  defaultVariants,
-});
-
-const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
-  (props, ref) => {
-    const { size, className } = props;
-    const { themeSize } = useTheme();
-
-    return (
-      <span
-        ref={ref}
-        className={cn(spinnerVariants({ size: size ?? themeSize }), className)}
-        aria-label="loading..."
-      />
-    );
-  },
-);
 export { Spinner };

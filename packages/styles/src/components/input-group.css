@@ -1,0 +1,121 @@
+:root {
+  --input-group-ring: var(--ring);
+  --input-group-ring-shadow: color-mix(
+    in oklab,
+    var(--input-group-ring) 50%,
+    transparent
+  );
+  --input-group-border: var(--border-input);
+  --input-group-border-destructive: var(--destructive);
+  --input-group-border-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-group-border-destructive) 20%,
+    transparent
+  );
+  --input-group-bg: transparent;
+  --input-group-bg-disabled: color-mix(
+    in oklab,
+    var(--input-group-border) 50%,
+    transparent
+  );
+  --input-group-addon-fg: var(--muted-foreground);
+  --input-group-text-fg: var(--muted-foreground);
+}
+
+.dark {
+  --input-group-bg: color-mix(
+    in oklab,
+    var(--input-group-border) 30%,
+    transparent
+  );
+  --input-group-bg-disabled: color-mix(
+    in oklab,
+    var(--input-group-border) 80%,
+    transparent
+  );
+  --input-group-border-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-group-border-destructive) 40%,
+    transparent
+  );
+}
+
+@layer components {
+  .input-group {
+    @apply relative flex h-8 w-full min-w-0 items-center rounded-lg border border-(--input-group-border) bg-(--input-group-bg) transition-colors outline-none;
+    @apply has-[:disabled]:bg-(--input-group-bg-disabled) has-[:disabled]:opacity-50;
+    @apply has-[[data-slot=input-group-control]:focus-visible]:border-(--input-group-ring);
+    @apply has-[[data-slot=input-group-control]:focus-visible]:shadow-[0_0_0_3px_var(--input-group-ring-shadow)];
+    @apply has-[[data-slot][aria-invalid=true]]:border-(--input-group-border-destructive);
+    @apply has-[[data-slot][aria-invalid=true]]:shadow-[0_0_0_3px_var(--input-group-border-destructive-shadow)];
+    @apply [[data-slot=combobox-content]_&:focus-within]:border-inherit [[data-slot=combobox-content]_&:focus-within]:shadow-none;
+    @apply has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col;
+    @apply has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col;
+    @apply has-[>[data-slot=input-group-textarea]]:h-auto has-[>textarea]:h-auto;
+    @apply has-[>[data-align=block-start]]:[&>input[data-slot=input-group-control]]:pb-3;
+    @apply has-[>[data-align=block-end]]:[&>input[data-slot=input-group-control]]:pt-3;
+    @apply has-[>[data-align=inline-start]]:[&>input[data-slot=input-group-control]]:pl-1.5;
+    @apply has-[>[data-align=inline-end]]:[&>input[data-slot=input-group-control]]:pr-1.5;
+  }
+
+  .input-group-addon {
+    @apply flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-(--input-group-addon-fg) select-none;
+    @apply [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4;
+    @apply [.input-group:has(:disabled)_&]:opacity-50;
+  }
+
+  .input-group-addon-align-inline-start {
+    @apply order-first pl-2;
+    @apply has-[>button]:-ml-[0.3rem] has-[>kbd]:-ml-[0.15rem];
+  }
+
+  .input-group-addon-align-inline-end {
+    @apply order-last pr-2;
+    @apply has-[>button]:-mr-[0.3rem] has-[>kbd]:-mr-[0.15rem];
+  }
+
+  .input-group-addon-align-block-start {
+    @apply order-first w-full justify-start px-2.5 pt-2;
+    @apply [&_.border-b]:pb-2;
+  }
+
+  .input-group-addon-align-block-end {
+    @apply order-last w-full justify-start px-2.5 pb-2;
+    @apply [&_.border-t]:pt-2;
+  }
+
+  .input-group-button {
+    @apply flex items-center gap-2 text-sm shadow-none;
+  }
+
+  .input-group-button-size-xs {
+    @apply h-6 gap-1 rounded-[calc(var(--radius)-3px)] px-1.5;
+    @apply [&>svg:not([class*='size-'])]:size-3.5;
+  }
+
+  .input-group-button-size-icon-xs {
+    @apply size-6 rounded-[calc(var(--radius)-3px)] p-0 has-[>svg]:p-0;
+  }
+
+  .input-group-button-size-icon-sm {
+    @apply size-8 p-0 has-[>svg]:p-0;
+  }
+
+  .input-group-text {
+    @apply flex items-center gap-2 text-sm text-(--input-group-text-fg);
+    @apply [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .input-group-control {
+    @apply flex-1 rounded-none border-0 bg-transparent shadow-none ring-0;
+    @apply focus-visible:ring-0 disabled:bg-transparent aria-invalid:ring-0;
+  }
+
+  .input-group-input {
+    @apply px-2.5;
+  }
+
+  .input-group-textarea {
+    @apply resize-none px-2.5 py-2;
+  }
+}

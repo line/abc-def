@@ -1,0 +1,9 @@
+:root {
+  --separator-bg: var(--border);
+}
+
+@layer components {
+  .separator {
+    @apply shrink-0 bg-(--separator-bg) data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch;
+  }
+}

@@ -1,0 +1,74 @@
+:root {
+  --input-otp-slot-border: var(--border-input);
+  --input-otp-slot-border-active: var(--ring);
+  --input-otp-slot-border-destructive: var(--destructive);
+  --input-otp-slot-bg-dark: color-mix(in oklab, var(--input) 30%, transparent);
+  --input-otp-slot-caret: var(--foreground);
+  --input-otp-group-ring-destructive: var(--destructive);
+  --input-otp-group-ring-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-otp-group-ring-destructive) 20%,
+    transparent
+  );
+  --input-otp-slot-active-shadow: color-mix(
+    in oklab,
+    var(--input-otp-slot-border-active) 50%,
+    transparent
+  );
+  --input-otp-slot-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-otp-slot-border-destructive) 20%,
+    transparent
+  );
+}
+
+.dark {
+  --input-otp-group-ring-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-otp-group-ring-destructive) 40%,
+    transparent
+  );
+  --input-otp-slot-destructive-shadow: color-mix(
+    in oklab,
+    var(--input-otp-slot-border-destructive) 40%,
+    transparent
+  );
+}
+
+@layer components {
+  .input-otp {
+    @apply flex items-center has-disabled:opacity-50;
+  }
+
+  .input-otp-input {
+    @apply disabled:cursor-not-allowed;
+  }
+
+  .input-otp-group {
+    @apply flex items-center rounded-lg;
+    @apply has-[[aria-invalid=true]]:shadow-[0_0_0_3px_var(--input-otp-group-ring-destructive-shadow)];
+  }
+
+  .input-otp-slot {
+    @apply relative flex size-8 items-center justify-center border-y border-r border-(--input-otp-slot-border) text-sm transition-all outline-none;
+    @apply first:rounded-l-lg first:border-l last:rounded-r-lg;
+    @apply dark:bg-(--input-otp-slot-bg-dark);
+    @apply data-[active=true]:z-10 data-[active=true]:border-(--input-otp-slot-border-active);
+    @apply data-[active=true]:shadow-[0_0_0_3px_var(--input-otp-slot-active-shadow)];
+    @apply aria-invalid:border-(--input-otp-slot-border-destructive);
+    @apply data-[active=true]:aria-invalid:shadow-[0_0_0_3px_var(--input-otp-slot-destructive-shadow)];
+  }
+
+  .input-otp-caret {
+    @apply pointer-events-none absolute inset-0 flex items-center justify-center;
+  }
+
+  .input-otp-caret-indicator {
+    @apply animate-caret-blink h-4 w-px bg-(--input-otp-slot-caret) duration-1000;
+  }
+
+  .input-otp-separator {
+    @apply flex items-center;
+    @apply [&_svg:not([class*='size-'])]:size-4;
+  }
+}

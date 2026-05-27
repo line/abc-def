@@ -1,0 +1,31 @@
+:root {
+  --pagination-gap: 0.125rem;
+  --pagination-inline-padding: 0.375rem;
+}
+
+@layer components {
+  .pagination {
+    @apply mx-auto flex w-full justify-center;
+  }
+
+  .pagination-content {
+    @apply flex items-center gap-[var(--pagination-gap)];
+  }
+
+  .pagination-link {
+    @apply shrink-0;
+  }
+
+  .pagination-link-prev {
+    @apply ps-[var(--pagination-inline-padding)];
+  }
+
+  .pagination-link-next {
+    @apply pe-[var(--pagination-inline-padding)];
+  }
+
+  .pagination-ellipsis {
+    @apply flex size-8 items-center justify-center;
+    @apply [&_svg:not([class*='size-'])]:size-4;
+  }
+}

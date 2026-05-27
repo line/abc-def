@@ -1,15 +1,26 @@
 {
-  "extends": "@line/abc-def-tsconfig/base.json",
+  "extends": "../../tooling/typescript/base.json",
   "compilerOptions": {
-    "lib": ["es2022", "dom", "dom.iterable"],
     "jsx": "preserve",
-    "baseUrl": ".",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "allowJs": false,
+    "checkJs": false,
+    "types": ["node"],
     "paths": {
       "@/*": ["./src/*"]
     },
-    "plugins": [{ "name": "next" }],
-    "module": "esnext"
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": [".", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "./*.js", "./*.mjs", "coverage", ".storybook"]
+  "include": [
+    "next-env.d.ts",
+    "next.config.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
 }

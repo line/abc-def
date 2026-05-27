@@ -1,3 +1,4 @@
 {
-  "name": "@line/abc-def-github"
+  "name": "@line/abc-def-github",
+  "private": true
 }

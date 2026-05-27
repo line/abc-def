@@ -13,119 +13,111 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
 
-import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
-import { cva } from "class-variance-authority";
 
-import type { IconNameType } from "./icon";
-import { cn } from "../lib/utils";
-import { Icon } from "./icon";
+import { cn } from "@/lib/utils";
 
-const Table = React.forwardRef<
-  HTMLTableElement,
-  React.HTMLAttributes<HTMLTableElement>
->(({ className, ...props }, ref) => (
-  <table ref={ref} className={cn("table", className)} {...props} />
-));
-Table.displayName = "Table";
+function Table({ className, ...props }: React.ComponentProps<"table">) {
+  return (
+    <div
+      data-slot="table-container"
+      className="relative w-full overflow-x-auto"
+    >
+      <table
+        data-slot="table"
+        className={cn("w-full caption-bottom text-sm", className)}
+        {...props}
+      />
+    </div>
+  );
+}
 
-const TableHeader = React.forwardRef<
-  HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement>
->(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("table-header", className)} {...props} />
-));
-TableHeader.displayName = "TableHeader";
+function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
+  return (
+    <thead
+      data-slot="table-header"
+      className={cn("[&_tr]:border-b", className)}
+      {...props}
+    />
+  );
+}
 
-const TableBody = React.forwardRef<
-  HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement>
->(({ className, ...props }, ref) => (
-  <tbody ref={ref} className={cn("table-body", className)} {...props} />
-));
-TableBody.displayName = "TableBody";
+function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
+  return (
+    <tbody
+      data-slot="table-body"
+      className={cn("[&_tr:last-child]:border-0", className)}
+      {...props}
+    />
+  );
+}
 
-const TableFooter = React.forwardRef<
-  HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement>
->(({ className, ...props }, ref) => (
-  <tfoot ref={ref} className={cn("table-footer", className)} {...props} />
-));
-TableFooter.displayName = "TableFooter";
+function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
+  return (
+    <tfoot
+      data-slot="table-footer"
+      className={cn(
+        "bg-muted/50 border-t font-medium [&>tr]:last:border-b-0",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
 
-const TableRow = React.forwardRef<
-  HTMLTableRowElement,
-  React.HTMLAttributes<HTMLTableRowElement>
->(({ className, ...props }, ref) => (
-  <tr ref={ref} className={cn("table-row", className)} {...props} />
-));
-TableRow.displayName = "TableRow";
+function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
+  return (
+    <tr
+      data-slot="table-row"
+      className={cn(
+        "hover:bg-muted/50 has-aria-expanded:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
 
-const tableHeadVariants = cva("table-head", {
-  variants: {
-    textAlign: {
-      left: "table-head-left",
-      center: "table-head-center",
-      right: "table-head-right",
-    },
-  },
-  defaultVariants: {
-    textAlign: "left",
-  },
-});
+function TableHead({ className, ...props }: React.ComponentProps<"th">) {
+  return (
+    <th
+      data-slot="table-head"
+      className={cn(
+        "text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
 
-const TableHead = React.forwardRef<
-  HTMLTableCellElement,
-  React.ThHTMLAttributes<HTMLTableCellElement> &
-    VariantProps<typeof tableHeadVariants> & {
-      icon?: IconNameType;
-    }
->(({ icon, textAlign = "left", children, className, ...props }, ref) => (
-  <th
-    ref={ref}
-    className={cn(tableHeadVariants({ textAlign, className }))}
-    {...props}
-  >
-    {icon && <Icon name={icon} size={16} />}
-    {children}
-  </th>
-));
-TableHead.displayName = "TableHead";
+function TableCell({ className, ...props }: React.ComponentProps<"td">) {
+  return (
+    <td
+      data-slot="table-cell"
+      className={cn(
+        "p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
 
-const tableCellVariants = cva("table-cell", {
-  variants: {
-    textAlign: {
-      left: "table-cell-left",
-      center: "table-cell-center",
-      right: "table-cell-right",
-    },
-  },
-  defaultVariants: {
-    textAlign: "left",
-  },
-});
-
-const TableCell = React.forwardRef<
-  HTMLTableCellElement,
-  React.TdHTMLAttributes<HTMLTableCellElement> &
-    VariantProps<typeof tableCellVariants>
->(({ textAlign = "left", className, ...props }, ref) => (
-  <td
-    ref={ref}
-    className={cn(tableCellVariants({ textAlign, className }))}
-    {...props}
-  />
-));
-TableCell.displayName = "TableCell";
-
-const TableCaption = React.forwardRef<
-  HTMLTableCaptionElement,
-  React.HTMLAttributes<HTMLTableCaptionElement>
->(({ className, ...props }, ref) => (
-  <caption ref={ref} className={cn("table-caption", className)} {...props} />
-));
-TableCaption.displayName = "TableCaption";
+function TableCaption({
+  className,
+  ...props
+}: React.ComponentProps<"caption">) {
+  return (
+    <caption
+      data-slot="table-caption"
+      className={cn("text-muted-foreground mt-4 text-sm", className)}
+      {...props}
+    />
+  );
+}
 
 export {
   Table,

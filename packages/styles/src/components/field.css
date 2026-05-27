@@ -1,0 +1,126 @@
+:root {
+  --field-description-fg: var(--muted-foreground);
+  --field-description-fg-link: var(--primary);
+  --field-error-fg: var(--destructive);
+  --field-label-border-checked: color-mix(
+    in oklab,
+    var(--primary) 30%,
+    transparent
+  );
+  --field-label-bg-checked: color-mix(in oklab, var(--primary) 5%, transparent);
+  --field-separator-content-bg: var(--background);
+  --field-separator-content-fg: var(--muted-foreground);
+}
+
+.dark {
+  --field-label-border-checked: color-mix(
+    in oklab,
+    var(--primary) 20%,
+    transparent
+  );
+  --field-label-bg-checked: color-mix(
+    in oklab,
+    var(--primary) 10%,
+    transparent
+  );
+}
+
+@layer components {
+  .field-set {
+    @apply flex flex-col gap-4;
+    @apply has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3;
+  }
+
+  .field-legend {
+    @apply mb-1.5 font-medium;
+  }
+
+  .field-legend-variant-label {
+    @apply text-sm;
+  }
+
+  .field-legend-variant-legend {
+    @apply text-base;
+  }
+
+  .field-group {
+    @apply [container-type:inline-size] flex w-full flex-col gap-5 [container-name:field-group];
+    @apply data-[slot=checkbox-group]:gap-3;
+    @apply [&>[data-slot=field-group]]:gap-4;
+    @apply @[28rem]:[&.field-orientation-responsive]:flex-row @[28rem]:[&.field-orientation-responsive]:items-center;
+    @apply @[28rem]:[&.field-orientation-responsive:has(>[data-slot=field-content])]:items-start;
+    @apply @[28rem]:[&.field-orientation-responsive>*]:w-auto;
+    @apply @[28rem]:[&.field-orientation-responsive>[data-slot=field-label]]:flex-[1_1_auto];
+    @apply @[28rem]:[&.field-orientation-responsive:has(>[data-slot=field-content])>:is([role=checkbox],[role=radio])]:mt-px;
+    @apply @[28rem]:[&.field-orientation-responsive_[data-slot=field-description]]:text-balance;
+  }
+
+  .field {
+    @apply flex w-full gap-2;
+    @apply data-[invalid=true]:text-(--field-error-fg);
+  }
+
+  .field-orientation-vertical {
+    @apply flex-col *:w-full! [&>.sr-only]:w-auto;
+  }
+
+  .field-orientation-horizontal {
+    @apply flex-row items-center;
+    @apply has-[>[data-slot=field-content]]:items-start;
+    @apply [&>[data-slot=field-label]]:flex-[1_1_auto];
+    @apply has-[>[data-slot=field-content]]:[&>:is([role=checkbox],[role=radio])]:mt-px;
+    @apply [&_[data-slot=field-description]]:text-balance;
+  }
+
+  .field-orientation-responsive {
+    @apply flex-col;
+    @apply [&>*]:w-full [&>.sr-only]:w-auto;
+  }
+
+  .field-content {
+    @apply flex flex-1 flex-col gap-0.5 leading-snug;
+  }
+
+  .field-label {
+    @apply flex w-fit gap-2 leading-snug!;
+    @apply [.field[data-disabled=true]_&]:opacity-50;
+    @apply has-[[data-state=checked]]:border-(--field-label-border-checked) has-[[data-state=checked]]:bg-(--field-label-bg-checked);
+    @apply has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border;
+    @apply *:data-[slot=field]:p-2.5;
+    @apply has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col;
+  }
+
+  .field-title {
+    @apply flex w-fit items-center gap-2 text-sm font-medium;
+    @apply [.field[data-disabled=true]_&]:opacity-50;
+  }
+
+  .field-description {
+    @apply text-left text-sm leading-normal font-normal text-(--field-description-fg);
+    @apply [.field:has([data-horizontal])_&]:text-balance;
+    @apply [[data-slot=field-legend][data-variant=legend]+&]:-mt-1.5;
+    @apply last:mt-0 nth-last-2:-mt-1;
+    @apply [&>a]:underline [&>a]:underline-offset-4 [&>a]:hover:text-(--field-description-fg-link);
+  }
+
+  .field-separator {
+    @apply relative -my-2 h-5 text-sm;
+    @apply [.field-group[data-variant=outline]_&]:-mb-2;
+  }
+
+  .field-separator-line {
+    @apply absolute inset-0 top-1/2;
+  }
+
+  .field-separator-content {
+    @apply relative mx-auto block w-fit bg-(--field-separator-content-bg) px-2 text-(--field-separator-content-fg);
+  }
+
+  .field-error {
+    @apply text-sm font-normal text-(--field-error-fg);
+  }
+
+  .field-error-list {
+    @apply ml-4 flex list-disc flex-col gap-1;
+  }
+}

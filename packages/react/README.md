@@ -1,19 +1,38 @@
 # @line/abc-def-react
 
-[![][version]](https://www.npmjs.com/package/@line/abc-def-react)
-[![][commit]](https://github.com/line/abc-def)
-[![][license]](https://github.com/line/abc-def/blob/master/LICENSE)
-[![][stars]](https://github.com/line/abc-def)
-[![][installs]](https://www.npmjs.com/package/@line/abc-def-react)
+React components built as semantic wrappers around `@line/abc-def-styles`.
 
-### [Documentation](https://line.github.io/abc-def)
+## Install
 
-### [How to use](https://line.github.io/abc-def/?path=/docs/react_getting-started--docs)
+```bash
+pnpm add @line/abc-def-react @line/abc-def-styles react react-dom tailwindcss
+```
 
----
+## Setup
 
-[version]: https://badgen.net/npm/v/@line/abc-def-react?label=Version&color=1AD100
-[commit]: https://badgen.net/github/last-commit/line/abc-def?label=Last%20commit&color=1AD100
-[license]: https://badgen.net/github/license/line/abc-def?label=License&color=1AD100
-[stars]: https://badgen.net/github/stars/line/abc-def?label=GitHub%20stars&color=1AD100
-[installs]: https://badgen.net/npm/dt/@line/abc-def-react?label=NPM%20installs&color=1AD100
+Import the shared CSS contract from a Tailwind CSS v4 stylesheet:
+
+```css
+@import "tailwindcss";
+@import "@line/abc-def-styles/css";
+
+@source "../node_modules/@line/abc-def-react/dist/**/*.{js,cjs}";
+```
+
+Adjust the `@source` path for your stylesheet location. In this monorepo, the Vite example uses the local workspace source path instead.
+
+## Usage
+
+```tsx
+import { Button } from "@line/abc-def-react/button";
+
+export function Example() {
+  return <Button variant="outline">Outline</Button>;
+}
+```
+
+The public import contract is subpath-based, for example `@line/abc-def-react/button`, `@line/abc-def-react/card`, and `@line/abc-def-react/dialog`.
+
+## Package Contents
+
+The npm package publishes compiled ESM, CommonJS, and TypeScript declaration files under `dist`. Source maps are not included.

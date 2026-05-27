@@ -1,0 +1,61 @@
+@theme {
+  @keyframes accordion-up {
+    from {
+      height: var(
+        --radix-accordion-content-height,
+        var(--reka-accordion-content-height)
+      );
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(
+        --radix-accordion-content-height,
+        var(--reka-accordion-content-height)
+      );
+    }
+  }
+}
+
+:root {
+  --accordion-ring: var(--ring);
+  --accordion-trigger-icon-fg: var(--muted-foreground);
+  --accordion-border: var(--border);
+}
+
+@layer components {
+  .accordion {
+    @apply flex w-full flex-col;
+  }
+
+  .accordion-item {
+    @apply border-(--accordion-border) not-last:border-b;
+  }
+
+  .accordion-header {
+    @apply flex;
+  }
+
+  .accordion-trigger {
+    @apply relative flex flex-1 items-start justify-between rounded-lg border border-transparent py-2.5 text-left text-sm font-medium transition-all outline-none hover:underline;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply focus-visible:border-(--accordion-ring) focus-visible:ring-3 focus-visible:ring-(--accordion-ring)/50 focus-visible:after:border-(--accordion-ring);
+    @apply [&_[data-slot=accordion-trigger-icon]]:pointer-events-none [&_[data-slot=accordion-trigger-icon]]:ml-auto [&_[data-slot=accordion-trigger-icon]]:shrink-0 [&_[data-slot=accordion-trigger-icon]]:text-(--accordion-trigger-icon-fg) [&_[data-slot=accordion-trigger-icon]:not([class*='size-'])]:size-4;
+    @apply aria-expanded:[&_[data-slot=accordion-trigger-icon][data-state=closed]]:hidden [&_[data-slot=accordion-trigger-icon][data-state=open]]:hidden aria-expanded:[&_[data-slot=accordion-trigger-icon][data-state=open]]:inline;
+  }
+
+  .accordion-content {
+    @apply overflow-hidden text-sm;
+    @apply data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up;
+  }
+
+  .accordion-content-body {
+    @apply pt-0 pb-2.5 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-(--foreground) [&_p:not(:last-child)]:mb-4;
+  }
+}

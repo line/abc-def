@@ -1,0 +1,33 @@
+:root {
+  --slider-track-bg: var(--muted);
+  --slider-range-bg: var(--primary);
+  --slider-thumb-bg: var(--background);
+  --slider-thumb-border: var(--ring);
+  --slider-thumb-ring: var(--ring);
+}
+
+@layer components {
+  .slider {
+    @apply relative flex w-full touch-none items-center select-none;
+    @apply data-disabled:opacity-50;
+    @apply data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-40 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col;
+  }
+
+  .slider-track {
+    @apply relative grow overflow-hidden rounded-full bg-(--slider-track-bg);
+    @apply data-[orientation=horizontal]:h-1 data-[orientation=horizontal]:w-full;
+    @apply data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1;
+  }
+
+  .slider-range {
+    @apply absolute bg-(--slider-range-bg) select-none;
+    @apply data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full;
+  }
+
+  .slider-thumb {
+    @apply relative block size-3 shrink-0 rounded-full border border-(--slider-thumb-border) bg-(--slider-thumb-bg) transition-[color,box-shadow] select-none;
+    @apply ring-(--slider-thumb-ring)/50 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3;
+    @apply after:absolute after:-inset-2 after:content-[''];
+    @apply [.slider[data-disabled=true]_&]:pointer-events-none;
+  }
+}

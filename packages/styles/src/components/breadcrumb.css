@@ -1,0 +1,31 @@
+:root {
+  --breadcrumb-fg: var(--muted-foreground);
+  --breadcrumb-link-fg-hover: var(--foreground);
+  --breadcrumb-page-fg: var(--foreground);
+}
+
+@layer components {
+  .breadcrumb-list {
+    @apply flex flex-wrap items-center gap-1.5 text-sm break-words text-(--breadcrumb-fg) sm:gap-2.5;
+  }
+
+  .breadcrumb-item {
+    @apply inline-flex items-center gap-1.5;
+  }
+
+  .breadcrumb-link {
+    @apply transition-colors hover:text-(--breadcrumb-link-fg-hover);
+  }
+
+  .breadcrumb-page {
+    @apply font-normal text-(--breadcrumb-page-fg);
+  }
+
+  .breadcrumb-separator {
+    @apply [&>svg]:size-3.5;
+  }
+
+  .breadcrumb-ellipsis {
+    @apply flex size-9 items-center justify-center;
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "@line/abc-def-vue",
+  "version": "2.0.0",
+  "description": "Vue components for the ABC Def design system",
+  "license": "Apache-2.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/line/abc-def.git",
+    "directory": "packages/vue"
+  },
+  "bugs": {
+    "url": "https://github.com/line/abc-def/issues"
+  },
+  "homepage": "https://github.com/line/abc-def/tree/main/packages/vue#readme",
+  "keywords": [
+    "abc-def",
+    "design-system",
+    "vue",
+    "components",
+    "tailwindcss"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dist/types/components/*/index.d.ts",
+      "import": "./dist/*/index.js",
+      "require": "./dist/*/index.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "tsup --config tsup.config.ts",
+    "build": "tsup --config tsup.config.ts && vue-tsc --declaration --emitDeclarationOnly --declarationMap false --incremental false --outDir dist/types",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@internationalized/date": "^3.12.1",
+    "@line/abc-def-styles": "workspace:*",
+    "@tanstack/vue-table": "^8.21.3",
+    "@vueuse/core": "^14.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-vue": "^8.6.0",
+    "lucide-vue-next": "^1.0.0",
+    "reka-ui": "^2.9.6",
+    "tailwind-merge": "^3.4.0",
+    "vaul-vue": "^0.4.1",
+    "vee-validate": "^4.15.1",
+    "vue": "^3.5.13",
+    "vue-input-otp": "^0.3.2",
+    "vue-sonner": "^2.0.9"
+  },
+  "devDependencies": {
+    "@line/abc-def-eslint-config": "workspace:^",
+    "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-tsconfig": "workspace:^",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "unplugin-vue": "^7.1.1",
+    "vue-tsc": "^3.2.8"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13"
+  },
+  "prettier": "@line/abc-def-prettier-config"
+}

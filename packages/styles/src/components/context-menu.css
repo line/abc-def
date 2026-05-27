@@ -1,0 +1,101 @@
+:root {
+  --context-menu-content-bg: var(--popover);
+  --context-menu-content-fg: var(--popover-foreground);
+  --context-menu-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --context-menu-label-fg: var(--muted-foreground);
+  --context-menu-item-bg-focus: var(--accent);
+  --context-menu-item-fg-focus: var(--accent-foreground);
+  --context-menu-item-fg-destructive: var(--destructive);
+  --context-menu-item-bg-destructive-focus: color-mix(
+    in oklab,
+    var(--destructive) 10%,
+    transparent
+  );
+  --context-menu-item-fg-destructive-focus: var(--destructive);
+
+  --context-menu-sub-trigger-bg-focus: var(--accent);
+  --context-menu-sub-trigger-fg-focus: var(--accent-foreground);
+
+  --context-menu-separator-bg: var(--border);
+  --context-menu-shortcut-fg: var(--muted-foreground);
+  --context-menu-shortcut-fg-focus: var(--accent-foreground);
+}
+
+.dark {
+  --context-menu-item-bg-destructive-focus: color-mix(
+    in oklab,
+    var(--destructive) 20%,
+    transparent
+  );
+}
+
+@layer components {
+  .context-menu-trigger {
+    @apply select-none;
+  }
+
+  .context-menu-content {
+    @apply z-50 max-h-(--radix-context-menu-content-available-height) min-w-36 origin-(--radix-context-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-lg p-1;
+    @apply bg-(--context-menu-content-bg) text-(--context-menu-content-fg) shadow-md ring-1 ring-(--context-menu-content-border) duration-100;
+    @apply data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
+  }
+
+  .context-menu-sub-content {
+    @apply z-50 min-w-32 origin-(--radix-context-menu-content-transform-origin) overflow-hidden rounded-lg border border-(--context-menu-content-border) bg-(--context-menu-content-bg) p-1 text-(--context-menu-content-fg) shadow-lg duration-100;
+    @apply data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
+  }
+
+  .context-menu-item {
+    @apply relative flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none;
+    @apply data-disabled:pointer-events-none data-disabled:opacity-50 data-inset:pl-7;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+    @apply focus:bg-(--context-menu-item-bg-focus) focus:text-(--context-menu-item-fg-focus) focus:*:[svg]:text-(--context-menu-item-fg-focus);
+    @apply data-[variant=destructive]:text-(--context-menu-item-fg-destructive) data-[variant=destructive]:*:[svg]:text-(--context-menu-item-fg-destructive);
+    @apply data-[variant=destructive]:focus:bg-(--context-menu-item-bg-destructive-focus) data-[variant=destructive]:focus:text-(--context-menu-item-fg-destructive-focus);
+  }
+
+  .context-menu-sub-trigger {
+    @apply flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none;
+    @apply data-inset:pl-7;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+    @apply focus:bg-(--context-menu-sub-trigger-bg-focus) focus:text-(--context-menu-sub-trigger-fg-focus);
+    @apply data-[state=open]:bg-(--context-menu-sub-trigger-bg-focus) data-[state=open]:text-(--context-menu-sub-trigger-fg-focus);
+  }
+
+  .context-menu-checkbox-item {
+    @apply relative flex cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none;
+    @apply data-disabled:pointer-events-none data-disabled:opacity-50 data-inset:pl-7;
+    @apply focus:bg-(--context-menu-item-bg-focus) focus:text-(--context-menu-item-fg-focus);
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .context-menu-radio-item {
+    @apply relative flex cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none;
+    @apply data-disabled:pointer-events-none data-disabled:opacity-50 data-inset:pl-7;
+    @apply focus:bg-(--context-menu-item-bg-focus) focus:text-(--context-menu-item-fg-focus);
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+  }
+
+  .context-menu-item-indicator-box {
+    @apply pointer-events-none absolute right-2;
+  }
+
+  .context-menu-label {
+    @apply px-1.5 py-1 text-xs font-medium text-(--context-menu-label-fg) data-inset:pl-7;
+  }
+
+  .context-menu-separator {
+    @apply -mx-1 my-1 h-px bg-(--context-menu-separator-bg);
+  }
+
+  .context-menu-shortcut {
+    @apply ml-auto text-xs tracking-widest text-(--context-menu-shortcut-fg);
+    @apply [.context-menu-item:focus_&]:text-(--context-menu-shortcut-fg-focus);
+  }
+}

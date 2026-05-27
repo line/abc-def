@@ -13,87 +13,32 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import * as React from "react";
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { Slottable } from "@radix-ui/react-slot";
-import { cva } from "class-variance-authority";
+import { CheckIcon } from "lucide-react";
+import { Checkbox as CheckboxPrimitive } from "radix-ui";
 
-import type { Size } from "../lib/types";
-import { CHECK_ICON_SIZE } from "../constants";
-import { cn } from "../lib/utils";
-import { Icon } from "./icon";
-import useTheme from "./use-theme";
+import { cn } from "@/lib/utils";
 
-const defaultVariants: {
-  size?: Size;
-} = {
-  size: undefined,
-};
-
-const checkboxVariants = cva("checkbox", {
-  variants: {
-    size: {
-      small: "checkbox-small",
-      medium: "checkbox-medium",
-      large: "checkbox-large",
-    },
-  },
-  defaultVariants,
-});
-
-const checkVariants = cva("check", {
-  variants: {
-    size: {
-      small: "check-small",
-      medium: "check-medium",
-      large: "check-large",
-    },
-  },
-  defaultVariants,
-});
-
-interface CheckboxProps
-  extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
-  size?: Size;
-}
-
-const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  CheckboxProps
->(({ checked, size, children, className, onCheckedChange, ...props }, ref) => {
-  const { themeSize } = useTheme();
-  const [currentChecked, setCurrentChecked] =
-    React.useState<CheckboxPrimitive.CheckedState>(false);
-
-  const handleCheckedChange = (checked: CheckboxPrimitive.CheckedState) => {
-    setCurrentChecked(checked);
-    onCheckedChange?.(checked);
-  };
-
+function Checkbox({
+  className,
+  ...props
+}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
   return (
     <CheckboxPrimitive.Root
-      ref={ref}
-      className={cn(checkboxVariants({ size: size ?? themeSize, className }))}
-      checked={checked ?? currentChecked}
-      onCheckedChange={handleCheckedChange}
+      data-slot="checkbox"
+      className={cn("peer checkbox", className)}
       {...props}
     >
-      <span className={cn(checkVariants({ size }))}>
-        <CheckboxPrimitive.Indicator className={cn("checkbox-icon")}>
-          <Icon
-            name={
-              (checked ?? currentChecked) === "indeterminate"
-                ? "RiSubtractLine"
-                : "RiCheckLine"
-            }
-            size={CHECK_ICON_SIZE[size ?? themeSize]}
-          />
-        </CheckboxPrimitive.Indicator>
-      </span>
-      <Slottable>{children}</Slottable>
+      <CheckboxPrimitive.Indicator
+        data-slot="checkbox-indicator"
+        className="checkbox-indicator"
+      >
+        <CheckIcon />
+      </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   );
-});
-Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+}
 
-export { Checkbox, type CheckboxProps };
+export { Checkbox };

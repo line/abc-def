@@ -13,63 +13,190 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type { DateRange, DayPickerDefaultProps } from "react-day-picker";
+"use client";
+
+import type { DayButton, Locale } from "react-day-picker";
 import * as React from "react";
-import { DayPicker } from "react-day-picker";
+import {
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "lucide-react";
+import { DayPicker, getDefaultClassNames } from "react-day-picker";
 
-import { cn } from "../lib/utils";
-import { Icon } from "./icon";
-
-type CalendarProps = React.ComponentProps<typeof DayPicker> & {
-  showToday?: boolean;
-};
+import { cn } from "@/lib/utils";
+import { Button, buttonVariants } from "./button";
 
 function Calendar({
   className,
   classNames,
-  showToday = true,
   showOutsideDays = true,
-  mode = "default",
+  captionLayout = "label",
+  buttonVariant = "ghost",
+  locale,
+  formatters,
+  components,
   ...props
-}: CalendarProps) {
+}: React.ComponentProps<typeof DayPicker> & {
+  buttonVariant?: React.ComponentProps<typeof Button>["variant"];
+}) {
+  const defaultClassNames = getDefaultClassNames();
+
   return (
     <DayPicker
-      mode={mode as DayPickerDefaultProps["mode"]}
       showOutsideDays={showOutsideDays}
       className={cn("calendar", className)}
+      captionLayout={captionLayout}
+      locale={locale}
+      formatters={{
+        formatMonthDropdown: (date) =>
+          date.toLocaleString(locale?.code, { month: "short" }),
+        ...formatters,
+      }}
       classNames={{
-        months: "calendar-months",
-        month: "calendar-month",
-        caption: "calendar-caption",
-        caption_label: "calendar-caption-label",
-        nav: "calendar-nav",
-        nav_button: "calendar-nav-button",
-        nav_button_previous: "calendar-nav-button-previous",
-        nav_button_next: "calendar-nav-button-next",
+        root: cn(
+          "calendar-root",
+          props.showWeekNumber && "calendar-root-week-numbers",
+          defaultClassNames.root,
+        ),
+        months: cn("calendar-months", defaultClassNames.months),
+        month: cn("calendar-month", defaultClassNames.month),
+        nav: cn("calendar-nav", defaultClassNames.nav),
+        button_previous: cn(
+          buttonVariants({ variant: buttonVariant }),
+          "calendar-nav-button",
+          defaultClassNames.button_previous,
+        ),
+        button_next: cn(
+          buttonVariants({ variant: buttonVariant }),
+          "calendar-nav-button",
+          defaultClassNames.button_next,
+        ),
+        month_caption: cn(
+          "calendar-month-caption",
+          defaultClassNames.month_caption,
+        ),
+        dropdowns: cn("calendar-dropdowns", defaultClassNames.dropdowns),
+        dropdown_root: cn(
+          "calendar-dropdown-root",
+          defaultClassNames.dropdown_root,
+        ),
+        dropdown: cn("calendar-dropdown", defaultClassNames.dropdown),
+        caption_label: cn(
+          captionLayout === "label"
+            ? "calendar-caption"
+            : "calendar-caption-label",
+          defaultClassNames.caption_label,
+        ),
         table: "calendar-table",
-        head_row: "calendar-head-row",
-        head_cell: "calendar-head-cell",
-        row: "calendar-row",
-        cell: "calendar-cell",
-        day: "calendar-day",
-        day_range_start: "calendar-day-range-start",
-        day_range_end: "calendar-day-range-end",
-        day_selected: "calendar-day-selected",
-        day_today: showToday ? "calendar-day-today" : "",
-        day_outside: "calendar-day-outside",
-        day_disabled: "calendar-day-disabled",
-        day_range_middle: "calendar-day-range-middle",
-        day_hidden: "calendar-day-hidden",
+        weekdays: cn("calendar-weekdays", defaultClassNames.weekdays),
+        weekday: cn("calendar-weekday", defaultClassNames.weekday),
+        week: cn("calendar-week", defaultClassNames.week),
+        week_number_header: cn(
+          "calendar-week-number-header",
+          defaultClassNames.week_number_header,
+        ),
+        week_number: cn("calendar-week-number", defaultClassNames.week_number),
+        day: cn("calendar-day", defaultClassNames.day),
+        range_start: cn("calendar-range-start", defaultClassNames.range_start),
+        range_middle: cn(
+          "calendar-range-middle",
+          defaultClassNames.range_middle,
+        ),
+        range_end: cn("calendar-range-end", defaultClassNames.range_end),
+        today: cn("calendar-today", defaultClassNames.today),
+        outside: cn("calendar-outside", defaultClassNames.outside),
+        disabled: cn("calendar-disabled", defaultClassNames.disabled),
+        hidden: cn("calendar-hidden", defaultClassNames.hidden),
         ...classNames,
       }}
       components={{
-        IconLeft: () => <Icon name="RiArrowLeftSLine" size={16} />,
-        IconRight: () => <Icon name="RiArrowRightSLine" size={16} />,
+        Root: ({ className, rootRef, ...props }) => {
+          return (
+            <div
+              data-slot="calendar"
+              ref={rootRef}
+              className={cn(className)}
+              {...props}
+            />
+          );
+        },
+        Chevron: ({ className, orientation, ...props }) => {
+          if (orientation === "left") {
+            return (
+              <ChevronLeftIcon
+                className={cn("cn-rtl-flip calendar-chevron", className)}
+                {...props}
+              />
+            );
+          }
+
+          if (orientation === "right") {
+            return (
+              <ChevronRightIcon
+                className={cn("cn-rtl-flip calendar-chevron", className)}
+                {...props}
+              />
+            );
+          }
+
+          return (
+            <ChevronDownIcon
+              className={cn("calendar-chevron", className)}
+              {...props}
+            />
+          );
+        },
+        DayButton: ({ ...props }) => (
+          <CalendarDayButton locale={locale} {...props} />
+        ),
+        WeekNumber: ({ children, ...props }) => {
+          return (
+            <td {...props}>
+              <div className="calendar-week-number-value">{children}</div>
+            </td>
+          );
+        },
+        ...components,
       }}
       {...props}
     />
   );
 }
-Calendar.displayName = "Calendar";
 
-export { Calendar, type DateRange, type CalendarProps };
+function CalendarDayButton({
+  className,
+  day,
+  modifiers,
+  locale,
+  ...props
+}: React.ComponentProps<typeof DayButton> & { locale?: Partial<Locale> }) {
+  const defaultClassNames = getDefaultClassNames();
+
+  const ref = React.useRef<HTMLButtonElement>(null);
+  React.useEffect(() => {
+    // if (modifiers.focused) ref.current?.focus();
+  }, [modifiers.focused]);
+
+  return (
+    <Button
+      ref={ref}
+      variant="ghost"
+      size="icon"
+      data-day={day.date.toLocaleDateString(locale?.code)}
+      data-selected-single={
+        modifiers.selected &&
+        !modifiers.range_start &&
+        !modifiers.range_end &&
+        !modifiers.range_middle
+      }
+      data-range-start={modifiers.range_start}
+      data-range-end={modifiers.range_end}
+      data-range-middle={modifiers.range_middle}
+      className={cn("calendar-day-button", defaultClassNames.day, className)}
+      {...props}
+    />
+  );
+}
+
+export { Calendar, CalendarDayButton };

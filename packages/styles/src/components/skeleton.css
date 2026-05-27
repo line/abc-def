@@ -1,0 +1,9 @@
+:root {
+  --skeleton-bg: var(--muted);
+}
+
+@layer components {
+  .skeleton {
+    @apply animate-pulse rounded-md bg-(--skeleton-bg);
+  }
+}

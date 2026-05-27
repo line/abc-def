@@ -1,0 +1,47 @@
+:root {
+  --card-bg: var(--surface);
+  --card-fg: var(--surface-foreground);
+  --card-ring: var(--ring);
+  --card-border: var(--border);
+  --card-description-fg: var(--muted-foreground);
+  --card-footer-bg: color-mix(in oklab, var(--muted) 50%, transparent);
+}
+
+@layer components {
+  .card {
+    @apply flex flex-col gap-4 overflow-hidden rounded-xl py-4 text-sm ring-1;
+    @apply has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0;
+    @apply data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0;
+    @apply *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl;
+    @apply border-(--card-border) bg-(--card-bg) text-(--card-fg) ring-(--card-ring)/10;
+    @apply has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto];
+  }
+
+  .card-header {
+    @apply grid auto-rows-min items-start gap-1 px-4 [.border-b]:pb-4;
+    @apply [.card[data-size=sm]_&]:px-3 [.card[data-size=sm]_&]:[.border-b]:pb-3;
+  }
+
+  .card-title {
+    @apply text-base leading-snug font-medium;
+    @apply [.card[data-size=sm]_&]:text-sm;
+  }
+
+  .card-description {
+    @apply text-sm text-(--card-description-fg);
+  }
+
+  .card-action {
+    @apply col-start-2 row-span-2 row-start-1 self-start justify-self-end;
+  }
+
+  .card-content {
+    @apply px-4;
+    @apply [.card[data-size=sm]_&]:px-3;
+  }
+
+  .card-footer {
+    @apply flex items-center rounded-b-xl border-t bg-(--card-footer-bg) p-4;
+    @apply [.card[data-size=sm]_&]:p-3;
+  }
+}

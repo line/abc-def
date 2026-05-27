@@ -13,99 +13,89 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type * as TogglePrimitive from "@radix-ui/react-toggle";
+"use client";
+
 import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
-import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
-import { cva } from "class-variance-authority";
+import { ToggleGroup as ToggleGroupPrimitive } from "radix-ui";
 
-import type { Radius, Size } from "../lib/types";
-import { cn } from "../lib/utils";
-import useTheme from "./use-theme";
-
-const toggleVariants = cva("toggle-group-item", {
-  variants: {
-    size: {
-      small: "toggle-group-item-small",
-      medium: "toggle-group-item-medium",
-      large: "toggle-group-item-large",
-    },
-    radius: {
-      small: "toggle-group-item-radius-small",
-      medium: "toggle-group-item-radius-medium",
-      large: "toggle-group-item-radius-large",
-    },
-  },
-  defaultVariants: {
-    size: undefined,
-    radius: undefined,
-  },
-});
+import { cn } from "@/lib/utils";
+import { toggleVariants } from "./toggle";
 
 const ToggleGroupContext = React.createContext<
-  VariantProps<typeof toggleVariants>
+  VariantProps<typeof toggleVariants> & {
+    spacing?: number;
+    orientation?: "horizontal" | "vertical";
+  }
 >({
-  size: undefined,
-  radius: undefined,
+  size: "default",
+  variant: "default",
+  spacing: 2,
+  orientation: "horizontal",
 });
 
-const ToggleGroup = React.forwardRef<
-  React.ElementRef<typeof ToggleGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> &
-    VariantProps<typeof toggleVariants>
->(({ className, size, radius, children, ...props }, ref) => {
-  const { themeSize, themeRadius } = useTheme();
-
+function ToggleGroup({
+  className,
+  variant,
+  size,
+  spacing = 0,
+  orientation = "horizontal",
+  children,
+  ...props
+}: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
+  VariantProps<typeof toggleVariants> & {
+    spacing?: number;
+    orientation?: "horizontal" | "vertical";
+  }) {
   return (
     <ToggleGroupPrimitive.Root
-      ref={ref}
+      data-slot="toggle-group"
+      data-variant={variant}
+      data-size={size}
+      data-spacing={spacing}
+      data-orientation={orientation}
+      style={{ "--gap": spacing } as React.CSSProperties}
       className={cn("toggle-group", className)}
       {...props}
     >
       <ToggleGroupContext.Provider
-        value={{ size: size ?? themeSize, radius: radius ?? themeRadius }}
+        value={{ variant, size, spacing, orientation }}
       >
         {children}
       </ToggleGroupContext.Provider>
     </ToggleGroupPrimitive.Root>
   );
-});
-
-ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
-
-interface ToggleGroupItemProps
-  extends React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root>,
-    Omit<VariantProps<typeof toggleVariants>, "disabled"> {
-  size?: Size;
-  radius?: Radius;
-  value: string;
 }
 
-const ToggleGroupItem = React.forwardRef<
-  React.ElementRef<typeof ToggleGroupPrimitive.Item>,
-  ToggleGroupItemProps
->(({ className, children, size, radius, disabled, value, ...props }, ref) => {
+function ToggleGroupItem({
+  className,
+  children,
+  variant = "default",
+  size = "default",
+  ...props
+}: React.ComponentProps<typeof ToggleGroupPrimitive.Item> &
+  VariantProps<typeof toggleVariants>) {
   const context = React.useContext(ToggleGroupContext);
 
   return (
     <ToggleGroupPrimitive.Item
-      ref={ref}
+      data-slot="toggle-group-item"
+      data-variant={context.variant ?? variant}
+      data-size={context.size ?? size}
+      data-spacing={context.spacing}
       className={cn(
+        "toggle-group-item",
         toggleVariants({
-          size: size ?? context.size,
-          radius: radius ?? context.radius,
+          variant: context.variant ?? variant,
+          size: context.size ?? size,
         }),
         className,
       )}
-      value={value}
-      disabled={disabled}
       {...props}
     >
       {children}
     </ToggleGroupPrimitive.Item>
   );
-});
-
-ToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;
+}
 
 export { ToggleGroup, ToggleGroupItem };

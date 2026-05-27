@@ -14,6 +14,27 @@ If you are sending a pull request and it's a non-trivial change beyond fixing
 typos, please make sure to sign the [ICLA (Individual Contributor License Agreement)](https://cla-assistant.io/line/def).
 Please [contact us](mailto:dl_oss_dev@linecorp.com) if you need the CCLA (Corporate Contributor License Agreement).
 
+## Development
+
+Use Node `>=24.13.0` and `pnpm@11.2.2`.
+
+Before opening a pull request, run the relevant checks:
+
+```bash
+pnpm lint
+pnpm format
+pnpm typecheck
+pnpm build
+```
+
+For package-facing changes, add a changeset:
+
+```bash
+pnpm changeset
+```
+
+Pull requests should target `dev`, not `main`.
+
 ## Code of conduct
 
 We expect contributors to follow [our code of conduct](./CODE_OF_CONDUCT.md).
