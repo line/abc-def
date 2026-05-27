@@ -30,7 +30,6 @@
     "README.md"
   ],
   "exports": {
-    "./package.json": "./package.json",
     "./*": {
       "types": "./dist/types/components/*/index.d.ts",
       "import": "./dist/*/index.js",

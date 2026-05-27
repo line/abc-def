@@ -4,7 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 @source "./**/*.{ts,tsx}";
-@source "../../../react-vite/src/**/*.{ts,tsx}";
 @source "../../../../packages/react/src/**/*.{ts,tsx}";
 
 @theme inline {

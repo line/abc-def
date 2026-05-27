@@ -33,8 +33,6 @@ For package-facing changes, add a changeset:
 pnpm changeset
 ```
 
-Pull requests should target `dev`, not `main`.
-
 ## Code of conduct
 
 We expect contributors to follow [our code of conduct](./CODE_OF_CONDUCT.md).

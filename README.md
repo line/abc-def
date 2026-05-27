@@ -1,6 +1,6 @@
 # ABC Def
 
-ABC Def is LINE's CSS-first design system for shared UI packages. The visual contract lives in `@line/abc-def-styles`; the React and Vue packages render components against the same semantic selectors and tokens.
+ABC Def is a CSS-first design system for shared UI packages. The visual contract lives in `@line/abc-def-styles`; the React and Vue packages render components against the same semantic selectors and tokens.
 
 ## Packages
 
@@ -61,7 +61,7 @@ Adjust the relative path for your app stylesheet location.
 ## Examples
 
 - `examples/html-vite`: plain HTML consumer of `@line/abc-def-styles/css`
-- `examples/react-vite`: React consumer of `@line/abc-def-styles/css` and `@line/abc-def-react`
+- `examples/nextjs`: React consumer of `@line/abc-def-styles/css` and `@line/abc-def-react`
 - `examples/vue-vite`: Vue consumer of `@line/abc-def-styles/css` and `@line/abc-def-vue`
 
 ## Compatibility

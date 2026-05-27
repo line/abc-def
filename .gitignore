@@ -42,4 +42,3 @@ yarn-error.log*
 dist/
 .cache
 .worktrees/
-tsup.config.bundled_*.mjs

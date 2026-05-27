@@ -21,4 +21,4 @@ Use React 19-compatible APIs and preserve the package's named export pattern. Ke
 
 ## Verification
 
-For component changes, run this package's build, lint, and typecheck commands. Also verify affected examples in `examples/react-vite` when behavior or visuals change.
+For component changes, run this package's build, lint, and typecheck commands.

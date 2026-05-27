@@ -33,10 +33,7 @@
     "README.md"
   ],
   "exports": {
-    "./package.json": "./package.json",
-    "./css": "./src/index.css",
-    "./semantic": "./src/semantic.css",
-    "./components": "./src/components/index.css"
+    "./css": "./src/index.css"
   },
   "scripts": {
     "clean": "git clean -xdf .cache .turbo dist node_modules",
