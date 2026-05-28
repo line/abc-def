@@ -19,7 +19,7 @@
     @apply disabled:cursor-not-allowed disabled:opacity-50;
     @apply data-[state=checked]:border-(--checkbox-border-checked) data-[state=checked]:bg-(--checkbox-bg-checked) data-[state=checked]:text-(--checkbox-fg-checked);
     @apply aria-invalid:aria-checked:border-(--checkbox-border-checked-destructive);
-    @apply aria-invalid:border-(--checkbox-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--checkbox-border-invalid)/20;
+    @apply aria-invalid:border-(--checkbox-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--checkbox-border-destructive)/20;
     @apply [.field:has([disabled])_&]:opacity-50;
   }
 

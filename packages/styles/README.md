@@ -20,10 +20,6 @@ Import the aggregate stylesheet from CSS processed by Tailwind CSS v4:
 ## Public Entries
 
 - `@line/abc-def-styles/css`: aggregate public stylesheet.
-- `@line/abc-def-styles/semantic`: semantic token variables.
-- `@line/abc-def-styles/components`: component selector bundle.
-
-The aggregate `css` entry is the default for applications.
 
 ## Package Contents
 

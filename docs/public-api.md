@@ -8,8 +8,6 @@ ABC Def 2.x follows SemVer for the documented public surface of the three publis
   - `@line/abc-def-react/*`
   - `@line/abc-def-vue/*`
   - `@line/abc-def-styles/css`
-  - `@line/abc-def-styles/semantic`
-  - `@line/abc-def-styles/components`
 - React and Vue component props, emitted events, exported types, and documented composition behavior.
 - CSS entry points, documented semantic selectors, documented utility selectors, and documented token names.
 - Dark-mode activation through the `.dark` selector.
