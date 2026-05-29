@@ -6,7 +6,7 @@ This guide applies to the shared style package `@abc-def/styles`. Root workspace
 
 ## Structure
 
-Core entry files are `src/index.css` and `src/semantic.css`. Component-level styles live in `src/components`, with one kebab-case file per component and exports collected through `src/components/index.css`. Token naming guidance belongs in `TOKEN_NAMING.md`.
+Core entry files are `src/index.css` and `src/semantic.css`. Component-level styles live in `src/components`, with one kebab-case file per component and exports collected through `src/components/index.css`.
 
 ## Commands
 
