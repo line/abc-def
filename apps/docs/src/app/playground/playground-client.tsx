@@ -20,9 +20,19 @@ import type { DesignToken, TokenGraphNode, TokenLayer } from "@/content/tokens";
 import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 
+import { Badge } from "@line/abc-def-react/badge";
 import { Button } from "@line/abc-def-react/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@line/abc-def-react/card";
 import { Input } from "@line/abc-def-react/input";
 import { NativeSelect } from "@line/abc-def-react/native-select";
+import { Tabs, TabsList, TabsTrigger } from "@line/abc-def-react/tabs";
+import { Textarea } from "@line/abc-def-react/textarea";
 
 import { getComponentExample } from "@/content/component-examples";
 
@@ -251,15 +261,17 @@ export function PlaygroundClient({
           const Example = example.Example;
 
           return (
-            <article key={component.slug} className="docs-playground-card">
-              <div>
-                <h2>{component.title}</h2>
-                <p>{component.category}</p>
-              </div>
-              <div className="docs-example-preview">
-                <Example />
-              </div>
-            </article>
+            <Card key={component.slug} className="docs-playground-card">
+              <CardHeader>
+                <CardTitle>{component.title}</CardTitle>
+                <CardDescription>{component.category}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="docs-example-preview">
+                  <Example />
+                </div>
+              </CardContent>
+            </Card>
           );
         })}
       </section>
@@ -289,8 +301,8 @@ export function PlaygroundClient({
             {selectedGraph.map((node) => (
               <li key={node.name}>
                 <code>{node.name}</code>
-                <span>{node.layer}</span>
-                {!node.editable && <span>read-only</span>}
+                <Badge variant="secondary">{node.layer}</Badge>
+                {!node.editable && <Badge variant="outline">read-only</Badge>}
               </li>
             ))}
           </ol>
@@ -327,23 +339,15 @@ export function PlaygroundClient({
               aria-label="Token controls"
             >
               <div className="docs-control-row">
-                <div
-                  className="docs-segmented"
-                  role="tablist"
-                  aria-label="Token layer"
+                <Tabs
+                  value={tab}
+                  onValueChange={(value) => selectTab(value as TokenTab)}
                 >
-                  {(["semantic", "component"] as const).map((value) => (
-                    <button
-                      key={value}
-                      type="button"
-                      role="tab"
-                      aria-selected={tab === value}
-                      onClick={() => selectTab(value)}
-                    >
-                      {value === "semantic" ? "Semantic" : "Component"}
-                    </button>
-                  ))}
-                </div>
+                  <TabsList aria-label="Token layer">
+                    <TabsTrigger value="semantic">Semantic</TabsTrigger>
+                    <TabsTrigger value="component">Component</TabsTrigger>
+                  </TabsList>
+                </Tabs>
                 <Button
                   type="button"
                   variant="outline"
@@ -388,7 +392,7 @@ export function PlaygroundClient({
                       <code>{token.name}</code>
                       <small>{tokenGroup(token)}</small>
                     </span>
-                    <input
+                    <Input
                       value={draftOverrides[token.name] ?? ""}
                       placeholder={token.defaultValue}
                       onChange={(event) =>
@@ -396,17 +400,20 @@ export function PlaygroundClient({
                       }
                       onFocus={() => setSelectedTokenName(token.name)}
                     />
-                    <button
+                    <Button
                       type="button"
+                      size="sm"
+                      variant="ghost"
                       onClick={() => resetDraftToken(token.name)}
                     >
                       Reset
-                    </button>
+                    </Button>
                   </label>
                 ))}
               </div>
             </section>
-            <textarea
+            <Textarea
+              className="docs-css-textarea"
               aria-label="CSS override"
               value={draftCss}
               spellCheck={false}

@@ -14,8 +14,7 @@
  * under the License.
  */
 
-import Link from "next/link";
-
+import { DocsCard } from "@/components/docs-card";
 import { PageHeader, PageSection } from "@/components/page-section";
 import { getComponentsByName, toComponentHref } from "@/content/components";
 
@@ -32,14 +31,12 @@ export default function ComponentsIndexPage() {
       <PageSection title="All components">
         <div className="docs-grid">
           {components.map((component) => (
-            <Link
+            <DocsCard
               key={component.slug}
-              className="docs-card"
               href={toComponentHref(component.slug)}
-            >
-              <h3>{component.title}</h3>
-              <p>{component.description}</p>
-            </Link>
+              title={component.title}
+              description={component.description}
+            />
           ))}
         </div>
       </PageSection>

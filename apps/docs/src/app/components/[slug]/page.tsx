@@ -17,11 +17,27 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { Badge } from "@line/abc-def-react/badge";
+import { Button } from "@line/abc-def-react/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@line/abc-def-react/table";
+
 import { CodeBlock } from "@/components/code-block";
 import { PageHeader, PageSection } from "@/components/page-section";
 import { getComponentExampleCode } from "@/content/component-example-code";
 import { ComponentExamplePreview } from "@/content/component-examples";
-import { componentDocs, getComponentDoc } from "@/content/components";
+import {
+  componentDocs,
+  getComponentDoc,
+  toShadcnReactHref,
+  toShadcnVueHref,
+} from "@/content/components";
 import {
   basicVueSnippet,
   reactImportSnippet,
@@ -68,6 +84,8 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
   const exports = [component.primaryExport, ...component.relatedExports];
   const example = getComponentExampleCode(component);
   const tokens = getComponentTokens(component.slug);
+  const shadcnReactHref = toShadcnReactHref(component.slug);
+  const shadcnVueHref = toShadcnVueHref(component.slug);
 
   return (
     <>
@@ -84,6 +102,24 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
         <CodeBlock code={reactImportSnippet(component)} />
         <CodeBlock code={vueImportSnippet(component)} language="vue" />
       </PageSection>
+      <PageSection title="Shadcn references">
+        <p>
+          Compare the corresponding shadcn React and Vue documentation for the
+          same component slug.
+        </p>
+        <div className="docs-action-row">
+          <Button asChild variant="outline">
+            <a href={shadcnReactHref} rel="noreferrer" target="_blank">
+              React shadcn
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a href={shadcnVueHref} rel="noreferrer" target="_blank">
+              Vue shadcn
+            </a>
+          </Button>
+        </div>
+      </PageSection>
       <PageSection title="Basic usage">
         <div className="docs-example-frame">
           <ComponentExamplePreview slug={component.slug} />
@@ -93,36 +129,34 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
       </PageSection>
       <PageSection title="Component tokens">
         {tokens.length > 0 ? (
-          <div className="docs-token-table-wrap">
-            <table className="docs-token-table">
-              <thead>
-                <tr>
-                  <th>Token</th>
-                  <th>Default</th>
-                  <th>References</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tokens.map((token) => (
-                  <tr key={token.name}>
-                    <td>
-                      <code>{token.name}</code>
-                    </td>
-                    <td>
-                      <code>{token.defaultValue}</code>
-                    </td>
-                    <td>
-                      {token.references.length > 0 ? (
-                        <span>{token.references.join(" -> ")}</span>
-                      ) : (
-                        <span>Literal value</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <Table className="docs-token-table">
+            <TableHeader>
+              <TableRow>
+                <TableHead>Token</TableHead>
+                <TableHead>Default</TableHead>
+                <TableHead>References</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {tokens.map((token) => (
+                <TableRow key={token.name}>
+                  <TableCell>
+                    <code>{token.name}</code>
+                  </TableCell>
+                  <TableCell>
+                    <code>{token.defaultValue}</code>
+                  </TableCell>
+                  <TableCell>
+                    {token.references.length > 0 ? (
+                      <span>{token.references.join(" -> ")}</span>
+                    ) : (
+                      <span>Literal value</span>
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         ) : (
           <p>
             This component does not define a dedicated component token file.
@@ -131,11 +165,13 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
         )}
       </PageSection>
       <PageSection title="Composition exports">
-        <ul className="docs-pill-list">
+        <div className="docs-badge-list">
           {exports.map((name) => (
-            <li key={name}>{name}</li>
+            <Badge key={name} variant="secondary">
+              <code>{name}</code>
+            </Badge>
           ))}
-        </ul>
+        </div>
       </PageSection>
       <PageSection title="Usage notes">
         <ul>

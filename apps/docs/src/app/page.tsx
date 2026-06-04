@@ -14,69 +14,72 @@
  * under the License.
  */
 
-import Link from "next/link";
-
-import { CodeBlock } from "@/components/code-block";
+import { DocsCard } from "@/components/docs-card";
 import { PageHeader, PageSection } from "@/components/page-section";
 import { componentCount } from "@/content/components";
-
-const installSnippet = `pnpm add tailwindcss @line/abc-def-styles
-pnpm add @line/abc-def-react react react-dom
-pnpm add @line/abc-def-vue vue`;
-
-const cssSnippet = `@import "tailwindcss";
-@import "@line/abc-def-styles/css";
-
-@source "../node_modules/@line/abc-def-react/dist/**/*.{js,cjs}";
-@source "../node_modules/@line/abc-def-vue/dist/**/*.{js,cjs}";`;
 
 export default function HomePage() {
   return (
     <>
       <PageHeader
         eyebrow="ABC Def"
-        title="Design tokens that speak CSS, scale across frameworks, and stay readable to humans and AI."
-        description="ABC Def keeps primitive, semantic, and component decisions in inspectable CSS files, then shares one class and token contract across React, Vue, and plain styles."
+        title="Design system for scalable interfaces."
+        description="ABC Def brings tokens, styles, and component contracts together in readable CSS so teams can customize confidently, share behavior across React and Vue, and keep design decisions easy to inspect, review, and evolve."
       />
       <PageSection title="Token architecture">
         <div className="docs-grid">
-          <div className="docs-card">
-            <h3>3-level token structure</h3>
-            <p>Primitive values feed semantic intent, and semantic intent feeds component-specific tokens.</p>
-          </div>
-          <div className="docs-card">
-            <h3>AI-friendly customization</h3>
-            <p>Overrides are regular CSS variables in focused files, so edits are easy to inspect and review.</p>
-          </div>
-          <div className="docs-card">
-            <h3>Token-efficient maintenance</h3>
-            <p>Component pages show the relevant CSS tokens instead of forcing a full-system search.</p>
-          </div>
-          <div className="docs-card">
-            <h3>Cross-framework contract</h3>
-            <p>React and Vue components render shared classes backed by the same style package.</p>
-          </div>
+          <DocsCard
+            title="Primitive foundation"
+            description="Raw palette, spacing, and radius values stay visible as the stable base of the system."
+          />
+          <DocsCard
+            title="Semantic intent"
+            description="Product meaning is captured through tokens for foregrounds, surfaces, borders, and states."
+          />
+          <DocsCard
+            title="Component tokens"
+            description="Each component maps shared intent to focused variables for local control and review."
+          />
+          <DocsCard
+            title="Framework contract"
+            description="React and Vue render the same class names against one shared CSS package."
+          />
+          <DocsCard
+            title="CSS-first customization"
+            description="Overrides remain regular CSS variables, keeping changes easy to diff, audit, and ship."
+          />
+          <DocsCard
+            title="Documentation feedback loop"
+            description="Component pages expose relevant tokens beside examples so implementation decisions stay close."
+          />
         </div>
       </PageSection>
       <PageSection title="Packages">
         <div className="docs-grid">
-          <Link className="docs-card" href="/styles">
-            <h3>@line/abc-def-styles</h3>
-            <p>Shared CSS entrypoint, semantic variables, and component tokens.</p>
-          </Link>
-          <Link className="docs-card" href="/react">
-            <h3>@line/abc-def-react</h3>
-            <p>React components exposed only through component subpath imports.</p>
-          </Link>
-          <Link className="docs-card" href="/vue">
-            <h3>@line/abc-def-vue</h3>
-            <p>Vue components with the same component slug and styling contract.</p>
-          </Link>
+          <DocsCard
+            href="/styles"
+            title="@line/abc-def-styles"
+            description="Shared CSS entrypoint, semantic variables, and component tokens."
+          />
+          <DocsCard
+            href="/react"
+            title="@line/abc-def-react"
+            description="React components exposed only through component subpath imports."
+          />
+          <DocsCard
+            href="/vue"
+            title="@line/abc-def-vue"
+            description="Vue components with the same component slug and styling contract."
+          />
         </div>
       </PageSection>
-      <PageSection title="Quick start">
-        <CodeBlock code={installSnippet} language="bash" />
-        <CodeBlock code={cssSnippet} language="css" />
+      <PageSection title="Getting Started">
+        <DocsCard
+          className="docs-card-cta"
+          href="/getting-started"
+          title="Install and configure ABC Def"
+          description="Follow the setup guide for Tailwind CSS v4, framework package sources, and dark-mode activation."
+        />
       </PageSection>
       <PageSection title="Component coverage">
         <p>
@@ -85,18 +88,21 @@ export default function HomePage() {
           for your application.
         </p>
         <div className="docs-grid">
-          <Link className="docs-card" href="/components">
-            <h3>Browse components</h3>
-            <p>Find imports, usage snippets, composition exports, and token groups.</p>
-          </Link>
-          <Link className="docs-card" href="/playground">
-            <h3>Open playground</h3>
-            <p>Edit semantic and component token overrides against live React examples.</p>
-          </Link>
-          <Link className="docs-card" href="/getting-started">
-            <h3>Install guide</h3>
-            <p>Set up Tailwind CSS v4, dark mode, and framework package sources.</p>
-          </Link>
+          <DocsCard
+            href="/components"
+            title="Browse components"
+            description="Find imports, usage snippets, composition exports, and token groups."
+          />
+          <DocsCard
+            href="/playground"
+            title="Open playground"
+            description="Edit semantic and component token overrides against live React examples."
+          />
+          <DocsCard
+            href="/getting-started"
+            title="Install guide"
+            description="Set up Tailwind CSS v4, dark mode, and framework package sources."
+          />
         </div>
       </PageSection>
     </>

@@ -519,3 +519,11 @@ export function getComponentsByName() {
 export function toComponentHref(slug: string) {
   return `/components/${slug}`;
 }
+
+export function toShadcnReactHref(slug: string) {
+  return `https://ui.shadcn.com/docs/components/radix/${slug}`;
+}
+
+export function toShadcnVueHref(slug: string) {
+  return `https://www.shadcn-vue.com/docs/components/${slug}`;
+}

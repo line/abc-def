@@ -14,9 +14,8 @@
  * under the License.
  */
 
-import Link from "next/link";
-
 import { CodeBlock } from "@/components/code-block";
+import { DocsCard } from "@/components/docs-card";
 import { PageHeader, PageSection } from "@/components/page-section";
 
 const installSnippet = `pnpm add tailwindcss tw-animate-css @line/abc-def-styles
@@ -76,10 +75,11 @@ export default function VueGuidePage() {
           Component pages include Vue imports and basic snippets. The repository
           also keeps a local Vite consumer under `examples/vue-vite`.
         </p>
-        <Link className="docs-card" href="/components">
-          <h3>Open component docs</h3>
-          <p>Browse all Vue subpath imports by component slug.</p>
-        </Link>
+        <DocsCard
+          href="/components"
+          title="Open component docs"
+          description="Browse all Vue subpath imports by component slug."
+        />
       </PageSection>
     </>
   );

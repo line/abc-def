@@ -16,6 +16,8 @@
 
 import type { ReactNode } from "react";
 
+import { Badge } from "@line/abc-def-react/badge";
+
 interface PageHeaderProps {
   eyebrow?: string;
   title: string;
@@ -25,7 +27,11 @@ interface PageHeaderProps {
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
     <header className="docs-page-header">
-      {eyebrow ? <p className="docs-eyebrow">{eyebrow}</p> : null}
+      {eyebrow ? (
+        <Badge className="docs-eyebrow" variant="secondary">
+          {eyebrow}
+        </Badge>
+      ) : null}
       <h1>{title}</h1>
       <p>{description}</p>
     </header>

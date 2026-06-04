@@ -14,9 +14,8 @@
  * under the License.
  */
 
-import Link from "next/link";
-
 import { CodeBlock } from "@/components/code-block";
+import { DocsCard } from "@/components/docs-card";
 import { PageHeader, PageSection } from "@/components/page-section";
 
 const installSnippet = `pnpm add tailwindcss tw-animate-css @line/abc-def-styles
@@ -75,10 +74,11 @@ export default function ReactGuidePage() {
           repository also keeps a richer local Next.js example gallery under
           `examples/nextjs`.
         </p>
-        <Link className="docs-card" href="/components">
-          <h3>Open component docs</h3>
-          <p>Browse all React subpath imports by component slug.</p>
-        </Link>
+        <DocsCard
+          href="/components"
+          title="Open component docs"
+          description="Browse all React subpath imports by component slug."
+        />
       </PageSection>
     </>
   );
