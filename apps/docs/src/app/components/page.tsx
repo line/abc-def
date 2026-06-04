@@ -17,10 +17,10 @@
 import Link from "next/link";
 
 import { PageHeader, PageSection } from "@/components/page-section";
-import { getComponentsByCategory, toComponentHref } from "@/content/components";
+import { getComponentsByName, toComponentHref } from "@/content/components";
 
 export default function ComponentsIndexPage() {
-  const groups = getComponentsByCategory();
+  const components = getComponentsByName();
 
   return (
     <>
@@ -29,22 +29,20 @@ export default function ComponentsIndexPage() {
         title="Components"
         description="Every component page documents the shared slug, React import, Vue import, composition exports, and related style token group."
       />
-      {groups.map((group) => (
-        <PageSection key={group.category} title={group.category}>
-          <div className="docs-grid">
-            {group.components.map((component) => (
-              <Link
-                key={component.slug}
-                className="docs-card"
-                href={toComponentHref(component.slug)}
-              >
-                <h3>{component.title}</h3>
-                <p>{component.description}</p>
-              </Link>
-            ))}
-          </div>
-        </PageSection>
-      ))}
+      <PageSection title="All components">
+        <div className="docs-grid">
+          {components.map((component) => (
+            <Link
+              key={component.slug}
+              className="docs-card"
+              href={toComponentHref(component.slug)}
+            >
+              <h3>{component.title}</h3>
+              <p>{component.description}</p>
+            </Link>
+          ))}
+        </div>
+      </PageSection>
     </>
   );
 }

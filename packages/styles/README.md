@@ -38,5 +38,3 @@ Runtime selectors consume CSS variables directly with `var(...)`. Focus shadow t
 ## Dark Mode
 
 Dark mode is provided through `.dark` token overrides. Apply `.dark` at the application root and keep theme toggling in the consuming app.
-
-See the root [Public API](../../docs/public-api.md) document for compatibility rules.

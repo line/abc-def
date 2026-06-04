@@ -35,9 +35,29 @@ export default function HomePage() {
     <>
       <PageHeader
         eyebrow="ABC Def"
-        title="CSS-first UI packages for React, Vue, and plain styles."
-        description="ABC Def keeps visual behavior in shared Tailwind CSS v4 tokens and selectors, then exposes framework components that render the same public contract."
+        title="Design tokens that speak CSS, scale across frameworks, and stay readable to humans and AI."
+        description="ABC Def keeps primitive, semantic, and component decisions in inspectable CSS files, then shares one class and token contract across React, Vue, and plain styles."
       />
+      <PageSection title="Token architecture">
+        <div className="docs-grid">
+          <div className="docs-card">
+            <h3>3-level token structure</h3>
+            <p>Primitive values feed semantic intent, and semantic intent feeds component-specific tokens.</p>
+          </div>
+          <div className="docs-card">
+            <h3>AI-friendly customization</h3>
+            <p>Overrides are regular CSS variables in focused files, so edits are easy to inspect and review.</p>
+          </div>
+          <div className="docs-card">
+            <h3>Token-efficient maintenance</h3>
+            <p>Component pages show the relevant CSS tokens instead of forcing a full-system search.</p>
+          </div>
+          <div className="docs-card">
+            <h3>Cross-framework contract</h3>
+            <p>React and Vue components render shared classes backed by the same style package.</p>
+          </div>
+        </div>
+      </PageSection>
       <PageSection title="Packages">
         <div className="docs-grid">
           <Link className="docs-card" href="/styles">
@@ -68,6 +88,10 @@ export default function HomePage() {
           <Link className="docs-card" href="/components">
             <h3>Browse components</h3>
             <p>Find imports, usage snippets, composition exports, and token groups.</p>
+          </Link>
+          <Link className="docs-card" href="/playground">
+            <h3>Open playground</h3>
+            <p>Edit semantic and component token overrides against live React examples.</p>
           </Link>
           <Link className="docs-card" href="/getting-started">
             <h3>Install guide</h3>

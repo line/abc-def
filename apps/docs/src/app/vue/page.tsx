@@ -19,6 +19,12 @@ import Link from "next/link";
 import { CodeBlock } from "@/components/code-block";
 import { PageHeader, PageSection } from "@/components/page-section";
 
+const installSnippet = `pnpm add tailwindcss tw-animate-css @line/abc-def-styles
+pnpm add @line/abc-def-vue vue`;
+
+const sourceSnippet = `@source "../node_modules/@line/abc-def-vue/dist/**/*.{js,cjs}";
+@source "../**/*.{ts,vue}";`;
+
 const vueSnippet = `<script setup lang="ts">
 import { Button } from "@line/abc-def-vue/button";
 </script>
@@ -38,6 +44,18 @@ export default function VueGuidePage() {
         title="Vue Guide"
         description="Use the Vue package through the same component slug subpaths as the React package."
       />
+      <PageSection title="Install">
+        <p>
+          Install the shared styles package, Tailwind CSS v4, animation helpers,
+          Vue, and the Vue component package.
+        </p>
+        <CodeBlock code={installSnippet} language="bash" />
+        <p>
+          Add the Vue package output to your Tailwind source list and keep a
+          source rule for your application files.
+        </p>
+        <CodeBlock code={sourceSnippet} language="css" />
+      </PageSection>
       <PageSection title="Import components">
         <p>
           The Vue package intentionally has no root component export. Import

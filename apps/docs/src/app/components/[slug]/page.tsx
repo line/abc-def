@@ -19,13 +19,15 @@ import { notFound } from "next/navigation";
 
 import { CodeBlock } from "@/components/code-block";
 import { PageHeader, PageSection } from "@/components/page-section";
+import { getComponentExampleCode } from "@/content/component-example-code";
+import { ComponentExamplePreview } from "@/content/component-examples";
 import { componentDocs, getComponentDoc } from "@/content/components";
 import {
-  basicReactSnippet,
   basicVueSnippet,
   reactImportSnippet,
   vueImportSnippet,
 } from "@/content/snippets";
+import { getComponentTokens } from "@/content/tokens";
 
 interface ComponentPageProps {
   params: Promise<{
@@ -64,6 +66,8 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
   }
 
   const exports = [component.primaryExport, ...component.relatedExports];
+  const example = getComponentExampleCode(component);
+  const tokens = getComponentTokens(component.slug);
 
   return (
     <>
@@ -81,8 +85,50 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
         <CodeBlock code={vueImportSnippet(component)} language="vue" />
       </PageSection>
       <PageSection title="Basic usage">
-        <CodeBlock code={basicReactSnippet(component)} />
+        <div className="docs-example-frame">
+          <ComponentExamplePreview slug={component.slug} />
+        </div>
+        <CodeBlock code={example.code} />
         <CodeBlock code={basicVueSnippet(component)} language="vue" />
+      </PageSection>
+      <PageSection title="Component tokens">
+        {tokens.length > 0 ? (
+          <div className="docs-token-table-wrap">
+            <table className="docs-token-table">
+              <thead>
+                <tr>
+                  <th>Token</th>
+                  <th>Default</th>
+                  <th>References</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tokens.map((token) => (
+                  <tr key={token.name}>
+                    <td>
+                      <code>{token.name}</code>
+                    </td>
+                    <td>
+                      <code>{token.defaultValue}</code>
+                    </td>
+                    <td>
+                      {token.references.length > 0 ? (
+                        <span>{token.references.join(" -> ")}</span>
+                      ) : (
+                        <span>Literal value</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p>
+            This component does not define a dedicated component token file.
+            It inherits shared semantic tokens and utility classes.
+          </p>
+        )}
       </PageSection>
       <PageSection title="Composition exports">
         <ul className="docs-pill-list">

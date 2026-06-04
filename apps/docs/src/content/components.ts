@@ -510,12 +510,10 @@ export function getComponentDoc(slug: string) {
   return componentDocs.find((component) => component.slug === slug);
 }
 
-export function getComponentsByCategory() {
-  const categories = ["Form", "Overlay", "Navigation", "Display", "Feedback", "Layout"] as const;
-  return categories.map((category) => ({
-    category,
-    components: componentDocs.filter((component) => component.category === category),
-  }));
+export function getComponentsByName() {
+  return [...componentDocs].sort((first, second) =>
+    first.title.localeCompare(second.title),
+  );
 }
 
 export function toComponentHref(slug: string) {

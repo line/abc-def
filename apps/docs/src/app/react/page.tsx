@@ -19,6 +19,12 @@ import Link from "next/link";
 import { CodeBlock } from "@/components/code-block";
 import { PageHeader, PageSection } from "@/components/page-section";
 
+const installSnippet = `pnpm add tailwindcss tw-animate-css @line/abc-def-styles
+pnpm add @line/abc-def-react react react-dom`;
+
+const sourceSnippet = `@source "../node_modules/@line/abc-def-react/dist/**/*.{js,cjs}";
+@source "../**/*.{ts,tsx}";`;
+
 const reactSnippet = `import { Button } from "@line/abc-def-react/button";
 
 export function Example() {
@@ -36,6 +42,18 @@ export default function ReactGuidePage() {
         title="React Guide"
         description="Use the React package through component subpath exports and keep styling in the shared CSS package."
       />
+      <PageSection title="Install">
+        <p>
+          Install the shared styles package, Tailwind CSS v4, animation helpers,
+          React, and the React component package.
+        </p>
+        <CodeBlock code={installSnippet} language="bash" />
+        <p>
+          Add the React package output to your Tailwind source list and keep a
+          source rule for your application files.
+        </p>
+        <CodeBlock code={sourceSnippet} language="css" />
+      </PageSection>
       <PageSection title="Import components">
         <p>
           The React package intentionally has no root component export. Import

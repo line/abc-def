@@ -17,14 +17,14 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
-import { componentDocs, getComponentsByCategory } from "@/content/components";
+import { componentDocs, getComponentsByName } from "@/content/components";
 
 const guideLinks = [
   { href: "/getting-started", label: "Getting Started" },
   { href: "/react", label: "React" },
   { href: "/vue", label: "Vue" },
   { href: "/styles", label: "Styles" },
-  { href: "/public-api", label: "Public API" },
+  { href: "/playground", label: "Playground" },
 ];
 
 interface DocsLayoutProps {
@@ -32,7 +32,7 @@ interface DocsLayoutProps {
 }
 
 export function DocsLayout({ children }: DocsLayoutProps) {
-  const groupedComponents = getComponentsByCategory();
+  const components = getComponentsByName();
 
   return (
     <div className="docs-shell">
@@ -61,20 +61,15 @@ export function DocsLayout({ children }: DocsLayoutProps) {
               ))}
             </ul>
             <p className="docs-nav-title">Components ({componentDocs.length})</p>
-            {groupedComponents.map((group) => (
-              <div key={group.category} className="docs-nav-group">
-                <p>{group.category}</p>
-                <ul className="docs-nav-list">
-                  {group.components.map((component) => (
-                    <li key={component.slug}>
-                      <Link href={`/components/${component.slug}`}>
-                        {component.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            <ul className="docs-nav-list">
+              {components.map((component) => (
+                <li key={component.slug}>
+                  <Link href={`/components/${component.slug}`}>
+                    {component.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
         </aside>
         <main className="docs-main">{children}</main>
