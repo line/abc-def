@@ -16,21 +16,17 @@ import { RadioGroup, RadioGroupItem } from "@line/abc-def-vue/radio-group";
     <RadioGroup default-value="medium">
       <Field orientation="horizontal">
         <RadioGroupItem id="battery-high" value="high" />
-        <FieldLabel html-for="battery-high" class="font-normal">
-          High
-        </FieldLabel>
+        <FieldLabel for="battery-high" class="font-normal"> High </FieldLabel>
       </Field>
       <Field orientation="horizontal">
         <RadioGroupItem id="battery-medium" value="medium" />
-        <FieldLabel html-for="battery-medium" class="font-normal">
+        <FieldLabel for="battery-medium" class="font-normal">
           Medium
         </FieldLabel>
       </Field>
       <Field orientation="horizontal">
         <RadioGroupItem id="battery-low" value="low" />
-        <FieldLabel html-for="battery-low" class="font-normal">
-          Low
-        </FieldLabel>
+        <FieldLabel for="battery-low" class="font-normal"> Low </FieldLabel>
       </Field>
     </RadioGroup>
   </FieldSet>

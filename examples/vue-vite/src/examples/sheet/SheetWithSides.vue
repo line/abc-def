@@ -32,9 +32,7 @@ const SHEET_SIDES = ["top", "right", "bottom", "left"] as const;
             Make changes to your profile here. Click save when you're done.
           </SheetDescription>
         </SheetHeader>
-        <div
-          class="no-scrollbar style-vega:px-4 style-maia:px-6 style-mira:px-6 style-lyra:px-4 style-nova:px-4 overflow-y-auto"
-        >
+        <div class="no-scrollbar overflow-y-auto px-6">
           <p
             v-for="index in 10"
             :key="index"

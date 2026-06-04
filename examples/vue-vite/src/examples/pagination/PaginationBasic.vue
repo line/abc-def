@@ -13,7 +13,7 @@ import {
 <template>
   <Pagination>
     <PaginationContent>
-      <PaginationItem>
+      <PaginationItem :size="'default'" as-child>
         <PaginationPrevious href="#" />
       </PaginationItem>
       <PaginationItem>
@@ -28,7 +28,7 @@ import {
       <PaginationItem>
         <PaginationEllipsis />
       </PaginationItem>
-      <PaginationItem>
+      <PaginationItem :size="'default'" as-child>
         <PaginationNext href="#" />
       </PaginationItem>
     </PaginationContent>

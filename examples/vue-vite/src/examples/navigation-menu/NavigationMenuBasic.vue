@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-vue-next";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -6,206 +8,184 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@line/abc-def-vue/navigation-menu";
 
-import { Example } from "@/components/example";
+import { default as ListItem } from "./NavigationMenuItem.vue";
+
+const components: { title: string; href: string; description: string }[] = [
+  {
+    title: "Alert Dialog",
+    href: "/docs/primitives/alert-dialog",
+    description:
+      "A modal dialog that interrupts the user with important content and expects a response.",
+  },
+  {
+    title: "Hover Card",
+    href: "/docs/primitives/hover-card",
+    description:
+      "For sighted users to preview content available behind a link.",
+  },
+  {
+    title: "Progress",
+    href: "/docs/primitives/progress",
+    description:
+      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
+  {
+    title: "Scroll-area",
+    href: "/docs/primitives/scroll-area",
+    description: "Visually or semantically separates content.",
+  },
+  {
+    title: "Tabs",
+    href: "/docs/primitives/tabs",
+    description:
+      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  },
+  {
+    title: "Tooltip",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+];
 </script>
 
 <template>
-  <Example title="Basic Navigation Menu">
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul
-              class="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]"
-            >
-              <li class="row-span-3">
-                <NavigationMenuLink as-child>
-                  <a
-                    class="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
-                    href="/"
-                  >
-                    <div class="mt-4 mb-2 text-lg font-medium">shadcn/ui</div>
-                    <p class="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">
-                      Introduction
-                    </div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      Re-usable components built using Radix UI and Tailwind
-                      CSS.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs/installation"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">
-                      Installation
-                    </div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      How to install dependencies and structure your app.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs/primitives/typography"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">
-                      Typography
-                    </div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      Styles for headings, paragraphs, lists...etc
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul
-              class="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]"
-            >
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs/primitives/alert-dialog"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">
-                      Alert Dialog
-                    </div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      A modal dialog that interrupts the user with important
-                      content.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs/primitives/hover-card"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">
-                      Hover Card
-                    </div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      For sighted users to preview content available behind a
-                      link.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs/primitives/progress"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">Progress</div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      Displays an indicator showing the completion progress.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs/primitives/scroll-area"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">
-                      Scroll-area
-                    </div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      Visually or semantically separates content.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs/primitives/tabs"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">Tabs</div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      A set of layered sections of content—known as tab panels.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <li>
-                <NavigationMenuLink as-child>
-                  <a
-                    href="/docs/primitives/tooltip"
-                    class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
-                  >
-                    <div class="text-sm leading-none font-medium">Tooltip</div>
-                    <p
-                      class="text-muted-foreground line-clamp-2 text-sm leading-snug"
-                    >
-                      A popup that displays information related to an element.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            href="/docs"
-            class="group bg-background hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+  <NavigationMenu :viewport="false">
+    <NavigationMenuList>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul
+            class="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]"
           >
-            Documentation
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
-  </Example>
+            <li class="row-span-3">
+              <NavigationMenuLink as-child>
+                <a
+                  class="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
+                  href="/"
+                >
+                  <div class="mt-4 mb-2 text-lg font-medium">shadcn/ui</div>
+                  <p class="text-muted-foreground text-sm leading-tight">
+                    Beautifully designed components built with Tailwind CSS.
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+            <ListItem to="/docs" title="Introduction">
+              Re-usable components built using Radix UI and Tailwind CSS.
+            </ListItem>
+            <ListItem to="/docs/installation" title="Installation">
+              How to install dependencies and structure your app.
+            </ListItem>
+            <ListItem to="/docs/primitives/typography" title="Typography">
+              Styles for headings, paragraphs, lists...etc
+            </ListItem>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul
+            class="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]"
+          >
+            <ListItem
+              v-for="component in components"
+              :key="component.title"
+              :title="component.title"
+              :to="component.href"
+            >
+              {{ component.description }}
+            </ListItem>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuLink as-child :class="navigationMenuTriggerStyle()">
+          <a href="/docs">Docs</a>
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>List</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul class="grid w-[300px] gap-4">
+            <li>
+              <NavigationMenuLink as-child>
+                <a href="#">
+                  <div class="font-medium">Components</div>
+                  <div class="text-muted-foreground">
+                    Browse all components in the library.
+                  </div>
+                </a>
+              </NavigationMenuLink>
+              <NavigationMenuLink as-child>
+                <a href="#">
+                  <div class="font-medium">Documentation</div>
+                  <div class="text-muted-foreground">
+                    Learn how to use the library.
+                  </div>
+                </a>
+              </NavigationMenuLink>
+              <NavigationMenuLink as-child>
+                <a href="#">
+                  <div class="font-medium">Blog</div>
+                  <div class="text-muted-foreground">
+                    Read our latest blog posts.
+                  </div>
+                </a>
+              </NavigationMenuLink>
+            </li>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul class="grid w-[200px] gap-4">
+            <li>
+              <NavigationMenuLink as-child>
+                <a href="#">Components</a>
+              </NavigationMenuLink>
+              <NavigationMenuLink as-child>
+                <a href="#">Documentation</a>
+              </NavigationMenuLink>
+              <NavigationMenuLink as-child>
+                <a href="#">Blocks</a>
+              </NavigationMenuLink>
+            </li>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul class="grid w-[200px] gap-4">
+            <li>
+              <NavigationMenuLink as-child>
+                <a href="#" class="flex-row items-center gap-2">
+                  <CircleHelpIcon />
+                  Backlog
+                </a>
+              </NavigationMenuLink>
+              <NavigationMenuLink as-child>
+                <a href="#" class="flex-row items-center gap-2">
+                  <CircleIcon />
+                  To Do
+                </a>
+              </NavigationMenuLink>
+              <NavigationMenuLink as-child>
+                <a href="#" class="flex-row items-center gap-2">
+                  <CircleCheckIcon />
+                  Done
+                </a>
+              </NavigationMenuLink>
+            </li>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+    </NavigationMenuList>
+  </NavigationMenu>
 </template>

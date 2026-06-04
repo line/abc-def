@@ -78,7 +78,7 @@ function ComboboxInput({
   showClear?: boolean;
 }) {
   return (
-    <InputGroup className={cn("w-auto", className)}>
+    <InputGroup className={cn("combobox-input", className)}>
       <ComboboxPrimitive.Input
         render={<InputGroupInput disabled={disabled} />}
         {...props}
@@ -89,7 +89,7 @@ function ComboboxInput({
             size="icon-xs"
             variant="ghost"
             data-slot="input-group-button"
-            className="group-has-data-[slot=combobox-clear]/input-group:hidden data-pressed:bg-transparent"
+            className="combobox-input-trigger"
             disabled={disabled}
             asChild
           >

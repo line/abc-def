@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -10,6 +12,8 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "@line/abc-def-vue/menubar";
+
+const checked = ref(true);
 </script>
 
 <template>
@@ -19,7 +23,7 @@ import {
       <MenubarContent class="w-64">
         <MenubarGroup>
           <MenubarCheckboxItem> Always Show Bookmarks Bar </MenubarCheckboxItem>
-          <MenubarCheckboxItem :checked="true">
+          <MenubarCheckboxItem v-model="checked">
             Always Show Full URLs
           </MenubarCheckboxItem>
         </MenubarGroup>

@@ -6,6 +6,6 @@ import { Switch } from "@line/abc-def-vue/switch";
 <template>
   <Field orientation="horizontal">
     <Switch id="switch-basic" />
-    <FieldLabel html-for="switch-basic"> Airplane Mode </FieldLabel>
+    <FieldLabel for="switch-basic"> Airplane Mode </FieldLabel>
   </Field>
 </template>

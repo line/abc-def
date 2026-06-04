@@ -26,9 +26,7 @@ import {
           Make changes to your profile here. Click save when you're done.
         </SheetDescription>
       </SheetHeader>
-      <div
-        class="style-vega:px-4 style-maia:px-6 style-mira:px-6 style-lyra:px-4 style-nova:px-4"
-      >
+      <div class="px-6">
         <FieldGroup>
           <Field>
             <FieldLabel html-for="sheet-demo-name"> Name </FieldLabel>

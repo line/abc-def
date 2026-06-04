@@ -12,6 +12,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
+  SelectValue,
 } from "@line/abc-def-react/select";
 
 const CURRENCIES = [
@@ -36,7 +37,11 @@ export default function ButtonGroupSelect() {
     <ButtonGroup>
       <ButtonGroup>
         <Select value={currency} onValueChange={setCurrency}>
-          <SelectTrigger className="font-mono">{currency}</SelectTrigger>
+          <SelectTrigger className="font-mono">
+            <SelectValue asChild>
+              <span>{currency}</span>
+            </SelectValue>
+          </SelectTrigger>
           <SelectContent className="min-w-24">
             <SelectGroup>
               {CURRENCIES.map((currency) => (

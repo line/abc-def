@@ -67,6 +67,13 @@
   .combobox-trigger-icon {
     @apply pointer-events-none size-4 text-(--combobox-trigger-icon-fg);
   }
+  .combobox-input {
+    @apply w-auto;
+  }
+
+  .combobox-input-trigger {
+    @apply data-pressed:bg-transparent [.input-group:has([data-slot=combobox-clear])_&]:hidden;
+  }
 
   .combobox-content {
     @apply relative max-h-(--available-height) w-(--anchor-width) max-w-(--available-width) min-w-[calc(var(--anchor-width)+--spacing(7))] origin-(--transform-origin) overflow-hidden rounded-lg shadow-md ring-1 duration-100;

@@ -10,7 +10,7 @@ import { Example } from "@/registry/bases/reka/components/example";
   <Example title="With Checkbox">
     <Field orientation="horizontal">
       <Checkbox id="label-demo-terms" />
-      <Label html-for="label-demo-terms"> Accept terms and conditions </Label>
+      <Label for="label-demo-terms"> Accept terms and conditions </Label>
     </Field>
   </Example>
 </template>

@@ -35,15 +35,5 @@ import {
         </SelectContent>
       </Select>
     </Field>
-    <Pagination class="mx-0 w-auto">
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
   </div>
 </template>

@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { Search } from "lucide-vue-next";
-
 import type { ExampleGroup } from "@/lib/example-registry";
+import { Search } from "lucide-vue-next";
+import { computed, ref } from "vue";
 
 const props = defineProps<{
   groups: ExampleGroup[];
@@ -14,14 +13,17 @@ const emit = defineEmits<{
 }>();
 
 const query = ref("");
+const disableGroups = ["combobox"];
 
 const filteredGroups = computed(() => {
   const trimmed = query.value.trim().toLowerCase();
-  if (!trimmed) return props.groups;
+  if (!trimmed)
+    return props.groups.filter((g) => !disableGroups.includes(g.slug));
   return props.groups.filter(
     (g) =>
-      g.title.toLowerCase().includes(trimmed) ||
-      g.slug.toLowerCase().includes(trimmed),
+      !disableGroups.includes(g.slug) &&
+      (g.title.toLowerCase().includes(trimmed) ||
+        g.slug.toLowerCase().includes(trimmed)),
   );
 });
 
@@ -77,7 +79,7 @@ const totalVariants = computed(() =>
           'flex items-center justify-between gap-3 rounded-xl border px-3 py-2 text-left text-sm transition',
           group.slug === activeSlug
             ? 'border-foreground/80 bg-foreground text-background shadow-sm'
-            : 'border-transparent text-foreground/80 hover:border-border hover:bg-muted/60',
+            : 'text-foreground/80 hover:border-border hover:bg-muted/60 border-transparent',
         ]"
         @click="emit('select', group.slug)"
       >

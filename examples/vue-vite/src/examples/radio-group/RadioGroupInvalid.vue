@@ -18,19 +18,19 @@ import { RadioGroup, RadioGroupItem } from "@line/abc-def-vue/radio-group";
     <RadioGroup default-value="email">
       <Field orientation="horizontal" data-invalid>
         <RadioGroupItem id="invalid-email" value="email" :aria-invalid="true" />
-        <FieldLabel html-for="invalid-email" class="font-normal">
+        <FieldLabel for="invalid-email" class="font-normal">
           Email only
         </FieldLabel>
       </Field>
       <Field orientation="horizontal" data-invalid>
         <RadioGroupItem id="invalid-sms" value="sms" :aria-invalid="true" />
-        <FieldLabel html-for="invalid-sms" class="font-normal">
+        <FieldLabel for="invalid-sms" class="font-normal">
           SMS only
         </FieldLabel>
       </Field>
       <Field orientation="horizontal" data-invalid>
         <RadioGroupItem id="invalid-both" value="both" :aria-invalid="true" />
-        <FieldLabel html-for="invalid-both" class="font-normal">
+        <FieldLabel for="invalid-both" class="font-normal">
           Both Email & SMS
         </FieldLabel>
       </Field>

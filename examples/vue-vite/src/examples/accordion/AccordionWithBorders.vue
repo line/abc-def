@@ -30,16 +30,12 @@ const items = [
 
 <template>
   <Example title="With Borders">
-    <Accordion
-      type="single"
-      collapsible
-      class="style-lyra:gap-2 style-vega:gap-2 style-nova:gap-2 mx-auto max-w-lg"
-    >
+    <Accordion type="single" collapsible class="mx-auto max-w-lg gap-2">
       <AccordionItem
         v-for="item in items"
         :key="item.value"
         :value="item.value"
-        class="style-vega:border style-nova:border style-lyra:border style-vega:rounded-lg style-nova:rounded-lg"
+        class="rounded-lg border px-2"
       >
         <AccordionTrigger
           class="style-nova:px-2.5 style-nova:text-sm style-vega:text-sm style-maia:text-sm style-mira:text-xs style-lyra:px-2 style-lyra:text-xs style-vega:px-4 font-medium"

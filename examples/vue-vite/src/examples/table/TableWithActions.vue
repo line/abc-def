@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { MoreHorizontalIcon } from "lucide-vue-next";
+
 import { Button } from "@line/abc-def-vue/button";
 import {
   DropdownMenu,
@@ -15,8 +17,6 @@ import {
   TableHeader,
   TableRow,
 } from "@line/abc-def-vue/table";
-
-import IconPlaceholder from "@/components/IconPlaceholder.vue";
 </script>
 
 <template>
@@ -35,14 +35,8 @@ import IconPlaceholder from "@/components/IconPlaceholder.vue";
         <TableCell class="text-right">
           <DropdownMenu>
             <DropdownMenuTrigger :as-child="true">
-              <Button variant="ghost" size="icon" class="size-8">
-                <IconPlaceholder
-                  lucide="MoreHorizontalIcon"
-                  tabler="IconDots"
-                  hugeicons="MoreHorizontalCircle01Icon"
-                  phosphor="DotsThreeIcon"
-                  remixicon="RiMoreLine"
-                />
+              <Button variant="ghost" size="icon">
+                <MoreHorizontalIcon />
                 <span class="sr-only">Open menu</span>
               </Button>
             </DropdownMenuTrigger>
@@ -64,13 +58,7 @@ import IconPlaceholder from "@/components/IconPlaceholder.vue";
           <DropdownMenu>
             <DropdownMenuTrigger :as-child="true">
               <Button variant="ghost" size="icon" class="size-8">
-                <IconPlaceholder
-                  lucide="MoreHorizontalIcon"
-                  tabler="IconDots"
-                  hugeicons="MoreHorizontalCircle01Icon"
-                  phosphor="DotsThreeIcon"
-                  remixicon="RiMoreLine"
-                />
+                <MoreHorizontalIcon />
                 <span class="sr-only">Open menu</span>
               </Button>
             </DropdownMenuTrigger>
@@ -92,13 +80,7 @@ import IconPlaceholder from "@/components/IconPlaceholder.vue";
           <DropdownMenu>
             <DropdownMenuTrigger :as-child="true">
               <Button variant="ghost" size="icon" class="size-8">
-                <IconPlaceholder
-                  lucide="MoreHorizontalIcon"
-                  tabler="IconDots"
-                  hugeicons="MoreHorizontalCircle01Icon"
-                  phosphor="DotsThreeIcon"
-                  remixicon="RiMoreLine"
-                />
+                <MoreHorizontalIcon />
                 <span class="sr-only">Open menu</span>
               </Button>
             </DropdownMenuTrigger>

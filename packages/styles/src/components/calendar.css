@@ -164,6 +164,11 @@
     @apply data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-end=true]:bg-(--calendar-selected-bg) data-[range-end=true]:text-(--calendar-selected-fg);
     @apply data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-(--calendar-range-middle-bg) data-[range-middle=true]:text-(--calendar-range-middle-fg);
     @apply [.dark_&:hover]:text-(--foreground);
+
+    /* vue calendar */
+    @apply data-[outside-view]:text-(--calendar-outside-fg);
+    @apply data-[selected=true]:bg-(--calendar-selected-bg) data-[selected=true]:text-(--calendar-selected-fg);
+    @apply data-[focused]:border-(--calendar-focus-ring) data-[focused]:ring-3 data-[focused]:ring-(--calendar-focus-ring)/50;
   }
 
   .calendar-chevron {

@@ -16,41 +16,33 @@ import IconPlaceholder from "@/components/IconPlaceholder.vue";
       <InputGroup>
         <InputGroupInput type="text" placeholder="Search..." />
         <InputGroupButton>
-          <Button>
-            <IconPlaceholder
-              lucide="SearchIcon"
-              tabler="IconSearch"
-              hugeicons="Search01Icon"
-              phosphor="MagnifyingGlassIcon"
-              remixicon="RiSearchLine"
-            />
-          </Button>
+          <IconPlaceholder
+            lucide="SearchIcon"
+            tabler="IconSearch"
+            hugeicons="Search01Icon"
+            phosphor="MagnifyingGlassIcon"
+            remixicon="RiSearchLine"
+          />
         </InputGroupButton>
       </InputGroup>
 
       <InputGroup>
-        <InputGroupButton>
-          <Button variant="outline">
-            <IconPlaceholder
-              lucide="CopyIcon"
-              tabler="IconCopy"
-              hugeicons="Copy01Icon"
-              phosphor="CopyIcon"
-              remixicon="RiFileCopyLine"
-            />
-          </Button>
+        <InputGroupButton variant="outline">
+          <IconPlaceholder
+            lucide="CopyIcon"
+            tabler="IconCopy"
+            hugeicons="Copy01Icon"
+            phosphor="CopyIcon"
+            remixicon="RiFileCopyLine"
+          />
         </InputGroupButton>
         <InputGroupInput type="text" placeholder="Copy this text" />
       </InputGroup>
 
       <InputGroup>
-        <InputGroupButton>
-          <Button variant="outline" size="sm"> - </Button>
-        </InputGroupButton>
+        <InputGroupButton variant="outline" size="sm"> - </InputGroupButton>
         <InputGroupInput type="number" placeholder="0" />
-        <InputGroupButton>
-          <Button variant="outline" size="sm"> + </Button>
-        </InputGroupButton>
+        <InputGroupButton variant="outline" size="sm"> + </InputGroupButton>
       </InputGroup>
     </div>
   </Example>

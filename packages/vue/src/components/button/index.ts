@@ -22,6 +22,7 @@ export const buttonVariants = cva("button", {
   variants: {
     variant: {
       default: "button-variant-default",
+      secondary: "button-variant-secondary",
       destructive: "button-variant-destructive",
       ghost: "button-variant-ghost",
       link: "button-variant-link",
