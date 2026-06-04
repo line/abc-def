@@ -8,6 +8,7 @@
 @import "./button.css";
 @import "./calendar.css";
 @import "./card.css";
+@import "./carousel.css";
 @import "./checkbox.css";
 @import "./combobox.css";
 @import "./command.css";
@@ -17,6 +18,7 @@
 @import "./dropdown-menu.css";
 @import "./empty.css";
 @import "./field.css";
+@import "./hover-card.css";
 @import "./input.css";
 @import "./input-otp.css";
 @import "./item.css";
@@ -38,6 +40,7 @@
 @import "./sheet.css";
 @import "./skeleton.css";
 @import "./switch.css";
+@import "./table.css";
 @import "./tabs.css";
 @import "./textarea.css";
 @import "./toggle.css";

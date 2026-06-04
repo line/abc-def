@@ -35,6 +35,8 @@ import { Button } from "@line/abc-def-vue/button";
 
 The public import contract is subpath-based, for example `@line/abc-def-vue/button`, `@line/abc-def-vue/card`, and `@line/abc-def-vue/dialog`.
 
+Root package imports are not supported. Do not use `import { Button } from "@line/abc-def-vue"`; import each component from its public subpath.
+
 ## Package Contents
 
 The npm package publishes compiled ESM and CommonJS component entry points under `dist`. TypeScript declarations are generated under `dist/types`. Source maps are not included.

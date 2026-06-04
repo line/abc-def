@@ -54,7 +54,8 @@ function onKeyDown(event: KeyboardEvent) {
 <template>
   <div
     data-slot="carousel"
-    :class="cn('relative', props.class)"
+    :data-orientation="orientation"
+    :class="cn('carousel', props.class)"
     role="region"
     aria-roledescription="carousel"
     tabindex="0"

@@ -26,8 +26,7 @@
   },
   "sideEffects": false,
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
   "exports": {
     "./*": {
@@ -45,36 +44,35 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@internationalized/date": "^3.12.1",
-    "@line/abc-def-styles": "workspace:*",
+    "@internationalized/date": "catalog:",
     "@tanstack/vue-table": "^8.21.3",
     "@vueuse/core": "^14.3.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
     "embla-carousel": "^8.6.0",
     "embla-carousel-vue": "^8.6.0",
-    "lucide-vue-next": "^1.0.0",
-    "reka-ui": "^2.9.6",
-    "tailwind-merge": "^3.4.0",
+    "lucide-vue-next": "catalog:",
+    "reka-ui": "catalog:",
+    "tailwind-merge": "catalog:",
     "vaul-vue": "^0.4.1",
-    "vee-validate": "^4.15.1",
-    "vue": "^3.5.13",
     "vue-input-otp": "^0.3.2",
-    "vue-sonner": "^2.0.9"
+    "vue-sonner": "catalog:"
   },
   "devDependencies": {
     "@line/abc-def-eslint-config": "workspace:^",
     "@line/abc-def-prettier-config": "workspace:^",
+    "@line/abc-def-styles": "workspace:*",
     "@line/abc-def-tsconfig": "workspace:^",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",
     "unplugin-vue": "^7.1.1",
+    "vue": "catalog:",
     "vue-tsc": "^3.2.8"
   },
   "peerDependencies": {
-    "vue": "^3.5.13"
+    "vue": "catalog:"
   },
   "prettier": "@line/abc-def-prettier-config"
 }

@@ -26,16 +26,9 @@ const { orientation, canScrollNext, scrollNext } = useCarousel();
 <template>
   <Button
     data-slot="carousel-next"
+    :data-orientation="orientation"
     :disabled="!canScrollNext"
-    :class="
-      cn(
-        'absolute touch-manipulation rounded-full',
-        orientation === 'horizontal'
-          ? 'top-1/2 -right-12 -translate-y-1/2'
-          : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
-        props.class,
-      )
-    "
+    :class="cn('carousel-next', props.class)"
     :variant="variant"
     :size="size"
     @click="scrollNext"

@@ -8,6 +8,7 @@ ABC Def 2.x follows SemVer for the documented public surface of the three publis
   - `@line/abc-def-react/*`
   - `@line/abc-def-vue/*`
   - `@line/abc-def-styles/css`
+- Component imports from the framework package roots, such as `@line/abc-def-react` or `@line/abc-def-vue`, are intentionally unsupported.
 - React and Vue component props, emitted events, exported types, and documented composition behavior.
 - CSS entry points, documented semantic selectors, documented utility selectors, and documented token names.
 - Dark-mode activation through the `.dark` selector.

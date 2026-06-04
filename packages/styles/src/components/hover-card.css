@@ -1,0 +1,22 @@
+:root {
+  --hover-card-content-bg: var(--popover);
+  --hover-card-content-fg: var(--popover-foreground);
+  --hover-card-content-ring: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+}
+
+@layer components {
+  .hover-card-content {
+    transform-origin: var(
+      --radix-hover-card-content-transform-origin,
+      var(--reka-hover-card-content-transform-origin)
+    );
+
+    @apply z-50 w-64 rounded-lg bg-(--hover-card-content-bg) p-2.5 text-sm text-(--hover-card-content-fg) shadow-md ring-1 ring-(--hover-card-content-ring) outline-hidden duration-100;
+    @apply data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95;
+    @apply data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
+  }
+}

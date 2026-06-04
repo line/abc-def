@@ -37,6 +37,8 @@ export function Example() {
 }
 ```
 
+ABC Def does not provide a root component export. Do not import components from `@line/abc-def-react`; use the component subpath such as `@line/abc-def-react/button`.
+
 Vue apps use the same subpath pattern:
 
 ```vue
@@ -48,6 +50,8 @@ import { Button } from "@line/abc-def-vue/button";
   <Button variant="outline">Button</Button>
 </template>
 ```
+
+The Vue package follows the same rule: do not import components from `@line/abc-def-vue`; use subpath entries such as `@line/abc-def-vue/button`.
 
 Tailwind v4 ignores most package sources by default. Add an `@source` rule for the installed component package when your app uses React or Vue components:
 

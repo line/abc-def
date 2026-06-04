@@ -33,6 +33,8 @@ export function Example() {
 
 The public import contract is subpath-based, for example `@line/abc-def-react/button`, `@line/abc-def-react/card`, and `@line/abc-def-react/dialog`.
 
+Root package imports are not supported. Do not use `import { Button } from "@line/abc-def-react"`; import each component from its public subpath.
+
 ## Package Contents
 
 The npm package publishes compiled ESM, CommonJS, and TypeScript declaration files under `dist`. Source maps are not included.

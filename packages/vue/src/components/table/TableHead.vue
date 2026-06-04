@@ -9,15 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <th
-    data-slot="table-head"
-    :class="
-      cn(
-        'text-foreground h-12 px-3 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0',
-        props.class,
-      )
-    "
-  >
+  <th data-slot="table-head" :class="cn('table-head', props.class)">
     <slot />
   </th>
 </template>

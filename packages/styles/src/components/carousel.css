@@ -1,0 +1,34 @@
+@layer components {
+  .carousel {
+    @apply relative;
+  }
+
+  .carousel-content-viewport {
+    @apply overflow-hidden;
+  }
+
+  .carousel-content {
+    @apply flex;
+    @apply data-[orientation=horizontal]:-ml-4 data-[orientation=vertical]:-mt-4 data-[orientation=vertical]:flex-col;
+  }
+
+  .carousel-item {
+    @apply min-w-0 shrink-0 grow-0 basis-full;
+    @apply data-[orientation=horizontal]:pl-4 data-[orientation=vertical]:pt-4;
+  }
+
+  .carousel-previous,
+  .carousel-next {
+    @apply absolute touch-manipulation rounded-full;
+  }
+
+  .carousel-previous {
+    @apply data-[orientation=horizontal]:top-1/2 data-[orientation=horizontal]:-left-12 data-[orientation=horizontal]:-translate-y-1/2;
+    @apply data-[orientation=vertical]:-top-12 data-[orientation=vertical]:left-1/2 data-[orientation=vertical]:-translate-x-1/2 data-[orientation=vertical]:rotate-90;
+  }
+
+  .carousel-next {
+    @apply data-[orientation=horizontal]:top-1/2 data-[orientation=horizontal]:-right-12 data-[orientation=horizontal]:-translate-y-1/2;
+    @apply data-[orientation=vertical]:-bottom-12 data-[orientation=vertical]:left-1/2 data-[orientation=vertical]:-translate-x-1/2 data-[orientation=vertical]:rotate-90;
+  }
+}

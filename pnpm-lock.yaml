@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@internationalized/date':
+      specifier: ^3.12.1
+      version: 3.12.1
     '@tailwindcss/postcss':
       specifier: ^4.0.0
       version: 4.3.0
@@ -15,24 +18,78 @@ catalogs:
     '@types/node':
       specifier: ^22.18.12
       version: 22.19.17
+    '@types/react':
+      specifier: ^19.2.8
+      version: 19.2.14
+    '@types/react-dom':
+      specifier: ^19.2.3
+      version: 19.2.3
+    class-variance-authority:
+      specifier: ^0.7.1
+      version: 0.7.1
+    clsx:
+      specifier: ^2.1.1
+      version: 2.1.1
     eslint:
       specifier: ^9.39.2
       version: 9.39.4
+    input-otp:
+      specifier: ^1.4.2
+      version: 1.4.2
+    lucide-react:
+      specifier: ^1.8.0
+      version: 1.8.0
+    lucide-vue-next:
+      specifier: ^1.0.0
+      version: 1.0.0
+    next-themes:
+      specifier: ^0.4.6
+      version: 0.4.6
     prettier:
       specifier: ^3.6.2
       version: 3.8.3
+    react:
+      specifier: ^19.2.3
+      version: 19.2.5
+    react-day-picker:
+      specifier: ^9.14.0
+      version: 9.14.0
+    react-dom:
+      specifier: ^19.2.3
+      version: 19.2.5
+    reka-ui:
+      specifier: ^2.9.6
+      version: 2.9.6
+    sonner:
+      specifier: ^2.0.7
+      version: 2.0.7
     stylelint:
       specifier: ^16.26.1
       version: 16.26.1
+    tailwind-merge:
+      specifier: ^3.5.0
+      version: 3.5.0
     tailwindcss:
       specifier: ^4.0.0
       version: 4.2.2
     tsup:
       specifier: ^8.5.1
       version: 8.5.1
+    tw-animate-css:
+      specifier: ^1.4.0
+      version: 1.4.0
     typescript:
       specifier: ^5.9.3
       version: 5.9.3
+    vite:
+      specifier: ^7.0.0
+      version: 7.3.2
+    vue:
+      specifier: ^3.5.13
+      version: 3.5.32
+    vue-sonner:
+      specifier: ^2.0.9
+      version: 2.0.9
 
 importers:
 
@@ -60,7 +117,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/styles
       tw-animate-css:
-        specifier: ^1.4.0
+        specifier: 'catalog:'
         version: 1.4.0
     devDependencies:
       '@tailwindcss/vite':
@@ -73,7 +130,7 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
       vite:
-        specifier: ^7.0.0
+        specifier: 'catalog:'
         version: 7.3.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)
 
   examples/nextjs:
@@ -94,7 +151,7 @@ importers:
         specifier: ^2.9.1
         version: 2.9.1
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       date-fns:
         specifier: ^4.1.0
@@ -103,25 +160,25 @@ importers:
         specifier: ^8.6.0
         version: 8.6.0(embla-carousel@8.6.0)
       input-otp:
-        specifier: ^1.4.2
+        specifier: 'catalog:'
         version: 1.4.2(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       lucide-react:
-        specifier: ^1.8.0
+        specifier: 'catalog:'
         version: 1.8.0(react@19.2.5)
       next:
         specifier: ^16.1.1
         version: 16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       next-themes:
-        specifier: ^0.4.6
+        specifier: 'catalog:'
         version: 0.4.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       react:
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.5
       react-day-picker:
-        specifier: ^9.14.0
+        specifier: 'catalog:'
         version: 9.14.0(react@19.2.5)
       react-dom:
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.5(react@19.2.5)
       react-textarea-autosize:
         specifier: ^8.5.9
@@ -130,13 +187,13 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react-is@16.13.1)(react@19.2.5)(redux@5.0.1)
       sonner:
-        specifier: ^2.0.7
+        specifier: 'catalog:'
         version: 2.0.7(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       tailwind-merge:
-        specifier: ^3.4.0
+        specifier: 'catalog:'
         version: 3.5.0
       tw-animate-css:
-        specifier: ^1.4.0
+        specifier: 'catalog:'
         version: 1.4.0
     devDependencies:
       '@tailwindcss/postcss':
@@ -146,10 +203,10 @@ importers:
         specifier: 'catalog:'
         version: 22.19.17
       '@types/react':
-        specifier: ^19.2.8
+        specifier: 'catalog:'
         version: 19.2.14
       '@types/react-dom':
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.14)
       tailwindcss:
         specifier: 'catalog:'
@@ -161,7 +218,7 @@ importers:
   examples/vue-vite:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.12.1
+        specifier: 'catalog:'
         version: 3.12.1
       '@line/abc-def-styles':
         specifier: workspace:*
@@ -176,28 +233,28 @@ importers:
         specifier: ^6.0.6
         version: 6.0.6(vite@7.3.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0))(vue@3.5.32(typescript@5.9.3))
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       lucide-vue-next:
-        specifier: ^1.0.0
+        specifier: 'catalog:'
         version: 1.0.0(vue@3.5.32(typescript@5.9.3))
       reka-ui:
-        specifier: ^2.9.6
+        specifier: 'catalog:'
         version: 2.9.6(vue@3.5.32(typescript@5.9.3))
       tailwind-merge:
-        specifier: ^3.5.0
+        specifier: 'catalog:'
         version: 3.5.0
       tw-animate-css:
-        specifier: ^1.4.0
+        specifier: 'catalog:'
         version: 1.4.0
       vee-validate:
         specifier: ^4.15.1
         version: 4.15.1(vue@3.5.32(typescript@5.9.3))
       vue:
-        specifier: ^3.5.13
+        specifier: 'catalog:'
         version: 3.5.32(typescript@5.9.3)
       vue-sonner:
-        specifier: ^2.0.9
+        specifier: 'catalog:'
         version: 2.0.9
       zod:
         specifier: ^3.25.76
@@ -213,7 +270,7 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
       vite:
-        specifier: ^7.0.0
+        specifier: 'catalog:'
         version: 7.3.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)
 
   packages/react:
@@ -221,14 +278,11 @@ importers:
       '@base-ui/react':
         specifier: ^1.4.1
         version: 1.4.1(@date-fns/tz@1.4.1)(@types/react@19.2.14)(date-fns@4.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
-      '@line/abc-def-styles':
-        specifier: workspace:*
-        version: link:../styles
       class-variance-authority:
-        specifier: ^0.7.1
+        specifier: 'catalog:'
         version: 0.7.1
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       cmdk:
         specifier: ^1.1.1
@@ -237,28 +291,28 @@ importers:
         specifier: ^8.6.0
         version: 8.6.0(react@19.2.5)
       input-otp:
-        specifier: ^1.4.2
+        specifier: 'catalog:'
         version: 1.4.2(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       lucide-react:
-        specifier: ^1.8.0
+        specifier: 'catalog:'
         version: 1.8.0(react@19.2.5)
       next-themes:
-        specifier: ^0.4.6
+        specifier: 'catalog:'
         version: 0.4.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       radix-ui:
         specifier: ^1.4.3
         version: 1.4.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       react-day-picker:
-        specifier: ^9.14.0
+        specifier: 'catalog:'
         version: 9.14.0(react@19.2.5)
       react-resizable-panels:
         specifier: ^4.11.0
         version: 4.11.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       sonner:
-        specifier: ^2.0.7
+        specifier: 'catalog:'
         version: 2.0.7(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       tailwind-merge:
-        specifier: ^3.4.0
+        specifier: 'catalog:'
         version: 3.5.0
       vaul:
         specifier: ^1.1.2
@@ -270,14 +324,17 @@ importers:
       '@line/abc-def-prettier-config':
         specifier: workspace:^
         version: link:../../tooling/prettier
+      '@line/abc-def-styles':
+        specifier: workspace:*
+        version: link:../styles
       '@line/abc-def-tsconfig':
         specifier: workspace:^
         version: link:../../tooling/typescript
       '@types/react':
-        specifier: ^19.2.8
+        specifier: 'catalog:'
         version: 19.2.14
       '@types/react-dom':
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.14)
       eslint:
         specifier: 'catalog:'
@@ -286,10 +343,10 @@ importers:
         specifier: 'catalog:'
         version: 3.8.3
       react:
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.5
       react-dom:
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.5(react@19.2.5)
       tsup:
         specifier: 'catalog:'
@@ -313,11 +370,8 @@ importers:
   packages/vue:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.12.1
+        specifier: 'catalog:'
         version: 3.12.1
-      '@line/abc-def-styles':
-        specifier: workspace:*
-        version: link:../styles
       '@tanstack/vue-table':
         specifier: ^8.21.3
         version: 8.21.3(vue@3.5.32(typescript@5.9.3))
@@ -325,10 +379,10 @@ importers:
         specifier: ^14.3.0
         version: 14.3.0(vue@3.5.32(typescript@5.9.3))
       class-variance-authority:
-        specifier: ^0.7.1
+        specifier: 'catalog:'
         version: 0.7.1
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       embla-carousel:
         specifier: ^8.6.0
@@ -337,28 +391,22 @@ importers:
         specifier: ^8.6.0
         version: 8.6.0(vue@3.5.32(typescript@5.9.3))
       lucide-vue-next:
-        specifier: ^1.0.0
+        specifier: 'catalog:'
         version: 1.0.0(vue@3.5.32(typescript@5.9.3))
       reka-ui:
-        specifier: ^2.9.6
+        specifier: 'catalog:'
         version: 2.9.6(vue@3.5.32(typescript@5.9.3))
       tailwind-merge:
-        specifier: ^3.4.0
+        specifier: 'catalog:'
         version: 3.5.0
       vaul-vue:
         specifier: ^0.4.1
         version: 0.4.1(reka-ui@2.9.6(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3))
-      vee-validate:
-        specifier: ^4.15.1
-        version: 4.15.1(vue@3.5.32(typescript@5.9.3))
-      vue:
-        specifier: ^3.5.13
-        version: 3.5.32(typescript@5.9.3)
       vue-input-otp:
         specifier: ^0.3.2
         version: 0.3.2(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3))
       vue-sonner:
-        specifier: ^2.0.9
+        specifier: 'catalog:'
         version: 2.0.9
     devDependencies:
       '@line/abc-def-eslint-config':
@@ -367,6 +415,9 @@ importers:
       '@line/abc-def-prettier-config':
         specifier: workspace:^
         version: link:../../tooling/prettier
+      '@line/abc-def-styles':
+        specifier: workspace:*
+        version: link:../styles
       '@line/abc-def-tsconfig':
         specifier: workspace:^
         version: link:../../tooling/typescript
@@ -385,6 +436,9 @@ importers:
       unplugin-vue:
         specifier: ^7.1.1
         version: 7.1.1(@types/node@22.19.17)(esbuild@0.27.7)(jiti@2.6.1)(vue@3.5.32(typescript@5.9.3))
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.32(typescript@5.9.3)
       vue-tsc:
         specifier: ^3.2.8
         version: 3.2.8(typescript@5.9.3)
@@ -3963,7 +4017,6 @@ packages:
 
   lucide-vue-next@1.0.0:
     resolution: {integrity: sha512-V6SPvx1IHTj/UY+FrIYWV5faISsPSb8BnWSFDxAtezWKvWc9ZZ40PDrdu1/Qb5vg4lHWr1hs1BAMGVGm6V1Xdg==}
-    deprecated: Package deprecated. Please use @lucide/vue instead.
     peerDependencies:
       vue: '>=3.0.1'
 
