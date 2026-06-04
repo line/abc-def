@@ -111,6 +111,64 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
+  apps/docs:
+    dependencies:
+      '@line/abc-def-react':
+        specifier: workspace:*
+        version: link:../../packages/react
+      '@line/abc-def-styles':
+        specifier: workspace:*
+        version: link:../../packages/styles
+      '@line/abc-def-vue':
+        specifier: workspace:*
+        version: link:../../packages/vue
+      lucide-react:
+        specifier: 'catalog:'
+        version: 1.8.0(react@19.2.5)
+      next:
+        specifier: ^16.1.1
+        version: 16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      react:
+        specifier: 'catalog:'
+        version: 19.2.5
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.5(react@19.2.5)
+      tw-animate-css:
+        specifier: 'catalog:'
+        version: 1.4.0
+    devDependencies:
+      '@line/abc-def-eslint-config':
+        specifier: workspace:^
+        version: link:../../tooling/eslint
+      '@line/abc-def-prettier-config':
+        specifier: workspace:^
+        version: link:../../tooling/prettier
+      '@tailwindcss/postcss':
+        specifier: 'catalog:'
+        version: 4.3.0
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.19.17
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.14
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.2.3(@types/react@19.2.14)
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.4(jiti@2.6.1)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.8.3
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.2.2
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
   examples/html-vite:
     dependencies:
       '@line/abc-def-styles':

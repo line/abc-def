@@ -1,0 +1,67 @@
+/**
+ * Copyright 2025 LY Corporation
+ *
+ * LY Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+import Link from "next/link";
+
+import { CodeBlock } from "@/components/code-block";
+import { PageHeader, PageSection } from "@/components/page-section";
+
+const reactSnippet = `import { Button } from "@line/abc-def-react/button";
+
+export function Example() {
+  return <Button variant="outline">Button</Button>;
+}`;
+
+const unsupportedSnippet = `// Unsupported
+import { Button } from "@line/abc-def-react";`;
+
+export default function ReactGuidePage() {
+  return (
+    <>
+      <PageHeader
+        eyebrow="Framework"
+        title="React Guide"
+        description="Use the React package through component subpath exports and keep styling in the shared CSS package."
+      />
+      <PageSection title="Import components">
+        <p>
+          The React package intentionally has no root component export. Import
+          each component from its public subpath.
+        </p>
+        <CodeBlock code={reactSnippet} />
+        <CodeBlock code={unsupportedSnippet} />
+      </PageSection>
+      <PageSection title="Composition">
+        <p>
+          Compound components are exported from the same subpath as their root
+          component. For example, dialog content, title, description, and trigger
+          exports all come from `@line/abc-def-react/dialog`.
+        </p>
+      </PageSection>
+      <PageSection title="Examples">
+        <p>
+          Component pages include React imports and basic snippets. The
+          repository also keeps a richer local Next.js example gallery under
+          `examples/nextjs`.
+        </p>
+        <Link className="docs-card" href="/components">
+          <h3>Open component docs</h3>
+          <p>Browse all React subpath imports by component slug.</p>
+        </Link>
+      </PageSection>
+    </>
+  );
+}
