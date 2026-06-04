@@ -28,7 +28,7 @@ import { Example } from "@/components/example";
           </DialogDescription>
         </DialogHeader>
         <div
-          class="style-nova:-mx-4 style-nova:px-4 no-scrollbar style-vega:px-6 style-mira:px-4 style-maia:px-6 style-vega:-mx-6 style-maia:-mx-6 style-mira:-mx-4 style-lyra:-mx-4 style-lyra:px-4 max-h-[70vh] overflow-y-auto"
+          class="no-scrollbar style-vega:px-6 style-mira:px-4 style-maia:px-6 style-vega:-mx-6 style-maia:-mx-6 style-mira:-mx-4 style-lyra:-mx-4 style-lyra:px-4 -mx-4 max-h-[70vh] overflow-y-auto px-4"
         >
           <p
             v-for="index in 10"

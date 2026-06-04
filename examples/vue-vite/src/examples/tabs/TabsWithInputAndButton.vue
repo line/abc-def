@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { Button } from "@line/abc-def-vue/button";
 import { Input } from "@line/abc-def-vue/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@line/abc-def-vue/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@line/abc-def-vue/tabs";
 </script>
 
 <template>
@@ -17,7 +22,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@line/abc-def-vue/tabs
       </div>
     </div>
     <div
-      class="style-nova:p-4 style-vega:p-6 style-maia:p-6 style-mira:p-4 style-lyra:p-4 style-nova:rounded-lg style-vega:rounded-lg style-maia:rounded-xl style-mira:rounded-md style-lyra:rounded-none border"
+      class="style-vega:p-6 style-maia:p-6 style-mira:p-4 style-lyra:p-4 style-vega:rounded-lg style-maia:rounded-xl style-mira:rounded-md style-lyra:rounded-none rounded-lg border p-4"
     >
       <TabsContent value="overview">
         View your dashboard metrics and key performance indicators.

@@ -36,7 +36,7 @@ import { Example } from "@/registry/bases/reka/components/example";
           </HoverCardTrigger>
           <HoverCardContent class="w-64">
             <div
-              class="style-lyra:gap-1 style-nova:gap-1.5 style-vega:gap-2 style-maia:gap-2 style-mira:gap-1 flex flex-col"
+              class="style-lyra:gap-1 style-vega:gap-2 style-maia:gap-2 style-mira:gap-1 flex flex-col gap-1.5"
             >
               <h4 class="font-medium">Hover Card</h4>
               <p>

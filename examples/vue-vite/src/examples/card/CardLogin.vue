@@ -53,7 +53,7 @@ import { Example } from "@/components/example";
       <CardFooter class="flex-col gap-2">
         <Button type="submit" class="w-full"> Login </Button>
         <Button variant="outline" class="w-full"> Login with Google </Button>
-        <div class="style-nova:mt-2 mt-4 text-center">
+        <div class="mt-2 mt-4 text-center">
           Don't have an account?
           <a href="#" class="underline underline-offset-4"> Sign up </a>
         </div>

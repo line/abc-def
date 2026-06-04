@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
 import { Button } from "@line/abc-def-vue/button";
 import {
   DropdownMenu,
@@ -16,7 +18,6 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@line/abc-def-vue/dropdown-menu";
-import { ref } from "vue";
 
 import IconPlaceholder from "@/components/IconPlaceholder.vue";
 import { Example } from "@/registry/bases/reka/components/example";
@@ -36,7 +37,7 @@ const theme = ref("light");
         <Button variant="outline" class="w-fit"> Complex Menu </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        class="style-maia:w-56 style-mira:w-48 style-nova:w-48 style-vega:w-56 style-lyra:w-48"
+        class="style-maia:w-56 style-mira:w-48 style-vega:w-56 style-lyra:w-48 w-48"
       >
         <DropdownMenuGroup>
           <DropdownMenuLabel>File</DropdownMenuLabel>

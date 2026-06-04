@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
 import { Button } from "@line/abc-def-vue/button";
 import { Checkbox } from "@line/abc-def-vue/checkbox";
 import {
@@ -26,7 +28,10 @@ import {
   InputGroupInput,
 } from "@line/abc-def-vue/input-group";
 import { Kbd } from "@line/abc-def-vue/kbd";
-import { NativeSelect, NativeSelectOption } from "@line/abc-def-vue/native-select";
+import {
+  NativeSelect,
+  NativeSelectOption,
+} from "@line/abc-def-vue/native-select";
 import {
   Select,
   SelectContent,
@@ -36,10 +41,18 @@ import {
   SelectValue,
 } from "@line/abc-def-vue/select";
 import { Switch } from "@line/abc-def-vue/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@line/abc-def-vue/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@line/abc-def-vue/tabs";
 import { Textarea } from "@line/abc-def-vue/textarea";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@line/abc-def-vue/tooltip";
-import { ref } from "vue";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@line/abc-def-vue/tooltip";
 
 import { Example } from "@/components/example";
 import IconPlaceholder from "@/components/IconPlaceholder.vue";
@@ -117,7 +130,7 @@ const voices = [
               <TabsTrigger value="security"> Security </TabsTrigger>
             </TabsList>
             <div
-              class="style-nova:p-4 style-vega:p-6 style-maia:p-6 style-mira:p-4 style-lyra:p-4 style-vega:min-h-[550px] style-maia:min-h-[550px] style-mira:min-h-[450px] style-lyra:min-h-[450px] style-nova:min-h-[460px] style-nova:rounded-lg style-vega:rounded-lg style-maia:rounded-xl style-mira:rounded-md style-lyra:rounded-none border [&_[data-slot=select-trigger]]:min-w-[125px]"
+              class="style-vega:p-6 style-maia:p-6 style-mira:p-4 style-lyra:p-4 style-vega:min-h-[550px] style-maia:min-h-[550px] style-mira:min-h-[450px] style-lyra:min-h-[450px] style-vega:rounded-lg style-maia:rounded-xl style-mira:rounded-md style-lyra:rounded-none min-h-[460px] rounded-lg border p-4 [&_[data-slot=select-trigger]]:min-w-[125px]"
             >
               <TabsContent value="general">
                 <FieldSet>

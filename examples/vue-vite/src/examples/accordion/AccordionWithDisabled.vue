@@ -38,7 +38,7 @@ const items = [
     <Accordion
       type="single"
       collapsible
-      class="style-lyra:rounded-none style-vega:rounded-lg style-nova:rounded-lg style-maia:rounded-lg style-mira:rounded-lg mx-auto max-w-lg overflow-hidden border"
+      class="style-lyra:rounded-none style-vega:rounded-lg style-maia:rounded-lg style-mira:rounded-lg mx-auto max-w-lg overflow-hidden rounded-lg border"
     >
       <AccordionItem
         v-for="item in items"
@@ -47,14 +47,10 @@ const items = [
         :disabled="item.disabled"
         class="data-open:bg-muted/50 p-1"
       >
-        <AccordionTrigger
-          class="style-nova:px-2.5 style-lyra:px-2 style-vega:px-4"
-        >
+        <AccordionTrigger class="style-lyra:px-2 style-vega:px-4 px-2.5">
           {{ item.trigger }}
         </AccordionTrigger>
-        <AccordionContent
-          class="style-nova:px-2.5 style-lyra:px-2 style-vega:px-4"
-        >
+        <AccordionContent class="style-lyra:px-2 style-vega:px-4 px-2.5">
           {{ item.content }}
         </AccordionContent>
       </AccordionItem>

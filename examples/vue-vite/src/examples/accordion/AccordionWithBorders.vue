@@ -38,12 +38,12 @@ const items = [
         class="rounded-lg border px-2"
       >
         <AccordionTrigger
-          class="style-nova:px-2.5 style-nova:text-sm style-vega:text-sm style-maia:text-sm style-mira:text-xs style-lyra:px-2 style-lyra:text-xs style-vega:px-4 font-medium"
+          class="style-vega:text-sm style-maia:text-sm style-mira:text-xs style-lyra:px-2 style-lyra:text-xs style-vega:px-4 px-2.5 text-sm font-medium"
         >
           {{ item.trigger }}
         </AccordionTrigger>
         <AccordionContent
-          class="text-muted-foreground style-nova:px-2.5 style-nova:text-sm style-lyra:px-2 style-lyra:text-xs style-vega:px-4 style-maia:px-0 style-mira:px-0"
+          class="text-muted-foreground style-lyra:px-2 style-lyra:text-xs style-vega:px-4 style-maia:px-0 style-mira:px-0 px-2.5 text-sm"
         >
           <template v-if="item.value === 'integration'">
             <p>
