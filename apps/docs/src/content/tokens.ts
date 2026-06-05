@@ -14,7 +14,7 @@
  * under the License.
  */
 
-import { readFileSync, readdirSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 
 import { componentDocs } from "./components";
@@ -25,6 +25,8 @@ export interface DesignToken {
   name: `--${string}`;
   defaultValue: string;
   references: `--${string}`[];
+  semanticTokens: `--${string}`[];
+  defaultPrimitiveTokens: string[];
   layer: TokenLayer;
   sourceFile: string;
   componentSlug?: string;
@@ -43,7 +45,7 @@ export interface TokenGraphNode {
 const stylesRoot = join(process.cwd(), "../../packages/styles/src");
 const semanticFile = join(stylesRoot, "semantic.css");
 const componentsRoot = join(stylesRoot, "components");
-const tokenDeclarationPattern = /^\s*(--[\w-]+):\s*([^;]+);/;
+const tokenDeclarationPattern = /(--[\w-]+)\s*:\s*([^;]+);/g;
 const tokenReferencePattern = /var\((--[\w-]+)/g;
 
 function sourcePath(filePath: string) {
@@ -51,19 +53,29 @@ function sourcePath(filePath: string) {
 }
 
 function referencesFromValue(value: string) {
-  return Array.from(value.matchAll(tokenReferencePattern), (match) => match[1] as `--${string}`);
+  return Array.from(
+    value.matchAll(tokenReferencePattern),
+    (match) => match[1] as `--${string}`,
+  );
 }
 
-function parseTokens(filePath: string, layer: TokenLayer, componentSlug?: string) {
+function unique<T>(values: T[]) {
+  return Array.from(new Set(values));
+}
+
+function parseTokens(
+  filePath: string,
+  layer: TokenLayer,
+  componentSlug?: string,
+) {
   const css = readFileSync(filePath, "utf8");
   const tokens = new Map<string, DesignToken>();
   const component = componentSlug
     ? componentDocs.find((item) => item.slug === componentSlug)
     : undefined;
 
-  for (const line of css.split("\n")) {
-    const match = tokenDeclarationPattern.exec(line);
-    const tokenName = match?.[1];
+  for (const match of css.matchAll(tokenDeclarationPattern)) {
+    const tokenName = match[1];
 
     if (!tokenName || tokens.has(tokenName)) {
       continue;
@@ -76,6 +88,8 @@ function parseTokens(filePath: string, layer: TokenLayer, componentSlug?: string
       name,
       defaultValue,
       references: referencesFromValue(defaultValue),
+      semanticTokens: [],
+      defaultPrimitiveTokens: [],
       layer,
       sourceFile: sourcePath(filePath),
       componentSlug,
@@ -95,8 +109,11 @@ export function getComponentTokens(slug?: string) {
   const files = slug
     ? [`${slug}.css`]
     : readdirSync(componentsRoot).filter((file) => file.endsWith(".css"));
-
-  return files.flatMap((file) => {
+  const semanticTokenList = getSemanticTokens();
+  const semanticTokenNames = new Set(
+    semanticTokenList.map((token) => token.name),
+  );
+  const componentTokens = files.flatMap((file) => {
     const componentSlug = basename(file, ".css");
 
     if (componentSlug === "index" || componentSlug === "variables") {
@@ -104,10 +121,87 @@ export function getComponentTokens(slug?: string) {
     }
 
     try {
-      return parseTokens(join(componentsRoot, file), "component", componentSlug);
+      return parseTokens(
+        join(componentsRoot, file),
+        "component",
+        componentSlug,
+      );
     } catch {
       return [];
     }
+  });
+  const tokensByName = new Map(
+    [...semanticTokenList, ...componentTokens].map((token) => [
+      token.name,
+      token,
+    ]),
+  );
+
+  function collectSemanticTokens(token: DesignToken) {
+    const visited = new Set<string>();
+    const semanticReferences: `--${string}`[] = [];
+
+    function visit(reference: `--${string}`) {
+      if (visited.has(reference)) {
+        return;
+      }
+
+      visited.add(reference);
+
+      if (semanticTokenNames.has(reference)) {
+        semanticReferences.push(reference);
+        return;
+      }
+
+      const referencedToken = tokensByName.get(reference);
+
+      if (referencedToken?.layer !== "component") {
+        return;
+      }
+
+      for (const nextReference of referencedToken.references) {
+        visit(nextReference);
+      }
+    }
+
+    for (const reference of token.references) {
+      visit(reference);
+    }
+
+    return semanticReferences;
+  }
+
+  function defaultPrimitiveTokens(semanticReferences: `--${string}`[]) {
+    return unique(
+      semanticReferences.flatMap((reference) => {
+        const semanticToken = tokensByName.get(reference);
+
+        if (!semanticToken) {
+          return [];
+        }
+
+        const primitiveReferences = semanticToken.references.filter((name) =>
+          name.startsWith("--color-"),
+        );
+
+        return primitiveReferences.length > 0
+          ? primitiveReferences
+          : [semanticToken.defaultValue];
+      }),
+    );
+  }
+
+  return componentTokens.map((token) => {
+    const resolvedSemanticTokens = unique(collectSemanticTokens(token));
+
+    return {
+      ...token,
+      semanticTokens: resolvedSemanticTokens,
+      defaultPrimitiveTokens:
+        resolvedSemanticTokens.length > 0
+          ? defaultPrimitiveTokens(resolvedSemanticTokens)
+          : [token.defaultValue],
+    };
   });
 }
 

@@ -96,8 +96,8 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
       />
       <PageSection title="Imports">
         <p>
-          Use the same component slug for React, Vue, and style token lookup.
-          Do not import components from package roots.
+          Use the same component slug for React, Vue, and style token lookup. Do
+          not import components from package roots.
         </p>
         <CodeBlock code={reactImportSnippet(component)} />
         <CodeBlock code={vueImportSnippet(component)} language="vue" />
@@ -132,9 +132,9 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           <Table className="docs-token-table">
             <TableHeader>
               <TableRow>
-                <TableHead>Token</TableHead>
-                <TableHead>Default</TableHead>
-                <TableHead>References</TableHead>
+                <TableHead>Component Token</TableHead>
+                <TableHead>Semantic Token</TableHead>
+                <TableHead>Default Primitive Token</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -144,13 +144,25 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
                     <code>{token.name}</code>
                   </TableCell>
                   <TableCell>
-                    <code>{token.defaultValue}</code>
-                  </TableCell>
-                  <TableCell>
-                    {token.references.length > 0 ? (
-                      <span>{token.references.join(" -> ")}</span>
+                    {token.semanticTokens.length > 0 ? (
+                      token.semanticTokens.map((semanticToken, index) => (
+                        <span key={semanticToken}>
+                          {index > 0 ? ", " : null}
+                          <code>{semanticToken}</code>
+                        </span>
+                      ))
                     ) : (
                       <span>Literal value</span>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {token.defaultPrimitiveTokens.map(
+                      (defaultPrimitiveToken, index) => (
+                        <span key={defaultPrimitiveToken}>
+                          {index > 0 ? ", " : null}
+                          <code>{defaultPrimitiveToken}</code>
+                        </span>
+                      ),
                     )}
                   </TableCell>
                 </TableRow>
@@ -159,8 +171,8 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           </Table>
         ) : (
           <p>
-            This component does not define a dedicated component token file.
-            It inherits shared semantic tokens and utility classes.
+            This component does not define a dedicated component token file. It
+            inherits shared semantic tokens and utility classes.
           </p>
         )}
       </PageSection>
