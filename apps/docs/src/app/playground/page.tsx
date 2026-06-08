@@ -16,15 +16,11 @@
 
 import { PageHeader } from "@/components/page-section";
 import { componentDocs } from "@/content/components";
-import { getEditablePlaygroundTokens, getTokenGraph } from "@/content/tokens";
-
+import { getEditablePlaygroundTokens } from "@/content/tokens";
 import { PlaygroundClient } from "./playground-client";
 
 export default function PlaygroundPage() {
   const tokens = getEditablePlaygroundTokens();
-  const tokenGraphs = Object.fromEntries(
-    tokens.map((token) => [token.name, getTokenGraph(token.name)]),
-  );
 
   return (
     <>
@@ -34,9 +30,10 @@ export default function PlaygroundPage() {
         description="Primitive color tokens stay read-only in token chains. The playground scopes overrides to the preview root so edits do not leak into the docs shell."
       />
       <PlaygroundClient
-        components={[...componentDocs]}
+        components={componentDocs.filter(
+          (component) => component.slug !== "sidebar",
+        )}
         tokens={tokens}
-        tokenGraphs={tokenGraphs}
       />
     </>
   );

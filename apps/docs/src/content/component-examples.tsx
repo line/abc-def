@@ -15,7 +15,7 @@
  */
 "use client";
 
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
 import { AspectRatio } from "@line/abc-def-react/aspect-ratio";
 import {
   Accordion,
@@ -124,6 +124,7 @@ import {
   EmptyContent,
   EmptyDescription,
   EmptyHeader,
+  EmptyMedia,
   EmptyTitle,
 } from "@line/abc-def-react/empty";
 import {
@@ -131,6 +132,8 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLabel,
+  FieldLegend,
+  FieldSet,
 } from "@line/abc-def-react/field";
 import {
   HoverCard,
@@ -154,6 +157,7 @@ import {
   ItemContent,
   ItemDescription,
   ItemHeader,
+  ItemMedia,
   ItemTitle,
 } from "@line/abc-def-react/item";
 import { Kbd, KbdGroup } from "@line/abc-def-react/kbd";
@@ -260,11 +264,36 @@ export interface ComponentExample {
   slug: string;
   title: string;
   Example: ComponentType;
+  variantExamples?: ComponentVariantExample[];
   previewClassName?: string;
+}
+
+export interface ComponentVariantExample {
+  label: string;
+  Example: ComponentType;
+  className?: string;
 }
 
 function PlaceholderBlock() {
   return <div className="docs-example-media">16:9</div>;
+}
+
+function StaticMenuItem({
+  children,
+  className,
+  slot,
+  variant,
+}: {
+  children: ReactNode;
+  className: string;
+  slot: string;
+  variant: "default" | "destructive";
+}) {
+  return (
+    <div data-slot={slot} data-variant={variant} className={className}>
+      {children}
+    </div>
+  );
 }
 
 const examples: Record<string, ComponentExample> = {
@@ -291,6 +320,26 @@ const examples: Record<string, ComponentExample> = {
         <AlertDescription>Tokens and classes are ready to publish.</AlertDescription>
       </Alert>
     ),
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => (
+          <Alert>
+            <AlertTitle>Build complete</AlertTitle>
+            <AlertDescription>Tokens are ready to publish.</AlertDescription>
+          </Alert>
+        ),
+      },
+      {
+        label: "destructive",
+        Example: () => (
+          <Alert variant="destructive">
+            <AlertTitle>Publish failed</AlertTitle>
+            <AlertDescription>Resolve token conflicts first.</AlertDescription>
+          </Alert>
+        ),
+      },
+    ],
   },
   "alert-dialog": {
     slug: "alert-dialog",
@@ -343,6 +392,32 @@ const examples: Record<string, ComponentExample> = {
     slug: "badge",
     title: "Badge example",
     Example: () => <Badge variant="secondary">Stable</Badge>,
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => <Badge>Default</Badge>,
+      },
+      {
+        label: "secondary",
+        Example: () => <Badge variant="secondary">Secondary</Badge>,
+      },
+      {
+        label: "destructive",
+        Example: () => <Badge variant="destructive">Destructive</Badge>,
+      },
+      {
+        label: "outline",
+        Example: () => <Badge variant="outline">Outline</Badge>,
+      },
+      {
+        label: "ghost",
+        Example: () => <Badge variant="ghost">Ghost</Badge>,
+      },
+      {
+        label: "link",
+        Example: () => <Badge variant="link">Link</Badge>,
+      },
+    ],
   },
   breadcrumb: {
     slug: "breadcrumb",
@@ -365,6 +440,32 @@ const examples: Record<string, ComponentExample> = {
     slug: "button",
     title: "Button example",
     Example: () => <Button variant="outline">Save changes</Button>,
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => <Button>Default</Button>,
+      },
+      {
+        label: "secondary",
+        Example: () => <Button variant="secondary">Secondary</Button>,
+      },
+      {
+        label: "destructive",
+        Example: () => <Button variant="destructive">Destructive</Button>,
+      },
+      {
+        label: "ghost",
+        Example: () => <Button variant="ghost">Ghost</Button>,
+      },
+      {
+        label: "link",
+        Example: () => <Button variant="link">Link</Button>,
+      },
+      {
+        label: "outline",
+        Example: () => <Button variant="outline">Outline</Button>,
+      },
+    ],
   },
   "button-group": {
     slug: "button-group",
@@ -479,6 +580,32 @@ const examples: Record<string, ComponentExample> = {
         </ContextMenuContent>
       </ContextMenu>
     ),
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => (
+          <StaticMenuItem
+            slot="context-menu-item"
+            className="context-menu-item"
+            variant="default"
+          >
+            Copy token
+          </StaticMenuItem>
+        ),
+      },
+      {
+        label: "destructive",
+        Example: () => (
+          <StaticMenuItem
+            slot="context-menu-item"
+            className="context-menu-item"
+            variant="destructive"
+          >
+            Delete token
+          </StaticMenuItem>
+        ),
+      },
+    ],
   },
   dialog: {
     slug: "dialog",
@@ -528,6 +655,32 @@ const examples: Record<string, ComponentExample> = {
         </DropdownMenuContent>
       </DropdownMenu>
     ),
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => (
+          <StaticMenuItem
+            slot="dropdown-menu-item"
+            className="dropdown-menu-item"
+            variant="default"
+          >
+            Copy
+          </StaticMenuItem>
+        ),
+      },
+      {
+        label: "destructive",
+        Example: () => (
+          <StaticMenuItem
+            slot="dropdown-menu-item"
+            className="dropdown-menu-item"
+            variant="destructive"
+          >
+            Reset
+          </StaticMenuItem>
+        ),
+      },
+    ],
   },
   empty: {
     slug: "empty",
@@ -543,6 +696,16 @@ const examples: Record<string, ComponentExample> = {
         </EmptyContent>
       </Empty>
     ),
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => <EmptyMedia>AB</EmptyMedia>,
+      },
+      {
+        label: "icon",
+        Example: () => <EmptyMedia variant="icon">AB</EmptyMedia>,
+      },
+    ],
   },
   field: {
     slug: "field",
@@ -556,6 +719,24 @@ const examples: Record<string, ComponentExample> = {
         </Field>
       </FieldGroup>
     ),
+    variantExamples: [
+      {
+        label: "legend",
+        Example: () => (
+          <FieldSet>
+            <FieldLegend>Token group</FieldLegend>
+          </FieldSet>
+        ),
+      },
+      {
+        label: "label",
+        Example: () => (
+          <FieldSet>
+            <FieldLegend variant="label">Token group</FieldLegend>
+          </FieldSet>
+        ),
+      },
+    ],
   },
   "hover-card": {
     slug: "hover-card",
@@ -618,6 +799,54 @@ const examples: Record<string, ComponentExample> = {
         </ItemContent>
       </Item>
     ),
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => (
+          <Item>
+            <ItemContent>
+              <ItemTitle>Default item</ItemTitle>
+            </ItemContent>
+          </Item>
+        ),
+      },
+      {
+        label: "outline",
+        Example: () => (
+          <Item variant="outline">
+            <ItemContent>
+              <ItemTitle>Outline item</ItemTitle>
+            </ItemContent>
+          </Item>
+        ),
+      },
+      {
+        label: "muted",
+        Example: () => (
+          <Item variant="muted">
+            <ItemContent>
+              <ItemTitle>Muted item</ItemTitle>
+            </ItemContent>
+          </Item>
+        ),
+      },
+      {
+        label: "media default",
+        Example: () => <ItemMedia>AB</ItemMedia>,
+      },
+      {
+        label: "media icon",
+        Example: () => <ItemMedia variant="icon">AB</ItemMedia>,
+      },
+      {
+        label: "media image",
+        Example: () => (
+          <ItemMedia variant="image">
+            <div className="docs-example-media-swatch" />
+          </ItemMedia>
+        ),
+      },
+    ],
   },
   kbd: {
     slug: "kbd",
@@ -647,6 +876,32 @@ const examples: Record<string, ComponentExample> = {
         </MenubarMenu>
       </Menubar>
     ),
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => (
+          <StaticMenuItem
+            slot="menubar-item"
+            className="menubar-item"
+            variant="default"
+          >
+            Export CSS
+          </StaticMenuItem>
+        ),
+      },
+      {
+        label: "destructive",
+        Example: () => (
+          <StaticMenuItem
+            slot="menubar-item"
+            className="menubar-item"
+            variant="destructive"
+          >
+            Delete preset
+          </StaticMenuItem>
+        ),
+      },
+    ],
   },
   "native-select": {
     slug: "native-select",
@@ -892,6 +1147,30 @@ const examples: Record<string, ComponentExample> = {
         <TabsContent value="vue">Vue package classes.</TabsContent>
       </Tabs>
     ),
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => (
+          <Tabs defaultValue="react">
+            <TabsList>
+              <TabsTrigger value="react">React</TabsTrigger>
+              <TabsTrigger value="vue">Vue</TabsTrigger>
+            </TabsList>
+          </Tabs>
+        ),
+      },
+      {
+        label: "line",
+        Example: () => (
+          <Tabs defaultValue="react">
+            <TabsList variant="line">
+              <TabsTrigger value="react">React</TabsTrigger>
+              <TabsTrigger value="vue">Vue</TabsTrigger>
+            </TabsList>
+          </Tabs>
+        ),
+      },
+    ],
   },
   textarea: {
     slug: "textarea",
@@ -902,6 +1181,20 @@ const examples: Record<string, ComponentExample> = {
     slug: "toggle",
     title: "Toggle example",
     Example: () => <Toggle defaultPressed>Bold</Toggle>,
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => <Toggle defaultPressed>Default</Toggle>,
+      },
+      {
+        label: "outline",
+        Example: () => (
+          <Toggle variant="outline" defaultPressed>
+            Outline
+          </Toggle>
+        ),
+      },
+    ],
   },
   "toggle-group": {
     slug: "toggle-group",
@@ -912,6 +1205,26 @@ const examples: Record<string, ComponentExample> = {
         <ToggleGroupItem value="component">Component</ToggleGroupItem>
       </ToggleGroup>
     ),
+    variantExamples: [
+      {
+        label: "default",
+        Example: () => (
+          <ToggleGroup type="single" defaultValue="semantic">
+            <ToggleGroupItem value="semantic">Semantic</ToggleGroupItem>
+            <ToggleGroupItem value="component">Component</ToggleGroupItem>
+          </ToggleGroup>
+        ),
+      },
+      {
+        label: "outline",
+        Example: () => (
+          <ToggleGroup type="single" variant="outline" defaultValue="semantic">
+            <ToggleGroupItem value="semantic">Semantic</ToggleGroupItem>
+            <ToggleGroupItem value="component">Component</ToggleGroupItem>
+          </ToggleGroup>
+        ),
+      },
+    ],
   },
   tooltip: {
     slug: "tooltip",

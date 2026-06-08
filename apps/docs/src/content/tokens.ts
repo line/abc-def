@@ -34,14 +34,6 @@ export interface DesignToken {
   editable: boolean;
 }
 
-export interface TokenGraphNode {
-  name: `--${string}`;
-  defaultValue?: string;
-  layer: TokenLayer;
-  editable: boolean;
-  sourceFile?: string;
-}
-
 const stylesRoot = join(process.cwd(), "../../packages/styles/src");
 const semanticFile = join(stylesRoot, "semantic.css");
 const componentsRoot = join(stylesRoot, "components");
@@ -207,59 +199,4 @@ export function getComponentTokens(slug?: string) {
 
 export function getEditablePlaygroundTokens() {
   return [...getSemanticTokens(), ...getComponentTokens()];
-}
-
-function tokenByName() {
-  return new Map(
-    [...getSemanticTokens(), ...getComponentTokens()].map((token) => [
-      token.name,
-      token,
-    ]),
-  );
-}
-
-function primitiveNode(name: `--${string}`): TokenGraphNode {
-  return {
-    name,
-    layer: "primitive",
-    editable: false,
-  };
-}
-
-export function getTokenGraph(tokenName: `--${string}`) {
-  const tokens = tokenByName();
-  const visited = new Set<string>();
-  const graph: TokenGraphNode[] = [];
-
-  function visit(name: `--${string}`) {
-    if (visited.has(name)) {
-      return;
-    }
-
-    visited.add(name);
-    const token = tokens.get(name);
-
-    if (!token) {
-      if (name.startsWith("--color-")) {
-        graph.push(primitiveNode(name));
-      }
-      return;
-    }
-
-    graph.push({
-      name: token.name,
-      defaultValue: token.defaultValue,
-      layer: token.layer,
-      editable: token.editable,
-      sourceFile: token.sourceFile,
-    });
-
-    for (const reference of token.references) {
-      visit(reference);
-    }
-  }
-
-  visit(tokenName);
-
-  return graph;
 }

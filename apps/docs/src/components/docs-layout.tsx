@@ -18,7 +18,6 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 
 import { Badge } from "@line/abc-def-react/badge";
-import { Button } from "@line/abc-def-react/button";
 import { Separator } from "@line/abc-def-react/separator";
 
 import { DocsActiveLink } from "@/components/docs-active-link";
@@ -65,21 +64,19 @@ export function DocsLayout({ children }: DocsLayoutProps) {
           </nav>
         </div>
         <div className="docs-header-actions">
-          <Button
-            asChild
+          <a
             aria-label="Open ABC Def on GitHub"
-            size="icon"
+            className="button button-variant-outline button-size-icon button-rounded-default"
+            data-size="icon"
+            data-slot="button"
+            data-variant="outline"
+            href="https://github.com/line/abc-def"
+            rel="noreferrer"
+            target="_blank"
             title="Open ABC Def on GitHub"
-            variant="outline"
           >
-            <a
-              href="https://github.com/line/abc-def"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <GitHubIcon />
-            </a>
-          </Button>
+            <GitHubIcon />
+          </a>
           <ThemeToggle />
         </div>
       </header>

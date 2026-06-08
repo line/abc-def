@@ -16,23 +16,31 @@
 "use client";
 
 import type { ComponentDoc } from "@/content/components";
-import type { DesignToken, TokenGraphNode, TokenLayer } from "@/content/tokens";
+import type { DesignToken, TokenLayer } from "@/content/tokens";
 import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 
-import { Badge } from "@line/abc-def-react/badge";
 import { Button } from "@line/abc-def-react/button";
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@line/abc-def-react/card";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from "@line/abc-def-react/drawer";
 import { Input } from "@line/abc-def-react/input";
 import { NativeSelect } from "@line/abc-def-react/native-select";
 import { Tabs, TabsList, TabsTrigger } from "@line/abc-def-react/tabs";
-import { Textarea } from "@line/abc-def-react/textarea";
 
 import { getComponentExample } from "@/content/component-examples";
 
@@ -43,7 +51,6 @@ type ParseCssOverridesResult = { overrides: Overrides } | { error: string };
 interface PlaygroundClientProps {
   components: ComponentDoc[];
   tokens: DesignToken[];
-  tokenGraphs: Record<string, TokenGraphNode[]>;
 }
 
 function tokenGroup(token: DesignToken) {
@@ -111,7 +118,6 @@ function parseCssOverrides(css: string): ParseCssOverridesResult {
 export function PlaygroundClient({
   components,
   tokens,
-  tokenGraphs,
 }: PlaygroundClientProps) {
   const [tab, setTab] = useState<TokenTab>("semantic");
   const [query, setQuery] = useState("");
@@ -121,9 +127,6 @@ export function PlaygroundClient({
   const [draftOverrides, setDraftOverrides] = useState<Overrides>({});
   const [draftCss, setDraftCss] = useState(cssOverrideText({}));
   const [cssError, setCssError] = useState("");
-  const [selectedTokenName, setSelectedTokenName] = useState<`--${string}`>(
-    tokens[0]?.name ?? "--background",
-  );
 
   const componentGroups = useMemo(
     () =>
@@ -132,6 +135,22 @@ export function PlaygroundClient({
       ).sort(),
     [tokens],
   );
+  const componentTokensBySlug = useMemo(() => {
+    const tokensBySlug = new Map<string, DesignToken[]>();
+
+    for (const token of tokens) {
+      if (token.layer !== "component" || !token.componentSlug) {
+        continue;
+      }
+
+      tokensBySlug.set(token.componentSlug, [
+        ...(tokensBySlug.get(token.componentSlug) ?? []),
+        token,
+      ]);
+    }
+
+    return tokensBySlug;
+  }, [tokens]);
 
   const filteredTokens = useMemo(
     () =>
@@ -150,11 +169,6 @@ export function PlaygroundClient({
     [group, query, tab, tokens],
   );
 
-  const selectedToken =
-    tokens.find((token) => token.name === selectedTokenName) ?? tokens[0];
-  const selectedGraph = selectedToken
-    ? (tokenGraphs[selectedToken.name] ?? [])
-    : [];
   const style = Object.fromEntries(
     Object.entries(overrides).filter((entry) => entry[1]),
   ) as CSSProperties & Record<`--${string}`, string>;
@@ -177,7 +191,6 @@ export function PlaygroundClient({
       setDraftCss(cssOverrideText(next));
       return next;
     });
-    setSelectedTokenName(name);
   }
 
   function resetDraftToken(name: `--${string}`) {
@@ -200,26 +213,41 @@ export function PlaygroundClient({
     setCssDrawerOpen(true);
   }
 
+  function openComponentTokenDrawer(component: ComponentDoc) {
+    const componentTokens = componentTokensBySlug.get(component.slug);
+    const firstToken = componentTokens?.[0];
+
+    if (!firstToken) {
+      return;
+    }
+
+    setTab("component");
+    setQuery("");
+    setGroup(component.title);
+    setDraftOverrides(overrides);
+    setDraftCss(cssOverrideText(overrides));
+    setCssError("");
+    setCssDrawerOpen(true);
+  }
+
   function closeCssDrawer() {
     setCssError("");
     setCssDrawerOpen(false);
+  }
+
+  function updateCssDrawerOpen(open: boolean) {
+    if (open) {
+      setCssDrawerOpen(true);
+      return;
+    }
+
+    closeCssDrawer();
   }
 
   function resetDraftOverrides() {
     setDraftOverrides({});
     setDraftCss(cssOverrideText({}));
     setCssError("");
-  }
-
-  function updateDraftCss(value: string) {
-    const parsed = parseCssOverrides(value);
-
-    setDraftCss(value);
-    setCssError("");
-
-    if ("overrides" in parsed) {
-      setDraftOverrides(parsed.overrides);
-    }
   }
 
   function saveCssOverrides() {
@@ -259,81 +287,105 @@ export function PlaygroundClient({
           }
 
           const Example = example.Example;
+          const canEditComponentTokens =
+            (componentTokensBySlug.get(component.slug)?.length ?? 0) > 0;
 
           return (
             <Card key={component.slug} className="docs-playground-card">
               <CardHeader>
-                <CardTitle>{component.title}</CardTitle>
+                <CardTitle>
+                  {canEditComponentTokens ? (
+                    <button
+                      type="button"
+                      className="docs-playground-card-title-button"
+                      onClick={() => openComponentTokenDrawer(component)}
+                    >
+                      {component.title}
+                    </button>
+                  ) : (
+                    component.title
+                  )}
+                </CardTitle>
+                {canEditComponentTokens && (
+                  <CardAction>
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="outline"
+                      onClick={() => openComponentTokenDrawer(component)}
+                    >
+                      Edit
+                    </Button>
+                  </CardAction>
+                )}
                 <CardDescription>{component.category}</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="docs-example-preview">
+                <div
+                  className={[
+                    "docs-example-preview",
+                    example.previewClassName,
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
                   <Example />
                 </div>
+                {example.variantExamples && (
+                  <div
+                    className="docs-playground-variant-list"
+                    aria-label={`${component.title} variants`}
+                  >
+                    {example.variantExamples.map((variantExample) => {
+                      const VariantExample = variantExample.Example;
+
+                      return (
+                        <div
+                          key={variantExample.label}
+                          className={[
+                            "docs-playground-variant",
+                            variantExample.className,
+                          ]
+                            .filter(Boolean)
+                            .join(" ")}
+                        >
+                          <span className="docs-playground-variant-label">
+                            {variantExample.label}
+                          </span>
+                          <div className="docs-playground-variant-preview">
+                            <VariantExample />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </CardContent>
             </Card>
           );
         })}
       </section>
-      {selectedToken && (
-        <aside className="docs-token-inspector">
-          <h2>{selectedToken.name}</h2>
-          <dl>
+
+      <Drawer
+        open={cssDrawerOpen}
+        onOpenChange={updateCssDrawerOpen}
+        direction="right"
+      >
+        <DrawerContent className="docs-playground-drawer">
+          <DrawerHeader className="docs-playground-drawer-header">
             <div>
-              <dt>Default</dt>
-              <dd>
-                <code>{selectedToken.defaultValue}</code>
-              </dd>
+              <DrawerTitle>Playground controls</DrawerTitle>
+              <DrawerDescription>
+                Save scoped custom properties to update the component previews.
+              </DrawerDescription>
             </div>
-            <div>
-              <dt>Override</dt>
-              <dd>
-                <code>{overrides[selectedToken.name] ?? "None"}</code>
-              </dd>
-            </div>
-            <div>
-              <dt>Affected group</dt>
-              <dd>{tokenGroup(selectedToken)}</dd>
-            </div>
-          </dl>
-          <h3>Token chain</h3>
-          <ol className="docs-token-chain">
-            {selectedGraph.map((node) => (
-              <li key={node.name}>
-                <code>{node.name}</code>
-                <Badge variant="secondary">{node.layer}</Badge>
-                {!node.editable && <Badge variant="outline">read-only</Badge>}
-              </li>
-            ))}
-          </ol>
-        </aside>
-      )}
-      {cssDrawerOpen && (
-        <div className="docs-css-drawer" role="presentation">
-          <button
-            type="button"
-            className="docs-css-drawer-backdrop"
-            aria-label="Close playground controls"
-            onClick={closeCssDrawer}
-          />
-          <section
-            className="docs-css-drawer-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="docs-css-drawer-title"
-          >
-            <div className="docs-css-drawer-header">
-              <div>
-                <h2 id="docs-css-drawer-title">Playground controls</h2>
-                <p>
-                  Save scoped custom properties to update the component
-                  previews.
-                </p>
-              </div>
+            <DrawerClose asChild>
               <Button type="button" variant="outline" onClick={closeCssDrawer}>
                 Close
               </Button>
-            </div>
+            </DrawerClose>
+          </DrawerHeader>
+          <div className="overflow-y-auto px-4">
             <section
               className="docs-playground-controls"
               aria-label="Token controls"
@@ -398,7 +450,6 @@ export function PlaygroundClient({
                       onChange={(event) =>
                         updateDraftOverride(token.name, event.target.value)
                       }
-                      onFocus={() => setSelectedTokenName(token.name)}
                     />
                     <Button
                       type="button"
@@ -412,14 +463,9 @@ export function PlaygroundClient({
                 ))}
               </div>
             </section>
-            <Textarea
-              className="docs-css-textarea"
-              aria-label="CSS override"
-              value={draftCss}
-              spellCheck={false}
-              onChange={(event) => updateDraftCss(event.target.value)}
-            />
             {cssError && <p className="docs-css-drawer-error">{cssError}</p>}
+          </div>
+          <DrawerFooter className="docs-playground-drawer-footer">
             <div className="docs-css-drawer-actions">
               <Button
                 type="button"
@@ -428,16 +474,22 @@ export function PlaygroundClient({
               >
                 Reset
               </Button>
-              <Button type="button" variant="outline" onClick={closeCssDrawer}>
-                Cancel
-              </Button>
+              <DrawerClose asChild>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={closeCssDrawer}
+                >
+                  Cancel
+                </Button>
+              </DrawerClose>
               <Button type="button" onClick={saveCssOverrides}>
                 Save
               </Button>
             </div>
-          </section>
-        </div>
-      )}
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </div>
   );
 }

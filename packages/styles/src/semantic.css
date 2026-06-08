@@ -19,8 +19,8 @@
   --accent: var(--color-zinc-100);
   --accent-foreground: var(--color-zinc-900);
 
-  --destructive: var(--color-red-500);
-  --destructive-foreground: var(--color-red-50);
+  --destructive: var(--color-red-50);
+  --destructive-foreground: var(--color-red-500);
 
   --border: var(--color-zinc-200);
   --border-input: var(--color-zinc-200);
@@ -32,6 +32,8 @@
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
+
+  color-scheme: light;
 }
 
 .dark {
@@ -56,10 +58,12 @@
   --accent: var(--color-zinc-700);
   --accent-foreground: var(--color-zinc-50);
 
-  --destructive: var(--color-red-500);
-  --destructive-foreground: var(--color-red-900);
+  --destructive: var(--color-red-900);
+  --destructive-foreground: var(--color-red-400);
 
   --border: var(--color-zinc-800);
   --border-input: var(--color-zinc-700);
   --ring: var(--color-zinc-500);
+
+  color-scheme: dark;
 }

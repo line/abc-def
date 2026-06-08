@@ -79,8 +79,8 @@ const stylesheetSnippet = `@import "tailwindcss";
   --accent: var(--color-zinc-100);
   --accent-foreground: var(--color-zinc-900);
 
-  --destructive: var(--color-red-500);
-  --destructive-foreground: var(--color-red-50);
+  --destructive: var(--color-red-50);
+  --destructive-foreground: var(--color-red-500);
 
   --border: var(--color-zinc-200);
   --border-input: var(--color-zinc-200);
@@ -118,8 +118,8 @@ const stylesheetSnippet = `@import "tailwindcss";
   --accent: var(--color-zinc-700);
   --accent-foreground: var(--color-zinc-50);
 
-  --destructive: var(--color-red-500);
-  --destructive-foreground: var(--color-red-900);
+  --destructive: var(--color-red-900);
+  --destructive-foreground: var(--color-red-400);
 
   --border: var(--color-zinc-800);
   --border-input: var(--color-zinc-700);
@@ -127,6 +127,7 @@ const stylesheetSnippet = `@import "tailwindcss";
 
   color-scheme: dark;
 }
+
 
 @layer base {
   * {
@@ -156,8 +157,8 @@ export default function GettingStartedPage() {
       </PageSection>
       <PageSection title="Base CSS file">
         <p>
-          Import ABC Def from CSS processed by Tailwind CSS v4. Use this file
-          as the base stylesheet and adjust the `@source` paths for your app.
+          Import ABC Def from CSS processed by Tailwind CSS v4. Use this file as
+          the base stylesheet and adjust the `@source` paths for your app.
         </p>
         <CodeBlock code={stylesheetSnippet} language="css" />
       </PageSection>

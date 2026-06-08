@@ -3,7 +3,7 @@
   --alert-fg-default: var(--surface-foreground);
 
   --alert-bg-destructive: var(--surface);
-  --alert-fg-destructive: var(--destructive);
+  --alert-fg-destructive: var(--destructive-foreground);
 
   --alert-title-fg-link: var(--foreground);
 
