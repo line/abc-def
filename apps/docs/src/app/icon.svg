@@ -1,7 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#18181b" />
-  <path
-    fill="#fafafa"
-    d="M31.7 14h4.9l17 36h-7.5l-3.6-8H25.4l-3.5 8h-7.4l17.2-36Zm8.4 22.4-6.2-14-6.1 14h12.3Z"
-  />
+<svg width="98" height="98" viewBox="0 0 98 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1.1025" y="1.1025" width="95.795" height="95.795" rx="23.3975" fill="white"/>
+<rect x="1.1025" y="1.1025" width="95.795" height="95.795" rx="23.3975" fill="url(#paint0_linear_4637_5443)" fill-opacity="0.3"/>
+<rect x="1.1025" y="1.1025" width="95.795" height="95.795" rx="23.3975" stroke="#E4E8EE" stroke-width="2.205"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M74.3332 34.3333L48.9998 19.6666L23.6665 34.3333V63.6666L48.9998 78.3333L74.3332 63.6666V34.3333ZM56.1835 42H42.1835V56H56.1835V42Z" fill="black"/>
+<defs>
+<linearGradient id="paint0_linear_4637_5443" x1="49" y1="0" x2="49" y2="98" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#D0D5DD"/>
+</linearGradient>
+</defs>
 </svg>

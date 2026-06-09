@@ -90,10 +90,8 @@
 }
 
 .docs-brand {
-  font-size: 1.05rem;
-  font-weight: 700;
+  color: var(--foreground);
 }
-
 .docs-top-nav {
   color: var(--muted-foreground);
   display: flex;
@@ -447,6 +445,35 @@
 
 .docs-token-table {
   min-width: 48rem;
+}
+
+.docs-tier-diagram {
+  border-radius: var(--radius-lg);
+  width: 100%;
+}
+
+.docs-comparison-table {
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.docs-comparison-table th,
+.docs-comparison-table td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.docs-comparison-table thead th {
+  background: var(--muted);
+  font-weight: 600;
+}
+
+.docs-comparison-table tbody td[rowspan] {
+  background: var(--surface);
+  font-weight: 500;
 }
 
 .docs-token-table code,
