@@ -26,7 +26,7 @@ export default function PlaygroundPage() {
     <>
       <PageHeader
         eyebrow="Playground"
-        title="Edit semantic and component tokens against every React example."
+        title="Playground"
         description="Primitive color tokens stay read-only in token chains. The playground scopes overrides to the preview root so edits do not leak into the docs shell."
       />
       <PlaygroundClient
