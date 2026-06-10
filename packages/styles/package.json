@@ -1,0 +1,49 @@
+{
+  "name": "@line/abc-def-styles",
+  "version": "2.0.0",
+  "description": "Shared design tokens and Tailwind CSS v4 styling contract for the ABC Def design system",
+  "license": "Apache-2.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/line/abc-def.git",
+    "directory": "packages/styles"
+  },
+  "bugs": {
+    "url": "https://github.com/line/abc-def/issues"
+  },
+  "homepage": "https://github.com/line/abc-def/tree/main/packages/styles#readme",
+  "keywords": [
+    "abc-def",
+    "design-system",
+    "css",
+    "tokens",
+    "tailwindcss"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "style": "./src/index.css",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "exports": {
+    "./css": "./src/index.css"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "echo \"No JS/TS sources to lint in @line/abc-def-styles\""
+  },
+  "devDependencies": {
+    "@line/abc-def-prettier-config": "workspace:^",
+    "prettier": "catalog:",
+    "tailwindcss": "catalog:"
+  },
+  "prettier": "@line/abc-def-prettier-config"
+}

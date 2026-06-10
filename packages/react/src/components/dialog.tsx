@@ -13,225 +13,155 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import * as React from "react";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Slot } from "@radix-ui/react-slot";
-import { cva } from "class-variance-authority";
+import { XIcon } from "lucide-react";
+import { Dialog as DialogPrimitive } from "radix-ui";
 
-import type { Radius } from "../types";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 import { Button } from "./button";
-import { Icon } from "./icon";
-import { ScrollArea, ScrollBar } from "./scroll-area";
-import useTheme from "./use-theme";
 
-const Dialog = DialogPrimitive.Root;
-
-const DialogTrigger = React.forwardRef<
-  React.ComponentRef<typeof DialogPrimitive.Trigger>,
-  DialogPrimitive.DialogTriggerProps &
-    React.ComponentPropsWithoutRef<typeof Button>
->(({ variant = "outline", children, ...props }, ref) => {
-  if (props.asChild) {
-    return (
-      <DialogPrimitive.Trigger ref={ref} {...props}>
-        {children}
-      </DialogPrimitive.Trigger>
-    );
-  }
-
-  return (
-    <DialogPrimitive.Trigger asChild>
-      <Button variant={variant} ref={ref} {...props}>
-        {children}
-      </Button>
-    </DialogPrimitive.Trigger>
-  );
-});
-DialogTrigger.displayName = DialogPrimitive.DialogTrigger.displayName;
-
-const DialogPortal = DialogPrimitive.Portal;
-
-const DialogClose = React.forwardRef<
-  React.ComponentRef<typeof Button>,
-  React.ComponentPropsWithoutRef<typeof Button>
->(({ variant, ...props }, ref) => (
-  <DialogPrimitive.Close asChild>
-    <Button ref={ref} variant={variant ?? "outline"} {...props} />
-  </DialogPrimitive.Close>
-));
-DialogClose.displayName = "DialogClose";
-
-const DialogOverlay = React.forwardRef<
-  React.ComponentRef<typeof DialogPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
-    ref={ref}
-    className={cn("dialog", className)}
-    {...props}
-  />
-));
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
-
-const dialogContentVariants = cva("dialog-content", {
-  variants: {
-    radius: {
-      large: "dialog-content-radius-large",
-      medium: "dialog-content-radius-medium",
-      small: "dialog-content-radius-small",
-    },
-    defaultVariants: {
-      radius: undefined,
-    },
-  },
-});
-
-interface DialogContentProps
-  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
-  radius?: Radius;
+function Dialog({
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Root>) {
+  return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
 
-const DialogContent = React.forwardRef<
-  React.ComponentRef<typeof DialogPrimitive.Content>,
-  DialogContentProps
->(({ radius, className, children, ...props }, ref) => {
-  const { themeRadius } = useTheme();
+function DialogTrigger({
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
+  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
+}
+
+function DialogPortal({
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Portal>) {
+  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
+}
+
+function DialogClose({
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Close>) {
+  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
+}
+
+function DialogOverlay({
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
+  return (
+    <DialogPrimitive.Overlay
+      data-slot="dialog-overlay"
+      className={cn("dialog-overlay", className)}
+      {...props}
+    />
+  );
+}
+
+function DialogContent({
+  className,
+  children,
+  showCloseButton = true,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Content> & {
+  showCloseButton?: boolean;
+}) {
   return (
     <DialogPortal>
-      <DialogOverlay>
-        <DialogPrimitive.Content
-          ref={ref}
-          className={cn(
-            dialogContentVariants({ radius: radius ?? themeRadius, className }),
-          )}
-          {...props}
-        >
-          {children}
-          <DialogPrimitive.Close asChild>
+      <DialogOverlay />
+      <DialogPrimitive.Content
+        data-slot="dialog-content"
+        className={cn("dialog-content", className)}
+        {...props}
+      >
+        {children}
+        {showCloseButton && (
+          <DialogPrimitive.Close data-slot="dialog-close" asChild>
             <Button
-              size="medium"
               variant="ghost"
-              className="dialog-close"
-              aria-label="Close"
+              className="absolute top-2 right-2"
+              size="icon-sm"
             >
-              <Icon name="RiCloseLine" />
+              <XIcon />
+              <span className="sr-only">Close</span>
             </Button>
           </DialogPrimitive.Close>
-        </DialogPrimitive.Content>
-      </DialogOverlay>
+        )}
+      </DialogPrimitive.Content>
     </DialogPortal>
   );
-});
-DialogContent.displayName = DialogPrimitive.Content.displayName;
-
-interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  direction?: "vertical" | "horizontal";
 }
 
-const dialogHeaderVariants = cva("dialog-header", {
-  variants: {
-    direction: {
-      vertical: "dialog-header-vertical",
-      horizontal: "dialog-header-horizontal",
-    },
-    defaultVariants: {
-      direction: "vertical",
-    },
-  },
-});
-
-const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>(
-  ({ direction = "vertical", className, ...props }, ref) => (
+function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
+  return (
     <div
-      ref={ref}
-      className={cn(dialogHeaderVariants({ direction, className }))}
+      data-slot="dialog-header"
+      className={cn("dialog-header", className)}
       {...props}
     />
-  ),
-);
-DialogHeader.displayName = "DialogHeader";
-
-const dialogFooterVariants = cva("dialog-footer", {
-  variants: {
-    align: {
-      left: "dialog-footer-left",
-      right: "dialog-footer-right",
-      center: "dialog-footer-center",
-      between: "dialog-footer-between",
-      full: "dialog-footer-full",
-    },
-    defaultVariants: {
-      align: "right",
-    },
-  },
-});
-
-interface DialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
-  asChild?: boolean;
-}
-const DialogBody = React.forwardRef<HTMLDivElement, DialogBodyProps>(
-  ({ asChild, className, ...props }, ref) => {
-    const Comp = asChild ? Slot : "div";
-    return (
-      <ScrollArea ref={ref}>
-        <Comp className={cn("dialog-body", className)} {...props} />
-        <ScrollBar />
-      </ScrollArea>
-    );
-  },
-);
-DialogBody.displayName = "DialogBody";
-
-interface DialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  align?: "left" | "right" | "center" | "between" | "full";
+  );
 }
 
-const DialogFooter = React.forwardRef<HTMLDivElement, DialogFooterProps>(
-  ({ align = "right", className, ...props }: DialogFooterProps, ref) => (
+function DialogFooter({
+  className,
+  showCloseButton = false,
+  children,
+  ...props
+}: React.ComponentProps<"div"> & {
+  showCloseButton?: boolean;
+}) {
+  return (
     <div
-      className={cn(dialogFooterVariants({ align, className }))}
+      data-slot="dialog-footer"
+      className={cn("dialog-footer", className)}
       {...props}
-      ref={ref}
+    >
+      {children}
+      {showCloseButton && (
+        <DialogPrimitive.Close asChild>
+          <Button variant="outline">Close</Button>
+        </DialogPrimitive.Close>
+      )}
+    </div>
+  );
+}
+
+function DialogTitle({
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Title>) {
+  return (
+    <DialogPrimitive.Title
+      data-slot="dialog-title"
+      className={cn("dialog-title", className)}
+      {...props}
     />
-  ),
-);
-DialogFooter.displayName = "DialogFooter";
+  );
+}
 
-const DialogTitle = React.forwardRef<
-  React.ComponentRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
-    ref={ref}
-    className={cn("dialog-title", className)}
-    {...props}
-  />
-));
-DialogTitle.displayName = DialogPrimitive.Title.displayName;
-
-const DialogDescription = React.forwardRef<
-  React.ComponentRef<typeof DialogPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
-    ref={ref}
-    className={cn("dialog-description", className)}
-    {...props}
-  />
-));
-DialogDescription.displayName = DialogPrimitive.Description.displayName;
+function DialogDescription({
+  className,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Description>) {
+  return (
+    <DialogPrimitive.Description
+      data-slot="dialog-description"
+      className={cn("dialog-description", className)}
+      {...props}
+    />
+  );
+}
 
 export {
   Dialog,
-  DialogPortal,
-  DialogOverlay,
   DialogClose,
-  DialogTrigger,
   DialogContent,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-  DialogTitle,
   DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
 };

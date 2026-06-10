@@ -1,0 +1,8 @@
+{
+  "extends": "../../tooling/typescript/base.json",
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"]
+  },
+  "include": ["vite.config.ts", "src/**/*.ts", "src/env.d.ts"]
+}

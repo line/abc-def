@@ -1,0 +1,48 @@
+:root {
+  --drawer-overlay-bg: rgb(0 0 0 / 0.1);
+  --drawer-content-bg: var(--popover);
+  --drawer-content-fg: var(--popover-foreground);
+  --drawer-content-border: var(--border);
+  --drawer-handle-bg: var(--muted);
+  --drawer-description-fg: var(--muted-foreground);
+}
+
+@layer components {
+  .drawer-overlay {
+    @apply fixed inset-0 z-50 bg-(--drawer-overlay-bg) duration-100 supports-backdrop-filter:backdrop-blur-xs;
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0;
+  }
+
+  .drawer-content {
+    @apply fixed z-50 flex h-auto flex-col text-sm;
+    @apply border-(--drawer-content-border) bg-(--drawer-content-bg) text-(--drawer-content-fg);
+    @apply data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=bottom]:rounded-t-xl data-[vaul-drawer-direction=bottom]:border-t;
+    @apply data-[vaul-drawer-direction=left]:inset-y-0 data-[vaul-drawer-direction=left]:left-0 data-[vaul-drawer-direction=left]:w-3/4 data-[vaul-drawer-direction=left]:rounded-r-xl data-[vaul-drawer-direction=left]:border-r;
+    @apply data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:rounded-l-xl data-[vaul-drawer-direction=right]:border-l;
+    @apply data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=top]:rounded-b-xl data-[vaul-drawer-direction=top]:border-b;
+    @apply data-[vaul-drawer-direction=left]:sm:max-w-sm data-[vaul-drawer-direction=right]:sm:max-w-sm;
+  }
+
+  .drawer-handle {
+    @apply mx-auto mt-4 hidden h-1 w-[100px] shrink-0 rounded-full bg-(--drawer-handle-bg);
+    @apply [.drawer-content[data-vaul-drawer-direction=bottom]_&]:block;
+  }
+
+  .drawer-header {
+    @apply flex flex-col gap-0.5 p-4 md:text-left;
+    @apply [.drawer-content[data-vaul-drawer-direction=bottom]_&]:text-center;
+    @apply [.drawer-content[data-vaul-drawer-direction=top]_&]:text-center;
+  }
+
+  .drawer-footer {
+    @apply mt-auto flex flex-col gap-2 p-4;
+  }
+
+  .drawer-title {
+    @apply text-base font-medium tracking-tight;
+  }
+
+  .drawer-description {
+    @apply text-sm text-(--drawer-description-fg);
+  }
+}

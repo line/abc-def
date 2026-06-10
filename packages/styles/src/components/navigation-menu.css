@@ -1,0 +1,101 @@
+:root {
+  --navigation-menu-trigger-bg: var(--background);
+  --navigation-menu-trigger-bg-hover: var(--accent);
+  --navigation-menu-trigger-fg-hover: var(--accent-foreground);
+  --navigation-menu-trigger-bg-open: color-mix(
+    in oklab,
+    var(--accent) 50%,
+    transparent
+  );
+  --navigation-menu-trigger-fg-open: var(--accent-foreground);
+  --navigation-menu-trigger-ring: var(--ring);
+  --navigation-menu-trigger-icon-fg: currentColor;
+
+  --navigation-menu-content-bg: var(--popover);
+  --navigation-menu-content-fg: var(--popover-foreground);
+  --navigation-menu-content-border: var(--border);
+
+  --navigation-menu-link-bg-hover: var(--accent);
+  --navigation-menu-link-fg-hover: var(--accent-foreground);
+  --navigation-menu-link-bg-active: color-mix(
+    in oklab,
+    var(--accent) 50%,
+    transparent
+  );
+  --navigation-menu-link-fg-active: var(--accent-foreground);
+  --navigation-menu-link-ring: var(--ring);
+  --navigation-menu-link-icon-fg: var(--muted-foreground);
+
+  --navigation-menu-indicator-bg: var(--border);
+}
+
+@layer components {
+  .navigation-menu {
+    @apply relative flex max-w-max flex-1 items-center justify-center;
+  }
+
+  .navigation-menu-list {
+    @apply flex flex-1 list-none items-center justify-center gap-1;
+  }
+
+  .navigation-menu-item {
+    @apply relative;
+  }
+
+  .navigation-menu-trigger {
+    @apply inline-flex h-9 w-max items-center justify-center rounded-md bg-(--navigation-menu-trigger-bg) px-4 py-2 text-sm font-medium outline-none;
+    @apply transition-[color,background-color,box-shadow];
+    @apply focus-visible:ring-3 focus-visible:ring-(--navigation-menu-trigger-ring)/50 focus-visible:outline-1;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply hover:bg-(--navigation-menu-trigger-bg-hover) hover:text-(--navigation-menu-trigger-fg-hover);
+    @apply focus:bg-(--navigation-menu-trigger-bg-hover) focus:text-(--navigation-menu-trigger-fg-hover);
+    @apply data-[state=open]:bg-(--navigation-menu-trigger-bg-open) data-[state=open]:text-(--navigation-menu-trigger-fg-open);
+    @apply data-[state=open]:hover:bg-(--navigation-menu-trigger-bg-hover) data-[state=open]:focus:bg-(--navigation-menu-trigger-bg-hover);
+  }
+
+  .navigation-menu-trigger-icon {
+    @apply relative top-[1px] ml-1 size-3 text-(--navigation-menu-trigger-icon-fg) transition duration-300;
+    @apply [.navigation-menu-trigger[data-state=open]_&]:rotate-180;
+  }
+
+  .navigation-menu-content {
+    @apply top-0 left-0 w-full p-2 pr-2.5 md:absolute md:w-auto;
+    @apply data-[motion=from-start]:animate-in data-[motion=from-start]:fade-in data-[motion=from-start]:slide-in-from-left-52;
+    @apply data-[motion=from-end]:animate-in data-[motion=from-end]:fade-in data-[motion=from-end]:slide-in-from-right-52;
+    @apply data-[motion=to-start]:animate-out data-[motion=to-start]:fade-out data-[motion=to-start]:slide-out-to-left-52;
+    @apply data-[motion=to-end]:animate-out data-[motion=to-end]:fade-out data-[motion=to-end]:slide-out-to-right-52;
+    @apply [.navigation-menu[data-viewport=false]_&]:top-full [.navigation-menu[data-viewport=false]_&]:mt-1.5 [.navigation-menu[data-viewport=false]_&]:overflow-hidden [.navigation-menu[data-viewport=false]_&]:rounded-md [.navigation-menu[data-viewport=false]_&]:border [.navigation-menu[data-viewport=false]_&]:border-(--navigation-menu-content-border) [.navigation-menu[data-viewport=false]_&]:bg-(--navigation-menu-content-bg) [.navigation-menu[data-viewport=false]_&]:text-(--navigation-menu-content-fg) [.navigation-menu[data-viewport=false]_&]:shadow [.navigation-menu[data-viewport=false]_&]:duration-200;
+    @apply [.navigation-menu[data-viewport=false]_&[data-state=open]]:animate-in [.navigation-menu[data-viewport=false]_&[data-state=open]]:fade-in-0 [.navigation-menu[data-viewport=false]_&[data-state=open]]:zoom-in-95;
+    @apply [.navigation-menu[data-viewport=false]_&[data-state=closed]]:animate-out [.navigation-menu[data-viewport=false]_&[data-state=closed]]:fade-out-0 [.navigation-menu[data-viewport=false]_&[data-state=closed]]:zoom-out-95;
+  }
+
+  .navigation-menu-viewport-position {
+    @apply absolute top-full left-0 isolate z-50 flex justify-center;
+  }
+
+  .navigation-menu-viewport {
+    @apply relative mt-1.5 h-(--radix-navigation-menu-viewport-height) w-full origin-top overflow-hidden rounded-md border border-(--navigation-menu-content-border) bg-(--navigation-menu-content-bg) text-(--navigation-menu-content-fg) shadow;
+    @apply md:w-(--radix-navigation-menu-viewport-width);
+    @apply data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95;
+  }
+
+  .navigation-menu-link {
+    @apply flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none;
+    @apply [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*=text-])]:text-(--navigation-menu-link-icon-fg);
+    @apply focus-visible:ring-3 focus-visible:ring-(--navigation-menu-link-ring)/50 focus-visible:outline-1;
+    @apply hover:bg-(--navigation-menu-link-bg-hover) hover:text-(--navigation-menu-link-fg-hover);
+    @apply focus:bg-(--navigation-menu-link-bg-hover) focus:text-(--navigation-menu-link-fg-hover);
+    @apply data-[active=true]:bg-(--navigation-menu-link-bg-active) data-[active=true]:text-(--navigation-menu-link-fg-active);
+    @apply data-[active=true]:hover:bg-(--navigation-menu-link-bg-hover) data-[active=true]:focus:bg-(--navigation-menu-link-bg-hover);
+  }
+
+  .navigation-menu-indicator {
+    @apply top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden;
+    @apply data-[state=visible]:animate-in data-[state=visible]:fade-in;
+    @apply data-[state=hidden]:animate-out data-[state=hidden]:fade-out;
+  }
+
+  .navigation-menu-indicator-arrow {
+    @apply relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-(--navigation-menu-indicator-bg) shadow-md;
+  }
+}

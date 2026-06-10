@@ -1,0 +1,42 @@
+:root {
+  --dialog-overlay-bg: rgb(0 0 0 / 0.1);
+  --dialog-content-bg: var(--popover);
+  --dialog-content-fg: var(--popover-foreground);
+  --dialog-content-border: color-mix(
+    in oklab,
+    var(--foreground) 10%,
+    transparent
+  );
+  --dialog-footer-bg: color-mix(in oklab, var(--muted) 50%, transparent);
+  --dialog-footer-border: var(--border);
+  --dialog-description-fg: var(--muted-foreground);
+}
+
+@layer components {
+  .dialog-overlay {
+    @apply fixed inset-0 isolate z-50 bg-(--dialog-overlay-bg) duration-100 supports-backdrop-filter:backdrop-blur-xs;
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0;
+  }
+
+  .dialog-content {
+    @apply fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border border-(--dialog-content-border) bg-(--dialog-content-bg) p-4 text-sm text-(--dialog-content-fg) duration-100 outline-none sm:max-w-sm;
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
+  }
+
+  .dialog-header {
+    @apply flex flex-col gap-2;
+  }
+
+  .dialog-footer {
+    @apply -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t border-(--dialog-footer-border) bg-(--dialog-footer-bg) p-4 sm:flex-row sm:justify-end;
+  }
+
+  .dialog-title {
+    @apply text-base leading-none font-medium tracking-tight;
+  }
+
+  .dialog-description {
+    @apply text-sm text-(--dialog-description-fg);
+    @apply [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-(--foreground);
+  }
+}

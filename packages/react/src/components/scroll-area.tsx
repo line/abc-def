@@ -13,77 +13,55 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
 
 import * as React from "react";
-import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
-import { cva } from "class-variance-authority";
+import { ScrollArea as ScrollAreaPrimitive } from "radix-ui";
 
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 
-const scrollBarVariants = cva("scroll-bar", {
-  variants: {
-    orientation: {
-      vertical: "scroll-bar-vertical",
-      horizontal: "scroll-bar-horizontal",
-    },
-  },
-  defaultVariants: {
-    orientation: "vertical",
-  },
-});
-
-const ScrollArea = React.forwardRef<
-  React.ElementRef<typeof ScrollAreaPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> & {
-    maxWidth?: string;
-    maxHeight?: string;
-  }
->(
-  (
-    {
-      type = "auto",
-      maxWidth,
-      maxHeight,
-      className,
-      children,
-      style,
-      ...props
-    },
-    ref,
-  ) => (
+function ScrollArea({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {
+  return (
     <ScrollAreaPrimitive.Root
-      ref={ref}
-      type={type}
+      data-slot="scroll-area"
       className={cn("scroll-area", className)}
-      style={{ ...style, maxWidth }}
       {...props}
     >
       <ScrollAreaPrimitive.Viewport
+        data-slot="scroll-area-viewport"
         className="scroll-area-viewport"
-        style={{ maxHeight }}
       >
         {children}
       </ScrollAreaPrimitive.Viewport>
       <ScrollBar />
       <ScrollAreaPrimitive.Corner />
     </ScrollAreaPrimitive.Root>
-  ),
-);
-ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName;
+  );
+}
 
-const ScrollBar = React.forwardRef<
-  React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
-  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
->(({ className, orientation = "vertical", ...props }, ref) => (
-  <ScrollAreaPrimitive.ScrollAreaScrollbar
-    ref={ref}
-    orientation={orientation}
-    className={cn(scrollBarVariants({ orientation, className }))}
-    {...props}
-  >
-    <ScrollAreaPrimitive.ScrollAreaThumb className="scroll-thumb" />
-  </ScrollAreaPrimitive.ScrollAreaScrollbar>
-));
-ScrollBar.displayName = ScrollAreaPrimitive.ScrollAreaScrollbar.displayName;
+function ScrollBar({
+  className,
+  orientation = "vertical",
+  ...props
+}: React.ComponentProps<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>) {
+  return (
+    <ScrollAreaPrimitive.ScrollAreaScrollbar
+      data-slot="scroll-area-scrollbar"
+      data-orientation={orientation}
+      orientation={orientation}
+      className={cn("scroll-area-scrollbar", className)}
+      {...props}
+    >
+      <ScrollAreaPrimitive.ScrollAreaThumb
+        data-slot="scroll-area-thumb"
+        className="scroll-area-thumb"
+      />
+    </ScrollAreaPrimitive.ScrollAreaScrollbar>
+  );
+}
 
 export { ScrollArea, ScrollBar };

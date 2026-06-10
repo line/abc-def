@@ -13,91 +13,57 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-import type { TooltipProviderProps } from "@radix-ui/react-tooltip";
+"use client";
+
 import * as React from "react";
-import { Slottable } from "@radix-ui/react-slot";
-import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { cva } from "class-variance-authority";
+import { Tooltip as TooltipPrimitive } from "radix-ui";
 
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 
-const tooltipVariants = cva("tooltip", {
-  variants: {
-    textAlign: {
-      left: "tooltip-text-left",
-      center: "tooltip-text-center",
-      right: "tooltip-text-right",
-    },
-    defaultVariants: {
-      textAlign: "center",
-    },
-  },
-});
-
-const TooltipProvider = ({
-  delayDuration = 100,
+function TooltipProvider({
+  delayDuration = 0,
   ...props
-}: TooltipProviderProps) => (
-  <TooltipPrimitive.Provider delayDuration={delayDuration} {...props} />
-);
-
-const Tooltip = TooltipPrimitive.Root;
-
-const TooltipTrigger = TooltipPrimitive.Trigger;
-
-interface TooltipContentProps
-  extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {
-  textAlign?: "left" | "center" | "right";
+}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
+  return (
+    <TooltipPrimitive.Provider
+      data-slot="tooltip-provider"
+      delayDuration={delayDuration}
+      {...props}
+    />
+  );
 }
 
-const TooltipContent = React.forwardRef<
-  React.ComponentRef<typeof TooltipPrimitive.Content>,
-  TooltipContentProps
->(
-  (
-    {
-      title,
-      children,
-      className,
-      side,
-      sideOffset = 4,
-      textAlign = "center",
-      ...props
-    },
-    ref,
-  ) => (
-    <TooltipPrimitive.Content
-      ref={ref}
-      side={side}
-      sideOffset={sideOffset}
-      className={cn(tooltipVariants({ textAlign, className }))}
-      {...props}
-    >
-      {title && <strong className={cn("tooltip-title")}>{title}</strong>}
-      <Slottable>{children}</Slottable>
-      {side !== undefined && (
-        <>
-          <TooltipPrimitive.TooltipArrow
-            width={10}
-            height={6}
-            className={cn("tooltip-arrow-border")}
-          />
-          <TooltipPrimitive.TooltipArrow
-            width={8}
-            height={5}
-            className={cn("tooltip-arrow")}
-          />
-        </>
-      )}
-    </TooltipPrimitive.Content>
-  ),
-);
-TooltipContent.displayName = TooltipPrimitive.Content.displayName;
+function Tooltip({
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Root>) {
+  return <TooltipPrimitive.Root data-slot="tooltip" {...props} />;
+}
 
-export {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-  type TooltipContentProps,
-};
+function TooltipTrigger({
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
+  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
+}
+
+function TooltipContent({
+  className,
+  sideOffset = 0,
+  children,
+  ...props
+}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
+  return (
+    <TooltipPrimitive.Portal>
+      <TooltipPrimitive.Content
+        data-slot="tooltip-content"
+        sideOffset={sideOffset}
+        className={cn("tooltip-content", className)}
+        {...props}
+      >
+        {children}
+        <TooltipPrimitive.Arrow className="tooltip-arrow" />
+      </TooltipPrimitive.Content>
+    </TooltipPrimitive.Portal>
+  );
+}
+
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };

@@ -1,0 +1,30 @@
+<fieldset class="field-set" data-slot="field-set">
+  <legend class="field-legend field-legend-variant-label" data-slot="field-legend" data-variant="label">Choose a billing plan</legend>
+  <p class="field-description" data-slot="field-description">Only one option can be active at a time.</p>
+  <div class="radio-group" data-slot="radio-group" role="radiogroup" data-demo-radio-group>
+    <div class="field field-orientation-horizontal" data-slot="field">
+      <button id="html-radio-monthly" class="peer radio-group-item" type="button" role="radio" aria-checked="true" data-slot="radio-group-item" data-demo-radio-item data-state="checked" data-checked>
+        <span class="radio-group-indicator" data-slot="radio-group-indicator">
+          <span class="radio-group-indicator-dot"></span>
+        </span>
+      </button>
+      <label class="label field-label" for="html-radio-monthly">Monthly ($19.99)</label>
+    </div>
+    <div class="field field-orientation-horizontal" data-slot="field">
+      <button id="html-radio-yearly" class="peer radio-group-item" type="button" role="radio" aria-checked="false" data-slot="radio-group-item" data-demo-radio-item data-state="unchecked">
+        <span class="radio-group-indicator" data-slot="radio-group-indicator" hidden>
+          <span class="radio-group-indicator-dot"></span>
+        </span>
+      </button>
+      <label class="label field-label" for="html-radio-yearly">Yearly ($199.99)</label>
+    </div>
+    <div class="field field-orientation-horizontal" data-slot="field">
+      <button id="html-radio-lifetime" class="peer radio-group-item" type="button" role="radio" aria-checked="false" data-slot="radio-group-item" data-demo-radio-item data-state="unchecked">
+        <span class="radio-group-indicator" data-slot="radio-group-indicator" hidden>
+          <span class="radio-group-indicator-dot"></span>
+        </span>
+      </button>
+      <label class="label field-label" for="html-radio-lifetime">Lifetime ($299.99)</label>
+    </div>
+  </div>
+</fieldset>

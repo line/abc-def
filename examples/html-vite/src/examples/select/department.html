@@ -1,0 +1,57 @@
+<div class="field field-orientation-vertical" data-slot="field">
+  <label class="label field-label" for="html-demo-select-trigger">Department</label>
+  <p class="field-description" data-slot="field-description">Open the list and pick one of the available teams.</p>
+  <div class="demo-select-shell" data-demo-select>
+    <button id="html-demo-select-trigger" class="select-trigger" type="button" data-size="default" data-slot="select-trigger" aria-expanded="false" aria-haspopup="listbox" data-placeholder>
+      <span class="select-value" data-slot="select-value" data-select-value>Choose department</span>
+      <svg class="demo-icon select-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+    </button>
+    <div class="select-content" data-slot="select-content" data-state="closed" data-align-trigger="true" data-side="bottom" hidden style="--radix-select-content-available-height: 16rem; --radix-select-content-transform-origin: top center;">
+      <div class="select-viewport" data-position="item-aligned">
+        <div class="select-group" data-slot="select-group">
+          <div class="select-label" data-slot="select-label">Core Teams</div>
+          <button class="select-item" type="button" role="option" data-select-item data-value="engineering">
+            <span class="select-item-indicator" hidden>
+              <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+            </span>
+            <span class="select-item-text" data-slot="select-item-text">Engineering</span>
+          </button>
+          <button class="select-item" type="button" role="option" data-select-item data-value="design">
+            <span class="select-item-indicator" hidden>
+              <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+            </span>
+            <span class="select-item-text" data-slot="select-item-text">Design</span>
+          </button>
+          <button class="select-item" type="button" role="option" data-select-item data-value="product">
+            <span class="select-item-indicator" hidden>
+              <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+            </span>
+            <span class="select-item-text" data-slot="select-item-text">Product</span>
+          </button>
+        </div>
+        <div class="select-separator" data-slot="select-separator"></div>
+        <div class="select-group" data-slot="select-group">
+          <div class="select-label" data-slot="select-label">Go-to-market</div>
+          <button class="select-item" type="button" role="option" data-select-item data-value="marketing">
+            <span class="select-item-indicator" hidden>
+              <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+            </span>
+            <span class="select-item-text" data-slot="select-item-text">Marketing</span>
+          </button>
+          <button class="select-item" type="button" role="option" data-select-item data-value="sales">
+            <span class="select-item-indicator" hidden>
+              <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+            </span>
+            <span class="select-item-text" data-slot="select-item-text">Sales</span>
+          </button>
+          <button class="select-item" type="button" role="option" data-select-item data-value="support">
+            <span class="select-item-indicator" hidden>
+              <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+            </span>
+            <span class="select-item-text" data-slot="select-item-text">Support</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

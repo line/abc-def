@@ -2,9 +2,17 @@ name: Publish Packages
 
 on:
   push:
-    tags:
-      - "v*"
+    branches: ["main"]
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
 
 jobs:
   release:
@@ -17,11 +25,14 @@ jobs:
       - name: Setup
         uses: ./tooling/github/setup
 
-      - name: Build packages
+      - name: Validate packages
         run: pnpm build
 
-      - name: Write .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_JS }}" >> .npmrc
-
-      - name: Publish
-        run: pnpm release --no-git-checks
+      - name: Create release pull request or publish
+        uses: changesets/action@v1
+        with:
+          version: pnpm version-packages
+          publish: pnpm release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

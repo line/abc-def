@@ -13,142 +13,82 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
-import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
+import { Slot } from "radix-ui";
 
-import type { ButtonVariant, Radius, Size } from "../lib/types";
-import { cn, composeRefs } from "../lib/utils";
-import { Spinner } from "./spinner";
-import useTheme from "./use-theme";
+import { cn } from "../lib/utils";
 
-const defaultVariants: {
-  variant: ButtonVariant;
-  size?: Size;
-  radius?: Radius;
-  loading?: boolean;
-} = {
-  variant: "primary",
-  size: undefined,
-  radius: undefined,
-  loading: false,
-};
-
-const buttonVariants = cva("button", {
+export const buttonVariants = cva("button", {
   variants: {
     variant: {
-      primary: "button-primary",
-      secondary: "button-secondary",
-      destructive: "button-destructive",
-      ghost: "button-ghost",
-      outline: "button-outline",
+      default: "button-variant-default",
+      secondary: "button-variant-secondary",
+      destructive: "button-variant-destructive",
+      ghost: "button-variant-ghost",
+      link: "button-variant-link",
+      outline: "button-variant-outline",
     },
     size: {
-      small: "button-small",
-      medium: "button-medium",
-      large: "button-large",
+      xs: "button-size-xs",
+      sm: "button-size-sm",
+      default: "button-size-default",
+      lg: "button-size-lg",
+      xl: "button-size-xl",
+      icon: "button-size-icon",
+      "icon-xs": "button-size-icon-xs",
+      "icon-sm": "button-size-icon-sm",
+      "icon-lg": "button-size-icon-lg",
+      "icon-xl": "button-size-icon-xl",
     },
-    radius: {
-      small: "button-radius-small",
-      medium: "button-radius-medium",
-      large: "button-radius-large",
-    },
-    loading: {
-      true: "!text-transparent [&>*:not(.button-loading)]:!invisible",
-      false: "",
-    },
-  },
-  defaultVariants,
-});
-
-const buttonLoadingVariants = cva("button-loading", {
-  variants: {
-    variant: {
-      primary: "button-loading-primary",
-      secondary: "button-loading-secondary",
-      destructive: "button-loading-destructive",
-      ghost: "button-loading-ghost",
-      outline: "button-loading-outline",
+    rounded: {
+      xs: "button-rounded-xs",
+      sm: "button-rounded-sm",
+      default: "button-rounded-default",
+      lg: "button-rounded-lg",
+      xl: "button-rounded-xl",
     },
   },
-  defaultVariants,
+  defaultVariants: {
+    variant: "default",
+    size: "default",
+    rounded: "default",
+  },
 });
 
-interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+export interface ButtonProps
+  extends
+    React.ComponentPropsWithoutRef<"button">,
     VariantProps<typeof buttonVariants> {
-  variant?: ButtonVariant;
-  size?: Size;
-  radius?: Radius;
-  loading?: boolean;
   asChild?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      type = "button",
-      variant = "primary",
-      size,
-      radius,
-      disabled = false,
-      loading = false,
-      asChild = false,
-      children,
-      ...props
-    },
-    ref,
-  ) => {
-    const Comp = asChild ? Slot : "button";
-    const { themeSize, themeRadius } = useTheme();
-    const buttonRef = React.useRef<HTMLButtonElement>(null);
-
-    React.useEffect(() => {
-      if (!buttonRef.current) return;
-
-      const childNodes = buttonRef.current.childNodes;
-      const isSvgOnly = Array.from(childNodes).every(
-        (node) =>
-          ((node as HTMLElement).nodeType === Node.ELEMENT_NODE &&
-            (node as HTMLElement).tagName.toLowerCase() === "svg") ||
-          ((node as HTMLElement).nodeType === Node.TEXT_NODE &&
-            !(node as HTMLElement).textContent.trim()),
-      );
-
-      if (isSvgOnly) {
-        buttonRef.current.classList.add("svg-only");
-      }
-    }, []);
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, rounded, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot.Root : "button";
 
     return (
       <Comp
+        data-slot="button"
+        data-variant={variant}
+        data-size={size}
+        data-rounded={rounded}
         className={cn(
           buttonVariants({
-            variant,
-            size: size ?? themeSize,
-            radius: radius ?? themeRadius,
-            loading,
+            variant: variant ?? "default",
+            size: size ?? "default",
+            rounded: rounded ?? "default",
             className,
           }),
         )}
-        type={type}
-        disabled={disabled || loading}
-        ref={composeRefs(buttonRef, ref)}
+        ref={ref}
         {...props}
-      >
-        <Slottable>{children}</Slottable>
-        {loading && (
-          <span className={cn(buttonLoadingVariants({ variant }))}>
-            <Spinner size={size ?? themeSize} />
-          </span>
-        )}
-      </Comp>
+      />
     );
   },
 );
 
 Button.displayName = "Button";
-
-export { Button, type ButtonProps, buttonVariants };

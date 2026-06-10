@@ -1,0 +1,37 @@
+:root {
+  --radio-group-item-border: var(--border-input);
+  --radio-group-item-ring: var(--ring);
+
+  --radio-group-item-border-destructive: var(--destructive);
+  --radio-group-item-border-destructive-checked: var(--primary);
+  --radio-group-item-border-checked: var(--primary);
+
+  --radio-group-item-bg-checked: var(--primary);
+  --radio-group-item-fg-checked: var(--primary-foreground);
+  --radio-group-indicator-dot-bg: var(--primary-foreground);
+}
+
+@layer components {
+  .radio-group {
+    @apply grid w-full gap-2;
+  }
+
+  .radio-group-item {
+    @apply relative flex aspect-square size-4 shrink-0 rounded-full border outline-none;
+    @apply border-(--radio-group-item-border);
+    @apply after:absolute after:-inset-x-3 after:-inset-y-2;
+    @apply focus-visible:border-(--radio-group-item-ring) focus-visible:ring-3 focus-visible:ring-(--radio-group-item-ring)/50;
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+    @apply aria-invalid:border-(--radio-group-item-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--radio-group-item-border-destructive)/20;
+    @apply aria-invalid:aria-checked:border-(--radio-group-item-border-destructive-checked);
+    @apply data-[state=checked]:border-(--radio-group-item-border-checked) data-[state=checked]:bg-(--radio-group-item-bg-checked) data-[state=checked]:text-(--radio-group-item-fg-checked);
+  }
+
+  .radio-group-indicator {
+    @apply flex size-4 items-center justify-center;
+  }
+
+  .radio-group-indicator-dot {
+    @apply absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--radio-group-indicator-dot-bg);
+  }
+}

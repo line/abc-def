@@ -1,0 +1,45 @@
+@layer components {
+  .table-container {
+    @apply relative w-full overflow-x-auto;
+  }
+
+  .table {
+    @apply w-full caption-bottom text-sm;
+  }
+
+  .table-header {
+    @apply [&_tr]:border-b;
+  }
+
+  .table-body {
+    @apply [&_tr:last-child]:border-0;
+  }
+
+  .table-footer {
+    @apply bg-muted/50 border-t font-medium [&>tr]:last:border-b-0;
+  }
+
+  .table-row {
+    @apply hover:bg-muted/50 data-[state=selected]:bg-muted has-aria-expanded:bg-muted/50 border-b transition-colors;
+  }
+
+  .table-head {
+    @apply text-foreground h-10 px-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0;
+  }
+
+  .table-cell {
+    @apply p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0;
+  }
+
+  .table-caption {
+    @apply text-muted-foreground mt-4 text-sm;
+  }
+
+  .table-empty {
+    @apply text-foreground p-4 align-middle text-sm whitespace-nowrap;
+  }
+
+  .table-empty-content {
+    @apply flex items-center justify-center py-10;
+  }
+}

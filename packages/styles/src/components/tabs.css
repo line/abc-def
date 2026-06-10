@@ -1,0 +1,72 @@
+:root {
+  --tabs-list-fg: var(--muted-foreground);
+  --tabs-list-bg: var(--muted);
+  --tabs-trigger-fg: color-mix(in oklab, var(--foreground) 60%, transparent);
+  --tabs-trigger-fg-hover: var(--foreground);
+  --tabs-trigger-fg-active: var(--foreground);
+  --tabs-trigger-bg-active: var(--background);
+  --tabs-trigger-border-active: transparent;
+  --tabs-trigger-ring: var(--ring);
+
+  --tabs-trigger-bg-active-line: var(--foreground);
+}
+
+.dark {
+  --tabs-trigger-fg: var(--muted-foreground);
+  --tabs-trigger-bg-active: color-mix(
+    in oklab,
+    var(--border-input) 30%,
+    transparent
+  );
+  --tabs-trigger-border-active: var(--border-input);
+}
+
+@layer components {
+  .tabs {
+    @apply flex gap-2 data-[orientation=horizontal]:flex-col;
+  }
+
+  .tabs-list {
+    @apply inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-(--tabs-list-fg) data-[variant=line]:rounded-none;
+    @apply [.tabs[data-orientation=horizontal]_&]:h-8 [.tabs[data-orientation=vertical]_&]:h-fit [.tabs[data-orientation=vertical]_&]:flex-col;
+  }
+
+  .tabs-list-default {
+    @apply bg-(--tabs-list-bg);
+  }
+
+  .tabs-list-line {
+    @apply gap-1 bg-transparent;
+  }
+
+  .tabs-trigger {
+    @apply relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-1.5 py-0.5 text-sm font-medium whitespace-nowrap transition-all;
+
+    @apply text-(--tabs-trigger-fg) hover:text-(--tabs-trigger-fg-hover);
+
+    @apply focus-visible:border-(--tabs-trigger-ring) focus-visible:ring-[3px] focus-visible:ring-(--tabs-trigger-ring)/50 focus-visible:outline-1 focus-visible:outline-(--tabs-trigger-ring);
+    @apply disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1 has-data-[icon=inline-start]:pl-1;
+    @apply [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+
+    @apply data-[state=active]:border-(--tabs-trigger-border-active) data-[state=active]:bg-(--tabs-trigger-bg-active) data-[state=active]:text-(--tabs-trigger-fg-active);
+    @apply after:absolute after:bg-(--tabs-trigger-bg-active-line) after:opacity-0 after:transition-opacity;
+
+    @apply [.tabs[data-orientation=horizontal]_&]:after:inset-x-0 [.tabs[data-orientation=horizontal]_&]:after:bottom-[-5px] [.tabs[data-orientation=horizontal]_&]:after:h-0.5;
+    @apply [.tabs[data-orientation=vertical]_&]:after:inset-y-0 [.tabs[data-orientation=vertical]_&]:after:-right-1 [.tabs[data-orientation=vertical]_&]:after:w-0.5;
+    @apply [.tabs[data-orientation=vertical]_&]:w-full [.tabs[data-orientation=vertical]_&]:justify-start;
+
+    @apply [.tabs-list[data-variant=default]_&[data-state=active]]:shadow-sm;
+    @apply [.tabs-list[data-variant=line]_&[data-state=active]]:shadow-none;
+    @apply [.tabs-list[data-variant=line]_&[data-state=active]]:after:opacity-100;
+
+    @apply [.tabs-list[data-variant=line]_&]:bg-transparent;
+    @apply [.tabs-list[data-variant=line]_&[data-state=active]]:bg-transparent;
+
+    @apply dark:[.tabs-list[data-variant=line]_&[data-state=active]]:border-transparent;
+    @apply dark:[.tabs-list[data-variant=line]_&[data-state=active]]:bg-transparent;
+  }
+
+  .tabs-content {
+    @apply flex-1 text-sm outline-none;
+  }
+}

@@ -1,0 +1,47 @@
+:root {
+  --avatar-border: var(--border);
+  --avatar-fallback-bg: var(--muted);
+  --avatar-fallback-fg: var(--muted-foreground);
+  --avatar-badge-bg: var(--primary);
+  --avatar-badge-fg: var(--primary-foreground);
+  --avatar-badge-ring: var(--background);
+  --avatar-group-ring: var(--background);
+  --avatar-group-count-bg: var(--muted);
+  --avatar-group-count-fg: var(--muted-foreground);
+}
+
+@layer components {
+  .avatar {
+    @apply relative flex size-8 shrink-0 rounded-full select-none;
+    @apply data-[size=lg]:size-10 data-[size=sm]:size-6;
+    @apply after:absolute after:inset-0 after:rounded-full after:border after:border-(--avatar-border) after:mix-blend-darken dark:after:mix-blend-lighten;
+  }
+
+  .avatar-image {
+    @apply aspect-square size-full rounded-full object-cover;
+  }
+
+  .avatar-fallback {
+    @apply flex size-full items-center justify-center rounded-full bg-(--avatar-fallback-bg) text-sm text-(--avatar-fallback-fg);
+    @apply [.avatar_&]:text-xs;
+  }
+
+  .avatar-badge {
+    @apply bg-(--avatar-badge-bg) text-(--avatar-badge-fg) ring-(--avatar-badge-ring);
+    @apply absolute right-0 bottom-0 z-10 inline-flex items-center justify-center rounded-full bg-blend-color ring-2 select-none;
+    @apply [.avatar[data-size=sm]_&]:size-2 [.avatar[data-size=sm]_&]:[&>svg]:hidden;
+    @apply [.avatar[data-size=default]_&]:size-2.5 [.avatar[data-size=default]_&]:[&>svg]:size-2;
+    @apply [.avatar[data-size=lg]_&]:size-3 [.avatar[data-size=lg]_&]:[&>svg]:size-2;
+  }
+
+  .avatar-group {
+    @apply flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-(--avatar-group-ring);
+  }
+
+  .avatar-group-count {
+    @apply relative flex size-8 shrink-0 items-center justify-center rounded-full text-sm ring-2;
+    @apply bg-(--avatar-group-count-bg) text-(--avatar-group-count-fg) ring-(--avatar-group-ring);
+    @apply [.avatar-group:has([data-size=sm])_&]:size-6 [.avatar-group:has([data-size=sm])_&]:[&>svg]:size-3;
+    @apply [.avatar-group:has([data-size=lg])_&]:size-10 [.avatar-group:has([data-size=lg])_&]:[&>svg]:size-5;
+  }
+}

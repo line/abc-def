@@ -1,0 +1,31 @@
+<script setup lang="ts">
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@line/abc-def-vue/tabs";
+</script>
+
+<template>
+  <Tabs default-value="account">
+    <TabsList>
+      <TabsTrigger value="account"> Account </TabsTrigger>
+      <TabsTrigger value="password"> Password </TabsTrigger>
+      <TabsTrigger value="notifications"> Notifications </TabsTrigger>
+    </TabsList>
+    <div
+      class="style-vega:p-6 style-maia:p-6 style-mira:p-4 style-lyra:p-4 style-vega:rounded-lg style-maia:rounded-xl style-mira:rounded-md style-lyra:rounded-none rounded-lg border p-4"
+    >
+      <TabsContent value="account">
+        Manage your account preferences and profile information.
+      </TabsContent>
+      <TabsContent value="password">
+        Update your password to keep your account secure.
+      </TabsContent>
+      <TabsContent value="notifications">
+        Configure how you receive notifications and alerts.
+      </TabsContent>
+    </div>
+  </Tabs>
+</template>

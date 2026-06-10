@@ -1,0 +1,204 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@line/abc-def-styles/css";
+
+@custom-variant dark (&:is(.dark *));
+@source "./**/*.{ts,vue}";
+@source "../../../packages/vue/src/**/*.{ts,vue}";
+
+#app {
+  min-height: 100vh;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-xs: calc(var(--radius) * 0.4);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  --background: var(--color-white);
+  --foreground: var(--color-slate-950);
+
+  --surface: var(--color-white); /* --card */
+  --surface-foreground: var(--color-slate-950); /* --card-foreground */
+
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-slate-950);
+
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: var(--color-slate-50);
+
+  --border: var(--color-slate-200);
+  --border-input: var(--color-slate-200);
+  --ring: var(--color-blue-600);
+}
+
+.dark {
+  --background: var(--color-slate-950);
+  --foreground: var(--color-slate-50);
+
+  --surface: var(--color-slate-950);
+  --surface-foreground: var(--color-slate-50);
+
+  --popover: var(--color-slate-950);
+  --popover-foreground: var(--color-slate-50);
+
+  --primary: var(--color-blue-600);
+  --primary-foreground: var(--color-slate-50);
+
+  --secondary: var(--color-slate-800);
+  --secondary-foreground: var(--color-slate-50);
+
+  --muted: var(--color-slate-800);
+  --muted-foreground: var(--color-slate-500);
+
+  --accent: var(--color-slate-800);
+  --accent-foreground: var(--color-slate-50);
+
+  --destructive: var(--color-red-600);
+  --destructive-foreground: var(--color-slate-50);
+
+  --border: var(--color-slate-700);
+  --input: var(--color-slate-700);
+  --ring: var(--color-blue-600);
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .theme-toggle {
+    @apply inline-flex items-center gap-3 rounded-full border px-2 py-2;
+    background-color: color-mix(in oklab, var(--surface) 88%, transparent);
+    border-color: color-mix(in oklab, var(--border) 84%, transparent);
+    box-shadow: 0 18px 40px -28px
+      color-mix(in oklab, var(--foreground) 28%, transparent);
+  }
+
+  .theme-toggle-label {
+    @apply px-2 text-xs font-semibold tracking-[0.18em] uppercase;
+    color: var(--muted-foreground);
+  }
+}
+
+.example-app {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgb(252 211 77 / 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at left 20%,
+      rgb(125 211 252 / 0.18),
+      transparent 32%
+    );
+}
+
+.app-panel {
+  background: rgb(255 255 255 / 0.84);
+  border: 1px solid rgb(15 23 42 / 0.08);
+  box-shadow: 0 28px 90px -60px rgb(15 23 42 / 0.45);
+  backdrop-filter: blur(18px);
+}
+
+.app-kicker {
+  color: rgb(100 116 139);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.app-copy {
+  color: rgb(71 85 105);
+}
+
+.app-theme-toggle {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.example-card {
+  background-color: color-mix(in oklab, var(--surface) 92%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 84%, transparent);
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top, rgb(14 165 233 / 0.12), transparent 30%),
+    linear-gradient(180deg, #020617 0%, #0f172a 42%, #111827 100%);
+}
+
+.dark .app-panel {
+  background: color-mix(in oklab, var(--surface) 92%, transparent);
+  border-color: color-mix(in oklab, var(--border) 84%, transparent);
+  box-shadow: 0 28px 90px -60px rgb(2 6 23 / 0.92);
+}
+
+.dark .example-card {
+  background: color-mix(in oklab, var(--surface) 94%, transparent);
+  border-color: color-mix(in oklab, var(--border) 88%, transparent);
+}
+
+.dark .app-kicker {
+  color: color-mix(in oklab, var(--muted-foreground) 86%, white 14%);
+}
+
+.dark .app-copy {
+  color: var(--muted-foreground);
+}

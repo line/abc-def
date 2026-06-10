@@ -1,0 +1,41 @@
+:root {
+  --switch-ring: var(--ring);
+  --switch-border-destructive: var(--destructive);
+  --switch-bg-checked: var(--primary);
+  --switch-bg-unchecked: var(--border-input);
+  --switch-thumb-bg-checked: var(--background);
+  --switch-thumb-bg-unchecked: var(--background);
+}
+
+.dark {
+  --switch-bg-unchecked: color-mix(
+    in oklab,
+    var(--border-input) 80%,
+    transparent
+  );
+  --switch-thumb-bg-checked: var(--primary-foreground);
+  --switch-thumb-bg-unchecked: var(--foreground);
+}
+
+@layer components {
+  .switch {
+    @apply relative inline-flex shrink-0 items-center rounded-full border border-transparent transition-all outline-none;
+    @apply after:absolute after:-inset-x-3 after:-inset-y-2;
+    @apply focus-visible:border-(--switch-ring) focus-visible:ring-3 focus-visible:ring-(--switch-ring)/50;
+    @apply aria-invalid:border-(--switch-border-destructive) aria-invalid:ring-3 aria-invalid:ring-(--switch-border-destructive)/20;
+    @apply data-disabled:cursor-not-allowed data-disabled:opacity-50;
+    @apply data-[size=default]:h-[18.4px] data-[size=default]:w-[32px];
+    @apply data-[size=sm]:h-[14px] data-[size=sm]:w-[24px];
+    @apply data-[state=checked]:bg-(--switch-bg-checked);
+    @apply data-[state=unchecked]:bg-(--switch-bg-unchecked);
+  }
+
+  .switch-thumb {
+    @apply pointer-events-none block rounded-full ring-0 transition-transform;
+    @apply data-[state=checked]:bg-(--switch-thumb-bg-checked);
+    @apply data-[state=unchecked]:bg-(--switch-thumb-bg-unchecked);
+    @apply data-[state=checked]:translate-x-[calc(100%-2px)];
+    @apply data-[state=unchecked]:translate-x-0;
+    @apply [.switch[data-size=default]_&]:size-4 [.switch[data-size=sm]_&]:size-3;
+  }
+}

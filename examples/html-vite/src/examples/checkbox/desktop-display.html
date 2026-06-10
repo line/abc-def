@@ -1,0 +1,30 @@
+<fieldset class="field-set" data-slot="field-set">
+  <legend class="field-legend field-legend-variant-label" data-slot="field-legend" data-variant="label">Display on desktop</legend>
+  <p class="field-description" data-slot="field-description">Select the shortcuts you want to keep visible.</p>
+  <div class="field-group" data-slot="field-group">
+    <div class="field field-orientation-horizontal" data-slot="field">
+      <button id="html-checkbox-drives" class="peer checkbox" type="button" role="checkbox" aria-checked="true" data-slot="checkbox" data-demo-checkbox data-state="checked" data-checked>
+        <span class="checkbox-indicator" data-slot="checkbox-indicator">
+          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+        </span>
+      </button>
+      <label class="label field-label" for="html-checkbox-drives">Hard disks</label>
+    </div>
+    <div class="field field-orientation-horizontal" data-slot="field">
+      <button id="html-checkbox-external" class="peer checkbox" type="button" role="checkbox" aria-checked="false" data-slot="checkbox" data-demo-checkbox data-state="unchecked">
+        <span class="checkbox-indicator" data-slot="checkbox-indicator" hidden>
+          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+        </span>
+      </button>
+      <label class="label field-label" for="html-checkbox-external">External disks</label>
+    </div>
+    <div class="field field-orientation-horizontal" data-slot="field" data-disabled="true">
+      <button id="html-checkbox-disabled" class="peer checkbox" type="button" role="checkbox" aria-checked="false" data-slot="checkbox" data-demo-checkbox data-state="unchecked" data-disabled="true" disabled>
+        <span class="checkbox-indicator" data-slot="checkbox-indicator" hidden>
+          <svg class="demo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 5 5L20 7" /></svg>
+        </span>
+      </button>
+      <label class="label field-label" for="html-checkbox-disabled">Disabled option</label>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,33 @@
+<script setup lang="ts">
+import type { MenubarItemEmits, MenubarItemProps } from "reka-ui";
+import type { HTMLAttributes } from "vue";
+import { reactiveOmit } from "@vueuse/core";
+import { MenubarItem, useForwardPropsEmits } from "reka-ui";
+
+import { cn } from "@/lib/utils";
+
+const props = defineProps<
+  MenubarItemProps & {
+    class?: HTMLAttributes["class"];
+    inset?: boolean;
+    variant?: "default" | "destructive";
+  }
+>();
+
+const emits = defineEmits<MenubarItemEmits>();
+
+const delegatedProps = reactiveOmit(props, "class", "inset", "variant");
+const forwarded = useForwardPropsEmits(delegatedProps, emits);
+</script>
+
+<template>
+  <MenubarItem
+    data-slot="menubar-item"
+    :data-inset="inset ? '' : undefined"
+    :data-variant="variant"
+    v-bind="forwarded"
+    :class="cn('menubar-item', props.class)"
+  >
+    <slot />
+  </MenubarItem>
+</template>

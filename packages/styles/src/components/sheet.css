@@ -1,0 +1,40 @@
+:root {
+  --sheet-overlay-bg: color-mix(in oklab, var(--black) 10%, transparent);
+  --sheet-content-bg: var(--popover);
+  --sheet-content-fg: var(--popover-foreground);
+
+  --sheet-title-fg: var(--foreground);
+  --sheet-description-fg: var(--muted-foreground);
+}
+
+@layer components {
+  .sheet-overlay {
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0;
+    @apply fixed inset-0 z-50 bg-(--sheet-overlay-bg) duration-100 supports-backdrop-filter:backdrop-blur-xs;
+  }
+  .sheet-content {
+    @apply bg-(--sheet-content-bg) text-(--sheet-content-fg);
+    @apply data-[state=open]:animate-in data-[state=open]:fade-in-0;
+    @apply data-[side=bottom]:data-[state=open]:slide-in-from-bottom-10 data-[side=left]:data-[state=open]:slide-in-from-left-10 data-[side=right]:data-[state=open]:slide-in-from-right-10 data-[side=top]:data-[state=open]:slide-in-from-top-10;
+    @apply data-[state=closed]:animate-out data-[state=closed]:fade-out-0;
+    @apply data-[side=bottom]:data-[state=closed]:slide-out-to-bottom-10 data-[side=left]:data-[state=closed]:slide-out-to-left-10 data-[side=right]:data-[state=closed]:slide-out-to-right-10 data-[side=top]:data-[state=closed]:slide-out-to-top-10;
+    @apply fixed z-50 flex flex-col gap-4 bg-clip-padding text-sm shadow-lg transition duration-200 ease-in-out;
+    @apply data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:border-t;
+    @apply data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:h-full data-[side=left]:w-3/4 data-[side=left]:border-r data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm;
+    @apply data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:h-full data-[side=right]:w-3/4 data-[side=right]:border-l;
+    @apply data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:border-b;
+  }
+  .sheet-header {
+    @apply flex flex-col gap-0.5 p-4;
+  }
+  .sheet-footer {
+    @apply mt-auto flex flex-col gap-2 p-4;
+  }
+  .sheet-title {
+    /* cn-font-heading */
+    @apply text-base font-medium text-(--sheet-title-fg);
+  }
+  .sheet-description {
+    @apply text-sm text-(--sheet-description-fg);
+  }
+}

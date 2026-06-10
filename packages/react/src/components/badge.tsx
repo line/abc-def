@@ -13,158 +13,49 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
+"use client";
+
 import type { VariantProps } from "class-variance-authority";
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
+import { Slot } from "radix-ui";
 
-import type { Color, Radius } from "../lib/types";
-import { cn } from "../lib/utils";
-import useTheme from "./use-theme";
-
-type BadgeVariant = "bold" | "subtle" | "outline";
+import { cn } from "@/lib/utils";
 
 const badgeVariants = cva("badge", {
   variants: {
-    radius: {
-      large: "badge-radius-large",
-      medium: "badge-radius-medium",
-      small: "badge-radius-small",
-    },
     variant: {
-      bold: "",
-      subtle: "",
-      outline: "",
-    },
-    color: {
-      default: "",
-      blue: "",
-      orange: "",
-      red: "",
-      green: "",
+      default: "badge-variant-default",
+      secondary: "badge-variant-secondary",
+      destructive: "badge-variant-destructive",
+      outline: "badge-variant-outline",
+      ghost: "badge-variant-ghost",
+      link: "badge-variant-link",
     },
   },
-  compoundVariants: [
-    {
-      variant: "bold",
-      color: "default",
-      className: "badge-bold-default",
-    },
-    {
-      variant: "bold",
-      color: "blue",
-      className: "badge-bold-blue",
-    },
-    {
-      variant: "bold",
-      color: "orange",
-      className: "badge-bold-orange",
-    },
-    {
-      variant: "bold",
-      color: "red",
-      className: "badge-bold-red",
-    },
-    {
-      variant: "bold",
-      color: "green",
-      className: "badge-bold-green",
-    },
-    {
-      variant: "subtle",
-      color: "default",
-      className: "badge-subtle-default",
-    },
-    {
-      variant: "subtle",
-      color: "blue",
-      className: "badge-subtle-blue",
-    },
-    {
-      variant: "subtle",
-      color: "orange",
-      className: "badge-subtle-orange",
-    },
-    {
-      variant: "subtle",
-      color: "red",
-      className: "badge-subtle-red",
-    },
-    {
-      variant: "subtle",
-      color: "green",
-      className: "badge-subtle-green",
-    },
-    {
-      variant: "outline",
-      color: "default",
-      className: "badge-outline-default",
-    },
-    {
-      variant: "outline",
-      color: "blue",
-      className: "badge-outline-blue",
-    },
-    {
-      variant: "outline",
-      color: "orange",
-      className: "badge-outline-orange",
-    },
-    {
-      variant: "outline",
-      color: "red",
-      className: "badge-outline-red",
-    },
-    {
-      variant: "outline",
-      color: "green",
-      className: "badge-outline-green",
-    },
-  ],
   defaultVariants: {
-    radius: undefined,
-    variant: "bold",
-    color: "default",
+    variant: "default",
   },
 });
 
-interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+export interface BadgeProps
+  extends
+    React.ComponentPropsWithoutRef<"span">,
     VariantProps<typeof badgeVariants> {
-  radius?: Radius;
-  variant?: BadgeVariant;
-  color?: Color;
   asChild?: boolean;
 }
 
-const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
-  (
-    {
-      radius,
-      variant = "bold",
-      color = "default",
-      className,
-      asChild,
-      ...props
-    },
-    ref,
-  ) => {
-    const { themeRadius } = useTheme();
-    const Comp = asChild ? Slot : "div";
+function Badge({ className, variant, asChild = false, ...props }: BadgeProps) {
+  const Comp = asChild ? Slot.Root : "span";
 
-    return (
-      <Comp
-        ref={ref}
-        className={cn(
-          badgeVariants({ radius: radius ?? themeRadius, variant, color }),
-          className,
-        )}
-        {...props}
-      />
-    );
-  },
-);
+  return (
+    <Comp
+      data-slot="badge"
+      data-variant={variant}
+      className={cn(badgeVariants({ variant }), className)}
+      {...props}
+    />
+  );
+}
 
-Badge.displayName = "Badge";
-
-export { Badge, type BadgeProps };
+export { Badge, badgeVariants };

@@ -1,0 +1,22 @@
+@layer components {
+  .toggle-group {
+    @apply flex w-fit flex-row items-center gap-[--spacing(var(--gap,0))] rounded-lg;
+    @apply data-vertical:flex-col data-vertical:items-stretch;
+    @apply data-[size=sm]:rounded-[min(var(--radius-md),10px)];
+  }
+
+  .toggle-group-item {
+    @apply shrink-0 focus:z-10 focus-visible:z-10;
+    @apply [.toggle-group[data-spacing="0"]_&]:rounded-none [.toggle-group[data-spacing="0"]_&]:px-2;
+    @apply [.toggle-group[data-spacing="0"]_&:has([data-icon=inline-end])]:pr-1.5;
+    @apply [.toggle-group[data-spacing="0"]_&:has([data-icon=inline-start])]:pl-1.5;
+    @apply [.toggle-group[data-spacing="0"][data-orientation=horizontal]_&:first-child]:rounded-l-lg;
+    @apply [.toggle-group[data-spacing="0"][data-orientation=horizontal]_&:last-child]:rounded-r-lg;
+    @apply [.toggle-group[data-spacing="0"][data-orientation=vertical]_&:first-child]:rounded-t-lg;
+    @apply [.toggle-group[data-spacing="0"][data-orientation=vertical]_&:last-child]:rounded-b-lg;
+    @apply [.toggle-group[data-spacing="0"][data-orientation=horizontal]_&[data-variant=outline]]:border-l-0;
+    @apply [.toggle-group[data-spacing="0"][data-orientation=horizontal]_&[data-variant=outline]:first-child]:border-l;
+    @apply [.toggle-group[data-spacing="0"][data-orientation=vertical]_&[data-variant=outline]]:border-t-0;
+    @apply [.toggle-group[data-spacing="0"][data-orientation=vertical]_&[data-variant=outline]:first-child]:border-t;
+  }
+}
