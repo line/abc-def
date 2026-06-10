@@ -99,10 +99,10 @@ export function Hero() {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        <MediaBlock imgSrc="/bg-light.png" videoSrc="/logo-light.mp4" />
+        <MediaBlock imgSrc="./bg-light.png" videoSrc="./logo-light.mp4" />
         <MediaBlock
-          imgSrc="/bg-dark.png"
-          videoSrc="/logo-dark.mp4"
+          imgSrc="./bg-dark.png"
+          videoSrc="./logo-dark.mp4"
           percentage={percentage}
         />
       </div>

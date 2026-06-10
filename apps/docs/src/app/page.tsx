@@ -104,7 +104,7 @@ export default function HomePage() {
       </PageSection>
       <PageSection title="Three-tier token architecture">
         <img
-          src="/three-tier-token.png"
+          src="./three-tier-token.png"
           alt="Diagram showing how Primitive Tokens map to Semantic Tokens which map to Component-specific Tokens, illustrated with a Button example"
           className="docs-tier-diagram"
         />
