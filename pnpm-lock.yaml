@@ -46,7 +46,7 @@ catalogs:
       specifier: ^0.4.6
       version: 0.4.6
     prettier:
-      specifier: ^3.6.2
+      specifier: ^3.8.3
       version: 3.8.3
     react:
       specifier: ^19.2.3
