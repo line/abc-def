@@ -31,7 +31,7 @@ catalogs:
       specifier: ^2.1.1
       version: 2.1.1
     eslint:
-      specifier: ^9.39.2
+      specifier: ^9.39.4
       version: 9.39.4
     input-otp:
       specifier: ^1.4.2
