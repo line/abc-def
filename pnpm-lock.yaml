@@ -96,7 +96,7 @@ importers:
   .:
     devDependencies:
       '@changesets/cli':
-        specifier: ^2.29.7
+        specifier: ^2.31.0
         version: 2.31.0(@types/node@22.19.17)
       '@line/abc-def-prettier-config':
         specifier: workspace:^
