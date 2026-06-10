@@ -37,7 +37,7 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Build docs
-        run: turbo run build --filter @abc-def/docs
+        run: pnpm build:docs
         env:
           GITHUB_PAGES: "true"
 
