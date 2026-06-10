@@ -11,7 +11,7 @@ allowBuilds:
 
 catalog:
   "@internationalized/date": ^3.12.1
-  "@types/node": ^22.18.12
+  "@types/node": ^22.19.20
   "@types/react": ^19.2.8
   "@types/react-dom": ^19.2.3
   class-variance-authority: ^0.7.1
