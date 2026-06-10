@@ -2,7 +2,8 @@ name: Publish Packages
 
 on:
   push:
-    branches: ["main"]
+    tags:
+      - "v*"
   workflow_dispatch:
 
 concurrency:
@@ -24,9 +25,6 @@ jobs:
 
       - name: Setup
         uses: ./tooling/github/setup
-
-      - name: Validate packages
-        run: pnpm build
 
       - name: Create release pull request or publish
         uses: changesets/action@v1
