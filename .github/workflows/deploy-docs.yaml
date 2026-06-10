@@ -2,7 +2,8 @@ name: Deploy Docs
 
 on:
   push:
-    branches: ["main"]
+    tags:
+      - "v*"
     paths:
       - ".github/workflows/deploy-docs.yaml"
       - "apps/docs/**"

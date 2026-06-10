@@ -25,9 +25,6 @@ jobs:
       - name: Setup
         uses: ./tooling/github/setup
 
-      - name: Validate packages
-        run: pnpm build:packages
-
       - name: Create release pull request or publish
         uses: changesets/action@v1
         with:
