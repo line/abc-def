@@ -20,7 +20,6 @@
     "build:packages": "turbo run build --filter='./packages/*'",
     "build:examples": "turbo run build --filter='./examples/*'",
     "build:docs": "turbo run build --filter @abc-def/docs",
-    "build:apps": "turbo run build --filter='./apps/*'",
     "clean": "git clean -xdf node_modules .turbo .cache",
     "clean:workspaces": "turbo run clean",
     "dev": "turbo watch dev --filter='./packages/*' --continue",
