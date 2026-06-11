@@ -15,7 +15,7 @@
  */
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { MoonStarIcon, SunMediumIcon } from "lucide-react";
 
 import { Button } from "@line/abc-def-react/button";
@@ -23,6 +23,7 @@ import { Button } from "@line/abc-def-react/button";
 type ThemeMode = "light" | "dark";
 
 const THEME_STORAGE_KEY = "abc-def-docs-theme";
+const themeListeners = new Set<() => void>();
 
 function readThemePreference(): ThemeMode {
   try {
@@ -47,29 +48,47 @@ function applyTheme(theme: ThemeMode) {
   root.style.colorScheme = theme;
 }
 
+function subscribeToThemePreference(callback: () => void) {
+  themeListeners.add(callback);
+  window.addEventListener("storage", callback);
+
+  return () => {
+    themeListeners.delete(callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+function emitThemePreferenceChange() {
+  for (const listener of themeListeners) {
+    listener();
+  }
+}
+
+function getServerThemeSnapshot(): ThemeMode {
+  return "light";
+}
+
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<ThemeMode | null>(null);
-  const activeTheme = theme ?? "light";
+  const activeTheme = useSyncExternalStore(
+    subscribeToThemePreference,
+    readThemePreference,
+    getServerThemeSnapshot,
+  );
   const nextTheme = activeTheme === "dark" ? "light" : "dark";
 
   useEffect(() => {
-    setTheme(readThemePreference());
-  }, []);
-
-  useEffect(() => {
-    if (!theme) return;
-
-    applyTheme(theme);
-  }, [theme]);
+    applyTheme(activeTheme);
+  }, [activeTheme]);
 
   function handleClick() {
-    setTheme(nextTheme);
-
     try {
       window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
     } catch {
-      return;
+      // Continue with the in-memory document theme even if storage is blocked.
     }
+
+    applyTheme(nextTheme);
+    emitThemePreferenceChange();
   }
 
   return (
