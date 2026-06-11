@@ -15,6 +15,7 @@
  */
 
 import { DocsCard } from "@/components/docs-card";
+import { GettingStartedFab } from "@/components/getting-started-fab";
 import { Hero } from "@/components/hero";
 import { PageSection } from "@/components/page-section";
 import { componentCount } from "@/content/components";
@@ -22,7 +23,9 @@ import { componentCount } from "@/content/components";
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <div id="hero-section">
+        <Hero />
+      </div>
       <PageSection title="AI-assisted development efficiency">
         <p>
           ABC Def&apos;s CSS token architecture keeps component source sizes
@@ -166,14 +169,7 @@ export default function HomePage() {
           />
         </div>
       </PageSection>
-      <PageSection title="Getting Started">
-        <DocsCard
-          className="docs-card-cta"
-          href="/getting-started"
-          title="Install and configure ABC Def"
-          description="Follow the setup guide for Tailwind CSS v4, framework package sources, and dark-mode activation."
-        />
-      </PageSection>
+      <GettingStartedFab />
     </>
   );
 }

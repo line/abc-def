@@ -87,19 +87,34 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   min-width: 0;
+  width: 100%;
 }
 
 .docs-brand {
+  margin-right: -1rem;
   color: var(--foreground);
 }
 .docs-top-nav {
-  color: var(--muted-foreground);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   gap: 1rem;
-  justify-content: flex-end;
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   font-weight: 600;
+
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.docs-top-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.docs-top-nav a {
+  flex: 0 0 auto;
+  width: min-content;
 }
 
 .docs-header-actions {
@@ -148,6 +163,13 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.docs-version-badge {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .docs-nav-title {
@@ -300,6 +322,10 @@
 
   .docs-header-main {
     gap: 0.75rem 1rem;
+  }
+
+  .docs-brand {
+    margin-right: -0.5rem;
   }
 }
 
@@ -456,6 +482,7 @@
   border-collapse: collapse;
   font-size: 0.875rem;
   width: 100%;
+  table-layout: fixed;
 }
 
 .docs-comparison-table th,
@@ -713,7 +740,74 @@
   }
 }
 
+/* Getting Started FAB */
+@keyframes fab-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 24px color-mix(in oklab, var(--primary) 30%, transparent);
+  }
+  50% {
+    box-shadow: 0 4px 40px color-mix(in oklab, var(--primary) 55%, transparent);
+  }
+}
+
+@keyframes fab-arrow-nudge {
+  0%, 60%, 100% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.docs-fab {
+  align-items: center;
+  animation: fab-pulse 2.4s ease-in-out infinite;
+  background: var(--primary);
+  border-radius: 9999px;
+  bottom: 2rem;
+  color: var(--primary-foreground);
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  opacity: 0;
+  padding: 0.75rem 1.25rem;
+  pointer-events: none;
+  position: fixed;
+  right: 2rem;
+  text-decoration: none;
+  transform: translateY(0.75rem);
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
+  z-index: 50;
+}
+
+.docs-fab[data-visible="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.docs-fab:hover {
+  animation: none;
+  box-shadow: 0 6px 32px color-mix(in oklab, var(--primary) 50%, transparent);
+  transform: translateY(-2px);
+}
+
+.docs-fab-arrow {
+  animation: fab-arrow-nudge 2.4s ease-in-out infinite;
+  display: flex;
+}
+
+.docs-fab:hover .docs-fab-arrow {
+  animation: none;
+  transform: translateX(3px);
+  transition: transform 0.2s ease;
+}
+
 @media (width < 520px) {
+  .docs-comparison-table {
+    font-size: 0.4rem;
+  }
   .docs-playground-variant {
     align-items: start;
     grid-template-columns: 1fr;
