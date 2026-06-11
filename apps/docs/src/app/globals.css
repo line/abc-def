@@ -26,6 +26,7 @@
   --radius: 0.625rem;
   --background: oklch(0.99 0 0);
   --foreground: oklch(0.16 0 0);
+  --fab-background: oklch(0.16 0 0);
   --surface: oklch(1 0 0);
   --surface-foreground: oklch(0.16 0 0);
   --muted: oklch(0.96 0 0);
@@ -38,6 +39,7 @@
 .dark {
   --background: oklch(0.16 0 0);
   --foreground: oklch(0.96 0 0);
+  --fab-background: oklch(1 0 0);
   --surface: oklch(0.2 0 0);
   --surface-foreground: oklch(0.96 0 0);
   --muted: oklch(0.26 0 0);
@@ -742,7 +744,8 @@
 
 /* Getting Started FAB */
 @keyframes fab-pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 4px 24px color-mix(in oklab, var(--primary) 30%, transparent);
   }
   50% {
@@ -751,7 +754,9 @@
 }
 
 @keyframes fab-arrow-nudge {
-  0%, 60%, 100% {
+  0%,
+  60%,
+  100% {
     transform: translateX(0);
   }
   80% {
@@ -762,7 +767,7 @@
 .docs-fab {
   align-items: center;
   animation: fab-pulse 2.4s ease-in-out infinite;
-  background: var(--primary);
+  background: var(--fab-background);
   border-radius: 9999px;
   bottom: 2rem;
   color: var(--primary-foreground);
@@ -777,7 +782,10 @@
   right: 2rem;
   text-decoration: none;
   transform: translateY(0.75rem);
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.2s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.2s ease;
   z-index: 50;
 }
 
@@ -791,6 +799,18 @@
   animation: none;
   box-shadow: 0 6px 32px color-mix(in oklab, var(--primary) 50%, transparent);
   transform: translateY(-2px);
+}
+
+.docs-fab-video-dark {
+  display: none;
+}
+
+.dark .docs-fab-video-light {
+  display: none;
+}
+
+.dark .docs-fab-video-dark {
+  display: block;
 }
 
 .docs-fab-arrow {

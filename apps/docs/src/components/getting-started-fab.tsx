@@ -44,8 +44,27 @@ export function GettingStartedFab() {
       aria-label="Getting Started"
       data-visible={visible}
     >
-      <video width="24" height="24" muted autoPlay playsInline loop>
+      <video
+        className="docs-fab-video-light"
+        width="24"
+        height="24"
+        muted
+        autoPlay
+        playsInline
+        loop
+      >
         <source src="./logo-dark.mp4" type="video/mp4" />
+      </video>
+      <video
+        className="docs-fab-video-dark"
+        width="24"
+        height="24"
+        muted
+        autoPlay
+        playsInline
+        loop
+      >
+        <source src="./logo-light.mp4" type="video/mp4" />
       </video>
       <span className="docs-fab-label">Getting Started</span>
       <span className="docs-fab-arrow" aria-hidden="true">
