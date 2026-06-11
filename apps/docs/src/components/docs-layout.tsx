@@ -107,6 +107,8 @@ function LogoSVG() {
   );
 }
 
+const VERSION = "2.0.0";
+
 export function DocsLayout({ children }: DocsLayoutProps) {
   const components = getComponentsByName();
 
@@ -117,6 +119,9 @@ export function DocsLayout({ children }: DocsLayoutProps) {
           <Link className="docs-brand" href="/" aria-label="ABC Def">
             <LogoSVG />
           </Link>
+          <Badge variant="secondary" className="docs-version-badge">
+            v{VERSION}
+          </Badge>
           <nav aria-label="Primary navigation" className="docs-top-nav">
             {guideLinks.map((link) => (
               <DocsActiveLink key={link.href} href={link.href}>

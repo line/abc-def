@@ -12,38 +12,98 @@
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-foreground: var(--surface-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
   --color-border: var(--border);
+  --color-border-input: var(--border-input);
   --color-ring: var(--ring);
+
+  --radius-xs: calc(var(--radius) * 0.4);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.16 0 0);
-  --surface: oklch(1 0 0);
-  --surface-foreground: oklch(0.16 0 0);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  --border: oklch(0.88 0 0);
-  --ring: oklch(0.55 0 0);
+
+  --background: var(--color-white);
+  --foreground: var(--color-zinc-950);
+
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-zinc-950);
+
+  --primary: var(--color-zinc-900);
+  --primary-foreground: var(--color-zinc-50);
+
+  --secondary: var(--color-zinc-100);
+  --secondary-foreground: var(--color-zinc-900);
+
+  --muted: var(--color-zinc-100);
+  --muted-foreground: var(--color-zinc-500);
+
+  --accent: var(--color-zinc-100);
+  --accent-foreground: var(--color-zinc-900);
+
+  --destructive: var(--color-red-50);
+  --destructive-foreground: var(--color-red-500);
+
+  --border: var(--color-zinc-200);
+  --border-input: var(--color-zinc-200);
+  --ring: var(--color-zinc-400);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+
   color-scheme: light;
 }
 
 .dark {
-  --background: oklch(0.16 0 0);
-  --foreground: oklch(0.96 0 0);
-  --surface: oklch(0.2 0 0);
-  --surface-foreground: oklch(0.96 0 0);
-  --muted: oklch(0.26 0 0);
-  --muted-foreground: oklch(0.72 0 0);
-  --border: oklch(0.31 0 0);
-  --ring: oklch(0.72 0 0);
+  --background: var(--color-zinc-950);
+  --foreground: var(--color-zinc-50);
+
+  --surface: var(--color-zinc-900);
+  --surface-foreground: var(--color-zinc-50);
+
+  --popover: var(--color-zinc-900);
+  --popover-foreground: var(--color-zinc-50);
+
+  --primary: var(--color-zinc-200);
+  --primary-foreground: var(--color-zinc-900);
+
+  --secondary: var(--color-zinc-800);
+  --secondary-foreground: var(--color-zinc-50);
+
+  --muted: var(--color-zinc-800);
+  --muted-foreground: var(--color-zinc-400);
+
+  --accent: var(--color-zinc-700);
+  --accent-foreground: var(--color-zinc-50);
+
+  --destructive: var(--color-red-900);
+  --destructive-foreground: var(--color-red-400);
+
+  --border: var(--color-zinc-800);
+  --border-input: var(--color-zinc-700);
+  --ring: var(--color-zinc-500);
+
   color-scheme: dark;
 }
 
@@ -87,19 +147,34 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   min-width: 0;
+  width: 100%;
 }
 
 .docs-brand {
+  margin-right: -1rem;
   color: var(--foreground);
 }
 .docs-top-nav {
-  color: var(--muted-foreground);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   gap: 1rem;
-  justify-content: flex-end;
+  color: var(--muted-foreground);
   font-size: 0.875rem;
   font-weight: 600;
+
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.docs-top-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.docs-top-nav a {
+  flex: 0 0 auto;
+  width: min-content;
 }
 
 .docs-header-actions {
@@ -148,6 +223,13 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.docs-version-badge {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .docs-nav-title {
@@ -300,6 +382,10 @@
 
   .docs-header-main {
     gap: 0.75rem 1rem;
+  }
+
+  .docs-brand {
+    margin-right: -0.5rem;
   }
 }
 
@@ -456,6 +542,7 @@
   border-collapse: collapse;
   font-size: 0.875rem;
   width: 100%;
+  table-layout: fixed;
 }
 
 .docs-comparison-table th,
@@ -713,7 +800,92 @@
   }
 }
 
+/* Getting Started FAB */
+@keyframes fab-pulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 24px color-mix(in oklab, var(--primary) 30%, transparent);
+  }
+  50% {
+    box-shadow: 0 4px 40px color-mix(in oklab, var(--primary) 55%, transparent);
+  }
+}
+
+@keyframes fab-arrow-nudge {
+  0%,
+  60%,
+  100% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.docs-fab {
+  align-items: center;
+  animation: fab-pulse 2.4s ease-in-out infinite;
+  background: var(--foreground);
+  border-radius: 9999px;
+  bottom: 2rem;
+  color: var(--primary-foreground);
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  opacity: 0;
+  padding: 0.75rem 1.25rem;
+  pointer-events: none;
+  position: fixed;
+  right: 2rem;
+  text-decoration: none;
+  transform: translateY(0.75rem);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.2s ease;
+  z-index: 50;
+}
+
+.docs-fab[data-visible="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.docs-fab:hover {
+  animation: none;
+  box-shadow: 0 6px 32px color-mix(in oklab, var(--primary) 50%, transparent);
+  transform: translateY(-2px);
+}
+
+.docs-fab-video-dark {
+  display: none;
+}
+
+.dark .docs-fab-video-light {
+  display: none;
+}
+
+.dark .docs-fab-video-dark {
+  display: block;
+}
+
+.docs-fab-arrow {
+  animation: fab-arrow-nudge 2.4s ease-in-out infinite;
+  display: flex;
+}
+
+.docs-fab:hover .docs-fab-arrow {
+  animation: none;
+  transform: translateX(3px);
+  transition: transform 0.2s ease;
+}
+
 @media (width < 520px) {
+  .docs-comparison-table {
+    font-size: 0.4rem;
+  }
   .docs-playground-variant {
     align-items: start;
     grid-template-columns: 1fr;
