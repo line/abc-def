@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import type { CalendarRootEmits, CalendarRootProps, DateValue } from "reka-ui";
+import type { DateValue } from "@internationalized/date";
+import type { CalendarRootEmits, CalendarRootProps } from "reka-ui";
 import type { HTMLAttributes, Ref } from "vue";
 import { getLocalTimeZone, today } from "@internationalized/date";
 import { createReusableTemplate, reactiveOmit, useVModel } from "@vueuse/core";
