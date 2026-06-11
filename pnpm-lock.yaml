@@ -7,8 +7,8 @@ settings:
 catalogs:
   default:
     '@internationalized/date':
-      specifier: ^3.12.1
-      version: 3.12.1
+      specifier: ^3.12.2
+      version: 3.12.2
     '@tailwindcss/postcss':
       specifier: ^4.3.0
       version: 4.3.0
@@ -274,7 +274,7 @@ importers:
     dependencies:
       '@internationalized/date':
         specifier: 'catalog:'
-        version: 3.12.1
+        version: 3.12.2
       '@line/abc-def-styles':
         specifier: workspace:*
         version: link:../../packages/styles
@@ -426,7 +426,7 @@ importers:
     dependencies:
       '@internationalized/date':
         specifier: 'catalog:'
-        version: 3.12.1
+        version: 3.12.2
       '@tanstack/vue-table':
         specifier: ^8.21.3
         version: 8.21.3(vue@3.5.35(typescript@5.9.3))
@@ -1232,6 +1232,9 @@ packages:
 
   '@internationalized/date@3.12.1':
     resolution: {integrity: sha512-6IedsVWXyq4P9Tj+TxuU8WGWM70hYLl12nbYU8jkikVpa6WXapFazPUcHUMDMoWftIDE2ILDkFFte6W2nFCkRQ==}
+
+  '@internationalized/date@3.12.2':
+    resolution: {integrity: sha512-FY1Y+H64NDs+HAF6omlnWxm3mEpfgaCSWtL5l551ZZfImA+kGjPFgrnJrGjH6lfmLL0g8Z/mBu1R3kufeCp6Jw==}
 
   '@internationalized/number@3.6.6':
     resolution: {integrity: sha512-iFgmQaXHE0vytNfpLZWOC2mEJCBRzcUxt53Xf/yCXG93lRvqas237i3r7X4RKMwO3txiyZD4mQjKAByFv6UGSQ==}
@@ -5520,6 +5523,10 @@ snapshots:
       '@types/node': 22.19.20
 
   '@internationalized/date@3.12.1':
+    dependencies:
+      '@swc/helpers': 0.5.21
+
+  '@internationalized/date@3.12.2':
     dependencies:
       '@swc/helpers': 0.5.21
 
