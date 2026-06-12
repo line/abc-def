@@ -43,6 +43,9 @@
   --background: var(--color-white);
   --foreground: var(--color-zinc-950);
 
+  --surface: var(--color-white);
+  --surface-foreground: var(--color-zinc-950);
+
   --popover: var(--color-white);
   --popover-foreground: var(--color-zinc-950);
 
