@@ -54,7 +54,7 @@
     "next-themes": "catalog:",
     "radix-ui": "^1.4.3",
     "react-day-picker": "catalog:",
-    "react-resizable-panels": "^4.11.0",
+    "react-resizable-panels": "^4.11.2",
     "sonner": "catalog:",
     "tailwind-merge": "catalog:",
     "vaul": "^1.1.2"
