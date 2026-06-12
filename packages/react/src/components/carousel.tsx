@@ -109,12 +109,19 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return;
-    onSelect(api);
-    api.on("reInit", onSelect);
-    api.on("select", onSelect);
+    let isMounted = true;
+    const updateSelection = () => {
+      if (isMounted) onSelect(api);
+    };
+
+    queueMicrotask(updateSelection);
+    api.on("reInit", updateSelection);
+    api.on("select", updateSelection);
 
     return () => {
-      api.off("select", onSelect);
+      isMounted = false;
+      api.off("reInit", updateSelection);
+      api.off("select", updateSelection);
     };
   }, [api, onSelect]);
 
