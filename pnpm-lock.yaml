@@ -58,8 +58,8 @@ catalogs:
       specifier: ^19.2.7
       version: 19.2.7
     reka-ui:
-      specifier: ^2.9.9
-      version: 2.9.9
+      specifier: ^2.9.10
+      version: 2.9.10
     sonner:
       specifier: ^2.0.7
       version: 2.0.7
@@ -295,7 +295,7 @@ importers:
         version: 1.0.0(vue@3.5.35(typescript@5.9.3))
       reka-ui:
         specifier: 'catalog:'
-        version: 2.9.9(vue@3.5.35(typescript@5.9.3))
+        version: 2.9.10(vue@3.5.35(typescript@5.9.3))
       tailwind-merge:
         specifier: 'catalog:'
         version: 3.6.0
@@ -450,13 +450,13 @@ importers:
         version: 1.0.0(vue@3.5.35(typescript@5.9.3))
       reka-ui:
         specifier: 'catalog:'
-        version: 2.9.9(vue@3.5.35(typescript@5.9.3))
+        version: 2.9.10(vue@3.5.35(typescript@5.9.3))
       tailwind-merge:
         specifier: 'catalog:'
         version: 3.6.0
       vaul-vue:
         specifier: ^0.4.1
-        version: 0.4.1(reka-ui@2.9.9(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
+        version: 0.4.1(reka-ui@2.9.10(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
       vue-input-otp:
         specifier: ^0.3.2
         version: 0.3.2(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3))
@@ -4359,6 +4359,11 @@ packages:
   regexp.prototype.flags@1.5.4:
     resolution: {integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==}
     engines: {node: '>= 0.4'}
+
+  reka-ui@2.9.10:
+    resolution: {integrity: sha512-yuvZVTp4fWH2G3qk+ze/x6YYlyc2Xl1d+eMUlIYrKqzTowBKteoDoN17fitURmqSUck3mc7JbcYgp49DnGu2EQ==}
+    peerDependencies:
+      vue: '>= 3.4.0'
 
   reka-ui@2.9.9:
     resolution: {integrity: sha512-/e+hdF9vP8E2kPrKR4RdgMQQsfpCr8l436Zn8GRWM3jKT9EG1lOO/UFMGBVEnrMLOVoJSjjmIFrej4tMOb+6qQ==}
@@ -8823,6 +8828,22 @@ snapshots:
       gopd: 1.2.0
       set-function-name: 2.0.2
 
+  reka-ui@2.9.10(vue@3.5.35(typescript@5.9.3)):
+    dependencies:
+      '@floating-ui/dom': 1.7.6
+      '@floating-ui/vue': 1.1.11(vue@3.5.35(typescript@5.9.3))
+      '@internationalized/date': 3.12.2
+      '@internationalized/number': 3.6.6
+      '@tanstack/vue-virtual': 3.13.24(vue@3.5.35(typescript@5.9.3))
+      '@vueuse/core': 14.3.0(vue@3.5.35(typescript@5.9.3))
+      '@vueuse/shared': 14.3.0(vue@3.5.35(typescript@5.9.3))
+      aria-hidden: 1.2.6
+      defu: 6.1.7
+      ohash: 2.0.11
+      vue: 3.5.35(typescript@5.9.3)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+
   reka-ui@2.9.9(vue@3.5.35(typescript@5.9.3)):
     dependencies:
       '@floating-ui/dom': 1.7.6
@@ -9366,10 +9387,10 @@ snapshots:
     dependencies:
       react: 19.2.7
 
-  vaul-vue@0.4.1(reka-ui@2.9.9(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)):
+  vaul-vue@0.4.1(reka-ui@2.9.10(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)):
     dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.35(typescript@5.9.3))
-      reka-ui: 2.9.9(vue@3.5.35(typescript@5.9.3))
+      reka-ui: 2.9.10(vue@3.5.35(typescript@5.9.3))
       vue: 3.5.35(typescript@5.9.3)
     transitivePeerDependencies:
       - '@vue/composition-api'
