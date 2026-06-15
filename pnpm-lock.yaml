@@ -16,8 +16,8 @@ catalogs:
       specifier: ^4.3.0
       version: 4.3.0
     '@types/node':
-      specifier: ^22.19.21
-      version: 22.19.21
+      specifier: ^24.13.2
+      version: 24.13.2
     '@types/react':
       specifier: ^19.2.17
       version: 19.2.17
@@ -94,7 +94,7 @@ importers:
     devDependencies:
       '@changesets/cli':
         specifier: ^2.31.0
-        version: 2.31.0(@types/node@22.19.21)
+        version: 2.31.0(@types/node@24.13.2)
       '@line/abc-def-prettier-config':
         specifier: workspace:^
         version: link:tooling/prettier
@@ -146,7 +146,7 @@ importers:
         version: 4.3.0
       '@types/node':
         specifier: 'catalog:'
-        version: 22.19.21
+        version: 24.13.2
       '@types/react':
         specifier: 'catalog:'
         version: 19.2.17
@@ -177,7 +177,7 @@ importers:
     devDependencies:
       '@tailwindcss/vite':
         specifier: 'catalog:'
-        version: 4.3.0(vite@8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1))
+        version: 4.3.0(vite@8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1))
       tailwindcss:
         specifier: 'catalog:'
         version: 4.3.0
@@ -186,7 +186,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: 'catalog:'
-        version: 8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1)
+        version: 8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1)
 
   examples/nextjs:
     dependencies:
@@ -256,7 +256,7 @@ importers:
         version: 4.3.0
       '@types/node':
         specifier: 'catalog:'
-        version: 22.19.21
+        version: 24.13.2
       '@types/react':
         specifier: 'catalog:'
         version: 19.2.17
@@ -286,7 +286,7 @@ importers:
         version: 4.15.1(vue@3.5.38(typescript@5.9.3))(zod@3.25.76)
       '@vitejs/plugin-vue':
         specifier: ^6.0.6
-        version: 6.0.6(vite@8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1))(vue@3.5.38(typescript@5.9.3))
+        version: 6.0.6(vite@8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1))(vue@3.5.38(typescript@5.9.3))
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
@@ -317,7 +317,7 @@ importers:
     devDependencies:
       '@tailwindcss/vite':
         specifier: 'catalog:'
-        version: 4.3.0(vite@8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1))
+        version: 4.3.0(vite@8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1))
       tailwindcss:
         specifier: 'catalog:'
         version: 4.3.0
@@ -326,7 +326,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: 'catalog:'
-        version: 8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1)
+        version: 8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1)
 
   packages/react:
     dependencies:
@@ -490,7 +490,7 @@ importers:
         version: 5.9.3
       unplugin-vue:
         specifier: ^7.2.0
-        version: 7.2.0(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1)(vue@3.5.38(typescript@5.9.3))
+        version: 7.2.0(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1)(vue@3.5.38(typescript@5.9.3))
       vue:
         specifier: 'catalog:'
         version: 3.5.38(typescript@5.9.3)
@@ -539,7 +539,7 @@ importers:
         version: link:../typescript
       '@types/node':
         specifier: 'catalog:'
-        version: 22.19.21
+        version: 24.13.2
       eslint:
         specifier: 'catalog:'
         version: 9.39.4(jiti@2.6.1)
@@ -2655,8 +2655,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@22.19.21':
-    resolution: {integrity: sha512-VMeFBSCKQKmm2swI2kW51SFusDqekC6q9trBCvJ/JliDchFSuoYYKN7yVNjPthP1HKZcx3U1gI/wTcEBjEFKTA==}
+  '@types/node@24.13.2':
+    resolution: {integrity: sha512-fRa09kZTgu8o71KFcDjUFuc7F+dEbZYZmkI0mg5YBTRs0yMKjYHsq/c0urDKeDb+D5qVgXOdFcuu+DZPKOITwA==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -4726,8 +4726,8 @@ packages:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
     engines: {node: '>= 0.4'}
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+  undici-types@7.18.2:
+    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
   universalify@0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
@@ -5186,7 +5186,7 @@ snapshots:
     dependencies:
       '@changesets/types': 6.1.0
 
-  '@changesets/cli@2.31.0(@types/node@22.19.21)':
+  '@changesets/cli@2.31.0(@types/node@24.13.2)':
     dependencies:
       '@changesets/apply-release-plan': 7.1.1
       '@changesets/assemble-release-plan': 6.0.10
@@ -5202,7 +5202,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@changesets/write': 0.4.0
-      '@inquirer/external-editor': 1.0.3(@types/node@22.19.21)
+      '@inquirer/external-editor': 1.0.3(@types/node@24.13.2)
       '@manypkg/get-packages': 1.1.3
       ansi-colors: 4.1.3
       enquirer: 2.4.1
@@ -5609,12 +5609,12 @@ snapshots:
   '@img/sharp-win32-x64@0.34.5':
     optional: true
 
-  '@inquirer/external-editor@1.0.3(@types/node@22.19.21)':
+  '@inquirer/external-editor@1.0.3(@types/node@24.13.2)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.2
     optionalDependencies:
-      '@types/node': 22.19.21
+      '@types/node': 24.13.2
 
   '@internationalized/date@3.12.2':
     dependencies:
@@ -6830,12 +6830,12 @@ snapshots:
       postcss: 8.5.15
       tailwindcss: 4.3.0
 
-  '@tailwindcss/vite@4.3.0(vite@8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1))':
+  '@tailwindcss/vite@4.3.0(vite@8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1))':
     dependencies:
       '@tailwindcss/node': 4.3.0
       '@tailwindcss/oxide': 4.3.0
       tailwindcss: 4.3.0
-      vite: 8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1)
+      vite: 8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1)
 
   '@tanstack/react-table@8.21.3(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
     dependencies:
@@ -6912,9 +6912,9 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@22.19.21':
+  '@types/node@24.13.2':
     dependencies:
-      undici-types: 6.21.0
+      undici-types: 7.18.2
 
   '@types/react-dom@19.2.3(@types/react@19.2.17)':
     dependencies:
@@ -7029,10 +7029,10 @@ snapshots:
     transitivePeerDependencies:
       - vue
 
-  '@vitejs/plugin-vue@6.0.6(vite@8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1))(vue@3.5.38(typescript@5.9.3))':
+  '@vitejs/plugin-vue@6.0.6(vite@8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1))(vue@3.5.38(typescript@5.9.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-rc.13
-      vite: 8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1)
+      vite: 8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1)
       vue: 3.5.38(typescript@5.9.3)
 
   '@volar/language-core@2.4.28':
@@ -9357,18 +9357,18 @@ snapshots:
       has-symbols: 1.1.0
       which-boxed-primitive: 1.1.1
 
-  undici-types@6.21.0: {}
+  undici-types@7.18.2: {}
 
   universalify@0.1.2: {}
 
-  unplugin-vue@7.2.0(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1)(vue@3.5.38(typescript@5.9.3)):
+  unplugin-vue@7.2.0(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1)(vue@3.5.38(typescript@5.9.3)):
     dependencies:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
       '@vue/reactivity': 3.5.35
       obug: 2.1.1
       unplugin: 3.0.0
-      vite: 8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1)
+      vite: 8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1)
       vue: 3.5.38(typescript@5.9.3)
     transitivePeerDependencies:
       - '@types/node'
@@ -9478,7 +9478,7 @@ snapshots:
       d3-time: 3.1.0
       d3-timer: 3.0.1
 
-  vite@8.0.16(@types/node@22.19.21)(esbuild@0.27.7)(jiti@2.6.1):
+  vite@8.0.16(@types/node@24.13.2)(esbuild@0.27.7)(jiti@2.6.1):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
@@ -9486,7 +9486,7 @@ snapshots:
       rolldown: 1.0.3
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 22.19.21
+      '@types/node': 24.13.2
       esbuild: 0.27.7
       fsevents: 2.3.3
       jiti: 2.6.1
