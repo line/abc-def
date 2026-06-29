@@ -58,8 +58,8 @@ catalogs:
       specifier: ^19.2.7
       version: 19.2.7
     reka-ui:
-      specifier: ^2.10.0
-      version: 2.10.0
+      specifier: ^2.10.1
+      version: 2.10.1
     sonner:
       specifier: ^2.0.7
       version: 2.0.7
@@ -295,7 +295,7 @@ importers:
         version: 1.0.0(vue@3.5.39(typescript@5.9.3))
       reka-ui:
         specifier: 'catalog:'
-        version: 2.10.0(vue@3.5.39(typescript@5.9.3))
+        version: 2.10.1(vue@3.5.39(typescript@5.9.3))
       tailwind-merge:
         specifier: 'catalog:'
         version: 3.6.0
@@ -450,13 +450,13 @@ importers:
         version: 1.0.0(vue@3.5.39(typescript@5.9.3))
       reka-ui:
         specifier: 'catalog:'
-        version: 2.10.0(vue@3.5.39(typescript@5.9.3))
+        version: 2.10.1(vue@3.5.39(typescript@5.9.3))
       tailwind-merge:
         specifier: 'catalog:'
         version: 3.6.0
       vaul-vue:
         specifier: ^0.4.1
-        version: 0.4.1(reka-ui@2.10.0(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3))
+        version: 0.4.1(reka-ui@2.10.1(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3))
       vue-input-otp:
         specifier: ^0.3.2
         version: 0.3.2(typescript@5.9.3)(vue@3.5.39(typescript@5.9.3))
@@ -4491,8 +4491,8 @@ packages:
     resolution: {integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==}
     engines: {node: '>= 0.4'}
 
-  reka-ui@2.10.0:
-    resolution: {integrity: sha512-HIUVfSBM/AyGkcUI7aiOxxMc4N+0UD2ZEun8dcrT0H4fveotEoeDdvzyZu97eeEvEa1H9oGHoOpApkfxlgnC7g==}
+  reka-ui@2.10.1:
+    resolution: {integrity: sha512-drcOQ4rQtDYAcGCsyQBqQg8QQ+H3B+zDaMJU0h8KPEPMa7g9BHu3zcOi4OB39XJSWizceFoNO0Z9tctSGLOXqg==}
     peerDependencies:
       vue: '>= 3.4.0'
 
@@ -9064,7 +9064,7 @@ snapshots:
       gopd: 1.2.0
       set-function-name: 2.0.2
 
-  reka-ui@2.10.0(vue@3.5.39(typescript@5.9.3)):
+  reka-ui@2.10.1(vue@3.5.39(typescript@5.9.3)):
     dependencies:
       '@floating-ui/dom': 1.7.6
       '@floating-ui/vue': 1.1.11(vue@3.5.39(typescript@5.9.3))
@@ -9630,10 +9630,10 @@ snapshots:
     dependencies:
       react: 19.2.7
 
-  vaul-vue@0.4.1(reka-ui@2.10.0(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3)):
+  vaul-vue@0.4.1(reka-ui@2.10.1(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3)):
     dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.39(typescript@5.9.3))
-      reka-ui: 2.10.0(vue@3.5.39(typescript@5.9.3))
+      reka-ui: 2.10.1(vue@3.5.39(typescript@5.9.3))
       vue: 3.5.39(typescript@5.9.3)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -9705,7 +9705,7 @@ snapshots:
   vue-input-otp@0.3.2(typescript@5.9.3)(vue@3.5.39(typescript@5.9.3)):
     dependencies:
       '@vueuse/core': 12.8.2(typescript@5.9.3)
-      reka-ui: 2.10.0(vue@3.5.39(typescript@5.9.3))
+      reka-ui: 2.10.1(vue@3.5.39(typescript@5.9.3))
       vue: 3.5.39(typescript@5.9.3)
     transitivePeerDependencies:
       - '@vue/composition-api'
