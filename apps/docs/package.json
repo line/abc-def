@@ -14,7 +14,7 @@
     "@line/abc-def-styles": "workspace:*",
     "@line/abc-def-vue": "workspace:*",
     "lucide-react": "catalog:",
-    "next": "^16.2.10",
+    "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "tw-animate-css": "catalog:"
