@@ -52,18 +52,15 @@ function excludeShebangs(comments) {
 // check if they are at the start of the file since that is already checked by
 // hasHeader().
 // @ts-ignore
-function getLeadingComments(context, node) {
+function getLeadingComments(sourceCode, node) {
   var all = excludeShebangs(
-    context
-      .getSourceCode()
-      .getAllComments(node.body.length ? node.body[0] : node),
+    sourceCode.getAllComments(node.body.length ? node.body[0] : node),
   );
   if (all[0].type.toLowerCase() === "block") {
     return [all[0]];
   }
   for (var i = 1; i < all.length; ++i) {
-    var txt = context
-      .getSourceCode()
+    var txt = sourceCode
       .getText()
       .slice(all[i - 1].range[1], all[i].range[0]);
     if (!txt.match(/^(\r\n|\r|\n)$/)) {
@@ -84,10 +81,10 @@ function genCommentBody(commentType, textArray, eol, numNewlines) {
 }
 
 // @ts-ignore
-function genCommentsRange(context, comments, eol) {
+function genCommentsRange(sourceCode, comments, eol) {
   var start = comments[0].range[0];
   var end = comments.slice(-1)[0].range[1];
-  if (context.getSourceCode().text[end] === eol) {
+  if (sourceCode.text[end] === eol) {
     end += eol.length;
   }
   return [start, end];
@@ -108,7 +105,7 @@ function genReplaceFixer(
   // @ts-ignore
   commentType,
   // @ts-ignore
-  context,
+  sourceCode,
   // @ts-ignore
   leadingComments,
   // @ts-ignore
@@ -121,7 +118,7 @@ function genReplaceFixer(
   // @ts-ignore
   return function (fixer) {
     return fixer.replaceTextRange(
-      genCommentsRange(context, leadingComments, eol),
+      genCommentsRange(sourceCode, leadingComments, eol),
       genCommentBody(commentType, headerLines, eol, numNewlines),
     );
   };
@@ -271,6 +268,7 @@ export default {
   },
   // @ts-ignore
   create: function (context) {
+    var sourceCode = context.sourceCode;
     var options = context.options;
     var numNewlines = options.length > 2 ? options[2] : 1;
     var eol = getEOL(options);
@@ -319,7 +317,7 @@ export default {
     return {
       // @ts-ignore
       Program: function (node) {
-        if (!hasHeader(context.getSourceCode().getText())) {
+        if (!hasHeader(sourceCode.getText())) {
           context.report({
             loc: node.loc,
             message: "missing header",
@@ -327,7 +325,7 @@ export default {
             fix: genPrependFixer(commentType, node, fixLines, eol, numNewlines),
           });
         } else {
-          var leadingComments = getLeadingComments(context, node);
+          var leadingComments = getLeadingComments(sourceCode, node);
 
           if (!leadingComments.length) {
             context.report({
@@ -348,7 +346,7 @@ export default {
               fix: canFix
                 ? genReplaceFixer(
                     commentType,
-                    context,
+                    sourceCode,
                     leadingComments,
                     // @ts-ignore
                     fixLines,
@@ -366,7 +364,7 @@ export default {
                   fix: canFix
                     ? genReplaceFixer(
                         commentType,
-                        context,
+                        sourceCode,
                         leadingComments,
                         // @ts-ignore
                         fixLines,
@@ -386,7 +384,7 @@ export default {
                     fix: canFix
                       ? genReplaceFixer(
                           commentType,
-                          context,
+                          sourceCode,
                           leadingComments,
                           // @ts-ignore
                           fixLines,
@@ -399,9 +397,7 @@ export default {
                 }
               }
 
-              var postLineHeader = context
-                .getSourceCode()
-                .text.substr(
+              var postLineHeader = sourceCode.text.substr(
                   leadingComments[headerLines.length - 1].range[1],
                   numNewlines * 2,
                 );
@@ -412,7 +408,7 @@ export default {
                   fix: canFix
                     ? genReplaceFixer(
                         commentType,
-                        context,
+                        sourceCode,
                         leadingComments,
                         // @ts-ignore
                         fixLines,
@@ -451,7 +447,7 @@ export default {
                   fix: canFix
                     ? genReplaceFixer(
                         commentType,
-                        context,
+                        sourceCode,
                         leadingComments,
                         // @ts-ignore
                         fixLines,
@@ -461,9 +457,7 @@ export default {
                     : null,
                 });
               } else {
-                var postBlockHeader = context
-                  .getSourceCode()
-                  .text.substr(leadingComments[0].range[1], numNewlines * 2);
+                var postBlockHeader = sourceCode.text.substr(leadingComments[0].range[1], numNewlines * 2);
                 if (!matchesLineEndings(postBlockHeader, numNewlines)) {
                   context.report({
                     loc: node.loc,
@@ -471,7 +465,7 @@ export default {
                     fix: canFix
                       ? genReplaceFixer(
                           commentType,
-                          context,
+                          sourceCode,
                           leadingComments,
                           // @ts-ignore
                           fixLines,
