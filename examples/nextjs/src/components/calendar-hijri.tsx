@@ -9,7 +9,7 @@ import {
   ChevronRightIcon,
 } from "lucide-react";
 import { getDefaultClassNames } from "react-day-picker";
-import { DayPicker } from "react-day-picker/persian";
+import { DayPicker } from "@daypicker/persian";
 
 import { Button, buttonVariants } from "@line/abc-def-react/button";
 
@@ -69,7 +69,11 @@ function Calendar({
         ...formatters,
       }}
       classNames={{
-        root: cn("w-fit", defaultClassNames.root),
+        root: cn(
+          "w-fit",
+          props.showWeekNumber && "calendar-root-week-numbers",
+          defaultClassNames.root,
+        ),
         months: cn(
           "relative flex flex-col gap-4 md:flex-row",
           defaultClassNames.months,
@@ -109,7 +113,7 @@ function Calendar({
             : "[&>svg]:text-muted-foreground flex h-8 items-center gap-1 rounded-md pr-1 pl-2 text-sm [&>svg]:size-3.5",
           defaultClassNames.caption_label,
         ),
-        table: "w-full border-collapse",
+        month_grid: "w-full border-collapse",
         weekdays: cn("flex", defaultClassNames.weekdays),
         weekday: cn(
           "text-muted-foreground flex-1 rounded-md text-[0.8rem] font-normal select-none",
@@ -125,7 +129,10 @@ function Calendar({
           defaultClassNames.week_number,
         ),
         day: cn(
-          "group/day relative aspect-square h-full w-full p-0 text-center select-none [&:first-child[data-selected=true]_button]:rounded-l-md [&:last-child[data-selected=true]_button]:rounded-r-md",
+          "group/day relative aspect-square h-full w-full p-0 text-center select-none [&:last-child[data-selected=true]_button]:rounded-r-md",
+          props.showWeekNumber
+            ? "[&:nth-child(2)[data-selected=true]_button]:rounded-l-md"
+            : "[&:first-child[data-selected=true]_button]:rounded-l-md",
           defaultClassNames.day,
         ),
         range_start: cn(

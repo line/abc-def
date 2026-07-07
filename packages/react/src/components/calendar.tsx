@@ -88,7 +88,7 @@ function Calendar({
             : "calendar-caption-label",
           defaultClassNames.caption_label,
         ),
-        table: "calendar-table",
+        month_grid: "calendar-table",
         weekdays: cn("calendar-weekdays", defaultClassNames.weekdays),
         weekday: cn("calendar-weekday", defaultClassNames.weekday),
         week: cn("calendar-week", defaultClassNames.week),
@@ -175,7 +175,7 @@ function CalendarDayButton({
 
   const ref = React.useRef<HTMLButtonElement>(null);
   React.useEffect(() => {
-    // if (modifiers.focused) ref.current?.focus();
+    if (modifiers.focused) ref.current?.focus();
   }, [modifiers.focused]);
 
   return (
