@@ -6,7 +6,6 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
