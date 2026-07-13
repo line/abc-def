@@ -52,8 +52,8 @@ catalogs:
       specifier: ^0.4.6
       version: 0.4.6
     prettier:
-      specifier: ^3.9.4
-      version: 3.9.4
+      specifier: ^3.9.5
+      version: 3.9.5
     react:
       specifier: ^19.2.7
       version: 19.2.7
@@ -106,7 +106,7 @@ importers:
         version: link:tooling/prettier
       prettier:
         specifier: 'catalog:'
-        version: 3.9.4
+        version: 3.9.5
       turbo:
         specifier: ^2.10.4
         version: 2.10.4
@@ -164,7 +164,7 @@ importers:
         version: 10.6.0(jiti@2.7.0)
       prettier:
         specifier: 'catalog:'
-        version: 3.9.4
+        version: 3.9.5
       tailwindcss:
         specifier: 'catalog:'
         version: 4.3.2
@@ -405,7 +405,7 @@ importers:
         version: 10.6.0(jiti@2.7.0)
       prettier:
         specifier: 'catalog:'
-        version: 3.9.4
+        version: 3.9.5
       react:
         specifier: 'catalog:'
         version: 19.2.7
@@ -426,7 +426,7 @@ importers:
         version: link:../../tooling/prettier
       prettier:
         specifier: 'catalog:'
-        version: 3.9.4
+        version: 3.9.5
       tailwindcss:
         specifier: 'catalog:'
         version: 4.3.2
@@ -490,7 +490,7 @@ importers:
         version: 10.6.0(jiti@2.7.0)
       prettier:
         specifier: 'catalog:'
-        version: 3.9.4
+        version: 3.9.5
       tsup:
         specifier: 'catalog:'
         version: 8.5.1(jiti@2.7.0)(postcss@8.5.15)(typescript@6.0.3)
@@ -557,7 +557,7 @@ importers:
         version: 2.10.4(eslint@10.6.0(jiti@2.7.0))(turbo@2.10.4)
       prettier:
         specifier: 'catalog:'
-        version: 3.9.4
+        version: 3.9.5
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -570,13 +570,13 @@ importers:
     dependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.7.1
-        version: 4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.4)
+        version: 4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.5)
       prettier:
         specifier: 'catalog:'
-        version: 3.9.4
+        version: 3.9.5
       prettier-plugin-tailwindcss:
         specifier: ^0.8.0
-        version: 0.8.0(@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.4))(prettier@3.9.4)
+        version: 0.8.0(@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.5))(prettier@3.9.5)
     devDependencies:
       '@line/abc-def-tsconfig':
         specifier: workspace:*
@@ -4316,8 +4316,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.9.4:
-    resolution: {integrity: sha512-yWG/o/4oJfo036EKAfK6ACAoDOfHeRHx4tuxkfBZiauURiaSmYwlpOr5LQqKtIkRD2z1PLteme2WoxEnj4tHTg==}
+  prettier@3.9.5:
+    resolution: {integrity: sha512-/FVl766LpUfB5vXgCYOYa0MeV/441Ia99AeICQIQFTY/Nw0roZwULcXpku5i1/m5kt/baz+s4Zogspd839HSMg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5586,13 +5586,13 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.4)':
+  '@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.5)':
     dependencies:
       '@babel/generator': 7.29.1
       '@babel/parser': 7.29.7
       '@babel/traverse': 7.29.0
       '@babel/types': 7.29.7
-      prettier: 3.9.4
+      prettier: 3.9.5
       semver: 7.7.4
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.39
@@ -8735,15 +8735,15 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.8.0(@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.4))(prettier@3.9.4):
+  prettier-plugin-tailwindcss@0.8.0(@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.5))(prettier@3.9.5):
     dependencies:
-      prettier: 3.9.4
+      prettier: 3.9.5
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.4)
+      '@ianvs/prettier-plugin-sort-imports': 4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.5)
 
   prettier@2.8.8: {}
 
-  prettier@3.9.4: {}
+  prettier@3.9.5: {}
 
   prop-types@15.8.1:
     dependencies:
