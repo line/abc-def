@@ -30,7 +30,7 @@
     "@line/abc-def-tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
-    "eslint-plugin-turbo": "^2.10.4",
+    "eslint-plugin-turbo": "^2.10.5",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
