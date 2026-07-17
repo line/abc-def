@@ -23,7 +23,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-compiler": "beta",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "typescript-eslint": "^8.63.0"
+    "typescript-eslint": "^8.64.0"
   },
   "devDependencies": {
     "@line/abc-def-prettier-config": "workspace:*",
