@@ -35,7 +35,7 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.31.0",
+    "@changesets/cli": "^2.31.1",
     "@line/abc-def-prettier-config": "workspace:^",
     "prettier": "catalog:",
     "turbo": "^2.10.5",
