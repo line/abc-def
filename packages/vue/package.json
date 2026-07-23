@@ -1,6 +1,6 @@
 {
   "name": "@line/abc-def-vue",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Vue components for the ABC Def design system",
   "license": "Apache-2.0",
   "type": "module",
