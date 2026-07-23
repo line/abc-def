@@ -52,7 +52,7 @@
     "input-otp": "catalog:",
     "lucide-react": "catalog:",
     "next-themes": "catalog:",
-    "radix-ui": "^1.6.2",
+    "radix-ui": "^1.6.4",
     "react-day-picker": "catalog:",
     "react-resizable-panels": "^4.12.2",
     "sonner": "catalog:",
