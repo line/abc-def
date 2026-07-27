@@ -1,5 +1,5 @@
 /**
- * Copyright 2025 LY Corporation
+ * Copyright 2026 LY Corporation
  *
  * LY Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -322,10 +322,7 @@ export function PlaygroundClient({
               </CardHeader>
               <CardContent>
                 <div
-                  className={[
-                    "docs-example-preview",
-                    example.previewClassName,
-                  ]
+                  className={["docs-example-preview", example.previewClassName]
                     .filter(Boolean)
                     .join(" ")}
                 >

@@ -1,5 +1,5 @@
 /**
- * Copyright 2025 LY Corporation
+ * Copyright 2026 LY Corporation
  *
  * LY Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -16,7 +16,7 @@
 "use client";
 
 import type { ComponentType, ReactNode } from "react";
-import { AspectRatio } from "@line/abc-def-react/aspect-ratio";
+
 import {
   Accordion,
   AccordionContent,
@@ -35,6 +35,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@line/abc-def-react/alert-dialog";
+import { AspectRatio } from "@line/abc-def-react/aspect-ratio";
 import {
   Avatar,
   AvatarBadge,
@@ -196,10 +197,7 @@ import {
   PopoverTrigger,
 } from "@line/abc-def-react/popover";
 import { Progress } from "@line/abc-def-react/progress";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@line/abc-def-react/radio-group";
+import { RadioGroup, RadioGroupItem } from "@line/abc-def-react/radio-group";
 import {
   ResizableHandle,
   ResizablePanel,
@@ -246,13 +244,15 @@ import {
   TableHeader,
   TableRow,
 } from "@line/abc-def-react/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@line/abc-def-react/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@line/abc-def-react/tabs";
 import { Textarea } from "@line/abc-def-react/textarea";
 import { Toggle } from "@line/abc-def-react/toggle";
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@line/abc-def-react/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "@line/abc-def-react/toggle-group";
 import {
   Tooltip,
   TooltipContent,
@@ -317,7 +317,9 @@ const examples: Record<string, ComponentExample> = {
     Example: () => (
       <Alert>
         <AlertTitle>Build complete</AlertTitle>
-        <AlertDescription>Tokens and classes are ready to publish.</AlertDescription>
+        <AlertDescription>
+          Tokens and classes are ready to publish.
+        </AlertDescription>
       </Alert>
     ),
     variantExamples: [
@@ -746,7 +748,9 @@ const examples: Record<string, ComponentExample> = {
         <HoverCardTrigger asChild>
           <Button variant="link">Preview token</Button>
         </HoverCardTrigger>
-        <HoverCardContent>--button-bg-primary resolves to --primary.</HoverCardContent>
+        <HoverCardContent>
+          --button-bg-primary resolves to --primary.
+        </HoverCardContent>
       </HoverCard>
     ),
   },
@@ -795,7 +799,9 @@ const examples: Record<string, ComponentExample> = {
           <ItemTitle>Component tokens</ItemTitle>
         </ItemHeader>
         <ItemContent>
-          <ItemDescription>Scoped to each shared class contract.</ItemDescription>
+          <ItemDescription>
+            Scoped to each shared class contract.
+          </ItemDescription>
         </ItemContent>
       </Item>
     ),
@@ -908,8 +914,12 @@ const examples: Record<string, ComponentExample> = {
     title: "Native select example",
     Example: () => (
       <NativeSelect defaultValue="semantic">
-        <NativeSelectOption value="semantic">Semantic tokens</NativeSelectOption>
-        <NativeSelectOption value="component">Component tokens</NativeSelectOption>
+        <NativeSelectOption value="semantic">
+          Semantic tokens
+        </NativeSelectOption>
+        <NativeSelectOption value="component">
+          Component tokens
+        </NativeSelectOption>
       </NativeSelect>
     ),
   },
@@ -920,7 +930,9 @@ const examples: Record<string, ComponentExample> = {
       <NavigationMenu viewport={false}>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuLink href="/components">Components</NavigationMenuLink>
+            <NavigationMenuLink href="/components">
+              Components
+            </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
@@ -958,7 +970,9 @@ const examples: Record<string, ComponentExample> = {
         <PopoverContent>
           <PopoverHeader>
             <PopoverTitle>--primary</PopoverTitle>
-            <PopoverDescription>Used by primary component colors.</PopoverDescription>
+            <PopoverDescription>
+              Used by primary component colors.
+            </PopoverDescription>
           </PopoverHeader>
         </PopoverContent>
       </Popover>
@@ -1256,7 +1270,11 @@ export function ComponentExamplePreview({ slug }: { slug: string }) {
   const Example = example.Example;
 
   return (
-    <div className={["docs-example-preview", example.previewClassName].filter(Boolean).join(" ")}>
+    <div
+      className={["docs-example-preview", example.previewClassName]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <Example />
     </div>
   );

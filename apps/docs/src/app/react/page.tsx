@@ -1,5 +1,5 @@
 /**
- * Copyright 2025 LY Corporation
+ * Copyright 2026 LY Corporation
  *
  * LY Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -64,8 +64,8 @@ export default function ReactGuidePage() {
       <PageSection title="Composition">
         <p>
           Compound components are exported from the same subpath as their root
-          component. For example, dialog content, title, description, and trigger
-          exports all come from `@line/abc-def-react/dialog`.
+          component. For example, dialog content, title, description, and
+          trigger exports all come from `@line/abc-def-react/dialog`.
         </p>
       </PageSection>
       <PageSection title="Examples">

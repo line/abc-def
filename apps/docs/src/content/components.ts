@@ -1,5 +1,5 @@
 /**
- * Copyright 2025 LY Corporation
+ * Copyright 2026 LY Corporation
  *
  * LY Corporation licenses this file to you under the Apache License,
  * version 2.0 (the "License"); you may not use this file except in compliance
@@ -17,7 +17,8 @@
 export interface ComponentDoc {
   slug: string;
   title: string;
-  category: "Display" | "Feedback" | "Form" | "Layout" | "Navigation" | "Overlay";
+  category:
+    "Display" | "Feedback" | "Form" | "Layout" | "Navigation" | "Overlay";
   description: string;
   primaryExport: string;
   relatedExports: string[];
@@ -29,55 +30,88 @@ export const componentDocs = [
     slug: "accordion",
     title: "Accordion",
     category: "Display",
-    description: "Stacks related disclosure sections with controlled or uncontrolled expansion.",
+    description:
+      "Stacks related disclosure sections with controlled or uncontrolled expansion.",
     primaryExport: "Accordion",
     relatedExports: ["AccordionItem", "AccordionTrigger", "AccordionContent"],
-    notes: ["Use one item per topic.", "Use `type=\"multiple\"` when more than one section can stay open."],
+    notes: [
+      "Use one item per topic.",
+      'Use `type="multiple"` when more than one section can stay open.',
+    ],
   },
   {
     slug: "alert",
     title: "Alert",
     category: "Feedback",
-    description: "Presents contextual status, warning, or destructive messages inline.",
+    description:
+      "Presents contextual status, warning, or destructive messages inline.",
     primaryExport: "Alert",
     relatedExports: ["AlertTitle", "AlertDescription", "AlertAction"],
-    notes: ["Keep alert copy concise.", "Use destructive styling only for high-risk states."],
+    notes: [
+      "Keep alert copy concise.",
+      "Use destructive styling only for high-risk states.",
+    ],
   },
   {
     slug: "alert-dialog",
     title: "Alert Dialog",
     category: "Overlay",
-    description: "Interrupts the flow for confirmations that can change or discard user data.",
+    description:
+      "Interrupts the flow for confirmations that can change or discard user data.",
     primaryExport: "AlertDialog",
-    relatedExports: ["AlertDialogTrigger", "AlertDialogContent", "AlertDialogAction", "AlertDialogCancel"],
-    notes: ["Reserve for destructive or irreversible actions.", "Always provide a cancel path."],
+    relatedExports: [
+      "AlertDialogTrigger",
+      "AlertDialogContent",
+      "AlertDialogAction",
+      "AlertDialogCancel",
+    ],
+    notes: [
+      "Reserve for destructive or irreversible actions.",
+      "Always provide a cancel path.",
+    ],
   },
   {
     slug: "aspect-ratio",
     title: "Aspect Ratio",
     category: "Layout",
-    description: "Keeps media and embedded content within a predictable proportional box.",
+    description:
+      "Keeps media and embedded content within a predictable proportional box.",
     primaryExport: "AspectRatio",
     relatedExports: [],
-    notes: ["Use for screenshots, video, cards, and responsive media placeholders."],
+    notes: [
+      "Use for screenshots, video, cards, and responsive media placeholders.",
+    ],
   },
   {
     slug: "avatar",
     title: "Avatar",
     category: "Display",
-    description: "Shows a person, team, or entity identity with fallback and grouping support.",
+    description:
+      "Shows a person, team, or entity identity with fallback and grouping support.",
     primaryExport: "Avatar",
-    relatedExports: ["AvatarImage", "AvatarFallback", "AvatarBadge", "AvatarGroup"],
-    notes: ["Always include an accessible fallback.", "Group avatars only when the set represents one shared context."],
+    relatedExports: [
+      "AvatarImage",
+      "AvatarFallback",
+      "AvatarBadge",
+      "AvatarGroup",
+    ],
+    notes: [
+      "Always include an accessible fallback.",
+      "Group avatars only when the set represents one shared context.",
+    ],
   },
   {
     slug: "badge",
     title: "Badge",
     category: "Display",
-    description: "Labels status, metadata, counts, and compact classifications.",
+    description:
+      "Labels status, metadata, counts, and compact classifications.",
     primaryExport: "Badge",
     relatedExports: ["badgeVariants"],
-    notes: ["Use short labels.", "Use link styling only when the badge is genuinely navigational."],
+    notes: [
+      "Use short labels.",
+      "Use link styling only when the badge is genuinely navigational.",
+    ],
   },
   {
     slug: "breadcrumb",
@@ -85,17 +119,29 @@ export const componentDocs = [
     category: "Navigation",
     description: "Shows the current page location inside a hierarchy.",
     primaryExport: "Breadcrumb",
-    relatedExports: ["BreadcrumbList", "BreadcrumbItem", "BreadcrumbLink", "BreadcrumbPage"],
-    notes: ["Use `BreadcrumbPage` for the current location.", "Avoid using breadcrumbs as the only navigation."],
+    relatedExports: [
+      "BreadcrumbList",
+      "BreadcrumbItem",
+      "BreadcrumbLink",
+      "BreadcrumbPage",
+    ],
+    notes: [
+      "Use `BreadcrumbPage` for the current location.",
+      "Avoid using breadcrumbs as the only navigation.",
+    ],
   },
   {
     slug: "button",
     title: "Button",
     category: "Form",
-    description: "Triggers commands, submissions, and navigation-style actions.",
+    description:
+      "Triggers commands, submissions, and navigation-style actions.",
     primaryExport: "Button",
     relatedExports: ["buttonVariants"],
-    notes: ["Choose the variant by action priority.", "Prefer icons plus concise labels for repeated tool actions."],
+    notes: [
+      "Choose the variant by action priority.",
+      "Prefer icons plus concise labels for repeated tool actions.",
+    ],
   },
   {
     slug: "button-group",
@@ -104,34 +150,60 @@ export const componentDocs = [
     description: "Groups related actions into one compact command cluster.",
     primaryExport: "ButtonGroup",
     relatedExports: ["ButtonGroupSeparator", "ButtonGroupText"],
-    notes: ["Keep grouped actions closely related.", "Use separators to clarify mixed action groups."],
+    notes: [
+      "Keep grouped actions closely related.",
+      "Use separators to clarify mixed action groups.",
+    ],
   },
   {
     slug: "calendar",
     title: "Calendar",
     category: "Form",
-    description: "Supports date selection, ranges, captions, and calendar-specific composition.",
+    description:
+      "Supports date selection, ranges, captions, and calendar-specific composition.",
     primaryExport: "Calendar",
     relatedExports: ["CalendarDayButton"],
-    notes: ["Pair with form labels when used for input.", "Confirm range behavior in keyboard navigation."],
+    notes: [
+      "Pair with form labels when used for input.",
+      "Confirm range behavior in keyboard navigation.",
+    ],
   },
   {
     slug: "card",
     title: "Card",
     category: "Layout",
-    description: "Frames a self-contained piece of content or a compact workflow.",
+    description:
+      "Frames a self-contained piece of content or a compact workflow.",
     primaryExport: "Card",
-    relatedExports: ["CardHeader", "CardTitle", "CardDescription", "CardContent", "CardFooter"],
-    notes: ["Use cards for repeated items or framed tools.", "Avoid nesting cards inside cards."],
+    relatedExports: [
+      "CardHeader",
+      "CardTitle",
+      "CardDescription",
+      "CardContent",
+      "CardFooter",
+    ],
+    notes: [
+      "Use cards for repeated items or framed tools.",
+      "Avoid nesting cards inside cards.",
+    ],
   },
   {
     slug: "carousel",
     title: "Carousel",
     category: "Display",
-    description: "Presents horizontally or vertically paged content with controls.",
+    description:
+      "Presents horizontally or vertically paged content with controls.",
     primaryExport: "Carousel",
-    relatedExports: ["CarouselContent", "CarouselItem", "CarouselPrevious", "CarouselNext"],
-    notes: ["Use for small sets where browsing order matters.", "Do not hide critical information in a carousel."],
+    relatedExports: [
+      "CarouselContent",
+      "CarouselItem",
+      "CarouselPrevious",
+      "CarouselNext",
+    ],
+    notes: [
+      "Use for small sets where browsing order matters.",
+      "Do not hide critical information in a carousel.",
+    ],
   },
   {
     slug: "checkbox",
@@ -140,7 +212,10 @@ export const componentDocs = [
     description: "Toggles one or more independent boolean choices.",
     primaryExport: "Checkbox",
     relatedExports: [],
-    notes: ["Use with a visible label.", "Use radio buttons when exactly one option must be selected."],
+    notes: [
+      "Use with a visible label.",
+      "Use radio buttons when exactly one option must be selected.",
+    ],
   },
   {
     slug: "collapsible",
@@ -149,16 +224,28 @@ export const componentDocs = [
     description: "Shows and hides a single content region.",
     primaryExport: "Collapsible",
     relatedExports: ["CollapsibleTrigger", "CollapsibleContent"],
-    notes: ["Use for optional details.", "Keep the trigger close to the content it controls."],
+    notes: [
+      "Use for optional details.",
+      "Keep the trigger close to the content it controls.",
+    ],
   },
   {
     slug: "combobox",
     title: "Combobox",
     category: "Form",
-    description: "Combines search, filtering, and selection in one input pattern.",
+    description:
+      "Combines search, filtering, and selection in one input pattern.",
     primaryExport: "Combobox",
-    relatedExports: ["ComboboxInput", "ComboboxList", "ComboboxItem", "ComboboxTrigger"],
-    notes: ["Use when the option list is long.", "Prefer select for short static option sets."],
+    relatedExports: [
+      "ComboboxInput",
+      "ComboboxList",
+      "ComboboxItem",
+      "ComboboxTrigger",
+    ],
+    notes: [
+      "Use when the option list is long.",
+      "Prefer select for short static option sets.",
+    ],
   },
   {
     slug: "command",
@@ -166,8 +253,16 @@ export const componentDocs = [
     category: "Navigation",
     description: "Builds command palettes and searchable action lists.",
     primaryExport: "Command",
-    relatedExports: ["CommandInput", "CommandList", "CommandItem", "CommandGroup"],
-    notes: ["Group actions by task.", "Include keyboard shortcuts only when they are real app shortcuts."],
+    relatedExports: [
+      "CommandInput",
+      "CommandList",
+      "CommandItem",
+      "CommandGroup",
+    ],
+    notes: [
+      "Group actions by task.",
+      "Include keyboard shortcuts only when they are real app shortcuts.",
+    ],
   },
   {
     slug: "context-menu",
@@ -175,26 +270,51 @@ export const componentDocs = [
     category: "Overlay",
     description: "Provides contextual actions for a specific target.",
     primaryExport: "ContextMenu",
-    relatedExports: ["ContextMenuTrigger", "ContextMenuContent", "ContextMenuItem"],
-    notes: ["Mirror essential actions elsewhere for touch and keyboard users.", "Keep destructive actions visually distinct."],
+    relatedExports: [
+      "ContextMenuTrigger",
+      "ContextMenuContent",
+      "ContextMenuItem",
+    ],
+    notes: [
+      "Mirror essential actions elsewhere for touch and keyboard users.",
+      "Keep destructive actions visually distinct.",
+    ],
   },
   {
     slug: "dialog",
     title: "Dialog",
     category: "Overlay",
-    description: "Opens focused modal content without navigating away from the current page.",
+    description:
+      "Opens focused modal content without navigating away from the current page.",
     primaryExport: "Dialog",
-    relatedExports: ["DialogTrigger", "DialogContent", "DialogTitle", "DialogDescription"],
-    notes: ["Use for focused tasks.", "Keep long flows on full pages when possible."],
+    relatedExports: [
+      "DialogTrigger",
+      "DialogContent",
+      "DialogTitle",
+      "DialogDescription",
+    ],
+    notes: [
+      "Use for focused tasks.",
+      "Keep long flows on full pages when possible.",
+    ],
   },
   {
     slug: "drawer",
     title: "Drawer",
     category: "Overlay",
-    description: "Slides supporting content or short workflows from an edge of the viewport.",
+    description:
+      "Slides supporting content or short workflows from an edge of the viewport.",
     primaryExport: "Drawer",
-    relatedExports: ["DrawerTrigger", "DrawerContent", "DrawerHeader", "DrawerFooter"],
-    notes: ["Use for secondary workflows.", "Ensure mobile content remains scrollable."],
+    relatedExports: [
+      "DrawerTrigger",
+      "DrawerContent",
+      "DrawerHeader",
+      "DrawerFooter",
+    ],
+    notes: [
+      "Use for secondary workflows.",
+      "Ensure mobile content remains scrollable.",
+    ],
   },
   {
     slug: "dropdown-menu",
@@ -202,8 +322,15 @@ export const componentDocs = [
     category: "Overlay",
     description: "Reveals a compact list of actions from a trigger.",
     primaryExport: "DropdownMenu",
-    relatedExports: ["DropdownMenuTrigger", "DropdownMenuContent", "DropdownMenuItem"],
-    notes: ["Use for actions, not form value selection.", "Place the most common actions first."],
+    relatedExports: [
+      "DropdownMenuTrigger",
+      "DropdownMenuContent",
+      "DropdownMenuItem",
+    ],
+    notes: [
+      "Use for actions, not form value selection.",
+      "Place the most common actions first.",
+    ],
   },
   {
     slug: "empty",
@@ -211,17 +338,35 @@ export const componentDocs = [
     category: "Feedback",
     description: "Explains an empty state and offers a next action.",
     primaryExport: "Empty",
-    relatedExports: ["EmptyHeader", "EmptyTitle", "EmptyDescription", "EmptyContent"],
-    notes: ["Explain why the state is empty.", "Offer one clear recovery or creation action."],
+    relatedExports: [
+      "EmptyHeader",
+      "EmptyTitle",
+      "EmptyDescription",
+      "EmptyContent",
+    ],
+    notes: [
+      "Explain why the state is empty.",
+      "Offer one clear recovery or creation action.",
+    ],
   },
   {
     slug: "field",
     title: "Field",
     category: "Form",
-    description: "Composes labels, descriptions, errors, and controls into accessible form fields.",
+    description:
+      "Composes labels, descriptions, errors, and controls into accessible form fields.",
     primaryExport: "Field",
-    relatedExports: ["FieldLabel", "FieldDescription", "FieldError", "FieldGroup", "FieldSet"],
-    notes: ["Use field primitives to keep form spacing consistent.", "Show errors close to the invalid control."],
+    relatedExports: [
+      "FieldLabel",
+      "FieldDescription",
+      "FieldError",
+      "FieldGroup",
+      "FieldSet",
+    ],
+    notes: [
+      "Use field primitives to keep form spacing consistent.",
+      "Show errors close to the invalid control.",
+    ],
   },
   {
     slug: "hover-card",
@@ -230,25 +375,41 @@ export const componentDocs = [
     description: "Shows rich, non-critical preview content on hover or focus.",
     primaryExport: "HoverCard",
     relatedExports: ["HoverCardTrigger", "HoverCardContent"],
-    notes: ["Do not put required actions only inside hover cards.", "Keep preview content short."],
+    notes: [
+      "Do not put required actions only inside hover cards.",
+      "Keep preview content short.",
+    ],
   },
   {
     slug: "input",
     title: "Input",
     category: "Form",
-    description: "Captures single-line text, search, numbers, dates, and other native input values.",
+    description:
+      "Captures single-line text, search, numbers, dates, and other native input values.",
     primaryExport: "Input",
     relatedExports: [],
-    notes: ["Always pair with a label for forms.", "Use native input types when they improve validation or mobile keyboards."],
+    notes: [
+      "Always pair with a label for forms.",
+      "Use native input types when they improve validation or mobile keyboards.",
+    ],
   },
   {
     slug: "input-group",
     title: "Input Group",
     category: "Form",
-    description: "Combines inputs with prefixes, suffixes, buttons, or helper text.",
+    description:
+      "Combines inputs with prefixes, suffixes, buttons, or helper text.",
     primaryExport: "InputGroup",
-    relatedExports: ["InputGroupInput", "InputGroupAddon", "InputGroupButton", "InputGroupText"],
-    notes: ["Keep addons brief.", "Use buttons only for actions tightly coupled to the input."],
+    relatedExports: [
+      "InputGroupInput",
+      "InputGroupAddon",
+      "InputGroupButton",
+      "InputGroupText",
+    ],
+    notes: [
+      "Keep addons brief.",
+      "Use buttons only for actions tightly coupled to the input.",
+    ],
   },
   {
     slug: "input-otp",
@@ -263,10 +424,19 @@ export const componentDocs = [
     slug: "item",
     title: "Item",
     category: "Display",
-    description: "Composes list rows with media, content, metadata, and actions.",
+    description:
+      "Composes list rows with media, content, metadata, and actions.",
     primaryExport: "Item",
-    relatedExports: ["ItemHeader", "ItemContent", "ItemDescription", "ItemActions"],
-    notes: ["Use for repeated rows.", "Keep row actions visually secondary unless they are the primary workflow."],
+    relatedExports: [
+      "ItemHeader",
+      "ItemContent",
+      "ItemDescription",
+      "ItemActions",
+    ],
+    notes: [
+      "Use for repeated rows.",
+      "Keep row actions visually secondary unless they are the primary workflow.",
+    ],
   },
   {
     slug: "kbd",
@@ -275,7 +445,10 @@ export const componentDocs = [
     description: "Renders keyboard shortcuts and key chords.",
     primaryExport: "Kbd",
     relatedExports: ["KbdGroup"],
-    notes: ["Show shortcuts only when they are implemented.", "Use groups for key chords."],
+    notes: [
+      "Show shortcuts only when they are implemented.",
+      "Use groups for key chords.",
+    ],
   },
   {
     slug: "label",
@@ -284,7 +457,10 @@ export const componentDocs = [
     description: "Associates visible text with a form control.",
     primaryExport: "Label",
     relatedExports: [],
-    notes: ["Prefer `htmlFor` with native inputs.", "Keep label text concise and specific."],
+    notes: [
+      "Prefer `htmlFor` with native inputs.",
+      "Keep label text concise and specific.",
+    ],
   },
   {
     slug: "menubar",
@@ -292,25 +468,43 @@ export const componentDocs = [
     category: "Navigation",
     description: "Builds application-style menu bars with nested actions.",
     primaryExport: "Menubar",
-    relatedExports: ["MenubarMenu", "MenubarTrigger", "MenubarContent", "MenubarItem"],
-    notes: ["Use for app commands, not primary site navigation.", "Group commands consistently."],
+    relatedExports: [
+      "MenubarMenu",
+      "MenubarTrigger",
+      "MenubarContent",
+      "MenubarItem",
+    ],
+    notes: [
+      "Use for app commands, not primary site navigation.",
+      "Group commands consistently.",
+    ],
   },
   {
     slug: "native-select",
     title: "Native Select",
     category: "Form",
-    description: "Styles native select controls while preserving platform behavior.",
+    description:
+      "Styles native select controls while preserving platform behavior.",
     primaryExport: "NativeSelect",
     relatedExports: ["NativeSelectOption", "NativeSelectOptGroup"],
-    notes: ["Use for short or medium static option sets.", "Prefer native behavior when mobile platform consistency matters."],
+    notes: [
+      "Use for short or medium static option sets.",
+      "Prefer native behavior when mobile platform consistency matters.",
+    ],
   },
   {
     slug: "navigation-menu",
     title: "Navigation Menu",
     category: "Navigation",
-    description: "Creates structured top-level navigation with optional content panels.",
+    description:
+      "Creates structured top-level navigation with optional content panels.",
     primaryExport: "NavigationMenu",
-    relatedExports: ["NavigationMenuList", "NavigationMenuItem", "NavigationMenuTrigger", "NavigationMenuContent"],
+    relatedExports: [
+      "NavigationMenuList",
+      "NavigationMenuItem",
+      "NavigationMenuTrigger",
+      "NavigationMenuContent",
+    ],
     notes: ["Use for site sections.", "Keep menus shallow and predictable."],
   },
   {
@@ -319,26 +513,42 @@ export const componentDocs = [
     category: "Navigation",
     description: "Navigates through paged result sets.",
     primaryExport: "Pagination",
-    relatedExports: ["PaginationContent", "PaginationItem", "PaginationLink", "PaginationNext"],
-    notes: ["Use stable URLs for paged content.", "Keep previous and next controls available when possible."],
+    relatedExports: [
+      "PaginationContent",
+      "PaginationItem",
+      "PaginationLink",
+      "PaginationNext",
+    ],
+    notes: [
+      "Use stable URLs for paged content.",
+      "Keep previous and next controls available when possible.",
+    ],
   },
   {
     slug: "popover",
     title: "Popover",
     category: "Overlay",
-    description: "Displays lightweight interactive content anchored to a trigger.",
+    description:
+      "Displays lightweight interactive content anchored to a trigger.",
     primaryExport: "Popover",
     relatedExports: ["PopoverTrigger", "PopoverContent"],
-    notes: ["Use for small, contextual controls.", "Prefer dialogs for complex forms."],
+    notes: [
+      "Use for small, contextual controls.",
+      "Prefer dialogs for complex forms.",
+    ],
   },
   {
     slug: "progress",
     title: "Progress",
     category: "Feedback",
-    description: "Communicates task completion as a determinate progress value.",
+    description:
+      "Communicates task completion as a determinate progress value.",
     primaryExport: "Progress",
     relatedExports: [],
-    notes: ["Use an accurate value when progress is determinate.", "Use a spinner for unknown duration."],
+    notes: [
+      "Use an accurate value when progress is determinate.",
+      "Use a spinner for unknown duration.",
+    ],
   },
   {
     slug: "radio-group",
@@ -347,7 +557,10 @@ export const componentDocs = [
     description: "Presents mutually exclusive choices.",
     primaryExport: "RadioGroup",
     relatedExports: ["RadioGroupItem"],
-    notes: ["Use when exactly one option is selected.", "Pair every item with a visible label."],
+    notes: [
+      "Use when exactly one option is selected.",
+      "Pair every item with a visible label.",
+    ],
   },
   {
     slug: "resizable",
@@ -356,16 +569,23 @@ export const componentDocs = [
     description: "Creates resizable panel groups for split views and editors.",
     primaryExport: "ResizablePanelGroup",
     relatedExports: ["ResizablePanel", "ResizableHandle"],
-    notes: ["Use persistent sizes for productivity surfaces.", "Keep minimum panel sizes usable."],
+    notes: [
+      "Use persistent sizes for productivity surfaces.",
+      "Keep minimum panel sizes usable.",
+    ],
   },
   {
     slug: "scroll-area",
     title: "Scroll Area",
     category: "Layout",
-    description: "Provides styled scrolling regions with consistent scrollbar treatment.",
+    description:
+      "Provides styled scrolling regions with consistent scrollbar treatment.",
     primaryExport: "ScrollArea",
     relatedExports: ["ScrollBar"],
-    notes: ["Use only when a nested scroll region is intentional.", "Avoid trapping long page content unnecessarily."],
+    notes: [
+      "Use only when a nested scroll region is intentional.",
+      "Avoid trapping long page content unnecessarily.",
+    ],
   },
   {
     slug: "select",
@@ -373,8 +593,16 @@ export const componentDocs = [
     category: "Form",
     description: "Provides a custom single-value selection control.",
     primaryExport: "Select",
-    relatedExports: ["SelectTrigger", "SelectContent", "SelectItem", "SelectValue"],
-    notes: ["Use for compact controlled selection.", "Prefer combobox when search is needed."],
+    relatedExports: [
+      "SelectTrigger",
+      "SelectContent",
+      "SelectItem",
+      "SelectValue",
+    ],
+    notes: [
+      "Use for compact controlled selection.",
+      "Prefer combobox when search is needed.",
+    ],
   },
   {
     slug: "separator",
@@ -383,16 +611,28 @@ export const componentDocs = [
     description: "Visually separates related content sections or menu groups.",
     primaryExport: "Separator",
     relatedExports: [],
-    notes: ["Use sparingly.", "Do not use separators as a substitute for spacing hierarchy."],
+    notes: [
+      "Use sparingly.",
+      "Do not use separators as a substitute for spacing hierarchy.",
+    ],
   },
   {
     slug: "sheet",
     title: "Sheet",
     category: "Overlay",
-    description: "Shows side-panel content for navigation, filters, or secondary tasks.",
+    description:
+      "Shows side-panel content for navigation, filters, or secondary tasks.",
     primaryExport: "Sheet",
-    relatedExports: ["SheetTrigger", "SheetContent", "SheetHeader", "SheetFooter"],
-    notes: ["Use for side panels and supporting workflows.", "Keep focus management aligned with modal behavior."],
+    relatedExports: [
+      "SheetTrigger",
+      "SheetContent",
+      "SheetHeader",
+      "SheetFooter",
+    ],
+    notes: [
+      "Use for side panels and supporting workflows.",
+      "Keep focus management aligned with modal behavior.",
+    ],
   },
   {
     slug: "sidebar",
@@ -400,17 +640,29 @@ export const componentDocs = [
     category: "Navigation",
     description: "Builds persistent or collapsible app side navigation.",
     primaryExport: "Sidebar",
-    relatedExports: ["SidebarProvider", "SidebarHeader", "SidebarContent", "SidebarFooter"],
-    notes: ["Use for app navigation, not document footnotes.", "Keep primary destinations scannable."],
+    relatedExports: [
+      "SidebarProvider",
+      "SidebarHeader",
+      "SidebarContent",
+      "SidebarFooter",
+    ],
+    notes: [
+      "Use for app navigation, not document footnotes.",
+      "Keep primary destinations scannable.",
+    ],
   },
   {
     slug: "skeleton",
     title: "Skeleton",
     category: "Feedback",
-    description: "Shows a loading placeholder that approximates the final layout.",
+    description:
+      "Shows a loading placeholder that approximates the final layout.",
     primaryExport: "Skeleton",
     relatedExports: [],
-    notes: ["Match the final content dimensions.", "Use for loading, not empty states."],
+    notes: [
+      "Match the final content dimensions.",
+      "Use for loading, not empty states.",
+    ],
   },
   {
     slug: "slider",
@@ -419,16 +671,23 @@ export const componentDocs = [
     description: "Lets users choose a number or range from a bounded scale.",
     primaryExport: "Slider",
     relatedExports: [],
-    notes: ["Use for approximate values.", "Use inputs when exact values are critical."],
+    notes: [
+      "Use for approximate values.",
+      "Use inputs when exact values are critical.",
+    ],
   },
   {
     slug: "sonner",
     title: "Sonner",
     category: "Feedback",
-    description: "Provides toast rendering through the shared `Toaster` export.",
+    description:
+      "Provides toast rendering through the shared `Toaster` export.",
     primaryExport: "Toaster",
     relatedExports: [],
-    notes: ["Mount one toaster near the app root.", "Use toasts for transient feedback only."],
+    notes: [
+      "Mount one toaster near the app root.",
+      "Use toasts for transient feedback only.",
+    ],
   },
   {
     slug: "spinner",
@@ -437,7 +696,10 @@ export const componentDocs = [
     description: "Indicates indeterminate loading.",
     primaryExport: "Spinner",
     relatedExports: [],
-    notes: ["Use with an accessible label when loading blocks interaction.", "Prefer progress for determinate tasks."],
+    notes: [
+      "Use with an accessible label when loading blocks interaction.",
+      "Prefer progress for determinate tasks.",
+    ],
   },
   {
     slug: "switch",
@@ -446,7 +708,10 @@ export const componentDocs = [
     description: "Toggles a single setting on or off.",
     primaryExport: "Switch",
     relatedExports: [],
-    notes: ["Use for immediate settings.", "Use checkbox when the value is part of a form submission group."],
+    notes: [
+      "Use for immediate settings.",
+      "Use checkbox when the value is part of a form submission group.",
+    ],
   },
   {
     slug: "table",
@@ -454,8 +719,17 @@ export const componentDocs = [
     category: "Display",
     description: "Displays structured tabular data.",
     primaryExport: "Table",
-    relatedExports: ["TableHeader", "TableBody", "TableRow", "TableHead", "TableCell"],
-    notes: ["Use real table semantics for tabular data.", "Keep dense data scannable with clear column labels."],
+    relatedExports: [
+      "TableHeader",
+      "TableBody",
+      "TableRow",
+      "TableHead",
+      "TableCell",
+    ],
+    notes: [
+      "Use real table semantics for tabular data.",
+      "Keep dense data scannable with clear column labels.",
+    ],
   },
   {
     slug: "tabs",
@@ -464,7 +738,10 @@ export const componentDocs = [
     description: "Switches between related panels in the same context.",
     primaryExport: "Tabs",
     relatedExports: ["TabsList", "TabsTrigger", "TabsContent"],
-    notes: ["Use for peer views.", "Do not hide unrelated workflows behind tabs."],
+    notes: [
+      "Use for peer views.",
+      "Do not hide unrelated workflows behind tabs.",
+    ],
   },
   {
     slug: "textarea",
@@ -473,7 +750,10 @@ export const componentDocs = [
     description: "Captures multi-line text.",
     primaryExport: "Textarea",
     relatedExports: [],
-    notes: ["Use for long-form input.", "Pair with description text when formatting expectations matter."],
+    notes: [
+      "Use for long-form input.",
+      "Pair with description text when formatting expectations matter.",
+    ],
   },
   {
     slug: "toggle",
@@ -488,19 +768,27 @@ export const componentDocs = [
     slug: "toggle-group",
     title: "Toggle Group",
     category: "Form",
-    description: "Groups related toggle controls for single or multiple selection.",
+    description:
+      "Groups related toggle controls for single or multiple selection.",
     primaryExport: "ToggleGroup",
     relatedExports: ["ToggleGroupItem"],
-    notes: ["Use `type=\"single\"` for exclusive choices.", "Use `type=\"multiple\"` for independent pressed states."],
+    notes: [
+      'Use `type="single"` for exclusive choices.',
+      'Use `type="multiple"` for independent pressed states.',
+    ],
   },
   {
     slug: "tooltip",
     title: "Tooltip",
     category: "Overlay",
-    description: "Adds short, non-interactive clarification to controls or labels.",
+    description:
+      "Adds short, non-interactive clarification to controls or labels.",
     primaryExport: "Tooltip",
     relatedExports: ["TooltipProvider", "TooltipTrigger", "TooltipContent"],
-    notes: ["Keep tooltip text short.", "Do not put required instructions only in tooltips."],
+    notes: [
+      "Keep tooltip text short.",
+      "Do not put required instructions only in tooltips.",
+    ],
   },
 ] as const satisfies ComponentDoc[];
 

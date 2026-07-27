@@ -17,5 +17,6 @@
   },
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "js/ts.experimental.useTsgo": false
 }
