@@ -364,7 +364,7 @@ importers:
         specifier: 'catalog:'
         version: 0.4.6(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       radix-ui:
-        specifier: ^1.6.5
+        specifier: ^1.6.6
         version: 1.6.7(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react-day-picker:
         specifier: 'catalog:'
