@@ -10,8 +10,8 @@ catalogs:
       specifier: ^10.0.1
       version: 10.0.1
     '@internationalized/date':
-      specifier: ^3.12.2
-      version: 3.12.2
+      specifier: ^3.12.3
+      version: 3.12.3
     '@tailwindcss/postcss':
       specifier: ^4.3.3
       version: 4.3.3
@@ -283,7 +283,7 @@ importers:
     dependencies:
       '@internationalized/date':
         specifier: 'catalog:'
-        version: 3.12.2
+        version: 3.12.3
       '@line/abc-def-styles':
         specifier: workspace:*
         version: link:../../packages/styles
@@ -435,7 +435,7 @@ importers:
     dependencies:
       '@internationalized/date':
         specifier: 'catalog:'
-        version: 3.12.2
+        version: 3.12.3
       '@tanstack/vue-table':
         specifier: ^8.21.3
         version: 8.21.3(vue@3.5.40(typescript@6.0.3))
@@ -1250,8 +1250,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@internationalized/date@3.12.2':
-    resolution: {integrity: sha512-FY1Y+H64NDs+HAF6omlnWxm3mEpfgaCSWtL5l551ZZfImA+kGjPFgrnJrGjH6lfmLL0g8Z/mBu1R3kufeCp6Jw==}
+  '@internationalized/date@3.12.3':
+    resolution: {integrity: sha512-fuLX+3ZKLsxI73y8b01EG/WjHb6gE6weCqlfawPO27kBWGMh9G1yH6Csv1uU7/cac9H2GHmOMt6CjmuQ1aia4Q==}
 
   '@internationalized/number@3.6.6':
     resolution: {integrity: sha512-iFgmQaXHE0vytNfpLZWOC2mEJCBRzcUxt53Xf/yCXG93lRvqas237i3r7X4RKMwO3txiyZD4mQjKAByFv6UGSQ==}
@@ -5828,7 +5828,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.13.3
 
-  '@internationalized/date@3.12.2':
+  '@internationalized/date@3.12.3':
     dependencies:
       '@swc/helpers': 0.5.21
 
@@ -9139,7 +9139,7 @@ snapshots:
     dependencies:
       '@floating-ui/dom': 1.7.6
       '@floating-ui/vue': 1.1.11(vue@3.5.40(typescript@6.0.3))
-      '@internationalized/date': 3.12.2
+      '@internationalized/date': 3.12.3
       '@internationalized/number': 3.6.6
       '@tanstack/vue-virtual': 3.13.24(vue@3.5.40(typescript@6.0.3))
       '@vueuse/core': 14.3.0(vue@3.5.40(typescript@6.0.3))
