@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onErrorCaptured, ref, watch } from "vue";
-import { CircleAlert } from "lucide-vue-next";
+import { CircleAlert } from "@lucide/vue";
 
 import type { ExampleEntry } from "@/lib/example-registry";
 

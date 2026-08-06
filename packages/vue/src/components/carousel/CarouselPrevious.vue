@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronLeftIcon } from "lucide-vue-next";
+import { ChevronLeftIcon } from "@lucide/vue";
 
 import type { ButtonVariants } from "../button";
 import type { WithClassAsProps } from "./interface";

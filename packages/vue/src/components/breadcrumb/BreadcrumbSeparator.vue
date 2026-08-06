@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from "vue";
-import { ChevronRightIcon } from "lucide-vue-next";
+import { ChevronRightIcon } from "@lucide/vue";
 
 import { cn } from "@/lib/utils";
 
