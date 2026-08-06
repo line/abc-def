@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MoreHorizontalIcon } from "lucide-vue-next";
+import { MoreHorizontalIcon } from "@lucide/vue";
 
 import { Button } from "@line/abc-def-vue/button";
 import {

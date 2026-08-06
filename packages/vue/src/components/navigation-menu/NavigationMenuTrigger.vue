@@ -2,7 +2,7 @@
 import type { NavigationMenuTriggerProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { reactiveOmit } from "@vueuse/core";
-import { ChevronDownIcon } from "lucide-vue-next";
+import { ChevronDownIcon } from "@lucide/vue";
 import { NavigationMenuTrigger, useForwardProps } from "reka-ui";
 
 import { cn } from "@/lib/utils";

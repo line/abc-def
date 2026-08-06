@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Button } from "@line/abc-def-vue/button";
 import { ButtonGroup } from "@line/abc-def-vue/button-group";
-import { MoonStar, SunMedium } from "lucide-vue-next";
+import { MoonStar, SunMedium } from "@lucide/vue";
 
 import type { ThemeMode } from "@/lib/theme";
 

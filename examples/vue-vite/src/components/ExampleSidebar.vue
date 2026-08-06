@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ExampleGroup } from "@/lib/example-registry";
-import { Search } from "lucide-vue-next";
+import { Search } from "@lucide/vue";
 import { computed, ref } from "vue";
 
 const props = defineProps<{
