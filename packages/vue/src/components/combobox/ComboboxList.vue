@@ -1,37 +1,25 @@
 <script setup lang="ts">
-import type { ComboboxContentEmits, ComboboxContentProps } from "reka-ui";
+import type { ComboboxViewportProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { reactiveOmit } from "@vueuse/core";
-import { ComboboxContent, ComboboxPortal, useForwardPropsEmits } from "reka-ui";
-
+import { ComboboxViewport, useForwardProps } from "reka-ui";
 import { cn } from "@/lib/utils";
 
-defineOptions({
-  inheritAttrs: false,
-});
-
-const props = withDefaults(
-  defineProps<ComboboxContentProps & { class?: HTMLAttributes["class"] }>(),
-  {
-    position: "popper",
-    align: "center",
-    sideOffset: 4,
-  },
-);
-const emits = defineEmits<ComboboxContentEmits>();
+const props = defineProps<
+  ComboboxViewportProps & { class?: HTMLAttributes["class"] }
+>();
 
 const delegatedProps = reactiveOmit(props, "class");
-const forwarded = useForwardPropsEmits(delegatedProps, emits);
+
+const forwarded = useForwardProps(delegatedProps);
 </script>
 
 <template>
-  <ComboboxPortal>
-    <ComboboxContent
-      data-slot="combobox-content"
-      v-bind="{ ...$attrs, ...forwarded }"
-      :class="cn('combobox-content', props.class)"
-    >
-      <slot />
-    </ComboboxContent>
-  </ComboboxPortal>
+  <ComboboxViewport
+    data-slot="combobox-list"
+    v-bind="forwarded"
+    :class="cn('combobox-list', props.class)"
+  >
+    <slot />
+  </ComboboxViewport>
 </template>

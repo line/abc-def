@@ -13,7 +13,7 @@ const emit = defineEmits<{
 }>();
 
 const query = ref("");
-const disableGroups = ["combobox"];
+const disableGroups = [""];
 
 const filteredGroups = computed(() => {
   const trimmed = query.value.trim().toLowerCase();

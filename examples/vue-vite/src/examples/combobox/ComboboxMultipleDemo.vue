@@ -9,7 +9,6 @@ import {
   ComboboxGroup,
   ComboboxInput,
   ComboboxItem,
-  ComboboxItemIndicator,
   ComboboxContent,
   ComboboxTrigger,
 } from "@line/abc-def-vue/combobox";
@@ -37,21 +36,29 @@ const frameworks = [
   },
 ];
 
-const selectedFramework = ref<(typeof frameworks)[number]>();
+const selectedFrameworks = ref<typeof frameworks>([]);
 </script>
 
 <template>
-  <Combobox v-model="selectedFramework" by="label">
+  <Combobox v-model="selectedFrameworks" multiple by="label">
     <ComboboxAnchor as-child>
       <ComboboxTrigger as-child>
-        <Button variant="outline" class="w-[200px] justify-between">
-          {{ selectedFramework?.label ?? "Select framework..." }}
+        <Button variant="outline" class="w-[280px] justify-between">
+          <span class="truncate">
+            {{
+              selectedFrameworks.length > 0
+                ? selectedFrameworks
+                    .map((framework) => framework.label)
+                    .join(", ")
+                : "Select frameworks..."
+            }}
+          </span>
           <ChevronsUpDownIcon class="opacity-50" />
         </Button>
       </ComboboxTrigger>
     </ComboboxAnchor>
 
-    <ComboboxContent>
+    <ComboboxContent class="w-[280px]" align="start">
       <ComboboxInput placeholder="Search framework..." />
       <ComboboxEmpty>No framework found.</ComboboxEmpty>
       <ComboboxGroup>
@@ -60,10 +67,15 @@ const selectedFramework = ref<(typeof frameworks)[number]>();
           :key="framework.value"
           :value="framework"
         >
+          <div
+            class="border-input data-[selected=true]:border-primary data-[selected=true]:bg-primary data-[selected=true]:text-primary-foreground pointer-events-none size-4 shrink-0 rounded-[4px] border transition-all select-none *:[svg]:opacity-0 data-[selected=true]:*:[svg]:opacity-100"
+            :data-selected="
+              selectedFrameworks.some((f) => f.value === framework.value)
+            "
+          >
+            <CheckIcon class="size-3.5 text-current" />
+          </div>
           {{ framework.label }}
-          <ComboboxItemIndicator>
-            <CheckIcon />
-          </ComboboxItemIndicator>
         </ComboboxItem>
       </ComboboxGroup>
     </ComboboxContent>
