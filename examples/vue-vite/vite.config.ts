@@ -9,15 +9,15 @@ export default defineConfig({
     alias: [
       {
         find: "~/registry/bases/reka/examples",
-        replacement: path.resolve(__dirname, "./src/examples"),
+        replacement: path.resolve(import.meta.dirname, "./src/examples"),
       },
       {
         find: "@/registry/bases/reka/components",
-        replacement: path.resolve(__dirname, "./src/components"),
+        replacement: path.resolve(import.meta.dirname, "./src/components"),
       },
       {
         find: "@",
-        replacement: path.resolve(__dirname, "./src"),
+        replacement: path.resolve(import.meta.dirname, "./src"),
       },
     ],
   },

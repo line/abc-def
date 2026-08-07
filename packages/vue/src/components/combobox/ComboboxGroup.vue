@@ -3,7 +3,6 @@ import type { ComboboxGroupProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { reactiveOmit } from "@vueuse/core";
 import { ComboboxGroup, ComboboxLabel } from "reka-ui";
-
 import { cn } from "@/lib/utils";
 
 const props = defineProps<
@@ -20,7 +19,7 @@ const delegatedProps = reactiveOmit(props, "class");
   <ComboboxGroup
     data-slot="combobox-group"
     v-bind="delegatedProps"
-    :class="cn(props.class)"
+    :class="cn('combobox-group', props.class)"
   >
     <ComboboxLabel v-if="heading" class="combobox-label">
       {{ heading }}
