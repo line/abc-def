@@ -38,7 +38,7 @@
     "@changesets/cli": "^2.31.1",
     "@line/abc-def-prettier-config": "workspace:^",
     "prettier": "catalog:",
-    "turbo": "^2.10.8",
+    "turbo": "^2.10.9",
     "typescript": "catalog:"
   },
   "prettier": "@line/abc-def-prettier-config"
