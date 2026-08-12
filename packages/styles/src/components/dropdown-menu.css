@@ -9,13 +9,13 @@
   --dropdown-menu-label-fg: var(--muted-foreground);
   --dropdown-menu-item-bg-focus: var(--accent);
   --dropdown-menu-item-fg-focus: var(--accent-foreground);
-  --dropdown-menu-item-fg-destructive: var(--destructive);
+  --dropdown-menu-item-fg-destructive: var(--destructive-foreground);
   --dropdown-menu-item-bg-destructive-focus: color-mix(
     in oklab,
     var(--destructive) 10%,
     transparent
   );
-  --dropdown-menu-item-fg-destructive-focus: var(--destructive);
+  --dropdown-menu-item-fg-destructive-focus: var(--destructive-foreground);
   --dropdown-menu-separator-bg: var(--border);
   --dropdown-menu-shortcut-fg: var(--muted-foreground);
 }
@@ -30,13 +30,27 @@
 
 @layer components {
   .dropdown-menu-content {
-    @apply z-50 max-h-(--radix-dropdown-menu-content-available-height) w-(--radix-dropdown-menu-trigger-width) min-w-32 origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border border-(--dropdown-menu-content-border) bg-(--dropdown-menu-content-bg) p-1 text-(--dropdown-menu-content-fg) shadow-md duration-100;
+    --max-height: var(
+      --radix-dropdown-menu-content-available-height,
+      var(--reka-dropdown-menu-content-available-height)
+    );
+    --width: var(
+      --radix-dropdown-menu-trigger-width,
+      var(--reka-dropdown-menu-trigger-width)
+    );
+    --origin: var(
+      --radix-dropdown-menu-content-transform-origin,
+      var(--reka-dropdown-menu-content-transform-origin)
+    );
+    @apply max-h-(--max-height) w-(--width) origin-(--origin);
+    @apply border-(--dropdown-menu-content-border) bg-(--dropdown-menu-content-bg) text-(--dropdown-menu-content-fg);
+    @apply z-50 min-w-32 overflow-x-hidden overflow-y-auto rounded-lg border p-1 shadow-md duration-100;
     @apply data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
     @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
   }
 
   .dropdown-menu-sub-content {
-    @apply z-50 min-w-24 origin-(--radix-dropdown-menu-content-transform-origin) overflow-hidden rounded-lg border border-(--dropdown-menu-content-border) bg-(--dropdown-menu-content-bg) p-1 text-(--dropdown-menu-content-fg) shadow-md duration-100;
+    @apply z-50 min-w-24 origin-(--origin) overflow-hidden rounded-lg border border-(--dropdown-menu-content-border) bg-(--dropdown-menu-content-bg) p-1 text-(--dropdown-menu-content-fg) shadow-md duration-100;
     @apply data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
     @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
   }
