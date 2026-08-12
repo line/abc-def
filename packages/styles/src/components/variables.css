@@ -13,7 +13,7 @@
   --alert-fg-default: var(--surface-foreground);
 
   --alert-bg-destructive: var(--surface);
-  --alert-fg-destructive: var(--destructive);
+  --alert-fg-destructive: var(--destructive-foreground);
 
   --alert-title-fg-link: var(--primary);
 
@@ -296,13 +296,13 @@
   --context-menu-label-fg: var(--muted-foreground);
   --context-menu-item-bg-focus: var(--accent);
   --context-menu-item-fg-focus: var(--accent-foreground);
-  --context-menu-item-fg-destructive: var(--destructive);
+  --context-menu-item-fg-destructive: var(--destructive-foreground);
   --context-menu-item-bg-destructive-focus: color-mix(
     in oklab,
     var(--destructive) 10%,
     transparent
   );
-  --context-menu-item-fg-destructive-focus: var(--destructive);
+  --context-menu-item-fg-destructive-focus: var(--destructive-foreground);
   --context-menu-separator-bg: var(--border);
   --context-menu-shortcut-fg: var(--muted-foreground);
 
@@ -338,13 +338,13 @@
   --dropdown-menu-label-fg: var(--muted-foreground);
   --dropdown-menu-item-bg-focus: var(--accent);
   --dropdown-menu-item-fg-focus: var(--accent-foreground);
-  --dropdown-menu-item-fg-destructive: var(--destructive);
+  --dropdown-menu-item-fg-destructive: var(--destructive-foreground);
   --dropdown-menu-item-bg-destructive-focus: color-mix(
     in oklab,
     var(--destructive) 10%,
     transparent
   );
-  --dropdown-menu-item-fg-destructive-focus: var(--destructive);
+  --dropdown-menu-item-fg-destructive-focus: var(--destructive-foreground);
   --dropdown-menu-separator-bg: var(--border);
   --dropdown-menu-shortcut-fg: var(--muted-foreground);
 
@@ -375,7 +375,7 @@
   --input-border: var(--border-input);
   --input-border-destructive: var(--destructive);
 
-  --input-fg-destructive: var(--destructive);
+  --input-fg-destructive: var(--destructive-foreground);
   --input-file-fg: var(--foreground);
 
   /* input-otp.css */
@@ -417,13 +417,13 @@
   --menubar-label-fg: var(--muted-foreground);
   --menubar-item-bg-focus: var(--accent);
   --menubar-item-fg-focus: var(--accent-foreground);
-  --menubar-item-fg-destructive: var(--destructive);
+  --menubar-item-fg-destructive: var(--destructive-foreground);
   --menubar-item-bg-destructive-focus: color-mix(
     in oklab,
     var(--destructive) 10%,
     transparent
   );
-  --menubar-item-fg-destructive-focus: var(--destructive);
+  --menubar-item-fg-destructive-focus: var(--destructive-foreground);
   --menubar-separator-bg: var(--border);
   --menubar-shortcut-fg: var(--muted-foreground);
 

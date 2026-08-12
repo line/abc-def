@@ -6,7 +6,7 @@
   --input-border: var(--border-input);
   --input-border-destructive: var(--destructive);
 
-  --input-fg-destructive: var(--destructive);
+  --input-fg-destructive: var(--destructive-foreground);
   --input-file-fg: var(--foreground);
 }
 

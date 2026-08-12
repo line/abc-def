@@ -26,6 +26,6 @@ const forwardedProps = useForwardProps(delegatedProps);
     :class="cn('dropdown-menu-sub-trigger', props.class)"
   >
     <slot />
-    <ChevronRightIcon />
+    <ChevronRightIcon class="cn-rtl-flip ml-auto" />
   </DropdownMenuSubTrigger>
 </template>

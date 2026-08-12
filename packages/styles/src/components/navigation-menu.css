@@ -74,8 +74,16 @@
   }
 
   .navigation-menu-viewport {
-    @apply relative mt-1.5 h-(--radix-navigation-menu-viewport-height) w-full origin-top overflow-hidden rounded-md border border-(--navigation-menu-content-border) bg-(--navigation-menu-content-bg) text-(--navigation-menu-content-fg) shadow;
-    @apply md:w-(--radix-navigation-menu-viewport-width);
+    --height: var(
+      --radix-navigation-menu-viewport-height,
+      var(--reka-navigation-menu-viewport-height)
+    );
+    --width: var(
+      --radix-navigation-menu-viewport-width,
+      var(--reka-navigation-menu-viewport-width)
+    );
+    @apply h-(--height) md:w-(--width);
+    @apply relative mt-1.5 w-full origin-top overflow-hidden rounded-md border border-(--navigation-menu-content-border) bg-(--navigation-menu-content-bg) text-(--navigation-menu-content-fg) shadow;
     @apply data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95;
   }
 

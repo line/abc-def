@@ -60,7 +60,16 @@
   }
 
   .select-content {
-    @apply relative z-50 max-h-(--radix-select-content-available-height) min-w-36 origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border border-(--select-content-border) bg-(--select-content-bg) text-(--select-content-fg) shadow-md duration-100;
+    --max-height: var(
+      --radix-select-content-available-height,
+      var(--reka-select-content-available-height)
+    );
+    --origin: var(
+      --radix-select-content-transform-origin,
+      var(--reka-select-content-transform-origin)
+    );
+    @apply max-h-(--max-height) origin-(--origin);
+    @apply relative z-50 min-w-36 overflow-x-hidden overflow-y-auto rounded-lg border border-(--select-content-border) bg-(--select-content-bg) text-(--select-content-fg) shadow-md duration-100;
     @apply data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
     @apply data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
   }
@@ -70,7 +79,15 @@
   }
 
   .select-viewport {
-    @apply data-[position=popper]:h-(--radix-select-trigger-height) data-[position=popper]:w-full data-[position=popper]:min-w-(--radix-select-trigger-width);
+    --trigger-height: var(
+      --radix-select-trigger-height,
+      var(--reka-select-trigger-height)
+    );
+    --trigger-width: var(
+      --radix-select-trigger-width,
+      var(--reka-select-trigger-width)
+    );
+    @apply data-[position=popper]:h-(--trigger-height) data-[position=popper]:w-full data-[position=popper]:min-w-(--trigger-width);
   }
 
   .select-label {

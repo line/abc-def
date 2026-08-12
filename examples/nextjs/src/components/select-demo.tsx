@@ -10,7 +10,7 @@ import {
 
 export function SelectDemo() {
   return (
-    <Select>
+    <Select open>
       <SelectTrigger className="w-full max-w-48">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>

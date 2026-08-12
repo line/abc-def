@@ -6,8 +6,12 @@
 
 @layer components {
   .tooltip-content {
+    --origin: var(
+      --radix-tooltip-content-transform-origin,
+      var(--reka-tooltip-content-transform-origin)
+    );
     @apply z-50 inline-flex w-fit max-w-xs items-center gap-1.5 rounded-md bg-(--tooltip-content-bg) px-3 py-1.5 text-xs text-(--tooltip-content-fg);
-    @apply origin-(--radix-tooltip-content-transform-origin);
+    @apply origin-(--origin);
     @apply has-[[data-slot=kbd]]:pr-1.5 [&_[data-slot=kbd]]:relative [&_[data-slot=kbd]]:isolate [&_[data-slot=kbd]]:z-50 [&_[data-slot=kbd]]:rounded-sm;
     @apply data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-[state=instant-open]:animate-in data-[state=instant-open]:fade-in-0 data-[state=instant-open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95;
     @apply data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
