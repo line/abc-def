@@ -440,7 +440,7 @@ importers:
         specifier: 'catalog:'
         version: 1.30.0(vue@3.5.41(typescript@6.0.3))
       '@tanstack/vue-table':
-        specifier: ^9.1.0
+        specifier: ^9.1.2
         version: 9.1.2(vue@3.5.41(typescript@6.0.3))
       '@vueuse/core':
         specifier: ^14.4.0
