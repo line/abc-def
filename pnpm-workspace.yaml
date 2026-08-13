@@ -27,7 +27,7 @@ catalog:
   react: ^19.2.8
   react-day-picker: ^10.0.1
   react-dom: ^19.2.8
-  reka-ui: ^2.10.1
+  reka-ui: ^2.10.3
   sonner: ^2.0.8
   tailwindcss: ^4.3.3
   tailwind-merge: ^3.6.0
