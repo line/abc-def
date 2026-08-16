@@ -467,8 +467,8 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1(reka-ui@2.10.3(vue@3.5.41(typescript@6.0.3)))(vue@3.5.41(typescript@6.0.3))
       vue-input-otp:
-        specifier: ^0.3.2
-        version: 0.3.2(typescript@6.0.3)(vue@3.5.41(typescript@6.0.3))
+        specifier: ^0.4.0
+        version: 0.4.0(typescript@6.0.3)(vue@3.5.41(typescript@6.0.3))
       vue-sonner:
         specifier: 'catalog:'
         version: 2.0.9
@@ -4884,8 +4884,8 @@ packages:
       '@vue/composition-api':
         optional: true
 
-  vue-input-otp@0.3.2:
-    resolution: {integrity: sha512-QMl1842WB6uNAsK4+mZXIskb00TOfahH3AQt8rpRecbtQnOp+oHSUbL/Z3wekfy6pAl+hyN3e1rCUSkCMzbDLQ==}
+  vue-input-otp@0.4.0:
+    resolution: {integrity: sha512-LW+nsZmeXFVdfmPPtoGAXd3vd3T8UBjvwqs6ER4NB7TIoxTuj/reT61HNGe0NyvYDtAHZwjcTmOIX/99f4gpvA==}
     peerDependencies:
       vue: ^3.2.0
 
@@ -9365,7 +9365,7 @@ snapshots:
     dependencies:
       vue: 3.5.41(typescript@6.0.3)
 
-  vue-input-otp@0.3.2(typescript@6.0.3)(vue@3.5.41(typescript@6.0.3)):
+  vue-input-otp@0.4.0(typescript@6.0.3)(vue@3.5.41(typescript@6.0.3)):
     dependencies:
       '@vueuse/core': 12.8.2(typescript@6.0.3)
       reka-ui: 2.10.3(vue@3.5.41(typescript@6.0.3))

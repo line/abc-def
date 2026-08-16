@@ -55,7 +55,7 @@
     "reka-ui": "catalog:",
     "tailwind-merge": "catalog:",
     "vaul-vue": "^0.4.1",
-    "vue-input-otp": "^0.3.2",
+    "vue-input-otp": "^0.4.0",
     "vue-sonner": "catalog:"
   },
   "devDependencies": {
