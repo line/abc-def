@@ -40,8 +40,8 @@ catalogs:
       specifier: ^10.8.1
       version: 10.8.1
     input-otp:
-      specifier: ^1.4.2
-      version: 1.4.2
+      specifier: ^1.5.0
+      version: 1.5.0
     lucide-react:
       specifier: ^1.31.0
       version: 1.31.0
@@ -225,7 +225,7 @@ importers:
         version: 8.6.0(embla-carousel@8.6.0)
       input-otp:
         specifier: 'catalog:'
-        version: 1.4.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 1.5.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       lucide-react:
         specifier: 'catalog:'
         version: 1.31.0(react@19.2.8)
@@ -356,7 +356,7 @@ importers:
         version: 8.6.0(react@19.2.8)
       input-otp:
         specifier: 'catalog:'
-        version: 1.4.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 1.5.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       lucide-react:
         specifier: 'catalog:'
         version: 1.31.0(react@19.2.8)
@@ -3691,8 +3691,8 @@ packages:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
 
-  input-otp@1.4.2:
-    resolution: {integrity: sha512-l3jWwYNvrEa6NTCt7BECfCm48GvwuZzkoeG3gBL2w4CHeOXW3eKFmf9UNYkNfYc3mxMrthMnxjIE07MT0zLBQA==}
+  input-otp@1.5.0:
+    resolution: {integrity: sha512-3AcfdW1sNG0FmSA5hHMBXG7jNW5CdcdKs8ln8JOmn6S2SRkoXoJx+2UwC+ZvjflfnOdHJx0SfQ9/YjlxVYLtGQ==}
     peerDependencies:
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
       react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc
@@ -7228,7 +7228,7 @@ snapshots:
       '@vue/shared': 3.5.41
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.25
+      postcss: 8.5.26
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.41':
@@ -8182,7 +8182,7 @@ snapshots:
 
   imurmurhash@0.1.4: {}
 
-  input-otp@1.4.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
+  input-otp@1.5.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
