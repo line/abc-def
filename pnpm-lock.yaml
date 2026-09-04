@@ -13,7 +13,7 @@ catalogs:
       specifier: ^3.12.4
       version: 3.12.4
     '@lucide/vue':
-      specifier: ^1.38.0
+      specifier: ^1.39.0
       version: 1.39.0
     '@tailwindcss/postcss':
       specifier: ^4.3.3
@@ -43,7 +43,7 @@ catalogs:
       specifier: ^1.5.0
       version: 1.5.0
     lucide-react:
-      specifier: ^1.38.0
+      specifier: ^1.39.0
       version: 1.39.0
     next:
       specifier: ^16.3.4
