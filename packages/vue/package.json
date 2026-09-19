@@ -47,7 +47,7 @@
     "@internationalized/date": "catalog:",
     "@lucide/vue": "catalog:",
     "@tanstack/vue-table": "^9.2.4",
-    "@vueuse/core": "^14.4.0",
+    "@vueuse/core": "^15.0.0",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "embla-carousel": "^8.6.0",
