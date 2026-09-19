@@ -67,7 +67,7 @@
     "prettier": "catalog:",
     "tsup": "catalog:",
     "typescript": "catalog:",
-    "unplugin-vue": "^7.2.0",
+    "unplugin-vue": "^8.0.0",
     "vue": "catalog:",
     "vue-tsc": "^3.3.11"
   },
