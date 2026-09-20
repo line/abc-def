@@ -171,8 +171,8 @@ catalogs:
       specifier: ^3.12.4
       version: 3.12.4
     '@lucide/vue':
-      specifier: ^1.46.0
-      version: 1.46.0
+      specifier: ^1.47.0
+      version: 1.47.0
     '@tailwindcss/postcss':
       specifier: ^4.3.3
       version: 4.3.3
@@ -201,8 +201,8 @@ catalogs:
       specifier: ^1.5.0
       version: 1.5.0
     lucide-react:
-      specifier: ^1.46.0
-      version: 1.46.0
+      specifier: ^1.47.0
+      version: 1.47.0
     next:
       specifier: ^16.3.5
       version: 16.3.5
@@ -285,7 +285,7 @@ importers:
         version: link:../../packages/vue
       lucide-react:
         specifier: 'catalog:'
-        version: 1.46.0(react@19.3.0)
+        version: 1.47.0(react@19.3.0)
       next:
         specifier: 'catalog:'
         version: 16.3.5(@babel/core@7.29.0)(@types/node@24.13.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -386,7 +386,7 @@ importers:
         version: 1.5.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       lucide-react:
         specifier: 'catalog:'
-        version: 1.46.0(react@19.3.0)
+        version: 1.47.0(react@19.3.0)
       next:
         specifier: 'catalog:'
         version: 16.3.5(@babel/core@7.29.0)(@types/node@24.13.5)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -450,7 +450,7 @@ importers:
         version: link:../../packages/vue
       '@lucide/vue':
         specifier: 'catalog:'
-        version: 1.46.0(vue@3.5.42(typescript@6.0.3))
+        version: 1.47.0(vue@3.5.42(typescript@6.0.3))
       '@vee-validate/zod':
         specifier: ^4.15.1
         version: 4.15.1(vue@3.5.42(typescript@6.0.3))(zod@3.25.76)
@@ -517,7 +517,7 @@ importers:
         version: 1.5.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       lucide-react:
         specifier: 'catalog:'
-        version: 1.46.0(react@19.3.0)
+        version: 1.47.0(react@19.3.0)
       next-themes:
         specifier: 'catalog:'
         version: 0.4.6(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -596,7 +596,7 @@ importers:
         version: 3.12.4
       '@lucide/vue':
         specifier: 'catalog:'
-        version: 1.46.0(vue@3.5.42(typescript@6.0.3))
+        version: 1.47.0(vue@3.5.42(typescript@6.0.3))
       '@tanstack/vue-table':
         specifier: ^9.2.4
         version: 9.2.4(vue@3.5.42(typescript@6.0.3))
@@ -1460,8 +1460,8 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@lucide/vue@1.46.0':
-    resolution: {integrity: sha512-xp4mUamXKM/jYCve8TOcEcuikidFh3Jn9gs0THCeEKn/fAdeU0mKhPqk0fmIwn42fI4CwGLRWrLneLA69h8Nqw==}
+  '@lucide/vue@1.47.0':
+    resolution: {integrity: sha512-S0/UX9zra4Z8xmqrA1MH5GiSKA8daAPFwkmORt/u+gUHAkYZoeOcr+DH3scZeyE9bdLWScGK+MJoDYi8rIU5Jg==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -4138,8 +4138,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@1.46.0:
-    resolution: {integrity: sha512-Bv+FZXgZPrxc/NCl1e7JJVQFLdiCxYgxNVhqoV7X0p6I8ADJo8DxBnK1auH0fZz4AmqOJ3jgneL4f1i8LJQRAA==}
+  lucide-react@1.47.0:
+    resolution: {integrity: sha512-o8C23aXpNQypRY73W7fW02EyvWJinEMXgKeGjFoKym0zj3Q73hD97A1IQps1g8C14HTGsOpZL0Am+xjfgFZAbg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -5829,7 +5829,7 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@lucide/vue@1.46.0(vue@3.5.42(typescript@6.0.3))':
+  '@lucide/vue@1.47.0(vue@3.5.42(typescript@6.0.3))':
     dependencies:
       vue: 3.5.42(typescript@6.0.3)
 
@@ -8551,7 +8551,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@1.46.0(react@19.3.0):
+  lucide-react@1.47.0(react@19.3.0):
     dependencies:
       react: 19.3.0
 
