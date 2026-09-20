@@ -210,7 +210,7 @@ catalogs:
       specifier: ^0.4.6
       version: 0.4.6
     prettier:
-      specifier: ^3.9.7
+      specifier: ^3.9.8
       version: 3.9.8
     react:
       specifier: ^19.3.0
