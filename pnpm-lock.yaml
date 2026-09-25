@@ -528,7 +528,7 @@ importers:
         specifier: 'catalog:'
         version: 10.0.1(@types/react@19.3.0)(react@19.3.0)
       react-resizable-panels:
-        specifier: ^4.13.1
+        specifier: ^4.13.2
         version: 4.13.2(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       sonner:
         specifier: 'catalog:'
