@@ -10,7 +10,7 @@ allowBuilds:
   vue-demi: true
 
 catalog:
-  "@daypicker/persian": ^10.0.1
+  "@daypicker/persian": ^10.0.2
   "@internationalized/date": ^3.12.4
   "@types/node": ^24.19.0
   "@types/react": ^19.3.0
