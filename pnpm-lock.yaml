@@ -165,8 +165,8 @@ settings:
 catalogs:
   default:
     '@daypicker/persian':
-      specifier: ^10.0.1
-      version: 10.0.1
+      specifier: ^10.0.2
+      version: 10.0.2
     '@internationalized/date':
       specifier: ^3.12.4
       version: 3.12.4
@@ -356,7 +356,7 @@ importers:
     dependencies:
       '@daypicker/persian':
         specifier: 'catalog:'
-        version: 10.0.1(@types/react@19.3.0)(react@19.3.0)
+        version: 10.0.2(@types/react@19.3.0)(react@19.3.0)
       '@line/abc-def-react':
         specifier: workspace:*
         version: link:../../packages/react
@@ -979,8 +979,8 @@ packages:
   '@date-fns/tz@1.4.1':
     resolution: {integrity: sha512-P5LUNhtbj6YfI3iJjw5EL9eUAG6OitD0W3fWQcpQjDRc/QIsL0tRNuO1PcDvPccWL1fSTXXdE1ds+l95DV/OFA==}
 
-  '@daypicker/persian@10.0.1':
-    resolution: {integrity: sha512-dRgANykUb+QOMaHNlYx1Vz9G4HXT2RC2SLQ6RBdIkGYImBHteFJ72zvISSEQ7EepcYpS4CGXL2D+P9f5ddbAZg==}
+  '@daypicker/persian@10.0.2':
+    resolution: {integrity: sha512-GFT5n6WZoz2YIkmxINsiIyJXcSZg+X4a16hygs/SliZJRy3x0uJTWtZXnGrk7HBWIXILTScLCbRVBLza7DQZJw==}
     peerDependencies:
       '@types/react': '>=16.8.0'
       react: '>=16.8.0'
@@ -988,8 +988,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@daypicker/react@10.0.1':
-    resolution: {integrity: sha512-lH4YQz4iMBWP8hsI1bD9Eg0T7t503IkSUR/WDGGkV5mKZvwVv+ukCkJz7yN+uVFBv7vHTK+ww7a5EvlkeFwPYQ==}
+  '@daypicker/react@10.0.2':
+    resolution: {integrity: sha512-Z/gvGXnc/xjRr5Z6l9OhIey00C7kwbIyJ85Pff9B9EWDkjTlkTQztB3qeylmGJDQ9xmxRJUV1W+02rskqarUBw==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/react': '>=16.8.0'
@@ -4586,6 +4586,16 @@ packages:
       '@types/react':
         optional: true
 
+  react-day-picker@10.0.2:
+    resolution: {integrity: sha512-QetiKtZWE9Uaw/pM/SYNv6WPYOTRnSJ2puL0GgwkmUFMIwiY0dtjH1W4B7DOVXVNQM0ZOClGpH/heOfBSzWeiA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@types/react': '>=16.8.0'
+      react: '>=16.8.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
   react-dom@19.3.0:
     resolution: {integrity: sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==}
     peerDependencies:
@@ -5655,19 +5665,19 @@ snapshots:
 
   '@date-fns/tz@1.4.1': {}
 
-  '@daypicker/persian@10.0.1(@types/react@19.3.0)(react@19.3.0)':
+  '@daypicker/persian@10.0.2(@types/react@19.3.0)(react@19.3.0)':
     dependencies:
       '@date-fns/tz': 1.4.1
-      '@daypicker/react': 10.0.1(@types/react@19.3.0)(react@19.3.0)
+      '@daypicker/react': 10.0.2(@types/react@19.3.0)(react@19.3.0)
       date-fns-jalali: 4.1.0-0
       react: 19.3.0
     optionalDependencies:
       '@types/react': 19.3.0
 
-  '@daypicker/react@10.0.1(@types/react@19.3.0)(react@19.3.0)':
+  '@daypicker/react@10.0.2(@types/react@19.3.0)(react@19.3.0)':
     dependencies:
       react: 19.3.0
-      react-day-picker: 10.0.1(@types/react@19.3.0)(react@19.3.0)
+      react-day-picker: 10.0.2(@types/react@19.3.0)(react@19.3.0)
     optionalDependencies:
       '@types/react': 19.3.0
 
@@ -9114,6 +9124,14 @@ snapshots:
       '@types/react-dom': 19.3.0(@types/react@19.3.0)
 
   react-day-picker@10.0.1(@types/react@19.3.0)(react@19.3.0):
+    dependencies:
+      '@date-fns/tz': 1.4.1
+      date-fns: 4.1.0
+      react: 19.3.0
+    optionalDependencies:
+      '@types/react': 19.3.0
+
+  react-day-picker@10.0.2(@types/react@19.3.0)(react@19.3.0):
     dependencies:
       '@date-fns/tz': 1.4.1
       date-fns: 4.1.0
