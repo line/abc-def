@@ -69,7 +69,7 @@
     "typescript": "catalog:",
     "unplugin-vue": "^8.0.0",
     "vue": "catalog:",
-    "vue-tsc": "^3.3.11"
+    "vue-tsc": "^3.3.13"
   },
   "peerDependencies": {
     "vue": "catalog:"
