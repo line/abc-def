@@ -24,9 +24,9 @@ catalog:
   next-themes: ^0.4.6
   eslint: ^10.11.0
   prettier: ^3.9.10
-  react: ^19.3.0
+  react: ^19.3.1
   react-day-picker: ^10.0.1
-  react-dom: ^19.3.0
+  react-dom: ^19.3.1
   reka-ui: ^2.10.5
   sonner: ^2.0.8
   tailwindcss: ^4.3.3
