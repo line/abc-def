@@ -39,7 +39,7 @@ catalog:
   vite: ^8.3.5
   vue: ^3.5.44
   vue-sonner: ^2.0.9
-  stylelint: ^17.15.0
+  stylelint: ^17.16.0
 
 onlyBuiltDependencies:
   - esbuild
