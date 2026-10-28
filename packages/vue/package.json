@@ -46,7 +46,7 @@
   "dependencies": {
     "@internationalized/date": "catalog:",
     "@lucide/vue": "catalog:",
-    "@tanstack/vue-table": "^9.2.4",
+    "@tanstack/vue-table": "^9.3.1",
     "@vueuse/core": "^15.0.0",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
