@@ -695,7 +695,7 @@ importers:
         specifier: ^7.1.1
         version: 7.1.1(eslint@10.13.0(jiti@2.7.0))
       typescript-eslint:
-        specifier: ^8.72.0
+        specifier: ^8.72.1
         version: 8.72.1(eslint@10.13.0(jiti@2.7.0))(typescript@6.0.3)
     devDependencies:
       '@line/abc-def-prettier-config':
