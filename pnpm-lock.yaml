@@ -204,7 +204,7 @@ catalogs:
       specifier: ^1.67.0
       version: 1.69.0
     next:
-      specifier: ^16.4.4
+      specifier: ^16.4.5
       version: 16.4.5
     next-themes:
       specifier: ^0.4.6
@@ -677,7 +677,7 @@ importers:
         specifier: workspace:*
         version: link:../eslint-plugin-header
       '@next/eslint-plugin-next':
-        specifier: ^16.4.4
+        specifier: ^16.4.5
         version: 16.4.5(eslint@10.14.0(jiti@2.7.0))
       eslint-plugin-import:
         specifier: ^2.32.0
