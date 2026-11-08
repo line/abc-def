@@ -36,7 +36,7 @@ catalog:
   "@tailwindcss/vite": ^4.3.4
   tsup: ^9.0.0
   typescript: ^6.0.3
-  vite: ^8.3.5
+  vite: ^8.3.6
   vue: ^3.5.44
   vue-sonner: ^2.0.9
   stylelint: ^18.0.0
