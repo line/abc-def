@@ -171,7 +171,7 @@ catalogs:
       specifier: ^3.12.4
       version: 3.12.4
     '@lucide/vue':
-      specifier: ^1.68.0
+      specifier: ^1.69.0
       version: 1.69.0
     '@tailwindcss/postcss':
       specifier: ^4.3.4
@@ -201,7 +201,7 @@ catalogs:
       specifier: ^1.5.0
       version: 1.5.0
     lucide-react:
-      specifier: ^1.68.0
+      specifier: ^1.69.0
       version: 1.69.0
     next:
       specifier: ^16.4.5
@@ -5158,7 +5158,7 @@ snapshots:
       '@babel/helper-compilation-targets': 7.28.6
       '@babel/helper-module-transforms': 7.28.6(@babel/core@7.29.0)
       '@babel/helpers': 7.29.2
-      '@babel/parser': 7.29.11
+      '@babel/parser': 7.29.13
       '@babel/template': 7.28.6
       '@babel/traverse': 7.29.0
       '@babel/types': 7.29.11
@@ -5295,7 +5295,7 @@ snapshots:
   '@babel/template@7.28.6':
     dependencies:
       '@babel/code-frame': 7.29.0
-      '@babel/parser': 7.29.11
+      '@babel/parser': 7.29.13
       '@babel/types': 7.29.11
 
   '@babel/traverse@7.29.0':
@@ -7960,7 +7960,7 @@ snapshots:
   eslint-plugin-react-compiler@19.0.0-beta-af1b7da-20250417(eslint@10.14.0(jiti@2.7.0)):
     dependencies:
       '@babel/core': 7.29.0
-      '@babel/parser': 7.29.11
+      '@babel/parser': 7.29.13
       '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.29.0)
       eslint: 10.14.0(jiti@2.7.0)
       hermes-parser: 0.25.1
