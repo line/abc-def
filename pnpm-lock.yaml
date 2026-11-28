@@ -199,7 +199,7 @@ catalogs:
       specifier: ^4.3.5
       version: 4.3.5
     '@types/node':
-      specifier: ^26.6.7
+      specifier: ^26.6.10
       version: 26.6.11
     '@types/react':
       specifier: ^19.3.0
